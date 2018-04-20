@@ -4,7 +4,10 @@
    contain the root `toctree` directive.
 
 Bienvenido a la documentación de apolo-docs!
-======================================
+============================================
+.. contents::
+
+
 
 Otro simple encabezado
 ======================
@@ -26,7 +29,6 @@ Guía
    license
    help
 
-	   
 
 Indices y tablas
 ==================
@@ -34,3 +36,7 @@ Indices y tablas
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+
+
+Esta es una subsección
+^^^^^^^^^^^^^^^^^^^^^^

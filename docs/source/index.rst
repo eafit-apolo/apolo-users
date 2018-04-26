@@ -3,40 +3,32 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Bienvenido a la documentación de apolo-docs!
-============================================
+Centro de Computación Científica Apolo Documentation -- Universidad EAFIT
+=============================================================================
+.. figure:: images/QRApolo.png
+    :width: 175px
+    :align: right
+
+In this webpage you can find everything about the documentation related to Apolo, the Scientific Computing Center
+at Universidad EAFIT, Medellín, Colombia.
+
 .. contents::
-
-
-
-Otro simple encabezado
-======================
-
-Aqui un poco de texto
-
-y otro párrafo con texto
-
-  print 'hello'
-  >> hello
-
-Guía
-^^^^
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: Policies
 
-   license
-   help
+    policies
 
+.. toctree::
+   :maxdepth: 1
+   :caption: User Guide
 
-Indices y tablas
-==================
+    usersguide
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+.. toctree::
+   :maxdepth: 1
+   :caption: Installation Guides
 
+    installguides
 
-Esta es una subsección
-^^^^^^^^^^^^^^^^^^^^^^

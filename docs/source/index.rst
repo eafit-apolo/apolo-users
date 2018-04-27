@@ -12,15 +12,12 @@ Centro de Computación Científica Apolo Documentation -- Universidad EAFIT
 In this webpage you can find everything about the documentation related to Apolo, the Scientific Computing Center
 at Universidad EAFIT, Medellín, Colombia.
 
-Contents
---------
 .. contents::
 
 Policies
 --------
 .. toctree::
    :maxdepth: 2
-   :caption: Policies
 
    policies
 
@@ -28,7 +25,6 @@ Users Guide
 -----------
 .. toctree::
    :maxdepth: 1
-   :caption: Users Guide
 
    usersguide
 
@@ -36,6 +32,5 @@ Install Guides
 --------------
 .. toctree::
    :maxdepth: 1
-   :caption: Installation Guides
 
    installguides

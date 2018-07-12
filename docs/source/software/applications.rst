@@ -8,4 +8,4 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    :maxdepth: 1
    :caption: Grommacs
 
-   software/applications/grommacs
+   applications/grommacs

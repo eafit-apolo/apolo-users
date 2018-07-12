@@ -37,13 +37,13 @@ Install Guides
 
 Software
 --------
-..toctree::
-  :maxdepth: 1
+.. toctree::
+   :maxdepth: 1
   
-  programminglanguages
-  compilers
-  baselibs
-  userapps
-  scientificlibs
-  slurm
-  git  
+   programminglanguages
+   compilers
+   baselibs
+   userapps
+   scientificlibs
+   slurm
+   git  

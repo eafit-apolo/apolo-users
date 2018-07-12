@@ -9,5 +9,5 @@ and :ref:`Cronos <about_cronos>`).
    :maxdepth: 1
    :caption: Matlab
 
-   software/programminglanguages/matlab
+   programminglanguages/matlab
 

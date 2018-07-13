@@ -31,11 +31,7 @@ Medellín, Colombia.
    help/staff
 
 .. toctree::
-<<<<<<< HEAD
-   :maxdepth: 2
-=======
    :maxdepth: 1
->>>>>>> e0896cbced231baff4fc5d0d890fd3b52d09d39e
    :caption: Software
 
    software/programminglaguages/index

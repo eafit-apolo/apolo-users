@@ -16,7 +16,7 @@ Centro de Computación Científica APOLO documentation.
 Medellín, Colombia. 
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    apolo/getting_started
    news/news

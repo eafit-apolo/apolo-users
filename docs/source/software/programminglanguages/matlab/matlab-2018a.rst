@@ -3,8 +3,18 @@
 Matlab - 2018a
 ==============
 
-Requierements
+- **Deploy date:** 9 July 2018
+- **Official Website:** 
+- **License:** Proprietary commercial software
+- **End date:** 30 April 2019
+
+Requirements
 -------------
+- CentOS (x86_64) >= 6.6
+- Intel MPI >= 17.0.1 (2017 Update-1)
+- SLURM >= 16.05.6
+- Matlab Client (Optional)
+- X11 Libs (details)
 
 Installation
 ------------
@@ -12,9 +22,9 @@ Installation
 Module file
 -----------
 
-Use mode
---------
+Usage
+-----
 
-Author
-------
-
+Authors
+-------
+- Mateo Gómez Zuluaga

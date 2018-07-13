@@ -16,13 +16,13 @@ Centro de Computación Científica APOLO documentation.
 Medellín, Colombia. 
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    apolo/getting_started
    news/news
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    :caption: Getting help
 
    help/contact
@@ -31,7 +31,7 @@ Medellín, Colombia.
    help/staff
 
 .. toctree::
-   :maxdepth: 0
+   :maxdepth: 2
    :caption: Software
 
    software/programminglanguages

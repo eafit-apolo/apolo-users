@@ -34,5 +34,5 @@ Medellín, Colombia.
    :maxdepth: 1
    :caption: Software
 
-   software/programminglaguages/index
+   software/programminglanguages/index
    software/applications/index

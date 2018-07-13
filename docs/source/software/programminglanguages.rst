@@ -1,3 +1,5 @@
+.. _programminglanguages:
+
 Programming Languages
 ==========================
 

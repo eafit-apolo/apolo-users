@@ -1,10 +1,10 @@
-.. _programminglanguages-index:
+.. _software-index:
 
-######################
-Programming Languagues
-######################
+########
+Software
+########
 
 .. toctree::
    :maxdepth: 2
    
-   programminglanguages/matlab
+   programminglanguages

@@ -1,3 +1,5 @@
+.. _programminglanguages-index:
+
 Programming Languages
 ==========================
 
@@ -9,5 +11,11 @@ and :ref:`Cronos <about_cronos>`).
    :maxdepth: 1
    :caption: Matlab
 
-   programminglanguages/matlab
+   matlab
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Python
+
+   python
 

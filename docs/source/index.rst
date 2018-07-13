@@ -8,7 +8,7 @@ Centro de Computación Científica APOLO Documentation -- Universidad EAFIT
 .. figure:: images/QRApolo.png
     :width: 175px
     :align: right
-    :alt: A QRcode to open this page on the (mobile phone)
+    :alt: A QRcode to open this webpage on the mobile phone
 
 Centro de Computación Científica APOLO documentation.
 
@@ -31,8 +31,12 @@ Medellín, Colombia.
    help/staff
 
 .. toctree::
+<<<<<<< HEAD
    :maxdepth: 2
+=======
+   :maxdepth: 1
+>>>>>>> e0896cbced231baff4fc5d0d890fd3b52d09d39e
    :caption: Software
 
-   software/programminglanguages
-   software/applications
+   software/programminglaguages/index
+   software/applications/index

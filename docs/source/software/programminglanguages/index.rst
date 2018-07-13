@@ -1,4 +1,4 @@
-.. _programminglanguages:
+.. _programminglanguages-index:
 
 Programming Languages
 ==========================
@@ -8,8 +8,14 @@ programming languages available in the supercomputers (:ref:`Apolo II <about_apo
 and :ref:`Cronos <about_cronos>`).
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 1
    :caption: Matlab
 
-   programminglanguages/matlab
+   matlab
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Python
+
+   python
 

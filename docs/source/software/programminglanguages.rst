@@ -6,7 +6,7 @@ programming languages available in the supercomputers (:ref:`Apolo II <about_apo
 and :ref:`Cronos <about_cronos>`).
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 3
    :caption: Matlab
 
    programminglanguages/matlab

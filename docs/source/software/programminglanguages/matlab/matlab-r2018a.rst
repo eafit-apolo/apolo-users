@@ -1,11 +1,11 @@
 .. _matlab-r2018a:
 
-===============
+
 Matlab - R2018a
 ===============
 
-Basic details
-=============
+Description
+-----------
 
 - **Deploy date:** 9 July 2018
 - **Official Website:** https://www.mathworks.com
@@ -14,6 +14,7 @@ Basic details
 
 Requirements
 ------------
+
 - CentOS (x86_64) >= 6.6
 - Intel MPI >= 17.0.1 (2017 Update-1)
 - SLURM >= 16.05.6
@@ -31,4 +32,6 @@ Usage
 
 Authors
 -------
+
 - Mateo Gómez Zuluaga
+

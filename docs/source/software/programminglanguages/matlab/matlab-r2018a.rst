@@ -3,6 +3,8 @@
 Matlab - R2018a
 ===============
 
+.. contents:: Contents
+
 Description
 -----------
 
@@ -14,11 +16,12 @@ Description
 Requirements
 ------------
 
-- CentOS (x86_64) >= 6.6
-- Intel MPI >= 17.0.1 (2017 Update-1)
-- SLURM >= 16.05.6
-- Matlab Client (Optional)
-- X11 Libs (details)
+- **OS base:** CentOS (x86_64) >= 6.6
+- **MPI:** Intel MPI >= 17.0.1 (Mandatory to use Infiniband networks)
+- **Scheduler:** SLURM >= 16.05.6
+- **Application:** Matlab Client (Optional)
+- **Extra Libraries:** X11 Libs (details)
+   - x11
 
 Installation
 ------------

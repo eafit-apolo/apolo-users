@@ -3,9 +3,6 @@
 Matlab
 ======
 
-.. rubric:: Description
------------------------
-
 MATLAB [1]_. (matrix laboratory) is a multi-paradigm numerical computing 
 environment and proprietary programming language developed by MathWorks. 
 

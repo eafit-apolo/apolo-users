@@ -31,7 +31,7 @@ EAFIT, Medellín, Colombia.
    help/staff
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Software
 
    software/programminglanguages/index

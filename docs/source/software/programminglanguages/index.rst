@@ -9,7 +9,6 @@ programming languages available in the supercomputers
 
 .. toctree::
    :maxdepth: 1
-   :titlesonly:
 
    matlab/index
    python/index

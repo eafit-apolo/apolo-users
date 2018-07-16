@@ -19,14 +19,19 @@ toolbox uses the MuPAD symbolic engine, allowing access to symbolic computing
 abilities. An additional package, Simulink, adds graphical multi-domain 
 simulation and model-based design for dynamic and embedded systems.
 
+..
+  .. toctree::
+   :caption: Versions
+   :titlesonly:
 
-.. [1] Wikipedia contributors. (2018, July 9). MATLAB. In Wikipedia, The Free
-       Encyclopedia. Retrieved 15:32, July 13, 2018, from
-       https://en.wikipedia.org/w/index.php?title=MATLAB&oldid=849495321
+   matlab-r2018a
 
 .. rubric:: Versions
 --------------------
 
-- :ref:`Matlab R2018a <matlab-r2018a>`
+- :ref:`Matlab - R2018a<matlab-r2018a>`
 
+.. [1] Wikipedia contributors. (2018, July 9). MATLAB. In Wikipedia, The Free
+       Encyclopedia. Retrieved 15:32, July 13, 2018, from
+       https://en.wikipedia.org/w/index.php?title=MATLAB&oldid=849495321
 

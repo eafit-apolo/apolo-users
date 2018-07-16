@@ -1,4 +1,4 @@
-.. .. _matlab-index:
+.. _matlab-index:
 
 Matlab
 ======

@@ -3,9 +3,6 @@
 Matlab - R2018a
 ===============
 
-.. contents:: Content
-
-
 Description
 -----------
 

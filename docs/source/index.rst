@@ -12,8 +12,8 @@ Centro de Computación Científica APOLO Documentation -- Universidad EAFIT
 
 Centro de Computación Científica APOLO documentation.
 
-:ref:`APOLO <about_apolo>` is thee scientific computing Center at Univervisad EAFIT, 
-Medellín, Colombia. 
+:ref:`APOLO <about_apolo>` is thee scientific computing Center at Univervisad 
+EAFIT, Medellín, Colombia. 
 
 .. toctree::
    :maxdepth: 1
@@ -31,7 +31,7 @@ Medellín, Colombia.
    help/staff
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    :caption: Software
 
    software/programminglanguages/index

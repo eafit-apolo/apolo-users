@@ -21,16 +21,6 @@ simulation and model-based design for dynamic and embedded systems.
    :titlesonly:
 
    matlab-r2018a
-   oe
-   toctree
-
-..
- .. rubric:: Versions
- --------------------
-
- - :ref:`tOCTREE <toctree>`
- - :ref:`Matlab - R2018a<matlab-r2018a>`
- - :ref:`Oe <oe>`
 
 
 .. [1] Wikipedia contributors. (2018, July 9). MATLAB. In Wikipedia, The Free

@@ -8,8 +8,6 @@
 Matlab - R2018a
 ===============
 
-.. contents:: Contents
-
 Basic information
 -------------------
 
@@ -17,8 +15,9 @@ Basic information
 - **Official Website:** https://www.mathworks.com
 - **License:** Proprietary commercial software
 - **End date:** 30 April 2019
+- **Installed on:** :ref:`Apolo II <about_apolo-ii>`, :ref:`Cronos <about_cronos>`
 
-Requirements
+Requirements/Tested on
 ------------
 
 * **OS base:** CentOS (x86_64) :math:`\boldsymbol{\ge}` 6.6

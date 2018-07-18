@@ -19,8 +19,9 @@ simulation and model-based design for dynamic and embedded systems.
 .. toctree::
    :caption: Versions
    :titlesonly:
-
-   matlab-r2018a
+   :maxdepth: 1
+ 
+   matlab-r2018a/index
 
 
 .. [1] Wikipedia contributors. (2018, July 9). MATLAB. In Wikipedia, The Free

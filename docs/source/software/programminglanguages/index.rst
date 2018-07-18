@@ -8,7 +8,7 @@ programming languages available in the supercomputers
 (:ref:`Apolo II <about_apolo-ii>` and :ref:`Cronos <about_cronos>`).
 
 .. toctree::
-   :titlesonly:
+   :maxdepth: 1
 
    matlab/index
    python/index

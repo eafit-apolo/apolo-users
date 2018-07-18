@@ -18,7 +18,6 @@ simulation and model-based design for dynamic and embedded systems.
 
 .. toctree::
    :caption: Versions
-   :titlesonly:
    :maxdepth: 1
  
    matlab-r2018a/index

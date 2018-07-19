@@ -18,17 +18,6 @@ Basic information
 - **Installed on:** :ref:`Apolo II <about_apolo-ii>`, 
   :ref:`Cronos <about_cronos>`
 
-Tested on (Requirements)
-------------------------
-
-* **License Manager Server:** Virtual machine (CentOS 7 Minimal (x86_64))
-* **OS base:** CentOS (x86_64) :math:`\boldsymbol{\ge}` 6.6
-* **MPI:** Intel MPI :math:`\boldsymbol{\ge}` 17.0.1 (Mandatory to use Infiniband networks)
-* **Scheduler:** SLURM :math:`\boldsymbol{\ge}` 16.05.6
-* **Application:** Matlab Client (Optional)
-* **Extra Libraries:**
-   
-  * libXtst (:ref:`Troubleshooting <matlab-r2018a-troubleshooting>`)
 
 Installation
 ------------
@@ -38,49 +27,25 @@ configuration of Matlab Distributed Computing Server on a cluster with the
 conditions described  above.
 
 .. toctree:: 
- 
+   :maxdepth: 2
+
    installation.rst
-
-Integration
-^^^^^^^^^^^
-
-
-Module file
------------
 
 Usage
 -----
 
-Troubleshooting
----------------
+This subsection describes two integrations methods to submit jobs to the cluster
+and in this way use the computational resources through the available licenses 
+in :ref:`APOLO <about_apolo>` for Matlab (MDCS or Matlab client and its 
+toolboxes)
 
-.. _matlab-r2018a-troubleshooting:
+.. toctree:: 
+   :maxdepth: 1
+ 
+   integration.rst
 
-#. When you ran the Matlab installer with the command :bash:`./install`, it 
-   prints:
-  
-   .. code-block:: bash
-     
-      Preparing installation files ...
-      Installing ...   
-  
-   Then a small Matlab window appears and after a while it closes and prints:
-
-   .. code-block:: bash
-
-      Finished
-
-   To solve this problem, you have to find the root cause modifying 
-   :bash:`$MATLABINSTALLERPATH/bin/glnxa64/install_unix` script to look the 
-   :bash:`stderror` and understand what is happening.
-
-   - At line *918* change this statement :bash:`eval "$java_cmd 2> /dev/null"` 
-     to :bash:`eval "$java_cmd"`, by this way you can see the related errors 
-     launching the Matlab installer (i.e. missing library *libXtst.so.6*).
-  
 
 Authors
 -------
 
-- Mateo Gómez Zuluaga
-
+- Mateo Gómez-Zuluaga <mgomezz@eafit.edu.co>

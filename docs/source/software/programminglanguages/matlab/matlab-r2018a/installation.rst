@@ -5,71 +5,91 @@
 .. role:: bash(code)
     :language: bash
 
+.. sidebar:: Contents
+   
+   .. contents::
+      :local:
+
+Tested on (Requirements)
+------------------------
+
+* **License Manager Server:** Virtual machine (CentOS 7 Minimal (x86_64))
+* **OS base:** CentOS (x86_64) :math:`\boldsymbol{\ge}` 6.6
+* **MPI:** Intel MPI :math:`\boldsymbol{\ge}` 17.0.1 (Mandatory to use Infiniband networks)
+* **Scheduler:** SLURM :math:`\boldsymbol{\ge}` 16.05.6
+* **Application:** Matlab Client (Optional)
+* **Extra Libraries:**
+   
+  * libXtst (:ref:`Troubleshooting <matlab-r2018a-installation-troubleshooting>`)
+
+
 
 License Manager
-^^^^^^^^^^^^^^^
+---------------
 The *License Manager* provides a network license support to allow the access to 
 the different Matalab features.
 
 In this case we have two kind of licenses, the first one is for the Matlab
-Distributed Computing Engine and the second one for Matlab client with all the
-toolboxes available.
+Distributed Computing Engine (MDCE) and the second one for Matlab client with 
+all the toolboxes available.
 
 Next steps will describe the installation and configuration process for the MLM 
-(Matlab License Manager based on `FlexLM <>`)
+(Matlab License Manager based on FlexLM_ [1]_):
 
-#. Get the online installer using your Matlab account
+.. _FlexLM: https://en.wikipedia.org/wiki/FlexNet_Publisher
+
+#. Get the online installer using your Matlab account.
 
 #. Send the installation media to the License Manager machine.
 
    .. code-block:: bash
  
-      scp matlab_R2018a_glnxa64.zip root@lm.apolo.eafit.edu.co:$installer_path$
+      scp matlab_R2018a_glnxa64.zip root@<FQDN>:$installer_path$
 
 #. Follow the next steps to run the Matlab installer.
    
-   #. Descompress and access the installer files
+   #. Descompress and access the installer files.
   
       .. code-block:: bash
 
-         ssh -X root@lm.apolo.eafit.edu.co
+         ssh -X root@<FQDN>
          cd $installer_path$
          mkdir matlab-R2018a
          mv matlab-R2018a matlab_R2018a_glnxa64.zip
          cd matlab-R2018a
          unzip matlab_R2018a_glnxa64.zip
 
-   #. Execute the installer
+   #. Execute the installer.
   
       .. code-block:: bash
     
          ./install
 
-   #. Select the installation method (by Matlab account)
+   #. Select the installation method (by Matlab account).
 
       .. image:: images/installer.png
      
-   #. Accept license agreement (yes)
+   #. Accept license agreement (yes).
    
       .. image:: images/terms.png
 
-   #. Login (username and password)
+   #. Login (username and password).
   
       .. image:: images/login.png
 
-   #. Select license (MDCE license)
+   #. Select license (MDCE license).
 
       .. image:: images/select.png
 
-   #. Folder selection (/usr/local/MATLAB/R2018a)
+   #. Folder selection (/usr/local/MATLAB/R2018a).
 
       .. image:: images/folder.png
 
-   #. Products selection (License Manager 11.14.1.2)
+   #. Products selection (License Manager 11.14.1.2).
 
       .. image:: images/lm.png
 
-   #. License file 
+   #. License file.
     
       .. note::
 
@@ -77,16 +97,16 @@ Next steps will describe the installation and configuration process for the MLM
          (*license.dat*) created for this features (MDCE - Matlab Distributed 
          Computign Engine) and upload it to *License Manager* machine in the 
          :bash:`/usr/local/MATLAB/R2018a/etc/license.lic` directory.
-          - :bash:`scp license.lic root@lm.apolo.eafit.edu.co:
+          - :bash:`scp license.lic root@<FQDN>:
             /usr/local/MATLAB/R2018a/etc`
 
       .. image:: images/license.png
 
-   #. Finish the installation process
+   #. Finish the installation process.
        
 
 
-#. Configure MLM (FlexLM)
+#. Configure MLM (FlexLM).
 
    #. Access the *License Manager* machine via **SSH**.
 
@@ -100,6 +120,7 @@ Next steps will describe the installation and configuration process for the MLM
          ## -r system user
          ## -s shell (no login user)
          useradd -u 110 -c "MDCE" -d /var/tmp -r -s /sbin/nologin matlab
+
    #. Create the daemon service to execute automatically MLM. 
 
       :bash:`/etc/systemd/system/lm-matlab.service`
@@ -118,7 +139,7 @@ Next steps will describe the installation and configuration process for the MLM
          [Install]
          WantedBy=multi-user.target
 
-   #. Configure MLM ports and firewall on the license manager machine
+   #. Configure MLM ports and firewall on the license manager machine.
       
       - Review the server port (27000) and specify MLM daemon port (53200) at 
         the top of the license file 
@@ -130,15 +151,50 @@ Next steps will describe the installation and configuration process for the MLM
            DAEMON MLM "/usr/local/MATLAB/R2018a/etc/MLM" port=53200
            ...
 
-      - Open those ports in License manager machine's firewall (CentOS 7)
+      - Open those ports in License manager machine's firewall (CentOS 7).
 
         .. code-block:: bash
  
            firewall-cmd --permanent --add-port=53200/tcp
            firewall-cmd --permanent --add-port=27000/tcp
 
+   #. Configure both licenses (MDCE and Matlab client with all the toolboxes).
 
-   #. Enable the daemon and start it
+      .. note:: 
+         
+         After the installation process, the MLM generates a new file license
+         called *license.dat* on the :bash:`/usr/local/MATLAB/R2018a/etc` 
+         directory with the information given in *license.lic* file during the 
+         installation process (MDCE license).
+
+      - Download the :bash:`license.lic` file related with Matlab client and its
+        toolboxes from the Matlab administrator account, then open it with a 
+        text editor to copy all the **INCREMENTS** lines.
+
+      - Append all (Matlab client and its toolboxes) **INCREMENTS** lines 
+        (licensed products) to end of the :bash:`license.dat` on the license 
+        manager server.
+
+        .. code-block:: bash
+
+           SERVER <FQDN> <HOSTID> 27000 
+           DAEMON MLM "/usr/local/MATLAB/R2018a/etc/MLM" port=53200
+           # BEGIN--------------BEGIN--------------BEGIN
+           # MathWorks license passcode file.
+           # LicenseNo: ########   HostID: ############
+           #
+           # R2018a
+           #
+           INCREMENT MATLAB_Distrib_Comp_Engine MLM 39 <END_DATE> <NUM_WORKES> \
+           ...
+           INCREMENT MATLAB MLM 39 <END_DATE> ##################### \
+           ...
+           INCREMENT SIMULINK MLM 39 <END_DATE> ##################### \
+           ...
+           ... continue ...
+           ...
+
+   #. Enable and start the daemon.
  
       .. code-block:: bash
 
@@ -173,11 +229,12 @@ Next steps will describe the installation and configuration process for the MLM
          8:49:38 (lmgrd)
          8:49:38 (lmgrd) Server's System Date and Time: Wed Jul 18 2018 08:49:38 -05
          8:49:38 (lmgrd) SLOG: Summary LOG statistics is enabled.
-         8:49:38 (lmgrd) FlexNet Licensing (v11.14.1.2 build 208719 x64_lsb) started on lm.apolo.eafit.edu.co (linux) (7/18/2018)
+         8:49:38 (lmgrd) FlexNet Licensing (v11.14.1.2 build 208719 x64_lsb) started on <FQDN> (linux) (7/18/2018)
          8:49:38 (lmgrd) Copyright (c) 1988-2017 Flexera Software LLC. All Rights Reserved.
          8:49:38 (lmgrd) World Wide Web:  http://www.flexerasoftware.com
          8:49:38 (lmgrd) License file(s): /var/tmp/lm_TMW.dat
          8:49:38 (lmgrd) lmgrd tcp-port 27000
+         ...
          8:49:38 (lmgrd) (@lmgrd-SLOG@) ===============================================
          8:49:38 (lmgrd) (@lmgrd-SLOG@) === LMGRD ===
          8:49:38 (lmgrd) (@lmgrd-SLOG@) Start-Date: Wed Jul 18 2018 08:49:38 -05
@@ -186,6 +243,7 @@ Next steps will describe the installation and configuration process for the MLM
          8:49:38 (lmgrd) (@lmgrd-SLOG@)
          8:49:38 (lmgrd) (@lmgrd-SLOG@) === Network Info ===
          8:49:38 (lmgrd) (@lmgrd-SLOG@) Listening port: 27000
+         ...
          8:49:38 (lmgrd) (@lmgrd-SLOG@)
          8:49:38 (lmgrd) (@lmgrd-SLOG@) === Startup Info ===
          8:49:38 (lmgrd) (@lmgrd-SLOG@) Server Configuration: Single Server
@@ -194,45 +252,17 @@ Next steps will describe the installation and configuration process for the MLM
          8:49:38 (lmgrd) (@lmgrd-SLOG@) ===============================================
          8:49:38 (lmgrd) Starting vendor daemons ...
          8:49:38 (lmgrd) Using vendor daemon port 53200 specified in license file
+         ...
          8:49:38 (lmgrd) Started MLM (internet tcp_port 53200 pid 19341)
+         ...
          8:49:38 (MLM) FlexNet Licensing version v11.14.1.2 build 208719 x64_lsb
          8:49:38 (MLM) SLOG: Summary LOG statistics is enabled.
          8:49:38 (MLM) SLOG: FNPLS-INTERNAL-CKPT1
          8:49:38 (MLM) SLOG: VM Status: 0
-         8:49:38 (MLM) Server started on lm.apolo.eafit.edu.co for:      MATLAB_Distrib_Comp_Engine
-         8:49:38 (MLM) MATLAB            SIMULINK        PolySpace_Bug_Finder
-         8:49:38 (MLM) PolySpace_Bug_Finder_Engine Aerospace_Blockset Aerospace_Toolbox
-         8:49:38 (MLM) Antenna_Toolbox Audio_System_Toolbox Automated_Driving_Toolbox
-         8:49:38 (MLM) Bioinformatics_Toolbox Communication_Toolbox Video_and_Image_Blockset
-         8:49:38 (MLM) Control_Toolbox Curve_Fitting_Toolbox Signal_Blocks
-         8:49:38 (MLM) Data_Acq_Toolbox Database_Toolbox Datafeed_Toolbox
-         8:49:38 (MLM) Econometrics_Toolbox RTW_Embedded_Coder Filter_Design_HDL_Coder
-         8:49:38 (MLM) Fin_Instruments_Toolbox Financial_Toolbox Fixed_Point_Toolbox
-         8:49:38 (MLM) Fuzzy_Toolbox     GPU_Coder       GADS_Toolbox
-         8:49:38 (MLM) Simulink_HDL_Coder EDA_Simulator_Link Image_Acquisition_Toolbox
-         8:49:38 (MLM) Image_Toolbox     Instr_Control_Toolbox LTE_HDL_Toolbox
-         8:49:38 (MLM) LTE_Toolbox       MATLAB_Coder    MATLAB_Builder_for_Java
-         8:49:38 (MLM) Compiler  MATLAB_Report_Gen MAP_Toolbox
-         8:49:38 (MLM) MPC_Toolbox       MBC_Toolbox     Neural_Network_Toolbox
-         8:49:38 (MLM) OPC_Toolbox       Optimization_Toolbox Distrib_Computing_Toolbox
-         8:49:38 (MLM) PDE_Toolbox       Phased_Array_System_Toolbox PolySpace_Server_C_CPP
-         8:49:38 (MLM) Powertrain_Blockset Pred_Maintenance_Toolbox RF_Blockset
-         8:49:38 (MLM) RF_Toolbox        Risk_Management_Toolbox Robotics_System_Toolbox
-         8:49:38 (MLM) Robust_Toolbox    Signal_Toolbox  SimBiology
-         8:49:38 (MLM) SimEvents SimDriveline    SimElectronics
-         8:49:38 (MLM) SimHydraulics     SimMechanics    Power_System_Blocks
-         8:49:38 (MLM) Simscape  Virtual_Reality_Toolbox SL_Verification_Validation
-         8:49:38 (MLM) Simulink_Code_Inspector Real-Time_Workshop Simulink_Control_Design
-         8:49:38 (MLM) Simulink_Coverage Simulink_Design_Optim Simulink_Design_Verifier
-         8:49:38 (MLM) Real-Time_Win_Target Simulink_PLC_Coder XPC_Target
-         8:49:38 (MLM) SIMULINK_Report_Gen Simulink_Requirements Simulink_Test
-         8:49:38 (MLM) Excel_Link        Stateflow       Statistics_Toolbox
-         8:49:38 (MLM) Symbolic_Toolbox Identification_Toolbox Text_Analytics_Toolbox
-         8:49:38 (MLM) Trading_Toolbox Vehicle_Dynamics_Blockset Vehicle_Network_Toolbox
-         8:49:38 (MLM) Vision_HDL_Toolbox WLAN_System_Toolbox Wavelet_Toolbox
-         8:49:38 (MLM) EXTERNAL FILTERS are OFF
+         ...
          8:49:38 (lmgrd) MLM using TCP-port 53200
          8:49:38 (MLM) License verification completed successfully.
+         ...
          8:49:38 (MLM) SLOG: Statistics Log Frequency is 240 minute(s).
          8:49:38 (MLM) SLOG: TS update poll interval is 600 seconds.
          8:49:38 (MLM) SLOG: Activation borrow reclaim percentage is 0.
@@ -255,12 +285,170 @@ Next steps will describe the installation and configuration process for the MLM
          8:49:38 (MLM) (@MLM-SLOG@) Daemon select timeout (in seconds): 1
          8:49:38 (MLM) (@MLM-SLOG@)
          8:49:38 (MLM) (@MLM-SLOG@) === Host Info ===
-         8:49:38 (MLM) (@MLM-SLOG@) Host used in license file: lm.apolo.eafit.edu.co
-         8:49:38 (MLM) (@MLM-SLOG@) Running on Hypervisor: Not determined - treat as Physical
-         8:49:38 (MLM) (@MLM-SLOG@) ===============================================
-         
+         8:49:38 (MLM) (@MLM-SLOG@) Host used in license file: <FQDN>
+         ...         
 
-         
-MDCS
-^^^^
+   #. After that, the license manager service have to run without problems, if 
+      there is a trouble you can debug this process checking the log file 
+      (:bash:`/var/tmp/lm_TMW.log`) to get what is happening.
 
+      .. code-block:: bash
+  
+         tailf /var/tmp/lm_TMW.log
+         
+Matlab Distributed Computing Server (MDCS)
+------------------------------------------
+
+This entry described the installation process of MDCS on the cluster and its
+integration with the *License Manager*.
+
+#. Get the online installer using your Matlab account.
+
+#. Send the installation media to the master node on your cluster.
+
+   .. code-block:: bash
+ 
+      scp matlab_R2018a_glnxa64.zip root@<FQDN>:$installer_path$
+
+#. Follow the next steps to run the Matlab installer.
+   
+   #. Descompress and access the installer files.
+  
+      .. code-block:: bash
+
+         ssh -X root@<FQDN>
+         cd $installer_path$
+         mkdir matlab-R2018a
+         mv matlab-R2018a matlab_R2018a_glnxa64.zip
+         cd matlab-R2018a
+         unzip matlab_R2018a_glnxa64.zip
+
+   #. Execute the installer.
+  
+      .. code-block:: bash
+    
+         ./install
+
+   #. Select the installation method (by Matlab account).
+
+      .. image:: images/installer.png
+     
+   #. Accept license agreement (yes).
+   
+      .. image:: images/terms.png
+
+   #. Login (username and password).
+  
+      .. image:: images/login.png
+
+   #. Select license (MDCE license).
+
+      .. image:: images/select.png
+
+   #. Folder selection (:bash:`/share/apps/matlab/r2018a`).
+
+      .. note::
+
+         Use a shared file system to do an unique installtion across all the 
+         nodes in the cluster (i.e. /share/apps/matlab).
+
+      .. image:: images/folder-cluster.png
+
+   #. Products selection (All products except License Manager 11.14.1.2).
+      
+      .. note::
+ 
+         Matlab recommends install each *Toolbox* because it can be used by 
+         MDCE workers to run an specific job.
+
+      .. image:: images/all-products.png
+
+   #. License file (:bash:`/share/apps/matlab/r2018a/etc`).
+    
+      .. note::
+
+         Download and upload the modified :bash:`license.dat` file on the 
+         *License Manager* server to the :bash:`/share/apps/matlab/r2018a/etc` 
+         directory on the cluster. 
+
+         .. code-block:: bash
+            
+            mkdir -p /share/apps/matlab/r2018a/etc
+            cd /share/apps/matlab/r2018a/etc
+            sftp user@<LICENSE_MANAGER_SERVER>
+            cd /usr/local/MATLAB/R2018a/etc
+            mget license.dat
+
+      .. image:: images/full-license.png
+
+   #. Finish the installation process.
+
+
+Troubleshooting
+---------------
+
+.. _matlab-r2018a-installation-troubleshooting:
+
+#. When you ran the Matlab installer with the command :bash:`./install`, it 
+   prints:
+  
+   .. code-block:: bash
+     
+      Preparing installation files ...
+      Installing ...   
+  
+   Then a small Matlab window appears and after a while it closes and prints:
+
+   .. code-block:: bash
+
+      Finished
+
+   To solve this problem, you have to find the root cause modifying 
+   :bash:`$MATLABINSTALLERPATH/bin/glnxa64/install_unix` script to look the 
+   :bash:`stderror` and understand what is happening.
+
+   - At line *918* change this statement :bash:`eval "$java_cmd 2> /dev/null"` 
+     to :bash:`eval "$java_cmd"`, by this way you can see the related errors 
+     launching the Matlab installer (i.e. missing library *libXtst.so.6*).
+
+
+Module file
+-----------
+
+.. code-block:: tcl
+
+   #%Module1.0####################################################################
+   ##
+   ## module load matlab/r2018a
+   ##
+   ## /share/apps/modules/matlab/r2018a
+   ## Written by Mateo Gómez Zuluaga
+   ##
+   
+   proc ModulesHelp {} {
+        global version modroot
+        puts stderr "Sets the environment for using Matlab R2018a\
+                     \nin the shared directory /share/apps/matlab/r2018a."
+   }
+   
+   module-whatis "(Name________) matlab"
+   module-whatis "(Version_____) r2018a"
+   module-whatis "(Compilers___) "
+   module-whatis "(System______) x86_64-redhat-linux"
+   module-whatis "(Libraries___) "
+   
+   # for Tcl script use only
+   set         topdir        /share/apps/matlab/r2018a
+   set         version       r2018a
+   set         sys           x86_64-redhat-linux
+   
+   conflict matlab
+    
+   
+   prepend-path              PATH        $topdir/bin
+   
+
+
+.. [1] Wikipedia contributors. (2018, April 13). FlexNet Publisher. 
+       In Wikipedia, The Free Encyclopedia. Retrieved 20:44, July 18, 2018, from
+       https://en.wikipedia.org/w/index.php?title=FlexNet_Publisher&oldid=836261861

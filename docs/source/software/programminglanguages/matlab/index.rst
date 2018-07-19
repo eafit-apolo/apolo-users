@@ -3,7 +3,7 @@
 Matlab
 ======
 
-MATLAB [1]_. (matrix laboratory) is a multi-paradigm numerical computing 
+MATLAB [1]_ (matrix laboratory) is a multi-paradigm numerical computing 
 environment and proprietary programming language developed by MathWorks. 
 
 MATLAB allows matrix manipulations, plotting of functions and data, 

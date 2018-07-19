@@ -1,6 +1,0 @@
-Users Guide
-===========
-
-First steps
-^^^^^^^^^^^
-

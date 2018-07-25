@@ -29,7 +29,7 @@ conditions described  above.
 .. toctree:: 
    :maxdepth: 2
 
-   installation.rst
+   installation
 
 Usage
 -----
@@ -40,9 +40,8 @@ in :ref:`APOLO <about_apolo>` for Matlab (MDCS or Matlab client and its
 toolboxes)
 
 .. toctree:: 
-   :maxdepth: 1
  
-   integration.rst
+   integration
 
 
 Authors

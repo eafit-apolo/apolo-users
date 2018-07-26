@@ -198,19 +198,25 @@ General steps
    
       >> % Turn off email notifications 
       >> c.AdditionalProperties.EmailAddress = '';
-   
+
+
+#. If you have to cancel a job (queued or running) type.
+
+   .. code-block:: matlab
+
+      >> j.cancel
+
 Serial Jobs
 """""""""""
 
-#. Rather than running interactively, use the batch command to submit 
-   asynchronous jobs to the cluster.  The batch command will return a job object
-   which is used to access the output of the submitted job.  
-   (See the MATLAB documentation for more help on batch_.)
+#. Use the batch command to submit asynchronous jobs to the cluster. The batch 
+   command will return a job object  which is used to access the output of the 
+   submitted job.  (See the MATLAB documentation for more help on batch_.)
 
    .. code-block:: matlab
 
       >> % Get a handle to the cluster
-      >> c = parcluster('apolo remote R2018a');
+      >> c = parcluster();
       
       >> % Submit job to query where MATLAB is running on the cluster
       >> j = c.batch(@pwd, 1, {});
@@ -343,9 +349,6 @@ Let’s use the following example for a parallel job.
 - The job now runs 22.2082 seconds using 8 workers.  Run code with different 
   number of workers to determine the ideal number to use.
 
-.. note::
-
-   If you have to cancel a job (queued or running) type :matlab:`j.cancel`.
 
 Debugging
 ^^^^^^^^^
@@ -368,6 +371,8 @@ Debugging
 
       >> % If necessary, retrieve output/error log file
       >> j.Parent.getDebugLog(j)
+      >> % or
+      >> c.getDebugLog(j)
 
 #. To get information about the job in Slurm, we can consult the scheduler ID 
    by calling schedID
@@ -381,6 +386,81 @@ Debugging
 
 MDCS_ using APOLO's Matlab client
 --------------------------------
+
+Submitting Jobs
+^^^^^^^^^^^^^^^
+
+Using Matlab client on Apolo II or Cronos
+"""""""""""""""""""""""""""""""""""""""""
+
+#. Connect to Apolo II or Cronos via SSH.
+
+   .. code-block:: bash
+   
+      # Without graphical user interface
+      ssh username@apolo.eafit.edu.co
+      # or with graphical user interface
+      ssh -X username@cronos.eafit.edu.co
+
+#. Load Matlab modufile.
+
+   .. code-block:: bash
+  
+      module load matlab/r2018a
+
+#. Run Matlab client
+
+   .. code-block:: bash
+
+      matlab
+
+#. Load *'apolo'* cluster profile and load the desired properties 
+   to submit a job (Matlab GUI or command line).
+
+   .. code-block:: matlab
+
+      >> % Must set TimeLimit before submitting jobs to Apolo II or 
+      >> % Cronos cluster
+       
+      >> % i.e. to set the TimeLimit and Partition
+      >> c = parcluster('apolo');
+      >> c.AdditionalProperties.TimeLimit = '1:00:00';
+      >> c.AdditionalProperties.Partition = 'longjobs'; 
+      >> c.saveProfile 
+      >> % or	    
+      >> % i.e. to set the NumGpus, TimeLimit and Partition 
+      >> c = parcluster('apolo'); 
+      >> c.AdditionalProperties.TimeLimit = '1:00:00'; 
+      >> c.AdditionalProperties.Partition = 'accel'; 
+      >> c.AdditionalProperties.NumGpus = '2'; 
+      >> c.saveProfile
+
+#. To see the values of the current configuration options, call the specific 
+   AdditionalProperties name.
+
+   .. code-block:: matlab
+   
+      >> % To view current properties
+      >> c.AdditionalProperties
+   
+#. To clear a value, assign the property an empty value ('', [], or false).
+
+   .. code-block:: matlab
+   
+      >> % Turn off email notifications 
+      >> c.AdditionalProperties.EmailAddress = '';
+
+
+#. If you have to cancel a job (queued or running) type.
+
+   .. code-block:: matlab
+
+      >> j.cancel
+
+Serial Jobs
+"""""""""""
+
+
 
 Matlab on APOLO
 ---------------

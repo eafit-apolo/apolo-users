@@ -26,15 +26,16 @@ Integration scripts
 ^^^^^^^^^^^^^^^^^^^
 
 #. Add the MATLAB integration scripts to your Matlab path by placing the 
-   integration scripts into :bash:`$MATLAB_ROOT/toolbox/local` directory.
+   integration scripts zip file into :bash:`$HOME/Documents/matlab-integration` 
+   directory (:download:`matlab-apolo.zip`).
 
-      .. admonition:: Linux / macOS
+      .. admonition:: Linux
  
          .. code-block:: bash
 
-            mkdir $HOME/matlab-integrations
-            cp $path/to/file/matlab-apolo.zip$ $HOME/matlab-integrations
-            cd $HOME/matlab-integrations
+            mkdir $HOME/matlab-integration
+            mv $path/to/file/matlab-apolo.zip$ $HOME/matlab-integrations
+            cd $HOME/matlab-integration
             unzip matlab-apolo.zip
             rm matlab-apolo.zip
 
@@ -43,8 +44,9 @@ Integration scripts
 
          To-Do
 
-#. Open your Matlab Client with *admin privilages*, if it is installed in a
-   system directory (permissions are necessary).
+#. Open your Matlab client (If Matlab client is installed in a system directory, 
+   we recommend open it with admin privilages only for this time to configure it
+   ).
 
    .. image:: images/matlab-client.png
       :alt: Matlab client
@@ -54,14 +56,13 @@ Integration scripts
    - Press the **"Set Path"** button
 
      .. image:: images/set-path.png
-        :alt: Set Path button
-
+        :alt: Set path button
+   |  
    - Press the **"Add with Subfolders"** button and choose the directories where
      you decompress the integrations scripts (Apolo II and Cronos) and finally
      press the **"Save"** button:
      
-     - :bash:`/home/$USER/matlab-integrations/apolo-ii`
-     - :bash:`/home/$USER/matlab-integrations/cronos`
+     - :bash:`/home/$USER/matlab-integration/apolo`
      |
      .. image:: images/subfolders.png
         :alt: Subfolders
@@ -167,34 +168,258 @@ Submitting Jobs
 General steps
 """""""""""""
 
-#. Load *'apolo remote R2018a'* cluster profile and load the desired properties
+#. Load *'apolo remote R2018a'* cluster profile and load the desired properties 
    to submit a job.
 
-.. code:block:: matlab
+   .. code-block:: matlab
+   
+      >> % Run cluster configuration
+      >> configCluster
+      
+      Cluster FQDN (i.e. apolo.eafit.edu.co): cronos.eafit.edu.co
+      Username on APOLO (e.g. mgomezz): mgomezzul
+      
+      >> c = parcluster('apolo remote R2018a');
+      >> c.AdditionalProperties.TimeLimit = '1:00:00';
+      >> c.AdditionalProperties.Partition = 'longjobs';
+      >> c.saveProfile
+   
+#. To see the values of the current configuration options, call the specific 
+   AdditionalProperties name.
 
-   >> configCluster
-   Cluster FQDN (i.e. apolo.eafit.edu.co): cronos.eafit.edu.co
-   Username on APOLO (e.g. mgomezz): mgomezzul
-   ...
-   ...
-   >> c = parcluster('apolo remote R2018a');
-   >> c.AdditionalProperties.TimeLimit = '1:00:00';
-   >> c.AdditionalProperties.Partition = 'longjobs';
-   >> c.saveProfile
+   .. code-block:: matlab
+   
+      >> % To view current properties
+      >> c.AdditionalProperties
+   
+#. To clear a value, assign the property an empty value ('', [], or false).
 
-#. To 
+   .. code-block:: matlab
+   
+      >> % Turn off email notifications 
+      >> c.AdditionalProperties.EmailAddress = '';
+   
 Interactive Jobs
 """"""""""""""""
 
-#. 
+#. To run an interactive pool job on the cluster, continue to use parpool
+   as before. 
+
+   .. code-block:: matlab
+   
+      >> % Open a pool of 16 workers on the cluster
+      >> p = parpool(16);
+
+#. Rather than running local on the host machine, the pool can run across 
+   multiple nodes on the cluster, when the resources are available (16 cores).
+
+   .. code-block:: matlab
+
+      >> % Run a parfor over a 1000 iterations
+      >> tic
+      >> n = 1000;
+      >> A = 500; 
+      >> a = zeros(n);
+      >> parfor i = 1:n
+      >>    a(i) = max(abs(eig(rand(A))));
+      >> end
+      >> toc
+
+#. Once we’re done with the pool, delete it.
+
+   .. code-block:: matlab
+
+      >> % Delete the pool
+      >> p.delete
+   
 
 Serial Jobs
 """""""""""
 
-Parallel Jobs
-"""""""""""""
+#. Rather than running interactively, use the batch command to submit 
+   asynchronous jobs to the cluster.  The batch command will return a job object
+   which is used to access the output of the submitted job.  
+   (See the MATLAB documentation for more help on batch_.)
+
+   .. code-block:: matlab
+
+      >> % Get a handle to the cluster
+      >> c = parcluster('apolo remote R2018a');
+      
+      >> % Submit job to query where MATLAB is running on the cluster
+      >> j = c.batch(@pwd, 1, {});
+      
+      >> % Query job for state
+      >> j.State
+      
+      >> % If state is finished, fetch results
+      >> j.fetchOutputs{:}
+      
+      >> % Delete the job after results are no longer needed
+      >> j.delete
+   
+#. To retrieve a list of currently running or completed jobs, call parcluster 
+   to retrieve the cluster object.  The cluster object stores an array of jobs 
+   that were run, are running, or are queued to run.  This allows us to fetch 
+   the results of completed jobs.  Retrieve and view the list of jobs as shown 
+   below.
+
+   .. code-block:: matlab
+
+      >> c = parcluster;
+      >> jobs = c.Jobs
+
+#. Once we have identified the job we want, we can retrieve the results as 
+   we have done previously. *fetchOutputs* is used to retrieve function output 
+   arguments; if using batch with a script, use load instead. 
+   Data that has been written to files on the cluster needs be retrieved 
+   directly from the file system. To view results of a previously completed job:
+
+   .. code-block:: matlab
+
+      >> % Get a handle on job with ID 2
+      >> j2 = c.Jobs(2);
+
+   .. note:: 
+      
+      You can view a list of your jobs, as well as their IDs, using the above 
+      :matlab:`c.Jobs` command.  
+
+      .. code-block:: matlab
+         >> % Fetch results for job with ID 2
+         >> j2.fetchOutputs{:}
+
+         >> % If the job produces an error view the error log file
+         >> c.getDebugLog(j.Tasks(1))
+
+   .. note:: 
+ 
+      When submitting independent jobs, with multiple tasks, you will have 
+      to specify the task number.
+
+   
+Parallel or Distributed Jobs
+""""""""""""""""""""""""""""
+
+Users can also submit parallel or distributed workflows with batch command.  
+Let’s use the following example for a parallel job.
+
+.. literalinclude:: parallel_example.m
+   :language: matlab
+   :linenos:
+   :caption: :download:`parallel_example.m`
 
      
+- We will use the batch command again, but since we are running a parallel job, 
+  we will also specify a MATLAB Pool.
+
+   .. code-block:: matlab
+
+      >> % Get a handle to the cluster
+      >> c = parcluster();
+
+      >> % Submit a batch pool job using 4 workers
+      >> j = c.batch(@parallel_example, 1, {1000}, 'Pool', 4);
+
+      >> % View current job status
+      >> j.State
+
+      >> % Fetch the results after a finished state is retrieved
+      >> j.fetchOutputs{:}
+      ans =  
+         41.7692           
+
+- The job ran in 41.7692 seconds using 4 workers.  
+
+   .. note:: 
+      
+      Note that these jobs will always request N+1 CPU cores, since one worker 
+      is required to manage the batch job and pool of workers.
+      For example, a job that needs eight workers will consume nine CPU cores.  
+
+   .. note::
+
+      For some applications, there will be a diminishing return when allocating 
+      too many workers (communication), as the overhead may exceed computation 
+      time.    
+
+-  We will run the same simulation, but increase the Pool size.  This time, to 
+   retrieve the results later, we will keep track of the job ID.
+
+
+   .. code-block:: matlab
+
+      >> % Get a handle to the cluster
+      >> c = parcluster();
+      
+      >> % Submit a batch pool job using 8 workers
+      >> j = c.batch(@parallel_example, 1, {1000}, ‘Pool’, 8);
+      
+      >> % Get the job ID
+      >> id = j.ID
+      Id =
+      4
+      >> % Clear workspace, as though we quit MATLAB
+      >> clear j
+
+- Once we have a handle to the cluster, we will call the findJob method to 
+  search for the job with the specified job ID.
+
+   .. code-block:: matlab
+
+      >> % Get a handle to the cluster
+      >> c = parcluster('apolo remote R2018a');
+      
+      >> % Find the old job
+      >> j = c.findJob(‘ID’, 4);
+      
+      >> % Retrieve the state of the job
+      >> j.State
+      ans
+      finished
+      >> % Fetch the results
+      >> j.fetchOutputs{:}
+      ans = 
+      22.2082
+      
+- The job now runs 22.2082 seconds using 8 workers.  Run code with different 
+  number of workers to determine the ideal number to use.
+
+.. note::
+
+   If you have to cancel a job (queued or running) type :matlab:`j.cancel`.
+
+Debugging
+^^^^^^^^^
+
+#. If a serial job produces an error, we can call the getDebugLog method to view
+   the error log file using *j.Tasks(1)*. Additionally  when submitting 
+   independent jobs, with multiple tasks, you will have to specify the task 
+   number.  
+
+   .. code-block:: matlab
+
+      >> % If necessary, retrieve output/error log file
+      >> j.Parent.getDebugLog(j.Tasks(1))
+
+
+
+#. For Pool jobs, do not diference into the job object.
+
+   .. code-block:: matlab
+
+      >> % If necessary, retrieve output/error log file
+      >> j.Parent.getDebugLog(j)
+
+#. To get information about the job in Slurm, we can consult the scheduler ID 
+   by calling schedID
+   
+   .. code-block:: matlab
+ 
+      >> schedID(j)
+         ans =
+            25539
+
 
 MDCS_ using APOLO's Matlab client
 --------------------------------
@@ -209,5 +434,4 @@ Interactive Job
 ^^^^^^^^^^^^^^^
 
 .. _MDCS: https://la.mathworks.com/products/distriben.html
-
-
+.. _batch: https://la.mathworks.com/help/distcomp/batch.html

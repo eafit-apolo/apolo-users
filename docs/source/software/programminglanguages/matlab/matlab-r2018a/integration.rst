@@ -22,6 +22,9 @@
 MDCS_ using a local Matlab client
 ---------------------------------
 
+To submit jobs through a local Matlab client in Apolo II or Cronos follow next 
+steps to got the integration:
+
 Integration scripts
 ^^^^^^^^^^^^^^^^^^^
 
@@ -387,11 +390,10 @@ Debugging
 MDCS_ using APOLO's Matlab client
 --------------------------------
 
-Submitting Jobs
-^^^^^^^^^^^^^^^
-
-Using Matlab client on Apolo II or Cronos
-"""""""""""""""""""""""""""""""""""""""""
+Submitting Jobs from within Matlab client on the cluster
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+General steps
+"""""""""""""
 
 #. Connect to Apolo II or Cronos via SSH.
 
@@ -451,27 +453,227 @@ Using Matlab client on Apolo II or Cronos
       >> c.AdditionalProperties.EmailAddress = '';
 
 
-#. If you have to cancel a job (queued or running) type.
+#. Users can also submit parallel or distributed workflows with batch command.  
+   Let’s use the following example for a parallel job.
+
+.. literalinclude:: parallel_example.m
+   :language: matlab
+   :linenos:
+   :caption: :download:`parallel_example.m`
+
+     
+- We will use the batch command again, but since we are running a parallel job, 
+  we will also specify a MATLAB Pool.
+
+   .. code-block:: matlab
+
+      >> % Submit a batch pool job using 4 workers
+      >> j = c.batch(@parallel_example, 1, {1000}, 'Pool', 4);
+
+      >> % View current job status
+      >> j.State
+
+      >> % Fetch the results after a finished state is retrieved
+      >> j.fetchOutputs{:}
+      ans =  
+         41.7692           
+
+   .. note:: 
+      
+      Note that these jobs will always request N+1 CPU cores, since one worker 
+      is required to manage the batch job and pool of workers.
+      For example, a job that needs eight workers will consume nine CPU cores.  
+
+- If you have to cancel a job (queued or running) type.
 
    .. code-block:: matlab
 
       >> j.cancel
 
-Serial Jobs
-"""""""""""
 
+Submitting Jobs directly through SLURM
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+MDCS jobs could be submitted directly from the Unix command line through SLURM. 
+For this, in addition to the MATLAB source, one needs to prepare a    MATLAB 
+submission script with the job specifications.
+
+#. An example is shown below:
+
+     .. literalinclude:: matlab_batch.m
+        :language: matlab
+        :caption: :download:`matlab_batch.m`
+
+#. It is submitted to the queue with the help of the following SLURM batch-job 
+   submission script:
+
+   .. literalinclude:: matlab.slurm
+      :language: bash
+      :caption: :download:`matlab.slurm`
+
+#. Job is submitted as usual with:
+
+   .. code-block:: bash
+
+      sbatch matlab.slurm
+
+   .. note::
+
+      This scheme dispatches 2 jobs - one serial that spawns the actual MDCS 
+      parallel jobs, and another, the actual parallel job.
+
+#. Once submitted, the job can be monitored and managed directly through SLURM  
+
+   - :bash:`squeue` command output
+
+     .. image:: images/slurm.png
+        :alt: squeue output
+
+#. After the job completes, one can fetch results and delete job object from 
+   within Matlab client on the cluster. If program writes directly to disk 
+   fetching is not necessary.
+
+   .. code-block:: matlab
+ 
+      >> c = parcluster('apolo');
+      >> jobs = c.Jobs
+      >> j = c.Jobs(7);
+      >> j.fetchOutputs{:};
+      >> j.delete;
 
 Matlab on APOLO
 ---------------
 
+Next steps describes how to use Matlab and its toolboxes without MDCS (workers)
+toolbox, but this way has next pros and cons.
+
+- **Pros**
+
+  - No licenses necessary
+
+- **Cons**
+
+  - No distributed jobs (only parallel)
+
 Unattended Job
 ^^^^^^^^^^^^^^
+To run unattended jobs on the cluster follow next steps:
+
+#. Connect to Apolo II or Cronos via SSH.
+
+   .. code-block:: bash
+   
+      ssh username@cronos.eafit.edu.co
+
+#. Enter to the matlab directory project.
+
+   .. code-block:: bash
+
+      cd ~/test/matlab/slurm
+
+#. Create a SLURM batch-job submission script
+
+   .. literalinclude:: slurm.sh
+      :language: bash
+      :caption: :download:`slurm.sh`
 
 
+   .. literalinclude:: parallel_example_unattended.m
+      :language: matlab
+      :caption: Matlab project - :download:`parallel_example_unattended.m`
 
-Interactive Job
-^^^^^^^^^^^^^^^
+#. Submit the job.
+
+  .. code-block:: bash
+
+     sbatch slurm.sh
+
+#. Check the :bash:`stdout` file.
+
+   .. code-block:: matlab 
+
+      MATLAB is selecting SOFTWARE OPENGL rendering.
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2018 The MathWorks, Inc.
+                   R2018a (9.4.0.813654) 64-bit (glnxa64)
+                             February 23, 2018
+
+ 
+      To get started, type one of these: helpwin, helpdesk, or demo.
+      For product information, visit www.mathworks.com.
+ 
+      >> Starting parallel pool (parpool) using the 'local' profile ...
+      connected to 8 workers.
+      >> >> >> >> >> >> 
+      t =
+ 
+        22.5327
+  
+Interactive Job (No GUI)
+^^^^^^^^^^^^^^^^^^^^^^^^
+If it is necessary the user can run interactive jobs  following next steps:
+
+#. Connect to Apolo II or Cronos via SSH.
+
+   .. code-block:: bash
+   
+      ssh username@apolo.eafit.edu.co
+
+#. Submit a interactive request to the resource manager
+
+   .. code-block:: bash
+
+      srun -N 1 --ntasks-per-node=2 -t 20:00 -p debug --pty bash
+      # If resources are available you get inmediatily a shell in a slave node
+      # i.e. compute-0-6
+      module load matlab/r2018a
+      matlab
+
+   .. code-block:: matlab
+
+       MATLAB is selecting SOFTWARE OPENGL rendering.
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2018 The MathWorks, Inc.
+                  R2018a (9.4.0.813654) 64-bit (glnxa64)
+                             February 23, 2018
+
+ 
+       To get started, type one of these: helpwin, helpdesk, or demo.
+       For product information, visit www.mathworks.com.
+ 
+       >> p = parpool(str2num(getenv('SLURM_NTASKS')));                 
+       Starting parallel pool (parpool) using the 'local' profile ...
+       >> p.NumWorkers
+
+       ans =
+
+            2
+
+   .. note::
+   
+      At this point you have an interactive Matlab session through the resource
+      manager (SLURM), giving you the possibility to test and check different
+      Matlab features.
+
+#. To finish this job, you have to close the Matlab session and then the bash
+   session granted in the slave node.
+
+References
+----------
+
+- `Parallel Computing Toolbox <https://www.mathworks.com/products/
+  parallel-computing.html>`_
+
+-  `Matlab Distributed Computing Server <https://la.mathworks.com/products/
+   distriben.html>`_
+
+-  "Portions of our documentation contain content originally created by Harvard 
+   FAS Research Computing and adapted by us under the Creative Commons 
+   Attribution-NonCommercial 4.0 International License. More information: 
+   https://rc.fas.harvard.edu/about/attribution/"
+
 
 .. _MDCS: https://la.mathworks.com/products/distriben.html
 .. _batch: https://la.mathworks.com/help/distcomp/batch.html

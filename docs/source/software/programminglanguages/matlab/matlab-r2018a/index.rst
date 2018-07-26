@@ -17,6 +17,7 @@ Basic information
 - **End date:** 30 April 2019
 - **Installed on:** :ref:`Apolo II <about_apolo-ii>`, 
   :ref:`Cronos <about_cronos>`
+- **Available Matlab toolboxes:** :ref:`List <matlab-matlab-r2018a-toolboxes>`
 
 
 Installation
@@ -34,10 +35,9 @@ conditions described  above.
 Usage
 -----
 
-This subsection describes two integrations methods to submit jobs to the cluster
+This subsection describes three integrations methods to submit jobs to the cluster
 and in this way use the computational resources through the available licenses 
-in :ref:`APOLO <about_apolo>` for Matlab (MDCS or Matlab client and its 
-toolboxes)
+in :ref:`APOLO <about_apolo>` for Matlab.
 
 .. toctree:: 
  

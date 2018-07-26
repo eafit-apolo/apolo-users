@@ -15,7 +15,7 @@ Tested on (Requirements)
 
 * **License Manager Server:** Virtual machine (CentOS 7 Minimal (x86_64))
 * **OS base:** CentOS (x86_64) :math:`\boldsymbol{\ge}` 6.6
-* **MPI:** Intel MPI :math:`\boldsymbol{\ge}` 17.0.1 (Mandatory to use Infiniband networks)
+* **MPI:** Intel MPI :math:`\boldsymbol{\ge}` 17.0.1 (Mandatory to use with Infiniband networks)
 * **Scheduler:** SLURM :math:`\boldsymbol{\ge}` 16.05.6
 * **Application:** Matlab Client (Optional)
 * **Extra Libraries:**
@@ -27,9 +27,9 @@ Tested on (Requirements)
 License Manager
 ---------------
 The *License Manager* provides a network license support to allow the access to 
-the different Matalab features.
+the different Matlab features.
 
-In this case we have two kind of licenses, the first one is for the Matlab
+In this case we have two types of licenses, the first one is for the Matlab
 Distributed Computing Engine (MDCE) and the second one for Matlab client with 
 all the toolboxes available.
 
@@ -48,7 +48,7 @@ Next steps will describe the installation and configuration process for the MLM
 
 #. Follow the next steps to run the Matlab installer.
    
-   #. Descompress and access the installer files.
+   #. Unzip and access the installer files.
   
       .. code-block:: bash
 
@@ -110,7 +110,7 @@ Next steps will describe the installation and configuration process for the MLM
 
    #. Access the *License Manager* machine via **SSH**.
 
-   #. Create a system user without privilages to run MLM.
+   #. Create a system user without privileges to run MLM.
 
       .. code-block:: bash
          
@@ -312,7 +312,7 @@ integration with the *License Manager*.
 
 #. Follow the next steps to run the Matlab installer.
    
-   #. Descompress and access the installer files.
+   #. Unzip and access the installer files.
   
       .. code-block:: bash
 

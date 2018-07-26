@@ -25,7 +25,7 @@ MDCS_ using a local Matlab client
 Integration scripts
 ^^^^^^^^^^^^^^^^^^^
 
-#. Add the MATLAB integration scripts to your Matlab path by placing the 
+#. Add the MATLAB integration scripts to your Matlab PATH by placing the
    integration scripts zip file into :bash:`$HOME/Documents/matlab-integration` 
    directory (:download:`matlab-apolo.zip`).
 
@@ -45,7 +45,7 @@ Integration scripts
          To-Do
 
 #. Open your Matlab client (If Matlab client is installed in a system directory, 
-   we recommend open it with admin privilages only for this time to configure it
+   we suggest to open it with admin privileges only for this time to configure it
    ).
 
    .. image:: images/matlab-client.png
@@ -59,7 +59,7 @@ Integration scripts
         :alt: Set path button
    |  
    - Press the **"Add with Subfolders"** button and choose the directories where
-     you decompress the integrations scripts (Apolo II and Cronos) and finally
+     you unzip the integrations scripts (Apolo II and Cronos) and finally
      press the **"Save"** button:
      
      - :bash:`/home/$USER/matlab-integration/apolo`
@@ -110,7 +110,7 @@ Configuring Cluster Profiles
 #. Custom options
 
 - **TimeLimit** :raw-html:`&rarr;` Set a limit on the total run time of the job
-  allocation (more info_)..
+  allocation (more info_).
 
    - i.e. :matlab:`c.AdditionalProperties.TimeLimit = '3-10:00:00';`
 

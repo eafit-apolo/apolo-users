@@ -110,7 +110,7 @@ Configuring Cluster Profiles
 #. Custom options
 
 - **TimeLimit** :raw-html:`&rarr;` Set a limit on the total run time of the job
-  allocation (more info_)..
+  allocation (more info_).
 
    - i.e. :matlab:`c.AdditionalProperties.TimeLimit = '3-10:00:00';`
 

@@ -199,40 +199,6 @@ General steps
       >> % Turn off email notifications 
       >> c.AdditionalProperties.EmailAddress = '';
    
-Interactive Jobs
-""""""""""""""""
-
-#. To run an interactive pool job on the cluster, continue to use parpool
-   as before. 
-
-   .. code-block:: matlab
-   
-      >> % Open a pool of 16 workers on the cluster
-      >> p = parpool(16);
-
-#. Rather than running local on the host machine, the pool can run across 
-   multiple nodes on the cluster, when the resources are available (16 cores).
-
-   .. code-block:: matlab
-
-      >> % Run a parfor over a 1000 iterations
-      >> tic
-      >> n = 1000;
-      >> A = 500; 
-      >> a = zeros(n);
-      >> parfor i = 1:n
-      >>    a(i) = max(abs(eig(rand(A))));
-      >> end
-      >> toc
-
-#. Once we’re done with the pool, delete it.
-
-   .. code-block:: matlab
-
-      >> % Delete the pool
-      >> p.delete
-   
-
 Serial Jobs
 """""""""""
 
@@ -288,14 +254,6 @@ Serial Jobs
       .. code-block:: matlab
          >> % Fetch results for job with ID 2
          >> j2.fetchOutputs{:}
-
-         >> % If the job produces an error view the error log file
-         >> c.getDebugLog(j.Tasks(1))
-
-   .. note:: 
- 
-      When submitting independent jobs, with multiple tasks, you will have 
-      to specify the task number.
 
    
 Parallel or Distributed Jobs
@@ -429,6 +387,8 @@ Matlab on APOLO
 
 Unattended Job
 ^^^^^^^^^^^^^^
+
+
 
 Interactive Job
 ^^^^^^^^^^^^^^^

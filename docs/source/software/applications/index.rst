@@ -9,6 +9,11 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
 
 .. toctree::
    :maxdepth: 1
+	      
+   mafft/index
+
+.. toctree::
+   :maxdepth: 1
    :caption: Grommacs
 
    grommacs

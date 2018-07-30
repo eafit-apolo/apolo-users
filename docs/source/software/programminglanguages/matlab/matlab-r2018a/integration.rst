@@ -48,8 +48,8 @@ Integration scripts
          To-Do
 
 #. Open your Matlab client (If Matlab client is installed in a system directory, 
-   we suggest to open it with admin privileges only for this time to configure it
-   ).
+   we suggest to open it with admin privileges only for this time to configure 
+   it).
 
    .. image:: images/matlab-client.png
       :alt: Matlab client
@@ -221,7 +221,7 @@ Serial Jobs
       >> % Get a handle to the cluster
       >> c = parcluster();
       
-      >> % Submit job to query where MATLAB is running on the cluster
+      >> % Submit job to query where MATLAB is running on the cluster (function)
       >> j = c.batch(@pwd, 1, {});
       
       >> % Query job for state
@@ -254,16 +254,26 @@ Serial Jobs
 
       >> % Get a handle on job with ID 2
       >> j2 = c.Jobs(2);
-
-   .. note:: 
+      >> j2.fetchOutputs{:}
+ 
+  .. note:: 
       
       You can view a list of your jobs, as well as their IDs, using the above 
       :matlab:`c.Jobs` command.  
 
-      .. code-block:: matlab
-         >> % Fetch results for job with ID 2
-         >> j2.fetchOutputs{:}
+#. Another example using a script.
 
+   .. code-block:: matlab
+
+      >> % Get a handle to the cluster
+      >> c = parcluster();
+      
+      >> % Submit job to query where MATLAB is running on the cluster (script)
+      >> j = c.batch('serial_example', 1, {});
+      
+      >> % Query job for state
+      >> j.State
+      
    
 Parallel or Distributed Jobs
 """"""""""""""""""""""""""""

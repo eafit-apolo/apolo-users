@@ -5,6 +5,12 @@
 .. role:: bash(code)
     :language: bash
 
+.. role:: raw-html(raw)
+   :format: html
+
+.. role:: matlab(code)
+   :language: matlab
+
 .. sidebar:: Contents
    
    .. contents::
@@ -323,6 +329,13 @@ integration with the *License Manager*.
          cd matlab-R2018a
          unzip matlab_R2018a_glnxa64.zip
 
+   #. Create the installation directory.
+
+      .. code-block:: bash
+        
+         mkdir -p /share/apps/matlab/r2018a
+
+
    #. Execute the installer.
   
       .. code-block:: bash
@@ -382,6 +395,140 @@ integration with the *License Manager*.
       .. image:: images/full-license.png
 
    #. Finish the installation process.
+
+      .. image:: images/process.png
+ 
+      .. image:: images/compiler.png
+ 
+      .. image:: images/finish.png
+
+Intregration with SLURM
+-----------------------
+
+To integrate the Matlab client on the cluster to use SLURM as resource manager
+you have to follow next steps:
+
+#. Add the MATLAB integration scripts to its Matlab PATH by placing the
+   integration scripts into :bash:`/share/apps/matlab/r2018a/toolbox/local` 
+   directory (:download:`Apolo II integration scripts  <src/apolo.local.zip>` or 
+   :download:`Cronos integration scripts  <src/cronos.local.zip>`).
+
+      .. admonition:: Linux
+ 
+         .. code-block:: bash
+
+	    scp apolo.local.zip or cronos.local.zip <user>@cluster:$path/to/file
+            mv $path/to/file/matlab-apolo.zip$ /share/apps/matlab/r2018a/toolbox/local
+            cd /share/apps/matlab/r2018a/toolbox/local
+            unzip apolo.local.zip or cronos.local.zip
+            rm apolo.local.zip or cronos.local.zip
+
+
+#. Open your Matlab client (If Matlab client is installed in a system directory, 
+   we suggest to open it with admin privileges only for this time to configure 
+   it).
+
+   .. image:: images/matlab-client.png
+      :alt: Matlab client
+
+#. Add the integrations scripts to the Matlab PATH
+
+   - Press the **"Set Path"** button
+
+     .. image:: images/set-path.png
+        :alt: Set path button
+   |  
+   - Press the **"Add with Subfolders"** button and choose the directory where
+     you unzip the integrations scripts and finally press the **"Save"** button:
+     
+     - :bash:`/share/apps/matlab/r2018a/toolbox/local/cronos.local \or\ apolo.local`
+     |
+     .. image:: images/subfolders.png
+        :alt: Subfolders
+     |
+     .. image:: images/ok-cluster.png
+        :alt: Navigate
+     |
+     .. image:: images/save-cluster.png
+        :alt: Save changes
+
+Configuring Cluster Profiles
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+#. Open your Matlab Client
+
+   .. image:: images/matlab-client.png
+      :alt: Matlab client
+
+#. Configure MATLAB to run parallel jobs on your cluster by calling 
+   :matlab:`configCluster`.  
+
+   .. code-block:: matlab
+
+      >> configCluster
+      >> % Must set TimeLimit before submitting jobs to Cronos
+      
+      >> % i.e. to set the TimeLimit and Partition
+      >> c = parcluster('cronos');
+      >> c.AdditionalProperties.TimeLimit = '1:00:00';
+      >> c.AdditionalProperties.Partition = 'longjobs';
+      >> c.saveProfile
+
+#. Custom options
+
+- **TimeLimit** :raw-html:`&rarr;` Set a limit on the total run time of the job
+  allocation (more info_).
+
+   - i.e. :matlab:`c.AdditionalProperties.TimeLimit = '3-10:00:00';`
+
+- **AccountName** :raw-html:`&rarr;` Change the default user account on Slurm.
+
+   - i.e. :matlab:`c.AdditionalProperties.AccountName = 'apolo';`
+
+- **ClusterHost** :raw-html:`&rarr;` Another way to change the cluster hostname 
+  to sumbit jobs.
+
+   - i.e. :matlab:`c.AdditionalProperties.ClusterHost = 'apolo.eafit.edu.co';`
+
+- **EmailAddress** :raw-html:`&rarr;` Get all job notifications by e-mail.
+
+   - i.e. :matlab:`c.AdditionalProperties.EmailAddress = 'apolo@eafit.edu.co';`
+
+- **EmailType** :raw-html:`&rarr;` Get only the desired notifications based on 
+  `sbatch options <https://slurm.schedmd.com/sbatch.html>`_.
+
+   - i.e. :matlab:`c.AdditionalProperties.EmailType = 'END,TIME_LIMIT_50';`
+
+- **MemUsage** :raw-html:`&rarr;`  Total amount of memory per machine 
+  (more info_).
+
+   - i.e. :matlab:`c.AdditionalProperties.MemUsage = '5G';`
+
+- **NumGpus** :raw-html:`&rarr;`  Number of GPUs to use in a job (currently the 
+  maximum possible NumGpus value is two, also if you select this option you have
+  to use the *'accel'* partition on :ref:`Apolo II <about_apolo-ii>`).
+
+  - i.e. :matlab:`c.AdditionalProperties.NumGpus = '2';`
+
+- **Partition** :raw-html:`&rarr;` Select the desire partition to submit jobs
+  (by default *longjobs* partition will be used)
+  
+  - i.e. :matlab:`c.AdditionalProperties.Partition = 'bigmem';`
+
+- **Reservation** :raw-html:`&rarr;` Submit a job into a reservation 
+  (more info_).
+
+  - i.e. :matlab:`c.AdditionalProperties.Reservation = 'reservationName';`
+
+
+- **AdditionalSubmitArgs** :raw-html:`&rarr;` Any valid sbatch parameter (raw)
+  (more info_)
+
+  - i.e. :matlab:`c.AdditionalProperties.AdditionalSubmitArgs = '--no-requeue';`
+
+
+.. _info: https://slurm.schedmd.com/sbatch.html
+
 
 
 Troubleshooting

@@ -1,4 +1,4 @@
-.. _matlab-matlab-r2018a-toolboxes:
+.. _matlab-r2018a-toolboxes:
 
 Available Matlab Toolboxes
 ==========================

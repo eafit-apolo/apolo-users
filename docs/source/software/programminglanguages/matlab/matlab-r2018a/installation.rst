@@ -32,12 +32,12 @@ Tested on (Requirements)
 
 License Manager
 ---------------
-The *License Manager* provides a network license support to allow the access to 
-the different Matlab features.
+The *License Manager* provides a network license support to allow the usage of 
+the different Matlab features on the clusters (Apolo II and Cronos).
 
 In this case we have two types of licenses, the first one is for the Matlab
 Distributed Computing Engine (MDCE) and the second one for Matlab client with 
-all the toolboxes available.
+all the :ref:`toolboxes available <matlab-r2018a-toolboxes>`.
 
 Next steps will describe the installation and configuration process for the MLM 
 (Matlab License Manager based on FlexLM_ [1]_):
@@ -46,11 +46,11 @@ Next steps will describe the installation and configuration process for the MLM
 
 #. Get the online installer using your Matlab account.
 
-#. Send the installation media to the License Manager machine.
+#. Send the installation package to the License Manager server (VM).
 
    .. code-block:: bash
  
-      scp matlab_R2018a_glnxa64.zip root@<FQDN>:$installer_path$
+      scp matlab_R2018a_glnxa64.zip root@<FQDN>:$installer_path
 
 #. Follow the next steps to run the Matlab installer.
    
@@ -70,6 +70,10 @@ Next steps will describe the installation and configuration process for the MLM
       .. code-block:: bash
     
          ./install
+
+      .. note::
+ 
+         :ref:`Troubleshooting <matlab-r2018a-installation-troubleshooting>`
 
    #. Select the installation method (by Matlab account).
 
@@ -99,10 +103,10 @@ Next steps will describe the installation and configuration process for the MLM
     
       .. note::
 
-         Login to Matlab admin account and download the license file 
-         (*license.dat*) created for this features (MDCE - Matlab Distributed 
-         Computign Engine) and upload it to *License Manager* machine in the 
-         :bash:`/usr/local/MATLAB/R2018a/etc/license.lic` directory.
+         Login to the Matlab admin account and download the license file 
+         (*license.dat*) created for this feature (MDCE - Matlab Distributed 
+         Computign Engine) and upload it to the *License Manager* server in the 
+         :bash:`/usr/local/MATLAB/R2018a/etc` directory.
           - :bash:`scp license.lic root@<FQDN>:
             /usr/local/MATLAB/R2018a/etc`
 
@@ -129,21 +133,10 @@ Next steps will describe the installation and configuration process for the MLM
 
    #. Create the daemon service to execute automatically MLM. 
 
-      :bash:`/etc/systemd/system/lm-matlab.service`
 
-      .. code-block:: bash
-
-         [Unit]
-         Description=MATLAB FlexLM license manager
-
-         [Service]
-         User=matlab
-         RemainAfterExit=True
-         ExecStart=/usr/local/MATLAB/R2018a/etc/lmstart
-         ExecStop=/usr/local/MATLAB/R2018a/etc/lmdown
-
-         [Install]
-         WantedBy=multi-user.target
+      .. literalinclude:: src/lm-matlab.service
+         :language: bash
+         :caption: :download:`lm-matlab.service <src/lm-matlab.service>`
 
    #. Configure MLM ports and firewall on the license manager machine.
       
@@ -157,7 +150,7 @@ Next steps will describe the installation and configuration process for the MLM
            DAEMON MLM "/usr/local/MATLAB/R2018a/etc/MLM" port=53200
            ...
 
-      - Open those ports in License manager machine's firewall (CentOS 7).
+      - Open those ports in License manager machine firewall (CentOS 7).
 
         .. code-block:: bash
  
@@ -178,8 +171,8 @@ Next steps will describe the installation and configuration process for the MLM
         text editor to copy all the **INCREMENTS** lines.
 
       - Append all (Matlab client and its toolboxes) **INCREMENTS** lines 
-        (licensed products) to end of the :bash:`license.dat` on the license 
-        manager server.
+        (licensed products) to end of the :bash:`license.dat` on the *License 
+        Manager* server.
 
         .. code-block:: bash
 
@@ -207,7 +200,7 @@ Next steps will describe the installation and configuration process for the MLM
          systemctl enable lm-matlab
          systemctl start  lm-matlab
 
-   #. Check the log to check if everything works properly.
+   #. Check the log file to see if everything works properly.
       :bash:`/var/tmp/lm_TMW.log`                                                                          
 
       .. code:: bash
@@ -294,9 +287,10 @@ Next steps will describe the installation and configuration process for the MLM
          8:49:38 (MLM) (@MLM-SLOG@) Host used in license file: <FQDN>
          ...         
 
-   #. After that, the license manager service have to run without problems, if 
-      there is a trouble you can debug this process checking the log file 
-      (:bash:`/var/tmp/lm_TMW.log`) to get what is happening.
+   #. After that, the license manager service should run without problems, if 
+      there is any trouble with the service you can debug this process checking 
+      the log file (:bash:`/var/tmp/lm_TMW.log`) to understand what is 
+      happening.
 
       .. code-block:: bash
   
@@ -310,13 +304,13 @@ integration with the *License Manager*.
 
 #. Get the online installer using your Matlab account.
 
-#. Send the installation media to the master node on your cluster.
+#. Send the installation file to the master node on your cluster.
 
    .. code-block:: bash
  
       scp matlab_R2018a_glnxa64.zip root@<FQDN>:$installer_path$
 
-#. Follow the next steps to run the Matlab installer.
+#. Follow next steps to run the Matlab installer.
    
    #. Unzip and access the installer files.
   
@@ -342,6 +336,11 @@ integration with the *License Manager*.
     
          ./install
 
+      .. note::
+ 
+         :ref:`Troubleshooting <matlab-r2018a-installation-troubleshooting>`
+
+
    #. Select the installation method (by Matlab account).
 
       .. image:: images/installer.png
@@ -363,7 +362,9 @@ integration with the *License Manager*.
       .. note::
 
          Use a shared file system to do an unique installtion across all the 
-         nodes in the cluster (i.e. /share/apps/matlab).
+         nodes in the cluster. 
+
+         - /share/apps/matlab
 
       .. image:: images/folder-cluster.png
 
@@ -371,8 +372,8 @@ integration with the *License Manager*.
       
       .. note::
  
-         Matlab recommends install each *Toolbox* because it can be used by 
-         MDCE workers to run an specific job.
+         Matlab recommends install every *Toolbox* available because in this way
+         they can be used by MDCE workers.
 
       .. image:: images/all-products.png
 
@@ -410,8 +411,8 @@ you have to follow next steps:
 
 #. Add the MATLAB integration scripts to its Matlab PATH by placing the
    integration scripts into :bash:`/share/apps/matlab/r2018a/toolbox/local` 
-   directory (:download:`Apolo II integration scripts  <src/apolo.local.zip>` or 
-   :download:`Cronos integration scripts  <src/cronos.local.zip>`).
+   directory (:download:`Apolo II <src/apolo.local.zip>` or 
+   :download:`Cronos <src/cronos.local.zip>`).
 
       .. admonition:: Linux
  
@@ -424,9 +425,17 @@ you have to follow next steps:
             rm apolo.local.zip or cronos.local.zip
 
 
-#. Open your Matlab client (If Matlab client is installed in a system directory, 
-   we suggest to open it with admin privileges only for this time to configure 
-   it).
+#. Open the Matlab client on the cluster to configure it.
+
+   (If Matlab client is installed in a system directory, we strongly suggest to 
+   open it with admin privileges, it is only necessary the first time to 
+   configure it).
+
+   .. code-block:: bash
+
+      ssh -X username@<master>
+      module load matlab/r2018a
+      matlab
 
    .. image:: images/matlab-client.png
       :alt: Matlab client
@@ -455,13 +464,12 @@ you have to follow next steps:
 Configuring Cluster Profiles
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-#. Open your Matlab Client
+#. Open again, if it is necesarry, your Matlab Client (without admin privilages)
 
    .. image:: images/matlab-client.png
       :alt: Matlab client
 
-#. Configure MATLAB to run parallel jobs on your cluster by calling 
-   :matlab:`configCluster`.  
+#. Load the cluster profile and configure it to submit jobs using SLURM via MDCS.
 
    .. code-block:: matlab
 
@@ -544,7 +552,8 @@ Troubleshooting
       Preparing installation files ...
       Installing ...   
   
-   Then a small Matlab window appears and after a while it closes and prints:
+   Then a small Matlab window appears and after a while it closes and prints on
+   prompt:
 
    .. code-block:: bash
 
@@ -556,45 +565,17 @@ Troubleshooting
 
    - At line *918* change this statement :bash:`eval "$java_cmd 2> /dev/null"` 
      to :bash:`eval "$java_cmd"`, by this way you can see the related errors 
-     launching the Matlab installer (i.e. missing library *libXtst.so.6*).
+     launching the Matlab installer.
+
+     - i.e. missing library *libXtst.so.6*
 
 
 Module file
 -----------
 
-.. code-block:: tcl
-
-   #%Module1.0####################################################################
-   ##
-   ## module load matlab/r2018a
-   ##
-   ## /share/apps/modules/matlab/r2018a
-   ## Written by Mateo Gómez Zuluaga
-   ##
-   
-   proc ModulesHelp {} {
-        global version modroot
-        puts stderr "Sets the environment for using Matlab R2018a\
-                     \nin the shared directory /share/apps/matlab/r2018a."
-   }
-   
-   module-whatis "(Name________) matlab"
-   module-whatis "(Version_____) r2018a"
-   module-whatis "(Compilers___) "
-   module-whatis "(System______) x86_64-redhat-linux"
-   module-whatis "(Libraries___) "
-   
-   # for Tcl script use only
-   set         topdir        /share/apps/matlab/r2018a
-   set         version       r2018a
-   set         sys           x86_64-redhat-linux
-   
-   conflict matlab
-    
-   
-   prepend-path              PATH        $topdir/bin
-   
-
+.. literalinclude:: src/r2018a
+   :language: tcl
+   :caption: :download:`Module file <src/r2018a>`
 
 .. [1] Wikipedia contributors. (2018, April 13). FlexNet Publisher. 
        In Wikipedia, The Free Encyclopedia. Retrieved 20:44, July 18, 2018, from

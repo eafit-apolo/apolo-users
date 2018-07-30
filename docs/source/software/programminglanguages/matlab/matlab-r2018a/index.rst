@@ -24,23 +24,24 @@ Installation
 ------------
 
 This entry covers the entire process performed for the installation and 
-configuration of Matlab Distributed Computing Server on a cluster with the 
-conditions described  above.
+configuration of Matlab and the Distributed Computing Server on a cluster with 
+the conditions described  above.
 
 .. toctree:: 
-   :maxdepth: 2
+   :maxdepth: 1
 
    installation
 
 Usage
 -----
 
-This subsection describes three integrations methods to submit jobs to the cluster
-and in this way use the computational resources through the available licenses 
-in :ref:`APOLO <about_apolo>` for Matlab.
+This subsection describes three integrations methods to submit jobs to the 
+cluster and in this way use the computational resources through the available 
+licenses in :ref:`APOLO <about_apolo>` for Matlab.
 
 .. toctree:: 
- 
+   :maxdepth: 2
+
    integration
 
 

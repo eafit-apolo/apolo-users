@@ -295,7 +295,7 @@ Serial Jobs
       >> c = parcluster('apolo remote R2018a');
       
       >> % Submit job to query where MATLAB is running on the cluster (script)
-      >> j = c.batch('serial_example');
+      >> j = c.batch('serial_example_script');
       
       >> % Query job for state
       >> j.State
@@ -324,7 +324,7 @@ Let’s use the following example for a parallel job.
    .. code-block:: matlab
 
       >> % Get a handle to the cluster
-      >> c = parcluster();
+      >> c = parcluster('apolo remote R2018a');
 
       >> % Submit a batch pool job using 4 workers
       >> j = c.batch(@parallel_example, 1, {1000}, 'Pool', 4);
@@ -358,7 +358,7 @@ Let’s use the following example for a parallel job.
    .. code-block:: matlab
 
       >> % Get a handle to the cluster
-      >> c = parcluster();
+      >> c = parcluster('apolo remote R2018a');
       
       >> % Submit a batch pool job using 8 workers
       >> j = c.batch(@parallel_example, 1, {1000}, ‘Pool’, 8);
@@ -408,7 +408,7 @@ Let’s use the following example for a parallel job.
       >> c = parcluster('apolo remote R2018a');
       
       >> % Submit job to query where MATLAB is running on the cluster (script)
-      >> j = c.batch('parallel_example', 'Pool', {8});
+      >> j = c.batch('parallel_example_script', 'Pool', 8);
       
       >> % Query job for state
       >> j.State

@@ -1,6 +1,6 @@
 .. _matlab-index:
 
-Matlab
+MATLAB
 ======
 
 MATLAB [1]_ (matrix laboratory) is a multi-paradigm numerical computing 

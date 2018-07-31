@@ -22,14 +22,14 @@
 MDCS_ using a local Matlab client
 ---------------------------------
 
-To submit jobs through a local Matlab client in Apolo II or Cronos follow next 
-steps to got the integration:
+To submit jobs through a local Matlab client in Apolo II or Cronos using 
+`SLURM <https://www.schedmd.com/>`_ follow next steps to got the integration:
 
 Integration scripts
 ^^^^^^^^^^^^^^^^^^^
 
 #. Add the MATLAB integration scripts to your Matlab PATH by placing the
-   integration scripts zip file into :bash:`$HOME/Documents/matlab-integration` 
+   integration scripts into :bash:`$HOME/Documents/matlab-integration` 
    directory (:download:`matlab-apolo.zip`).
 
       .. admonition:: Linux
@@ -37,7 +37,7 @@ Integration scripts
          .. code-block:: bash
 
             mkdir $HOME/matlab-integration
-            mv $path/to/file/matlab-apolo.zip$ $HOME/matlab-integrations
+            mv $path/to/file/matlab-apolo.zip $HOME/matlab-integrations
             cd $HOME/matlab-integration
             unzip matlab-apolo.zip
             rm matlab-apolo.zip
@@ -47,9 +47,11 @@ Integration scripts
 
          To-Do
 
-#. Open your Matlab client (If Matlab client is installed in a system directory, 
-   we suggest to open it with admin privileges only for this time to configure 
-   it).
+#. Open your Matlab client to configure it.
+
+   (If Matlab client is installed in a system directory, we strongly suggest to 
+   open it with admin privileges, it is only necessary the first time to 
+   configure it).
 
    .. image:: images/matlab-client.png
       :alt: Matlab client
@@ -79,7 +81,7 @@ Integration scripts
 Configuring Cluster Profiles
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-#. Open your Matlab Client
+#. Open again your Matlab Client (without admin privilages)
 
    .. image:: images/matlab-client.png
       :alt: Matlab client
@@ -135,32 +137,36 @@ Configuring Cluster Profiles
 
    - i.e. :matlab:`c.AdditionalProperties.EmailType = 'END,TIME_LIMIT_50';`
 
-- **MemUsage** :raw-html:`&rarr;`  Total amount of memory per machine 
+- **MemUsage** :raw-html:`&rarr;`  Total amount of memory **per machine**
   (more info_).
 
    - i.e. :matlab:`c.AdditionalProperties.MemUsage = '5G';`
 
-- **NumGpus** :raw-html:`&rarr;`  Number of GPUs to use in a job (currently the 
-  maximum possible NumGpus value is two, also if you select this option you have
-  to use the *'accel'* partition on :ref:`Apolo II <about_apolo-ii>`).
+- **NumGpus** :raw-html:`&rarr;`  Number of GPUs to use in a job. 
 
-  - i.e. :matlab:`c.AdditionalProperties.NumGpus = '2';`
+   - i.e. :matlab:`c.AdditionalProperties.NumGpus = '2';`
+
+  .. note::
+
+     The maximum value for  **NumGpus** is two, also if you select this option 
+     you should use the *'accel'* partition on :ref:`Apolo II <about_apolo-ii>`.
+
 
 - **Partition** :raw-html:`&rarr;` Select the desire partition to submit jobs
   (by default *longjobs* partition will be used)
   
-  - i.e. :matlab:`c.AdditionalProperties.Partition = 'bigmem';`
+   - i.e. :matlab:`c.AdditionalProperties.Partition = 'bigmem';`
 
 - **Reservation** :raw-html:`&rarr;` Submit a job into a reservation 
   (more info_).
 
-  - i.e. :matlab:`c.AdditionalProperties.Reservation = 'reservationName';`
+   - i.e. :matlab:`c.AdditionalProperties.Reservation = 'reservationName';`
 
 
 - **AdditionalSubmitArgs** :raw-html:`&rarr;` Any valid sbatch parameter (raw)
   (more info_)
 
-  - i.e. :matlab:`c.AdditionalProperties.AdditionalSubmitArgs = '--no-requeue';`
+   - i.e. :matlab:`c.AdditionalProperties.AdditionalSubmitArgs = '--no-requeue';`
 
 
 .. _info: https://slurm.schedmd.com/sbatch.html
@@ -209,30 +215,43 @@ General steps
 
       >> j.cancel
 
+#. Delete a job after results are no longer needed.
+
+   .. code-block:: matlab
+
+      >> j.delete
+
 Serial Jobs
 """""""""""
 
 #. Use the batch command to submit asynchronous jobs to the cluster. The batch 
    command will return a job object  which is used to access the output of the 
-   submitted job.  (See the MATLAB documentation for more help on batch_.)
+   submitted job.  
+ 
+   (See the MATLAB documentation for more help on batch_.)
+
+   .. literalinclude:: src/serial_example.m
+      :language: matlab
+      :caption: :download:`serial_example.m <src/serial_example.m>`
 
    .. code-block:: matlab
 
       >> % Get a handle to the cluster
-      >> c = parcluster();
+      >> c = parcluster('apolo remote R2018a');
       
-      >> % Submit job to query where MATLAB is running on the cluster (function)
-      >> j = c.batch(@pwd, 1, {});
+      >> % Submit job to query where MATLAB is running on the cluster (script)
+      >> j = c.batch(@serial_example, 1, {1000});
       
       >> % Query job for state
       >> j.State
-      
-      >> % If state is finished, fetch results
+
+      >> %Load results
       >> j.fetchOutputs{:}
-      
+
       >> % Delete the job after results are no longer needed
       >> j.delete
-   
+
+
 #. To retrieve a list of currently running or completed jobs, call parcluster 
    to retrieve the cluster object.  The cluster object stores an array of jobs 
    that were run, are running, or are queued to run.  This allows us to fetch 
@@ -241,12 +260,13 @@ Serial Jobs
 
    .. code-block:: matlab
 
-      >> c = parcluster;
+      >> c = parcluster('apolo remote R2018a');
       >> jobs = c.Jobs
 
 #. Once we have identified the job we want, we can retrieve the results as 
-   we have done previously. *fetchOutputs* is used to retrieve function output 
-   arguments; if using batch with a script, use load instead. 
+   we have done previously. **fetchOutputs** is used to retrieve function output 
+   arguments; if using batch with a script, use **load** instead.
+ 
    Data that has been written to files on the cluster needs be retrieved 
    directly from the file system. To view results of a previously completed job:
 
@@ -256,23 +276,35 @@ Serial Jobs
       >> j2 = c.Jobs(2);
       >> j2.fetchOutputs{:}
  
-  .. note:: 
+   .. note:: 
       
       You can view a list of your jobs, as well as their IDs, using the above 
       :matlab:`c.Jobs` command.  
 
 #. Another example using a script.
 
+   .. literalinclude:: src/serial_example_script.m
+      :language: matlab
+      :caption: :download:`serial_example_script.m <src/serial_example_script.m>`
+
+
+
    .. code-block:: matlab
 
       >> % Get a handle to the cluster
-      >> c = parcluster();
+      >> c = parcluster('apolo remote R2018a');
       
       >> % Submit job to query where MATLAB is running on the cluster (script)
-      >> j = c.batch('serial_example', 1, {});
+      >> j = c.batch('serial_example');
       
       >> % Query job for state
       >> j.State
+
+      >> %Load results
+      >> j.load
+
+      >> % Delete the job after results are no longer needed
+      >> j.delete
       
    
 Parallel or Distributed Jobs
@@ -281,14 +313,13 @@ Parallel or Distributed Jobs
 Users can also submit parallel or distributed workflows with batch command.  
 Let’s use the following example for a parallel job.
 
-.. literalinclude:: parallel_example.m
+.. literalinclude:: src/parallel_example.m
    :language: matlab
-   :linenos:
-   :caption: :download:`parallel_example.m`
+   :caption: :download:`parallel_example.m <src/parallel_example.m>`
 
      
-- We will use the batch command again, but since we are running a parallel job, 
-  we will also specify a MATLAB Pool.
+#. We will use the batch command again, but since we are running a parallel job, 
+   we will also specify a MATLAB Pool.
 
    .. code-block:: matlab
 
@@ -306,7 +337,7 @@ Let’s use the following example for a parallel job.
       ans =  
          41.7692           
 
-- The job ran in 41.7692 seconds using 4 workers.  
+   - The job ran in 41.7692 seconds using 4 workers.  
 
    .. note:: 
       
@@ -317,10 +348,10 @@ Let’s use the following example for a parallel job.
    .. note::
 
       For some applications, there will be a diminishing return when allocating 
-      too many workers (communication), as the overhead may exceed computation 
-      time.    
+      too many workers, as the overhead may exceed computation 
+      time (communication).    
 
--  We will run the same simulation, but increase the Pool size.  This time, to 
+#. We will run the same simulation, but increase the Pool size.  This time, to 
    retrieve the results later, we will keep track of the job ID.
 
 
@@ -337,10 +368,10 @@ Let’s use the following example for a parallel job.
       Id =
       4
       >> % Clear workspace, as though we quit MATLAB
-      >> clear j
+      >> clear
 
-- Once we have a handle to the cluster, we will call the findJob method to 
-  search for the job with the specified job ID.
+#. Once we have a handle to the cluster, we will call the findJob method to 
+   search for the job with the specified job ID.
 
    .. code-block:: matlab
 
@@ -359,8 +390,34 @@ Let’s use the following example for a parallel job.
       ans = 
       22.2082
       
-- The job now runs 22.2082 seconds using 8 workers.  Run code with different 
-  number of workers to determine the ideal number to use.
+   - The job now runs 22.2082 seconds using 8 workers.  
+
+     Run code with different number of workers to determine the ideal number to 
+     use.
+
+     |
+#. Another example using a parallel script.
+
+   .. literalinclude:: src/parallel_example_script.m
+      :language: matlab
+      :caption: :download:`parallel_example_script.m <src/parallel_example_script.m>`
+
+   .. code-block:: matlab
+
+      >> % Get a handle to the cluster
+      >> c = parcluster('apolo remote R2018a');
+      
+      >> % Submit job to query where MATLAB is running on the cluster (script)
+      >> j = c.batch('parallel_example', 'Pool', {8});
+      
+      >> % Query job for state
+      >> j.State
+
+      >> %Load results
+      >> j.load
+
+      >> % Delete the job after results are no longer needed
+      >> j.delete
 
 
 Debugging
@@ -410,9 +467,9 @@ General steps
    .. code-block:: bash
    
       # Without graphical user interface
-      ssh username@apolo.eafit.edu.co
+      ssh username@cronos/apolo.eafit.edu.co
       # or with graphical user interface
-      ssh -X username@cronos.eafit.edu.co
+      ssh -X username@cronos/apolo.eafit.edu.co
 
 #. Load Matlab modufile.
 
@@ -426,7 +483,14 @@ General steps
 
       matlab
 
-#. Load *'apolo'* cluster profile and load the desired properties 
+#. First time, you have to define the cluster profile running the following
+   command.
+
+   .. code-block:: matlab
+
+      configCluster
+
+#. Load *'apolo'* or *'cronos'* cluster profile and load the desired properties 
    to submit a job (Matlab GUI or command line).
 
    .. code-block:: matlab
@@ -435,7 +499,7 @@ General steps
       >> % Cronos cluster
        
       >> % i.e. to set the TimeLimit and Partition
-      >> c = parcluster('apolo');
+      >> c = parcluster('apolo/cronos');
       >> c.AdditionalProperties.TimeLimit = '1:00:00';
       >> c.AdditionalProperties.Partition = 'longjobs'; 
       >> c.saveProfile 
@@ -463,63 +527,41 @@ General steps
       >> c.AdditionalProperties.EmailAddress = '';
 
 
-#. Users can also submit parallel or distributed workflows with batch command.  
-   Let’s use the following example for a parallel job.
+Submitting jobs
+"""""""""""""""
 
-.. literalinclude:: parallel_example.m
-   :language: matlab
-   :linenos:
-   :caption: :download:`parallel_example.m`
 
-     
-- We will use the batch command again, but since we are running a parallel job, 
-  we will also specify a MATLAB Pool.
-
-   .. code-block:: matlab
-
-      >> % Submit a batch pool job using 4 workers
-      >> j = c.batch(@parallel_example, 1, {1000}, 'Pool', 4);
-
-      >> % View current job status
-      >> j.State
-
-      >> % Fetch the results after a finished state is retrieved
-      >> j.fetchOutputs{:}
-      ans =  
-         41.7692           
-
-   .. note:: 
-      
-      Note that these jobs will always request N+1 CPU cores, since one worker 
-      is required to manage the batch job and pool of workers.
-      For example, a job that needs eight workers will consume nine CPU cores.  
-
-- If you have to cancel a job (queued or running) type.
-
-   .. code-block:: matlab
-
-      >> j.cancel
-
+.. note::
+  
+   Users can submit serial, parallel or distributed jobs with batch command
+   as the previous examples.
+  
 
 Submitting Jobs directly through SLURM
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 MDCS jobs could be submitted directly from the Unix command line through SLURM. 
-For this, in addition to the MATLAB source, one needs to prepare a    MATLAB 
+
+
+For this, in addition to the MATLAB source, one needs to prepare a MATLAB 
 submission script with the job specifications.
 
 #. An example is shown below:
 
-     .. literalinclude:: matlab_batch.m
-        :language: matlab
-        :caption: :download:`matlab_batch.m`
+   .. literalinclude:: src/matlab_batch.m
+      :language: matlab
+      :caption: :download:`matlab_batch.m <src/matlab_batch.m>`
 
-#. It is submitted to the queue with the help of the following SLURM batch-job 
+   .. literalinclude:: src/parallel_example_slurm.m
+      :language: matlab
+      :caption: :download:`parallel_example_slurm.m <src/parallel_example_slurm.m>`
+
+#. It is submitted to the queue with help of the following SLURM batch-job 
    submission script:
 
-   .. literalinclude:: matlab.slurm
+   .. literalinclude:: src/matlab.slurm
       :language: bash
-      :caption: :download:`matlab.slurm`
+      :caption: :download:`matlab.slurm <src/matlab.slurm>`
 
 #. Job is submitted as usual with:
 
@@ -551,19 +593,19 @@ submission script with the job specifications.
       >> j.fetchOutputs{:};
       >> j.delete;
 
-Matlab on APOLO
----------------
+Matlab directly on APOLO
+------------------------
 
 Next steps describes how to use Matlab and its toolboxes without MDCS (workers)
 toolbox, but this way has next pros and cons.
 
 - **Pros**
 
-  - No licenses necessary
+  - No workers limitations
 
 - **Cons**
 
-  - No distributed jobs (only parallel)
+  - No distributed jobs (Only parallel or serial jobs)
 
 Unattended Job
 ^^^^^^^^^^^^^^
@@ -583,14 +625,14 @@ To run unattended jobs on the cluster follow next steps:
 
 #. Create a SLURM batch-job submission script
 
-   .. literalinclude:: slurm.sh
+   .. literalinclude:: src/slurm.sh
       :language: bash
-      :caption: :download:`slurm.sh`
+      :caption: :download:`slurm.sh <src/slurm.sh>`
 
 
-   .. literalinclude:: parallel_example_unattended.m
+   .. literalinclude:: src/parallel_example_unattended.m
       :language: matlab
-      :caption: Matlab project - :download:`parallel_example_unattended.m`
+      :caption: :download:`parallel_example_unattended.m <src/parallel_example_unattended.m>`
 
 #. Submit the job.
 
@@ -598,7 +640,7 @@ To run unattended jobs on the cluster follow next steps:
 
      sbatch slurm.sh
 
-#. Check the :bash:`stdout` file.
+#. Check the :bash:`stdout` file (:bash:`test_matlab_xxxx.out`).
 
    .. code-block:: matlab 
 

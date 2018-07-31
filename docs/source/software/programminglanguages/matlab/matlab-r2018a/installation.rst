@@ -464,7 +464,7 @@ you have to follow next steps:
 Configuring Cluster Profiles
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-#. Open again, if it is necesarry, your Matlab Client (without admin privilages)
+#. Open again your Matlab Client (without admin privilages)
 
    .. image:: images/matlab-client.png
       :alt: Matlab client

@@ -19,16 +19,16 @@
    :depth: 2
 
 
-MDCS_ using a local Matlab client
+MDCS_ using a local MATLAB client
 ---------------------------------
 
-To submit jobs through a local Matlab client in Apolo II or Cronos using 
+To submit jobs through a local MATLAB client in Apolo II or Cronos using 
 `SLURM <https://www.schedmd.com/>`_ follow next steps to got the integration:
 
 Integration scripts
 ^^^^^^^^^^^^^^^^^^^
 
-#. Add the MATLAB integration scripts to your Matlab PATH by placing the
+#. Add the MATLAB integration scripts to your MATLAB PATH by placing the
    integration scripts into :bash:`$HOME/Documents/matlab-integration` 
    directory (:download:`matlab-apolo.zip <src/matlab-apolo.zip>`).
 
@@ -47,16 +47,16 @@ Integration scripts
 
          To-Do
 
-#. Open your Matlab client to configure it.
+#. Open your MATLAB client to configure it.
 
-   (If Matlab client is installed in a system directory, we strongly suggest to 
+   (If MATLAB client is installed in a system directory, we strongly suggest to 
    open it with admin privileges, it is only necessary the first time to 
    configure it).
 
    .. image:: images/matlab-client.png
-      :alt: Matlab client
+      :alt: MATLAB client
 
-#. Add the integrations scripts to the Matlab PATH
+#. Add the integrations scripts to the MATLAB PATH
 
    - Press the **"Set Path"** button
 
@@ -81,10 +81,10 @@ Integration scripts
 Configuring Cluster Profiles
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-#. Open again your Matlab Client (without admin privilages)
+#. Open again your MATLAB Client (without admin privilages)
 
    .. image:: images/matlab-client.png
-      :alt: Matlab client
+      :alt: MATLAB client
 
 #. Configure MATLAB to run parallel jobs on your cluster by calling 
    :matlab:`configCluster`.  
@@ -454,10 +454,10 @@ Debugging
             25539
 
 
-MDCS_ using APOLO's Matlab client
+MDCS_ using APOLO's MATLAB client
 --------------------------------
 
-Submitting Jobs from within Matlab client on the cluster
+Submitting Jobs from within MATLAB client on the cluster
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 General steps
 """""""""""""
@@ -471,13 +471,13 @@ General steps
       # or with graphical user interface
       ssh -X username@cronos/apolo.eafit.edu.co
 
-#. Load Matlab modufile.
+#. Load MATLAB modufile.
 
    .. code-block:: bash
   
       module load matlab/r2018a
 
-#. Run Matlab client
+#. Run MATLAB client
 
    .. code-block:: bash
 
@@ -491,7 +491,7 @@ General steps
       configCluster
 
 #. Load *'apolo'* or *'cronos'* cluster profile and load the desired properties 
-   to submit a job (Matlab GUI or command line).
+   to submit a job (MATLAB GUI or command line).
 
    .. code-block:: matlab
 
@@ -582,7 +582,7 @@ submission script with the job specifications.
         :alt: squeue output
 
 #. After the job completes, one can fetch results and delete job object from 
-   within Matlab client on the cluster. If program writes directly to disk 
+   within MATLAB client on the cluster. If program writes directly to disk 
    fetching is not necessary.
 
    .. code-block:: matlab
@@ -593,10 +593,10 @@ submission script with the job specifications.
       >> j.fetchOutputs{:};
       >> j.delete;
 
-Matlab directly on APOLO
+MATLAB directly on APOLO
 ------------------------
 
-Next steps describes how to use Matlab and its toolboxes without MDCS (workers)
+Next steps describes how to use MATLAB and its toolboxes without MDCS (workers)
 toolbox, but this way has next pros and cons.
 
 - **Pros**
@@ -705,11 +705,11 @@ If it is necessary the user can run interactive jobs  following next steps:
 
    .. note::
    
-      At this point you have an interactive Matlab session through the resource
+      At this point you have an interactive MATLAB session through the resource
       manager (SLURM), giving you the possibility to test and check different
-      Matlab features.
+      MATLAB features.
 
-#. To finish this job, you have to close the Matlab session and then the bash
+#. To finish this job, you have to close the MATLAB session and then the bash
    session granted in the slave node.
 
 References
@@ -718,7 +718,7 @@ References
 - `Parallel Computing Toolbox <https://www.mathworks.com/products/
   parallel-computing.html>`_
 
--  `Matlab Distributed Computing Server <https://la.mathworks.com/products/
+-  `MATLAB Distributed Computing Server <https://la.mathworks.com/products/
    distriben.html>`_
 
 -  "Portions of our documentation contain content originally created by Harvard 

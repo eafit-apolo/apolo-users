@@ -5,7 +5,7 @@
 .. role:: bash(code)
     :language: bash
 
-Matlab - R2018a
+MATLAB - R2018a
 ===============
 
 Basic information
@@ -13,11 +13,11 @@ Basic information
 
 - **Deploy date:** 9 July 2018
 - **Official Website:** https://www.mathworks.com
-- **License:** Proprietary commercial software
+- **License:** Proprietary commercial software (Only for EAFIT academic usage)
 - **End date:** 30 April 2019
 - **Installed on:** :ref:`Apolo II <about_apolo-ii>`, 
   :ref:`Cronos <about_cronos>`
-- **Available Matlab toolboxes:** :ref:`List <matlab-matlab-r2018a-toolboxes>`
+- **Available MATLAB toolboxes:** :ref:`List <matlab-r2018a-toolboxes>`
 
 
 Installation
@@ -37,7 +37,7 @@ Usage
 
 This subsection describes three integrations methods to submit jobs to the 
 cluster and in this way use the computational resources through the available 
-licenses in :ref:`APOLO <about_apolo>` for Matlab.
+licenses in :ref:`Apolo <about_apolo>` for Matlab.
 
 .. toctree:: 
    :maxdepth: 2

@@ -23,7 +23,7 @@ Tested on (Requirements)
 * **OS base:** CentOS (x86_64) :math:`\boldsymbol{\ge}` 6.6
 * **MPI:** Intel MPI :math:`\boldsymbol{\ge}` 17.0.1 (Mandatory to use with Infiniband networks)
 * **Scheduler:** SLURM :math:`\boldsymbol{\ge}` 16.05.6
-* **Application:** Matlab Client (Optional)
+* **Application:** MATLAB Client (Optional)
 * **Extra Libraries:**
    
   * libXtst (:ref:`Troubleshooting <matlab-r2018a-installation-troubleshooting>`)
@@ -33,18 +33,18 @@ Tested on (Requirements)
 License Manager
 ---------------
 The *License Manager* provides a network license support to allow the usage of 
-the different Matlab features on the clusters (Apolo II and Cronos).
+the different MATLAB features on the clusters (Apolo II and Cronos).
 
-In this case we have two types of licenses, the first one is for the Matlab
-Distributed Computing Engine (MDCE) and the second one for Matlab client with 
+In this case we have two types of licenses, the first one is for the MATLAB
+Distributed Computing Engine (MDCE) and the second one for MATLAB client with 
 all the :ref:`toolboxes available <matlab-r2018a-toolboxes>`.
 
 Next steps will describe the installation and configuration process for the MLM 
-(Matlab License Manager based on FlexLM_ [1]_):
+(MATLAB License Manager based on FlexLM_ [1]_):
 
 .. _FlexLM: https://en.wikipedia.org/wiki/FlexNet_Publisher
 
-#. Get the online installer using your Matlab account.
+#. Get the online installer using your MATLAB account.
 
 #. Send the installation package to the License Manager server (VM).
 
@@ -52,7 +52,7 @@ Next steps will describe the installation and configuration process for the MLM
  
       scp matlab_R2018a_glnxa64.zip root@<FQDN>:$installer_path
 
-#. Follow the next steps to run the Matlab installer.
+#. Follow the next steps to run the MATLAB installer.
    
    #. Unzip and access the installer files.
   
@@ -75,7 +75,7 @@ Next steps will describe the installation and configuration process for the MLM
  
          :ref:`Troubleshooting <matlab-r2018a-installation-troubleshooting>`
 
-   #. Select the installation method (by Matlab account).
+   #. Select the installation method (by MATLAB account).
 
       .. image:: images/installer.png
      
@@ -103,8 +103,8 @@ Next steps will describe the installation and configuration process for the MLM
     
       .. note::
 
-         Login to the Matlab admin account and download the license file 
-         (*license.dat*) created for this feature (MDCE - Matlab Distributed 
+         Login to the MATLAB admin account and download the license file 
+         (*license.dat*) created for this feature (MDCE - MATLAB Distributed 
          Computign Engine) and upload it to the *License Manager* server in the 
          :bash:`/usr/local/MATLAB/R2018a/etc` directory.
           - :bash:`scp license.lic root@<FQDN>:
@@ -157,7 +157,7 @@ Next steps will describe the installation and configuration process for the MLM
            firewall-cmd --permanent --add-port=53200/tcp
            firewall-cmd --permanent --add-port=27000/tcp
 
-   #. Configure both licenses (MDCE and Matlab client with all the toolboxes).
+   #. Configure both licenses (MDCE and MATLAB client with all the toolboxes).
 
       .. note:: 
          
@@ -166,11 +166,11 @@ Next steps will describe the installation and configuration process for the MLM
          directory with the information given in *license.lic* file during the 
          installation process (MDCE license).
 
-      - Download the :bash:`license.lic` file related with Matlab client and its
-        toolboxes from the Matlab administrator account, then open it with a 
+      - Download the :bash:`license.lic` file related with MATLAB client and its
+        toolboxes from the MATLAB administrator account, then open it with a 
         text editor to copy all the **INCREMENTS** lines.
 
-      - Append all (Matlab client and its toolboxes) **INCREMENTS** lines 
+      - Append all (MATLAB client and its toolboxes) **INCREMENTS** lines 
         (licensed products) to end of the :bash:`license.dat` on the *License 
         Manager* server.
 
@@ -296,13 +296,13 @@ Next steps will describe the installation and configuration process for the MLM
   
          tailf /var/tmp/lm_TMW.log
          
-Matlab Distributed Computing Server (MDCS)
+MATLAB Distributed Computing Server (MDCS)
 ------------------------------------------
 
 This entry described the installation process of MDCS on the cluster and its
 integration with the *License Manager*.
 
-#. Get the online installer using your Matlab account.
+#. Get the online installer using your MATLAB account.
 
 #. Send the installation file to the master node on your cluster.
 
@@ -310,7 +310,7 @@ integration with the *License Manager*.
  
       scp matlab_R2018a_glnxa64.zip root@<FQDN>:$installer_path$
 
-#. Follow next steps to run the Matlab installer.
+#. Follow next steps to run the MATLAB installer.
    
    #. Unzip and access the installer files.
   
@@ -341,7 +341,7 @@ integration with the *License Manager*.
          :ref:`Troubleshooting <matlab-r2018a-installation-troubleshooting>`
 
 
-   #. Select the installation method (by Matlab account).
+   #. Select the installation method (by MATLAB account).
 
       .. image:: images/installer.png
      
@@ -372,7 +372,7 @@ integration with the *License Manager*.
       
       .. note::
  
-         Matlab recommends install every *Toolbox* available because in this way
+         MATLAB recommends install every *Toolbox* available because in this way
          they can be used by MDCE workers.
 
       .. image:: images/all-products.png
@@ -406,10 +406,10 @@ integration with the *License Manager*.
 Intregration with SLURM
 -----------------------
 
-To integrate the Matlab client on the cluster to use SLURM as resource manager
+To integrate the MATLAB client on the cluster to use SLURM as resource manager
 you have to follow next steps:
 
-#. Add the MATLAB integration scripts to its Matlab PATH by placing the
+#. Add the MATLAB integration scripts to its MATLAB PATH by placing the
    integration scripts into :bash:`/share/apps/matlab/r2018a/toolbox/local` 
    directory (:download:`Apolo II <src/apolo.local.zip>` or 
    :download:`Cronos <src/cronos.local.zip>`).
@@ -425,9 +425,9 @@ you have to follow next steps:
             rm apolo.local.zip or cronos.local.zip
 
 
-#. Open the Matlab client on the cluster to configure it.
+#. Open the MATLAB client on the cluster to configure it.
 
-   (If Matlab client is installed in a system directory, we strongly suggest to 
+   (If MATLAB client is installed in a system directory, we strongly suggest to 
    open it with admin privileges, it is only necessary the first time to 
    configure it).
 
@@ -438,9 +438,9 @@ you have to follow next steps:
       matlab
 
    .. image:: images/matlab-client.png
-      :alt: Matlab client
+      :alt: MATLAB client
 
-#. Add the integrations scripts to the Matlab PATH
+#. Add the integrations scripts to the MATLAB PATH
 
    - Press the **"Set Path"** button
 
@@ -464,10 +464,10 @@ you have to follow next steps:
 Configuring Cluster Profiles
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-#. Open again your Matlab Client (without admin privilages)
+#. Open again your MATLAB Client (without admin privilages)
 
    .. image:: images/matlab-client.png
-      :alt: Matlab client
+      :alt: MATLAB client
 
 #. Load the cluster profile and configure it to submit jobs using SLURM via MDCS.
 
@@ -544,7 +544,7 @@ Troubleshooting
 
 .. _matlab-r2018a-installation-troubleshooting:
 
-#. When you ran the Matlab installer with the command :bash:`./install`, it 
+#. When you ran the MATLAB installer with the command :bash:`./install`, it 
    prints:
   
    .. code-block:: bash
@@ -552,7 +552,7 @@ Troubleshooting
       Preparing installation files ...
       Installing ...   
   
-   Then a small Matlab window appears and after a while it closes and prints on
+   Then a small MATLAB window appears and after a while it closes and prints on
    prompt:
 
    .. code-block:: bash
@@ -565,7 +565,7 @@ Troubleshooting
 
    - At line *918* change this statement :bash:`eval "$java_cmd 2> /dev/null"` 
      to :bash:`eval "$java_cmd"`, by this way you can see the related errors 
-     launching the Matlab installer.
+     launching the MATLAB installer.
 
      - i.e. missing library *libXtst.so.6*
 

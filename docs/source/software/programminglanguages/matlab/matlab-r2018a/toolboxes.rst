@@ -1,9 +1,9 @@
 .. _matlab-r2018a-toolboxes:
 
-Available Matlab Toolboxes
+Available MATLAB Toolboxes
 ==========================
 
-Next Matlab toolboxes are available in our clusters:
+Next MATLAB toolboxes are available in our clusters:
 
 +-----------------------------------------+---------------+
 |   ToolBox name                          |    Version    |

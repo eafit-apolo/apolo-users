@@ -15,7 +15,7 @@ At Apolo, researchers from the Universidad EAFIT can compute for free. Other uni
 industrial companies can compute, applying costs on the *core-hour*  basis.
 
 
-Prerrequisites on the software
+Requirements on the software
 ==============================
 
 The following items describes the ideal technical conditions of the software to compute on Apolo's supercomputers.
@@ -38,23 +38,27 @@ Get an account
 ==============
 
 To use Apolo you will need to have the following items:
+    - A VPN account, created by the system administrators. In the following section you will find a tutorial to
+      configure the VPN account in different operating systems.
+    - An account on Apolo's clusters, created by system administrators, this account is personal and non-transferable.
+    - Test if your accounts are working and launch a job!
 
-- A VPN Account, created by the system administrators. In the following sections you will find a tutorial tu configure
-the VPN account in different operating systems.
-- An Account on Apolo's clusters, created by system administrators
-- Test if your accounts are working and launch a job!
+Configure VPN
+==============
+A Virtual Private Network or VPN is a mechanism that allows to make a secure channel across insecure public networks
+like Internet. It creates a cyphered tunnel between your computer and the network segment of Apolo's supercomputers.
+The use of VPN is important because it prevents intruders from seeing our users' network traffic and even attacking our
+servers. Given these conditions, the use of the VPN is mandatory even though all traffic to and from Apolo is encrypted
+by means of the ssh and sftp protocol. The following subsections explains how to configure the Apolo's VPN in your
+particular operating system.
 
 .. toctree::
-   :maxdepth: 1
-   :caption: Configure a VPN
-	     
-   configure_vpn
-      
+    :maxdepth: 2
 
+    configure_vpn
 
 Get Help
 ========
 
 Always you can get help in all Apolo's related topics. You can call to +57 (4) 2619592 or write an email to
 apolo@eafit.edu.co
-

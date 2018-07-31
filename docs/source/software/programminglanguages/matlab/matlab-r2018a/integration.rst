@@ -30,7 +30,7 @@ Integration scripts
 
 #. Add the MATLAB integration scripts to your Matlab PATH by placing the
    integration scripts into :bash:`$HOME/Documents/matlab-integration` 
-   directory (:download:`matlab-apolo.zip`).
+   directory (:download:`matlab-apolo.zip <src/matlab-apolo.zip>`).
 
       .. admonition:: Linux
  

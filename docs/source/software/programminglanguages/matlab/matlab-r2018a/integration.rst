@@ -36,9 +36,9 @@ Integration scripts
  
          .. code-block:: bash
 
-            mkdir $HOME/matlab-integration
+            mkdir $HOME/Documents/matlab-integration
             mv $path/to/file/matlab-apolo.zip $HOME/matlab-integrations
-            cd $HOME/matlab-integration
+            cd $HOME/Documents/matlab-integration
             unzip matlab-apolo.zip
             rm matlab-apolo.zip
 
@@ -81,7 +81,7 @@ Integration scripts
 Configuring Cluster Profiles
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-#. Open again your MATLAB Client (without admin privilages)
+#. Open again your MATLAB Client (without admin privileges)
 
    .. image:: images/matlab-client.png
       :alt: MATLAB client

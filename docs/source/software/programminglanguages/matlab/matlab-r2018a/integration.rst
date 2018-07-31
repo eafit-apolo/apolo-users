@@ -93,7 +93,7 @@ Configuring Cluster Profiles
 
       >> configCluster
       Cluster FQDN (i.e. apolo.eafit.edu.co): cronos.eafit.edu.co
-      Username on APOLO (e.g. mgomezz): mgomezzul
+      Username on Apolo (e.g. mgomezz): mgomezzul
       
       >> % Must set TimeLimit before submitting jobs to Apolo II or 
       >> % Cronos cluster
@@ -186,7 +186,7 @@ General steps
       >> configCluster
       
       Cluster FQDN (i.e. apolo.eafit.edu.co): cronos.eafit.edu.co
-      Username on APOLO (e.g. mgomezz): mgomezzul
+      Username on Apolo (e.g. mgomezz): mgomezzul
       
       >> c = parcluster('apolo remote R2018a');
       >> c.AdditionalProperties.TimeLimit = '1:00:00';
@@ -454,7 +454,7 @@ Debugging
             25539
 
 
-MDCS_ using APOLO's MATLAB client
+MDCS_ using Apolo's MATLAB client
 --------------------------------
 
 Submitting Jobs from within MATLAB client on the cluster
@@ -593,7 +593,7 @@ submission script with the job specifications.
       >> j.fetchOutputs{:};
       >> j.delete;
 
-MATLAB directly on APOLO
+MATLAB directly on Apolo
 ------------------------
 
 Next steps describes how to use MATLAB and its toolboxes without MDCS (workers)

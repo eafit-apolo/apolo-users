@@ -24,8 +24,8 @@ Installation
 ------------
 
 This entry covers the entire process performed for the installation and 
-configuration of Matlab and the Distributed Computing Server on a cluster with 
-the conditions described  above.
+configuration of MATLAB and the Distributed Computing Server on a cluster with 
+the conditions described above.
 
 .. toctree:: 
    :maxdepth: 1

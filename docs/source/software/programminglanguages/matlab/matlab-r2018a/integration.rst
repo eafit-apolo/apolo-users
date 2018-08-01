@@ -78,7 +78,7 @@ Integration scripts
      .. image:: images/save.png
         :alt: Save changes
 
-Configuring Cluster Profiles
+Configuring cluster profiles
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 #. Open again your MATLAB Client (without admin privileges)
@@ -171,7 +171,7 @@ Configuring Cluster Profiles
 
 .. _info: https://slurm.schedmd.com/sbatch.html
 
-Submitting Jobs
+Submitting jobs
 ^^^^^^^^^^^^^^^
 
 General steps
@@ -221,7 +221,7 @@ General steps
 
       >> j.delete
 
-Serial Jobs
+Serial jobs
 """""""""""
 
 #. Use the batch command to submit asynchronous jobs to the cluster. The batch 
@@ -307,7 +307,7 @@ Serial Jobs
       >> j.delete
       
    
-Parallel or Distributed Jobs
+Parallel or distributed jobs
 """"""""""""""""""""""""""""
 
 Users can also submit parallel or distributed workflows with batch command.  
@@ -457,7 +457,7 @@ Debugging
 MDCS_ using Apolo's MATLAB client
 --------------------------------
 
-Submitting Jobs from within MATLAB client on the cluster
+Submitting jobs from within MATLAB client on the cluster
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 General steps
 """""""""""""
@@ -537,7 +537,7 @@ Submitting jobs
    as the previous examples.
   
 
-Submitting Jobs directly through SLURM
+Submitting jobs directly through SLURM
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 MDCS jobs could be submitted directly from the Unix command line through SLURM. 
@@ -607,7 +607,7 @@ toolbox, but this way has next pros and cons.
 
   - No distributed jobs (Only parallel or serial jobs)
 
-Unattended Job
+Unattended job
 ^^^^^^^^^^^^^^
 To run unattended jobs on the cluster follow next steps:
 
@@ -662,7 +662,7 @@ To run unattended jobs on the cluster follow next steps:
  
         22.5327
   
-Interactive Job (No GUI)
+Interactive job (No GUI)
 ^^^^^^^^^^^^^^^^^^^^^^^^
 If it is necessary the user can run interactive jobs  following next steps:
 

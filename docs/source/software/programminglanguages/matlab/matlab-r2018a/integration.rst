@@ -287,8 +287,6 @@ Serial jobs
       :language: matlab
       :caption: :download:`serial_example_script.m <src/serial_example_script.m>`
 
-
-
    .. code-block:: matlab
 
       >> % Get a handle to the cluster
@@ -305,6 +303,24 @@ Serial jobs
 
       >> % Delete the job after results are no longer needed
       >> j.delete
+
+#. Another example using a script and GPU.
+
+   .. literalinclude:: src/gpu_script.m
+      :language: matlab
+      :caption: :download:`gpu_script.m <src/gpu_script.m>`
+
+   .. code-block:: matlab
+
+      >> % Get a handle to the cluster
+      >> c = parcluster('apolo remote R2018a');
+      
+      >> % Submit job to query where MATLAB is running on the cluster (script)
+      >> j = c.batch('gpu_script');
+      
+      >> % Query job for state
+      >> j.State
+
       
    
 Parallel or distributed jobs

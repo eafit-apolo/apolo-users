@@ -15,7 +15,7 @@ Basic information
 - **Official Website:** https://www.mathworks.com
 - **License:** Proprietary commercial software (Only for EAFIT academic usage)
 - **End date:** 30 April 2019
-- **Installed on:** :ref:`Apolo II <about_apolo-ii>`, 
+- **Installed on:** :ref:`Apolo II <about_apolo-ii>`,
   :ref:`Cronos <about_cronos>`
 - **Available MATLAB toolboxes:** :ref:`List <matlab-r2018a-toolboxes>`
 
@@ -23,11 +23,11 @@ Basic information
 Installation
 ------------
 
-This entry covers the entire process performed for the installation and 
-configuration of MATLAB and the Distributed Computing Server on a cluster with 
+This entry covers the entire process performed for the installation and
+configuration of MATLAB and the Distributed Computing Server on a cluster with
 the conditions described above.
 
-.. toctree:: 
+.. toctree::
    :maxdepth: 1
 
    installation
@@ -35,11 +35,11 @@ the conditions described above.
 Usage
 -----
 
-This subsection describes three integrations methods to submit jobs to the 
-cluster and in this way use the computational resources through the available 
+This subsection describes three integrations methods to submit jobs to the
+cluster and in this way use the computational resources through the available
 licenses in :ref:`Apolo <about_apolo>` for MATLAB.
 
-.. toctree:: 
+.. toctree::
    :maxdepth: 2
 
    integration

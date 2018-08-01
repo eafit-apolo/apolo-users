@@ -5,17 +5,15 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Centro de Computación Científica APOLO Documentation -- Universidad EAFIT
-=========================================================================
+Apolo Scientific Computing Center's Documentation -- Universidad EAFIT
+=======================================================================
 .. figure:: images/QRApolo.png
     :width: 175px
     :align: right
     :alt: A QRcode to open this webpage on the mobile phone
 
-Centro de Computación Científica APOLO documentation.
-
-:ref:`APOLO <about_apolo>` is thee scientific computing Center at Univervisad 
-EAFIT, Medellín, Colombia. 
+:ref:`Apolo <about_apolo>` is the scientific computing center at Universidad
+EAFIT, Medellín, Colombia.
 
 .. toctree::
    :maxdepth: 1

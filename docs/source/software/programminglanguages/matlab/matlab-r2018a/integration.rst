@@ -320,7 +320,7 @@ Let’s use the following example for a parallel job.
 
 
 #. We will use the batch command again, but since we are running a parallel job,
-   we will also specify a MATLAB Pool.
+   we will also specify a MATLAB pool.
 
    .. code-block:: matlab
 

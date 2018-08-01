@@ -371,7 +371,7 @@ Let’s use the following example for a parallel job.
       >> % Clear workspace, as though we quit MATLAB
       >> clear
 
-#. Once we have a handle to the cluster, we will call the findJob method to
+#. Once we have a handle to the cluster, we will call the ``findJob`` method to
    search for the job with the specified job ID.
 
    .. code-block:: matlab

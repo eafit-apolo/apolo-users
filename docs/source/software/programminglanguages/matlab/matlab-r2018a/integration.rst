@@ -424,7 +424,7 @@ Let’s use the following example for a parallel job.
 Debugging
 ^^^^^^^^^
 
-#. If a serial job produces an error, we can call the getDebugLog method to view
+#. If a serial job produces an error, we can call the ``getDebugLog`` method to view
    the error log file using *j.Tasks(1)*. Additionally  when submitting
    independent jobs, with multiple tasks, you will have to specify the task
    number.

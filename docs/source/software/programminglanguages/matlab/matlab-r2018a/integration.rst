@@ -253,7 +253,7 @@ Serial jobs
       >> j.delete
 
 
-#. To retrieve a list of currently running or completed jobs, call parcluster
+#. To retrieve a list of currently running or completed jobs, call ``parcluster``
    to retrieve the cluster object.  The cluster object stores an array of jobs
    that were run, are running, or are queued to run.  This allows us to fetch
    the results of completed jobs.  Retrieve and view the list of jobs as shown

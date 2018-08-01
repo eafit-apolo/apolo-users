@@ -352,7 +352,7 @@ Let’s use the following example for a parallel job.
       too many workers, as the overhead may exceed computation
       time (communication).
 
-#. We will run the same simulation, but increase the Pool size.  This time, to
+#. We will run the same simulation, but increase the pool size.  This time, to
    retrieve the results later, we will keep track of the job ID.
 
 
@@ -436,7 +436,7 @@ Debugging
 
 
 
-#. For Pool jobs, do not diference into the job object.
+#. For pool jobs, do not diference into the job object.
 
    .. code-block:: matlab
 

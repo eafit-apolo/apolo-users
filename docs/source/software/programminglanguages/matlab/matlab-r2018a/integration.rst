@@ -513,7 +513,7 @@ General steps
       >> c.saveProfile
 
 #. To see the values of the current configuration options, call the specific
-   AdditionalProperties method.
+   ``AdditionalProperties`` method.
 
    .. code-block:: matlab
 

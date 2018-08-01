@@ -37,7 +37,7 @@ Integration scripts
          .. code-block:: bash
 
             mkdir $HOME/Documents/matlab-integration
-            mv $path/to/file/matlab-apolo.zip $HOME/matlab-integrations
+            mv path-to-file/matlab-apolo.zip $HOME/matlab-integration/
             cd $HOME/Documents/matlab-integration
             unzip matlab-apolo.zip
             rm matlab-apolo.zip

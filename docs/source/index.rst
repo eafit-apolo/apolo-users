@@ -12,7 +12,7 @@ Apolo Scientific Computing Center's Documentation -- Universidad EAFIT
     :align: right
     :alt: A QRcode to open this webpage on the mobile phone
 
-:ref:`Apolo <about_apolo>` is the scientific computing center at Univervisad 
+:ref:`Apolo <about_apolo>` is the scientific computing center at Universidad 
 EAFIT, Medellín, Colombia. 
 
 .. toctree::

@@ -288,6 +288,8 @@ Serial jobs
       :language: matlab
       :caption: :download:`serial_example_script.m <src/serial_example_script.m>`
 
+   - Job Submission
+
    .. code-block:: matlab
 
       >> % Get a handle to the cluster
@@ -310,6 +312,8 @@ Serial jobs
    .. literalinclude:: src/gpu_script.m
       :language: matlab
       :caption: :download:`gpu_script.m <src/gpu_script.m>`
+
+   - Job Submission
 
    .. code-block:: matlab
 

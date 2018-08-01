@@ -445,7 +445,7 @@ Debugging
       >> % or
       >> c.getDebugLog(j)
 
-#. To get information about the job in Slurm, we can consult the scheduler ID
+#. To get information about the job in SLURM, we can consult the scheduler ID
    by calling schedID
 
    .. code-block:: matlab

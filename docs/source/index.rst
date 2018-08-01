@@ -6,7 +6,7 @@
    contain the root `toctree` directive.
 
 Centro de Computación Científica APOLO Documentation -- Universidad EAFIT
-=============================================================================
+=========================================================================
 .. figure:: images/QRApolo.png
     :width: 175px
     :align: right

@@ -1,9 +1,9 @@
 .. _matlab-index:
 
-Matlab
+MATLAB
 ======
 
-MATLAB [1]_. (matrix laboratory) is a multi-paradigm numerical computing 
+MATLAB [1]_ (matrix laboratory) is a multi-paradigm numerical computing 
 environment and proprietary programming language developed by MathWorks. 
 
 MATLAB allows matrix manipulations, plotting of functions and data, 
@@ -18,19 +18,9 @@ simulation and model-based design for dynamic and embedded systems.
 
 .. toctree::
    :caption: Versions
-   :titlesonly:
-
-   matlab-r2018a
-   oe
-   toctree
-
-..
- .. rubric:: Versions
- --------------------
-
- - :ref:`tOCTREE <toctree>`
- - :ref:`Matlab - R2018a<matlab-r2018a>`
- - :ref:`Oe <oe>`
+   :maxdepth: 1
+ 
+   matlab-r2018a/index
 
 
 .. [1] Wikipedia contributors. (2018, July 9). MATLAB. In Wikipedia, The Free

@@ -114,56 +114,56 @@ Configuring cluster profiles
 
 #. Custom options
 
-- **TimeLimit** :raw-html:`&rarr;` Set a limit on the total run time of the job
+- ``TimeLimit`` :raw-html:`&rarr;` Set a limit on the total run time of the job
   allocation (more info_).
 
    - i.e. :matlab:`c.AdditionalProperties.TimeLimit = '3-10:00:00';`
 
-- **AccountName** :raw-html:`&rarr;` Change the default user account on Slurm.
+- ``AccountName`` :raw-html:`&rarr;` Change the default user account on Slurm.
 
    - i.e. :matlab:`c.AdditionalProperties.AccountName = 'apolo';`
 
-- **ClusterHost** :raw-html:`&rarr;` Another way to change the cluster hostname
+- ``ClusterHost`` :raw-html:`&rarr;` Another way to change the cluster hostname
   to sumbit jobs.
 
    - i.e. :matlab:`c.AdditionalProperties.ClusterHost = 'apolo.eafit.edu.co';`
 
-- **EmailAddress** :raw-html:`&rarr;` Get all job notifications by e-mail.
+- ``EmailAddress`` :raw-html:`&rarr;` Get all job notifications by e-mail.
 
    - i.e. :matlab:`c.AdditionalProperties.EmailAddress = 'apolo@eafit.edu.co';`
 
-- **EmailType** :raw-html:`&rarr;` Get only the desired notifications based on
+- ``EmailType`` :raw-html:`&rarr;` Get only the desired notifications based on
   `sbatch options <https://slurm.schedmd.com/sbatch.html>`_.
 
    - i.e. :matlab:`c.AdditionalProperties.EmailType = 'END,TIME_LIMIT_50';`
 
-- **MemUsage** :raw-html:`&rarr;`  Total amount of memory **per machine**
+- ``MemUsage`` :raw-html:`&rarr;`  Total amount of memory **per machine**
   (more info_).
 
    - i.e. :matlab:`c.AdditionalProperties.MemUsage = '5G';`
 
-- **NumGpus** :raw-html:`&rarr;`  Number of GPUs to use in a job.
+- ``NumGpus`` :raw-html:`&rarr;`  Number of GPUs to use in a job.
 
    - i.e. :matlab:`c.AdditionalProperties.NumGpus = '2';`
 
   .. note::
 
-     The maximum value for  **NumGpus** is two, also if you select this option
+     The maximum value for  ``NumGpus`` is two, also if you select this option
      you should use the *'accel'* partition on :ref:`Apolo II <about_apolo-ii>`.
 
 
-- **Partition** :raw-html:`&rarr;` Select the desire partition to submit jobs
+- ``Partition`` :raw-html:`&rarr;` Select the desire partition to submit jobs
   (by default *longjobs* partition will be used)
 
    - i.e. :matlab:`c.AdditionalProperties.Partition = 'bigmem';`
 
-- **Reservation** :raw-html:`&rarr;` Submit a job into a reservation
+- ``Reservation`` :raw-html:`&rarr;` Submit a job into a reservation
   (more info_).
 
    - i.e. :matlab:`c.AdditionalProperties.Reservation = 'reservationName';`
 
 
-- **AdditionalSubmitArgs** :raw-html:`&rarr;` Any valid sbatch parameter (raw)
+- ``AdditionalSubmitArgs`` :raw-html:`&rarr;` Any valid sbatch parameter (raw)
   (more info_)
 
    - i.e. :matlab:`c.AdditionalProperties.AdditionalSubmitArgs = '--no-requeue';`
@@ -264,8 +264,8 @@ Serial jobs
       >> jobs = c.Jobs
 
 #. Once we have identified the job we want, we can retrieve the results as
-   we have done previously. **fetchOutputs** is used to retrieve function output
-   arguments; if using batch with a script, use **load** instead.
+   we have done previously. ``fetchOutputs`` is used to retrieve function output
+   arguments; if using batch with a script, use ``load`` instead.
 
    Data that has been written to files on the cluster needs be retrieved
    directly from the file system. To view results of a previously completed job:

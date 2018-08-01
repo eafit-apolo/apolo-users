@@ -1,4 +1,4 @@
-# Apolo Scientific Computing Center's Documentation
+# Apolo Scientific Computing Centre's Documentation
 
 [![Documentation Status](https://readthedocs.org/projects/apolo-docs/badge/?version=latest)](http://apolo-docs.readthedocs.io/en/latest/?badge=latest)
 

@@ -23,12 +23,9 @@ EAFIT, Medellín, Colombia.
 
 .. toctree::
    :maxdepth: 1
-   :caption: Getting help
+   :caption: Getting started
 
-   help/contact
-   help/writing-support-requests
-   help/faq
-   help/staff
+   gettingstarted/index
 
 .. toctree::
    :maxdepth: 1

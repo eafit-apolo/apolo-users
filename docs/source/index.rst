@@ -23,14 +23,6 @@ EAFIT, Medellín, Colombia.
 
    gettingstarted/index
    
-   ..
-      gettingstarted/first_steps
-      gettingstarted/get_an_account
-      gettingstarted/configure_vpn
-      gettingstarted/connect_to_apolo
-      gettingstarted/connect_to_cronos
-      gettingstarted/run_a_program
-      gettingstarted/getting_help
 
 .. toctree::
    :maxdepth: 1

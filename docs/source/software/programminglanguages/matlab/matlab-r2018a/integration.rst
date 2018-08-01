@@ -81,7 +81,7 @@ Integration scripts
 Configuring cluster profiles
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-#. Open again your MATLAB Client (without admin privileges)
+#. Open again your MATLAB client (without admin privileges)
 
    .. image:: images/matlab-client.png
       :alt: MATLAB client

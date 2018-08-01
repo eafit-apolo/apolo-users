@@ -474,7 +474,7 @@ Debugging
             25539
 
 
-MDCS_ using Apolo's MATLAB client
+MDCS_ using cluster's MATLAB client
 --------------------------------
 
 Submitting jobs from within MATLAB client on the cluster
@@ -614,8 +614,8 @@ submission script with the job specifications.
       >> j.fetchOutputs{:};
       >> j.delete;
 
-MATLAB directly on Apolo
-------------------------
+MATLAB directly on the cluster
+------------------------------
 
 Next steps describes how to use MATLAB and its toolboxes without MDCS (workers)
 toolbox, but this way has next pros and cons.

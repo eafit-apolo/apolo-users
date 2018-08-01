@@ -520,7 +520,8 @@ General steps
       >> % To view current properties
       >> c.AdditionalProperties
 
-#. To clear a value, assign the property an empty value ('', [], or false).
+#. To clear a value, assign the property an empty value (``''``,
+   ``[]``, or ``false``).
 
    .. code-block:: matlab
 

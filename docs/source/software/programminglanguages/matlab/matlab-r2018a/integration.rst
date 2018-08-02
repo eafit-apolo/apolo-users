@@ -290,7 +290,7 @@ Serial jobs
       You can view a list of your jobs, as well as their IDs, using the above
       :matlab:`c.Jobs` command.
 
-#. Another example using a script.
+#. Another example using a MATLAB script.
 
    .. literalinclude:: src/serial_example_script.m
       :language: matlab
@@ -309,13 +309,13 @@ Serial jobs
       >> % Query job for state
       >> j.State
 
-      >> %Load results
+      >> %Load results into the client workspace
       >> j.load
 
       >> % Delete the job after results are no longer needed
       >> j.delete
 
-#. Another example using a script and GPU.
+#. Another example using a MATLAB script and that support GPU.
 
    .. literalinclude:: src/gpu_script.m
       :language: matlab
@@ -334,6 +334,29 @@ Serial jobs
       >> % Query job for state
       >> j.State
 
+#. Another example using Simulink via MATLAB.
+
+   .. literalinclude:: src/parsim_test_script.m
+      :language: matlab
+      :caption: :download:`parsim_test_script.m <src/parsim_test_script.m>`
+
+   :download:`parsim_test.slx (Simulink project) <src/parsim_test.slx>`
+
+   - Job submission
+
+   .. code-block:: matlab
+
+      >> % Get a handle to the cluster
+      >> c = parcluster('apolo remote R2018a');
+      
+      >> % Submit job to query where MATLAB is running on the cluster (script)
+      >> j = c.batch('parsim_test_script');
+      
+      >> % Query job for state
+      >> j.State
+ 
+      >> % Load data to client workspace
+      >> j.load
    
 Parallel or distributed jobs
 """"""""""""""""""""""""""""

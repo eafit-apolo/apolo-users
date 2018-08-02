@@ -485,7 +485,7 @@ Configuring Cluster Profiles
       >> configCluster
       >> % Must set TimeLimit before submitting jobs to Cronos
 
-      >> % i.e. to set the TimeLimit and Partition
+      >> % e.g. to set the TimeLimit and Partition
       >> c = parcluster('cronos');
       >> c.AdditionalProperties.TimeLimit = '1:00:00';
       >> c.AdditionalProperties.Partition = 'longjobs';
@@ -496,52 +496,52 @@ Configuring Cluster Profiles
 - **TimeLimit** :raw-html:`&rarr;` Set a limit on the total run time of the job
   allocation (more info_).
 
-   - i.e. :matlab:`c.AdditionalProperties.TimeLimit = '3-10:00:00';`
+   - e.g. :matlab:`c.AdditionalProperties.TimeLimit = '3-10:00:00';`
 
 - **AccountName** :raw-html:`&rarr;` Change the default user account on Slurm.
 
-   - i.e. :matlab:`c.AdditionalProperties.AccountName = 'apolo';`
+   - e.g. :matlab:`c.AdditionalProperties.AccountName = 'apolo';`
 
 - **ClusterHost** :raw-html:`&rarr;` Another way to change the cluster hostname
   to sumbit jobs.
 
-   - i.e. :matlab:`c.AdditionalProperties.ClusterHost = 'apolo.eafit.edu.co';`
+   - e.g. :matlab:`c.AdditionalProperties.ClusterHost = 'apolo.eafit.edu.co';`
 
 - **EmailAddress** :raw-html:`&rarr;` Get all job notifications by e-mail.
 
-   - i.e. :matlab:`c.AdditionalProperties.EmailAddress = 'apolo@eafit.edu.co';`
+   - e.g. :matlab:`c.AdditionalProperties.EmailAddress = 'apolo@eafit.edu.co';`
 
 - **EmailType** :raw-html:`&rarr;` Get only the desired notifications based on
   `sbatch options <https://slurm.schedmd.com/sbatch.html>`_.
 
-   - i.e. :matlab:`c.AdditionalProperties.EmailType = 'END,TIME_LIMIT_50';`
+   - e.g. :matlab:`c.AdditionalProperties.EmailType = 'END,TIME_LIMIT_50';`
 
 - **MemUsage** :raw-html:`&rarr;`  Total amount of memory per machine
   (more info_).
 
-   - i.e. :matlab:`c.AdditionalProperties.MemUsage = '5G';`
+   - e.g. :matlab:`c.AdditionalProperties.MemUsage = '5G';`
 
 - **NumGpus** :raw-html:`&rarr;`  Number of GPUs to use in a job (currently the
   maximum possible NumGpus value is two, also if you select this option you have
   to use the *'accel'* partition on :ref:`Apolo II <about_apolo-ii>`).
 
-  - i.e. :matlab:`c.AdditionalProperties.NumGpus = '2';`
+  - e.g. :matlab:`c.AdditionalProperties.NumGpus = '2';`
 
 - **Partition** :raw-html:`&rarr;` Select the desire partition to submit jobs
   (by default *longjobs* partition will be used)
 
-  - i.e. :matlab:`c.AdditionalProperties.Partition = 'bigmem';`
+  - e.g. :matlab:`c.AdditionalProperties.Partition = 'bigmem';`
 
 - **Reservation** :raw-html:`&rarr;` Submit a job into a reservation
   (more info_).
 
-  - i.e. :matlab:`c.AdditionalProperties.Reservation = 'reservationName';`
+  - e.g. :matlab:`c.AdditionalProperties.Reservation = 'reservationName';`
 
 
 - **AdditionalSubmitArgs** :raw-html:`&rarr;` Any valid sbatch parameter (raw)
   (more info_)
 
-  - i.e. :matlab:`c.AdditionalProperties.AdditionalSubmitArgs = '--no-requeue';`
+  - e.g. :matlab:`c.AdditionalProperties.AdditionalSubmitArgs = '--no-requeue';`
 
 
 .. _info: https://slurm.schedmd.com/sbatch.html
@@ -576,7 +576,7 @@ Troubleshooting
      to :bash:`eval "$java_cmd"`, by this way you can see the related errors
      launching the MATLAB installer.
 
-     - i.e. missing library *libXtst.so.6*
+     - e.g. missing library *libXtst.so.6*
 
 
 Module file

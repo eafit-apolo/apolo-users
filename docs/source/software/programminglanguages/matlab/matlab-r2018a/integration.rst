@@ -100,19 +100,19 @@ Configuring cluster profiles
    .. code-block:: matlab
 
       >> configCluster
-      Cluster FQDN (i.e. apolo.eafit.edu.co): cronos.eafit.edu.co
+      Cluster FQDN (e.g. apolo.eafit.edu.co): cronos.eafit.edu.co
       Username on Apolo (e.g. mgomezz): mgomezzul
 
       >> % Must set TimeLimit before submitting jobs to Apolo II or
       >> % Cronos cluster
 
-      >> % i.e. to set the TimeLimit and Partition
+      >> % e.g. to set the TimeLimit and Partition
       >> c = parcluster('apolo remote R2018a');
       >> c.AdditionalProperties.TimeLimit = '1:00:00';
       >> c.AdditionalProperties.Partition = 'longjobs';
       >> c.saveProfile
 
-      >> % i.e. to set the NumGpus, TimeLimit and Partition
+      >> % e.g. to set the NumGpus, TimeLimit and Partition
       >> c = parcluster('apolo remote R2018a');
       >> c.AdditionalProperties.TimeLimit = '1:00:00';
       >> c.AdditionalProperties.Partition = 'accel';
@@ -125,34 +125,34 @@ Configuring cluster profiles
 - ``TimeLimit`` :raw-html:`&rarr;` Set a limit on the total run time of the job
   allocation (more info_).
 
-   - i.e. :matlab:`c.AdditionalProperties.TimeLimit = '3-10:00:00';`
+   - e.g. :matlab:`c.AdditionalProperties.TimeLimit = '3-10:00:00';`
 
 - ``AccountName`` :raw-html:`&rarr;` Change the default user account on Slurm.
 
-   - i.e. :matlab:`c.AdditionalProperties.AccountName = 'apolo';`
+   - e.g. :matlab:`c.AdditionalProperties.AccountName = 'apolo';`
 
 - ``ClusterHost`` :raw-html:`&rarr;` Another way to change the cluster hostname
   to sumbit jobs.
 
-   - i.e. :matlab:`c.AdditionalProperties.ClusterHost = 'apolo.eafit.edu.co';`
+   - e.g. :matlab:`c.AdditionalProperties.ClusterHost = 'apolo.eafit.edu.co';`
 
 - ``EmailAddress`` :raw-html:`&rarr;` Get all job notifications by e-mail.
 
-   - i.e. :matlab:`c.AdditionalProperties.EmailAddress = 'apolo@eafit.edu.co';`
+   - e.g. :matlab:`c.AdditionalProperties.EmailAddress = 'apolo@eafit.edu.co';`
 
 - ``EmailType`` :raw-html:`&rarr;` Get only the desired notifications based on
   `sbatch options <https://slurm.schedmd.com/sbatch.html>`_.
 
-   - i.e. :matlab:`c.AdditionalProperties.EmailType = 'END,TIME_LIMIT_50';`
+   - e.g. :matlab:`c.AdditionalProperties.EmailType = 'END,TIME_LIMIT_50';`
 
 - ``MemUsage`` :raw-html:`&rarr;`  Total amount of memory **per machine**
   (more info_).
 
-   - i.e. :matlab:`c.AdditionalProperties.MemUsage = '5G';`
+   - e.g. :matlab:`c.AdditionalProperties.MemUsage = '5G';`
 
 - ``NumGpus`` :raw-html:`&rarr;`  Number of GPUs (double) to use in a job.
 
-   - i.e. :matlab:`c.AdditionalProperties.NumGpus = 2;`
+   - e.g. :matlab:`c.AdditionalProperties.NumGpus = 2;`
 
   .. note::
 
@@ -163,18 +163,18 @@ Configuring cluster profiles
 - ``Partition`` :raw-html:`&rarr;` Select the desire partition to submit jobs
   (by default *longjobs* partition will be used)
 
-   - i.e. :matlab:`c.AdditionalProperties.Partition = 'bigmem';`
+   - e.g. :matlab:`c.AdditionalProperties.Partition = 'bigmem';`
 
 - ``Reservation`` :raw-html:`&rarr;` Submit a job into a reservation
   (more info_).
 
-   - i.e. :matlab:`c.AdditionalProperties.Reservation = 'reservationName';`
+   - e.g. :matlab:`c.AdditionalProperties.Reservation = 'reservationName';`
 
 
 - ``AdditionalSubmitArgs`` :raw-html:`&rarr;` Any valid sbatch parameter (raw)
   (more info_)
 
-   - i.e. :matlab:`c.AdditionalProperties.AdditionalSubmitArgs = '--no-requeue';`
+   - e.g. :matlab:`c.AdditionalProperties.AdditionalSubmitArgs = '--no-requeue';`
 
 
 .. _info: https://slurm.schedmd.com/sbatch.html
@@ -193,7 +193,7 @@ General steps
       >> % Run cluster configuration
       >> configCluster
 
-      Cluster FQDN (i.e. apolo.eafit.edu.co): cronos.eafit.edu.co
+      Cluster FQDN (e.g. apolo.eafit.edu.co): cronos.eafit.edu.co
       Username on Apolo (e.g. mgomezz): mgomezzul
 
       >> c = parcluster('apolo remote R2018a');
@@ -526,13 +526,13 @@ General steps
       >> % Must set TimeLimit before submitting jobs to Apolo II or
       >> % Cronos cluster
 
-      >> % i.e. to set the TimeLimit and Partition
+      >> % e.g. to set the TimeLimit and Partition
       >> c = parcluster('apolo/cronos');
       >> c.AdditionalProperties.TimeLimit = '1:00:00';
       >> c.AdditionalProperties.Partition = 'longjobs';
       >> c.saveProfile
       >> % or
-      >> % i.e. to set the NumGpus, TimeLimit and Partition
+      >> % e.g. to set the NumGpus, TimeLimit and Partition
       >> c = parcluster('apolo');
       >> c.AdditionalProperties.TimeLimit = '1:00:00';
       >> c.AdditionalProperties.Partition = 'accel';
@@ -707,7 +707,7 @@ If it is necessary the user can run interactive jobs  following next steps:
 
       srun -N 1 --ntasks-per-node=2 -t 20:00 -p debug --pty bash
       # If resources are available you get inmediatily a shell in a slave node
-      # i.e. compute-0-6
+      # e.g. compute-0-6
       module load matlab/r2018a
       matlab
 

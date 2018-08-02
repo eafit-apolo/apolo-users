@@ -6,14 +6,14 @@
    contain the root `toctree` directive.
 
 Apolo Scientific Computing Center's Documentation -- Universidad EAFIT
-=======================================================================
+======================================================================
 .. figure:: images/QRApolo.png
     :width: 175px
     :align: right
     :alt: A QRcode to open this webpage on the mobile phone
 
-Apolo is the scientific computing center at Universidad
-EAFIT, Medellín, Colombia.
+Apolo is the scientific computing center at Universidad EAFIT,
+Medellín, Colombia.
 
 .. toctree::
    :maxdepth: 1

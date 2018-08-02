@@ -1,5 +1,7 @@
 .. _matlab-r2018a-toolboxes:
 
+:orphan:
+
 Available MATLAB Toolboxes
 ==========================
 

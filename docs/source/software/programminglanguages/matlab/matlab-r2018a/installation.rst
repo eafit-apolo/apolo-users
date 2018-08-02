@@ -107,6 +107,7 @@ Next steps will describe the installation and configuration process for the MLM
          (*license.dat*) created for this feature (MDCE - MATLAB Distributed
          Computign Engine) and upload it to the *License Manager* server in the
          :bash:`/usr/local/MATLAB/R2018a/etc` directory.
+
           - :bash:`scp license.lic root@<FQDN>:
             /usr/local/MATLAB/R2018a/etc`
 
@@ -446,23 +447,31 @@ you have to follow next steps:
 
      .. image:: images/set-path.png
         :alt: Set path button
-   |
+
    - Press the **"Add with Subfolders"** button and choose the directory where
      you unzip the integrations scripts and finally press the **"Save"** button:
 
      - :bash:`/share/apps/matlab/r2018a/toolbox/local/cronos.local \or\ apolo.local`
-     |
+
+|
+
      .. image:: images/subfolders.png
         :alt: Subfolders
-     |
+
+|
+
      .. image:: images/ok-cluster.png
         :alt: Navigate
-     |
+
+|
+
      .. image:: images/save-cluster.png
         :alt: Save changes
 
+|
+
 Configuring Cluster Profiles
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 #. Open again your MATLAB Client (without admin privilages)
 

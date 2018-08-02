@@ -62,24 +62,32 @@ Integration scripts
 
      .. image:: images/set-path.png
         :alt: Set path button
+
    |
+
    - Press the **"Add with Subfolders"** button and choose the directories where
      you unzip the integrations scripts (Apolo II and Cronos) and finally
      press the **"Save"** button:
 
      - :bash:`/home/$USER/matlab-integration/apolo`
+
      |
+
      .. image:: images/subfolders.png
         :alt: Subfolders
+
      |
+
      .. image:: images/ok.png
         :alt: Navigate
+
      |
+
      .. image:: images/save.png
         :alt: Save changes
 
 Configuring cluster profiles
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 #. Open again your MATLAB client (without admin privileges)
 
@@ -475,7 +483,7 @@ Debugging
 
 
 MDCS_ using cluster's MATLAB client
---------------------------------
+-----------------------------------
 
 Submitting jobs from within MATLAB client on the cluster
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

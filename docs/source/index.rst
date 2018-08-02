@@ -12,14 +12,8 @@ Apolo Scientific Computing Center's Documentation -- Universidad EAFIT
     :align: right
     :alt: A QRcode to open this webpage on the mobile phone
 
-:ref:`Apolo <about_apolo>` is the scientific computing center at Universidad
+Apolo is the scientific computing center at Universidad
 EAFIT, Medellín, Colombia.
-
-.. toctree::
-   :maxdepth: 1
-
-   apolo/getting_started
-   news/news
 
 .. toctree::
    :maxdepth: 1
@@ -27,6 +21,14 @@ EAFIT, Medellín, Colombia.
 
    gettingstarted/index
 
+.. toctree::
+   :maxdepth: 1
+   :caption: Supercomputers
+
+   supercomputers/apolo-i/index
+   supercomputers/apolo-ii/index
+   supercomputers/cronos/index
+   
 .. toctree::
    :maxdepth: 1
    :caption: Software

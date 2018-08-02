@@ -37,7 +37,7 @@ Usage
 
 This subsection describes three integrations methods to submit jobs to the
 cluster and in this way use the computational resources through the available
-licenses in :ref:`Apolo <about_apolo>` for MATLAB.
+licenses in Apolo for MATLAB.
 
 .. toctree::
    :maxdepth: 2

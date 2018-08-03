@@ -12,10 +12,10 @@ Tested on (Requirements)
 ------------------------
 
 - **OS base:** CentOS (x86_64) :math:`\boldsymbol{\ge}` 6.6
-- **Compiler:** Intel Parallel Studio XE 2017 Compiler (Update 1)
+- **Compiler:** Intel Parallel Studio XE Compiler
 - **Optional extensions:**
 
-  * Mxscarna_ (Included in the mafft-*-with-extensions-src.tgz package)
+  * Mxscarna_ (Included in the mafft-7.402-with-extensions-src.tgz package)
 
     .. _Mxscarna: <https://www.ncrna.org/softwares/mxscarna/>
     
@@ -29,6 +29,15 @@ Tested on (Requirements)
 
 Installation
 ------------
+
+.. note::
+
+   * In :ref:`Apolo II <about_apolo-ii>` was used the Intel Compiler 17.0.1.
+     :bash:`module load intel/2017_Update-1`
+   
+   * In :ref:`Cronos <about_cronos>` was used the Intel Compiler 18.0.2.
+     :bash:`module load intel/18.0.2`
+   
 
 #. Download the package and decompress it.
    
@@ -45,6 +54,8 @@ Installation
       emacs -nw Makefile
    
 #. Change the PREFIX (line 1) with the path where you want the program and change the compiler (line 18) and its flags.
+   
+   :download:`Makefile <src/mafft-Makefile>`
 
    From:
 
@@ -54,8 +65,6 @@ Installation
       CC = gcc
       #CC = icc
       CFLAGS = -03
-
-   
    To:
 
    .. code-block:: bash
@@ -63,11 +72,8 @@ Installation
       PREFIX = /your/path
       #CC = gcc
       CC = icc
-      CFLAGS = -03 .fast
+      CFLAGS = -03 -fast
 
-   .. note::
-
-      This step is optional.
 
 #. Load the intel compiler, compile it and install.
 
@@ -86,6 +92,8 @@ Mxscarna
 
 #. Edit the make file with the compiler of your choice.
 
+   :download:`Makefile <src/mxscarna-Makefile>`
+
    :bash:`mafft-7.402-with-extensions/extensions/mxscarna_src/Makefile`
 
    From:
@@ -93,16 +101,12 @@ Mxscarna
    .. code-block:: bash
       
       CXX = g++
-
    To:
 
    .. code-block:: bash
 
       CXX = icpc
 
-   .. note::
-
-      This step is optional
 
 #. Compile and install.
 
@@ -112,6 +116,8 @@ Mxscarna
       make clean
       make
       make install
+      cd ../
+      chmod 755 mxcarna_src/
 
 Foldalign
 .........
@@ -125,32 +131,34 @@ Foldalign
       cp foldalign mafft-7.402-with-extensions/extensions/
 
 #. Change the compiler on the makefile (line 113).
+   
+   :download:`Makefile <src/foldalign-Makefile>`
 
-   :bash:`mafft-7.402-with-extensions/src/mafft-7.402-with-extensions/extensions/foldalign`
+   :bash:`mafft-7.402-with-extensions/src/mafft-7.402-with-extensions/extensions/foldalign/Makefile`
 
    .. code-block:: bash
 
       emacs -nw Makefile
-
 from:
 
    .. code-block:: c++
 
-      cc =
-
+      cc = g++
 To:
 
    .. code-block:: c++
 
-      cc = icmp
+      cc = icpc
 
-#. Compile it.
+#. Compile and change permissions.
 
    .. code-block:: bash
 
       module load intel/2017_update-1
       make clean
       make
+      cd ../
+      chmod 755 foldalign/
 
 Contrafold
 ..........
@@ -159,35 +167,21 @@ Contrafold
 
    .. code-block:: bash
 
-      wget http://contra.stanford.edu/contrafold/download.html
+      wget http://contra.stanford.edu/contrafold/contrafold_v2_02.tar.gz
       tar xfvz contrafold_v2_02
       cp  contrafold_v2_02/contrafold mafft-7.402-with-extensions/extensions/
 
-#. Edit the Makefile in the intel section (line 69)
-
-   :bash:`mafft-7.402-with-extensions/src/mafft-7.402-with-extensions/extensions/contrafold/src`
-  
-   From:
+#. Compile and change permissions.
 
    .. code-block:: bash
 
-      intel:
-        make all CXX="g++" OTHERFLAGS="-xN -no-ipo -static"
-
-   To:
-
-   .. code-block:: bash
-
-      intel:
-        make all CXX="icpc" OTHERFLAGS="-xN -no-ipo -static"
-
-#. Compile.
-
-   .. code-block:: bash
-
+      cd contrafold/src/
       module load intel/2017_update-1
+      module load openmpi/1.8.8-x86_64_intel-2017_update-1
       make clean
-      make intel
+      make intelmulti
+      cd ../..
+      chmod 755 contrafold/
 
 Troubleshooting
 ,,,,,,,,,,,,,,,
@@ -221,29 +215,29 @@ When you try to compile contrafold, it prints:
 
 Or maybe smoething similar about a compilation error, it appears because in Utilities.hpp is missing an include.
 
-#. Open Utilities.hpp and change the following line.
+#. Open Utilities.hpp and add the limits.h library.
+   
+   :download:`Utilities.hpp <src/Utilities.hpp>`
 
-.. code-block:: bash
+   .. code-block:: bash
 
-   emacs -nw Utilities.hpp
+      emacs -nw Utilities.hpp
 
-Add the library limits.h.
+   .. code-block:: c++
 
-.. code-block:: c++
-
-   #define UTILITIES_HPP
-		
-   #include <limits.h> // The library to add
-   #include <algorithm>
+      #define UTILITIES_HPP
+      
+      #include <limits.h> // The library to add
+      #include <algorithm>
 
 #. Then compile again.
 
-.. code-block::
+   .. code-block:: bash
 
-   make intel
+      make intelmulti
 
-   
-
-
-
-      
+Module
+^^^^^^
+.. literalinclude:: src/7.402-with-extensions_intel-17.0.1
+   :language: tcl
+   :caption: :download:`Module file <src/7.402-with-extensions_intel-17.0.1>`

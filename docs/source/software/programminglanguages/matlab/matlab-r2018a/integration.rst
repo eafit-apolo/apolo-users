@@ -327,10 +327,10 @@ Serial jobs
 
       >> % Get a handle to the cluster
       >> c = parcluster('apolo remote R2018a');
-      
+
       >> % Submit job to query where MATLAB is running on the cluster (script)
       >> j = c.batch('gpu_script');
-      
+
       >> % Query job for state
       >> j.State
 
@@ -348,16 +348,16 @@ Serial jobs
 
       >> % Get a handle to the cluster
       >> c = parcluster('apolo remote R2018a');
-      
+
       >> % Submit job to query where MATLAB is running on the cluster (script)
       >> j = c.batch('parsim_test_script');
-      
+
       >> % Query job for state
       >> j.State
- 
+
       >> % Load data to client workspace
       >> j.load
-   
+
 Parallel or distributed jobs
 """"""""""""""""""""""""""""
 

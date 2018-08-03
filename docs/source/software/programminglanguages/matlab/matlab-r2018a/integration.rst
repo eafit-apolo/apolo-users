@@ -315,7 +315,7 @@ Serial jobs
       >> % Delete the job after results are no longer needed
       >> j.delete
 
-#. Another example using a MATLAB script and that support GPU.
+#. Another example using a MATLAB script that supports GPU.
 
    .. literalinclude:: src/gpu_script.m
       :language: matlab

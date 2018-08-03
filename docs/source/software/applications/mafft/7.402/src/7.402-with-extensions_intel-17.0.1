@@ -1,0 +1,34 @@
+#%Module1.0####################################################################
+##
+## module load mafft/7.402-with-extensions_intel-17.0.1
+##
+## /share/apps/modules/mafft/7.402-with-extensions_intel-17.0.1
+## Written by Manuela Carrasco Pinzon
+##
+
+proc ModulesHelp {} {
+     global version modroot
+     puts stderr "Sets the environment for using mafft 7.402-with-extensions\
+		  \nin the shared directory /share/apps/mafft/7.402-with-extensions/intel-17.0.1/\
+		  \nbuilded with Intel Parallel Studio XE Cluster Edition 2017 Update 1."
+}
+
+module-whatis "(Name________) mafft"
+module-whatis "(Version_____) 7.402-with-extensions"
+module-whatis "(Compilers___) intel-17.0.1"
+module-whatis "(System______) x86_64-redhat-linux"
+module-whatis "(Libraries___) "
+
+# for Tcl script use only
+set         topdir        /share/apps/mafft/7.402-with-extensions/intel-17.0.1
+set         version       7.402-with-extensions
+set         sys           x86_64-redhat-linux
+
+conflict mafft
+module load intel/2017_update-1
+ 
+
+prepend-path	PATH			$topdir/bin
+prepend-path	PATH			$topdir/libexec
+
+prepend-path	MANPATH			$topdir/share/man

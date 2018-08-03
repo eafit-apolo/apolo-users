@@ -340,7 +340,7 @@ Serial jobs
       :language: matlab
       :caption: :download:`parsim_test_script.m <src/parsim_test_script.m>`
 
-   :download:`parsim_test.slx (Simulink project) <src/parsim_test.slx>`
+   :download:`parsim_test.slx (Simulink model) <src/parsim_test.slx>`
 
    - Job submission
 

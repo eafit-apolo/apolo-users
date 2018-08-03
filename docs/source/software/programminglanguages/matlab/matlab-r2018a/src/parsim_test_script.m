@@ -11,8 +11,8 @@ cd /home/mgomezzul/tests/matlab/slurm
 % for each simulation. The variable |x| is the input variable in the Simulink
 % model.
 for x = 1:numSims
-	  simIn(x) = Simulink.SimulationInput('parsim_test');
-simIn(x) = setBlockParameter(simIn(x), 'parsim_test/Transfer Fcn', 'Denominator', num2str(x));
+  simIn(x) = Simulink.SimulationInput('parsim_test');
+  simIn(x) = setBlockParameter(simIn(x), 'parsim_test/Transfer Fcn', 'Denominator', num2str(x));
 end
 
 % Running the simulations.
@@ -20,7 +20,7 @@ simOut = parsim(simIn);
 
 % The variable |y| is the output variable in the Simulink model.
 for x = 1:numSims
-	  W(1,x)= max(simOut(x).get('y'));
+  W(1,x) = max(simOut(x).get('y'));
 end
 
 save('/home/mgomezzul/output_file.mat','W');

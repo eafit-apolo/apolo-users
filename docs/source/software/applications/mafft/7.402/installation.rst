@@ -55,7 +55,9 @@ Installation
    
 #. Change the PREFIX (line 1) with the path where you want the program and change the compiler (line 18) and its flags.
    
-   :download:`Makefile <src/mafft-Makefile>`
+   :download:`Makefile (Apolo II Intel 17.0.1) <src/apolo-mafft-Makefile>`
+
+   :download:`Makefile (Cronos Intel 18.0.2) <src/cronos-mafft-Makefile>`
 
    From:
 

@@ -1,0 +1,28 @@
+#%Module1.0####################################################################
+##
+## module load matlab/r2018a
+##
+## /share/apps/modules/matlab/r2018a
+## Written by Mateo Gómez Zuluaga
+##
+   
+proc ModulesHelp {} {
+     global version modroot
+     puts stderr "Sets the environment for using Matlab R2018a\
+                  \nin the shared directory /share/apps/matlab/r2018a."
+}
+   
+module-whatis "(Name________) matlab"
+module-whatis "(Version_____) r2018a"
+module-whatis "(Compilers___) "
+module-whatis "(System______) x86_64-redhat-linux"
+module-whatis "(Libraries___) "
+   
+# for Tcl script use only
+set         topdir        /share/apps/matlab/r2018a
+set         version       r2018a
+set         sys           x86_64-redhat-linux
+   
+conflict matlab
+     
+prepend-path              PATH        $topdir/bin

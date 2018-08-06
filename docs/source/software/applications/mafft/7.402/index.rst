@@ -27,6 +27,10 @@ This entry covers the entire process performed for the installation and configur
 Usage
 -----
 
+For using Mafft with a command line would be with this form :bash:`mafft [arguments] input > output` . But in this case, we will show how it works with `SLURM <https://www.schedmd.com/>`_.
+
+
+
 Authors
 -------
 

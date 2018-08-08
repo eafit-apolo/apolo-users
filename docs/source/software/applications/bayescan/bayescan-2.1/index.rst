@@ -30,19 +30,19 @@ Installation
 		   
 #. Modifie the ``Makefile`` inorder to use *icpc* ``Intel Compiler``, instead of *g++*.
 
-.. literalinclude:: scr/Makefile
-   :language: bash
-   :caption: :download:`Makefile <scr/Makefile>`
+   .. literalinclude:: src/Makefile
+      :language: bash
+      :caption: :download:`Makefile <src/Makefile>`
 
+	     
 #. Compile **BayeScan**
 
    .. code-block:: bash
 		
-      make -j4  
+      make
 
    .. note::
-      Remember to load in your current environment the newest version of ``Intel Compiler``.
-      In this case, is important to use an ``Intel Compiler`` with ``OpenMP`` suport. For example, we do this in Apolo:
+          You must load in your current environment a version of ``Intel Compiler`` with ``OpenMP``              suport. In the case of Apolo:
 
       .. code-block:: bash
  
@@ -67,9 +67,9 @@ Usage
 Module file
 -----------
 
-.. literalinclude:: scr/2.1
+.. literalinclude:: src/2.1
    :language: tcl
-   :caption: :download:`Module file <scr/2.1>`
+   :caption: :download:`Module file <src/2.1>`
 
 	  
 Authors

@@ -6,29 +6,24 @@
 .. sidebar:: Contents
 
    .. contents::
+      :depth: 2
       :local:
 
 Tested on (Requirements)
 ------------------------
 
 - **OS base:** CentOS (x86_64) :math:`\boldsymbol{\ge}` 6.6
-- **Compiler:** Intel Parallel Studio XE Compiler
+- **Compiler:** Intel Parallel Studio XE Compiler Cluster Edition :math:`\boldsymbol{\ge}` 17.0.1.
 - **Optional extensions:**
 
-  * Mxscarna_ (Included in the mafft-7.402-with-extensions-src.tgz package)
-
-    .. _Mxscarna: <https://www.ncrna.org/softwares/mxscarna/>
+  * `Mxscarna <https://www.ncrna.org/softwares/mxscarna/>`_ (Included in the mafft-7.402-with-extensions-src.tgz package)
     
-  * Foldalign_ :math:`\boldsymbol{\ge}` 2.5.1
-    
-  .. _Foldalign: <https://rth.dk/resources/foldalign/>
+  * `Foldalign <https://rth.dk/resources/foldalign/>`_ :math:`\boldsymbol{\ge}` 2.5.1
   
-  * Contrafold_ :math:`\boldsymbol{\ge}` 2.02
+  * `Contrafold <http://contra.stanford.edu/contrafold/>`_ :math:`\boldsymbol{\ge}` 2.02
 
-  .. _Contrafold: <http://contra.stanford.edu/contrafold/>
-
-Installation
-------------
+Build process
+-------------
 
 .. note::
 
@@ -41,10 +36,10 @@ Installation
 
 #. Download the package and decompress it.
    
-.. code-block:: bash
+   .. code-block:: bash
 
-   $ wget https://mafft.cbrc.jp/alignment/software/mafft-7.402-with-extensions-src.tgz
-   $ tar xfvz mafft-7.402-with-extensions-src.tgz
+      wget https://mafft.cbrc.jp/alignment/software/mafft-7.402-with-extensions-src.tgz
+      tar xfvz mafft-7.402-with-extensions-src.tgz
 
 #. Enter in core directory and open the Makefile wit the editor of your choice.
    
@@ -215,7 +210,7 @@ When you try to compile contrafold, it prints:
    LBFGS.ipp:110:33: nota: use ‘this->DoLineSearch’ en su lugar
    make: *** [Makefile:47: Contrafold.o] Error 1
 
-Or maybe smoething similar about a compilation error, it appears because in Utilities.hpp is missing an include.
+Or something similar about a compilation error, it appears because in Utilities.hpp is missing an include.
 
 #. Open Utilities.hpp and add the limits.h library.
    
@@ -239,16 +234,18 @@ Or maybe smoething similar about a compilation error, it appears because in Util
       make intelmulti
 
 Module Files
-^^^^^^^^^^^^
-**Apolo II**
+------------
+Apolo II
+^^^^^^^^
 
 .. literalinclude:: src/7.402-with-extensions_intel-17.0.1
    :language: tcl
-   :caption: :download:`Apolo module file <src/7.402-with-extensions_intel-17.0.1>`
+   :caption: :download:`7.402-with-extensions_intel-17.0.1 <src/7.402-with-extensions_intel-17.0.1>`
 
-**Cronos**
+Cronos
+^^^^^^
 
 .. literalinclude:: src/7.402-with-extensions_intel-18.0.2
    :language: tcl
-   :caption: :download:`Cronos module file <src/7.402-with-extensions_intel-18.0.2>`
+   :caption: :download:`7.402-with-extensions_intel-18.0.2 <src/7.402-with-extensions_intel-18.0.2>`
 

@@ -10,9 +10,15 @@ Matlab, R, etc. [1]
 
 Warning
 -------
-The current Apolo implementation only offers chekpointing support to serial and
+The current Apolo implementation only offers checkpointing support to serial and
 parallel programs. It isn't compatible with distributed programs like those
 based on MPI.
+
+.. toctree::
+   :caption: Versions
+   :maxdepth: 1
+
+   dmtcp-2.5.2/index
 
 
 .. [1] DMTCP: Distributed MultiThreaded CheckPointing. (n.d.).

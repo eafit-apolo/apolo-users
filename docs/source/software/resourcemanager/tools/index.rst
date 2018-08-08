@@ -1,12 +1,12 @@
 .. _systemtools-index:
 
-System Tools
+Tools
 ============
 
-In this section we present the current system tools required for Apolo's operation.
+In this section we present the current tools available for its use with SLURM.
 
 
-.. toctree:
+.. toctree::
    :maxdepth: 1
 
    dmtcp/index

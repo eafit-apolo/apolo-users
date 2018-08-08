@@ -51,12 +51,12 @@ elements to get a good performance.
       It is really important to understand how the *HYBRID* version works, since
       this is the only available version for HPC scenarios. Additionally, 
       understanding the behavior of the *HYBRID* version is the key to properly 
-      use the computational resources and achieve better perfomance.
+      use the computational resources and achieve better performance.
 
 #. In the following example we will run 100 bootstrap replicates 
    (MPI parallelization) and independent tree searches 
    (PThreads - shared memory) for each bootstrap replicate, all of this using 
-   SLURM (Resource Manager) to spawn properly the processes accross the 
+   SLURM (Resource Manager) to spawn properly the processes across the
    nodes.
 
 

@@ -1,7 +1,5 @@
 .. _raxml-8.2.12-installation:
 
-.. highlight:: rst
-
 .. role:: bash(code)
     :language: bash
 

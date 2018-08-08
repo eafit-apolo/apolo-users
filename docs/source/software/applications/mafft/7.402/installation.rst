@@ -238,8 +238,17 @@ Or maybe smoething similar about a compilation error, it appears because in Util
 
       make intelmulti
 
-Module
-^^^^^^
+Module Files
+^^^^^^^^^^^^
+**Apolo II**
+
 .. literalinclude:: src/7.402-with-extensions_intel-17.0.1
    :language: tcl
-   :caption: :download:`Module file <src/7.402-with-extensions_intel-17.0.1>`
+   :caption: :download:`Apolo module file <src/7.402-with-extensions_intel-17.0.1>`
+
+**Cronos**
+
+.. literalinclude:: src/7.402-with-extensions_intel-18.0.2
+   :language: tcl
+   :caption: :download:`Cronos module file <src/7.402-with-extensions_intel-18.0.2>`
+

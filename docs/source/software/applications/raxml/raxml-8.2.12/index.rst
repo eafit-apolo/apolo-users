@@ -69,9 +69,9 @@ elements to get a good performance.
 
       Node quick specs (Apolo II): 32 Cores, 64 GB RAM
 
-        - *--ntasks-per-node* :raw-html:`&rarr;` MPI process per node      
-        - *--cpus-per-task* :raw-html:`&rarr;` PThreads per MPI process
-        - *--nodes* :raw-html:`&rarr;` Number of nodes
+        - *- -ntasks-per-node* :raw-html:`&rarr;` MPI process per node      
+        - *- -cpus-per-task* :raw-html:`&rarr;` PThreads per MPI process
+        - *- -nodes* :raw-html:`&rarr;` Number of nodes
 
       In this case, we will use 2 MPI process per node and each MPI process has 
       16 PThreads; for a total of 32 processes per node. 

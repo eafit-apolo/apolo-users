@@ -97,7 +97,14 @@ and would typically follow the conventions shown below:
       bk2.example.com
       
 It is impotant to highlight that there are two default groups: :bash:`all` and
-:bash:`ungrouped`.
+:bash:`ungrouped`, which, unlike any other group, belong :
+
+#. Hierarchically, all groups and hosts are members of :bash:`all`.
+
+#. Hosts with no group other than all belong to :bash:`ungrouped`. Therefore, hosts
+will be members of at least two groups.
+
+
 
 Authors
 ---------------------

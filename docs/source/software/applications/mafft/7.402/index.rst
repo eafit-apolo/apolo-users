@@ -12,9 +12,16 @@ MAFFT-7.402
 Basic Information
 -----------------
 
-- **Deploy date:** 27 July 2018
+- **Deploy date:** 27 July 2018.
 - **Official Website:** https://mafft.cbrc.jp/alignment/software/
-- **License:** 
+- **License:** BSD License.
+  
+  - **Extensions:**
+    
+    - **Mxcarna:** BSD License (For more information check README file in :bash:`mafft-7.402-with-extensions/extensions/mxscarna_src/`.
+    - **Foldalign:** GNU GPL-2.
+    - **Contrafold:** BSD License.
+      
 - **Installed on:** :ref:`Apolo II <about_apolo-ii>`, 
   :ref:`Cronos <about_cronos>`
 

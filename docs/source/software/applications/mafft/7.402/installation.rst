@@ -32,23 +32,19 @@ Build process
    
    * In :ref:`Cronos <about_cronos>` was used the Intel Compiler 18.0.2.
      :bash:`module load intel/18.0.2`
-   
 
-#. Download the package and decompress it.
+This entry described the installation process of MAFFT with extensions.
+	   
+#. Get the Mafft wit extensions package.
    
    .. code-block:: bash
 
       wget https://mafft.cbrc.jp/alignment/software/mafft-7.402-with-extensions-src.tgz
       tar xfvz mafft-7.402-with-extensions-src.tgz
-
-#. Enter in core directory and open the Makefile wit the editor of your choice.
    
-   .. code-block:: bash
-
-      cd mafft-7.402-with-extensions/core
-      emacs -nw Makefile
+#. Edit Mafft's Makefile with the following lines.
    
-#. Change the PREFIX (line 1) with the path where you want the program and change the compiler (line 18) and its flags.
+   :bash:`mafft-7.402-with-extensions/core/Makefile`
    
    :download:`Makefile (Apolo II Intel 17.0.1) <src/apolo-mafft-Makefile>`
 
@@ -58,21 +54,25 @@ Build process
 
    .. code-block:: bash
    
-      PREFIX = /usr/local   
+      PREFIX = /usr/local
+      ...
       CC = gcc
       #CC = icc
       CFLAGS = -03
+      ...
    To:
 
    .. code-block:: bash
 		   
       PREFIX = /your/path
+      ...
       #CC = gcc
       CC = icc
       CFLAGS = -03 -fast
+      ...
 
 
-#. Load the intel compiler, compile it and install.
+#. Load the necessary enviroment and build it.
 
    .. code-block:: bash
 
@@ -84,28 +84,39 @@ Build process
 Extensions
 ^^^^^^^^^^
 
+This entry described the extension's installation process.
+
 Mxscarna
 ........
 
-#. Edit the make file with the compiler of your choice.
+MXSCARNA [1]_. (Multiplex Stem Candidate Aligner for RNAs) is a multiple alignment tool for RNA sequences using progressive alignment based on pairwise structural alignment algorithm of SCARNA. This software is fast enough for large scale analyses, while the accuracies of the alignments are better than or comparable with the existing algorithms which are computationally much more expensive in time and memory.
+
+
+#. Edit the Mxcarna's Makefile whith the following lines.
+
+   :bash:`mafft-7.402-with-extensions/extensions/mxscarna_src/Makefile`
 
    :download:`Makefile <src/mxscarna-Makefile>`
 
-   :bash:`mafft-7.402-with-extensions/extensions/mxscarna_src/Makefile`
 
    From:
    
    .. code-block:: bash
-      
-      CXX = g++
-   To:
 
+      ...      
+      CXX = g++
+      ...
+      
+   To:
+   
    .. code-block:: bash
 
+      ...
       CXX = icpc
+      ...
 
 
-#. Compile and install.
+#. Load the necessary environment and build it.
 
    .. code-block:: bash
 
@@ -119,35 +130,41 @@ Mxscarna
 Foldalign
 .........
 
-#. Download and copy in the extensions directory the foldalign package.
+FOLDALIGN [2]_. an algorithm for local or global simultaneous folding and aligning two or more RNA sequences and is based on the Sankoffs algorithm (SIAM J. Appl. Math., 45:810-825, 1985). Foldalign can make pairwise local or global alignments and structure predictions. FoldalignM makes a multiple global alignment and structure prediction.
+
+
+
+#. Get the Foldalign package and move it to the Mafft extension's directory.
 
    .. code-block:: bash
 
       wget https://rth.dk/resources/foldalign/software/foldalign.2.5.1.tgz
       tar xfvz foldalign.2.5.1.tgz
       cp foldalign mafft-7.402-with-extensions/extensions/
+      cd mafft-7.402-with-extensions/extensions/foldalign
 
-#. Change the compiler on the makefile (line 113).
+#. Edit Foldalign's Makefile with the following lines.
+
+   :bash:`mafft-7.402-with-extensions/src/mafft-7.402-with-extensions/extensions/foldalign/Makefile`
    
    :download:`Makefile <src/foldalign-Makefile>`
 
-   :bash:`mafft-7.402-with-extensions/src/mafft-7.402-with-extensions/extensions/foldalign/Makefile`
+   from:
 
-   .. code-block:: bash
+      .. code-block:: c++
 
-      emacs -nw Makefile
-from:
+	 ...
+	 cc = g++
+	 ...
+   To:
 
-   .. code-block:: c++
+      .. code-block:: c++
 
-      cc = g++
-To:
+	 ...
+	 cc = icpc
+	 ...
 
-   .. code-block:: c++
-
-      cc = icpc
-
-#. Compile and change permissions.
+#. Load the necessary environment and build it.
 
    .. code-block:: bash
 
@@ -160,15 +177,18 @@ To:
 Contrafold
 ..........
 
-#. Download and copy in the extensions directory the contrafold package.
+CONTRAfold [3]_. is a novel secondary structure prediction method based on conditional log-linear models (CLLMs), a flexible class of probabilistic models which generalize upon SCFGs by using discriminative training and feature-rich scoring. By incorporating most of the features found in typical thermodynamic models, CONTRAfold achieves the highest single sequence prediction accuracies to date, outperforming currently available probabilistic and physics-based techniques. 
+
+#. Get the Contrafold package and move it to Mafft extension's directory.
 
    .. code-block:: bash
 
       wget http://contra.stanford.edu/contrafold/contrafold_v2_02.tar.gz
       tar xfvz contrafold_v2_02
       cp  contrafold_v2_02/contrafold mafft-7.402-with-extensions/extensions/
+      cd mafft-7.402-with-extensions/extensions
 
-#. Compile and change permissions.
+#. load the necessary environment and build it.
 
    .. code-block:: bash
 
@@ -212,26 +232,33 @@ When you try to compile contrafold, it prints:
 
 Or something similar about a compilation error, it appears because in Utilities.hpp is missing an include.
 
-#. Open Utilities.hpp and add the limits.h library.
+#. Edit Utilities.hpp and add the *limits.h* library.
+
+   :bash:`mafft-7.402-with-extensions/extensions/contrafold/src/Utilities.hpp`
    
    :download:`Utilities.hpp <src/Utilities.hpp>`
 
-   .. code-block:: bash
+   from:
 
-      emacs -nw Utilities.hpp
+      .. code-block:: c++
 
-   .. code-block:: c++
-
-      #define UTILITIES_HPP
+	 #define UTILITIES_HPP
       
-      #include <limits.h> // The library to add
-      #include <algorithm>
+	 #include <algorithm>
+	 ...
 
-#. Then compile again.
+   To:
 
-   .. code-block:: bash
+      .. code-block:: c++
 
-      make intelmulti
+	 #define UTILITIES_HPP
+      
+	 #include <limits.h>
+	 #include <algorithm>
+	 ...
+
+#. Repeat step 2.
+
 
 Module Files
 ------------
@@ -249,3 +276,8 @@ Cronos
    :language: tcl
    :caption: :download:`7.402-with-extensions_intel-18.0.2 <src/7.402-with-extensions_intel-18.0.2>`
 
+.. [1] MXSCARNA. (n.d.). Retrieved August 10, 2018, from https://www.ncrna.org/softwares/mxscarna/
+
+.. [2] Foldalign: RNA Structure and Sequence Alignment. (n.d.). From https://rth.dk/resources/foldalign/
+
+.. [3] Do, C., & Marina, S. (n.d.). Contrafold: CONditional TRAining for RNA Secondary Structure Prediction. From http://contra.stanford.edu/contrafold/

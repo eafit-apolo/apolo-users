@@ -1,6 +1,6 @@
 .. _gettingstarted-index:
 
-First Steps
+Getting Started
 ###############
 
 To compute in Apolo it is necessary to take into account several considerations. In this section you will find which are

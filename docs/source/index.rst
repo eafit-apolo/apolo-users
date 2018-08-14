@@ -16,22 +16,8 @@ Apolo is the scientific computing center at Universidad EAFIT,
 Medellín, Colombia.
 
 .. toctree::
-   :maxdepth: 1
-   :caption: Getting started
+   :maxdepth: 2
 
    gettingstarted/index
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Supercomputers
-
-   supercomputers/apolo-i/index
-   supercomputers/apolo-ii/index
-   supercomputers/cronos/index
-   
-.. toctree::
-   :maxdepth: 1
-   :caption: Software
-
-   software/programminglanguages/index
-   software/applications/index
+   supercomputers/index
+   software/index

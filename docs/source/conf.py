@@ -201,3 +201,7 @@ epub_copyright = copyright
 epub_exclude_files = ['search.html']
 
 
+# -- Options for the linkcheck builder ------------------------------------
+
+# See Issue #10.
+linkcheck_ignore = [r'https://leto.eafit.edu.co']

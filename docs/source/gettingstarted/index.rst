@@ -3,8 +3,8 @@
 First Steps
 ###############
 
-To compute in Apolo it is necessary to take into account several considerations. In this section you will find which are
-the minimum conditions to be able to compute on the clusters of the center and what is the procedure to do it.
+To compute in Apolo it is necessary to take into account several considerations. In this section you will find 
+the minimum conditions you must meet to be able to compute on the clusters of the center and what is the procedure to do it.
 
 How to apply for computing time on Apolo
 ========================================

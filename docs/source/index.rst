@@ -35,3 +35,4 @@ Medellín, Colombia.
 
    software/programminglanguages/index
    software/applications/index
+   software/monitoring/index

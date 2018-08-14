@@ -1,11 +1,9 @@
 .. _bayescan-2.1-index:
 
-.. highlight:: rst
+.. role:: raw-html(raw)
+    :format: html
 
-.. role:: bash(code)
-    :language: bash
-
-BayeScan-2.1
+BayeScan - 2.1
 ===============
 
 Basic information
@@ -16,46 +14,19 @@ Basic information
 - **License:** GNU General Public License
 - **Installed on:** :ref:`Apolo II <about_apolo-ii>`,
   :ref:`Cronos <about_cronos>`
-
+- **Available versions:** OpenMP
 
 Installation
 ------------
-#. Get the current **BayeScan** version from the Official Page and get into source directory.
-   
-   .. code-block:: bash
-		
-      wget http://cmpg.unibe.ch/software/BayeScan/files/BayeScan2.1.zip
-      upzip BayesScan2.1.zip
-      cd BayeScan/source
-		   
-#. Modifie the ``Makefile`` inorder to use *icpc* ``Intel Compiler``, instead of *g++*.
 
-   .. literalinclude:: src/Makefile
-      :language: bash
-      :caption: :download:`Makefile <src/Makefile>`
+This entry covers the entire process performed in the installation
+and test of **BayeScan** on a cluster with the conditions described below.
 
-	     
-#. Compile **BayeScan**
+.. toctree::
+   :maxdepth: 1
 
-   .. code-block:: bash
-		
-      make
-
-   .. note::
-          You must load in your current environment a version of ``Intel Compiler`` with ``OpenMP``              suport. In the case of Apolo:
-
-      .. code-block:: bash
- 
-	  module load intel/2017_update-1
-
-#. Finally, create the installation directory and move the produced executable
-	     
-    .. code-block:: bash
-		
-        mkdir -p /share/apps/bayescan/2.1_intel-2017_update-1/bin     
-        mv bayescan_2.1 /share/apps/bayescan/2.1_intel-2017_update-1/bin/bayescan
-
-	
+   installation	      
+      	
 Usage
 -----
 
@@ -64,13 +35,8 @@ Usage
    module load bayescan
    bayescan -h
 
-Module file
------------
-
-.. literalinclude:: src/2.1
-   :language: tcl
-   :caption: :download:`Module file <src/2.1>`
-
+Performance Tests
+-----------------   
 	  
 Authors
 -------

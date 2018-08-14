@@ -152,8 +152,8 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'apolo-docs.tex', u'apolo-docs Documentation',
-     u'Juan David Pineda-Cárdenas', 'manual'),
+    (master_doc, 'apolo-docs.tex', u'Apolo Scientific Computing Center’s Documentation',
+     u'The Apolo Team', 'manual'),
 ]
 
 

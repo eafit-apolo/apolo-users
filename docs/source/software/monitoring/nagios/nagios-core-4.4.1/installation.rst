@@ -6,6 +6,7 @@
    :language: ini
 
 .. sectnum::
+   :suffix: )
 
 .. sidebar:: Contents
    
@@ -21,7 +22,7 @@ Tested on (Requirements)
 * **Extra Libraries:**
 
   * PyCrypto :math:`\boldsymbol{\gt}` 2.6.1
-
+    
  .. note::
 
   It is important to install Ansible from the EPEL repository... Explain HERE why ansible vault fails...

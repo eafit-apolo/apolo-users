@@ -11,39 +11,41 @@
 
 Tested on (Requirements)
 ------------------------
-
 * **OS base:** CentOS (x86_64) :math:`\boldsymbol{\ge}` 6.6
 * **Scheduler:** SLURM :math:`\boldsymbol{\ge}` 16.05.6
+* **Compiler:** GNU GCC :math:`\boldsymbol{\ge}` 4.4.7-11
 
 
 Build process
 -------------
-
 This entry describes the installation process of DMTCP.
 
-1. Get DMTCP latest version from its sourceforge page
+#. Get DMTCP latest version from its sourceforge page 
+   (`page <https://sourceforge.net/projects/dmtcp/files/2.5.2/dmtcp-2.5.2.tar.gz/download>`_)
 
-2. Send the installation package to the master node on your cluster.
+#. Send the installation package to the master node on your cluster.
 
    .. code-block:: bash
 
-      scp dmtcp-2.5.1.tar.bz2 root@<FQDN>:$installer_path$
+      scp dmtcp-2.5.2.tar.gz <usename>t@<FQDN>:$installer_path$
 
-3. Unzip and access the installer files.
+#. Unzip and access the installer files.
 
    .. code-block:: bash
 
       ssh -X root@<FQDN>
       cd $installer_path$
-      unzip dmtcp-2.5.1.tar.bz2
+      tar xf dmtcp-2.5.2.tar.gz
 
-4. Create the installation directory.
+#. Create the installation directory and change its owner to user that it is 
+   doing this process.
 
    .. code-block:: bash
 
       mkdir -p /share/apps/dmtcp/2.5.2
+      chown <username>.<user group> /share/apps/dmtcp/2.5.2
 
-5. Go to dmtcp path and build it with the acording flags presented here.
+#. Go to DMTCP path and build it with the acording flags presented here.
 
    .. code-block:: bash
 
@@ -55,7 +57,8 @@ This entry describes the installation process of DMTCP.
       --enable-pthread-mutex-wrappers
       make && make install
 
-6. After it finishes install the X32 compatibility following these commands.
+#. After this process, repeat the configure process to install the (**32 Bits**) 
+   compatibility following these commands.
 
    .. code-block:: bash
 
@@ -69,6 +72,11 @@ This entry describes the installation process of DMTCP.
       make clean
       make && make install
 
+#. Change the owner of the installation directory to finish this process.
+
+   .. code-block:: bash
+
+            chown root.root /share/apps/dmtcp/2.5.2
 Module file
 -----------
 

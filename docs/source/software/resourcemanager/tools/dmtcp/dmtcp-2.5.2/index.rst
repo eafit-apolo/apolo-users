@@ -9,9 +9,12 @@ DMTCP-2.5.2
 Basic Information
 -----------------
 
-- **Deploy date:** 3 August 2018
+- **Deploy date:** 3 August 2018.
 - **Official Website:** http://dmtcp.sourceforge.net/
-- **Instaled on:** :ref:`Cronos <about_cronos>`
+- **License:** `Lesser GNU Public License (LGPL) 
+  <https://www.gnu.org/licenses/lgpl.html>`_
+- **Installed on:** :ref:`Cronos <about_cronos>`
+- **Supported versions:** Serial, parallel jobs
 
 Installation
 ------------

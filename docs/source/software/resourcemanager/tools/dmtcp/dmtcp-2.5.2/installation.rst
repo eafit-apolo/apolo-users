@@ -76,7 +76,8 @@ This entry describes the installation process of DMTCP.
 
    .. code-block:: bash
 
-            chown root.root /share/apps/dmtcp/2.5.2
+      chown root.root /share/apps/dmtcp/2.5.2
+
 Module file
 -----------
 

@@ -33,7 +33,10 @@ Usage
 This subsection describes a method to submit jobs to the cluster and restarting
 them using DMTCP's checkpointing services.
 
-For both types of jobs, in the SLURM launch script, load the necessary environment including DMTCP's module. After that, source the coordinator bash script in order to use the start_coordinator function. Remember to assing a checkpointing interval in seconds with the -i flag.
+For both types of jobs, in the SLURM launch script, load the necessary 
+environment including DMTCP's module. After that, source the coordinator bash 
+script in order to use the start_coordinator function. Remember to assing a 
+checkpointing interval in seconds with the -i flag.
 
 For serial software
 ...................
@@ -44,12 +47,13 @@ For serial software
 
 .. literalinclude:: src/examples_dmtcp/serial_example/dmtcp-restart.sh
    :language: bash
-   :caption: :download:`Launch script example <src/examples_dmtcp/restart_example/dmtcp-restart.sh>`
+   :caption: :download:`Launch script example <src/examples_dmtcp/serial_example/dmtcp-restart.sh>`
 	     
 For parallel software
-...................
+.....................
 
-In this example we run an OpenMP application. Notice that in the restart script we don't assign again the OMP_NUM_THREADS variable again.
+In this example we run an OpenMP application. Notice that in the restart script 
+we don't assign again the OMP_NUM_THREADS variable again.
 
 .. literalinclude:: src/examples_dmtcp/parallel_example/dmtcp-launch.sh
    :language: bash
@@ -61,4 +65,5 @@ In this example we run an OpenMP application. Notice that in the restart script 
 
 Authors
 -------
+
 - Sebastian Patiño Barrientos <spatino6@eafit.edu.co>

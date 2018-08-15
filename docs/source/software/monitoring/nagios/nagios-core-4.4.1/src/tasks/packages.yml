@@ -1,0 +1,81 @@
+---
+- name: System Packages
+  yum:
+    name: "{{ item }}"
+    state: present
+    update_cache: yes
+  with_items:
+    - python-passlib #Dependency for htpasswd ansible module
+    - python2-pip    #PIP Installs OMSDK required for Dell plugin
+    - libselinux-python          #SELinux Ansible module dependency
+    - policycoreutils-python     #SELinux Ansible module dependency
+
+- name: NAGIOS Dependencies
+  yum:
+    name: "{{ item }}"
+    state: present
+    update_cache: yes
+  with_items:
+    - httpd
+    - php
+    - glibc
+    - gcc
+    - glibc-common
+    - gd
+    - gd-devel
+    - make
+    - net-snmp
+    - "@development"
+  tags: centos-7,nagios,packages
+
+- name: IPMI_Sensor Monitoring Plugin Dependencies
+  yum:
+    name: "{{ item }}"
+    enablerepo: base
+    state: present
+    update_cache: yes
+  with_items:
+    - freeipmi
+    - perl
+    - perl-IPC-Run
+
+- name: Dependencies for iLO REST Plugin
+  yum:
+    name: "{{ item }}"
+    state: present
+    update_cache: yes
+  with_items:
+    - curl
+    - libcurl
+    - libcurl-devel
+    - nmap
+    - libtdb-devel
+    - python
+
+- name: Dependencies for Dell OME Plugin
+  yum:
+    name: "{{ item }}"
+    state: present
+    update_cache: yes
+  with_items:
+    - perl-Sys-Syslog     # SNMPTT Dependency
+    - perl-Net-IP
+    - perl-Net-SNMP
+    - libwsman1
+    - openwsman-perl
+    - perl-Socket6
+    - snmptt
+    - net-snmp-perl
+    - srvadmin-idrac7
+    - java-1.8.0-openjdk 
+    - java-1.8.0-openjdk-devel
+    - python-netaddr
+
+- name: Python dependency for Dell OME Plugin
+  pip:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - omsdk
+    - omdrivers
+    - argparse

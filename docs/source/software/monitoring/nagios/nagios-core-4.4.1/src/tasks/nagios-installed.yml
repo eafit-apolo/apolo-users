@@ -1,0 +1,5 @@
+---
+- name: Check if NAGIOS is installed
+  stat:
+    path: /usr/local/nagios
+  register: nagios_installed

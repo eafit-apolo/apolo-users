@@ -31,6 +31,7 @@ Plugins
 .. toctree::
    :maxdepth: 1
 
+   plugins/nagios-plugins
    plugins/ipmi-sensors
    plugins/dell-emc-openmanage
    plugins/ilo-rest

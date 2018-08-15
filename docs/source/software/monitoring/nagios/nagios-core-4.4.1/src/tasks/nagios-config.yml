@@ -1,0 +1,45 @@
+---
+- name: Syncronize Nagios config files
+  copy:     
+    src: "{{ item }}"
+    dest: "/{{ item }}"
+  with_items:
+    - usr/local/nagios/etc/objects/contacts.cfg
+    - usr/local/nagios/etc/objects/localhost.cfg
+    - usr/local/nagios/etc/objects/commands.cfg
+    - usr/local/nagios/etc/nagios.cfg
+    - usr/local/nagios/etc/objects/common.cfg
+    - usr/local/nagios/etc/objects/timeperiods.cfg
+    - usr/local/nagios/etc/objects/common_services.cfg
+  notify:
+    - nagios_restart
+
+- name: Assing password for the Web GUI user nagiosadmin
+  htpasswd: 
+    path: /usr/local/nagios/etc/htpasswd.users
+    name: nagiosadmin
+    password: "{{ nagios_admin_passwd }}"
+    crypt_scheme: ldap_sha1
+  notify:
+    - nagios_restart
+
+- name: Assures existence of ipmi-config Directory
+  file:
+    path: /etc/ipmi-config/
+    state: directory
+
+- name: Syncronize IPMI configuration
+  template:
+    src: etc/ipmi-config/ipmi.cfg.j2
+    dest: /etc/ipmi-config/ipmi.cfg
+    owner: root
+    group: nagcmd
+    mode: 0640
+  notify:
+    - nagios_restart
+
+- name: Allow apache to modify nagios command file
+  sefcontext:
+    target: '/usr/local/nagios/var/rw/'
+    setype: httpd_sys_rw_content_t
+    state: present

@@ -1,4 +1,4 @@
-.. _dell-emc-openmanage-plugin-index:
+.. _dell-nagios-plugin-index:
 
 Dell EMC OpenManage - Nagios Plugin
 ===================================

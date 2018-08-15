@@ -9,9 +9,10 @@ user code or to the O/S. It works on most Linux applications, including Python,
 Matlab, R, etc. [1]_
 
 .. Warning::
-   The current Apolo implementation only offers checkpointing support to serial and
-   parallel programs. It isn't compatible with distributed programs like those
-   based on MPI.
+
+   The current Apolo implementation only offers checkpointing support to serial 
+   and parallel programs. It isn't compatible with distributed programs like 
+   those based on MPI.
 
 .. toctree::
    :caption: Versions

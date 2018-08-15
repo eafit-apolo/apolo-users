@@ -33,31 +33,28 @@ Usage
 This subsection describes a method to submit jobs to the cluster and restarting
 them using DMTCP's checkpointing services.
 
-1. Load the necessary environment.
+For both types of jobs, in the SLURM launch script, load the necessary environment including DMTCP's module. After that, source the coordinator bash script in order to use the start_coordinator function. Remember to assing a checkpointing interval in seconds with the -i flag.
 
-   .. code-block:: bash
+For serial software
+...................
 
-      module load dmtcp/2.5.2
+.. literalinclude:: src/examples_dmtcp/serial_example/dmtcp-launch.sh
+   :language: bash
+   :caption: :download:`Launch script example <src/examples_dmtcp/serial_example/dmtcp-launch.sh>`
 
-2. Run the SLURM script.
+.. literalinclude:: src/examples_dmtcp/serial_example/dmtcp-restart.sh
+   :language: bash
+   :caption: :download:`Launch script example <src/examples_dmtcp/restart_example/dmtcp-restart.sh>`
+	     
+For parallel software
+...................
 
-   .. code-block:: bash
+In this example we run an OpenMP application. Notice that in the restart script we don't assign again the OMP_NUM_THREADS variable again.
 
-      #!/bin/bash
-      #SBATCH --partition=longjobs
-      #SBATCH --nodes=1
-      #SBATCH --ntasks-per-node=32
-      #SBATCH --time=00:10:00
-      #SBATCH --job-name=test
-      #SBATCH -o result_%N_%j.out      # File to which STDOUT will be written
-      #SBATCH -e result_%N_%j.err      # File to which STDERR will be written
-      #SBATCH --mail-type=ALL   
-      #SBATCH --mail-user=test@example.com
+.. literalinclude:: src/examples_dmtcp/parallel_example/dmtcp-restart.sh
+   :language: bash
+   :caption: :download:`Launch script example <src/examples_dmtcp/parallel_example/dmtcp-restart.sh>`
 
-      export OMP_NUM_THREADS=1
-      
-      dmtcp_launch --rm ./test <test_args>
-      
 Authors
 -------
 - Sebastian Patiño Barrientos <spatino6@eafit.edu.co>

@@ -51,6 +51,10 @@ For parallel software
 
 In this example we run an OpenMP application. Notice that in the restart script we don't assign again the OMP_NUM_THREADS variable again.
 
+.. literalinclude:: src/examples_dmtcp/parallel_example/dmtcp-launch.sh
+   :language: bash
+   :caption: :download:`Launch script example <src/examples_dmtcp/parallel_example/dmtcp-launch.sh>`
+
 .. literalinclude:: src/examples_dmtcp/parallel_example/dmtcp-restart.sh
    :language: bash
    :caption: :download:`Launch script example <src/examples_dmtcp/parallel_example/dmtcp-restart.sh>`

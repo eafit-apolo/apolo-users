@@ -34,6 +34,9 @@ and would typically follow the conventions shown below:
       host1.example.com
       host2.example.com
 
+   .. figure:: src/images/inventory_example-1/inventory_example-1.png
+      :alt: lbservers' components
+
 #. Using the suffix :bash:`:children` within a group definition indicates the presence of
    nested groups (i.e. subgroups). e.g.
 
@@ -65,7 +68,7 @@ and would typically follow the conventions shown below:
       lbs2.example.com
 
 #. The suffix :bash:`:vars` within a group definition is used to declare and assign
-   variables to a particular set of hosts or subgroups.
+   variables to a particular set of hosts or subgroups. e.g.
 
    .. note::
 
@@ -95,15 +98,23 @@ and would typically follow the conventions shown below:
       [backupservers]
       bk1.example.com
       bk2.example.com
+
+   .. figure:: src/images/inventory_example-children/inventory_example-children.png
+      :alt: lbservers' components
       
 It is impotant to highlight that there are two default groups: :bash:`all` and
-:bash:`ungrouped`, which, unlike any other group, belong :
+:bash:`ungrouped`, which, unlike any other group, can be omitted within the
+inventory file, as their definitions are both implicit. Please be aware that: 
 
 #. Hierarchically, all groups and hosts are members of :bash:`all`.
 
 #. Hosts with no group other than all belong to :bash:`ungrouped`. Therefore, hosts
-will be members of at least two groups.
+   will be members of at least two groups.
 
+Hence, it is true for the examples above:
+
+.. figure:: src/images/inventory_example-implicit/inventory_example-implicit.png
+   :alt: lbservers' components
 
 
 Authors

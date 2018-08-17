@@ -37,7 +37,7 @@ This entry describes the installation process of DMTCP.
       cd $installer_path$
       tar xf dmtcp-2.5.2.tar.gz
 
-#. Create the installation directory and change its owner to user that it is 
+#. Create the installation directory and change its owner to the user that it is 
    doing this process.
 
    .. code-block:: bash

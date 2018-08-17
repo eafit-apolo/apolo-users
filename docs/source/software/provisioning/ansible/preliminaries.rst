@@ -116,14 +116,24 @@ Hence, it is true for the examples above:
 .. figure:: src/images/inventory_example-implicit/inventory_example-implicit.png
    :alt: lbservers' components
 
+Modules
+---------------------
+
+A module can be interpreted as a function ansible calls from a task. Basically,
+a module is the function's entire body (i.e. declaration), waiting to be
+called from a task or an ansible ad-hoc command.
+
+	 
 Playbooks
 ---------------------
-A playbook is a text file containing information on which tasks to apply on which
-hosts. This information is contained within a definition block called "Play". Take
-the following playbook for example:
+
+A playbook is a text file, written in YAMl format, containing information on
+which tasks to apply on which hosts. This information is contained within a
+definition block called "Play". Take the following playbook for example:
 
 .. code-block:: yaml
-
+		
+   ---
    - hosts: lbsouth
      vars:
        nginx_conf_dir: /etc/nginx/
@@ -157,13 +167,32 @@ the following playbook for example:
 	   name: nginx
 	   state: restarted
 
-Plays are separated by a non-printable '\n', thus there are three plays. Each one
+Plays are separated by a non-printable '\\n', thus there are three plays. Each one
 uses the keyword "hosts" to describe a group, defined in the inventory file,
-on which to apply some tasks and/or set variables.
+on which to apply some tasks and/or set variables, keywords "tasks" and "vars"
+respectively.
+
+An easy way to comprehend what a playbook is, and why it is useful, is thinking on
+what would one need to do in scripting languages, like bash, to accomplish what
+a playbook is meant to. Take the task "Place nginx config file". It calls
+Ansible's :bash:`template` module, which creates a file based
+on a Jinja2 template. Hence, one could either use templates alongside bash, which
+becomes complex and difficult to maintain really fast, use an exernal software to
+parse them, like ruby :bash:`erb` or python + Jinja2, or manage static
+files. Thereupon, additional concerns arise: how to deliver
+files to lbservers' hosts?, how to manage variables within them?, etc. Basically,
+these questions represent steps to achieve something specific (for the task under
+consideration, place a file called :bash:`nginx.conf`, whose content may vary,
+on all hosts within lbservers) that can be interpreted as to lead a system to a
+desired state. e.g.
+
+- Original state: lbservers' hosts not having :bash:`nginx.conf`
+- Desired state: lbservers' hosts having :bash:`nginx.conf`
+
+A playbook can be, therefore, defined as the abstraction of a system's final state,
+comprised of intermediate states represented by tasks.
+Sort of an assembly line analogy:
+
+TODO: INSERT ASSEMBLY LINE IMAGE
 
 
-
-Authors
----------------------
-
-- Tomás Felipe Llano-Rios <tllanos@eafit.edu.co>

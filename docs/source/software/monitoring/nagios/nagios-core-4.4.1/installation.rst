@@ -2,19 +2,19 @@
 
 .. highlight:: rst
 
-.. role:: matlab(code)
-   :language: ini
+.. role:: bash(code)
+   :language: bash
 
-.. sectnum::
-   :suffix: )
+.. role:: yaml(code)
+   :language: yaml
+	      
+Installation
+=============
 
-.. sidebar:: Contents
+.. contents:: Table of Contents
 
-   .. contents::
-       :local:
-
-Tested on (Requirements)
-************************
+**Tested on (Requirements)**
+----------------------------
 
 * **OS base:** CentOS 7 (x86_64)
 * **Provisioner:** Ansible :math:`\boldsymbol{\ge}` 4.4.1
@@ -45,13 +45,21 @@ Directory Structure
 Procedure
 ---------
 
-  .. code-block:: bash
+Before executing the role it's important to verify the value for the variables in the file **./roles/healthckeck/vars/main.yml**. These variables were created in order to uncouple variables as IPs, URLs and passwords. In the case of passwords, we used **Ansible Vault** for ciphering them.
 
-     ansible-vault playbooks/healthcheck.yml --ask-vault-pass
+.. code-block:: bash
 
- .. note::
+   ansible-vault playbooks/healthcheck.yml --ask-vault-pass
 
-    The flag --ask-vault-pass is used because this role uses ansible-vault for encrypting private data as passwords.
+.. caution::
+   
+   This Ansible role was created thinking in the Ansible Philosophy: **The tool should be used to represent the state of the server, not as a procedural language but as a declarative one.**
+
+   This role was developed to be run multiple times in the same server: If the real state doesn't matches with the role state, the server is modified in order to match both states. If the server has well configured and well installed Nagios and it's plugins, running the playbook will say **Ok** in most of the tasks, so it  won't broke any configuration.
+
+.. note::
+
+   The flag :bash:`--ask-vault-pass` is used because this role uses ansible-vault for encrypting private data as passwords.
 
 Ansible Structure
 -----------------
@@ -66,7 +74,7 @@ Initial Configuration
 dell-repos.yml
 ______________
 
-This procedure is neccessary in order to install the packages "srvadmin-idrac7" from the official Dell repo.
+This procedure is neccessary in order to install the package **srvadmin-idrac7** from the official Dell repo.
 This makes it easier to check the presence/absence of the packages using the ansible-module "yum" instead
 of writing mannually the process of compilation and verification.
 
@@ -126,9 +134,13 @@ Finally, we will associate in **/etc/hosts** owr **nagios_ip** with the **Server
 firewall-config.yml
 ___________________
 
+.. note::
+   It's important to remember that Firewalld is the firewall of the system in CentOS 7.
+
+We will need to allow http port in the firewall configuration. The SNMP ports (161-162) should be allowed for the correct operation of iLO REST Plugin. We decided to allow these firewall requirements in the **public** zone.
+   
 .. literalinclude:: src/tasks/firewall-config.yml
    :language: yaml
-
 
 Installing Nagios Core
 ----------------------
@@ -136,10 +148,24 @@ Installing Nagios Core
 nagios-install.yml
 __________________
 
+This taskfile is included only when the path /usr/local/nagios doesn't exist. This state is registered in nagios-installed.yml, with the module **stat**.
+
 .. literalinclude:: src/tasks/nagios-installed.yml
    :language: yaml
 
-		 
+Nagios Core is downloaded from :yaml:`{{ nagios_core_url }}` and stored in :bash:`{{ temp_dir }}`, then it is configured with **nagcmd** as the command group, and openssl enabled. Then, the MakeFile is executed as follows [1]_:
+
+========================== =====================================================================
+Make options used          Descriptions
+========================== =====================================================================
+make all                   .
+make install               Installs main program, CGI's and HTML files
+make install-init          Installs the init script
+make install-commandmode   Installs and configures permissions for holding external command file
+make install-config        Generates templates for initial configuration
+========================== =====================================================================
+
+.. note:: The directive :bash:`make install-webconf` is executed in :ref:`nagios-post-install`
 
 .. literalinclude:: src/tasks/nagios-install.yml
    :language: yaml
@@ -150,14 +176,24 @@ _________________
 .. literalinclude:: src/tasks/nagios-config.yml
    :language: yaml
 
+
+.. _nagios-post-install:
+
 nagios-post-install.yml
 _______________________
+
+After **nagios-config.yml** is completed, :bash:`make install-webconf` is executed, generating the Apache config file for Nagios Web Interface.
 
    .. literalinclude:: src/tasks/nagios-post-install.yml
       :language: yaml
 
+final-check.yml
+_______________________
 
+The final steps include removing :yaml:`{{ temp_dir }}` and checking the Nagios configuration with the command :bash:`/usr/local/nagios/bin/nagios -v /usr/local/nagios/etc/nagios.cfg`. This execution finishes assuring with two handlers that nagios and apache services are started.
 
+   .. literalinclude:: src/tasks/final-check.yml
+      :language: yaml
 
 
 Installing Nagios Plugins
@@ -166,3 +202,13 @@ Installing Nagios Plugins
 - :ref:`IPMI Sensors <ipmi-sensors-plugin-index>`
 - :ref:`Dell EMC OpenManage <dell-nagios-plugin-index>`
 - :ref:`iLO AgentLess Management Plugin <ilo-rest-plugin-index>`
+
+References
+----------
+
+.. [1] NagiosEnterprises/nagioscore. Retrieved August 17, 2018, from https://github.com/NagiosEnterprises/nagioscore
+
+Authors
+-------
+
+Andrés Felipe Zapata Palacio

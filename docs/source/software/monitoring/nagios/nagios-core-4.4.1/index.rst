@@ -1,7 +1,10 @@
 .. _nagios-core-4.4.1-index:
 
-.. role:: raw-html(raw)
-   :format: html
+.. role:: bash(code)
+   :language: bash
+
+.. role:: yaml(code)
+   :language: yaml
 
 Nagios Core - 4.4.1
 ====================
@@ -21,7 +24,7 @@ configuration of Nagios Core in Centos 7. This process of installation and confi
 is automated using Ansible.
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 4
 
    installation
 
@@ -39,45 +42,22 @@ Plugins
 Usage
 -----
 
-This subsection describes how to use RAxML on a cluster and the necessary 
-elements to get a good performance.
+Before executing the role it's important to verify the value of the variables in the file
+:bash:`roles/healthckeck/vars/main.yml`. These variables were created in order to uncouple from the code things like IPs, URLs and passwords. In the case of passwords, we used **Ansible Vault** for ciphering them.
 
-#. Before launch **RAxML** you should read next documentation
+.. code-block:: bash
 
+   ansible-vault playbooks/healthcheck.yml --ask-vault-pass
 
-     - (*When to use which Version?*)
+.. caution::
+   
+   This Ansible role was created thinking in the Ansible Philosophy: **The tool should be used to represent the state of the server, not as a procedural language but as a declarative one.**
 
+   This role was developed to be run multiple times in the same server: If the real state doesn't matches with the role state, the server is modified in order to match both states. If the server has well configured and well installed Nagios and it's plugins, running the playbook will say **Ok** in most of the tasks, so it  won't broke any configuration.
 
-     - (*Hybrid MPI/Pthreads*)
+.. note::
 
-
-   .. note::
-
-      It is really important to understand how the *HYBRID* version works, since
-      this is the only available version for HPC scenarios. Additionally, 
-      understanding the behavior of the *HYBRID* version is the key to properly 
-      use the computational resources and achieve better performance.
-
-#. In the following example we will run 100 bootstrap replicates 
-   (MPI parallelization) and independent tree searches 
-   (PThreads - shared memory) for each bootstrap replicate, all of this using 
-   SLURM (Resource Manager) to spawn properly the processes across the
-   nodes.
-
-   .. note::
-
-      Node quick specs (Apolo II): 32 Cores, 64 GB RAM
-
-        - *- -ntasks-per-node* :raw-html:`&rarr;` MPI process per node      
-        - *- -cpus-per-task* :raw-html:`&rarr;` PThreads per MPI process
-        - *- -nodes* :raw-html:`&rarr;` Number of nodes
-
-      In this case, we will use 2 MPI process per node and each MPI process has 
-      16 PThreads; for a total of 32 processes per node. 
-      Also we will use 3 nodes.
-
-References
-----------
+   The flag :bash:`--ask-vault-pass` is used because this role uses ansible-vault for encrypting private data as passwords.
 
 
 Authors

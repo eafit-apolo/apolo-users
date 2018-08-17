@@ -7,11 +7,11 @@
 
 .. role:: yaml(code)
    :language: yaml
-	      
+      
 Installation
 =============
 
-.. contents:: Table of Contents
+.. contents:: Table of Contents	      
 
 **Tested on (Requirements)**
 ----------------------------
@@ -41,25 +41,7 @@ Directory Structure
 	        ├── vars
 		├── templates
                 └── files
-  
-Procedure
----------
 
-Before executing the role it's important to verify the value for the variables in the file **./roles/healthckeck/vars/main.yml**. These variables were created in order to uncouple variables as IPs, URLs and passwords. In the case of passwords, we used **Ansible Vault** for ciphering them.
-
-.. code-block:: bash
-
-   ansible-vault playbooks/healthcheck.yml --ask-vault-pass
-
-.. caution::
-   
-   This Ansible role was created thinking in the Ansible Philosophy: **The tool should be used to represent the state of the server, not as a procedural language but as a declarative one.**
-
-   This role was developed to be run multiple times in the same server: If the real state doesn't matches with the role state, the server is modified in order to match both states. If the server has well configured and well installed Nagios and it's plugins, running the playbook will say **Ok** in most of the tasks, so it  won't broke any configuration.
-
-.. note::
-
-   The flag :bash:`--ask-vault-pass` is used because this role uses ansible-vault for encrypting private data as passwords.
 
 Ansible Structure
 -----------------
@@ -175,9 +157,22 @@ _________________
 
 This taskfile syncronize the Nagios config files with the ones stored in the repository, if there is a change in this syncronization, Nagios daemon is restarted with the handler :yaml:`nagios_restart`.
 
+Then, the module **htpasswd** asigns the password stored with Ansible Vault in the variable :yaml:`{{ nagios_admin_passwd }}` using ldap_sha1 as crypt scheme and restarts Nagios daemon if the final state of the task is **changed**.
+
+Assures the existence of ipmi-config directory and syncronizes the ipmi.cfg file with **root** as owner, **nagcmd** as Group owner and permissions 640: read and write for Owner and read-only for group members. If the final state of the task is **changed**, Nagios daemon is restarted.
+
+.. note:: By default, the files under the directory **/usr/local/nagios/var/rw** don't
+	  belongs to the **httpd_sys_rw_content_t** context. It is necessary to add this context
+	  (this is what the last task of this taskfile does) because the way Web interface interacts with
+	  Nagios is with the Command File **/usr/local/nagios/var/rw/nagios.cmd**.
+
+.. warning:: The error displayed in the following image is solved with this step.
+
+.. image:: images/nagios-cmd-error.png
+   :alt: Nagios Command Error
+
 .. literalinclude:: src/tasks/nagios-config.yml
    :language: yaml
-
 
 .. _nagios-post-install:
 

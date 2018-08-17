@@ -116,6 +116,52 @@ Hence, it is true for the examples above:
 .. figure:: src/images/inventory_example-implicit/inventory_example-implicit.png
    :alt: lbservers' components
 
+Playbooks
+---------------------
+A playbook is a text file containing information on which tasks to apply on which
+hosts. This information is contained within a definition block called "Play". Take
+the following playbook for example:
+
+.. code-block:: yaml
+
+   - hosts: lbsouth
+     vars:
+       nginx_conf_dir: /etc/nginx/
+
+   - hosts: lbnorth
+     vars:
+       nginx_conf_dir: /opt/nginx/conf
+		
+   - hosts: lbservers
+     vars:
+       max_clients: 100
+     tasks:
+     - name: Install/update nginx
+       yum:
+         name: nginx
+	 state: latest
+     - name: Place nginx config file
+       template:
+         src: templates/nginx.conf.j2
+	 dest: "{{ nginx_conf_dir }}/conf/nginx.conf"
+       notify:
+         - restart nginx
+     - name: Ensure nginx is running
+       systemd:
+         name: nginx
+	 state: started
+	 enabled: true
+     handlers:
+       - name: restart nginx
+	 systemctl:
+	   name: nginx
+	   state: restarted
+
+Plays are separated by a non-printable '\n', thus there are three plays. Each one
+uses the keyword "hosts" to describe a group, defined in the inventory file,
+on which to apply some tasks and/or set variables.
+
+
 
 Authors
 ---------------------

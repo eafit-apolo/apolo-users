@@ -173,6 +173,8 @@ make install-config        Generates templates for initial configuration
 nagios-config.yml
 _________________
 
+This taskfile syncronize the Nagios config files with the ones stored in the repository, if there is a change in this syncronization, Nagios daemon is restarted with the handler :yaml:`nagios_restart`.
+
 .. literalinclude:: src/tasks/nagios-config.yml
    :language: yaml
 
@@ -182,7 +184,7 @@ _________________
 nagios-post-install.yml
 _______________________
 
-After **nagios-config.yml** is completed, :bash:`make install-webconf` is executed, generating the Apache config file for Nagios Web Interface.
+After **nagios-config.yml** is completed, :bash:`make install-webconf` is executed, generating the Apache config file for Nagios Web Interface. This step is executed only if Nagios Core was not installed before the current execution.
 
    .. literalinclude:: src/tasks/nagios-post-install.yml
       :language: yaml
@@ -190,7 +192,9 @@ After **nagios-config.yml** is completed, :bash:`make install-webconf` is execut
 final-check.yml
 _______________________
 
-The final steps include removing :yaml:`{{ temp_dir }}` and checking the Nagios configuration with the command :bash:`/usr/local/nagios/bin/nagios -v /usr/local/nagios/etc/nagios.cfg`. This execution finishes assuring with two handlers that nagios and apache services are started.
+The final steps include removing :yaml:`{{ temp_dir }}` and checking the Nagios configuration with the command :bash:`/usr/local/nagios/bin/nagios -v /usr/local/nagios/etc/nagios.cfg`.
+
+This execution finishes assuring with two handlers that nagios and apache services are started.
 
    .. literalinclude:: src/tasks/final-check.yml
       :language: yaml

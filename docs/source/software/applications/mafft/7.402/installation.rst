@@ -28,27 +28,25 @@ Build process
 .. note::
 
    * In :ref:`Apolo II <about_apolo-ii>` was used the Intel Compiler 17.0.1.
-     :bash:`module load intel/2017_Update-1`
+     
+     * :bash:`module load intel/2017_Update-1`
    
    * In :ref:`Cronos <about_cronos>` was used the Intel Compiler 18.0.2.
-     :bash:`module load intel/18.0.2`
+     
+     * :bash:`module load intel/18.0.2`
 
 This entry described the installation process of MAFFT with extensions.
 	   
-#. Get the Mafft wit extensions package.
+#. Get the MAFFT wit extensions package.
    
    .. code-block:: bash
 
       wget https://mafft.cbrc.jp/alignment/software/mafft-7.402-with-extensions-src.tgz
       tar xfvz mafft-7.402-with-extensions-src.tgz
    
-#. Edit Mafft's Makefile with the following lines.
+#. Edit MAFFT's Makefile with the following lines.
    
    :bash:`mafft-7.402-with-extensions/core/Makefile`
-   
-   :download:`Makefile (Apolo II Intel 17.0.1) <src/apolo-mafft-Makefile>`
-
-   :download:`Makefile (Cronos Intel 18.0.2) <src/cronos-mafft-Makefile>`
 
    From:
 
@@ -120,12 +118,11 @@ MXSCARNA [1]_. (Multiplex Stem Candidate Aligner for RNAs) is a multiple alignme
 
    .. code-block:: bash
 
+      cd ../
       module load intel/2017_update-1
       make clean
       make
       make install
-      cd ../
-      chmod 755 mxcarna_src/
 
 Foldalign
 .........
@@ -171,8 +168,6 @@ FOLDALIGN [2]_. an algorithm for local or global simultaneous folding and aligni
       module load intel/2017_update-1
       make clean
       make
-      cd ../
-      chmod 755 foldalign/
 
 Contrafold
 ..........
@@ -197,8 +192,6 @@ CONTRAfold [3]_. is a novel secondary structure prediction method based on condi
       module load openmpi/1.8.8-x86_64_intel-2017_update-1
       make clean
       make intelmulti
-      cd ../..
-      chmod 755 contrafold/
 
 Troubleshooting
 ,,,,,,,,,,,,,,,

@@ -1,4 +1,5 @@
 {% extends "!layout.html" %}
+{% set css_files = css_files + ['_static/css/sidebar.css'] %}
 
 {% block sidebartitle %}
 
@@ -17,9 +18,9 @@
     </a>
 
     {% if theme_display_version %}
-      {%- set nav_version = version %}
+      {% set nav_version = version %}
       {% if READTHEDOCS and current_version %}
-	{%- set nav_version = current_version %}
+	{% set nav_version = current_version %}
       {% endif %}
       {% if nav_version %}
 	<div class="version" style="color: rgba(255,255,255,0.5);">
@@ -31,15 +32,3 @@
     {% include "searchbox.html" %}
 
 {% endblock %}
-
-
-{% block footer %}
-{{ super() }}
-<style>
-  /* Sidebar header (and topbar for mobile) */
-  .wy-side-nav-search, .wy-nav-top {
-  background: #000066;
-  }
-</style>
-{% endblock %}
-

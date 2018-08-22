@@ -31,7 +31,6 @@
 - name: IPMI_Sensor Monitoring Plugin Dependencies
   yum:
     name: "{{ item }}"
-    enablerepo: base
     state: present
     update_cache: yes
   with_items:

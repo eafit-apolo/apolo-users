@@ -124,6 +124,14 @@ We will need to allow http port in the firewall configuration. The SNMP ports (1
 .. literalinclude:: src/tasks/firewall-config.yml
    :language: yaml
 
+ipmi-config.yml
+________________
+
+Assures the existence of ipmi-config directory and syncronizes the ipmi.cfg file with **root** as owner, **nagcmd** as Group owner and permissions 640: read and write for Owner and read-only for group members. If the final state of the task is **changed**, Nagios daemon is restarted.
+   
+.. literalinclude:: src/tasks/ipmi-config.yml
+   :language: yaml
+	      
 Installing Nagios Core
 ----------------------
 		 
@@ -152,6 +160,8 @@ make install-config        Generates templates for initial configuration
 .. literalinclude:: src/tasks/nagios-install.yml
    :language: yaml
 
+.. _nagios-config.yml:
+	      
 nagios-config.yml
 _________________
 
@@ -159,17 +169,13 @@ This taskfile syncronize the Nagios config files with the ones stored in the rep
 
 Then, the module **htpasswd** asigns the password stored with Ansible Vault in the variable :yaml:`{{ nagios_admin_passwd }}` using ldap_sha1 as crypt scheme and restarts Nagios daemon if the final state of the task is **changed**.
 
-Assures the existence of ipmi-config directory and syncronizes the ipmi.cfg file with **root** as owner, **nagcmd** as Group owner and permissions 640: read and write for Owner and read-only for group members. If the final state of the task is **changed**, Nagios daemon is restarted.
-
 .. note:: By default, the files under the directory **/usr/local/nagios/var/rw** don't
 	  belongs to the **httpd_sys_rw_content_t** context. It is necessary to add this context
 	  (this is what the last task of this taskfile does) because the way Web interface interacts with
 	  Nagios is with the Command File **/usr/local/nagios/var/rw/nagios.cmd**.
 
-.. warning:: The error displayed in the following image is solved with this step.
-
-.. image:: images/nagios-cmd-error.png
-   :alt: Nagios Command Error
+.. warning:: The error :bash:`Could not stat() command file /usr/local/nagios/var/rw/nagios.cmd`
+	     is fixed by this taskfile. The explanation is in the :ref:`nagios-cmd-error` section.
 
 .. literalinclude:: src/tasks/nagios-config.yml
    :language: yaml

@@ -10,6 +10,11 @@
     clone: yes
     dest: "{{ temp_dir }}/nagios-ilo-plugin"
 
+- name: Reconfigure files for the aclocal in the system
+  shell: "autoreconf -vfi"
+  args:
+    chdir: "{{ temp_dir }}/nagios-ilo-plugin"
+
 - name: Exec configure
   shell: "./configure"
   args:

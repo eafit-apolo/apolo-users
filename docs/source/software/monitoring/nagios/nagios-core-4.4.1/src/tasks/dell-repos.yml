@@ -3,14 +3,14 @@
   yum_repository:
     name: dell-system-update_independent
     state: present
-    baseurl: http://linux.dell.com/repo/hardware/latest/os_independent/
+    baseurl: "{{ baseurl_dell_independent_repo }}"
     description: dell-system-update_independent
-    gpgkey: http://linux.dell.com/repo/hardware/latest/public.key,http://linux.dell.com/repo/hardware/latest/public_gpg3.key
+    gpgkey: "{{ gpgkey_dell_independent_repo }}"
 
 - name: Setup Dell Linux Dependent Repository
   yum_repository:
     name: dell-system-update_dependent
     state: present
-    baseurl: http://linux.dell.com/repo/hardware/latest/os_dependent/RHEL7_64/
+    baseurl: "{{ baseurl_dell_dependent_repo }}"
     description: dell-system-update_dependent
-    gpgkey: http://linux.dell.com/repo/hardware/latest/public.key,http://linux.dell.com/repo/hardware/latest/public_gpg3.key
+    gpgkey: "{{ gpgkey_dell_dependent_repo }}"

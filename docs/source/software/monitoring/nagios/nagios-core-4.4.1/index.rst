@@ -5,9 +5,12 @@
 
 .. role:: yaml(code)
    :language: yaml
-
+	      
 Nagios Core - 4.4.1
 ====================
+
+.. contents::
+
 
 Basic information
 -----------------
@@ -59,6 +62,25 @@ Before executing the role it's important to verify the value of the variables in
 
    The flag :bash:`--ask-vault-pass` is used because this role uses ansible-vault for encrypting private data as passwords.
 
+
+Troubleshooting
+---------------
+
+.. _nagios-cmd-error:
+
+Nagios Command Error
+''''''''''''''''''''
+
+.. image:: images/nagios-cmd-error.png
+   :alt: Nagios Command Error
+
+This error occurs when the user generates a modification in the Nagios Command file executing
+different actions with the Nagios Web Interface *(ej. re-schedule checks)*. This error is corrected
+with the execution of the task :ref:`nagios-config.yml`.
+
+By default, the apache daemon cannot read/write the files under :bash:`/usr/local/nagios/var/rw` because
+this directory doesn't belongs to the :bash:`httpd_sys_rw_content_t` SELinux context. This is what
+originates the problem.
 
 Authors
 -------

@@ -50,9 +50,8 @@ This entry describes the installation process of DMTCP.
    .. code-block:: bash
 
       ./configure \ 
-      --prefix=/share/apps/dmtcp/2.4.8 \ 
-      --build=x86_64-redhat-linux \ 
-      --enable-unique-checkpoint-filenames \ 
+      --prefix=/share/apps/dmtcp/2.5.2 \ 
+      --build=x86_64-redhat-linux \  
       --enable-infiniband-support \ 
       --enable-pthread-mutex-wrappers
       make && make install
@@ -63,9 +62,8 @@ This entry describes the installation process of DMTCP.
    .. code-block:: bash
 
       ./configure \ 
-      --prefix=/share/apps/dmtcp/2.4.8 \ 
-      --build=x86_64-redhat-linux \ 
-      --enable-unique-checkpoint-filenames \ 
+      --prefix=/share/apps/dmtcp/2.5.2 \ 
+      --build=x86_64-redhat-linux \  
       --enable-infiniband-support \ 
       --enable-pthread-mutex-wrappers \
       --enable--m32

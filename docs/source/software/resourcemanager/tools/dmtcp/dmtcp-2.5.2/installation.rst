@@ -66,7 +66,7 @@ This entry describes the installation process of DMTCP.
       --build=x86_64-redhat-linux \  
       --enable-infiniband-support \ 
       --enable-pthread-mutex-wrappers \
-      --enable--m32
+      --enable-m32
       make clean
       make && make install
 

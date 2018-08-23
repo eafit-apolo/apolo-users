@@ -123,7 +123,6 @@ A module can be interpreted as a function ansible calls from a task. Basically,
 a module is the function's entire body (i.e. declaration), waiting to be
 called from a task or an ansible ad-hoc command.
 
-	 
 Playbooks
 ---------------------
 
@@ -193,6 +192,107 @@ A playbook can be, therefore, defined as the abstraction of a system's final sta
 comprised of intermediate states represented by tasks.
 Sort of an assembly line analogy:
 
-TODO: INSERT ASSEMBLY LINE IMAGE
+.. figure:: src/images/McDonalds-Assembly-Line.jpg
+   :alt: McDonald's assembly line
 
+   McDonald's assembly line. Retrieved august 28, 2018 from https://slideplayer.com/slide/9882222/
 
+Task 1 would represent an ansible run being triggered, tasks 2 to 5 the system's pass
+through each intermediate state
+(i.e. bun toasted, bun assembled with condiments, patty wrapped,
+Order placed on heated landing pad) and task 6 the desired state (i.e. customer satisfied).
+
+Roles
+---------------------
+A role is a hierarchical directory structure intended to decouple playbooks
+by breaking them into multiple files, which is particularly useful to
+create reusable components and write simpler playbooks.
+A role's layout would typically look as below:
+
+.. note::
+   
+   There are more directories than those listed below. See `Ansible's official documentation`_
+   for more information.
+
+.. _`Ansible's official documentation`: https://docs.ansible.com/ansible/2.5/user_guide/playbooks_reuse_roles.html
+    
+.. code-block:: bash
+		    
+   roles/
+     common/
+       tasks/
+       handlers/
+       files/
+       templates/
+       vars/
+
+Let us elucidate on how playbooks can be decoupled by using the notion of a role. Take the
+example on the `Playbooks`_ section.
+
+#. Identify a common feature within your tasks. For example, all tasks on the
+   third play are related to nginx.
+
+#. Use that common feature as a base to name your role and create a directory
+   under :bash:`$ANSIBLE_HOME/roles`.
+
+   .. note::
+
+      :bash:`$ANSIBLE_HOME` is used as a way to represent ansible's folder
+      location within the filesystem (e.g. /etc/ansible), which
+      may vary depending on the setup.
+
+   .. code-block:: bash
+
+      mkdir -p  $ANSIBLE_HOME/roles/nginx
+
+#. TODO: Decouple vars  
+      
+#. Decouple tasks by placing them in taskfiles. As the name implies, a taskfile is
+   a file containing task declarations; this files are often stored under
+   :bash:`$ANSIBLE_HOME/roles/<role>/tasks` and their name is irrelevant exept
+   for :bash:`main.yml`, which must always be present. Although tasks can be all defined
+   inside :bash:`main.yml`, it is recommended to declare them in different taskfiles,
+   when their number is large enough to make a coupled taskfile difficult to read, and then
+   call each one from :bash:`main.yml`.
+
+   .. code-block:: yaml
+
+      # $ANSIBLE_HOME/roles/nginx/tasks/packages.yml
+      ---
+      - name: Install/update nginx
+	yum:
+	  name: nginx
+	  state: latest
+
+   .. code-block:: yaml
+
+      # $ANSIBLE_HOME/roles/nginx/tasks/config.yml
+      ---		   
+      - name: Place nginx config file
+       template:
+         src: templates/nginx.conf.j2
+	 dest: "{{ nginx_conf_dir }}/conf/nginx.conf"
+       notify:
+         - restart nginx
+	   
+      - name: Ensure nginx is running
+	systemd:
+          name: nginx
+	  state: started
+	  enabled: true
+
+   .. code-block:: yaml
+
+      # $ANSIBLE_HOME/roles/nginx/tasks/main.yml
+      ---
+      - name: "Including taskfile {{ taskfile }}"
+	include_tasks: " {{ taskfile }}  "
+	with_items:
+	  - 'packages.yml'
+	  - 'config.yml'
+	loop_control:
+	  loop_var: taskfile
+
+#. TODO: Decouple handlers	  
+
+#. TODO: Decouple templates

@@ -64,7 +64,7 @@ This section desribes the method to submit jobs with the resource manager SLURM.
 
    .. note::
       
-      This example was tested with :download:`ITS.fa <src/ITS.fa>` that contains unlined DNA secuences.
+      This example was tested with :download:`example.fa <src/example.fa>` that contains unlined DNA secuences.
 
    .. code-block:: bash
 

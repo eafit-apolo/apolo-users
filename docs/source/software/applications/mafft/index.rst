@@ -1,4 +1,5 @@
 .. _ matlab-index:
+
 MAFFT
 =====
 

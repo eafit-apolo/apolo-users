@@ -60,30 +60,16 @@ This section desribes the method to submit jobs with the resource manager SLURM.
 
 #. Run MAFFT with SLURM.
 
-   An example: :download:`mafft.sh <src/mafft.sh>`
+   An example:
 
    .. note::
       
       This example was tested with :download:`example.fa <src/example.fa>` that contains unlined DNA secuences.
 
-   .. code-block:: bash
+   .. literalinclude:: src/mafft.sh
+      :language: bash
+      :caption: :download:`mafft.sh <src/mafft.sh>`
 
-      #!/bin/bash
-   
-      #SBATCH --partition=longjobs
-      #SBATCH --nodes=<number of nodes>
-      #SBATCH --ntasks-per-node=<number of tasks per node>
-      #SBATCH --time=DD:HH:MM
-      #SBATCH --job-name=test
-      #SBATCH -o result_%N_%j.out      # File to which STDOUT will be written
-      #SBATCH -e result_%N_%j.err      # File to which STDERR will be written
-      #SBATCH --mail-type=ALL   
-      #SBATCH --mail-user=test@example.com
-
-      export SBATCH_EXPORT=NONE
-      export OMP_NUM_THREADS=1
-
-      mafft --quiet --auto --thread $SLURM_NTASKS ITS.fa > ITS_al.fa
 
    **Options**
 

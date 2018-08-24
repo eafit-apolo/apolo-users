@@ -12,7 +12,7 @@
 
    .. contents::
       :local:
-
+	 
 Inventory
 ---------------------
 
@@ -116,6 +116,68 @@ Hence, it is true for the examples above:
 .. figure:: src/images/inventory_example-implicit/inventory_example-implicit.png
    :alt: lbservers' components
 
+Group variables
+---------------------
+
+.. note::
+
+   This feature will not be detailed, as there is plenty of information about it in
+   `Ansible's document: Working with Inventory`_
+
+   .. _`Ansible's document: Working with Inventory`: https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html#splitting-out-host-and-group-specific-data
+
+
+Keeping too much data within the inventory file can make it become complex, difficult
+to read and maintain. Ansible allows to easily bypass this issue by introducing a
+mechanism to split groups and hosts data:
+
+#. Crate a folder called :bash:`group_vars` at the same level as the inventory file.
+   That is, if the inventory file is located under :bash:`$ANSIBLE_HOME` then the
+   folder must be there as well. e.g.
+
+   .. code-block:: bash
+
+      mkdir -p $ANSIBLE_HOME/group_vars
+      ls $ANSIBLE_HOME/
+      inventory    group_vars/
+
+#. Create files under :bash:`group_vars` matching your group names and store the
+   corresponding variables into each one. Take the example from the `Inventory`_
+   section; There are variables declared for two groups, hence there would be
+   two files under :bash:`group_vars` as shown below:
+
+   .. code-block:: yaml
+
+      # $ANSIBLE_HOME/group_vars/lbservers
+      ---
+      requests_timeout: 5
+      max_hosts_to_serve: 10
+
+   .. code-block:: yaml
+
+      # $ANSIBLE_HOME/group_vars/lbsouth
+      ---
+      requests_timeout: 3
+
+Moreover, variables within a group can be further organized by decoupling the
+files inside :bash:`group_vars`. Ansible will read all files under
+directories named after groups or hosts. For instance, variables from the
+lbservers group can reside in multiple files under
+:bash:`$ANSIBLE_HOME/group_vars/lbservers/`. e.g.
+
+   .. code-block:: yaml
+      
+      # $ANSIBLE_HOME/group_vars/lbservers/requests
+      ---
+      requests_timeout: 5
+
+   .. code-block:: yaml
+      
+      # $ANSIBLE_HOME/group_vars/lbservers/config
+      ---
+      max_hosts_to_serve: 10
+
+	 
 Modules
 ---------------------
 
@@ -204,6 +266,7 @@ Order placed on heated landing pad) and task 6 the desired state (i.e. customer 
 
 Roles
 ---------------------
+
 A role is a hierarchical directory structure intended to decouple playbooks
 by breaking them into multiple files, which is particularly useful to
 create reusable components and write simpler playbooks.
@@ -245,8 +308,6 @@ example on the `Playbooks`_ section.
 
       mkdir -p  $ANSIBLE_HOME/roles/nginx
 
-#. TODO: Decouple vars  
-      
 #. Decouple tasks by placing them in taskfiles. As the name implies, a taskfile is
    a file containing task declarations; this files are often stored under
    :bash:`$ANSIBLE_HOME/roles/<role>/tasks` and their name is irrelevant exept
@@ -286,13 +347,56 @@ example on the `Playbooks`_ section.
       # $ANSIBLE_HOME/roles/nginx/tasks/main.yml
       ---
       - name: "Including taskfile {{ taskfile }}"
-	include_tasks: " {{ taskfile }}  "
+	include_tasks: "{{ taskfile }}"
 	with_items:
 	  - 'packages.yml'
 	  - 'config.yml'
 	loop_control:
 	  loop_var: taskfile
 
-#. TODO: Decouple handlers	  
+#. Decouple variables. Declare them as `Group variables`_, in the role's local
+   context or within a task. For instance, if one desires the variable
+   :bash:`nginx_log_dir` to be set for all hosts applying the nginx role:
+
+   .. note::
+
+      Using $ANSIBLE_HOME/roles/<role>/vars to store variables visible to all
+      tasks within a role is a common practice. However, "vars" can be named
+      differently or even placed under some other location.
+	 
+   .. code-block:: bash
+
+      mkdir -p $ANSIBLE_HOME/roles/nginx/vars
+		   
+   .. code-block:: yaml
+
+      # $ANSIBLE_HOME/roles/nginx/vars/config.yml
+      ---
+      nginx_log_dir: /var/log/ansible
+
+   .. code-block:: yaml
+
+      # $ANSIBLE_HOME/roles/nginx/tasks/main.yml
+      ---
+      # Unlike group_vars, ansible does not read files
+      # inside the vars folder automatically. Therefore,
+      # it must, explicitly, be told to do so.
+      # Remark: vars' location may vary.
+      - name: 'Include variables'
+	include_vars:
+	  dir: '../vars'
+	  extensions:
+	    - yml
+
+      - name: "Including taskfile {{ taskfile }}"
+	include_tasks: "{{ taskfile }}"
+	with_items:
+	  - 'packages.yml'
+	  - 'config.yml'
+	loop_control:
+	  loop_var: taskfile
+      
+#. Decouple handlers. Handlers are stored the same way taskfiles are, but in
+   a different location.
 
 #. TODO: Decouple templates

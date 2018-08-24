@@ -126,7 +126,7 @@ MXSCARNA [1]_. (Multiplex Stem Candidate Aligner for RNAs) is a multiple alignme
 
 #. Move the binaries to libexec MAFFT directory.
 
-   .. code-block::
+   .. code-block:: bash
 
       cp mxscarna /you/path/to/maft/libexec/mafft/
 
@@ -137,7 +137,7 @@ FOLDALIGN [2]_. an algorithm for local or global simultaneous folding and aligni
 
 
 
-#. Get the Foldalign package and move it to the Mafft extension's directory.
+#. Get the Foldalign package and move it to the MAFFT extension's directory.
 
    .. code-block:: bash
 
@@ -177,7 +177,7 @@ FOLDALIGN [2]_. an algorithm for local or global simultaneous folding and aligni
       
 #. Move the binaries to libexec MAFFT directory.
 
-   .. code-block::
+   .. code-block:: bash
 
       cp bin/* /you/path/to/maft/libexec/mafft/
 
@@ -186,7 +186,7 @@ Contrafold
 
 CONTRAfold [3]_. is a novel secondary structure prediction method based on conditional log-linear models (CLLMs), a flexible class of probabilistic models which generalize upon SCFGs by using discriminative training and feature-rich scoring. By incorporating most of the features found in typical thermodynamic models, CONTRAfold achieves the highest single sequence prediction accuracies to date, outperforming currently available probabilistic and physics-based techniques. 
 
-#. Get the Contrafold package and move it to Mafft extension's directory.
+#. Get the Contrafold package and move it to MAFFT extension's directory.
 
    .. code-block:: bash
 
@@ -207,7 +207,7 @@ CONTRAfold [3]_. is a novel secondary structure prediction method based on condi
 
 #. Move the binaries to libexec MAFFT directory.
 
-   .. code-block::
+   .. code-block:: bash
 
       cp contrafold /you/path/to/maft/libexec/mafft/
 

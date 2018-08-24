@@ -124,6 +124,12 @@ MXSCARNA [1]_. (Multiplex Stem Candidate Aligner for RNAs) is a multiple alignme
       make
       make install
 
+#. Move the binaries to libexec MAFFT directory.
+
+   .. code-block::
+
+      cp mxscarna /you/path/to/maft/libexec/mafft/
+
 Foldalign
 .........
 
@@ -168,6 +174,12 @@ FOLDALIGN [2]_. an algorithm for local or global simultaneous folding and aligni
       module load intel/2017_update-1
       make clean
       make
+      
+#. Move the binaries to libexec MAFFT directory.
+
+   .. code-block::
+
+      cp bin/* /you/path/to/maft/libexec/mafft/
 
 Contrafold
 ..........
@@ -192,6 +204,12 @@ CONTRAfold [3]_. is a novel secondary structure prediction method based on condi
       module load openmpi/1.8.8-x86_64_intel-2017_update-1
       make clean
       make intelmulti
+
+#. Move the binaries to libexec MAFFT directory.
+
+   .. code-block::
+
+      cp contrafold /you/path/to/maft/libexec/mafft/
 
 Troubleshooting
 ,,,,,,,,,,,,,,,

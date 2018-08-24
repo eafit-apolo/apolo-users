@@ -78,7 +78,7 @@ sup_options = -Wno-long-long
 #		src/thread.o \
 #		src/threadMaster.o \
 #		src/two_link.o
-
+		
 locateHitsobjects = \
 		locateHits/src/alignmentCells.o\
 		locateHits/src/helper.o \
@@ -110,6 +110,7 @@ testobjects = \
 		test/src/testReadfile.o\
 		test/src/testScorematrix.o\
 		test/src/testTwo_link.o
+		
 cc = icpc
 
 bin/foldalign: src/foldalign.o src/revnumber.hxx src/empty src/foldalign.hxx src/arguments.o src/backtrack.o src/cell.o src/constraints.o src/exception.o src/local.o src/longCell.o src/helper.o src/output.col.o src/output.stk.o src/output.summary.o src/scorematrix.o src/seqs.o src/sequence.o  #Makefile
@@ -118,7 +119,7 @@ bin/foldalign: src/foldalign.o src/revnumber.hxx src/empty src/foldalign.hxx src
 #	test/bin/runTest
 
 bin/locateHits: locateHits/src/nohit.cxx $(locateHitsobjects) locateHits/src/nohit.hxx src/revnumber.hxx
-	icpc $(options) $(sup_options) locateHits/src/nohit.cxx $(locateHitsobjects) -o bin/locateHits
+	g++ $(options) $(sup_options) locateHits/src/nohit.cxx $(locateHitsobjects) -o bin/locateHits
 
 #src/revnumber.hxx: .git/index src/empty_sub
 #	bin/revnumber > src/revnumber.hxx
@@ -129,7 +130,7 @@ test: bin/test.foldalign test/lastTest
 	bin/test.foldalign
 
 bin/test.foldalign: test/src/foldalignTest.cxx $(testobjects)
-	icpc $(options) test/src/foldalignTest.cxx $(testObjects) -o bin/test.foldalign
+	g++ $(options) test/src/foldalignTest.cxx $(testObjects) -o bin/test.foldalign
 
 test/lastTest: bin/foldalign
 	test/bin/runTest

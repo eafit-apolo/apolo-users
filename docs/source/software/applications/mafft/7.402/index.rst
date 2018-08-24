@@ -1,10 +1,10 @@
 .. _mafft-7.402-index:
 
 .. role:: bash(code)
-   :language: bash
+    :language: bash
 
 .. role:: raw-html(raw)
-   :format: html
+    :format: html
 
 MAFFT-7.402
 ===========
@@ -90,7 +90,8 @@ This section desribes the method to submit jobs with the resource manager SLURM.
    - ``quiet`` :raw-html:`&rarr;` Do not report progress and this flag is mandatory to run unattended jobs.
    - ``auto`` :raw-html:`&rarr;` Automatically selects an appropriate strategy from L-INS-i, FFT-NS-i and FFT-NS-2, according to data size.
    - ``thread`` :raw-html:`&rarr;` Number of threads (number of cores reserved on SLURM).
-   |
+
+   
    .. note::
       
       For more information, please read the manual entry for Mafft :bash:`man mafft` or :bash:`mafft -h`

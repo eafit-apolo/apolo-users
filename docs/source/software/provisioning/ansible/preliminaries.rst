@@ -397,6 +397,21 @@ example on the `Playbooks`_ section.
 	  loop_var: taskfile
       
 #. Decouple handlers. Handlers are stored the same way taskfiles are, but in
-   a different location.
+   a different location. They are placed inside the "handler" directory, which
+   is at the same level as the "tasks" directory.
 
-#. TODO: Decouple templates
+   .. code-block:: bash
+
+      mkdir -p $ANSIBLE_HOME/roles/nginx/handlers
+
+   .. code-block:: yaml
+
+      # $ANSIBLE_HOME/roles/nginx/handlers/main.yml
+      ---
+      - name: restart nginx
+	systemctl:
+	  name: nginx
+	  state: restarted
+
+#. Decouple templates. Stored under :bash:`$ANSIBLE_HOME/roles/<role>/templates`,
+   it is highly recommended to create 

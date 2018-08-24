@@ -13,4 +13,4 @@
 export SBATCH_EXPORT=NONE
 export OMP_NUM_THREADS=1
 
-mafft --quiet --auto --thread $SLURM_NTASKS ITS.fa > ITS_al.fa
+mafft --quiet --auto --thread $SLURM_NTASKS example.fa > example_al.fa

@@ -58,6 +58,7 @@ This entry described the installation process of MAFFT with extensions.
       #CC = icc
       CFLAGS = -03
       ...
+
    To:
 
    .. code-block:: bash
@@ -159,6 +160,7 @@ FOLDALIGN [2]_. an algorithm for local or global simultaneous folding and aligni
 	 ...
 	 cc = g++
 	 ...
+
    To:
 
       .. code-block:: c++

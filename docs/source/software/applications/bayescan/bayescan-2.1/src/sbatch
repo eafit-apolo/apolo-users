@@ -10,4 +10,4 @@ module load bayescan
 echo -n "Started at:"
 date
 
-time bayscan -snp ~/bayescan/BayeScan2.1/input_examples/test_genotype_SNP.txt -all_trace -out_prilot pilot
+time ~/BayeScan2.1/binaries/BayeScan2.1_linux64bits -snp ~/bayescan/BayeScan2.1/input_examples/test_genotype_SNP.txt -all_trace -out_prilot pilot

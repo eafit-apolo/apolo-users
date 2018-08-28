@@ -10,7 +10,7 @@ proc ModulesHelp {} {
      global version modroot
      puts stderr "Sets the environment for using bayescan 2.1_intel-2017_update-1\
 		  \nin the shared directory \
-		  \n/share/apps/bayescan/2.1_intel-2017_update-1\
+		  \n/share/apps/bayescan/2.1/intel-2017_update-1\
 		  \nbuilded with icpc compiler from Intel/2017_update-1. This application uses OpenMP"
 }
 
@@ -21,7 +21,7 @@ module-whatis "(System______) x86_64-redhat-linux"
 module-whatis "(Libraries___) "
 
 # for Tcl script use only
-set         topdir        /share/apps/bayescan/2.1_intel-2017_update-1
+set         topdir        /share/apps/bayescan/2.1/intel-2017_update-1
 set         version       2.1_intel-2017_update-1
 set         sys           x86_64-redhat-linux
 

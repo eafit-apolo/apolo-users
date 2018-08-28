@@ -19,7 +19,7 @@ Tested on (Requirements)
 
 Build process
 -------------
-							       							
+			
 #. Get the current **BayeScan** version from the **official webpage** and enter 
    into the source directory.
 
@@ -63,19 +63,19 @@ Build process
 
 #. Finally, create the installation directory and move the builded executable.
 		
-   **Apolo**
+ **Apolo**
    
-	.. code-block:: bash
+ .. code-block:: bash
 
-	       mkdir -p /share/apps/bayescan/2.1_intel-2017_update-1/bin
-	       mv bayescan_2.1 /share/apps/bayescan/2.1_intel-2017_update-1/bin/bayescan
+       mkdir -p /share/apps/bayescan/2.1/intel-2017_update-1/bin
+       mv bayescan_2.1 /share/apps/bayescan/2.1/intel-2017_update-1/bin/bayescan
 
-   **Cronos**
+ **Cronos**
    
-	.. code-block:: bash
+ .. code-block:: bash
 
-		mkdir -p /share/apps/bayescan/2.1_intel-18.0.2/bin
-		mv bayescan_2.1 /share/apps/bayescan/2.1_intel-18.0.2/bin/bayescan
+       mkdir -p /share/apps/bayescan/2.1/intel-18.0.2/bin
+       mv bayescan_2.1 /share/apps/bayescan/2.1/intel-18.0.2/bin/bayescan
 
 					
 Modulefile

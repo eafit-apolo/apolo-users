@@ -29,44 +29,71 @@ and test of **BayeScan** on a cluster with the conditions described below.
       	
 Usage
 -----
+In the follwing example we will run a test included in the soruce code of
+**BayeSacan**. Note that we are using one single compute-node, with 16 threads.
+
+.. literalinclude:: src/bayescan_run.sh
+       :language: bash
+       :caption: :download:`sbatch <src/bayescan_run.sh>`		       
+
+To run the previous example.
+
 
 .. code-block:: bash
 		
-   module load bayescan
-   bayescan -h
+   sbatch bayescan_run.sh
 
+.. note::
+
+     In this example we are using the default version of **BayeScan**
+     module. We recommend to specify the version you will use. To use the
+     version of this entry, pleace load the module as follow: 
+      
+
+      In Apolo II:
+
+      .. code-block:: bash
+
+	 module load bayescan/2.1_intel-2017_update-1
+
+      In Cronos:
+
+      .. code-block:: bash
+
+	 module load bayescan/2.1_intel-18.0.2
+
+
+	 
 Performance Tests
 -----------------
-The following test were performed using a single compute-node in **Cronos**.
-We were comparing the build-in version and our compiled version described
-in this entry. As input, we use one the included files of **BayeScan** source
+The following test was performed using a single compute-node in **Cronos**.
+We were comparing the build-in version and our builded version described
+in this entry. As input, we use one the included tests of **BayeScan** source.
 
-Sbatch Script for intel-compiled version:
+Slurm Script for build-in version test:
 
 .. literalinclude:: src/sbatch
      :language: bash
-     :caption: :download:`sbatch <src/sbatch>`
 
 
-The build-in version were executed using the full-path to the build-in binaries
-and with the same arguments.
+The test for our **builded version** was excuted by the example provied in this
+this entry.
 
 .. note::
-     As you can see in the sbatch script, the time was calculated using ``time`` command.
-     See man for more information.
+    As you can see in the sbatch script, the time was calculated using
+    ``time`` command.
 
-+------------------------------------------------------+
-|                        **Results**                   |
+**Results**  
+       
 +------------------+-----------------------------------+
-|                  |                Time               |
-|     Compiled     |                                   |
-|      version     |                                   |
+|     Compiled     |                Time               |
+|     version      |                                   |
 +------------------+----------+------------+-----------+
-| Compiled Version |   Real   |    User    |    Sys    |
+|                  |   Real   |    User    |    Sys    |
 +------------------+----------+------------+-----------+
 | Build-in         | 7m3.124s | 46m39.444s | 6m46.893s |
 +------------------+----------+------------+-----------+
-| Intel            | 2m8.054s | 33m26.063s | 0m42.262s |
+| Intel (icmp)     | 2m8.054s | 33m26.063s | 0m42.262s |
 +------------------+----------+------------+-----------+
 | **change**       | 99.970%  | 28.341%    | 89.613%   |
 +------------------+----------+------------+-----------+

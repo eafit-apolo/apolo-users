@@ -29,7 +29,7 @@ and test of **BayeScan** on a cluster with the conditions described below.
       	
 Usage
 -----
-In the follwing example we will run a test included in the soruce code of
+In the following example we will run a test included in the source code of
 **BayeSacan**. Note that we are using one single compute-node, with 16 threads.
 
 .. literalinclude:: src/bayescan_run.sh
@@ -37,7 +37,6 @@ In the follwing example we will run a test included in the soruce code of
        :caption: :download:`sbatch <src/bayescan_run.sh>`		       
 
 To run the previous example.
-
 
 .. code-block:: bash
 		
@@ -76,7 +75,7 @@ Slurm Script for build-in version test:
      :language: bash
 
 
-The test for our **builded version** was excuted by the example provied in this
+The test for our **builded version** was excuted by the example provided in this
 this entry.
 
 .. note::

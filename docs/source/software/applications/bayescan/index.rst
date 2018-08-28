@@ -6,8 +6,8 @@ BayeScan
 BayeScan [1]_ is a command line based open source software used for
 detecting natural selection from population-based genetic data.
 
-BayeScan, since 2.1 version, uses OpenMP to implement parallel calculation on 
-multicore CPUs.
+BayeScan, since 2.1 version, uses OpenMP to implement parallel calculation  
+using multicore processing.
 
 BayeScan is distributed as a single package containing all the
 necessary files, including manual, source code [2]_ , executables and R scripts.

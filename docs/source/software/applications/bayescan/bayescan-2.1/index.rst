@@ -11,7 +11,7 @@ Basic information
 
 - **Deploy date:** 23 July 2018
 - **Official Website:** http://cmpg.unibe.ch/software/BayeScan/index.html
-- **License:** GNU General Public License
+- **License:** GNU GPL v3
 - **Installed on:** :ref:`Apolo II <about_apolo-ii>`,
   :ref:`Cronos <about_cronos>`
 - **Available versions:** OpenMP

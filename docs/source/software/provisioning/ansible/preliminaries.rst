@@ -74,6 +74,9 @@ and would typically follow the conventions shown below:
 
       These variables are relative to group members and can be overwritten
       by subgroups and other ansible components (e.g. playbooks, tasks).
+      See `Ansible's Variable Precedence aticle`_ for more information.
+
+      .. _`Ansible's Variable Precedence aticle`: https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#variable-precedence-where-should-i-put-a-variable
 
    .. code-block:: ini
 	 

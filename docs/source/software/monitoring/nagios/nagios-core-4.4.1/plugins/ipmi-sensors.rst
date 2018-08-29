@@ -33,6 +33,11 @@ Configuration
 
 The following steps are required for setting-up this plugin in a specific host:
 
+#. Add the attribute **_ipmi_ip** in the host definition. This attribute is required by the check_ipmi_sensors plugin.
+
+.. note:: The names of these variables start with underscore and are in lowercase.
+          More info about the usage of custom object variables [1]_ .
+
 #. Add the command definition. In this implementation the command is added in
    :bash:`/usr/local/nagios/etc/objects/commands.cfg`
 
@@ -46,13 +51,6 @@ The following steps are required for setting-up this plugin in a specific host:
 #. Add the service definition. In this implementation the service is added in
    :bash:`/usr/local/nagios/etc/objects/common-services.cfg`
 
-#. Add the attributes **_ipmi_ip** and **ipmi_excluded_sensors** in the host definition. These attributes are required by the
-
-.. note:: The names of these variables start with underscore and are in lowercase.
-          More info about the usage of custom object variables [1]_ .
-  
-Usage
------
 
 Troubleshooting
 ---------------

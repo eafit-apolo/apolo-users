@@ -131,6 +131,16 @@ Assures the existence of ipmi-config directory and syncronizes the ipmi.cfg file
    
 .. literalinclude:: src/tasks/ipmi-config.yml
    :language: yaml
+
+mail-config.yml
+________________
+
+Syncronizes the mail configuration file with the version located in the repository.
+
+.. warning:: Read the section :ref:`mail-configuration` for more details.
+   
+.. literalinclude:: src/tasks/mail-config.yml
+   :language: yaml
 	      
 Installing Nagios Core
 ----------------------
@@ -160,7 +170,8 @@ make install-config        Generates templates for initial configuration
 .. literalinclude:: src/tasks/nagios-install.yml
    :language: yaml
 
-	      
+.. _nagios-config.yml:
+      
 nagios-config.yml
 _________________
 
@@ -217,7 +228,7 @@ Installing Nagios Plugins
 - :ref:`IPMI Sensors <ipmi-sensors-plugin-index>`
 - :ref:`Dell EMC OpenManage <dell-nagios-plugin-index>`
 - :ref:`iLO AgentLess Management Plugin <ilo-rest-plugin-index>`
-
+  
 References
 ----------
 

@@ -31,6 +31,34 @@ is automated using Ansible.
 
    installation
 
+.. _mail-configuration:
+
+Mail Configuration
+------------------
+
+.. note:: This configuration is automatically setup in the step of synchronization in the taskfile :ref:`nagios-config.yml` if the base configuration is included in the synchronization list.
+
+The commands :bash:`notify-host-by-email` and :bash:`notify-service-by-email` were modified adding the flag -A:
+
+   .. code-block:: bash
+		   
+      /usr/bin/printf "MAIL_BODY" | /bin/mail -A nagios -s "SUBJECT" $CONTACTEMAIL$
+
+   In order to uncouple the mail definition from the command line, the flag :bash:`-A nagios` was added. With this option, **mail** will use the configuration defined in the account nagios, in the file
+   :bash:`/etc/mail.rc`
+
+Example:
+
+.. code-block:: bash
+
+   account nagios {
+   set smtp=smtp.server.hostname:port
+   set sender=nagios@mail
+   set from="nagios@mail"
+   set ssl-verify=ignore
+   }
+
+   
 Plugins
 -------
 

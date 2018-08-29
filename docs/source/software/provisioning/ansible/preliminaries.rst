@@ -11,8 +11,8 @@
 .. sidebar:: Contents
 
    .. contents::
-      :local:
-	 
+      :local:	    
+      
 Inventory
 ---------------------
 
@@ -201,11 +201,11 @@ definition block called "Play". Take the following playbook for example:
 
    - hosts: lbnorth
      vars:
-       nginx_conf_dir: /opt/nginx/conf
+       nginx_conf_dir: /opt/nginx/
 		
    - hosts: lbservers
      vars:
-       max_clients: 100
+       nginx_log_dir: /var/log/ansible
      tasks:
      - name: Install/update nginx
        yum:
@@ -214,7 +214,7 @@ definition block called "Play". Take the following playbook for example:
      - name: Place nginx config file
        template:
          src: templates/nginx.conf.j2
-	 dest: "{{ nginx_conf_dir }}/conf/nginx.conf"
+	 dest: "{{ nginx_conf_dir }}/nginx.conf"
        notify:
          - restart nginx
      - name: Ensure nginx is running
@@ -280,7 +280,13 @@ A role's layout would typically look as below:
 .. _`Ansible's official documentation`: https://docs.ansible.com/ansible/2.5/user_guide/playbooks_reuse_roles.html
     
 .. code-block:: bash
-		    
+
+   <playbook 1>
+   <playbook 2>
+   .
+   .
+   .
+   <playbook n>
    roles/
      common/
        tasks/
@@ -292,7 +298,7 @@ A role's layout would typically look as below:
 Let us elucidate on how playbooks can be decoupled by using the notion of a role. Take the
 example on the `Playbooks`_ section.
 
-#. Identify a common feature within your tasks. For example, all tasks on the
+#. **Identify a common feature within your tasks**. For example, all tasks on the
    third play are related to nginx.
 
 #. Use that common feature as a base to name your role and create a directory
@@ -308,11 +314,11 @@ example on the `Playbooks`_ section.
 
       mkdir -p  $ANSIBLE_HOME/roles/nginx
 
-#. Decouple tasks by placing them in taskfiles. As the name implies, a taskfile is
+#. **Decouple tasks by placing them in taskfiles**. As the name implies, a taskfile is
    a file containing task declarations; this files are often stored under
    :bash:`$ANSIBLE_HOME/roles/<role>/tasks` and their name is irrelevant exept
    for :bash:`main.yml`, which must always be present. Although tasks can be all defined
-   inside :bash:`main.yml`, it is recommended to declare them in different taskfiles,
+   inside :bash:`main.yml`, it is recommended to declare them in different taskfiles
    when their number is large enough to make a coupled taskfile difficult to read, and then
    call each one from :bash:`main.yml`.
 
@@ -332,7 +338,7 @@ example on the `Playbooks`_ section.
       - name: Place nginx config file
        template:
          src: templates/nginx.conf.j2
-	 dest: "{{ nginx_conf_dir }}/conf/nginx.conf"
+	 dest: "{{ nginx_conf_dir }}/nginx.conf"
        notify:
          - restart nginx
 	   
@@ -354,13 +360,13 @@ example on the `Playbooks`_ section.
 	loop_control:
 	  loop_var: taskfile
 
-#. Decouple variables. Declare them as `Group variables`_, in the role's local
+#. **Decouple variables**. Declare them as `Group variables`_, in the role's local
    context or within a task. For instance, if one desires the variable
    :bash:`nginx_log_dir` to be set for all hosts applying the nginx role:
 
    .. note::
 
-      Using $ANSIBLE_HOME/roles/<role>/vars to store variables visible to all
+      Using :bash:`$ANSIBLE_HOME/roles/<role>/vars` to store variables visible to all
       tasks within a role is a common practice. However, "vars" can be named
       differently or even placed under some other location.
 	 
@@ -395,8 +401,24 @@ example on the `Playbooks`_ section.
 	  - 'config.yml'
 	loop_control:
 	  loop_var: taskfile
+
+   As for the variables under :bash:`lbsouth` and :bash:`lbnorth`:
+
+   .. code-block:: yaml
+
+      # $ANSIBLE_HOME/group_vars/lbnorth
+      ---
+      nginx_conf_dir: /opt/nginx/conf
+
+   .. code-block:: yaml
+
+      # $ANSIBLE_HOME/group_vars/lbsouth
+      ---
+      requests_timeout: 3
+      nginx_conf_dir: /etc/nginx/conf
+   
       
-#. Decouple handlers. Handlers are stored the same way taskfiles are, but in
+#. **Decouple handlers**. Handlers are stored the same way taskfiles are, but in
    a different location. They are placed inside the "handler" directory, which
    is at the same level as the "tasks" directory.
 
@@ -413,5 +435,38 @@ example on the `Playbooks`_ section.
 	  name: nginx
 	  state: restarted
 
-#. Decouple templates. Stored under :bash:`$ANSIBLE_HOME/roles/<role>/templates`,
-   it is highly recommended to create 
+#. **Decouple templates**. Stored under :bash:`$ANSIBLE_HOME/roles/<role>/templates`,
+   it is highly recommended to create a directory structure resembling that of the
+   location where templates will be rendered. e.g. :bash:`nginx.conf` will be
+   rendered in :bash:`/etc/nginx/conf` for :bash:`lbsouth` and :bash:`/opt/nginx/conf`,
+   for :bash:`lbnorth`, hence the template would reside in either
+   :bash:`$ANSIBLE_HOME/roles/nginx/templates/etc/nginx/conf` or
+   :bash:`$ANSIBLE_HOME/roles/nginx/templates/opt/nginx/conf`. Note modifying the layout
+   also implies adjusting all tasks using :bash:`nginx.conf.j2`.
+
+   .. code-block:: yaml
+      :emphasize-lines: 5
+
+      # $ANSIBLE_HOME/roles/nginx/tasks/config.yml
+      ---		   
+      - name: Place nginx config file
+       template:
+         src: templates/etc/nginx/conf/nginx.conf.j2
+	 dest: "{{ nginx_conf_dir }}/nginx.conf"
+       notify:
+         - restart nginx
+	   
+      - name: Ensure nginx is running
+	systemd:
+          name: nginx
+	  state: started
+	  enabled: true
+	 
+#. **Call the role** from the playbook (Note how it became simpler).
+
+   .. code-block:: yaml
+
+      ---
+      - hosts: lbservers
+	roles:
+	  - nginx

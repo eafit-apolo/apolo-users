@@ -34,8 +34,8 @@ In the following example we will run a test included in the source code of
 
 .. literalinclude:: src/bayescan_run.sh
        :language: bash
-       :caption: :download:`sbatch <src/bayescan_run.sh>`		       
-
+       :caption: :download:`bayescan_run.sh <src/bayescan_run.sh>`
+	     
 To run the previous example.
 
 .. code-block:: bash
@@ -65,18 +65,18 @@ To run the previous example.
 	 
 Performance Tests
 -----------------
-The following test was performed using a single compute-node in **Cronos**.
-We were comparing the build-in version and our builded version described
-in this entry. As input, we use one the included tests of **BayeScan** source.
+The following test was performed in :ref:`Cronos <about_cronos>`.
+We were comparing the build-in version and our builded version described in this
+entry. As input, we use one of the included tests of **BayeScan** source.
 
-Slurm Script for build-in version test:
+Sbatch-slurm script for build-in version test:
 
 .. literalinclude:: src/sbatch
      :language: bash
 
 
-The test for our **builded version** was excuted by the example provided in this
-this entry.
+The test for our **builded version** was executed by the example provided in
+`Usage`_ section of this entry.
 
 .. note::
     As you can see in the sbatch script, the time was calculated using

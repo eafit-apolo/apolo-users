@@ -22,10 +22,3 @@
     crypt_scheme: ldap_sha1
   notify:
     - nagios_restart
-
-- name: Allow apache to modify nagios command file
-  sefcontext:
-    target: '/usr/local/nagios/var/rw(/.*)?'
-    setype: httpd_sys_rw_content_t
-    state: present
-  notify: nagios_selinux_sync

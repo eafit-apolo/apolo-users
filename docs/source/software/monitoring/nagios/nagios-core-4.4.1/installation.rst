@@ -160,7 +160,6 @@ make install-config        Generates templates for initial configuration
 .. literalinclude:: src/tasks/nagios-install.yml
    :language: yaml
 
-.. _nagios-config.yml:
 	      
 nagios-config.yml
 _________________
@@ -168,14 +167,6 @@ _________________
 This taskfile syncronize the Nagios config files with the ones stored in the repository, if there is a change in this syncronization, Nagios daemon is restarted with the handler :yaml:`nagios_restart`.
 
 Then, the module **htpasswd** asigns the password stored with Ansible Vault in the variable :yaml:`{{ nagios_admin_passwd }}` using ldap_sha1 as crypt scheme and restarts Nagios daemon if the final state of the task is **changed**.
-
-.. note:: By default, the files under the directory **/usr/local/nagios/var/rw** don't
-	  belongs to the **httpd_sys_rw_content_t** context. It is necessary to add this context
-	  (this is what the last task of this taskfile does) because the way Web interface interacts with
-	  Nagios is with the Command File **/usr/local/nagios/var/rw/nagios.cmd**.
-
-.. warning:: The error :bash:`Could not stat() command file /usr/local/nagios/var/rw/nagios.cmd`
-	     is fixed by this taskfile. The explanation is in the :ref:`nagios-cmd-error` section.
 
 .. literalinclude:: src/tasks/nagios-config.yml
    :language: yaml
@@ -190,6 +181,25 @@ After **nagios-config.yml** is completed, :bash:`make install-webconf` is execut
    .. literalinclude:: src/tasks/nagios-post-install.yml
       :language: yaml
 
+.. _selinux-config.yml:
+		 
+selinux-config.yml
+_______________________
+
+.. note:: By default, the files under the directory **/usr/local/nagios/var/rw** don't
+	  belongs to the **httpd_sys_rw_content_t** context. It is necessary to add these contexts
+	  (this is what the taskfile does) because the way Web interface interacts with
+	  Nagios is with the Command File **/usr/local/nagios/var/rw/nagios.cmd** executing
+	  from **/usr/local/nagios/sbin/**
+
+.. warning:: The error :bash:`Could not stat() command file /usr/local/nagios/var/rw/nagios.cmd`
+	     is fixed by this taskfile. The explanation is in the :ref:`nagios-cmd-error` section.
+
+
+.. literalinclude:: src/tasks/selinux-config.yml
+   :language: yaml
+
+		 
 final-check.yml
 _______________________
 

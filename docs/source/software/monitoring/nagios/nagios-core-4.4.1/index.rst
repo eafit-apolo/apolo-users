@@ -76,7 +76,7 @@ Nagios Command Error
 
 This error occurs when the user generates a modification in the Nagios Command file executing
 different actions with the Nagios Web Interface *(ej. re-schedule checks)*. This error is corrected
-with the execution of the task :ref:`nagios-config.yml`.
+with the execution of the task :ref:`selinux-config.yml`.
 
 By default, the apache daemon cannot read/write the files under :bash:`/usr/local/nagios/var/rw` because
 this directory doesn't belongs to the :bash:`httpd_sys_rw_content_t` SELinux context. This is what

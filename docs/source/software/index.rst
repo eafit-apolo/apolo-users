@@ -10,4 +10,3 @@ Software
    programminglanguages/index
    applications/index
 
-

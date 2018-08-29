@@ -419,7 +419,7 @@ you have to follow next steps:
 
          .. code-block:: bash
 
-	    scp apolo.local.zip or cronos.local.zip <user>@cluster:$path/to/file
+            scp apolo.local.zip or cronos.local.zip <user>@cluster:$path/to/file
             mv $path/to/file/matlab-apolo.zip$ /share/apps/matlab/r2018a/toolbox/local
             cd /share/apps/matlab/r2018a/toolbox/local
             unzip apolo.local.zip or cronos.local.zip

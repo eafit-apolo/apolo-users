@@ -3,10 +3,10 @@
 How to Acknowledge
 ##################
 
-Maintaining a Supercomputing center is very expensive, and the Scientific Computing CEnter requests to their users to
-acknowledge the use of the resources. in scientific production like papers, books, patents or other publications of
-research which benefited from the use of the computational and staff resources. This acknowledgements help us to acquire
-funding to buy more capacities to fulfill the needs of our users.
+Maintaining a Supercomputing center is very expensive, the Scientific Computing Center requests to our users to
+acknowledge the use of the resources in scientific production such as papers, books, patents or other publications of
+research that benefited from the utilize of the computational and staff resources. This acknowledgements help us to
+acquire funding and get more capacities that will fulfill the needs of our users.
 
 We suggest the following paragraph to acknowledge the scientific computing center:
 

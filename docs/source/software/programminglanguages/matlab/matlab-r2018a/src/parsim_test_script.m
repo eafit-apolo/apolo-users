@@ -4,7 +4,7 @@
 numSims = 10;
 W = zeros(1,numSims);
 
-% Changing to |parsim_test.xls| path
+% Changing to |parsim_test.slx| path
 cd /home/mgomezzul/tests/matlab/slurm
 
 % Create an array of |SimulationInput| objects and specify the argument value

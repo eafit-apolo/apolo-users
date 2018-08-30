@@ -507,9 +507,12 @@ program more sophisticated vault-password scripts.
 
 .. warning::
 
-   A vault id will only be passed to the script if the latter is named after the
-   convention :bash:`<some name>-client.<extension>` (e.g. :bash:`keyring-client.sh`).
-   See [#]_ and [#]_ for more information.
+   - A vault id will only be passed to the script if the latter is named after the
+     convention :bash:`<some name>-client.<extension>` (e.g. :bash:`keyring-client.sh`).
+     See [#]_ and [#]_ for more information.
+
+   - Make sure the script is executable. Otherwise, ansible will not be able
+     to use it.
 
 For instance,
 
@@ -523,35 +526,102 @@ will result in :bash:`keyring-client.sh` to be invoked as:
 
    /path/to/keyring-client.sh --vault-id some_id
 
-Let us delve into a more detailed example. Suppose ansible is being run from
-a cluster's orchestrator, named after the convention :bash:`<cluster name>.<domain>`
-(e.g. :bash:`cluster1.local.example.com`).  Using the script below
+Let us delve into a more detailed example:
 
-.. code-block:: bash
+**Assumptions**
 
-   #!/bin/bash
+#. Ansible is being run from
+   three servers (each one being a cluster's orchestrator, or master),
+   named after the convention :bash:`<cluster name>.<domain>`.
+   :bash:`cluster1.local`, :bash:`cluster2.local` and :bash:`cluster3.local`.
 
-   case $1 in
-     "--vault-id")
-     declare -r env="$2"
-     ;;
-   *)
-     exit 1
-     ;;
-   esac
+   - :bash:`cluster1.local` and :bash:`cluster2.local` belong to the
+     production environment.
 
-   declare -r cluster=`hostname | awk -F'.' '{print $1}'`
-   declare -r cmd="ssh remote \
-   cat /etc/secrets/$env/$cluster"
+   - :bash:`cluster3.local` belongs to the development environment.
 
-   declare -r vault_passwd="$($cmd)"
+#. The script :bash:`/usr/sbin/keyring-client.sh` has the content shown below:
 
-   echo "$vault_passwd"
-
-would produce the followig workflow:   
+   .. code-block:: bash
+      :linenos:
    
-.. figure:: src/images/simple_vault-password_script_workflow.png
-   :alt: Simple vault-password script workflow
+      #!/bin/bash
+   
+      case $1 in
+        "--vault-id")
+        declare -r env="$2"
+        ;;
+      *)
+        exit 1
+        ;;
+      esac
+   
+      declare -r cluster=`hostname | awk -F'.' '{print $1}'`
+      declare -r cmd="ssh remote \
+      cat /etc/secrets/$env/$cluster"
+   
+      declare -r vault_passwd="$($cmd)"
+   
+      echo "$vault_passwd"
+
+#. The vault id reprents an environment: dev (development), prod (production).
+
+#. A server called :bash:`remote` (see line 13 from script) holds multiple passwords,
+   one per server, stored under :bash:`/etc/secrets/<environment>/<cluster>`:
+
+   - :bash:`/etc/secrets/prod/cluster1`
+   - :bash:`/etc/secrets/prod/cluster2`
+   - :bash:`/etc/secrets/dev/cluster3`
+
+**Sample use case**
+
+#. Encrypt playbook :bash:`/etc/ansible/site.yml` on each server.
+
+   .. code-block:: bash
+		   
+      ssh cluster1.local
+      ansible-vault encrypt /etc/ansible/site.yml --vault-id prod@/usr/sbin/keyring-client.sh
+      exit
+      ssh cluster2.local
+      ansible-vault encrypt /etc/ansible/site.yml --vault-id prod@/usr/sbin/keyring-client.sh
+      exit
+      ssh cluster3.local
+      ansible-vault encrypt /etc/ansible/site.yml --vault-id dev@/usr/sbin/keyring-client.sh
+      exit
+
+   Note how each vault id corresponds to the cluster's environment. The process
+   is similar to the workflow depicted in the figure :ref:`fig-sample-vault-script-workflow`.
+      
+#. Run ansible on each server.
+
+   .. code-block:: bash
+		   
+      ssh cluster1.local
+      ansible-playbook --vault-id prod@/usr/sbin/keyring-client.sh /etc/ansible/site.yml
+      exit
+      ssh cluster2.local
+      ansible-playbook --vault-id prod@/usr/sbin/keyring-client.sh /etc/ansible/site.yml
+      exit
+      ssh cluster3.local
+      ansible-playbook --vault-id dev@/usr/sbin/keyring-client.sh /etc/ansible/site.yml
+      exit
+
+   In order to decrypt the playbook ansible executes :bash:`/usr/sbin/keyring-client.sh`,
+   which:
+   
+      #. Acesses :bash:`remote` using ssh
+      #. Retrieves the appropriate password, contingent on the cluster's name and
+	 environment.
+      #. Prints password to the standard output.
+	 
+   The workflow is depicted in the figure :ref:`fig-sample-vault-script-workflow`.   
+
+   .. _fig-sample-vault-script-workflow:
+   
+   .. figure:: src/images/simple_vault-password_script_workflow.png
+      :alt: Simple vault-password script workflow
+
+      Sample vault script workflow
    
 .. rubric:: References
 

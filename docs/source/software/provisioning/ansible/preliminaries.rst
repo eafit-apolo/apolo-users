@@ -8,10 +8,6 @@
 .. role:: raw-html(raw)
    :format: html
 
-.. sidebar:: Contents
-
-   .. contents::
-      :local:	    
       
 Inventory
 ---------------------
@@ -473,3 +469,96 @@ example on the `Playbooks`_ section.
       - hosts: lbservers
 	roles:
 	  - nginx
+
+Vault (Encryption)
+--------------------- 
+
+.. note::
+
+   Some features will not be detailed. Basic usage can be found in
+   `Ansible's document: Ansible Vault`_
+
+   .. _`Ansible's document: Ansible Vault`: https://docs.ansible.com/ansible/latest/user_guide/vault.html?highlight=vault
+
+"New in Ansible 1.5, “Vault” is a feature of ansible that allows keeping sensitive data such as passwords
+or keys in encrypted files, rather than as plaintext in your playbooks or roles. These vault files can
+then be distributed or placed in source control." [#]_
+
+vault-password script
+~~~~~~~~~~~~~~~~~~~~~
+
+Vault's password can be retrieved from a script, as described in [#]_, passed to the
+option :bash:`--vault-id`, or :bash:`--vault-password-file`
+from the :bash:`ansible-vault` and :bash:`ansible-playbook` executables.
+
+.. note::
+
+   The script can be written in python, bash or any other scripting language.
+
+Scripts invoked by :bash:`--vault-password-file` take no arguments,
+return the password on stdout and do not have any knowledge about :bash:`--vault-id`
+or multiple password files whatsoever. Using :bash:`--vault-id` to call upon
+scripts, on the other hand, enables a 'protocol' under which a vault id can be
+looked up and its associated password returned thereafter.
+
+Furthermore, :bash:`--vault-id` allows for a vault id to be passed a
+as an argument thus giving developers the ability to
+program more sophisticated vault-password scripts.
+
+.. warning::
+
+   A vault id will only be passed to the script if the latter is named after the
+   convention :bash:`<some name>-client.<extension>` (e.g. :bash:`keyring-client.sh`).
+   See [#]_ and [#]_ for more information.
+
+For instance,
+
+.. code-block:: bash
+
+   ansible-playbook --vault-id some_id@/path/to/keyring-client.sh some_plybook.yml
+
+will result in :bash:`keyring-client.sh` to be invoked as:
+
+.. code-block:: bash
+
+   /path/to/keyring-client.sh --vault-id some_id
+
+Let us delve into a more detailed example. Suppose ansible is being run from
+a cluster's orchestrator, named after the convention :bash:`<cluster name>.<domain>`
+(e.g. :bash:`cluster1.local.example.com`).  Using the script below
+
+.. code-block:: bash
+
+   #!/bin/bash
+
+   case $1 in
+     "--vault-id")
+     declare -r env="$2"
+     ;;
+   *)
+     exit 1
+     ;;
+   esac
+
+   declare -r cluster=`hostname | awk -F'.' '{print $1}'`
+   declare -r cmd="ssh remote \
+   cat /etc/secrets/$env/$cluster"
+
+   declare -r vault_passwd="$($cmd)"
+
+   echo "$vault_passwd"
+
+would produce the followig workflow:   
+   
+.. figure:: src/images/simple_vault-password_script_workflow.png
+   :alt: Simple vault-password script workflow
+   
+.. rubric:: References
+
+.. [#] Ansible Vault, August 17 - 2018. Retrieved August 30 - 2018, from https://docs.ansible.com/ansible/latest/user_guide/vault.html?highlight=vault
+
+.. [#] Ansible Vault, Providing Vault Passwords, August 17 - 2018. Retrieved August 30 - 2018, from https://docs.ansible.com/ansible/latest/user_guide/vault.html?highlight=vault#providing-vault-passwords.
+       
+.. [#] Issue: Allow the vault_id to be passed to vault password scripts #31001, September 27 - 2018. Retrieved Retrieved August 30 - 2018, from https://github.com/ansible/ansible/issues/31001
+
+.. [#] Vault secrets client inc new 'keyring' client #27669, October 13 - 2018. Retrieved August 30 - 2018, from https://github.com/ansible/ansible/pull/27669      

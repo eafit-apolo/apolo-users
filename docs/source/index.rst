@@ -35,3 +35,4 @@ Medellín, Colombia.
    supercomputers/index
    software/index
    report-a-bug
+   how-to-acknowledge

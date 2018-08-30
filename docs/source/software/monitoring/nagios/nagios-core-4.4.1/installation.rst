@@ -69,16 +69,18 @@ ____________
 This taskfile contains the dependencies for using some Ansible modules and for installing Nagios
 core and it's plugins.
 
-======================  =================================================================
+======================  ====================================================================
 System Packages         Description
-======================  =================================================================
+======================  ====================================================================
 Python-passlib          Dependency of Ansible HTPASSWD Module
 Python2-pip             PIP Installs OMSDK (Dependency of Dell Plugin)
 LibSELinux-Python       Dependency of Ansible SELinux Module
 PolicyCoreUtils-Python  Dependency of Ansible SELinux Module
-======================  =================================================================
+mailx                   Provides "mail" command, used in notify nagios commands
+ipmiutil                Necessary for :ref:`ipmi_sel_error`
+======================  ====================================================================
 
-The other dependencies are listed in the taskfile shown bellow.
+The other dependencies are listed in the taskfile showed bellow.
 
 .. note::
    The @ syntaxis in yum module specifies that the item is a package group.

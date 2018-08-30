@@ -51,9 +51,21 @@ The following steps are required for setting-up this plugin in a specific host:
 #. Add the service definition. In this implementation the service is added in
    :bash:`/usr/local/nagios/etc/objects/common-services.cfg`
 
+   .. code-block:: bash
+	
+      define service{
+        use                  generic-service
+        host_name            mgmt-master
+        service_description  IPMI
+        check_command        check_ipmi_sensor!/etc/ipmi-config/ipmi.cfg
+      }
+
+.. warning:: TODO: **IMPORTANTE** Definir cómo configurar IPMI
 
 Troubleshooting
 ---------------
+
+.. _ipmi_sel_error:
 
 IPMI Status: Critical [X system event log (SEL) entries present]
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''

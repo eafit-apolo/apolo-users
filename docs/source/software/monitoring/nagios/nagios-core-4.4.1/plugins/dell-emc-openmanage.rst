@@ -10,7 +10,19 @@ Basic information
 -----------------
 
 - **Official Website:** https://exchange.nagios.org/directory/Plugins/Hardware/Server-Hardware/Dell/Dell-EMC-OpenManage-Plug-2Din-for-Nagios-Core/details
-- **License:** 
+- **License:**
+
+**Tested on (Requirements)**
+----------------------------
+
+* **Nagios Core:** Version :math:`\boldsymbol{\ge}` 3.5.0
+
+
+Installation
+------------
+
+.. literalinclude:: ../src/tasks/dell-plugin.yml
+   :language: yaml
 
 Usage
 -----

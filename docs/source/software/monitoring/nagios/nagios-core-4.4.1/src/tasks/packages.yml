@@ -9,6 +9,8 @@
     - python2-pip    #PIP Installs OMSDK required for Dell plugin
     - libselinux-python          #SELinux Ansible module dependency
     - policycoreutils-python     #SELinux Ansible module dependency
+    - mailx
+    - ipmiutil
 
 - name: NAGIOS Dependencies
   yum:

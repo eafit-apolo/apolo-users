@@ -1,10 +1,13 @@
 % Example running a Simulink model.
 
+% The Simulink model is called |parsim_test.slx| and it *must be* in
+% the cluster.
+
 % Number of simulations
 numSims = 10;
 W = zeros(1,numSims);
 
-% Changing to |parsim_test.slx| path
+% Changing to the |parsim_test.slx| path
 cd /home/mgomezzul/tests/matlab/slurm
 
 % Create an array of |SimulationInput| objects and specify the argument value

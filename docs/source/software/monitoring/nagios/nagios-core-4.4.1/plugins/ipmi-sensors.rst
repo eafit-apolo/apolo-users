@@ -19,7 +19,10 @@ Basic information
 Installation
 ------------
 
-This taskfile is included only when the file /usr/local/nagios/libexec/check_ipmi_sensor doesn't exist. This state is registered in nagios-plugins-installed.yml, with the module **stat**.
+This taskfile is included only when the file /usr/local/nagios/libexec/check_ipmi_sensor doesn't exist.
+This state is registered in :bash:`nagios-plugins-installed.yml`, with the module **stat**.
+
+More information in the section :ref:`nagios-plugins-installed.yml`.
 
 The installation process consists on cloning the git repository and copying the file :bash:`check_ipmi_sensor`
 to the Nagios plugins directory.
@@ -73,11 +76,13 @@ IPMI Status: Critical [X system event log (SEL) entries present]
 #. Read System Entry Logs before deleting them. It's important to see if there is a
    bad behaviour registered in these logs.
    
-   :bash:`ipmiutil sel -N 10.150.4.187 -F lan2 -U user -P passwd`
+   :bash:`ipmiutil sel -N (host_ip|hostname) -F lan2 -U user -P passwd`
 
 #. Clear System Entry Logs with the credentials of a user with enough privileges.
-   :bash:`ipmiutil sel -d -N 10.150.4.187 -F lan2 -U user -P passwd`
+   :bash:`ipmiutil sel -d -N (host_ip|hostname) -F lan2 -U user -P passwd`
 
+.. note:: The password should be written between aphostrophes (**'**) if contains special characters.
+	 
 References
 ----------
 

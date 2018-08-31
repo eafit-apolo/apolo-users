@@ -216,16 +216,27 @@ _______________________
 final-check.yml
 _______________________
 
-The final steps include removing :yaml:`{{ temp_dir }}` and checking the Nagios configuration with the command :bash:`/usr/local/nagios/bin/nagios -v /usr/local/nagios/etc/nagios.cfg`.
+The final steps include removing :yaml:`{{ temp_dir }}` and checking the Nagios configuration with the
+command :bash:`/usr/local/nagios/bin/nagios -v /usr/local/nagios/etc/nagios.cfg`.
 
 This execution finishes assuring with two handlers that nagios and apache services are started.
 
-   .. literalinclude:: src/tasks/final-check.yml
-      :language: yaml
+.. literalinclude:: src/tasks/final-check.yml
+   :language: yaml
 
 
+.. _nagios-plugins-installed.yml:
+	      
 Installing Nagios Plugins
 -------------------------
+
+The taskfile :bash:`nagios-plugins-installed.yml` registers in ansible variables if the plugins are
+installed or not.
+
+.. literalinclude:: src/tasks/nagios-plugins-installed.yml
+   :language: yaml
+
+
 - :ref:`Nagios Plugins <nagios-plugins-index>`
 - :ref:`IPMI Sensors <ipmi-sensors-plugin-index>`
 - :ref:`Dell EMC OpenManage <dell-nagios-plugin-index>`

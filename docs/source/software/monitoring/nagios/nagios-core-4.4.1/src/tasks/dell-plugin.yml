@@ -23,9 +23,3 @@
   shell: "bash install.sh"
   args:
     chdir: "{{ temp_dir }}/Dell_OpenManage_Plugin/Install"
-
-- name: Check integrity in Nagios configuration after Dell plugin installation
-  shell: "/usr/local/nagios/bin/nagios -v /usr/local/nagios/etc/nagios.cfg"
-  notify:
-    - nagios_restart
-    - snmptt_restart

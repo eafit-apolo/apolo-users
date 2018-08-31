@@ -11,7 +11,7 @@ Basic information
 
 - **Official Website:** https://exchange.nagios.org/directory/Plugins/Network-and-Systems-Management/Others/A-Nagios-Plug-2Din-for-iLO-Agentless-Management-(HPE-ProLiant-Server)/details
 - **License:** GPL
-- **Version:** 1.5
+- **Version:** 1.5 - Nagios HPE iLO RESTful Plugin
 
 Installation
 ------------
@@ -32,11 +32,21 @@ section :ref:`aclocal-missing`. Finally, the configure, make and make install ar
 Configuration
 -------------
 
+Defining Hosts, commands and services
+'''''''''''''''''''''''''''''''''''''
+
+.. warning:: It's necessary to read the section :ref:`nagios_centos_7` before proceding to configure.
+
+.. code-block:: bash
+
+   /usr/local/nagios/libexec/hpeilo_nagios_config
+
+
 iLO Credentials
 '''''''''''''''
 
-The iLO credentials used by the plugin are cyphered and  stored in the file
-:bash:`/etc/nagios/.nagios_restful_credential.tdb`. A
+The iLO credentials used by the plugin are cyphered and stored in the file
+:bash:`/etc/nagios/.nagios_restful_credential.tdb` and can be modified with the following command:
 
 .. code-block:: bash
 
@@ -50,15 +60,6 @@ Params                        Value
  -h                           Prints this help information
 ============================= ========================================================================
 	      
-Usage
------
-
-.. warning:: It's necessary to read the section :ref:`nagios_centos_7` before proceding to configure.
-
-.. code-block:: bash
-
-   /usr/local/nagios/libexec/hpeilo_nagios_config
-
 Troubleshooting
 ---------------
 
@@ -108,7 +109,7 @@ The error will show an error output during the executiong of the configuration s
 In this installation, CentOS 7 configured Nagios Daemon with systemd specifications, so the file
 /etc/init.d/nagios* was not created.
 
-The alternative we purpose in order not to modifying the code of the ilo plugin scripts is to generate
+The alternative we propose in order not to modifying the code of the ilo plugin scripts is to generate
 a temporal file :bash:`/etc/init.d/nagios` during the generation of the configuration files with
 the following content:
 

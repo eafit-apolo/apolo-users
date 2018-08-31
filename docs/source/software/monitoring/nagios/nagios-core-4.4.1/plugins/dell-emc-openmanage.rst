@@ -21,6 +21,14 @@ Basic information
 Installation
 ------------
 
+This taskfile is executed only if the directory :bash:`/usr/local/nagios/libexec` doesn't
+exist.This state is registered in the taskfile :bash:`nagios-plugins-installed.yml`, with the module **stat**.
+
+For more information about this registers read the section :ref:`nagios-plugins-installed.yml`.
+
+The installation process consist on downloading and uncompressing the plugin, then the script :bash:`Dell_OpenManage_Plugin/Install/install.sh` is
+executed.
+
 .. literalinclude:: ../src/tasks/dell-plugin.yml
    :language: yaml
 

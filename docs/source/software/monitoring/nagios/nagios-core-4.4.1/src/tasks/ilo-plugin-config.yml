@@ -1,0 +1,10 @@
+---
+- name: Syncronize configuration
+  copy:     
+    src: "{{ item }}"
+    dest: "/{{ item }}"
+  with_items:
+    - usr/local/nagios/etc/ilo/ilo.cfg
+    - etc/nagios/.nagios_restful_credential.tdb
+  notify:
+    - nagios_restart

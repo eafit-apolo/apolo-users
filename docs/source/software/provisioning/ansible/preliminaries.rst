@@ -518,7 +518,7 @@ For instance,
 
 .. code-block:: bash
 
-   ansible-playbook --vault-id some_id@/path/to/keyring-client.sh some_plybook.yml
+   ansible-playbook --vault-id some_id@/path/to/keyring-client.sh some_playbook.yml
 
 will result in :bash:`keyring-client.sh` to be invoked as:
 

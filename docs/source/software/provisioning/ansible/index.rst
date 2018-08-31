@@ -27,7 +27,8 @@ ansible's common features (i.e. those which, at the very least, allow
 it to perform simple tasks).
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
+   :numbered:
 
    preliminaries
 

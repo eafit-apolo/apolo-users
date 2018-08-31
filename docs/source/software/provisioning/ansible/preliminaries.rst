@@ -8,7 +8,11 @@
 .. role:: raw-html(raw)
    :format: html
 
-      
+.. sidebar:: Contents
+
+   .. contents::
+      :local:
+	    
 Inventory
 ---------------------
 
@@ -531,14 +535,17 @@ Let us delve into a more detailed example:
 **Assumptions**
 
 #. Ansible is being run from
-   three servers (each one being a cluster's orchestrator, or master),
-   named after the convention :bash:`<cluster name>.<domain>`.
-   :bash:`cluster1.local`, :bash:`cluster2.local` and :bash:`cluster3.local`.
+   three clusters.Cluster orchestrators (masters) are
+   named after the convention :bash:`cluster<cluster number>.<domain>` and
+   compute nodes :bash:`compute<cluster number>-<number>`. e.g. Cluster 1
+   is comprised of :bash:`cluster1.local` and  :bash:`compute-1-0.local`,
+   :bash:`compute-1-1.local`.
 
-   - :bash:`cluster1.local` and :bash:`cluster2.local` belong to the
-     production environment.
+#. Clusters 1 and 2 belong to the production environment. Cluster 3 belongs to
+   the development environment.
 
-   - :bash:`cluster3.local` belongs to the development environment.
+#. Servers from a particular cluster cannot access servers from other
+   cluster.
 
 #. The script :bash:`/usr/sbin/keyring-client.sh` has the content shown below:
 
@@ -567,7 +574,7 @@ Let us delve into a more detailed example:
 #. The vault id reprents an environment: dev (development), prod (production).
 
 #. A server called :bash:`remote` (see line 13 from script) holds multiple passwords,
-   one per server, stored under :bash:`/etc/secrets/<environment>/<cluster>`:
+   one per cluster, stored under :bash:`/etc/secrets/<environment>/<cluster>`:
 
    - :bash:`/etc/secrets/prod/cluster1`
    - :bash:`/etc/secrets/prod/cluster2`
@@ -575,46 +582,194 @@ Let us delve into a more detailed example:
 
 **Sample use case**
 
-#. Encrypt playbook :bash:`/etc/ansible/site.yml` on each server.
+#. Create a git repository to hold ansible's information.
 
    .. code-block:: bash
-		   
-      ssh cluster1.local
-      ansible-vault encrypt /etc/ansible/site.yml --vault-id prod@/usr/sbin/keyring-client.sh
-      exit
-      ssh cluster2.local
-      ansible-vault encrypt /etc/ansible/site.yml --vault-id prod@/usr/sbin/keyring-client.sh
-      exit
-      ssh cluster3.local
-      ansible-vault encrypt /etc/ansible/site.yml --vault-id dev@/usr/sbin/keyring-client.sh
-      exit
 
-   Note how each vault id corresponds to the cluster's environment. The process
-   is similar to the workflow depicted in the figure :ref:`fig-sample-vault-script-workflow`.
+      mkdir -p ~/ansible
+      cd ~/ansible
+      git init
+
+#. Create an inventory file.
+
+   .. code-block:: INI
+
+      ; ~/ansible/inventory
       
-#. Run ansible on each server.
+      [cluster1]
+      cluster1.local
+      compute-1-0.local
+      compute-1-1.local
+
+      [cluster2]
+      cluster2.local
+      compute-2-0.local
+      compute-2-1.local
+
+      [cluster3]
+      cluster3.local
+      compute-3-0.local
+      compute-3-1.local
+
+      [clusters]
+      cluster1
+      cluster2
+      cluster3
+      
+#. Create a playbook to change the root password. Since repeating code is an awful
+   practice, we decided to create a reusable task and manage the user password
+   through a variable.
+
+   .. code-block:: yaml
+
+      # ~/ansible/playbook.yml
+      ---
+      - hosts: clusters
+	tasks:
+	- name: Set root password
+	  user:
+	    name: root
+	    password: "{{ root_password_hash }}"
+
+#. Retrive each root password hash.
+
+   .. code-block:: bash
+
+      # Password - cluster1: 123		   
+      openssl passwd -1 -salt
+      Password:
+      Verifying - Password:
+      $1$PpScqWH9$/Rpsq9/mJVxnaCEmrSAv31
+      # Password - cluster2: 456
+      openssl passwd -1 -salt
+      Password:
+      Verifying - Password:
+      $1$RB/C07h4$t1lWpEQO/APEBwYPyhjai1
+      # Password - cluster3: 789
+      openssl passwd -1 -salt
+      Password:
+      Verifying - Password:
+      $1$mRBrUoTy$xAoiS8xIeT6pm8HZZvKmL1
+
+#. Encrypt the hashes using the vault-password
+   script. Note the process is exactly the same for all
+   servers (login, run ansible-vault, paste hash, press Ctrl-d, retrieve hash),
+   therefore showing it for one will be enough of a clarification.
+
+   .. caution::
+
+      - DO NOT understimate string trimming. That is, Vault does not
+	trim any \\n. Hence, pasting the hash, pressing [Return] and then
+	[Ctrl]-[d] would include an EOL. TODO: REFERENCE TO TROUBLESHOOTING.
+
+      - Remember to give Vault's --vault-id option the apropriate
+	environment for each server.
+   
+   .. code-block:: bash
+		   
+      ssh cluster1.local
+      ansible-vault encrypt_string \
+      --vault-id prod@/usr/sbin/keyring-client.sh \
+      --stdin-name 'root_password_hash'
+      Reading plaintext input from stdin. (ctrl-d to end input)
+      $1$PpScqWH9$/Rpsq9/mJVxnaCEmrSAv31root_password_hash: !vault |
+          $ANSIBLE_VAULT;1.2;AES256;prod
+          34376666646335616561643965613763613163623262663262313961613262316565623237363434
+          6138363635336330616364633539653466323264653133330a326465346136383635343961346434
+          66376665356534616366333465346166633364373438623133623363303262343464663266623337
+          6136363864643936620a373734656435376331393265653138613835336237636437656666663361
+          66636130613232383766656134306566353562333166323164663731623238353430633830343833
+          6131643734643639383332613635323264363065316464366232
+      Encryption successful
+      exit
+      
+#. Create the group variable :bash:`root_password_hash` and assign it the
+   appropriate hash.
+
+   .. code-block:: bash
+
+      mkdir -p ~/ansible/group_vars
+
+   .. code-block:: yaml
+
+      # ~/ansible/group_vars/cluster1
+      ---
+      root_password_hash: !vault |
+          $ANSIBLE_VAULT;1.2;AES256;prod
+          34376666646335616561643965613763613163623262663262313961613262316565623237363434
+          6138363635336330616364633539653466323264653133330a326465346136383635343961346434
+          66376665356534616366333465346166633364373438623133623363303262343464663266623337
+          6136363864643936620a373734656435376331393265653138613835336237636437656666663361
+          66636130613232383766656134306566353562333166323164663731623238353430633830343833
+          6131643734643639383332613635323264363065316464366232
+
+   .. code-block:: yaml
+
+      # ~/ansible/group_vars/cluster2
+      ---
+      root_password_hash: !vault |
+          $ANSIBLE_VAULT;1.2;AES256;prod      
+          <encrypted hash>
+
+   .. code-block:: yaml
+
+      # ~/ansible/group_vars/cluster3
+      ---
+      root_password_hash: !vault |
+          $ANSIBLE_VAULT;1.2;AES256;dev      
+          <encrypted hash>
+   
+   Note how each vault id corresponds to the cluster's environment, which, in this case, determines
+   the script's behavior (see figure :ref:`fig-sample-vault-script-workflow`).
+
+#. Connect the repository to Github, Gitlab or any other remote platform. Then commit and push the changes.
+
+   .. code-block:: bash
+
+      cd ~/ansible
+      git remote add origin git@github.com:username/ansible
+      git add --all
+      git commit -m "<some message>"
+      git push -u origin master
+   
+#. Download the repository from each cluster orchestrator and run ansible.
 
    .. code-block:: bash
 		   
       ssh cluster1.local
-      ansible-playbook --vault-id prod@/usr/sbin/keyring-client.sh /etc/ansible/site.yml
+      cd /etc
+      git clone git@github.com:username/ansible
+      ansible-playbook --vault-id prod@/usr/sbin/keyring-client.sh \
+      -i /etc/ansible/inventory \
+      /etc/ansible/site.yml
       exit
+      
       ssh cluster2.local
-      ansible-playbook --vault-id prod@/usr/sbin/keyring-client.sh /etc/ansible/site.yml
+      cd /etc
+      git clone git@github.com:username/ansible      
+      ansible-playbook --vault-id prod@/usr/sbin/keyring-client.sh \
+      -i /etc/ansible/inventory \
+      /etc/ansible/site.yml
       exit
+      
       ssh cluster3.local
-      ansible-playbook --vault-id dev@/usr/sbin/keyring-client.sh /etc/ansible/site.yml
+      cd /etc
+      git clone git@github.com:username/ansible
+      ansible-playbook --vault-id dev@/usr/sbin/keyring-client.sh \
+      -i /etc/ansible/inventory \
+      /etc/ansible/site.yml
       exit
 
-   In order to decrypt the playbook ansible executes :bash:`/usr/sbin/keyring-client.sh`,
+   In order to decrypt the variable :bash:`root_password_hash` ansible executes :bash:`/usr/sbin/keyring-client.sh`,
    which:
    
       #. Acesses :bash:`remote` using ssh
       #. Retrieves the appropriate password, contingent on the cluster's name and
 	 environment.
-      #. Prints password to the standard output.
+      #. Prints the password to the standard output.
 	 
-   The workflow is depicted in the figure :ref:`fig-sample-vault-script-workflow`.   
+   The workflow depicted in the figure :ref:`fig-sample-vault-script-workflow` shows what ansible will do on each
+   cluster.
 
    .. _fig-sample-vault-script-workflow:
    
@@ -622,7 +777,7 @@ Let us delve into a more detailed example:
       :alt: Simple vault-password script workflow
 
       Sample vault script workflow
-   
+      
 .. rubric:: References
 
 .. [#] Ansible Vault, August 17 - 2018. Retrieved August 30 - 2018, from https://docs.ansible.com/ansible/latest/user_guide/vault.html?highlight=vault

@@ -57,6 +57,20 @@ particular operating system.
 
     configure_vpn
 
+Educational Resources
+=====================
+
+For the scientific computing center it is very important that its users have the right knowledge to make good use of
+resources. For this reason, the center offers workshops, conferences, and consulting services on the tools and skills
+required in scientific computing. In addition to this, in this section you will find some online resources where you
+can find the basic knowledge and skills to make good use of all the resources of the center.
+
+
+.. toctree::
+    :maxdepth: 2
+
+    educational_resources
+
 Get Help
 ========
 

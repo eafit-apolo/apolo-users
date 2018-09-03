@@ -20,9 +20,9 @@ This taskfile is executed only if there aren't any plugins in the directory :bas
 matches the regular expression :bash:`*hpeilo*`. This state is registered in the taskfile
 :bash:`nagios-plugins-installed.yml`, with the module **find**.
 
-For more information about this registers read the section :ref:`nagios-plugins-installed.yml`.
+For more information about these registers read the section :ref:`nagios-plugins-installed.yml`.
 
-The installation process consist on downloading the plugin from the original repository, then it is necessary to
+The installation process consists on downloading the plugin from the original repository, then it is necessary to
 regenerate the configure files if the aclocal version is not 1.14. More information in the
 section :ref:`aclocal-missing`. Finally, the configure, make and make install are executed.
 
@@ -37,10 +37,14 @@ Defining Hosts, commands and services
 
 .. warning:: It's necessary to read the section :ref:`nagios_centos_7` before proceding to configure.
 
+For starting the configuration of the iLO plugin, run the following command:
+	     
 .. code-block:: bash
 
    /usr/local/nagios/libexec/hpeilo_nagios_config
 
+.. warning:: In the version 1.5 of this plugin, there is an unimplemented service, so it's necessary to
+	     do the procedure explained in the section :ref:`ilo_network_not_implemented`
 
 iLO Credentials
 '''''''''''''''
@@ -109,10 +113,50 @@ The error will show an error output during the executiong of the configuration s
 In this installation, CentOS 7 configured Nagios Daemon with systemd specifications, so the file
 /etc/init.d/nagios* was not created.
 
-The alternative we propose in order not to modifying the code of the ilo plugin scripts is to generate
+In order not to modifying the code of the ilo plugin scripts, the alternative proposed here is to generate
 a temporal file :bash:`/etc/init.d/nagios` during the generation of the configuration files with
 the following content:
 
 .. code-block:: bash
 
    NagiosIloCfgFile=/usr/local/nagios/etc/nagios.cfg
+
+.. _ilo_network_not_implemented:
+
+Network Service not Implemented
+'''''''''''''''''''''''''''''''
+
+The services provided by this plugin are:
+
+#. System Health
+#. Fan
+#. Memory
+#. Network
+#. Power Supply
+#. Processor
+#. Storage
+#. Temperature
+
+Although Network function is not implemented, the scripts written by the developers of the plugin generate configuration
+lines for this unimplemented function. So, after generating the configuration files with the iLO plugin script, it is
+necessary to remove mannualy this service from the service definitions generated.
+
+It's necessary to remove the definitions of the service and the servicegroup.
+
+Example:
+
+.. code-block:: bash
+
+   define servicegroup {
+     servicegroup_name    Network
+     members              server1, Network, server2, Network
+   }
+
+   define service {
+     use                 generic-iLO-service
+     hostgroup_name      group-name
+     service_description Network
+     check_command       nagios_hpeilo_restful_engine!4
+   }
+
+   

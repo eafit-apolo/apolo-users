@@ -219,7 +219,8 @@ _______________________
 The final steps include removing :yaml:`{{ temp_dir }}` and checking the Nagios configuration with the
 command :bash:`/usr/local/nagios/bin/nagios -v /usr/local/nagios/etc/nagios.cfg`.
 
-This execution finishes assuring with two handlers that nagios and apache services are started.
+This execution finishes assuring with handlers that nagios and apache services are started and enabled
+to start in boot time.
 
 .. literalinclude:: src/tasks/final-check.yml
    :language: yaml
@@ -236,6 +237,7 @@ installed or not.
 .. literalinclude:: src/tasks/nagios-plugins-installed.yml
    :language: yaml
 
+Read the following sections for more information about installation and configuration process of the plugins.	      
 
 - :ref:`Nagios Plugins <nagios-plugins-index>`
 - :ref:`IPMI Sensors <ipmi-sensors-plugin-index>`

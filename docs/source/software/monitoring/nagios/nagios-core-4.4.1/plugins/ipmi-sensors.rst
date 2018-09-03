@@ -19,7 +19,7 @@ Basic information
 Installation
 ------------
 
-This taskfile is included only when the file /usr/local/nagios/libexec/check_ipmi_sensor doesn't exist.
+This taskfile is included only when the file :bash:`/usr/local/nagios/libexec/check_ipmi_sensor` doesn't exist.
 This state is registered in :bash:`nagios-plugins-installed.yml`, with the module **stat**.
 
 More information in the section :ref:`nagios-plugins-installed.yml`.

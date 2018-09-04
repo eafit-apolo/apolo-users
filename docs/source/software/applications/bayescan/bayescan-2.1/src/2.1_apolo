@@ -1,0 +1,32 @@
+#%Module1.0####################################################################
+##
+## module load bayescan/2.1_intel-2017_update-1
+##
+## /share/apps/modules/bayescan/2.1_intel-2017_update-1
+## Written by Juan David Arcila Moreno
+##
+
+proc ModulesHelp {} {
+     global version modroot
+     puts stderr "Sets the environment for using bayescan 2.1_intel-2017_update-1\
+		  \nin the shared directory \
+		  \n/share/apps/bayescan/2.1/intel-2017_update-1\
+		  \nbuilded with icpc compiler from Intel/2017_update-1. This application uses OpenMP"
+}
+
+module-whatis "(Name________) bayescan"
+module-whatis "(Version_____) 2.1_intel-2017_update-1"
+module-whatis "(Compilers___) intel-2017_update-1"
+module-whatis "(System______) x86_64-redhat-linux"
+module-whatis "(Libraries___) "
+
+# for Tcl script use only
+set         topdir        /share/apps/bayescan/2.1/intel-2017_update-1
+set         version       2.1_intel-2017_update-1
+set         sys           x86_64-redhat-linux
+
+conflict bayescan
+ 
+
+prepend-path	PATH			$topdir/bin
+

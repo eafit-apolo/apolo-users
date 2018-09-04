@@ -2,9 +2,9 @@
 
 Basic Knowledge & Skills
 ------------------------
-- `The Unix Shell - Software Carpentry (English) <http://swcarpentry.github.io/shell-novice/>`_
+- `The Unix Shell - Software Carpentry <http://swcarpentry.github.io/shell-novice/>`_
 - `La terminal de Unix - Software Carpentry (Español) <https://swcarpentry.github.io/shell-novice-es/>`_
-- `Version control with Git - Software Carpentry (English) <http://swcarpentry.github.io/git-novice/>`_
+- `Version control with Git - Software Carpentry <http://swcarpentry.github.io/git-novice/>`_
 - `Control de versiones con Git - Software Carpentry (Spanish) <https://swcarpentry.github.io/git-novice-es/>`_
 - `Basic lab skills for research computing on Software Carpentry <https://software-carpentry.org/lessons/>`_
 - `Bash Programming - Introduction HOW-TO - The Linux Documentation Project <http://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO.html>`_

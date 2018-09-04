@@ -14,6 +14,10 @@ We suggest the following paragraph to acknowledge the scientific computing cente
     The authors acknowledge the Centro de Computación Científica Apolo at Universidad EAFIT, supercomputing resources
     (http://www.eafit.edu.co/apolo) made available for conducting the research reported in this scientific product.
 
-In addition, if your research project is
+In addition, if applies, please also acknowledge the grant related with your research project:
+
+.. note::
+    The computational resources used in this product was funded by the {Funding Institution} with grant {Grant Code ID}.
 
 We would also appreciate to inform us about your publications in which you acknowledge one of the clusters.
+

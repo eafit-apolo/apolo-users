@@ -29,12 +29,13 @@ and test of **BayeScan** on a cluster with the conditions described below.
       	
 Usage
 -----
-In the following example we will run a test included in the source code of
-**BayeSacan**. Note that we are using one single compute-node, with 16 threads.
+In the following example we are going to run a test included in the source code
+of **BayeSacan**. Note that we are using one single compute-node, with 16
+threads.
 
 .. literalinclude:: src/bayescan_run.sh
        :language: bash
-       :caption: :download:`bayescan_run.sh <src/bayescan_run.sh>`
+       :caption: :download:`slurm.sh <src/bayescan_run.sh>`
 	     
 To run the previous example.
 
@@ -45,7 +46,7 @@ To run the previous example.
 .. note::
 
      In this example we are using the default version of **BayeScan**
-     module. We recommend to specify the version you will use. To use the
+     module. We recommend to specify the version. To use the
      version of this entry, pleace load the module as follow: 
       
 
@@ -69,7 +70,7 @@ The following test was performed in :ref:`Cronos <about_cronos>`.
 We were comparing the build-in version and our builded version described in this
 entry. As input, we use one of the included tests of **BayeScan** source.
 
-Sbatch-slurm script for build-in version test:
+sbatch script for build-in version test:
 
 .. literalinclude:: src/sbatch
      :language: bash

@@ -254,7 +254,7 @@ Serial jobs
       >> % Query job for state
       >> j.State
 
-      >> %Load results
+      >> % Load results
       >> j.fetchOutputs{:}
 
       >> % Delete the job after results are no longer needed

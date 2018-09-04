@@ -1,10 +1,10 @@
 .. _gettingstarted-index:
 
-First Steps
+Getting Started
 ###############
 
-To compute in Apolo it is necessary to take into account several considerations. In this section you will find which are
-the minimum conditions to be able to compute on the clusters of the center and what is the procedure to do it.
+To compute in Apolo it is necessary to take into account several considerations. In this section you will find
+the minimum conditions you must meet to be able to compute on the clusters of the center and what is the procedure to do it.
 
 How to apply for computing time on Apolo
 ========================================
@@ -56,6 +56,20 @@ particular operating system.
     :maxdepth: 2
 
     configure_vpn
+
+Educational Resources
+=====================
+
+For the scientific computing center it is very important that its users have the right knowledge to make good use of
+resources. For this reason, the center offers workshops, conferences, and consulting services on the tools and skills
+required in scientific computing. In addition to this, in this section you will find some online resources where you
+can find the basic knowledge and skills to make good use of all the resources of the center.
+
+
+.. toctree::
+    :maxdepth: 2
+
+    educational_resources
 
 Get Help
 ========

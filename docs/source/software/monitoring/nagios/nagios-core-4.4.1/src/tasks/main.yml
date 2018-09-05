@@ -32,8 +32,8 @@
 - include_tasks: ipmi-sensors-plugin.yml
   when: ipmi_sensor_plugin.stat.exists == false
 - include_tasks: ipmi-plugin-status.yml
-##- include_tasks: ilo-plugin.yml
-##  when: ilo_plugins.matched == 0
+- include_tasks: ilo-plugin.yml
+  when: ilo_plugins.matched == 0
 
 ##############################################################
 #            CHECK-CORRECT-CONFIG & REMOVE TEMP DIR          #

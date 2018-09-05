@@ -658,7 +658,7 @@ Let us delve into a more detailed example:
 
    .. caution::
 
-      - DO NOT understimate string trimming. That is, Vault does not
+      - DO NOT underestimate string trimming. That is, Vault does not
 	trim any \\n. Hence, pasting the hash, pressing [Return] and then
 	[Ctrl]-[d] would include an EOL. TODO: REFERENCE TO TROUBLESHOOTING.
 

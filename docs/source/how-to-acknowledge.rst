@@ -11,8 +11,7 @@ acquire funding and get more capacities that will fulfill the needs of our users
 We suggest the following paragraph to acknowledge the scientific computing center:
 
 .. note::
-    The authors acknowledge the Centro de Computación Científica Apolo at Universidad EAFIT, supercomputing resources
-    (http://www.eafit.edu.co/apolo) made available for conducting the research reported in this scientific product.
+    The authors acknowledge supercomputing resources made available by the Centro de Computación Científica Apolo at Universidad EAFIT (http://www.eafit.edu.co/apolo) to conduct the research reported in this scientific product.
 
 In addition, if applies, please also acknowledge the grant related with your research project:
 

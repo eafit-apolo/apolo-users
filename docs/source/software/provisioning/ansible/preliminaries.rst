@@ -734,6 +734,14 @@ Let us delve into a more detailed example:
    
 #. Download the repository from each cluster orchestrator and run ansible.
 
+   .. warning::
+
+      Since clusters cannot see each other, ansible will only apply
+      changes to the servers belonging to the same cluster an orchestrator
+      is member of despite the existance of multiple cluster declarations
+      within the inventory file. This approach, however, is not recommended
+      for a production environment.
+      
    .. code-block:: bash
 		   
       ssh cluster1.local

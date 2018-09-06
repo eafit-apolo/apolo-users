@@ -32,6 +32,7 @@ Job Management
 
 Bibliography
 -------------
+- `Encyclopedia of Parallel Computing.  Padua, David (Ed.). Springer. 2011. ISBN: 978-0-387-09765-7 <https://www.springer.com/la/book/9780387097657>`_
 - `Topics in Parallel and Distributed Computing: Introducing Concurrency in Undergraduate Courses. Sushil K Prasad,
   Anshul Gupta, Arnold L Rosenberg, Alan Sussman, Charles C Weems. Ed. Morgan Kaufmann. 2015. ISBN:
   0128038993 <https://www.amazon.com/Topics-Parallel-Distributed-Computing-Undergraduate/dp/0128038993?SubscriptionId=0JYN1NVW651KCA56C102&tag=techkie-20&linkCode=xm2&camp=2025&creative=165953&creativeASIN=0128038993>`_

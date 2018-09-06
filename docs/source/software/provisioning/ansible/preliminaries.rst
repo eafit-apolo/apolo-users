@@ -439,7 +439,7 @@ example on the `Playbooks`_ section.
       # $ANSIBLE_HOME/roles/nginx/handlers/main.yml
       ---
       - name: restart nginx
-	systemctl:
+	systemd:
 	  name: nginx
 	  state: restarted
 

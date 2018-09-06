@@ -241,7 +241,7 @@ what would one need to do in scripting languages, like bash, to accomplish what
 a playbook is meant to. Take the task "Place nginx config file". It calls
 Ansible's :bash:`template` module, which creates a file based
 on a Jinja2 template. Hence, one could either use templates alongside bash, which
-becomes complex and difficult to maintain really fast, use an exernal software to
+becomes complex and difficult to maintain really fast, use an external software to
 parse them, like ruby :bash:`erb` or python + Jinja2, or manage static
 files. Thereupon, additional concerns arise: how to deliver
 files to lbservers' hosts?, how to manage variables within them?, etc. Basically,

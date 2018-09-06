@@ -372,6 +372,10 @@ example on the `Playbooks`_ section.
       Using :bash:`$ANSIBLE_HOME/roles/<role>/vars` to store variables visible to all
       tasks within a role is a common practice. However, "vars" can be named
       differently or even placed under some other location.
+
+      One would typically store variables inside
+      :bash:`$ANSIBLE_HOME/roles/<role>/vars/main.yml` as for ansible to auto-load
+      them, but there is also the alternative to do it manually (shown in this example).
 	 
    .. code-block:: bash
 
@@ -388,8 +392,8 @@ example on the `Playbooks`_ section.
       # $ANSIBLE_HOME/roles/nginx/tasks/main.yml
       ---
       # Unlike group_vars, ansible does not read files
-      # inside the vars folder automatically. Therefore,
-      # it must, explicitly, be told to do so.
+      # inside the vars folder automatically, except "main.yml".
+      # Therefore, in this case, it must explicitly be told to do so.
       # Remark: vars' location may vary.
       - name: 'Include variables'
 	include_vars:
@@ -474,6 +478,8 @@ example on the `Playbooks`_ section.
 	roles:
 	  - nginx
 
+Finally, 	    
+	    
 Vault (Encryption)
 --------------------- 
 

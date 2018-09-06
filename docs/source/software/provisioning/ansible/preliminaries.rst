@@ -887,7 +887,15 @@ on each system:
      $ANSIBLE_HOME/playbook.yml
 
 Control over tasks is done by employing variables, tags and/or other metaparameters.
+Ansible will load variables from the specified environment, expand them and run
+tasks accordingly, as depicted in figure :ref:`fig-simple-multienv-activity-diagram`.
 
+.. _fig-simple-multienv-activity-diagram:
+   
+.. figure:: src/images/simple_multienv_activity_diagram.png
+   :alt: Simple multi-environment activity diagram
+
+   Simple multi-environment activity diagram
       
 .. rubric:: References
 

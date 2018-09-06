@@ -478,7 +478,16 @@ example on the `Playbooks`_ section.
 	roles:
 	  - nginx
 
-Finally, 	    
+Finally, consider the designated behavior for each role 'x' component
+(Taken from [#five]_):
+
+- If roles/x/tasks/main.yml exists, tasks listed therein will be added to the play.
+- If roles/x/handlers/main.yml exists, handlers listed therein will be added to the play.
+- If roles/x/vars/main.yml exists, variables listed therein will be added to the play.
+- If roles/x/defaults/main.yml exists, variables listed therein will be added to the play.
+- If roles/x/meta/main.yml exists, any role dependencies listed therein will be added to the list of roles (ansible 1.3 and later).
+- Any copy, script, template or include tasks (in the role) can reference files in roles/x/{files,templates,tasks}/ (dir depends on task) without having to path them relatively or absolutely.
+			
 	    
 Vault (Encryption)
 --------------------- 
@@ -492,12 +501,12 @@ Vault (Encryption)
 
 "New in Ansible 1.5, “Vault” is a feature of ansible that allows keeping sensitive data such as passwords
 or keys in encrypted files, rather than as plaintext in your playbooks or roles. These vault files can
-then be distributed or placed in source control." [#]_
+then be distributed or placed in source control." [#one]_
 
 vault-password script
 ~~~~~~~~~~~~~~~~~~~~~
 
-Vault's password can be retrieved from a script, as described in [#]_, passed to the
+Vault's password can be retrieved from a script, as described in [#two]_, passed to the
 option :bash:`--vault-id`, or :bash:`--vault-password-file`
 from the :bash:`ansible-vault` and :bash:`ansible-playbook` executables.
 
@@ -519,7 +528,7 @@ program more sophisticated vault-password scripts.
 
    - A vault id will only be passed to the script if the latter is named after the
      convention :bash:`<some name>-client.<extension>` (e.g. :bash:`keyring-client.sh`).
-     See [#]_ and [#]_ for more information.
+     See [#three]_ and [#four]_ for more information.
 
    - Make sure the script is executable. Otherwise, ansible will not be able
      to use it.
@@ -794,10 +803,12 @@ Let us delve into a more detailed example:
       
 .. rubric:: References
 
-.. [#] Ansible Vault, August 17 - 2018. Retrieved August 30 - 2018, from https://docs.ansible.com/ansible/latest/user_guide/vault.html?highlight=vault
+.. [#one] Ansible Vault, August 17 - 2018. Retrieved August 30 - 2018, from https://docs.ansible.com/ansible/latest/user_guide/vault.html?highlight=vault
 
-.. [#] Ansible Vault, Providing Vault Passwords, August 17 - 2018. Retrieved August 30 - 2018, from https://docs.ansible.com/ansible/latest/user_guide/vault.html?highlight=vault#providing-vault-passwords.
+.. [#two] Ansible Vault, Providing Vault Passwords, August 17 - 2018. Retrieved August 30 - 2018, from https://docs.ansible.com/ansible/latest/user_guide/vault.html?highlight=vault#providing-vault-passwords.
        
-.. [#] Issue: Allow the vault_id to be passed to vault password scripts #31001, September 27 - 2018. Retrieved Retrieved August 30 - 2018, from https://github.com/ansible/ansible/issues/31001
+.. [#three] Issue: Allow the vault_id to be passed to vault password scripts #31001, September 27 - 2018. Retrieved Retrieved August 30 - 2018, from https://github.com/ansible/ansible/issues/31001
 
-.. [#] Vault secrets client inc new 'keyring' client #27669, October 13 - 2018. Retrieved August 30 - 2018, from https://github.com/ansible/ansible/pull/27669      
+.. [#four] Vault secrets client inc new 'keyring' client #27669, October 13 - 2018. Retrieved August 30 - 2018, from https://github.com/ansible/ansible/pull/27669      
+
+.. [#five] Using Roles, September 06 - 2018. Retrieved September 06 - 2018, from https://docs.ansible.com/ansible/2.5/user_guide/playbooks_reuse_roles.html#using-roles

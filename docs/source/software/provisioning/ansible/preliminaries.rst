@@ -227,7 +227,7 @@ definition block called "Play". Take the following playbook for example:
 	 enabled: true
      handlers:
        - name: restart nginx
-	 systemctl:
+	 systemd:
 	   name: nginx
 	   state: restarted
 
@@ -290,6 +290,7 @@ A role's layout would typically look as below:
    .
    .
    <playbook n>
+   inventory
    roles/
      common/
        tasks/
@@ -452,6 +453,7 @@ example on the `Playbooks`_ section.
    also implies adjusting all tasks using :bash:`nginx.conf.j2`.
 
    .. code-block:: yaml
+      :linenos:
       :emphasize-lines: 5
 
       # $ANSIBLE_HOME/roles/nginx/tasks/config.yml
@@ -800,6 +802,92 @@ Let us delve into a more detailed example:
       :alt: Simple vault-password script workflow
 
       Sample vault script workflow
+
+Environments
+------------
+
+Environments provide a way to reuse ansible components (tasks, roles, playbooks, etc.) on
+multiple systems by maintaining different inventory files within the same project; which might also
+mean multiple :bash:`group_vars` and :bash:`host_vars` folders. Environments are usually
+used for testing purposes, such as verifying the integrity of
+features to be introduced in production servers.
+
+Instead of being an ansible feature, environments are more of a concept materialized on the
+project's directory layout. Take the example from the `Roles`_ section:
+
+.. code-block:: bash
+
+   playbook.yml
+   inventory
+   group_vars/
+     lbnorth
+     lbsouth
+   roles/
+     nginx/
+       tasks/
+         packages.yml
+	 config.yml
+	 main.yml
+       handlers/
+         main.yml
+       templates/
+         /etc/nginx/conf/nginx.conf.j2
+       vars/
+         config.yml
+
+If one were to constantly update the production servers, it would be wise
+to test changes on a system replica before releasing them. In order
+to create such replica, either using a virtual or physical machine,
+one must ensure equivalent operations to be applied over
+the testing servers, thus compelling them to become alike to their
+production counterparts. This is accomplished by reusing the
+entire project, but running ansible against different inventory files
+on each system:
+
+.. code-block:: bash
+   :linenos:
+   :emphasize-lines: 2-8
+		     
+   playbook.yml
+   environments/
+     production/
+       inventory
+       group_vars/
+     development/
+       inventory
+       group_vars/
+   group_vars/
+     lbnorth
+     lbsouth
+   roles/
+     nginx/
+       tasks/
+         packages.yml
+	 config.yml
+	 main.yml
+       handlers/
+         main.yml
+       templates/
+         /etc/nginx/conf/nginx.conf.j2
+       vars/
+         config.yml
+
+- For production servers	 
+
+  .. code-block:: bash
+
+     ansible-playbook -i $ANSIBLE_HOME/environments/production/inventory \
+     $ANSIBLE_HOME/playbook.yml
+
+- For testing servers
+
+  .. code-block:: bash
+
+     ansible-playbook -i $ANSIBLE_HOME/environments/development/inventory \
+     $ANSIBLE_HOME/playbook.yml
+
+Control over tasks is done by employing variables, tags and/or other metaparameters.
+
       
 .. rubric:: References
 

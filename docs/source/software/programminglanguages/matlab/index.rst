@@ -22,7 +22,19 @@ simulation and model-based design for dynamic and embedded systems.
 
    matlab-r2018a/index
 
+Video
+-----
 
+Use of Matlab with high-performance computing in Apolo. Juan David Pineda Cardenas and Mateo Gómez Zuluaga.
+APOLO Scientific Computing Center EAFIT University. APOLO Lecture Series. Wednesday, August 1, 2018.
+
+.. raw:: html
+
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/WP-3otPIWqk?rel=0" frameborder="0"
+        allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+References
+----------
 .. [1] Wikipedia contributors. (2018, July 9). MATLAB. In Wikipedia, The Free
        Encyclopedia. Retrieved 15:32, July 13, 2018, from
        https://en.wikipedia.org/w/index.php?title=MATLAB&oldid=849495321

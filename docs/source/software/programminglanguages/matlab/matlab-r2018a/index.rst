@@ -44,7 +44,6 @@ licenses in Apolo for MATLAB.
 
    integration
 
-
 Authors
 -------
 

@@ -134,7 +134,7 @@ Keeping too much data within the inventory file can make it become complex, diff
 to read and maintain. Ansible allows to easily bypass this issue by introducing a
 mechanism to split groups and hosts data:
 
-#. Crate a folder called :bash:`group_vars` at the same level as the inventory file.
+#. Create a folder called :bash:`group_vars` at the same level as the inventory file.
    That is, if the inventory file is located under :bash:`$ANSIBLE_HOME` then the
    folder must be there as well. e.g.
 

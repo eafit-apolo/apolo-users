@@ -49,7 +49,11 @@ After you enter the root password it will raise an error message like the follow
       Virtual-machine2
       Virtual-machine3
 
+
 2. In order to export the virtual machine:
+
+.. note:: 
+	Ensure that no iso file is mounted to the VM. Otherwise a copy of it will be created.
 
 ``$ ovftool vi://root@<host's-ip>/<vm_name> <exportFileName>.ovf``
 

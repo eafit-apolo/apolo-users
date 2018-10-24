@@ -29,11 +29,13 @@
   when: nagios_plugins_installed.matched == 0
 - include_tasks: dell-plugin.yml
   when: dell_plugin_dir.stat.exists == false
+- include_tasks: dell-plugin-config.yml
 - include_tasks: ipmi-sensors-plugin.yml
   when: ipmi_sensor_plugin.stat.exists == false
 - include_tasks: ipmi-plugin-status.yml
 - include_tasks: ilo-plugin.yml
   when: ilo_plugins.matched == 0
+- include_tasks: ilo-plugin-config.yml
 
 ##############################################################
 #            CHECK-CORRECT-CONFIG & REMOVE TEMP DIR          #

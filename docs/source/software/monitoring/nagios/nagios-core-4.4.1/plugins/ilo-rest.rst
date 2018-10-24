@@ -46,6 +46,59 @@ For starting the configuration of the iLO plugin, run the following command:
 
    /usr/local/nagios/libexec/hpeilo_nagios_config
 
+Example of simple configuration using the script:
+
+.. code-block:: text
+
+   You may press <ctrl+c> now to exit if needed.
+   Do you wish to enable passive HPE iLO host discovery (y/n) (Blank is y):
+   Do you wish to enable active discovery (y/n) (Blank is y):
+   Do you wish to configure host groups (y/n) (Blank is y):
+   Enter host group name: ilo-4_example_group
+   Enter host group "ilo-4_example_group" IP range: 192.168.1.10
+   Enter host group "ilo-4_example_group" SNMP read-only community string (Blank default value  public):
+   Enter host group "ilo-4_example_group" SNMP Trap community string (Blank default value  public):
+   Do you wish to add one more host group (y/n) (Blank is n):
+   Enter host group check interval time in minutes (Blank default value - 5 minutes ): 1
+    default is exists. Do you wish to update or not? (y/n): n
+   Do you wish to configure iLO credential for single server if there're different with
+   the default iLO credential (y/n) (Blank is n):
+
+   **************Configured Data****************
+   PASSIVE_DISCOVERY 1
+   ACTIVE_DISCOVERY  1
+    HOSTGROUP: ilo-4_example_group,192.168.1.10,public,public
+   CHECK_INTERVAL 1
+   *********************************************
+
+   Do you wish to write above configured data to host-group configuration file. (y/n) (Blank is y):
+   HPE iLO host-group configuration file saved at /usr/local/nagios/libexec/hpeilo_nagios_config.cfg.
+   HPE iLO Hosts/Services discovered configuration file is existing:/usr/local/nagios/etc/ilo/ilo.cfg
+   Do you wish to replace it?(y/n) (Blank is y):
+
+.. note:: If there is an existing iLO plugin configuration, the new configuration will be merged with the
+	  old one.
+
+With regard to the current question: If you answer YES, the configuration will be merged without generating a backup. If you answer NO
+then the script will save a backup in the folder :bash:`/usr/local/nagios/etc/ilo/.backup/`, and will override the configuration file.
+	  
+.. code-block:: text
+		
+   Do you wish to run configuration file to complete the process (y/n) (Blank is y):
+   Running configuration  file ....
+   Reading host-group configuration file : /usr/local/nagios/libexec/hpeilo_nagios_config.cfg
+   Discovery using configuration file
+   passive configuration enabled
+   [Failed]
+   Restart snmptrapd
+   Redirecting to /bin/systemctl restart snmptrapd.service
+   [Done]
+   active configuration enabled
+   Scan the network range: 192.168.1.10-192.168.1.10   with the total hosts '1'
+   env: /etc/init.d/nagios: Permiso denegado
+   Progress: 100% (scanned 1 of 1 hosts)
+   Total hosts '1' added of '1' hosts
+
 .. warning:: In the version 1.5 of this plugin, there is an unimplemented service, so it's necessary to
 	     do the procedure explained in the section :ref:`ilo_network_not_implemented`
 

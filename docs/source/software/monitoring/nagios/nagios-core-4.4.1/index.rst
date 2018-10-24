@@ -67,7 +67,7 @@ Plugins
 
    plugins/nagios-plugins
    plugins/ipmi-sensors
-   plugins/dell-emc-openmanage
+   plugins/dell-openmanage
    plugins/ilo-rest
    
 Usage

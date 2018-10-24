@@ -3,13 +3,14 @@
 .. role:: bash(code)
    :language: bash
 
-Dell EMC OpenManage - Nagios Plugin
+Dell OpenManage - Nagios Plugin
 ===================================
 
 Basic information
 -----------------
 
-- **Official Website:** https://exchange.nagios.org/directory/Plugins/Hardware/Server-Hardware/Dell/Dell-EMC-OpenManage-Plug-2Din-for-Nagios-Core/details
+- **Official Website:** https://www.dell.com/support/home/co/es/cobsdt1/drivers/driversdetails?driverid=41y2v
+  
 - **License:**
 
 **Tested on (Requirements)**
@@ -53,7 +54,7 @@ To detect the Dell hosts present in a specified subnet:
 ============================= ============================
 Params                        Value
 ============================= ============================
- --host HOST                  IP
+ -H HOST                      IP or hostname
  --File FILE                  File that contains hosts
  --subnet SUBNET              a
  --all                        a

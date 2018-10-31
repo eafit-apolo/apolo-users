@@ -32,7 +32,8 @@ it to perform simple tasks).
 
    preliminaries
 
-
+.. _ssec-ansible_troubleshooting:
+   
 Troubleshooting
 ---------------------
 
@@ -58,6 +59,11 @@ Newer pycrypto required
      yum install python-crypto2.6
      # Install ansible from the EPEL repository
      yum install --enablerepo=epel ansible
+
+Playbooks
+~~~~~~~~~
+
+Invalid user password
 
 .. rubric:: References
 

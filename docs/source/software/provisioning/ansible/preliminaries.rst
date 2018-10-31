@@ -677,7 +677,7 @@ Let us delve into a more detailed example:
 
       - DO NOT underestimate string trimming. That is, Vault does not
 	trim any \\n. Hence, pasting the hash, pressing [Return] and then
-	[Ctrl]-[d] would include an EOL. TODO: REFERENCE TO TROUBLESHOOTING.
+	[Ctrl]-[d] would include an EOL. See :ref:`ssec-ansible_troubleshooting`.
 
       - Remember to give Vault's --vault-id option the apropriate
 	environment for each server.

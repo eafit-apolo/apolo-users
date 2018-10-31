@@ -505,6 +505,73 @@ Vault (Encryption)
 or keys in encrypted files, rather than as plaintext in your playbooks or roles. These vault files can
 then be distributed or placed in source control." [#one]_
 
+Create encrypted files
+~~~~~~~~~~~~~~~~~~~~~~
+The command below will create a temporary file and subsequentially
+open it for you to write. Once the file is saved, and the text editor closed,
+*ansible-vault* will automatically generate an encrypted version of it and erase
+the original.
+
+  .. code-block:: bash
+
+     ansible-vault --vault-id <env>@<vault-password script> create <file>
+
+Alternatively, if you intend to be prompted for the password, then:     
+
+  .. code-block:: bash
+
+     # You could also use:
+     # ansible-vault create <file>
+     # However, environments would not be taked into consideration.
+     ansible-vault --vault-id <env>@prompt create <file>
+
+Encrypt files    
+~~~~~~~~~~~~~
+
+  .. code-block:: bash
+
+     ansible-vault --vault-id <env>@<vault-password script> encrypt <file-1> [file-2 file-3 ... file-n]
+
+Edit encrypted files
+~~~~~~~~~~~~~~~~~~~~
+
+Encrypted files can be edited without being decrypted a priori. See the command below:
+
+  .. code-block:: bash
+
+     ansible-vault --vault-id <env>@<vault-password script> edit <file>
+
+
+View encrypted file
+~~~~~~~~~~~~~~~~~~~
+
+  .. code-block:: bash
+		  
+     ansible-vault --vault-id <env>@<vault-password script> view <file>
+
+View encrypted string
+~~~~~~~~~~~~~~~~~~~~~
+
+   .. code-block:: bash
+		   
+      ansible localhost -m debug -a var='<variable_to_decrypt>' \
+      -e "@<file_containing_variable>" \
+      --vault-id <env>@<vault-password script>
+     
+Decrypt files
+~~~~~~~~~~~~~
+
+  .. code-block:: bash
+		  
+     ansible-vault --vault-id <env>@<vault-password script> decrypt <file-1> [file-2 file-3 ... file-n]
+
+Change encryption key
+~~~~~~~~~~~~~~~~~~~~~
+
+  .. code-block:: bash
+		  
+     ansible-vault rekey <file-1> [file-2 file-3 ... file-n]
+
 vault-password script
 ~~~~~~~~~~~~~~~~~~~~~
 

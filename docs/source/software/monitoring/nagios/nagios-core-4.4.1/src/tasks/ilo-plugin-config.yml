@@ -1,4 +1,14 @@
 ---
+- name: Assures the existance of the ilo plugin config directory.
+  file:
+    path: "/usr/local/nagios/etc/ilo"
+    state: directory
+
+- name: Assures the existance of the nagios credentials directory.
+  file:
+    path: "/etc/nagios"
+    state: directory
+
 - name: Syncronize configuration
   copy:     
     src: "{{ item }}"
@@ -8,3 +18,10 @@
     - etc/nagios/.nagios_restful_credential.tdb
   notify:
     - nagios_restart
+
+- name: Correct permissions of nagios-credentials file
+  file:
+    path: /etc/nagios/.nagios_restful_credential.tdb
+    mode:  0600
+    owner: nagios
+    group: nagios

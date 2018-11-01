@@ -4,6 +4,8 @@
   notify:
     - nagios_started
     - apache_started
+    - nagios_enabled
+    - apache_enabled
 
 - name: Remove temp dir
   file:

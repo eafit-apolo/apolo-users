@@ -35,6 +35,18 @@ section :ref:`aclocal-missing`. Finally, the configure, make and make install ar
 Configuration
 -------------
 
+Sincronizes the iLO credential files and the iLO plugin configuration with the version present in the repo and
+configures the permissions over nagios credential file.
+
+.. literalinclude:: ../src/tasks/ilo-plugin-config.yml
+   :language: yaml
+
+.. warning:: It's important to configure nagios as the owner of the nagios credential file as is described in
+			 this configuration taskfile.
+			  
+Usage
+-----
+
 Defining Hosts, commands and services
 '''''''''''''''''''''''''''''''''''''
 
@@ -50,7 +62,6 @@ Example of simple configuration using the script:
 
 .. code-block:: text
 
-   You may press <ctrl+c> now to exit if needed.
    Do you wish to enable passive HPE iLO host discovery (y/n) (Blank is y):
    Do you wish to enable active discovery (y/n) (Blank is y):
    Do you wish to configure host groups (y/n) (Blank is y):
@@ -76,11 +87,9 @@ Example of simple configuration using the script:
    HPE iLO Hosts/Services discovered configuration file is existing:/usr/local/nagios/etc/ilo/ilo.cfg
    Do you wish to replace it?(y/n) (Blank is y):
 
-.. note:: If there is an existing iLO plugin configuration, the new configuration will be merged with the
-	  old one.
-
-With regard to the current question: If you answer YES, the configuration will be merged without generating a backup. If you answer NO
-then the script will save a backup in the folder :bash:`/usr/local/nagios/etc/ilo/.backup/`, and will override the configuration file.
+With regard to the current question: If you answer NO, then the script will
+save a backup in the folder :bash:`/usr/local/nagios/etc/ilo/.backup/`, and 
+will override the configuration file.
 	  
 .. code-block:: text
 		
@@ -102,6 +111,9 @@ then the script will save a backup in the folder :bash:`/usr/local/nagios/etc/il
 .. warning:: In the version 1.5 of this plugin, there is an unimplemented service, so it's necessary to
 	     do the procedure explained in the section :ref:`ilo_network_not_implemented`
 
+.. note:: If you created the temporal file /etc/init.d/nagios, it's important to delete it after generating
+		  the configuration of iLO plugin.
+		 
 iLO Credentials
 '''''''''''''''
 
@@ -119,7 +131,8 @@ Params                        Value
  -V                           Version number
  -h                           Prints this help information
 ============================= ========================================================================
-	      
+
+
 Troubleshooting
 ---------------
 
@@ -215,4 +228,14 @@ Example:
      check_command       nagios_hpeilo_restful_engine!4
    }
 
-   
+iLO Memory service in UNKNOWN state
+'''''''''''''''''''''''''''''''''''
+
+The error message displayed in the **Status information** field in the Nagios **Service Status Details** is
+normal when the machine is powered off.
+
+Message:
+
+.. code-block:: bash
+				
+				Check iLO credit is correct saved.(/usr/local/nagios/libexec/credit_save -H 10.150.4.188) 

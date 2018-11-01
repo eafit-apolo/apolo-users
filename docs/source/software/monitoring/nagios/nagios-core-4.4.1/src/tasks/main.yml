@@ -9,6 +9,7 @@
 - include_tasks: firewall-config.yml
 - include_tasks: ipmi-config.yml
 - include_tasks: mail-config.yml
+- include_tasks: snmp-config.yml
 
 ##############################################################
 #                         NAGIOS-CORE                        #

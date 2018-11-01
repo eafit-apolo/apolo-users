@@ -83,6 +83,11 @@ ipmiutil                Necessary for :ref:`ipmi_sel_error`
 The other dependencies are listed in the taskfile showed bellow.
 
 .. note::
+   This solution uses a list of packages in the yum ansible module instead of an ansible iterator (item) because this
+   specification improves the install operation, creating a complete dependency tree instead of calling "n times" the
+   yum module.
+
+.. note::
    The @ syntaxis in yum module specifies that the item is a package group.
 
 .. note::
@@ -143,12 +148,25 @@ Syncronizes the mail configuration file with the version located in the reposito
    
 .. literalinclude:: src/tasks/mail-config.yml
    :language: yaml
-	      
+
+snmp-config.yml
+_______________
+
+The Dell plugin requires this previous snmp configuration, read the section
+:ref:`snmp-dell` for more details.
+
+Syncronizes **/etc/snmp/snmptt.ini** and **/etc/snmp/snmptrapd.conf** snmp configuration files,
+with the version located in the repository. If there is a modification, snmptt and snmptrapd services
+are restarted. After that, those services are enabled in boot time if they were not enabled.
+
+.. literalinclude:: src/tasks/snmp-config.yml
+   :language: yaml
+			  
 Installing Nagios Core
 ----------------------
 		 
-nagios-install.yml
-__________________
+nagios-install.yml and nagios-installed.yml
+___________________________________________
 
 This taskfile is included only when the path /usr/local/nagios doesn't exist. This state is registered in nagios-installed.yml, with the module **stat**.
 
@@ -211,20 +229,7 @@ _______________________
 
 .. literalinclude:: src/tasks/selinux-config.yml
    :language: yaml
-
-		 
-final-check.yml
-_______________________
-
-The final steps include removing :yaml:`{{ temp_dir }}` and checking the Nagios configuration with the
-command :bash:`/usr/local/nagios/bin/nagios -v /usr/local/nagios/etc/nagios.cfg`.
-
-This execution finishes assuring with handlers that nagios and apache services are started and enabled
-to start in boot time.
-
-.. literalinclude:: src/tasks/final-check.yml
-   :language: yaml
-
+			  
 
 .. _nagios-plugins-installed.yml:
 	      
@@ -243,6 +248,20 @@ Read the following sections for more information about installation and configur
 - :ref:`IPMI Sensors <ipmi-sensors-plugin-index>`
 - :ref:`Dell EMC OpenManage <dell-nagios-plugin-index>`
 - :ref:`iLO AgentLess Management Plugin <ilo-rest-plugin-index>`
+
+
+Final Check
+-----------
+
+The final steps include removing :yaml:`{{ temp_dir }}` and checking the Nagios configuration with the
+command :bash:`/usr/local/nagios/bin/nagios -v /usr/local/nagios/etc/nagios.cfg`.
+
+This execution finishes assuring with handlers that nagios and apache services are started and enabled
+to start in boot time.
+
+.. literalinclude:: src/tasks/final-check.yml
+   :language: yaml
+
   
 References
 ----------

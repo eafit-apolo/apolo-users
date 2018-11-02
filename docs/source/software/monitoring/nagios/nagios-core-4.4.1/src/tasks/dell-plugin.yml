@@ -1,9 +1,4 @@
 ---
-########################################################################################
-#  TODO: Check if it's necessary to config snmpt as described here:
-#  http://en.community.dell.com/techcenter/systems-management/w/wiki/12187.installation-of-dell-openmanage-plugin-for-nagios-xi-on-centos
-########################################################################################
-
 - name: Assure existence of tempDir
   file:
     path: "{{ temp_dir }}"
@@ -16,7 +11,7 @@
 
 - name: Extract Nagios Dell Plugin
   unarchive:
-    src: "{{ temp_dir }}/Dell_EMC_OpenManage_Plugin_v3.0_Nagios_Core_A00.tar.gz"
+    src: "{{ temp_dir }}/Dell_OpenManage_Plugin_Nagios_Core_41Y2V_RHEL6_2.0_A00.tar.gz"
     dest: "{{ temp_dir }}"
 
 - name: Exec installation script

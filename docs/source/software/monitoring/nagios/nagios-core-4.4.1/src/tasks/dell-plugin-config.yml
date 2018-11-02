@@ -4,7 +4,7 @@
     src: "{{ item }}"
     dest: "/{{ item }}"
   with_items:
-    - usr/local/nagios/dell/config/objects/10.150.4.64.cfg
+    - usr/local/nagios/dell/config/objects/file1.cfg
     - usr/local/nagios/dell/config/templates/dell_contacts.cfg
   notify:
     - nagios_restart

@@ -91,7 +91,7 @@ The other dependencies are listed in the taskfile showed bellow.
    The @ syntaxis in yum module specifies that the item is a package group.
 
 .. note::
-   The Dell OME Plugin has two lists of dependencies: The first one is installed with the "yum" module and
+   The Dell OpenManage Plugin has two lists of dependencies: The first one is installed with the "yum" module and
    the second one with the "pip" module.
 
 
@@ -246,7 +246,7 @@ Read the following sections for more information about installation and configur
 
 - :ref:`Nagios Plugins <nagios-plugins-index>`
 - :ref:`IPMI Sensors <ipmi-sensors-plugin-index>`
-- :ref:`Dell EMC OpenManage <dell-nagios-plugin-index>`
+- :ref:`Dell OpenManage <dell-nagios-plugin-index>`
 - :ref:`iLO AgentLess Management Plugin <ilo-rest-plugin-index>`
 
 

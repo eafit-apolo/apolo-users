@@ -16,6 +16,24 @@ Basic information
 - **License:** GPL
 - **Version:** 1.5 - Nagios HPE iLO RESTful Plugin
 
+**Tested on (Requirements)**
+----------------------------
+
+* HPE ProLiant Server 
+* **Nagios Core:** Version :math:`\boldsymbol{\ge}` 3.5.0
+  
+Dependencies
+------------
+
+- curl
+- libcurl
+- libcurl-devel
+- nmap
+- libtdb-devel
+- python
+- net-snmp-utils *(Also required by Nagios Core)*
+- glibc-devel *(Also required by Nagios Core)*
+  
 Installation
 ------------
 
@@ -239,3 +257,9 @@ Message:
 .. code-block:: bash
 				
 				Check iLO credit is correct saved.(/usr/local/nagios/libexec/credit_save -H 10.150.4.188) 
+
+
+References
+''''''''''
+
+a

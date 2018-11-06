@@ -42,16 +42,36 @@ checking the owner, the group and the permissions over the plugin.
 
 .. literalinclude:: ../src/tasks/ipmi-plugin-status.yml
    :language: yaml
-	      
+
+			  
 Configuration
 -------------
+
+.. literalinclude:: ../src/tasks/ipmi-config.yml
+   :language: yaml
+
+Syncronizes the ipmi-config file with the version present in the
+repo. The passwords are cyphered with **Ansible Vault**.
+			  
+Usage
+-----
 
 The following steps are required for setting-up this plugin in a specific host:
 
 #. Add the attribute **_ipmi_ip** in the host definition. This attribute is required by the check_ipmi_sensors plugin.
+   The attribute :bash:`_ipmi_excluded_sensors` is necessary only when the error :ref:`ipmi_sensor_error` occurs.
 
-.. note:: The names of these variables start with underscore and are in lowercase.
-          More info about the usage of custom object variables [1]_ .
+   .. code-block:: bash
+
+	  define host{
+	    host_name                host_1
+		address                  192.168.1.1
+		_ipmi_ip                 192.168.1.1
+		_ipmi_excluded_sensors   56
+		
+
+   .. note:: The names of these variables start with underscore and are in lowercase.
+             More info about the usage of custom object variables [1]_ .
 
 #. Add the command definition. In this implementation the command is added in
    :bash:`/usr/local/nagios/etc/objects/commands.cfg`
@@ -75,8 +95,25 @@ The following steps are required for setting-up this plugin in a specific host:
         check_command        check_ipmi_sensor!/etc/ipmi-config/ipmi.cfg
       }
 
-.. warning:: TODO: **IMPORTANTE** Definir cómo configurar IPMI
+   .. note:: If the ipmi plugin is configured for multiple nodes and there is not a common user/password
+			 between them, you can configure one service per each different credential.
 
+   .. note:: The user used for this IPMI monitoring doesn need special permissions.
+
+#. Create the file with the credentials and with the correct permissions.
+
+   .. code-block:: bash
+
+	  username user
+	  password passw0rd
+	  privilege-level user
+	  ipmi-sensors-interpret-oem-data on
+   
+   * Owner: nagios
+   * Group: nagcmd
+   * Mode: 0640 (-rw-r-----)
+   
+			 
 Troubleshooting
 ---------------
 

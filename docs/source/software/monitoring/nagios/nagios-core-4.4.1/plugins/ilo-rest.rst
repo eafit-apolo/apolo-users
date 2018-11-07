@@ -256,10 +256,10 @@ Message:
 
 .. code-block:: bash
 				
-				Check iLO credit is correct saved.(/usr/local/nagios/libexec/credit_save -H 10.150.4.188) 
+	Check iLO credit is correct saved.(/usr/local/nagios/libexec/credit_save -H 10.150.4.188) 
 
 
 References
-''''''''''
+----------
 
-a
+TODO*******************

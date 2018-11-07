@@ -110,6 +110,7 @@ By default, the apache daemon cannot read/write the files under :bash:`/usr/loca
 this directory doesn't belongs to the :bash:`httpd_sys_rw_content_t` SELinux context. This is what
 originates the problem.
 
+
 Authors
 -------
 

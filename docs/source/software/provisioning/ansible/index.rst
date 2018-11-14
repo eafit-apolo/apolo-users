@@ -8,6 +8,8 @@
 Ansible
 =====================
 
+.. _ssec-ansible_basicinfo:
+
 Basic information
 ---------------------
 
@@ -19,6 +21,9 @@ Basic information
 - **Installed on:** :ref:`Apolo II <about_apolo-ii>`,
   :ref:`Cronos <about_cronos>`
 
+       
+.. _ssec-ansible_preliminaries:       
+       
 Preliminaries
 ---------------------
 
@@ -31,6 +36,7 @@ it to perform simple tasks).
    :numbered:
 
    preliminaries
+   
 
 .. _ssec-ansible_troubleshooting:
    

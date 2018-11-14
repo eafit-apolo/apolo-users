@@ -69,11 +69,18 @@ Invalid user password
        # Creating an MD5 hash using openssl
        openssl passwd -1
        Password: 1234
-       # Creating a sha-256 hash using python
-       python -c "import random,string,crypt;
-       randomsalt = ''.join(random.sample(string.ascii_letters,8));
+       Verifying - Password:
+       $1$PmZtHS1g$yjx.gQWWFduYPzN/j1jdY
+       
+       # Creating a sha-256 hash using python 2
+       python -c "import random,string,crypt
+       randomsalt = ''.join(random.sample(string.ascii_letters,8))
        print crypt.crypt('1234', '\$6\$%s\$' % randomsalt)"
+       $6$DivYqPSU$zWxSRQhe4ImWhKRFDAIu/PPG4Fp0LC3Cbv3n.wDHMaDsjF4ZSvjOt98j5/qB7ONE3trcxtGeGgZqkYIKTKKJl/
 
+  If your playbook is under version control consider using Ansible Vault to encrypt the hash either as a
+  string or placing it inside a file and subsequentially encrypting it. If using the former, DO NOT press
+  the return key after writing the hash, but [Ctrl] + [d] two times instead.
 	   
 .. rubric:: References
 

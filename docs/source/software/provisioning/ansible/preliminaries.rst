@@ -532,6 +532,14 @@ Encrypt files
 
      ansible-vault --vault-id <env>@<vault-password script> encrypt <file-1> [file-2 file-3 ... file-n]
 
+Encrypt variables as a string
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  .. code-block:: bash
+
+     ansible-vault encrypt_string --vault-id <env>@<vault-password script> --stdin-name '<varname>'
+
+     
 Edit encrypted files
 ~~~~~~~~~~~~~~~~~~~~
 
@@ -744,7 +752,7 @@ Let us delve into a more detailed example:
 
       - DO NOT underestimate string trimming. That is, Vault does not
 	trim any \\n. Hence, pasting the hash, pressing [Return] and then
-	[Ctrl]-[d] would include an EOL. See :ref:`ssec-ansible_troubleshooting`.
+	[Ctrl]-[d] would include an EOL.
 
       - Remember to give Vault's --vault-id option the apropriate
 	environment for each server.

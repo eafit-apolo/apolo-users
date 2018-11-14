@@ -36,7 +36,21 @@ it to perform simple tasks).
    :numbered:
 
    preliminaries
-   
+
+.. _ssec-ansible_dynamic-control:
+
+Dynamic control
+---------------
+
+This section describes mechanisms to control which tasks are to be
+executed in a particular run.
+
+.. toctree::
+   :maxdepth: 2
+   :numbered:
+
+   dynamic_control
+      
 
 .. _ssec-ansible_troubleshooting:
    

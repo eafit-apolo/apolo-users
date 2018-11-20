@@ -80,25 +80,60 @@ The following steps are required for setting-up this plugin in a specific host:
 		   
       define command {
         command_name  check_ipmi_sensor
-        command_line  $USER1$/check_ipmi_sensor -H $_HOSTIPMI_IP$ -f $ARG1$ -x $_HOSTIPMI_EXCLUDED_SENSORS$
+        command_line  $USER1$/check_ipmi_sensor -H $_HOSTIPMI_IP$ -f $ARG1$ -x $_HOSTIPMI_EXCLUDED_SENSORS$ $ARG2$ $ARG3$
       }
 
-#. Add the service definition. In this implementation the service is added in
-   :bash:`/usr/local/nagios/etc/objects/common-services.cfg`
+#. Add the service definition. In this implementation, the service is added in :bash:`/usr/local/nagios/etc/objects/common-services.cfg`
+
+   .. note:: If you want to ignore the SEL log entries warning, add
+			 the flag --nosel in the check_command field *(See example bellow)*
+   
+   The plugin can be configured for checking each sensor type independently:
+   
+   .. code-block:: bash
+	
+      define service{
+        use                  generic-service
+        host_name            host1
+        service_description  IPMI
+        check_command        check_ipmi_sensor!/etc/ipmi-config/ipmi.cfg!--nosel!-T SENSOR_TYPE
+      }
+
+   .. note:: The sensor types are listed in the page: IPMI Sensor Types [2]_
+
+   Or configured for checking everything in one Service definition:
 
    .. code-block:: bash
 	
       define service{
         use                  generic-service
-        host_name            mgmt-master
+        host_name            host1
         service_description  IPMI
         check_command        check_ipmi_sensor!/etc/ipmi-config/ipmi.cfg
       }
 
    .. note:: If the ipmi plugin is configured for multiple nodes and there is not a common user/password
-			 between them, you can configure one service per each different credential.
+			 between them, you can configure one service per each different credential, defining different
+			 ipmi-config files.
+			 
+   .. code-block:: bash
+	
+      define service{
+        use                  generic-service
+        host_name            host1
+        service_description  IPMI
+        check_command        check_ipmi_sensor!/etc/ipmi-config/file1.cfg
+      }
+	  
+	  define service{
+        use                  generic-service
+        host_name            host2
+        service_description  IPMI
+        check_command        check_ipmi_sensor!/etc/ipmi-config/file2.cfg
+      }
 
-   .. note:: The user used for this IPMI monitoring doesn need special permissions.
+	
+   .. note:: The user used for this IPMI monitoring doesn't need special permissions.
 
 #. Create the file with the credentials and with the correct permissions.
 
@@ -111,7 +146,7 @@ The following steps are required for setting-up this plugin in a specific host:
    
    * Owner: nagios
    * Group: nagcmd
-   * Mode: 0640 (-rw-r-----)
+   * Mode: 0640
    
 			 
 Troubleshooting
@@ -171,3 +206,5 @@ References
 
 .. [1] Custom Object Variables. (n.d.). Retrieved August 29, 2018,from
        https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/3/en/customobjectvars.html
+
+.. [2] Krenn, T. (n.d.). IPMI Sensor Types. Retrieved November 20, 2018, from https://www.thomas-krenn.com/en/wiki/IPMI_Sensor_Types

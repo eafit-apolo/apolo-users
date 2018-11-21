@@ -51,7 +51,30 @@ executed in a particular run.
 
    dynamic_control
       
+.. _ssec-ansible_deployment-strategies:
 
+Deployment strategy
+---------------------
+
+Ensuring the system’s state remains as desired after deployment
+requires constant monitoring of configuration files, daemons (services), etc.
+Bearing this in mind, employing a self-aware architecture—in which tasks
+are not run once, but repeatedly and their actions are performed
+based on checking the system state—is a reasonable choice.
+
+To further ease deployment one may find useful to provision a server, or set of servers,
+by using wrappers triggering ansible’s execution, one-shot playbooks and scripts.
+
+This section proposes an architecture integrating all the abovementioned ideas.
+
+
+.. toctree::
+   :maxdepth: 2
+   :numbered:
+
+   deployment_strategy
+
+   
 .. _ssec-ansible_troubleshooting:
    
 Troubleshooting

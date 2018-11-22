@@ -11,6 +11,8 @@
    .. contents::
       :local:
 
+.. _sssec-ansible_tags:
+
 Tags
 ----
 
@@ -54,6 +56,7 @@ The former can be understood as "only run tasks tagged as good", hence tasks one
 and two will be the only ones to be executed. The latter, on the other hand, means
 "run every task not tagged as evil", therefore tasks one, two AND four will be executed.
 
+.. _sssec-ansible_tags_inheritance:
 
 Inheritance
 ~~~~~~~~~~~
@@ -96,6 +99,8 @@ declaring one tag automatically tags a set of tasks. For example, the playbook b
 
 will tag all tasks within the role apache.
 
+.. _sssec-ansible_tags_special:
+
 Special tags
 ~~~~~~~~~~~~
 
@@ -114,6 +119,8 @@ Special tags
 +----------+-------------------------------------+----------+
 |    all   | run all tasks (DEFAULT)             |    no    |
 +----------+-------------------------------------+----------+
+
+.. _sssec-ansible_tags_example:
 
 Example
 ~~~~~~~

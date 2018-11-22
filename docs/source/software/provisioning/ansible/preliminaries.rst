@@ -12,7 +12,9 @@
 
    .. contents::
       :local:
-	    
+
+.. _sssec-ansible_inventory:
+      
 Inventory
 ---------------------
 
@@ -119,6 +121,8 @@ Hence, it is true for the examples above:
 .. figure:: src/images/inventory_example-implicit/inventory_example-implicit.png
    :alt: lbservers' components
 
+.. _sssec-ansible_groupvars:
+
 Group variables
 ---------------------
 
@@ -180,13 +184,16 @@ lbservers group can reside in multiple files under
       ---
       max_hosts_to_serve: 10
 
-	 
+.. _sssec-ansible_modules:	 
+      
 Modules
 ---------------------
 
 A module can be interpreted as a function ansible calls from a task. Basically,
 a module is the function's entire body (i.e. declaration), waiting to be
 called from a task or an ansible ad-hoc command.
+
+.. _sssec-ansible_playbooks:
 
 Playbooks
 ---------------------
@@ -266,6 +273,8 @@ Task 1 would represent an ansible run being triggered, tasks 2 to 5 the system's
 through each intermediate state
 (i.e. bun toasted, bun assembled with condiments, patty wrapped,
 Order placed on heated landing pad) and task 6 the desired state (i.e. customer satisfied).
+
+.. _sssec-ansible_roles:
 
 Roles
 ---------------------
@@ -489,7 +498,8 @@ Finally, consider the designated behavior for each role 'x' component
 - If roles/x/defaults/main.yml exists, variables listed therein will be added to the play.
 - If roles/x/meta/main.yml exists, any role dependencies listed therein will be added to the list of roles (ansible 1.3 and later).
 - Any copy, script, template or include tasks (in the role) can reference files in roles/x/{files,templates,tasks}/ (dir depends on task) without having to path them relatively or absolutely.
-			
+
+.. _sssec-ansible_vault:  
 	    
 Vault (Encryption)
 --------------------- 
@@ -878,6 +888,8 @@ Let us delve into a more detailed example:
 
       Sample vault script workflow
 
+.. _sssec-ansible_envs:      
+      
 Environments
 ------------
 

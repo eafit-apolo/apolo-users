@@ -8,25 +8,22 @@
 .. role:: raw-html(raw)
    :format: html
 
-.. _sssec-ansible_deployment_overview:	    
-	    
+.. _sssec-ansible_deployment_overview:
+
 Overview
 ------------------------
 
 The proposed architecture aims to provision a system by following the steps below:
 
-#. Create ansible's directory hierarchy, playbooks, roles, taskfiles, etc. Basically,
-   the logic that will be used to provision the system. For example:
-
-   .. note::
-
-      It is recommended to have the directory tree under version control.
-   
-
+#. Create ansible's directory hierarchy, playbooks, roles, taskfiles, etc.
+   (basically,the logic that will be used to provision the system), and
+   maintain it under version control.
+#. ssh into the master node and
+   download the repo from version control. 
 #. Run a one-shot script
    to perform an initial setup of the environment required for ansible
    to run properly during and after deployment, followed by the actual
-   software execution (see :numref:`sssec-ansible_bootstrap`).   
+   software execution (see :numref:`sssec-ansible_bootstrap`).
 #. Check the bootstrap log and verify there were no errors and/or
    unexpected behaviors.
 #. If errors arose, fix them and re-run the bootstrap script.
@@ -40,7 +37,7 @@ Directory hierarchy
 ~~~~~~~~~~~~~~~~~~~
 
 The logic should consider constant creation of new playbooks, roles, taskfiles, etc.,
-allowing to easy scale in the future. Take the example below:  
+allowing to easy scale in the future. Take the example below:
 
    .. code-block:: bash
 
@@ -121,6 +118,34 @@ One could couple all playbooks inside :bash:`site.yml`, but that would make futu
 and potentially cause problems if a large number of people is working on the same project
 (take *git* merge conflicts for example).
 
+If one-shot playbooks (playbooks that run only once, such as firmware updates) are to be managed,
+it is recommended to modify the directory hierarchy so that the :bash:`playbooks` folder holds
+them. For exmple:
+
+.. code-block:: bash
+
+   .
+   └── playbooks
+       ├── auto
+       │   ├── playbook_1
+       │   ├── playbook_2
+       │   └── playbook_n
+       └── manual
+           ├── playbook_1
+           ├── playbook_2
+           └── playbook_n
+
+which would be run like:
+
+.. note::
+
+   More options can be used, but they will mostly depend on the playbook's functionality.
+
+.. code-block:: bash
+
+   ansible-playbook -i /path/to/inventory \
+                    /path/to/ansible/playbooks/manual/<playbook>
+
 Ansible launcher
 ~~~~~~~~~~~~~~~~~~
 
@@ -136,8 +161,48 @@ To solve the abovementioned issues one can create a template ansible will render
    :language: bash
    :linenos:
 
+In order to allow for easy migration of the script to, for example, another folder while still pointing
+to the project sources the template obtains its variables from the bootstrap script. This is corroborated
+in line 51, where there are always two *extra vars* (env, repo_dir) passed to ansible-playbook;
+all of which are dynamically discovered just before the first run.
+
+Scheduled run
+~~~~~~~~~~~~~
+
+It would be tedious to manually run ansible every time a change is done to the project. A nice approach to
+schedule when one wants provisioning to occur is creating a task to install a cron managing
+the time at which to call ansible:
+
+.. hint::
+
+   Given the limited environment in which crons are run, one may need to add
+   a task such as:
+
+   .. code-block:: yaml
+
+      - name: Adding PATH variable to cronfile
+	cron:
+	  name: PATH
+	  user: root
+	  env: yes
+	  value: /bin:/sbin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin
+	  cron_file: ansible_scheduled_run
+
+   or, if your launcher is written in bash, make it act as if it had been invoked as a login shell
+   by using the :bash:`-l` option (:bash:`#!/bin/bash -l`).
+
+.. code-block:: yaml
+
+   - name: Schedule ansible to run every 30 minutes
+     cron:
+       name: "run ansible every 30 minutes"
+       user: root
+       minute: "*/30"
+       job: "/path/to/run_ansible"
+       cron_file: ansible_scheduled_run
+
 .. _sssec-ansible_bootstrap:
-   
+
 bootstrap
 ---------
 
@@ -150,14 +215,3 @@ the output. Take the following program for example:
 .. literalinclude:: src/scripts/bootstrap.sh
    :language: bash
    :linenos:
-
-
-Wrappers
---------
-
-Ansible launcher
-~~~~~~~~~~~~~~~~~~
-
-
-One-shot playbooks
-------------------

@@ -20,7 +20,6 @@ Basic information
 
 - **Installed on:** :ref:`Apolo II <about_apolo-ii>`,
   :ref:`Cronos <about_cronos>`
-
        
 .. _ssec-ansible_preliminaries:       
        
@@ -67,13 +66,22 @@ by using wrappers triggering ansible’s execution, one-shot playbooks and scrip
 
 This section proposes an architecture integrating all the abovementioned ideas.
 
-
 .. toctree::
    :maxdepth: 2
    :numbered:
 
    deployment_strategy
 
+.. _ssec-ansible_tips_tricks:
+
+Tips and tricks
+---------------
+
+.. toctree::
+   :maxdepth: 2
+   :numbered:
+
+   tips_and_tricks
    
 .. _ssec-ansible_troubleshooting:
    

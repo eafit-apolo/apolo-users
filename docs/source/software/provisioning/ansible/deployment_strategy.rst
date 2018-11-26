@@ -18,8 +18,9 @@ The proposed architecture aims to provision a system by following the steps belo
 #. Create ansible's directory hierarchy, playbooks, roles, taskfiles, etc.
    (basically,the logic that will be used to provision the system), and
    maintain it under version control.
-#. ssh into the master node and
-   download the repo from version control. 
+#. ssh into the master node and download the repo from version control.
+   Consider using read-only deploy keys to download the repo without having
+   to type an username and password; especially in unattended deployments.
 #. Run a one-shot script
    to perform an initial setup of the environment required for ansible
    to run properly during and after deployment, followed by the actual
@@ -85,7 +86,7 @@ allowing to easy scale in the future. Take the example below:
       │   └── vault-client.sh
       └── site.yml
 
-It is designed so that upon calling :bash:`site.yml`, tasks from a particular set of playbooks,
+It is designed so that upon calling :bash:`site.yml` tasks from a particular set of playbooks,
 from the :bash:`playbooks` folder, are applied. This behavior can be accomplished by
 manually importing the playbooks or using variables:
 
@@ -118,9 +119,9 @@ One could couple all playbooks inside :bash:`site.yml`, but that would make futu
 and potentially cause problems if a large number of people is working on the same project
 (take *git* merge conflicts for example).
 
-If one-shot playbooks (playbooks that run only once, such as firmware updates) are to be managed,
+If one-shot playbooks (playbooks that run only once, such as whose involving firmware updates) are to be managed,
 it is recommended to modify the directory hierarchy so that the :bash:`playbooks` folder holds
-them. For exmple:
+them. For example:
 
 .. code-block:: bash
 
@@ -162,9 +163,14 @@ To solve the abovementioned issues one can create a template ansible will render
    :linenos:
 
 In order to allow for easy migration of the script to, for example, another folder while still pointing
-to the project sources the template obtains its variables from the bootstrap script. This is corroborated
-in line 51, where there are always two *extra vars* (env, repo_dir) passed to ansible-playbook;
-all of which are dynamically discovered just before the first run.
+to the project sources the template obtains one variable, *ansible_log_dir*, from :bash:`group_vars`
+and the remaining two from the bootstrap script. This is corroborated
+in line 47 from :numref:`sssec-ansible_bootstrap`, where there are two *extra vars* (env, repo_dir)
+passed to :bash:`ansible-playbook`; all of which are dynamically discovered just before the first run.
+
+On subsequent runs, :bash:`run_ansible` will keep passing down these values recursively. One could argue it is better
+to just place the task inside a one-shot playbook; this implies, however, that modifications made to the template
+should be applied manually and if the rendered script is changed it would not be restored automatically.
 
 Scheduled run
 ~~~~~~~~~~~~~
@@ -215,3 +221,60 @@ the output. Take the following program for example:
 .. literalinclude:: src/scripts/bootstrap.sh
    :language: bash
    :linenos:
+
+After running the script, there should be a cronfile in /etc/cron.d and a rendered
+version of the run_ansible script.
+
+Example
+-------
+
+#. Create directory tree
+
+   .. code-block:: bash
+
+      cd /some/dir/
+      mkdir -p ansible
+      cd ansible && git init
+      git remote add origin <uri>
+      mkdir -p {playbooks,environments,roles,scripts}
+      mkdir -p roles/master/{tasks,templates}
+      mkdir -p environments/production/group_vars/
+      # Fill the following files with the appropriate content      
+      touch site.yml \ # Calls the master.yml playbook
+            playbooks/master.yml \ # Calls the master role
+            roles/master/tasks/main.yml \ # Renders template
+	    roles/master/templates/run_ansible.j2
+	    environment/production/inventory
+	    environment/production/group_vars/all
+
+#. Download repo
+
+   .. note::
+
+      Consider using read-only deploy keys to download the repo without having
+      to type an username and password; especially in unattended deployments.   
+   
+   .. code-block:: bash
+
+      ssh <user>@<server>
+      cd /usr/local/
+      git clone <uri>
+
+#. Bootstrap. Suppose you run the bootstrap script from
+   :bash:`/usr/local/ansible/scripts/`, which discovers and passes two variables to ansible: *env* and *repo_dir*:
+
+   .. literalinclude:: src/scripts/bootstrap.sh
+      :language: bash
+      :linenos:
+      :lines: 18-23,45-50
+      :emphasize-lines: 9
+      
+   Executing the script in a production environment, like :bash:`bootstrap.sh prod`, will cause
+   variables to be passed to ansible as :bash:`env=production` and :bash:`repo_dir=/usr/local/ansible/`;
+   therefore producing a :bash:`run_ansible` script pointing to :bash:`/usr/local/ansible/`.
+
+#. Check for errors
+
+   .. code-block:: bash
+
+      less bootstrap_run.log

@@ -134,7 +134,7 @@ We will need to allow http port in the firewall configuration. The SNMP ports (1
 ipmi-config.yml
 ________________
 
-Assures the existence of ipmi-config directory and syncronizes the ipmi.cfg file with **root** as owner, **nagcmd** as Group owner and permissions 640: read and write for Owner and read-only for group members. If the final state of the task is **changed**, Nagios daemon is restarted.
+Assures the existence of ipmi-config directory and synchronizes the ipmi.cfg file with **root** as owner, **nagcmd** as Group owner and permissions 640: read and write for Owner and read-only for group members. If the final state of the task is **changed**, Nagios daemon is restarted.
    
 .. literalinclude:: src/tasks/ipmi-config.yml
    :language: yaml
@@ -142,7 +142,7 @@ Assures the existence of ipmi-config directory and syncronizes the ipmi.cfg file
 mail-config.yml
 ________________
 
-Syncronizes the mail configuration file with the version located in the repository.
+Synchronizes the mail configuration file with the version located in the repository.
 
 .. warning:: Read the section :ref:`mail-configuration` for more details.
    
@@ -155,7 +155,7 @@ _______________
 The Dell plugin requires this previous snmp configuration, read the section
 :ref:`snmp-dell` for more details.
 
-Syncronizes **/etc/snmp/snmptt.ini** and **/etc/snmp/snmptrapd.conf** snmp configuration files,
+Synchronizes **/etc/snmp/snmptt.ini** and **/etc/snmp/snmptrapd.conf** snmp configuration files,
 with the version located in the repository. If there is a modification, snmptt and snmptrapd services
 are restarted. After that, those services are enabled in boot time if they were not enabled.
 
@@ -179,9 +179,9 @@ Nagios Core is downloaded from :yaml:`{{ nagios_core_url }}` and stored in :bash
 Make options used          Descriptions
 ========================== =====================================================================
 make all                   .
-make install               Installs main program, CGI's and HTML files
-make install-init          Installs the init script
-make install-commandmode   Installs and configures permissions for holding external command file
+make install               Install main program, CGI's and HTML files
+make install-init          Install the init script
+make install-commandmode   Install and configures permissions for holding external command file
 make install-config        Generates templates for initial configuration
 ========================== =====================================================================
 
@@ -195,7 +195,7 @@ make install-config        Generates templates for initial configuration
 nagios-config.yml
 _________________
 
-This taskfile syncronize the Nagios config files with the ones stored in the repository, if there is a change in this syncronization, Nagios daemon is restarted with the handler :yaml:`nagios_restart`.
+This taskfile synchronize the Nagios config files with the ones stored in the repository, if there is a change in this synchronization, Nagios daemon is restarted with the handler :yaml:`nagios_restart`.
 
 Then, the module **htpasswd** asigns the password stored with Ansible Vault in the variable :yaml:`{{ nagios_admin_passwd }}` using ldap_sha1 as crypt scheme and restarts Nagios daemon if the final state of the task is **changed**.
 

@@ -50,7 +50,7 @@ Configuration
 .. literalinclude:: ../src/tasks/ipmi-config.yml
    :language: yaml
 
-Syncronizes the ipmi-config file with the version present in the
+Synchronizes the ipmi-config file with the version present in the
 repo. The passwords are cyphered with **Ansible Vault**.
 			  
 Usage

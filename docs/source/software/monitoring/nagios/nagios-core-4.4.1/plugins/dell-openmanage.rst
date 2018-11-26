@@ -87,6 +87,22 @@ Preconfiguration
 	DEBUGGING_FILE = /var/log/snmptt.debug
 	DEBUGGING_FILE_HANDLER = /var/log/snmptt/snmptthandler.debug
 
+.. note:: The following lines are added to :bash:`/etc/snmp/snmptt.ini` by the Dell plugin installation process.
+
+.. code:: bash
+					
+		  [TrapFiles]
+		  # A list of snmptt.conf files (this is NOT the snmptrapd.conf file).  The COMPLETE path
+		  # and filename.  Ex: '/etc/snmp/snmptt.conf'
+		  snmptt_conf_files = <<END
+		  /usr/local/nagios/dell/config/templates/Dell_PowerVaultMD_Traps.conf
+		  /usr/local/nagios/dell/config/templates/Dell_EqualLogic_Traps.conf
+		  /usr/local/nagios/dell/config/templates/Dell_Compellent_Traps.conf
+		  /usr/local/nagios/dell/config/templates/Dell_Chassis_Traps.conf
+		  /usr/local/nagios/dell/config/templates/Dell_Agent_free_Server_Traps.conf
+		  /etc/snmp/snmptt.conf
+		  END
+	
 2. Edit :bash:`/etc/snmp/snmptrapd.conf` and add the following lines
 
 .. code:: bash
@@ -117,7 +133,7 @@ The installation process consist on downloading and uncompressing the plugin, th
 Configuration
 -------------
 
-This playbook sincronizes the dell configuration files located in :bash:`/usr/local/nagios/dell/config/objects/` and the dell_contacts file.
+This playbook synchronizes the dell configuration files located in :bash:`/usr/local/nagios/dell/config/objects/` and the dell_contacts file.
 
 .. literalinclude:: ../src/tasks/dell-plugin-config.yml
 			  

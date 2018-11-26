@@ -25,7 +25,7 @@ Installation
 
 This taskfile is executed only if the folder :bash:`/usr/local/nagios/libexec` is not empty. This state is registered in the taskfile :bash:`nagios-plugins-installed.yml`, with the module **find**.
 
-For more information about this registers read the section :ref:`nagios-plugins-installed.yml`.
+For more information about these registers read the section :ref:`nagios-plugins-installed.yml`.
 
 The installation process consist on downloading, uncompressing, configuring and compiling the plugin.
 

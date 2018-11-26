@@ -6,10 +6,13 @@
 
 - name: Syncronize IPMI configuration
   template:
-    src: etc/ipmi-config/ipmi.cfg.j2
-    dest: /etc/ipmi-config/ipmi.cfg
+    src: "etc/ipmi-config/{{ item }}.j2"
+    dest: "/etc/ipmi-config/{{ item }}"
     owner: root
     group: nagcmd
     mode: 0640
+  with_items:
+    - ipmi-ilo.cfg
+    - ipmi-dell.cfg
   notify:
     - nagios_restart

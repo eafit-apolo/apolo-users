@@ -53,7 +53,7 @@ section :ref:`aclocal-missing`. Finally, the configure, make and make install ar
 Configuration
 -------------
 
-Sincronizes the iLO credential files and the iLO plugin configuration with the version present in the repo and
+Synchronizes the iLO credential files and the iLO plugin configuration with the version present in the repo and
 configures the permissions over nagios credential file.
 
 .. literalinclude:: ../src/tasks/ilo-plugin-config.yml

@@ -1,5 +1,5 @@
 ---
-- name: Syncronize configuration
+- name: Synchronize configuration
   copy:     
     src: "{{ item }}"
     dest: "/{{ item }}"

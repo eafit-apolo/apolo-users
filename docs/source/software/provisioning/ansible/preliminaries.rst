@@ -8,11 +8,6 @@
 .. role:: raw-html(raw)
    :format: html
 
-.. sidebar:: Contents
-
-   .. contents::
-      :local:
-
 .. _sssec-ansible_inventory:
       
 Inventory

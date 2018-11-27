@@ -239,13 +239,14 @@ Example
       mkdir -p {playbooks,environments,roles,scripts}
       mkdir -p roles/master/{tasks,templates}
       mkdir -p environments/production/group_vars/
-      # Fill the following files with the appropriate content      
-      touch site.yml \ # Calls the master.yml playbook
-            playbooks/master.yml \ # Calls the master role
-            roles/master/tasks/main.yml \ # Renders template
-	    roles/master/templates/run_ansible.j2
-	    environment/production/inventory
-	    environment/production/group_vars/all
+      # Create the appropriate files according to your needs.
+      # A good start would be:
+      #touch site.yml \ # Calls the master.yml playbook
+      #      playbooks/master.yml \ # Calls the master role
+      #      roles/master/tasks/main.yml \ # Renders template
+      #      roles/master/templates/run_ansible.j2
+      #      environment/production/inventory
+      #      environment/production/group_vars/all
 
 #. Download repo
 

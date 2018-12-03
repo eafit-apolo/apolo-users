@@ -22,7 +22,7 @@ Installation
 
   * PyCrypto :math:`\boldsymbol{\gt}` 2.6.1
     
-.. note:: It is important to check if the PyCrypto system version is greater than 2.6.1, because this is a pre-requisit that Ansible-vault needs to work correctly.
+.. note:: It is important to check if the PyCrypto system version is greater than 2.6.1, because this is a pre-requisite that Ansible-vault needs to work correctly.
 
 Directory Structure
 -------------------
@@ -45,7 +45,7 @@ Directory Structure
 
 Ansible Structure
 -----------------
-We implemented a Role in Ansible that contains the whole proccess of installation and configuration of Nagios and it's integration with some plugins.
+We implemented a Role in Ansible that contains the whole process of installation and configuration of Nagios and it's integration with some plugins.
 
 .. literalinclude:: src/tasks/main.yml
    :language: bash
@@ -56,9 +56,9 @@ Initial Configuration
 dell-repos.yml
 ______________
 
-This procedure is neccessary in order to install the package **srvadmin-idrac7** from the official Dell repo.
+This procedure is necessary in order to install the package **srvadmin-idrac7** from the official Dell repo.
 This makes it easier to check the presence/absence of the packages using the ansible-module "yum" instead
-of writing mannually the process of compilation and verification.
+of writing manually the process of compilation and verification.
 
 .. literalinclude:: src/tasks/dell-repos.yml
    :language: yaml
@@ -88,7 +88,7 @@ The other dependencies are listed in the taskfile showed bellow.
    yum module.
 
 .. note::
-   The @ syntaxis in yum module specifies that the item is a package group.
+   The @ syntax in yum module specifies the item is a package group.
 
 .. note::
    The Dell OpenManage Plugin has two lists of dependencies: The first one is installed with the "yum" module and
@@ -101,8 +101,8 @@ The other dependencies are listed in the taskfile showed bellow.
 nagios-users.yml
 ________________
 
-It is necessary before installing Nagios-Core to create a **nagios** user, and a **nagcmd** group, whose
-members will be the users **apache** and **nagios**. It's also necessary to let nagios execute /usr/sbin/ipmi-sensors and /usr/sbin/ipmi-sel with root permissions. This is assured making it explicit in the sudoers file.
+It is necessary before installing Nagios-Core to create a **Nagios** user, and a **nagcmd** group, whose
+members will be **apache** and **nagios** users. It's also necessary to let nagios execute /usr/sbin/ipmi-sensors and /usr/sbin/ipmi-sel with root permissions. This is assured making it explicit in the sudoers file.
 
 .. literalinclude:: src/tasks/nagios-users.yml
    :language: yaml
@@ -115,7 +115,7 @@ The objective is to configure Nagios to provide a Web interface, so it's necessa
 allowing every network interface to provide this service. We will also write in this file the definition
 of the ServerName.
 
-Finally, we will associate in **/etc/hosts** owr **nagios_ip** with the **ServerName** set previously.
+Finally, we will associate in **/etc/hosts** our **nagios_ip** with the **ServerName** set previously.
 
 .. literalinclude:: src/tasks/apache-config.yml
    :language: yaml
@@ -126,7 +126,7 @@ ___________________
 .. note::
    It's important to remember that Firewalld is the firewall of the system in CentOS 7.
 
-We will need to allow http port in the firewall configuration. The SNMP ports (161-162) should be allowed for the correct operation of iLO REST Plugin. We decided to allow these firewall requirements in the **public** zone.
+We will need to allow HTTP port in the firewall configuration. The SNMP ports (161-162) should be allowed for the correct operation of iLO REST Plugin. We decided to allow these firewall requirements in the **public** zone.
    
 .. literalinclude:: src/tasks/firewall-config.yml
    :language: yaml
@@ -152,7 +152,7 @@ Synchronizes the mail configuration file with the version located in the reposit
 snmp-config.yml
 _______________
 
-The Dell plugin requires this previous snmp configuration, read the section
+The Dell plugin requires this previous SNMP configuration, read the section
 :ref:`snmp-dell` for more details.
 
 Synchronizes **/etc/snmp/snmptt.ini** and **/etc/snmp/snmptrapd.conf** snmp configuration files,
@@ -197,7 +197,7 @@ _________________
 
 This taskfile synchronize the Nagios config files with the ones stored in the repository, if there is a change in this synchronization, Nagios daemon is restarted with the handler :yaml:`nagios_restart`.
 
-Then, the module **htpasswd** asigns the password stored with Ansible Vault in the variable :yaml:`{{ nagios_admin_passwd }}` using ldap_sha1 as crypt scheme and restarts Nagios daemon if the final state of the task is **changed**.
+Then, the module **htpasswd** assigns the password stored with Ansible Vault in the variable :yaml:`{{ nagios_admin_passwd }}` using ldap_sha1 as crypt scheme and restarts Nagios daemon if the final state of the task is **changed**.
 
 .. literalinclude:: src/tasks/nagios-config.yml
    :language: yaml
@@ -207,7 +207,9 @@ Then, the module **htpasswd** asigns the password stored with Ansible Vault in t
 nagios-post-install.yml
 _______________________
 
-After **nagios-config.yml** is completed, :bash:`make install-webconf` is executed, generating the Apache config file for Nagios Web Interface. This step is executed only if Nagios Core was not installed before the current execution.
+After **nagios-config.yml** is completed, :bash:`make install-webconf` is executed, generating
+the Apache config file for Nagios Web Interface. This step is executed only if Nagios Core was
+not installed before the current execution.
 
    .. literalinclude:: src/tasks/nagios-post-install.yml
       :language: yaml
@@ -226,6 +228,8 @@ _______________________
 .. warning:: The error :bash:`Could not stat() command file /usr/local/nagios/var/rw/nagios.cmd`
 	     is fixed by this taskfile. The explanation is in the :ref:`nagios-cmd-error` section.
 
+It's necessary to execute :bash:`restorecon -r <directory>` in order to restart the SELinux
+configuration over these directories. This is executed by a handler in the Ansible role.
 
 .. literalinclude:: src/tasks/selinux-config.yml
    :language: yaml
@@ -242,7 +246,7 @@ installed or not.
 .. literalinclude:: src/tasks/nagios-plugins-installed.yml
    :language: yaml
 
-Read the following sections for more information about installation and configuration process of the plugins.	      
+Read the following sections for more information about the installation and configuration process of the plugins.	      
 
 - :ref:`Nagios Plugins <nagios-plugins-index>`
 - :ref:`IPMI Sensors <ipmi-sensors-plugin-index>`

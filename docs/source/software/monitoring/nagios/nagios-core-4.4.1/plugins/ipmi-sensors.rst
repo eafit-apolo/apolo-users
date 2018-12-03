@@ -56,7 +56,7 @@ repo. The passwords are cyphered with **Ansible Vault**.
 Usage
 -----
 
-The following steps are required for setting-up this plugin in a specific host:
+The following steps are required for setting up this plugin in a specific host:
 
 #. Add the attribute **_ipmi_ip** in the host definition. This attribute is required by the check_ipmi_sensors plugin.
    The attribute :bash:`_ipmi_excluded_sensors` is necessary only when the error :ref:`ipmi_sensor_error` occurs.
@@ -70,10 +70,10 @@ The following steps are required for setting-up this plugin in a specific host:
 		_ipmi_excluded_sensors   56
 		
 
-   .. note:: The names of these variables start with underscore and are in lowercase.
+   .. note:: The names of these variables start with an underscore and are in lowercase.
              More info about the usage of custom object variables [1]_ .
 
-#. Add the command definition. In this implementation the command is added in
+#. Add the command definition. In this implementation, the command is added in
    :bash:`/usr/local/nagios/etc/objects/commands.cfg`
 
    .. code-block:: bash
@@ -86,7 +86,7 @@ The following steps are required for setting-up this plugin in a specific host:
 #. Add the service definition. In this implementation, the service is added in :bash:`/usr/local/nagios/etc/objects/common-services.cfg`
 
    .. note:: If you want to ignore the SEL log entries warning, add
-			 the flag --nosel in the check_command field *(See example bellow)*
+			 the flag --nosel in the check_command field *(See example below)*
    
    The plugin can be configured for checking each sensor type independently:
    
@@ -96,7 +96,7 @@ The following steps are required for setting-up this plugin in a specific host:
         use                  generic-service
         host_name            host1
         service_description  IPMI
-        check_command        check_ipmi_sensor!/etc/ipmi-config/ipmi.cfg!--nosel!-T SENSOR_TYPE
+        check_command        check_ipmi_sensor!/etc/ipmi-config/ipmi.cfg!--nosel!-T <sensor_type>
       }
 
    .. note:: The sensor types are listed in the page: IPMI Sensor Types [2]_
@@ -112,7 +112,7 @@ The following steps are required for setting-up this plugin in a specific host:
         check_command        check_ipmi_sensor!/etc/ipmi-config/ipmi.cfg
       }
 
-   .. note:: If the ipmi plugin is configured for multiple nodes and there is not a common user/password
+   .. note:: If the IPMI plugin is configured for multiple nodes and there is not a common user/password
 			 between them, you can configure one service per each different credential, defining different
 			 ipmi-config files.
 			 
@@ -147,7 +147,8 @@ The following steps are required for setting-up this plugin in a specific host:
    * Owner: nagios
    * Group: nagcmd
    * Mode: 0640
-   
+
+   .. note:: Read [3]_ for more information about freeIPMI configuration file.
 			 
 Troubleshooting
 ---------------
@@ -158,21 +159,21 @@ IPMI Status: Critical [X system event log (SEL) entries present]
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 #. Read System Entry Logs before deleting them. It's important to see if there is a
-   bad behaviour registered in these logs.
+   bad behavior registered in these logs.
    
    :bash:`ipmiutil sel -N (host_ip|hostname) -F lan2 -U user -P passwd`
 
 #. Clear System Entry Logs with the credentials of a user with enough privileges.
    :bash:`ipmiutil sel -d -N (host_ip|hostname) -F lan2 -U user -P passwd`
 
-.. note:: The password should be written between aphostrophes (**'**) if contains special characters.
+.. note:: The password should be written between apostrophes (**'**) if contains special characters.
 
 .. _ipmi_sensor_error:
 
 IPMI Status: Critical [Presence = Critical, Presence = Critical]
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
-#. Execute the following command in order to identify which sensors are absent.
+#. Execute the following command to identify which sensors are absent.
    
    :bash:`check_ipmi_sensor -H <Host-IP> -f <Archivo de configuración> -vvv | grep Critical`
 
@@ -188,7 +189,7 @@ IPMI Status: Critical [Presence = Critical, Presence = Critical]
       Presence = 'Entity Absent' (Status: Critical)
       Presence = 'Entity Absent' (Status: Critical)
 
-#. Add the attribute :bash:`_ipmi_excluded_sensors` which value is a comma separated list of sensor IDs that contains the absent sensors discovered.
+#. Add the attribute :bash:`_ipmi_excluded_sensors` which value is a comma-separated list of sensor IDs that contain the absent sensors discovered.
    
    **Example:**
 
@@ -208,3 +209,7 @@ References
        https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/3/en/customobjectvars.html
 
 .. [2] Krenn, T. (n.d.). IPMI Sensor Types. Retrieved November 20, 2018, from https://www.thomas-krenn.com/en/wiki/IPMI_Sensor_Types
+
+
+.. [3] "freeipmi.conf(5) - Linux man page", FreeIPMI Core Team. Retrieved
+	   December 3, 2018, from https://linux.die.net/man/5/freeipmi.conf

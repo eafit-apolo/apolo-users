@@ -43,7 +43,7 @@ matches the regular expression :bash:`*hpeilo*`. This state is registered in the
 
 For more information about these registers read the section :ref:`nagios-plugins-installed.yml`.
 
-The installation process consists on downloading the plugin from the original repository, then it is necessary to
+The installation process [1]_ consists of downloading the plugin from the original repository, then it is necessary to
 regenerate the configure files if the aclocal version is not 1.14. More information in the
 section :ref:`aclocal-missing`. Finally, the configure, make and make install are executed.
 
@@ -54,7 +54,7 @@ Configuration
 -------------
 
 Synchronizes the iLO credential files and the iLO plugin configuration with the version present in the repo and
-configures the permissions over nagios credential file.
+configures the permissions over Nagios credential file.
 
 .. literalinclude:: ../src/tasks/ilo-plugin-config.yml
    :language: yaml
@@ -68,7 +68,7 @@ Usage
 Defining Hosts, commands and services
 '''''''''''''''''''''''''''''''''''''
 
-.. warning:: It's necessary to read the section :ref:`nagios_centos_7` before proceding to configure.
+.. warning:: It's necessary to read the section :ref:`nagios_centos_7` before proceeding to configure.
 
 For starting the configuration of the iLO plugin, run the following command:
 	     
@@ -126,7 +126,7 @@ will override the configuration file.
    Progress: 100% (scanned 1 of 1 hosts)
    Total hosts '1' added of '1' hosts
 
-.. warning:: In the version 1.5 of this plugin, there is an unimplemented service, so it's necessary to
+.. warning:: In version 1.5 of this plugin, there is an unimplemented service, so it's necessary to
 	     do the procedure explained in the section :ref:`ilo_network_not_implemented`
 
 .. note:: If you created the temporal file /etc/init.d/nagios, it's important to delete it after generating
@@ -187,7 +187,7 @@ Installation in CentOS 7
    the configuration files are written for a CentOS version that still uses init, searching information
    in the files that match the following regular expression: :bash:`/etc/init.d/nagios*`
 
-The error will show an error output during the executiong of the configuration scripts as the showed bellow:
+The error will show an error output during the execution of the configuration scripts as the showed below:
 
 .. code-block:: bash
    
@@ -200,7 +200,7 @@ The error will show an error output during the executiong of the configuration s
 In this installation, CentOS 7 configured Nagios Daemon with systemd specifications, so the file
 /etc/init.d/nagios* was not created.
 
-In order not to modifying the code of the ilo plugin scripts, the alternative proposed here is to generate
+In order not to modify the code of the iLO plugin scripts, the alternative proposed here is to generate
 a temporal file :bash:`/etc/init.d/nagios` during the generation of the configuration files with
 the following content:
 
@@ -226,7 +226,7 @@ The services provided by this plugin are:
 
 Although Network function is not implemented, the scripts written by the developers of the plugin generate configuration
 lines for this unimplemented function. So, after generating the configuration files with the iLO plugin script, it is
-necessary to remove mannualy this service from the service definitions generated.
+necessary to remove manually this service from the service definitions generated.
 
 It's necessary to remove the definitions of the service and the servicegroup.
 
@@ -262,4 +262,6 @@ Message:
 References
 ----------
 
-TODO*******************
+.. [1] "User’s Manual Nagios Plug-in for HPE iLO RESTful Extension", Hewlett Packard Enterprise (HPE). Retrieved December 3, 2018, from https://goo.gl/knRFPr.
+
+

@@ -19,6 +19,28 @@ Basic information
 - **Official Website:** https://www.nagios.org/about/
 - **License:** Nagios Open Software License, Nagios Software License, GNU GENERAL PUBLIC LICENSE
 
+
+Directory Hierarchy
+-------------------
+
+- **bin:** Nagios binaries.
+  
+- **dell:** Stores scripts, configuration files, images and
+  resources of Dell Plugin.
+  
+- **etc:** Stores Nagios configuration files.
+  
+- **include**
+  
+- **libexec:** Contains most of the plugins installed.
+  
+- **sbin:** Nagios scripts
+  
+- **share:** Contains Web interface files.
+  
+- **var** 
+  
+  
 Installation
 ------------
 
@@ -36,7 +58,7 @@ is automated using Ansible.
 Mail Configuration
 ------------------
 
-.. note:: This configuration is automatically setup in the step of synchronization in the taskfile :ref:`nagios-config.yml` if the base configuration is included in the synchronization list.
+.. note:: This configuration is automatically set up in the step of synchronization in the taskfile :ref:`nagios-config.yml` if the base configuration is included in the synchronization list.
 
 The commands :bash:`notify-host-by-email` and :bash:`notify-service-by-email` were modified adding the flag -A:
 
@@ -84,11 +106,11 @@ Before executing the role it's important to verify the value of the variables in
    
    This Ansible role was created thinking in the Ansible Philosophy: **The tool should be used to represent the state of the server, not as a procedural language but as a declarative one.**
 
-   This role was developed to be run multiple times in the same server: If the real state doesn't matches with the role state, the server is modified in order to match both states. If the server has well configured and well installed Nagios and it's plugins, running the playbook will say **Ok** in most of the tasks, so it  won't broke any configuration.
+   This role was developed to be run multiple times in the same server: If the real state doesn't matches with the role state, the server is modified in order to match both states. If the server has well configured and well installed Nagios and it's plugins, running the playbook will say **Ok** in most of the tasks, so it  won't break any configuration.
 
 .. note::
 
-   The flag :bash:`--ask-vault-pass` is used because this role uses ansible-vault for encrypting private data as passwords.
+   The flag :bash:`--ask-vault-pass` is used because this role uses ansible-vault for encrypting private data like passwords.
 
 
 Troubleshooting
@@ -103,12 +125,13 @@ Nagios Command Error
    :alt: Nagios Command Error
 
 This error occurs when the user generates a modification in the Nagios Command file executing
-different actions with the Nagios Web Interface *(ej. re-schedule checks)*. This error is corrected
+different actions with the Nagios Web Interface *(eg. re-schedule checks)*. This error is corrected
 with the execution of the task :ref:`selinux-config.yml`.
 
-By default, the apache daemon cannot read/write the files under :bash:`/usr/local/nagios/var/rw` because
-this directory doesn't belongs to the :bash:`httpd_sys_rw_content_t` SELinux context. This is what
-originates the problem.
+By default, the Apache daemon cannot read/write the files under :bash:`/usr/local/nagios/var/rw` or
+execute from :bash:`/usr/local/nagios/sbin` because these directories doesn't belongs to
+the :bash:`httpd_sys_rw_content_t` SELinux context and :bash:`httpd_sys_script_exec_t` context
+respectively. This is what originates the problem.
 
 
 Authors

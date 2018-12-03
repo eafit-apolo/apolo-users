@@ -121,11 +121,11 @@ Installation
 ------------
 
 This taskfile is executed only if the directory :bash:`/usr/local/nagios/libexec` doesn't
-exist.This state is registered in the taskfile :bash:`nagios-plugins-installed.yml`, with the module **stat**.
+exist. This state is registered in the taskfile :bash:`nagios-plugins-installed.yml`, with the module **stat**.
 
 For more information about this registers read the section :ref:`nagios-plugins-installed.yml`.
 
-The installation process consist on downloading and uncompressing the plugin, then the script :bash:`Dell_OpenManage_Plugin/Install/install.sh` is executed.
+The installation process [1]_ consists of downloading and uncompressing the plugin, then the script :bash:`Dell_OpenManage_Plugin/Install/install.sh` is executed.
 
 .. literalinclude:: ../src/tasks/dell-plugin.yml
    :language: yaml
@@ -140,7 +140,7 @@ This playbook synchronizes the dell configuration files located in :bash:`/usr/l
 Usage
 -----
 
-The plugin has a script that discovers and generates the necesary configuration files for Dell servers present in a given IP,IP range or subnet.
+The plugin has a script that discovers and generates the necessary configuration files for Dell servers present in a given IP, IP range or subnet.
 
 To configure a specific host: 
 
@@ -168,7 +168,7 @@ Incorrect hostname detection
 ''''''''''''''''''''''''''''
 
 It's possible that the :bash:`dell_device_discovery.pl` script detects an incorrect hostname in
-the discovery process (Ej: idrac8). It generates incorrect configurations, because the host_name
+the discovery process (Ej: idrac8). It generates incorrect configurations because the host_name
 attribute in Nagios has to be unique for each Host definition.
 
 The solution is to edit the host definition:
@@ -191,7 +191,7 @@ The solution is to edit the host definition:
 	  service_description     Dell Server Traps
 	}
 
-Update the fields host_name, alias and display_name.
+Update the fields host_name, alias, and display_name.
 	
 .. code:: bash
 
@@ -215,4 +215,4 @@ Update the fields host_name, alias and display_name.
 References
 -------------
 
-https://www.dell.com/support/article/es/es/esbsdt1/sln310619/installation-of-dell-openmanage-plugin-for-nagios-xi-on-centos?lang=en
+.. [1] https://www.dell.com/support/article/es/es/esbsdt1/sln310619/installation-of-dell-openmanage-plugin-for-nagios-xi-on-centos?lang=en

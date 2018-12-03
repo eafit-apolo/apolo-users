@@ -27,7 +27,7 @@ This taskfile is executed only if the folder :bash:`/usr/local/nagios/libexec` i
 
 For more information about these registers read the section :ref:`nagios-plugins-installed.yml`.
 
-The installation process consist on downloading, uncompressing, configuring and compiling the plugin.
+The installation process consists of downloading, uncompressing, configuring and compiling the plugin.
 
 .. literalinclude:: ../src/tasks/nagios-plugins.yml
    :language: yaml

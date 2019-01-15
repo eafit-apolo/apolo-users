@@ -12,3 +12,4 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    
    bayescan/index
    raxml/index
+   lammps/index

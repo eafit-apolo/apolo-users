@@ -1,0 +1,35 @@
+#%Module1.0####################################################################
+##
+## module load lammps/22Aug18_impi-18.0.2
+##
+## /share/apps/modules/lammps/22Aug18_impi-18.0.2
+## Written by Tomas Felipe Llano Rios
+##
+
+proc ModulesHelp {} {
+     global version modroot
+     puts stderr "Sets the environment for using Lammps 22Aug18 version\
+                  \nin the shared directory /share/apps/lammps/22Aug18/impi-18.0.2."
+}
+
+module-whatis "(Name________) lammps"
+module-whatis "(Version_____) 22Aug18"
+module-whatis "(Compilers___) "
+module-whatis "(System______) x86_64-redhat-linux"
+module-whatis "(Libraries___) "
+
+# for Tcl script use only
+set         topdir        /share/apps/lammps/22Aug18/impi-18.0.2
+set         version       22Aug18
+set         sys           x86_64-redhat-linux
+
+conflict lammps
+module load impi/18.0.2
+module load mkl/18.0.2
+
+
+prepend-path              PATH		      $topdir/bin
+prepend-path              LIBRARY_PATH        $topdir/li
+prepend-path              LD_LIBRARY_PATH     $topdir/lib
+
+setenv			  LAMMPSROOT	      $topdir

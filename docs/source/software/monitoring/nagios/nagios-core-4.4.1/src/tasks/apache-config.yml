@@ -1,0 +1,20 @@
+---
+#####################################################
+#        TODO: Replace Listen *:80
+#####################################################
+- name: Apache necessary line in httpd.conf
+  lineinfile:
+    path: /etc/httpd/conf/httpd.conf
+    line: "Listen 80"
+  notify: apache_restart
+
+- name: Define ServerName
+  lineinfile:
+    path: /etc/httpd/conf/httpd.conf
+    line: "ServerName root@{{ health_server_name }}"
+  notify: apache_restart
+
+- name: Define Host
+  lineinfile:
+    path: /etc/hosts
+    line: "{{ nagios_ip }} {{ health_server_name }}"

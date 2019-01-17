@@ -1,0 +1,12 @@
+.. _monitoring-index:
+
+Monitoring
+=====================
+
+This entry contains the configuration, installation and maintainance procedures needed
+to configure some monitoring systems used in the Scientific Computing Center APOLO.
+
+.. toctree::
+   :maxdepth: 1
+
+   nagios/index

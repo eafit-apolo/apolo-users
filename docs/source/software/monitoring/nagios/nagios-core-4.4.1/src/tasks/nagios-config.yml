@@ -1,0 +1,24 @@
+---
+- name: Synchronize Nagios config files
+  copy:     
+    src: "{{ item }}"
+    dest: "/{{ item }}"
+  with_items:
+    - usr/local/nagios/etc/objects/contacts.cfg
+    - usr/local/nagios/etc/objects/localhost.cfg
+    - usr/local/nagios/etc/objects/commands.cfg
+    - usr/local/nagios/etc/nagios.cfg
+    - usr/local/nagios/etc/objects/common.cfg
+    - usr/local/nagios/etc/objects/timeperiods.cfg
+    - usr/local/nagios/etc/objects/common_services.cfg
+  notify:
+    - nagios_restart
+
+- name: Assing password for the Web GUI user nagiosadmin
+  htpasswd: 
+    path: /usr/local/nagios/etc/htpasswd.users
+    name: nagiosadmin
+    password: "{{ nagios_admin_passwd }}"
+    crypt_scheme: ldap_sha1
+  notify:
+    - nagios_restart

@@ -1,0 +1,16 @@
+---
+- name: Assure existence of tempDir
+  file:
+    path: "{{ temp_dir }}/check_ipmi_sensor_v3"
+    state: directory
+
+- name: Clone git repo in temp dir
+  git:
+    repo: "{{ ipmi_plugin_url }}"
+    clone: yes
+    dest: "{{ temp_dir }}/check_ipmi_sensor_v3"
+
+- name: Copy the IPMI sensors plugin
+  copy:
+    src: "{{ temp_dir }}/check_ipmi_sensor_v3/check_ipmi_sensor"
+    dest: /usr/local/nagios/libexec/check_ipmi_sensor

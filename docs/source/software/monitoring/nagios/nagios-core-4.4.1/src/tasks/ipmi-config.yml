@@ -1,0 +1,18 @@
+---
+- name: Assures existence of ipmi-config Directory
+  file:
+    path: /etc/ipmi-config/
+    state: directory
+
+- name: Syncronize IPMI configuration
+  template:
+    src: "etc/ipmi-config/{{ item }}.j2"
+    dest: "/etc/ipmi-config/{{ item }}"
+    owner: root
+    group: nagcmd
+    mode: 0640
+  with_items:
+    - ipmi-ilo.cfg
+    - ipmi-dell.cfg
+  notify:
+    - nagios_restart

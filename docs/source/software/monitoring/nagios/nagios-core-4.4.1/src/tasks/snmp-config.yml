@@ -1,0 +1,19 @@
+---
+- name: Synchronize Nagios config files
+  copy:     
+    src: "{{ item }}"
+    dest: "/{{ item }}"
+  with_items:
+    - etc/snmp/snmptt.ini
+    - etc/snmp/snmptrapd.conf
+  notify:
+    - snmptt_restart
+    - snmptrapd_restart
+
+- name: SNMP services enabled in boot time
+  service:
+    name: "{{ item }}"
+    enabled: yes
+  with_items:
+    - snmptt
+    - snmptrapd

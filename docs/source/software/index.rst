@@ -11,3 +11,5 @@ Software
    applications/index
    resourcemanager/index
    provisioning/index
+   monitoring/index
+   

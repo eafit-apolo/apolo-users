@@ -1,0 +1,5 @@
+---
+- name: Synchronizes the mail configuration
+  copy:
+    src: etc/mail.rc
+    dest: /etc/mail.rc

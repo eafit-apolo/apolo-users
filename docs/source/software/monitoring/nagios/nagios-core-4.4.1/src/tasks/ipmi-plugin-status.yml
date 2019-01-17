@@ -1,0 +1,7 @@
+---
+- name: Correct setup of the executable
+  file:
+    path: /usr/local/nagios/libexec/check_ipmi_sensor
+    owner: nagios
+    group: nagcmd
+    mode: 0550

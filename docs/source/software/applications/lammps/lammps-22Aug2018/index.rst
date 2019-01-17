@@ -1,5 +1,8 @@
 .. _lammps-22Aug2018-index:
 
+.. role:: bash(code)
+   :language: bash
+
 LAMMPS - 22Aug2018
 ==================
 
@@ -13,87 +16,84 @@ Basic information
 Installation
 ------------
 
-Make MODES
+If you want to compile LAMMPS as a static library called :bash:`liblammps_machine.a` execute:
+
+.. code-block:: bash
+				
+    make mode=lib <machine>
+
+If you want to compile LAMMPS as a shared library called :bash:`liblammps_machine.so` execute:
+
+.. code-block:: bash
+
+	make mode=shlib <machine>
+
+The following procedure will compile LAMMPS as an executable, using the Intel MPI implementation
+and MKL as the Linear Algebra Library. The compilation options are described in
+:bash:`src/MAKE/OPTIONS/Makefile.intel_cpu_intelmpi`
+
+#. Load the necessary modules for compiling LAMMPS
+
+   .. code-block:: bash
+	  
+	  $ module load impi
+	  $ module load mkl
+
+#. Download and compile the source code. This procedure will compile LAMMPS
+   using the intel architecture options defined by default in
+   :bash:`src/MAKE/OPTIONS/Makefile.intel_cpu_intelmpi`
+
+   .. code-block:: bash
+ 	 
+    $ git clone -b stable_22Aug2018 https://github.com/lammps/lammps.git
+    $ cd lammps/src
+    $ make yes-all     # install all pkgs in src dir
+    $ make no-lib      # remove all pkgs with libs 
+    $ make intel_cpu_intelmpi
+	
+   .. note::  :bash:`icpc: command line warning #10006: ignoring unknown option '-qopt-zmm-usage=high'`
+			
+			This message appears when you compile lammps using the intel_cpu_intelmpi architecture but
+			the intel processor doesn't have the AVX512 instruction set. If this is the case, just ignore
+			the warning message. For more information about the flag :bash:`qopt-zmm-usage` read [2]_.
+
+#. If you want to install lammps in a specific directory, create the directories and copy
+   the binary as follows:
+
+   .. code-block:: bash
+
+				   $ mkdir -p <INSTALL_DIR>/lammps/stable_22Aug2018/intel-2017/bin
+				   $ cp lmp_intel_cpu_intelmpi <INSTALL_DIR>/lammps/stable_22Aug2018/intel-2017/bin/
+				   $ cd <INSTALL_DIR>/lammps/stable_22Aug2018/intel-2017/bin/
+				   $ ld -sf lmp_intel_cpu_intelmpi lammps
+
+#. Finally, if the program will be used with Environment modules, create the respective module.
+
+Modulefile
 ----------
 
-make machine               # build LAMMPS executable lmp_machine
-make mode=lib machine      # build LAMMPS static lib liblammps_machine.a
-make mode=shlib machine    # build LAMMPS shared lib liblammps_machine.so
+**Apolo II**
 
-#. Load the necessary modules for compiling LAMMPS
+.. literalinclude:: src/22Aug18_apolo
+   :language: tcl
+   :caption: :download:`Module file <src/22Aug18_apolo>`
 
-   .. code-block:: bash
-	  
-	  $ module load impi
-	  $ module load mkl
+**Cronos**
 
-#. Download and compile the source code.
+.. literalinclude:: src/22Aug18_cronos
+   :language: tcl
+   :caption: :download:`Module file <src/22Aug18_cronos>`
 
-  .. code-block:: bash
-	 
-    $ git clone -b stable https://github.com/lammps/lammps.git
-	$ git checkout stable_22Aug2018
-    $ cd lammps/src
-	$ make yes-all
-	$ make no-lib
-	$ make intel_cpu_intelmpi
-	
-	
-    $ cmake -D CMAKE_INSTALL_PREFIX=/home/azapat47/apps/lammps/build/ -D LAMMPS_MACHINE=icc_openmpi ../cmake
-    $ make -jN             #(N = available CPU cores) compile in parallel
-    $ make install
-
-	  -D CMAKE_INSTALL_PREFIX=path
-
-
-============================ ========================================= ==========================================
-Options                      Values                                    Notes
-============================ ========================================= ==========================================
--D BUILD_EXE=value           yes (default) or no
--D BUILD_LIB=value           yes or no (default)
--D BUILD_SHARED_LIBS=value   yes or no (default)
--D BUILD_MPI=value           yes or no                                 default is yes if CMake finds MPI,else no
--D BUILD_OMP=value           yes or no (default)
--D LAMMPS_MACHINE=name       name = mpi, serial,                       no default value
--D PKG_NAME=value            yes or no (default)                       -D PKG_USER-INTEL=yes
-============================ ========================================= ==========================================
-
-#. Load the necessary modules for compiling LAMMPS
-
-   .. code-block:: bash
-	  
-	  $ module load cmake
-	  $ module load impi
-	  $ module load mkl
-
-#. Download and compile the source code.
-
-  .. note:: cmake was chosen instead of traditional make because cmake let you decide where to install the software.
-  .. code-block:: bash
-	 
-    $ git clone -b stable https://github.com/lammps/lammps.git
-    $ cd lammps
-    $ mkdir build
-    $ cd build
-
-  .. note:: Move to build directory in order to generate the temporal Cmake files there.
-
-  $ cmake -D CMAKE_INSTALL_PREFIX=/home/azapat47/apps/lammps/build/ -D LAMMPS_MACHINE=icc_openmpi ../cmake
-  $ make -jN             #(N = available CPU cores) compile in parallel
-  $ make install
-
-	  -D CMAKE_INSTALL_PREFIX=path
-	  
-
-Usage
------
+For more information about the installation process, read the official page [1]_.
 
 References
 ----------
 
-- `Download source via Git - LAMMPS documentation
-  <https://lammps.sandia.gov/doc/Install_git.html>`
+.. [1] `Download source via Git - LAMMPS documentation. Retrieved January 17, 2019, from https://lammps.sandia.gov/doc/Install_git.html`
 
+.. [2] `Intel® C++ Compiler 19.0 Developer Guide and Reference, qopt-zmm-usage, Qopt-zmm-usage. Retrieved January 17, 2019, from
+	   https://software.intel.com/en-us/cpp-compiler-developer-guide-and-reference-qopt-zmm-usage-qopt-zmm-usage`
+  
 Authors
 -------
 

@@ -10,3 +10,4 @@ Software
    programminglanguages/index
    applications/index
    resourcemanager/index
+   provisioning/index

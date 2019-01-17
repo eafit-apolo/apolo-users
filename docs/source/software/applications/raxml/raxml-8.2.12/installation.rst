@@ -16,7 +16,7 @@ Tested on (Requirements)
 ------------------------
 
 * **OS base:** CentOS (x86_64) :math:`\boldsymbol{\ge}` 6.6 (Rocks 6.2)
-* **Compiler:** Intel Parallel Studio XE Cluster Edition 
+* **Compiler:** Intel Parallel Studio XE Cluster Edition
   :math:`\boldsymbol{\ge}` 17.0.1
 * **MPI:** Intel MPI :math:`\boldsymbol{\ge}` 17.0.1
 * **Scheduler:** SLURM :math:`\boldsymbol{\ge}` 16.05.6
@@ -25,7 +25,7 @@ Tested on (Requirements)
 Build process
 -------------
 
-#. Get source code from the github repository 
+#. Get source code from the github repository
    (`RAxML Releases <https://github.com/stamatak/standard-RAxML/releases>`_).
 
    .. code-block:: bash
@@ -38,12 +38,12 @@ Build process
 
    **Apolo II**
 
-   #. Create a new Makefile for your particular environment 
+   #. Create a new Makefile for your particular environment
 
       (i.e. *AVX2* instruction set and the supported MPI implementation)
 
       .. code-block:: bash
-     
+
          # Go to source directory
          cd standard-RAxML-8.2.12
          # Load the necessary environment
@@ -54,10 +54,10 @@ Build process
    #. Add Intel MPI support editing the *Makefile* (**Makefile.AVX2.HYBRID.icc**)
 
       .. code-block:: bash
-        
-         # From 
-         CC = mpicc 
-         # To  
+
+         # From
+         CC = mpicc
+         # To
          CC = mpiicc
 
    #. Build RAxML and deploy it
@@ -67,23 +67,23 @@ Build process
          make -f Makefile.AVX2.HYBRID.icc 2>&1 | tee raxml-make.log
          sudo mkdir -p /share/apps/raxml/8.2.12/intel-17.0.1/bin
          sudo cp raxmlHPC-HYBRID-AVX2 /share/apps/raxml/8.2.12/intel-17.0.1/bin
-      
+
       .. note::
 
          If something goes wrong, check the **raxml-make.log** file to review
          the build process.
-         
+
 |
 
-   **Cronos** 
+   **Cronos**
 
 
-   #. Create a new Makefile for your particular environment 
+   #. Create a new Makefile for your particular environment
 
       (i.e. *AVX* instruction set and the supported MPI implementation)
 
       .. code-block:: bash
-     
+
          # Go to source directory
          cd standard-RAxML-8.2.12
          # Load the necessary environment
@@ -94,10 +94,10 @@ Build process
    #. Add Intel MPI support editing the *Makefile* (**Makefile.AVX.HYBRID.icc**)
 
       .. code-block:: bash
-        
-         # From 
-         CC = mpicc 
-         # To  
+
+         # From
+         CC = mpicc
+         # To
          CC = mpiicc
 
    #. Build RAxML and deploy it
@@ -107,7 +107,7 @@ Build process
          make -f Makefile.AVX.HYBRID.icc 2>&1 | tee raxml-make.log
          sudo mkdir -p /share/apps/raxml/8.2.12/intel-18.0.2/bin
          sudo cp raxmlHPC-HYBRID-AVX /share/apps/raxml/8.2.12/intel-18.0.2/bin
-      
+
       .. note::
 
          If something goes wrong, check the **raxml-make.log** file to review

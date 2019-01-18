@@ -1,0 +1,90 @@
+#!/bin/bash
+# Title       : run_ansible
+# Description : Run ansible
+# Author      : Tomas Felipe Llano Rios
+# Date        : Nov 21, 2018
+# Usage       : bash run_ansible [options]
+# Help        : bash run_ansible -h
+#==============================================================================
+
+# tee only reads and prints from and to a file descriptor,
+# so we need to use two execs to read and print from and to
+# both stdout and stderr.
+#
+# Receives stdout, logs it and prints to stdout
+exec > >(tee -ia /{{ ansible_log_dir }}/scheduled_run.log)
+# Receive stderr, log it and print to stderr.
+exec 2> >(tee -ia /{{ ansible_log_dir }}/scheduled_run.log >&2)
+
+function log {
+    echo "[$(date --rfc-3339=seconds)]: $*"
+}
+
+function print_help {
+    echo -e "\nUsage: run_ansible [options]\n"
+    echo -e "Where [options] include all ansible-playbook options,"
+    echo -e "except for --vault-id and --inventory-file.\n"
+    echo -e "Installed using the following configuration:"
+    echo -e "\tEnvironment: $env"
+    echo -e "\tAnsible home: $repo_dir"
+    echo -e "\tAnsible config file: $cfg_file"
+    echo -e "\tInventory file: $inv_file\n"
+
+    command -v ansible-playbook > /dev/null 2>&1
+    if [ "$?" -eq 0 ]; then
+        echo -e "ansible-playbook options:\n"
+        ansible-playbook -h | awk '/Options:/{y=1;next}y'
+    else
+        echo -e "See ansible-playbook help for more information.\n"
+    fi
+}
+
+# Always release lock before exiting
+function finish {
+    flock -u 3
+    rm -rf $lock
+}
+trap finish EXIT
+
+# Create lock to prevent the script from being
+# executed more than once at a given time.
+declare -r script_name=`basename $0`
+declare -r lock="/var/run/${script_name}"
+if [ -f "$lock" ]; then
+    echo "Another process (pid:`cat $lock`) is already running"
+    trap - EXIT
+    exit 1
+fi
+exec 3>$lock
+flock -n 3
+log "Lock acquired"
+declare -r pid="$$"
+echo "$pid" 1>&3
+
+declare -r env={{ env }}
+declare -r repo_dir={{ repo_dir }}
+declare -r cfg_file="$repo_dir/ansible.cfg"
+declare -r inv_file="$repo_dir/environments/$env/inventory"
+
+if [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
+    print_help
+    exit 0
+fi
+
+log "Updating repository"
+cd $repo_dir
+git pull
+cd -
+
+log "Executing ansible"
+
+export ANSIBLE_CONFIG="$cfg_file"
+export DEFAULT_ROLES_PATH="$repo_dir/roles"
+export ANSIBLE_EXTRA_VARS="env=$env repo_dir=$repo_dir $ANSIBLE_EXTRA_VARS"
+ansible-playbook --inventory-file "$inv_file" \
+                 --extra-vars "$ANSIBLE_EXTRA_VARS" \
+                 --vault-id "$env@$repo_dir/scripts/vault-secrets-client.sh" \
+                 $repo_dir/site.yml \
+                 -vv \
+                 $@
+unset ANSIBLE_CONFIG

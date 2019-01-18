@@ -1,0 +1,14 @@
+---
+- name: Allow apache to modify nagios command file
+  sefcontext:
+    target: '/usr/local/nagios/var/rw(/.*)?'
+    setype: httpd_sys_rw_content_t
+    state: present
+  notify: nagios_cmd_selinux_sync
+
+- name: Allow apache to execute in /usr/local/nagios/sbin
+  sefcontext:
+    target: '/usr/local/nagios/sbin'
+    setype: httpd_sys_script_exec_t
+    state: present
+  notify: nagios_sbin_selinux_sync

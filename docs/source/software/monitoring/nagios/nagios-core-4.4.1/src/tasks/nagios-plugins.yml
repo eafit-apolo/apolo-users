@@ -1,0 +1,31 @@
+---
+- name: Assure existence of tempDir
+  file:
+    path: "{{ temp_dir }}"
+    state: directory
+
+- name: Download Nagios Plugins
+  get_url:
+    url: "{{ nagios_plugins_url }}"
+    dest: "{{ temp_dir }}"
+
+- name: Extract Nagios Plugins
+  unarchive:
+    src: "{{ temp_dir }}/nagios-plugins-2.2.1.tar.gz"
+    dest: "{{ temp_dir }}"
+
+- name: Exec configure
+  shell: "./configure --with-nagios-user=nagios --with-command-group=nagcmd"
+  args:
+    chdir: "{{ temp_dir }}/nagios-plugins-2.2.1"
+
+- name: Make
+  make:
+     chdir: "{{ temp_dir }}/nagios-plugins-2.2.1"
+
+- name: Make install
+  make:
+     chdir: "{{ temp_dir }}/nagios-plugins-2.2.1"
+     target: install
+  notify:
+    - apache_restart

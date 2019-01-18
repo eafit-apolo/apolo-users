@@ -1,0 +1,46 @@
+---
+- name: Create Temp Dir
+  file:
+    path: "{{ temp_dir }}"
+    state: directory
+
+- name: Download Nagios Core
+  get_url:
+    url: "{{ nagios_core_url }}"
+    dest: "{{ temp_dir }}"
+
+- name: Extract Nagios
+  unarchive:
+    src: "{{ temp_dir }}/nagios-4.4.1.tar.gz"
+    dest: "{{ temp_dir }}"
+
+- name: Exec configure
+  shell: "./configure --build=x86_64-redhat-linux --with-command-group=nagcmd --with-openssl"
+  args:
+    chdir: "{{ temp_dir }}/nagios-4.4.1"
+
+- name: Make all
+  make:
+    chdir: "{{ temp_dir }}/nagios-4.4.1"
+    target: all
+
+- name: Make install
+  make:
+     chdir: "{{ temp_dir }}/nagios-4.4.1"
+     target: install
+
+- name: Install Nagios-init scripts
+  make:
+    chdir: "{{ temp_dir }}/nagios-4.4.1"
+    target: install-init
+
+- name: Install Nagios Command-mode
+  make:
+    chdir: "{{ temp_dir }}/nagios-4.4.1"
+    target: install-commandmode
+
+- name: Generates Templates for Nagios configure Files
+  make:
+    chdir: "{{ temp_dir }}/nagios-4.4.1"
+    target: install-config
+

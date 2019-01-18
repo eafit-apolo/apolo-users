@@ -1,0 +1,23 @@
+---
+- name: Group nagcmd needed by NAGIOS
+  group:
+    name: nagcmd
+    state: present
+
+- name: User nagios
+  user:
+    name: nagios
+    groups: nagcmd
+    password: "{{ nagios_passwd }}"
+ 
+- name: User apache in group nagcmd
+  user:
+    name: apache
+    groups: nagcmd
+
+- name: SUDO permissions for ipmi execution
+  lineinfile:
+    path: /etc/sudoers
+    regexp: '^nagios\s'
+    line: 'nagios ALL=(root) NOPASSWD: /usr/sbin/ipmi-sensors, /usr/sbin/ipmi-sel'
+    state: present

@@ -1,0 +1,25 @@
+language: python
+python:
+  - "3.5"
+
+    # Request Ubuntu Trusty (14.04 LTS).
+dist: trusty
+
+sudo: false
+
+# From sphinx-doc repository.
+cache: pip
+
+##############################################################################
+install:
+  - pip install -r docs/requirements.txt
+
+##############################################################################
+script:
+  - make -C docs/ html
+#  - make -C docs/ linkcheck
+
+##############################################################################
+branches:
+  only:
+    - master

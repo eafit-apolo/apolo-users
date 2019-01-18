@@ -1,10 +1,10 @@
 .. _gettingstarted-index:
 
-First Steps
+Getting Started
 ###############
 
-To compute in Apolo it is necessary to take into account several considerations. In this section you will find which are
-the minimum conditions to be able to compute on the clusters of the center and what is the procedure to do it.
+To compute in Apolo it is necessary to take into account several considerations. In this section you will find
+the minimum conditions you must meet to be able to compute on the clusters of the center and what is the procedure to do it.
 
 How to apply for computing time on Apolo
 ========================================
@@ -12,7 +12,18 @@ How to apply for computing time on Apolo
 The first contact to evaluate the viability of computing in Apolo is by means of an email to apolo@eafit.edu.co or a
 call +57 (4) 2619592. An appointment will be scheduled via physical or virtual to assess the needs of the user.
 At Apolo, researchers from the Universidad EAFIT can compute for free. Other universities, academic institutions or
-industrial companies can compute, applying costs on the *core-hour*  basis.
+industrial companies can compute, applying costs on the **core-hour**  basis.
+
+How to estimate time to use on Apolo
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Sometimes, it can be difficult to estimate the time it will take to compute, depending on many factors, including the
+order of the algorithm, processor clock speed, memory speed and the buses speed that interconnects them. Sometimes it
+has to be estimated from experience.
+
+To have a basis on which to estimate the cost of using Apolo, we have a unit known as the **core-hour**. The definition
+of this unit is: having **one hour** of computing in a **core at 100% usage**. You should estimate how long it would take
+if your work were serial and multiply the **core-hour** price which could be got from a quote writing to
+apolo@eafit.edu.co.
 
 
 Requirements on the software
@@ -56,6 +67,19 @@ particular operating system.
     :maxdepth: 2
 
     configure_vpn
+
+Educational Resources
+=====================
+
+For the scientific computing center it is very important that its users have the right knowledge to make good use of
+resources. For this reason, the center offers workshops, conferences, and consulting services on the tools and skills
+required in scientific computing. In addition to this, in this section you will find some online resources where you
+can find the basic knowledge and skills to make good use of all the resources of the center.
+
+.. toctree::
+    :maxdepth: 2
+
+    educational_resources
 
 Get Help
 ========

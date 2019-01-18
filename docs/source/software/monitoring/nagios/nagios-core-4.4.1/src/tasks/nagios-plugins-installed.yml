@@ -1,0 +1,21 @@
+---
+- name: Checks if NAGIOS basic plugins are installed
+  find:
+    paths: /usr/local/nagios/libexec
+  register: nagios_plugins_installed
+
+- name: Checks if IPMI-Sensor plugin is installed
+  stat:
+    path: /usr/local/nagios/libexec/check_ipmi_sensor
+  register: ipmi_sensor_plugin
+
+- name: Checks if iLO REST plugin is installed
+  find:
+    paths: /usr/local/nagios/libexec
+    patterns: "*hpeilo*"
+  register: ilo_plugins
+
+- name: Checks if Dell OME plugin is installed
+  stat:
+    path: /usr/local/nagios/dell
+  register: dell_plugin_dir

@@ -6,13 +6,13 @@ This is a **user guide**, it does not matter if you have or not some experience
 using Slurm, here you will find some useful examples and commands. We try to 
 cover our most common user cases.
 
-Submitting jobs
-----------------
+.. note::
+    This guide assume a basic comprehension about Slurm. If you don't have
+    any idea of what slurm is or What things it does in the HPC world, we
+    strongly encourage reading some of the articles bellow:
 
-.. toctree::
-   :maxdepth: 2
 
-   submit
+
 
 
 Getting information about jobs
@@ -22,3 +22,16 @@ Getting information about jobs
    :maxdepth: 2
 
    info-jobs
+
+Submitting jobs
+----------------
+
+.. toctree::
+   :maxdepth: 2
+
+   submit
+
+
+FAQ
+---
+

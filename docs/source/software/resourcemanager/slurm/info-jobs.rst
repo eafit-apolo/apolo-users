@@ -12,6 +12,11 @@
 
 **Getting cluster(s) state**
 ----------------------------
+The simplest way to get information about the state of our clusters is simple
+using 
+
+
+
 sinfo, squeue, partitions.
 
 **Canceling a job**

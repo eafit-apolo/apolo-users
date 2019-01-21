@@ -13,20 +13,16 @@ Basic information
 - **License:** GNU GENERAL PUBLIC LICENSE (GPL)
 - **Installed on:** :ref:`Cronos <about_cronos>`
 
+
+Tested on (Requirements)
+------------------------
+
+* **OS base:** CentOS (x86_64) :math:`\boldsymbol{\ge}` 6.6 (Rocks 6.2)
+* **Compiler:** Intel MPI Library :math:`\boldsymbol{\ge}` 17.0.1
+* **Math Library:** Intel MKL :math:`\boldsymbol{\ge}` 17.0.1
+  
 Installation
 ------------
-
-If you want to compile LAMMPS as a static library called :bash:`liblammps_machine.a`, then execute:
-
-.. code-block:: bash
-				
-    make mode=lib <machine>
-
-If you want to compile LAMMPS as a shared library called :bash:`liblammps_machine.so`, then execute:
-
-.. code-block:: bash
-
-	make mode=shlib <machine>
 
 The following procedure will compile LAMMPS as an executable, using the Intel MPI implementation
 and MKL as the Linear Algebra Library. The compilation options are described in
@@ -74,6 +70,23 @@ and MKL as the Linear Algebra Library. The compilation options are described in
 
 #. Finally, if the program will be used with Environment modules, create the respective module.
 
+   
+Alternative Installation modes
+------------------------------
+   
+If you want to compile LAMMPS as a static library called :bash:`liblammps_machine.a`, then execute:
+
+.. code-block:: bash
+				
+    make mode=lib <machine>
+
+If you want to compile LAMMPS as a shared library called :bash:`liblammps_machine.so`, then execute:
+
+.. code-block:: bash
+
+	make mode=shlib <machine>
+
+   
 Modulefile
 ----------
 
@@ -92,13 +105,13 @@ Modulefile
 Test LAMMPS
 -----------
 
-Run the benchmarks present in the repository.
+After installing LAMMPS, run the benchmarks present in the repository.
 
 .. code-block:: bash
 
 				$ sbatch example.sh
 
-The following code is an example:
+The following code is an example for running LAMMPS using SLURM:
 
 .. literalinclude:: src/lammps-bench.sh
 	:language: bash

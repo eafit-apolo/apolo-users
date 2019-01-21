@@ -1,0 +1,9 @@
+**Command**,**Functionality**
+``module avail``,check what software packages are available
+``module whatis <module-name>``,Find out more about a software package
+``module help <module-name>``,A module file may include more detailed help for the software package
+``module show <module-name>``,see exactly what effect loading the module will have with
+``module list``,check which modules are currently loaded in your environment
+``module load <module-name>``,load a module
+``module unload <module-name>``,unload a module	
+``module purge``,remove all loaded modules from your environment

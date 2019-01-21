@@ -8,20 +8,9 @@ cover our most common user cases.
 
 .. note::
     This guide assume a basic comprehension about Slurm. If you don't have
-    any idea of what slurm is or What things it does in the HPC world, we
-    strongly encourage reading some of the articles bellow:
+    any idea of what slurm is or what things it does in the HPC world, we
+    strongly encourage reading some of the articles describe in tata section.
 
-
-
-
-
-Getting information about jobs
-------------------------------
-
-.. toctree::
-   :maxdepth: 2
-
-   info-jobs
 
 Submitting jobs
 ----------------
@@ -32,6 +21,19 @@ Submitting jobs
    submit
 
 
+Getting information about jobs
+------------------------------
+
+.. toctree::
+   :maxdepth: 2
+
+   info-jobs
+
+
 FAQ
 ---
 
+More information
+-----------------
+  sbatch information
+  

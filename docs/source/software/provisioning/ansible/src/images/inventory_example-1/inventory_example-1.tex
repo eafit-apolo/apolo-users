@@ -1,0 +1,12 @@
+\documentclass[preview]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{trees}
+\begin{document}
+\begin{tikzpicture}[level distance=1.5cm,
+    level 1/.style={sibling distance=4.0cm},
+    level 2/.style={sibling distance=4.0cm}]
+  \node {lbservers}
+  child {node {host1.example.com}}
+  child {node {host2.example.com}};
+\end{tikzpicture}
+\end{document}

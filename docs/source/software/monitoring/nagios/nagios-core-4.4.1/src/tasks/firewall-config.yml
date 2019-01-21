@@ -1,0 +1,20 @@
+---
+- name: Allow requests throw port 80
+  firewalld:
+    zone: public
+    service: http
+    state: enabled
+    permanent: true
+  notify:
+  - apache_restart
+  - firewalld_restart
+
+- name: Allow SNMP ports for iLO REST Plugin
+  firewalld:
+    zone: public
+    port: 161-162/udp
+    state: enabled
+    permanent: true
+  notify:
+  - firewalld_restart
+

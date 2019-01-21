@@ -1,0 +1,44 @@
+---
+##############################################################
+#                   INITIAL-CONFIGURATION                    #
+##############################################################
+- include_tasks: dell-repos.yml
+- include_tasks: packages.yml
+- include_tasks: nagios-users.yml
+- include_tasks: apache-config.yml
+- include_tasks: firewall-config.yml
+- include_tasks: ipmi-config.yml
+- include_tasks: mail-config.yml
+- include_tasks: snmp-config.yml
+
+##############################################################
+#                         NAGIOS-CORE                        #
+##############################################################
+- include_tasks: nagios-installed.yml
+- include_tasks: nagios-install.yml
+  when: nagios_installed.stat.exists == false
+- include_tasks: nagios-config.yml
+- include_tasks: nagios-post-install.yml
+  when: nagios_installed.stat.exists == false
+- include_tasks: selinux-config.yml
+
+##############################################################
+#                       NAGIOS-PLUGINS                       #
+##############################################################
+- include_tasks: nagios-plugins-installed.yml
+- include_tasks: nagios-plugins.yml
+  when: nagios_plugins_installed.matched == 0
+- include_tasks: dell-plugin.yml
+  when: dell_plugin_dir.stat.exists == false
+- include_tasks: dell-plugin-config.yml
+- include_tasks: ipmi-sensors-plugin.yml
+  when: ipmi_sensor_plugin.stat.exists == false
+- include_tasks: ipmi-plugin-status.yml
+- include_tasks: ilo-plugin.yml
+  when: ilo_plugins.matched == 0
+- include_tasks: ilo-plugin-config.yml
+
+##############################################################
+#            CHECK-CORRECT-CONFIG & REMOVE TEMP DIR          #
+##############################################################
+- include_tasks: final-check.yml

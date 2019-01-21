@@ -1,0 +1,29 @@
+# -*- mode: ruby -*-                                                         
+#          
+# Title       : vagrantfile                                                  
+# Description : A vagranfile example with some custom configuration.
+# Author      : Manuela Carrasco
+# Date        : Jan 21, 2019
+# Usage       : vagrant [options] -- command [<args>]                        
+# Help        : vagrant -h                                                   
+#==============================================================================
+
+Vagrant.configure("2") do |config| # The vagrantfile api version is 2
+  #The virtual machine image. For more information https://www.vagrantup.com/docs/vagrant-cloud/
+  config.vm.box = "centos/7"
+  # Custom configuration for virtualbox machine
+  config.vm.provider :virtualbox do |vb|
+    vb.customize ["modifyvm", :id,
+                  "--memory", "2048"]
+  end
+  # Configure ansible in the VM
+  config.vm.provision "ansible_local" do |ansible|
+    ansible.playbook = "./site.yml"
+    ansible.become = true
+    ansible.groups = {
+      "#{machine}" => ["default"],
+      "all:children" => ["#{machine}"]
+    }
+  end
+  config.vm.hostname = "my-virtualmachine" # Set VM hostname
+      

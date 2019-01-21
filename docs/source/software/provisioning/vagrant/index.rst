@@ -11,7 +11,8 @@ Vagrant
 Basic information
 -----------------
 - **Official website:** https://www.vagrantup.com/
-- **License:** 
+- **Version:** 2.0.2
+- **License:** MIT License
 
 
 Usage
@@ -51,9 +52,11 @@ For more help run :bash:`vagrant -h` or :bash:`vagrant <command> -h` for help on
 
 Vagrantfile
 ^^^^^^^^^^^
-The primary function of the Vagrantfile is to describe the type of machine required for a project, and how to configure and provision these machines. The syntax of Vagrantfile is Ruby. [1]_
+The primary function of the Vagrantfile is to describe the type of machine required for a project, and how to configure and provision these machines [1]_ . The syntax of Vagrantfile is Ruby.
 
-
+.. literalinclude:: src/vagrantfile
+   :language: ruby
+   :caption: :download:`vagrantfile <src/vagrantfile>`
 
 .. note::
 

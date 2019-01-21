@@ -13,7 +13,8 @@ Basic information
 
 - **Official Website:** https://lammps.sandia.gov/
 - **License:** GNU GENERAL PUBLIC LICENSE (GPL)
-- **Installed on:** :ref:`Cronos <about_cronos>`
+- **Installed on:** :ref:`Apolo II <about_apolo-ii>`
+  , :ref:`Cronos <about_cronos>`
 
 
 Tested on (Requirements)
@@ -27,8 +28,7 @@ Installation
 ------------
 
 The following procedure will compile LAMMPS as an executable, using the Intel MPI implementation
-and MKL as the Linear Algebra Library. The compilation options are described in
-:bash:`src/MAKE/OPTIONS/Makefile.intel_cpu_intelmpi`
+and MKL as the Linear Algebra Library.
 
 #. Load the necessary modules for compiling LAMMPS
 
@@ -88,6 +88,20 @@ Alternative Installation modes
 
        $ make mode=shlib <machine>
 
+Test LAMMPS
+-----------
+
+After installing LAMMPS, run the benchmarks present in the repository.
+
+.. code-block:: bash
+
+				$ sbatch example.sh
+
+The following code is an example for running LAMMPS using SLURM:
+
+.. literalinclude:: src/lammps-bench.sh
+	:language: bash
+	   
    
 Modulefile
 ----------
@@ -103,20 +117,6 @@ Modulefile
 .. literalinclude:: src/22Aug18_cronos
    :language: tcl
    :caption: :download:`Module file <src/22Aug18_cronos>`
-
-Test LAMMPS
------------
-
-After installing LAMMPS, run the benchmarks present in the repository.
-
-.. code-block:: bash
-
-				$ sbatch example.sh
-
-The following code is an example for running LAMMPS using SLURM:
-
-.. literalinclude:: src/lammps-bench.sh
-	:language: bash
 			 
 References
 ----------

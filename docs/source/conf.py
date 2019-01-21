@@ -108,6 +108,13 @@ html_theme_options = {
 html_static_path = ['_static']
 #html_static_path = []
 
+# Fix bug over wrap tables.
+html_context = {
+    'css_files': [
+       '_static/css/theme_overrides.css',  # override wide tables in RTD theme
+     ],
+}
+
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
 html_logo = '_static/apolo-white.png'

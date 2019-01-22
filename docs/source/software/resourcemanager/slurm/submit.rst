@@ -13,8 +13,8 @@
 What is ``sbatch``?
 -------------------
 **Slurm** as a resource manager has a lot of options to manage all the resources
-of a cluster in order to achieve any possible combination of needs like: 
-Number of CPUS, Number of Nodes, Memory, Time, GPUs, Licenses, etc.
+of a cluster to achieve any possible combination of needs like: 
+Number of CPUs, Number of Nodes, Memory, Time, GPUs, Licenses, etc.
 
 The command ``sbatch`` is used to submit a ``batch`` script, making your job 
 running in the cluster. Like this:
@@ -23,11 +23,11 @@ running in the cluster. Like this:
 		
    sbatch <batch_script>
 
-A Slurm ``batch`` is a shell script (usually wrote in ``bash``) where you
+A Slurm ``batch`` is a shell script (usually written in ``bash``) where you
 specify all these options to Slurm, including the creation of the environment to
 make your job run correctly, and the set of commands to run that job.
 
-Thus, we say that a ``batch`` script have **three** parts:
+Thus, we say that a ``batch`` script has **three** parts:
 
 #. **Sbatch parameters**:
    
@@ -36,7 +36,7 @@ Thus, we say that a ``batch`` script have **three** parts:
    request all your computational needs, which consist at least in a number of CPUs,
    the computing expected duration and amounts of RAM.
   
-   All this parameters must start with the comment ``#SBATCH``, one per line,  
+   All these parameters must start with the comment ``#SBATCH``, one per line,  
    and need to be included at the beginning of the file, just after
    the shebang (``e.g. #!/bin/bash``) which should be the first line.
 
@@ -45,7 +45,7 @@ Thus, we say that a ``batch`` script have **three** parts:
 
    .. csv-table:: Sbatch option's table
      :header-rows: 1
-     :widths: 5, 10, 5, 2
+     :widths: 5, 8, 5, 4
      :stub-columns: 1
      :file: src/sbatch_options.csv
 
@@ -69,7 +69,7 @@ Thus, we say that a ``batch`` script have **three** parts:
    Remember a Slurm script is a shell script.
 
    In case you want to submit a job that uses an :ref:`application <applications-index>`
-   that are installed in our :ref:`clusters <supercomputers>` you have to 
+   that is installed in our :ref:`clusters <supercomputers>` you have to 
    ``load`` its module.  
 
    An application Module_. is used to create the specific environment needed by 
@@ -104,12 +104,12 @@ depending on the specific need of your application those options could be better
 
 Debug partition
 ---------------
-The debug partition is a useful queue created to test your slurm job script,
+The debug partition is a useful queue created to test your Slurm job script,
 it does not have any performance capabilities but its nodes have the same 
-environment of the longjobs partition.
+environment as the long jobs partition.
 
-In order to use this partition you only need to specify it in your batch script
-like this:
+To use this partition you only need to specify it in your batch script like
+this:
 
 .. code-block:: bash
 
@@ -123,7 +123,7 @@ like this:
   * **Apolo:** 
 
       * Number of Nodes: 2
-      * Number of CPUS per node: 2
+      * Number of CPUs per node: 2
       * Memory per node: 2GB
 
   * **Cronos:** Not deployed yet.
@@ -131,13 +131,13 @@ like this:
   For more information, see :ref:`getting cluster information <info-jobs>` section
 
 .. warning::
-  Debug partition has the same environment of longjobs, so if you want to test a
-  job that will be executed in a different queue (e.g Accel or Bigmem) 
+  Debug partition has the same environment of long jobs, so if you want to test
+  a job that will be executed in a different queue (e.g Accel or Bigmem) 
   it does not guarantee a successful execution. 
 
 Serial jobs
 -----------
- 
+
 
 Array jobs
 ----------
@@ -159,6 +159,9 @@ Slurm's file-pattern
 --------------------
 
 .. _Module: http://modules.sourceforge.net/man/modulefile.html
+
+References
+----------
 
 .. [1] NYU HPC. (n.d). Slurm + tutorial - Software and Environment Modules. Retrieved 
        17:47, January 21, 2019 from https://wikis.nyu.edu/display/NYUHPC/Slurm+Tutorial

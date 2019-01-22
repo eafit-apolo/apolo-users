@@ -1,14 +1,14 @@
 **Option**,**Description**,**Possible value**,**Mandatory**
-"``-J, --job-name``",Job's name,Letters and numbers,yes
-"``-t, --time``",Maximum **Walltime** of the job,Numbers with the format DD-HH:MM:SS,yes
+"``-J, --job-name``",Job's name,Letters and numbers,no
+"``-t, --time``",Maximum **Walltime** of the job,Numbers with the format DD-HH:MM:SS,**yes**
 ``--mem``,Requested memory per **node**,"size with units: 64G, 600M",no
-"``-n, --ntasks``",Number of tasks of the job,Number,no
-``--ntasks-per-node``,number of tasks assigned to a node,Number,no
-"``-N, --nodes``",Number of nodes requested,Number,yes
-``--cpus-per-task``,Number of thread per task,Number,no
+"``-n, --ntasks``",Number of tasks of the job,Number,no (default 1)
+``--ntasks-per-node``,Number of tasks assigned to a node,Number,no (default 1)
+"``-N, --nodes``",Number of nodes requested,Number,no (default 1)
+``--cpus-per-task``,Number of thread per task,Number,no (default 1)
 ``--partition``,Partition/queue where the job will be submited,"lonbjobs, bigmem, accel and debug",no (default longjobs)
-``--output``,File where the standard output will be write,Letters and numbers,no
-``--error``,File where the standard error will be write,Letters and numbers,no
+``--output``,File where the standard output will be written,Letters and numbers,no
+``--error``,File where the standard error will be written,Letters and numbers,no
 ``--mail-type``,Notify user by email when certain event types occur to the job,"NONE, ALL, BEGIN, FAIL, REQUEUE, TIME_LIMIT, TIME_LIMIT_%",no
 ``--mail-user``,Email to receive notification of state shanges,Valid email,no
-``--test-only``,Validate the batch script and return an estimate of when a job would be scheduled to run, Do not have values, no
+``--test-only``,Validate the batch script and return an estimate of when a job would be scheduled to run, Does not have values, no

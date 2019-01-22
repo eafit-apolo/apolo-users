@@ -23,7 +23,7 @@ running in the cluster. Like this:
 		
    sbatch <batch_script>
 
-A Slurm ``batch`` script is a shell script (usually wrote in ``bash``) where you
+A Slurm ``batch`` is a shell script (usually wrote in ``bash``) where you
 specify all these options to Slurm, including the creation of the environment to
 make your job run correctly, and the set of commands to run that job.
 
@@ -99,7 +99,7 @@ Thus, we say that a ``batch`` script have **three** parts:
 
 There are other options beyond using ``sbatch`` to submit jobs to Slurm,
 like ``salloc`` or simply using ``srun``. We recommend using ``sbatch``, but
-depending on the specific need of your application those option could be better.
+depending on the specific need of your application those options could be better.
 
 
 Debug partition
@@ -108,9 +108,18 @@ The debug partition is a useful queue created to test your slurm job script,
 it does not have any performance capabilities but its nodes have the same 
 environment of the longjobs partition.  
 
-Quick aspects of debug partition
-Apolo: 
-Cronos: Not deployed yet.
+.. note::
+  Quick aspects about debug partition:
+  
+  * **Apolo:** 
+
+      * Number of Nodes: 2
+      * Number of CPUS per node: 2
+      * Memory per node: 2GB
+
+  * **Cronos:** Not deployed yet.
+
+  For more information, see :ref:`getting cluster information <info-jobs>` section
 
 .. warning::
   Debug partition has the same environment of longjobs, so if you want to test a

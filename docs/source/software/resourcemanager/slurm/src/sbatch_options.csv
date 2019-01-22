@@ -2,11 +2,11 @@
 "``-J, --job-name``",Job's name,Letters and numbers,yes
 "``-t, --time``",Maximum **Walltime** of the job,Numbers with the format DD-HH:MM:SS,yes
 ``--mem``,Requested memory per **node**,"size with units: 64G, 600M",no
-"``-n, --ntasks``",Number of the task of the job,Number,no
-``--ntasks-per-node``,number of task assigned to a node,Number,no
+"``-n, --ntasks``",Number of tasks of the job,Number,no
+``--ntasks-per-node``,number of tasks assigned to a node,Number,no
 "``-N, --nodes``",Number of nodes requested,Number,yes
 ``--cpus-per-task``,Number of thread per task,Number,no
-``--partition``,Partition/queue where the job will the submited,"lonbjobs, bigmem, accel and debug",no (default longjobs)
+``--partition``,Partition/queue where the job will be submited,"lonbjobs, bigmem, accel and debug",no (default longjobs)
 ``--output``,File where the standard output will be write,Letters and numbers,no
 ``--error``,File where the standard error will be write,Letters and numbers,no
 ``--mail-type``,Notify user by email when certain event types occur to the job,"NONE, ALL, BEGIN, FAIL, REQUEUE, TIME_LIMIT, TIME_LIMIT_%",no

@@ -72,8 +72,8 @@ Thus, we say that a ``batch`` script have **three** parts:
    that are installed in our :ref:`clusters <supercomputers>` you have to 
    ``load`` its module.  
 
-   An application Module_. is used to create the specific environment need by 
-   the application.  
+   An application Module_. is used to create the specific environment needed by 
+   your application.  
 
    The following table [1]_ show useful commands about modules.
 
@@ -106,7 +106,16 @@ Debug partition
 ---------------
 The debug partition is a useful queue created to test your slurm job script,
 it does not have any performance capabilities but its nodes have the same 
-environment of the longjobs partition.  
+environment of the longjobs partition.
+
+In order to use this partition you only need to specify it in your batch script
+like this:
+
+.. code-block:: bash
+
+   #!/bin/bash
+   #SBATCH --partition=debug
+   # Other sbatch parameters
 
 .. note::
   Quick aspects about debug partition:
@@ -128,6 +137,7 @@ environment of the longjobs partition.
 
 Serial jobs
 -----------
+ 
 
 Array jobs
 ----------

@@ -9,7 +9,8 @@ cover our most common user cases.
 .. note::
     This guide assume a basic comprehension about Slurm. If you don't have
     any idea of what slurm is or what things it does in the HPC world, we
-    strongly encourage reading some of the articles describe in tata section.
+    strongly encourage reading some of the articles describe in `more information`_
+    section.
 
 
 Submitting jobs

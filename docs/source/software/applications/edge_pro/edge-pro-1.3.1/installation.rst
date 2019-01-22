@@ -30,7 +30,7 @@ Build process
       cd EDGE_pro_v1.3.1
 
 #. You will notice that it just contains a simple source file. Build it.
-   ``make`` will use the compiler you have load in your environment. 
+   ``make`` will use the compiler you have loaded in your environment. 
 
   .. code-block:: bash
 
@@ -72,9 +72,9 @@ Build process
        mv edge.pl /share/apps/edge_pro/1.3.1/intel-18.0.2/bin
 
 
-4. Finally we need to put the **bowtie** binaries in the ``scripts`` directory.
+4. Finally, we need to put the **bowtie** binaries in the ``scripts`` directory.
    Otherwise **EDGE-pro** will not find it, even if is load in the ``PATH``. To 
-   do this we use symbolics links:
+   do this we use symbolic links:
 
  **Apolo**
    

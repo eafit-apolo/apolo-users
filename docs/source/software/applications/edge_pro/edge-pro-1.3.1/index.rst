@@ -20,14 +20,14 @@ Basic information
 Installation
 ------------
 
-This entry covers the entire process performed in the installation
-and test of **EDGE-pro** on a cluster with the conditions described below.
-It is worth mentioning that this application do not meet the Linux
-Directory Hierarchy Standard, so we change the directory structure in order to
-make it work with ``modules``, ``slurm`` and other subsystems.
+This entry covers the entire process performed in the installation and test of 
+**EDGE-pro** on a cluster with the conditions described below. It is worth 
+mentioning that this application does not meet the Linux Directory Hierarchy 
+Standard, so we change the directory structure to make it work with ``modules``,
+``Slurm``, and other subsystems.
 
-As a side note, the performance of **EDGE-pro** depends directly in the 
-**bowtie**'s performance, so we suggest make a different tuning compilation of it. 
+As a side note, the performance of **EDGE-pro** depends directly on the 
+**bowtie**'s performance, so we suggest making a different tuning compilation of it. 
 
 
 .. toctree::

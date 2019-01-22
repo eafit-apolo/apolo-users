@@ -5,7 +5,7 @@
 #SBATCH --error=edge_pro_%A_%a.err
 #SBATCH --time=2:00
 #SBATCH --partition=longjobs
-#SBATCH --ntasks=16
+#SBATCH --cpus-per-task=16
 
 ######################
 # Begin work section #

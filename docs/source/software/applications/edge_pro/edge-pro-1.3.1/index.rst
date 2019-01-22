@@ -14,7 +14,7 @@ Basic information
 - **License:** GNU GPL v3
 - **Installed on:** :ref:`Apolo II <about_apolo-ii>`,
   :ref:`Cronos <about_cronos>`
-- **Dependences:** Bowtie2
+- **Dependencies:** Bowtie2
 - **Available versions:** Intel Compiled
 
 Installation
@@ -22,7 +22,7 @@ Installation
 
 This entry covers the entire process performed in the installation
 and test of **EDGE-pro** on a cluster with the conditions described below.
-It is worth mentioning that this application do not complain with all the Linux
+It is worth mentioning that this application do not meet the Linux
 Directory Hierarchy Standard, so we change the directory structure in order to
 make it work with ``modules``, ``slurm`` and other subsystems.
 
@@ -65,7 +65,7 @@ To run the previous example.
     As you can notice in the previous examples we are using the flag ``-s``.
     This is because we must specify to **EDGE_pro** where is the directory 
     that contains: the built executable, the binaries of ``bowtie2`` and 
-    additions scripts. 
+    additional scripts.
 
 .. note::
 

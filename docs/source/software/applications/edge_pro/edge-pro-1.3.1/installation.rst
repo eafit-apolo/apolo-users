@@ -72,7 +72,8 @@ Build process
        mv edge.pl /share/apps/edge_pro/1.3.1/intel-18.0.2/bin
 
 
-4. Finally we need to put the **bowtie** binaries in the ``scripts`` directory. To 
+4. Finally we need to put the **bowtie** binaries in the ``scripts`` directory.
+   Otherwise **EDGE-pro** will not find it, even if is load in the ``PATH``. To 
    do this we use symbolics links:
 
  **Apolo**

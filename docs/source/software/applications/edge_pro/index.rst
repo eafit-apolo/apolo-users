@@ -20,6 +20,9 @@ Perl scripts.
 
    edge-pro-1.3.1/index
 
+References
+----------
+
 .. [1] T. Magoc, D. Wood, and S.L. Salzberg. (2013, May 31). EDGE-pro 
        Official Page. Retrieved 09:52, January 16, 2019 from 
        http://ccb.jhu.edu/software/EDGE-pro/ .

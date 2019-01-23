@@ -11,16 +11,20 @@ Vagrant
 Basic information
 -----------------
 - **Official website:** https://www.vagrantup.com/
-- **Version:** 2.0.2
+- **Version:** 2.2.3
 - **License:** MIT License
 
+Installation
+------------
+You can find the Vagrant's latest version in the link https://www.vagrantup.com/downloads.html . Also, you can install it with your package manager (check the version before install it).
 
 Usage
 -----
-Vagrant commands usually have the following the structure: :bash:`vagrant --machine=<single> -- command [<args>]`
+
+Vagrant commands usually have the following structure: :bash:`vagrant command [<args>]` but in this particular case, we have custom options that help with ansible so the structure changes to: :bash:`vagrant --custom-option=option -- command [<args>]`
 
 .. note::
-   Be careful with the spaces between the double line and the command.
+   Be careful with the spaces between the double minus and the command.
    
 #. Use the :bash:`up` command alongside the :bash:`--provision` argument to import the VM into VirtualBox and run ansible.
 
@@ -40,19 +44,21 @@ Vagrant commands usually have the following the structure: :bash:`vagrant --mach
 **Useful commands**
 
 - **ssh:** Connects to machine via SSH.                          
-  :bash:`vagrant --machine=<single> -- ssh`
+  :bash:`vagrant ssh`
 - **reload:** Restarts vagrant machine, loads new Vagrantfile configuration.
-  :bash:`vagrant --machine=<single> -- reload`
+  :bash:`vagrant reload`
 - **halt:** Stops the vagrant machine.                            
-  :bash:`vagrant --machine=<single> -- halt`
+  :bash:`vagrant halt`
 - **destroy:** Stops and deletes all traces of the vagrant machine.
-  :bash:`vagrant --machine=<single> -- destroy`
+  :bash:`vagrant destroy`
 
 For more help run :bash:`vagrant -h` or :bash:`vagrant <command> -h` for help on any individual command.
 
 Vagrantfile
 ^^^^^^^^^^^
 The primary function of the Vagrantfile is to describe the type of machine required for a project, and how to configure and provision these machines [1]_ . The syntax of Vagrantfile is Ruby.
+
+This vagrantfile is based on a vagranfile with custom variables to ease the use of ansible_local handling and other options.
 
 .. literalinclude:: src/vagrantfile
    :language: ruby

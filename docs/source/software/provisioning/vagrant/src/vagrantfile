@@ -4,9 +4,11 @@
 # Description : A vagranfile example with some custom configuration.
 # Author      : Manuela Carrasco
 # Date        : Jan 21, 2019
-# Usage       : vagrant [options] -- command [<args>]                        
+# Usage       : vagrant [options] -- command [<args>] 
 # Help        : vagrant -h                                                   
 #==============================================================================
+
+# This example has custom options like "machine" but we won't show the code where the extra options were added.
 
 Vagrant.configure("2") do |config| # The vagrantfile api version is 2
   #The virtual machine image. For more information https://www.vagrantup.com/docs/vagrant-cloud/
@@ -19,7 +21,9 @@ Vagrant.configure("2") do |config| # The vagrantfile api version is 2
   # Configure ansible in the VM
   config.vm.provision "ansible_local" do |ansible|
     ansible.playbook = "./site.yml"
+    # Perform the playbook tasks as another user
     ansible.become = true
+    # machine is a custom option for the hostname
     ansible.groups = {
       "#{machine}" => ["default"],
       "all:children" => ["#{machine}"]

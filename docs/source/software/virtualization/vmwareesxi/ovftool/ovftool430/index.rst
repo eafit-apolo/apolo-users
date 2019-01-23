@@ -5,7 +5,7 @@ Basic information
 -----------------
 
 - **Release date:** 17 APR 2018.
-- **Official documentation: https://www.vmware.com/support/developer/ovf/** 
+- **Official documentation:**  https://www.vmware.com/support/developer/ovf/
 
 Installation
 ------------

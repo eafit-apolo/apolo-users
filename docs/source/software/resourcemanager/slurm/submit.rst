@@ -62,7 +62,7 @@ Thus, we say that a ``batch`` script has **three** parts:
    
 #. **Environment creation**
 
-   Next, you should create the necessary environment to make your job work correctly.
+   Next, you should create the necessary environment to make your job run correctly.
    This often means include the same set of steps that you do to run your application
    locally on your sbatch script, things like export environmental variables,
    create or delete files and directory structures, etc. 
@@ -106,7 +106,7 @@ Debug partition
 ---------------
 The debug partition is a useful queue created to test your Slurm job script,
 it does not have any performance capabilities but its nodes have the same 
-environment as the long jobs partition.
+environment as the longjobs partition.
 
 To use this partition you only need to specify it in your batch script like
 this:
@@ -131,19 +131,82 @@ this:
   For more information, see :ref:`getting cluster information <info-jobs>` section
 
 .. warning::
-  Debug partition has the same environment of long jobs, so if you want to test
+  Debug partition has the same environment of longjobs, so if you want to test
   a job that will be executed in a different queue (e.g Accel or Bigmem) 
   it does not guarantee a successful execution. 
 
 Serial jobs
 -----------
+Serial jobs only uses a process with **one** execution thread, 
+this means one core of a CPU, given our configuration without HTT_ 
+(Hyper-Threading Technology). 
+
+This kind of job does not take advantage of our computational resources, but 
+is the basic step to create more complex jobs. 
+
+In terms of Slurm, this job uses one ``task (process)`` and one 
+``cpu-per-task (thread)`` in one ``node``. In fact, we don't need to specify any 
+resource, the default value for those options in Slurm are ``1``.
+
+Here_ is a good article about the differences between ``Processes`` and 
+``Threads``.
+
+In the template bellow we specify ``ntasks=1`` to make it explicit.
+
+.. literalinclude:: src/templates/serial.sh
+       :language: bash
+       :caption: :download:`serial-template.sh <src/templates/serial.sh>`
 
 
 Array jobs
 ----------
+Also called Embarrassingly-Parallel_, this set up is commonly used by users
+that do not have a native parallel application, so they run multiple parallel
+instances of his application changing its ``input``.
 
-OpenMP jobs
------------
+This ``input`` usually refers to these cases: 
+
+#. **File input**
+
+   You have **multiple files/directories** to **process**.
+  
+   In the bellow example/template we make a "parallel copy" of the files contained 
+   in ``test`` directory using the command ``cp``. 
+
+   .. literalinclude:: src/str_directory_array.txt
+       :language: bash
+
+   We use one ``ntask`` per each ``job-step``. The array goes from 0 to 4, 
+   so there are 5 process copying the 5 files contened in the ``test`` directory.
+
+
+   .. literalinclude:: src/templates/array.sh
+       :language: bash
+       :caption: :download:`array-template.sh <src/templates/array.sh>`
+  
+   Thus, the generated file ``copy0`` is the copy of the file ``test/file1.txt``
+   and the file ``copy1`` is the copy of the file ``test2.txt`` and so on.
+   Each one done by a different Slurm process in parallel.
+
+#. **Parameters input**
+   You have **multiple parameters** to **process**
+
+
+.. note:: 
+   The parameter ``ntasks`` when is used in array jobs specify the number of process
+   that **EACH** ``job-step`` is going to use. So if you want more, you
+   just need to specify it.
+
+.. note::
+   If you want to assing an ``N`` number of process for each node
+  
+.. note:: 
+  The main idea behind this using Array jobs in Slurm is based on the use of the
+  variable ``SLURM_ARRAY_TASK_ID``. 
+
+
+Shared Memory jobs (OpenMP)
+---------------------------
 
 MPI jobs
 --------
@@ -159,6 +222,9 @@ Slurm's file-pattern
 --------------------
 
 .. _Module: http://modules.sourceforge.net/man/modulefile.html
+.. _HTT: https://en.wikipedia.org/wiki/Hyper-threading
+.. _Here: https://www.backblaze.com/blog/whats-the-diff-programs-processes-and-threads/
+.. _Embarrassingly-Parallel: http://www.cs.iusb.edu/~danav/teach/b424/b424_23_embpar.html
 
 References
 ----------

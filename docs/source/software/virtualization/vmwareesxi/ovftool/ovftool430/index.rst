@@ -67,7 +67,7 @@ You may be prompted to use the following option: **--allowExtraConfig**:
 
 
 Authors
-=======
+-------
 
 - Vincent Alejandro Arcila Larrea (vaarcilal@eafit.edu.co).
 - Andrés Felipe Zapata Palacio (azapat47@eafit.edu.co).

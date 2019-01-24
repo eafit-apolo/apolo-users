@@ -14,4 +14,4 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    lammps/index
    mafft/index
    raxml/index
-   pycrust2/index
+   picrust2/index

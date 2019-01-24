@@ -1,7 +1,7 @@
 .. _picrust-2.0.4-beta-index:
 
-**PICRUSt 2.0.4-BETA**
-======================
+PICRUSt 2.0.4-BETA
+==================
 .. contents:: Table of Contents
 
 Basic information
@@ -22,6 +22,8 @@ You should follow the following procedure in order to install this software on a
    .. code-block:: bash
           
           $ module load python/3.6.5_miniconda-4.5.1
+
+   .. note:: Be aware you can also load python/3.5.2_intel-2017_update-1.
 
 #. Clone PICRUSt2 repository and cd into it:
 

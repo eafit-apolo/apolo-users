@@ -151,7 +151,7 @@ resource, the default value for those options in Slurm are ``1``.
 Here_ is a good article about the differences between ``Processes`` and 
 ``Threads``.
 
-In the template bellow we specify ``ntasks=1`` to make it explicit.
+In the template below we specify ``ntasks=1`` to make it explicit.
 
 .. literalinclude:: src/templates/serial.sh
        :language: bash
@@ -161,48 +161,83 @@ In the template bellow we specify ``ntasks=1`` to make it explicit.
 Array jobs
 ----------
 Also called Embarrassingly-Parallel_, this set up is commonly used by users
-that do not have a native parallel application, so they run multiple parallel
-instances of his application changing its ``input``.
+that do not have a native parallel application, so they run **multiple parallel
+instances** of their application changing its ``input``. Each instance is
+independent and does not have any kind of communication with other. 
+
+To do this, we specify an array using the ``sbatch`` parameter ``--array``,
+multiple values may be specified using a comma separated list and/or a 
+range of values with a "-" separator (e.g ``--array=1,3,5-10`` or ``--array=1,2,3``).
+This will be the values that the variable ``SLURM_ARRAY_TASK_ID`` is
+going to take in each ``array-job``.
 
 This ``input`` usually refers to these cases: 
 
-#. **File input**
+1. **File input**
 
    You have **multiple files/directories** to **process**.
   
-   In the bellow example/template we make a "parallel copy" of the files contained 
-   in ``test`` directory using the command ``cp``. 
+   In the below example/template we make a "parallel copy" of the files contained 
+   in ``test`` directory using the ``cp`` command. 
 
    .. literalinclude:: src/str_directory_array.txt
        :language: bash
 
-   We use one ``ntask`` per each ``job-step``. The array goes from 0 to 4, 
-   so there are 5 process copying the 5 files contened in the ``test`` directory.
+   We use one process (called ``ntask`` in Slurm) per each ``job-step``. 
+   The array goes from 0 to 4, so there are 5 process copying the 5 files 
+   contained in the ``test`` directory.
 
 
-   .. literalinclude:: src/templates/array.sh
+   .. literalinclude:: src/templates/array_file.sh
        :language: bash
-       :caption: :download:`array-template.sh <src/templates/array.sh>`
+       :caption: :download:`array-file-input-template.sh <src/templates/array_file.sh>`
   
-   Thus, the generated file ``copy0`` is the copy of the file ``test/file1.txt``
-   and the file ``copy1`` is the copy of the file ``test2.txt`` and so on.
-   Each one done by a different Slurm process in parallel.
+   Thus, the generated file ``copy_0`` is the copy of the file ``test/file1.txt``
+   and the file ``copy_1`` is the copy of the file ``test2.txt`` and so on.
+   Each one was done by a different Slurm process in parallel.
 
-#. **Parameters input**
-   You have **multiple parameters** to **process**
 
+.. warning::
+   Except to ``--array``, **ALL** other ``#SBATCH`` options specified in the 
+   submitting Slurm script are used to configure **each job-array**, including 
+   **ntasks**, **ntasks-per-node**, **time**, **mem**, **exclusive**, etc.
+
+2. **Parameters input** 
+
+   You have **multiple parameters** to **process**.
+
+   Similarly to the last example, we create an array with the values that you want
+   to use as parameters in your application. We use one process (``ntasks``)
+   per ``array-job``. We are going to have 4 values (and 4 ``array-jobs``).
+
+   **Force Slurm to run array-jobs in different nodes** 
+
+   To give another feature to this example, we are going to use ``1`` node for 
+   each ``array-job``, so, even knowing that one node can run up to 16 process 
+   (in the case of :ref:`Cronos <about_cronos>`) and the 4 ``array-jobs`` 
+   could be assing to ``1`` node, we force Slurm to use ``4`` nodes. 
+
+   To get this we use the parameter ``--exclusive``
+
+  .. literalinclude:: src/templates/array_param.sh
+       :language: bash
+       :caption: :download:`array-params-template.sh <src/templates/array_param.sh>`
+
+
+
+Remember that the **main idea** behind using Array jobs in Slurm is based on the
+use of the variable ``SLURM_ARRAY_TASK_ID``.
 
 .. note:: 
-   The parameter ``ntasks`` when is used in array jobs specify the number of process
-   that **EACH** ``job-step`` is going to use. So if you want more, you
-   just need to specify it.
+   The parameter ``ntasks`` specify the number of process that **EACH** 
+   ``array-job`` is going to use. So if you want to use more, you
+   just could to specify it. This idea also apply to all other sbatch parameters. 
 
-.. note::
-   If you want to assing an ``N`` number of process for each node
-  
 .. note:: 
-  The main idea behind this using Array jobs in Slurm is based on the use of the
-  variable ``SLURM_ARRAY_TASK_ID``. 
+   You can also limit the  number of simultaneously running tasks from the job 
+   array using a ``%``  separator. For example ``--array=0-15%4`` will limit the 
+   number of simultaneously running tasks from this job array to 4.
+   
 
 
 Shared Memory jobs (OpenMP)

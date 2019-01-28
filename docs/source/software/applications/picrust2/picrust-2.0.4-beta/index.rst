@@ -9,6 +9,7 @@ Basic information
 
 - **Official Website:** https://github.com/picrust/picrust2/wiki
 - **License:** GNU General Public License v3.0
+- **Tested on** CentOS (x86_64) ≥ 6.6 (Rocks 6.2)
 
 Installation
 ------------

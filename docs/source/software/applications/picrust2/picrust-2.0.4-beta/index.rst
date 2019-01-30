@@ -9,6 +9,7 @@ Basic information
 
 - **Official Website:** https://github.com/picrust/picrust2/wiki
 - **License:** GNU General Public License v3.0
+- **Tested on** CentOS (x86_64) ≥ 6.6 (Rocks 6.2)
 
 Installation
 ------------
@@ -17,13 +18,13 @@ Installation
 
 You should follow the following procedure in order to install this software on a conda environment, without root privileges.
 
-#. Load miniconda module :
+#. Load conda module. On :ref:`Apolo II <about_apolo-ii>` is python/3.6.5_miniconda-4.5.1, on :ref:`Cronos <about_cronos>` python/3.6.5_miniconda-4.5.4.
 
    .. code-block:: bash
           
-          $ module load python/3.6.5_miniconda-4.5.1
+          $ module load <conda_module>
 
-   .. note:: Be aware you can also load python/3.5.2_intel-2017_update-1.
+   .. note:: Be aware you can also try out the intel optimized conda modules, which are proved to increase performance in several applications: on :ref:`Apolo II <about_apolo-ii>` is python/3.5.2_intel-2017_update-1, on :ref:`Cronos <about_cronos>` is python/3.6.2_intel-18_u1.
 
 #. Clone PICRUSt2 repository and cd into it:
 

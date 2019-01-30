@@ -12,8 +12,8 @@
 
 What is ``sbatch``?
 -------------------
-**Slurm** as a resource manager has a lot of options to manage all the resources
-of a cluster to achieve any possible combination of needs like: 
+**Slurm** has a lot of options to manage all the resources of a cluster to 
+achieve any possible combination of needs like: 
 Number of CPUs, Number of Nodes, Memory, Time, GPUs, Licenses, etc.
 
 The command ``sbatch`` is used to submit a ``batch`` script, making your job 
@@ -158,6 +158,108 @@ In the template below we specify ``ntasks=1`` to make it explicit.
        :caption: :download:`serial-template.sh <src/templates/serial.sh>`
 
 
+Shared Memory jobs (OpenMP)
+---------------------------
+This set up is made to create parallelism using threads on a single machine. 
+OpenMP make communication between process but they must be on the same machine,
+it does not make any kind of communication between processes of different physical
+machines.
+
+In the below example we launch the classical ``Hello world`` OpenMP example.
+It was compiled in :ref:`Cronos <about_cronos>` using ``intel compiler 18.0.1`` 
+as follow:
+
+.. code-block:: bash
+
+    module load intel/18.0.1
+    icc -fopenmp omp_hello.c -o hello_omp_intel_cronos
+
+We used **16** ``threads``, the maximum number allowed in Cronos' long jobs 
+partition. In terms of Slurm we specify **16** ``cpu-per-task`` on one ``ntask``. 
+
+.. literalinclude:: src/templates/openmp.sh
+       :language: bash
+       :caption: :download:`openmp-template.sh <src/templates/openmp.sh>`
+
+**Output**
+
+.. literalinclude:: src/openmp_output
+       :language: bash
+
+.. warning::
+  Remember the maximum number of total threads that can be running at the same 
+  time in a compute node. As an extra information, our setup does not use HTT_
+  (Hyper-Threading Technology).
+
+  * **Apolo:**
+     * **Longjobs queue:** 32
+     * **Accel queue:** 32
+     * **Bigmem queue:** 24
+     * **Debug queue:** 2
+
+  * **Cronos:**
+     * **Longjobs queue:** 16
+  
+  Otherwise your job will overpass the maximum multiprocessing grade and this is 
+  going to cause a drastic decrease on the performance of your application.
+  To know more about see: What should be the CPU Load on my node?  
+
+.. note::
+  We highly recommend to use the slurm variable ``$SLURM_CPUS_PER_TASK`` to specify 
+  the number of threads that OpenMP is going to work with. Most of applications 
+  use  the variable ``OMP_NUM_THREADS`` to defined it. 
+
+MPI jobs
+--------
+
+MPI jobs are able to launch multiple process on multiple nodes. 
+There is a lot of possible workflows using MPI, here we are going to
+explain a basic one. Base on this example and modifying its parameters, you can
+find the configuration for your specific need. 
+
+The example was compiled in :ref:`Cronos <about_cronos>` using ``impi`` as follow:
+
+.. code-block:: bash
+    
+    module load impi
+    impicc hello_world_mpi.c -o mpi_hello_world_apolo
+
+We submit the classic "Hello world" MPI example using 5 processes (``--ntasks=5``), 
+each one on a different machine (``--ntasks-per-node=1``). Just to be clear, 
+we are going to use 5 machines and 1 CPU per each, leavening the other CPUs
+(15, in this specific case) free to be allocated by Slurm to other jobs.
+
+.. literalinclude:: src/templates/mpi.sh
+       :language: bash
+       :caption: :download:`mpi-template.sh <src/templates/mpi.sh>`
+
+.. note::
+   The use of ``srun`` is mandatory here. It creates the necessary 
+   environment to lunch the MPI processes. There you can also specify other parameters.
+   See srun man to more information.
+
+   Also, the use of ``--mpi=pmi2`` is mandatory, it tells MPI to use the pmi2_ Slurm's 
+   plugin. This could change when you are using a different implementation of MPI
+   (e.g MVAPICH, OpenMPI) but we strongly encourage our users to specify it.
+
+**Output**
+
+.. literalinclude:: src/mpi_output    
+
+.. warning::
+   As you can see in that example, we do not specify ``-N`` or ``--nodes`` to submit
+   the job in 5 different machines. You can let Slurm decides how many machines your
+   job needs.
+   
+   Try to think in terms of "tasks" rather than "nodes". 
+
+This table shows some other useful cases [2]_:
+
+.. csv-table:: MPI jobs table
+     :header-rows: 1
+     :widths: 10, 7
+     :file: src/mpi_jobs_table.csv
+ 
 Array jobs
 ----------
 Also called Embarrassingly-Parallel_, this set up is commonly used by users
@@ -184,7 +286,7 @@ This ``input`` usually refers to these cases:
        :language: bash
 
    We use one process (called ``ntask`` in Slurm) per each ``job-step``. 
-   The array goes from 0 to 4, so there are 5 process copying the 5 files 
+   The array goes from 0 to 4, so there are 5 processes copying the 5 files 
    contained in the ``test`` directory.
 
 
@@ -199,7 +301,7 @@ This ``input`` usually refers to these cases:
 
 .. warning::
    Except to ``--array``, **ALL** other ``#SBATCH`` options specified in the 
-   submitting Slurm script are used to configure **each job-array**, including 
+   submitting Slurm script are used to configure **EACH** ``job-array``, including 
    **ntasks**, **ntasks-per-node**, **time**, **mem**, **exclusive**, etc.
 
 2. **Parameters input** 
@@ -213,38 +315,32 @@ This ``input`` usually refers to these cases:
    **Force Slurm to run array-jobs in different nodes** 
 
    To give another feature to this example, we are going to use ``1`` node for 
-   each ``array-job``, so, even knowing that one node can run up to 16 process 
+   each ``array-job``, so, even knowing that one node can run up to 16 processes 
    (in the case of :ref:`Cronos <about_cronos>`) and the 4 ``array-jobs`` 
    could be assing to ``1`` node, we force Slurm to use ``4`` nodes. 
 
-   To get this we use the parameter ``--exclusive``
+   To get this we use the parameter ``--exclusive``, thus, for each ``job-array``
+   Slurm will care about not to have other Slurm-job in the same node, even other
+   of your ``job-array``.  
 
   .. literalinclude:: src/templates/array_param.sh
        :language: bash
        :caption: :download:`array-params-template.sh <src/templates/array_param.sh>`
 
-
-
 Remember that the **main idea** behind using Array jobs in Slurm is based on the
 use of the variable ``SLURM_ARRAY_TASK_ID``.
 
 .. note:: 
-   The parameter ``ntasks`` specify the number of process that **EACH** 
+   The parameter ``ntasks`` specify the number of processes that **EACH** 
    ``array-job`` is going to use. So if you want to use more, you
-   just could to specify it. This idea also apply to all other sbatch parameters. 
+   just could to specify it. This idea also apply to all other ``sbatch``
+   parameters. 
 
 .. note:: 
    You can also limit the  number of simultaneously running tasks from the job 
    array using a ``%``  separator. For example ``--array=0-15%4`` will limit the 
    number of simultaneously running tasks from this job array to 4.
    
-
-
-Shared Memory jobs (OpenMP)
----------------------------
-
-MPI jobs
---------
 
 Slurm's environment variables
 -----------------------------
@@ -260,9 +356,13 @@ Slurm's file-pattern
 .. _HTT: https://en.wikipedia.org/wiki/Hyper-threading
 .. _Here: https://www.backblaze.com/blog/whats-the-diff-programs-processes-and-threads/
 .. _Embarrassingly-Parallel: http://www.cs.iusb.edu/~danav/teach/b424/b424_23_embpar.html
+.. _pmi2: https://pmix.org/
 
 References
 ----------
 
 .. [1] NYU HPC. (n.d). Slurm + tutorial - Software and Environment Modules. Retrieved 
        17:47, January 21, 2019 from https://wikis.nyu.edu/display/NYUHPC/Slurm+Tutorial
+
+.. [2] UCLouvai - University of Leuven (n.d). Slurm Workload Manager - Slide 57. Retrieved 11:33
+       January 25, 2019 from http://www.cism.ucl.ac.be/Services/Formations/slurm/2016/slurm.pdf  

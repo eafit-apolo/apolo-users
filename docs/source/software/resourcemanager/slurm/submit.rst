@@ -40,10 +40,10 @@ Thus, we say that a ``batch`` script has **three** parts:
    and need to be included at the beginning of the file, just after
    the shebang (``e.g. #!/bin/bash``) which should be the first line.
 
-   The following table show important and common options, for further
+   The following table [3]_ show important and common options, for further
    information you can check this section.
 
-   .. csv-table:: Sbatch option's table
+   .. csv-table:: Sbatch option's
      :header-rows: 1
      :widths: 5, 8, 5, 4
      :stub-columns: 1
@@ -317,7 +317,7 @@ This ``input`` usually refers to these cases:
    To give another feature to this example, we are going to use ``1`` node for 
    each ``array-job``, so, even knowing that one node can run up to 16 processes 
    (in the case of :ref:`Cronos <about_cronos>`) and the 4 ``array-jobs`` 
-   could be assing to ``1`` node, we force Slurm to use ``4`` nodes. 
+   could be assigned to ``1`` node, we forced Slurm to use ``4`` nodes. 
 
    To get this we use the parameter ``--exclusive``, thus, for each ``job-array``
    Slurm will care about not to have other Slurm-job in the same node, even other
@@ -345,18 +345,27 @@ use of the variable ``SLURM_ARRAY_TASK_ID``.
 Slurm's environment variables
 -----------------------------
 In the above examples we often use the output environment variables provided for
-Slurm. Here you have a table with the most common ones. 
+Slurm. Here you have a table [3]_ with the most common variables. 
 
-tabla
+.. csv-table:: Output environment variables
+     :header-rows: 1
+     :widths: 2,7
+     :file: src/output_env_table.csv
 
 Slurm's file-pattern
 --------------------
+``sbatch``  allows filename patterns, this could be useful to name ``std_err`` and
+``std_out`` files. Here you have a table [3]_ with some of them.  
 
-.. _Module: http://modules.sourceforge.net/man/modulefile.html
-.. _HTT: https://en.wikipedia.org/wiki/Hyper-threading
-.. _Here: https://www.backblaze.com/blog/whats-the-diff-programs-processes-and-threads/
-.. _Embarrassingly-Parallel: http://www.cs.iusb.edu/~danav/teach/b424/b424_23_embpar.html
-.. _pmi2: https://pmix.org/
+.. csv-table:: Slurm's file-pattern
+     :header-rows: 1
+     :widths: 3,7
+     :file: src/file-patern-table.csv
+
+.. note::
+
+   If you need to separate the output of a job per each node requested, ``%N`` is
+   specially useful, for example in array-jobs. 
 
 References
 ----------
@@ -365,4 +374,14 @@ References
        17:47, January 21, 2019 from https://wikis.nyu.edu/display/NYUHPC/Slurm+Tutorial
 
 .. [2] UCLouvai - University of Leuven (n.d). Slurm Workload Manager - Slide 57. Retrieved 11:33
-       January 25, 2019 from http://www.cism.ucl.ac.be/Services/Formations/slurm/2016/slurm.pdf  
+       January 25, 2019 from http://www.cism.ucl.ac.be/Services/Formations/slurm/2016/slurm.pdf
+
+.. [3] SchedMD LLC (2017). Slurm, resource management [sbatch]. Copy of manual text available at
+       https://slurm.schedmd.com/sbatch.html (Retrieved 17:20 January 30, 2019)
+
+
+.. _Module: http://modules.sourceforge.net/man/modulefile.html
+.. _HTT: https://en.wikipedia.org/wiki/Hyper-threading
+.. _Here: https://www.backblaze.com/blog/whats-the-diff-programs-processes-and-threads/
+.. _Embarrassingly-Parallel: http://www.cs.iusb.edu/~danav/teach/b424/b424_23_embpar.html
+.. _pmi2: https://pmix.org/

@@ -1,0 +1,7 @@
+**Variable**,**Functionality**
+``SLURM_JOB_ID``,job Id
+``SLURM_ARRAY_TASK_ID``,Index of the slurm array 
+``SLURM_CPUS_PER_TASK``,Same as ``--cpus-per-task``
+``SLURM_NTASKS``,"Same as ``-n``, ``--ntasks``"
+``SLURM_JOB_NUM_NODES``,Number of nodes allocated to job
+``SLURM_SUBMIT_DIR``,The directory from which ``sbatch`` was invoked

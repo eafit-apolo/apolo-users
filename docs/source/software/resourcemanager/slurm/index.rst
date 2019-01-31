@@ -33,8 +33,13 @@ Getting information about jobs
 
 FAQ
 ---
+.. toctree::
+   :maxdepth: 2
+
+   faq
 
 More information
 -----------------
-  sbatch information
+  cool pages 
+
   

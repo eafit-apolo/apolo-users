@@ -47,13 +47,13 @@ Thus, we say that a ``batch`` script has **three** parts:
      :header-rows: 1
      :widths: 5, 8, 5, 4
      :stub-columns: 1
-     :file: src/sbatch_options.csv
+     :file: src/submit/sbatch_options.csv
 
    .. note::
      Each option must be included using ``#SBATCH <option>=<value>``
     
    .. warning::
-      Some options/parameters may be specific for our clusters. 
+      Some values of the options/parameters may be specific for our clusters. 
    
    .. note::
      About the ``--mail-type`` option, the value ``TIME_LIMIT_%``  means the reached
@@ -81,7 +81,7 @@ Thus, we say that a ``batch`` script has **three** parts:
      :header-rows: 1
      :widths: 5, 10
      :stub-columns: 1
-     :file: src/module_table.csv
+     :file: src/submit/module_table.csv
 
    .. warning:: 
      Slurm **always** propagate the environment of the current user to the job.
@@ -153,9 +153,9 @@ Here_ is a good article about the differences between ``Processes`` and
 
 In the template below we specify ``ntasks=1`` to make it explicit.
 
-.. literalinclude:: src/templates/serial.sh
+.. literalinclude:: src/submit/templates/serial.sh
        :language: bash
-       :caption: :download:`serial-template.sh <src/templates/serial.sh>`
+       :caption: :download:`serial-template.sh <src/submit/templates/serial.sh>`
 
 
 Shared Memory jobs (OpenMP)
@@ -177,13 +177,13 @@ as follow:
 We used **16** ``threads``, the maximum number allowed in Cronos' long jobs 
 partition. In terms of Slurm we specify **16** ``cpu-per-task`` on one ``ntask``. 
 
-.. literalinclude:: src/templates/openmp.sh
+.. literalinclude:: src/submit/templates/openmp.sh
        :language: bash
-       :caption: :download:`openmp-template.sh <src/templates/openmp.sh>`
+       :caption: :download:`openmp-template.sh <src/submit/templates/openmp.sh>`
 
 **Output**
 
-.. literalinclude:: src/openmp_output
+.. literalinclude:: src/submit/openmp_output
        :language: bash
 
 .. warning::
@@ -202,7 +202,7 @@ partition. In terms of Slurm we specify **16** ``cpu-per-task`` on one ``ntask``
   
   Otherwise your job will overpass the maximum multiprocessing grade and this is 
   going to cause a drastic decrease on the performance of your application.
-  To know more about see: What should be the CPU Load on my node?  
+  To know more about see: :ref:`FAQ <faq-slurm>`
 
 .. note::
   We highly recommend to use the slurm variable ``$SLURM_CPUS_PER_TASK`` to specify 
@@ -229,9 +229,9 @@ each one on a different machine (``--ntasks-per-node=1``). Just to be clear,
 we are going to use 5 machines and 1 CPU per each, leavening the other CPUs
 (15, in this specific case) free to be allocated by Slurm to other jobs.
 
-.. literalinclude:: src/templates/mpi.sh
+.. literalinclude:: src/submit/templates/mpi.sh
        :language: bash
-       :caption: :download:`mpi-template.sh <src/templates/mpi.sh>`
+       :caption: :download:`mpi-template.sh <src/submit/templates/mpi.sh>`
 
 .. note::
    The use of ``srun`` is mandatory here. It creates the necessary 
@@ -244,7 +244,7 @@ we are going to use 5 machines and 1 CPU per each, leavening the other CPUs
 
 **Output**
 
-.. literalinclude:: src/mpi_output    
+.. literalinclude:: src/submit/mpi_output    
 
 .. warning::
    As you can see in that example, we do not specify ``-N`` or ``--nodes`` to submit
@@ -258,7 +258,7 @@ This table shows some other useful cases [2]_:
 .. csv-table:: MPI jobs table
      :header-rows: 1
      :widths: 10, 7
-     :file: src/mpi_jobs_table.csv
+     :file: src/submit/mpi_jobs_table.csv
  
 Array jobs
 ----------
@@ -282,7 +282,7 @@ This ``input`` usually refers to these cases:
    In the below example/template we make a "parallel copy" of the files contained 
    in ``test`` directory using the ``cp`` command. 
 
-   .. literalinclude:: src/str_directory_array.txt
+   .. literalinclude:: src/submit/str_directory_array.txt
        :language: bash
 
    We use one process (called ``ntask`` in Slurm) per each ``job-step``. 
@@ -290,9 +290,9 @@ This ``input`` usually refers to these cases:
    contained in the ``test`` directory.
 
 
-   .. literalinclude:: src/templates/array_file.sh
+   .. literalinclude:: src/submit/templates/array_file.sh
        :language: bash
-       :caption: :download:`array-file-input-template.sh <src/templates/array_file.sh>`
+       :caption: :download:`array-file-input-template.sh <src/submit/templates/array_file.sh>`
   
    Thus, the generated file ``copy_0`` is the copy of the file ``test/file1.txt``
    and the file ``copy_1`` is the copy of the file ``test2.txt`` and so on.
@@ -323,9 +323,9 @@ This ``input`` usually refers to these cases:
    Slurm will care about not to have other Slurm-job in the same node, even other
    of your ``job-array``.  
 
-  .. literalinclude:: src/templates/array_param.sh
+  .. literalinclude:: src/submit/templates/array_param.sh
        :language: bash
-       :caption: :download:`array-params-template.sh <src/templates/array_param.sh>`
+       :caption: :download:`array-params-template.sh <src/submit/templates/array_param.sh>`
 
 Remember that the **main idea** behind using Array jobs in Slurm is based on the
 use of the variable ``SLURM_ARRAY_TASK_ID``.
@@ -350,7 +350,7 @@ Slurm. Here you have a table [3]_ with the most common variables.
 .. csv-table:: Output environment variables
      :header-rows: 1
      :widths: 2,7
-     :file: src/output_env_table.csv
+     :file: src/submit/output_env_table.csv
 
 Slurm's file-pattern
 --------------------
@@ -360,7 +360,7 @@ Slurm's file-pattern
 .. csv-table:: Slurm's file-pattern
      :header-rows: 1
      :widths: 3,7
-     :file: src/file-patern-table.csv
+     :file: src/submit/file-patern-table.csv
 
 .. note::
 

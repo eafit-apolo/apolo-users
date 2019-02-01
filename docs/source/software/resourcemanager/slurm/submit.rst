@@ -6,6 +6,10 @@
 .. role:: raw-html(raw)
           :format: html
 
+
+Submitting jobs
+===============
+
 .. contents:: Contents
               :local:
 
@@ -236,7 +240,7 @@ we are going to use 5 machines and 1 CPU per each, leavening the other CPUs
 .. note::
    The use of ``srun`` is mandatory here. It creates the necessary 
    environment to lunch the MPI processes. There you can also specify other parameters.
-   See srun man to more information.
+   See ``man srun`` to more information.
 
    Also, the use of ``--mpi=pmi2`` is mandatory, it tells MPI to use the pmi2_ Slurm's 
    plugin. This could change when you are using a different implementation of MPI

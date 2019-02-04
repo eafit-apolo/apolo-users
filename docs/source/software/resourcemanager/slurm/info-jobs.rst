@@ -17,7 +17,7 @@ Getting information about jobs
 **Getting cluster(s) state**
 ---------------------------- 
 
-In Slurm, nodes have different states [2]_, this tells if a job can  or not be 
+In Slurm, nodes have different states [2]_, this tells if a job canfu or not be 
 allocated. 
 
 .. csv-table:: Slurm node's states
@@ -155,7 +155,7 @@ In the following table [3]_ we describe the most common reasons:
         **CPUs:** 96
         **Memory:** 384G
 
-  It is important to note that those are policies defined by of 
+  It is important to note that those are policies defined by
   Centro de Computación Científica Apolo.
 
 
@@ -241,34 +241,61 @@ change its state. Here we list some useful examples [1]_ [4]_  .
 ----------------------------------------------------------------------
 Here we are going to explain how to get information about completed jobs 
 (that are not longer in the queue). Those commands use the Slurm database to
-get the information.
+get the information. 
 
+.. note::
+
+  By default these commands only search jobs associated with the cluster you are 
+  log in, however, if you want to search a job that was executed on 
+  :ref:`Cronos <about_cronos>` while you are in a session in 
+  :ref:`Apolo II <about_apolo-ii>` you can do it using the argument 
+  ``-M slurm-cronos``. Other posible options are ``-M slurm-apolo``
+  and ``-M all``
+ 
 * ``sacct``: is used to get general accounting data for all jobs and job steps 
-  in the Slurm [5]_
+  in the Slurm [5]_.
 
-   * Get the today's jobs submitted by a user (or users) 
+    * In case you remember the ``joid`` you can use
 
-       .. code-block:: bash
+        .. code-block:: bash
 
-            sacct -S$(date +'%m/%d/%y) -u $USER
+            sacct -j1234
 
-   * Get the jobs submitted by a user (or users) 1 week ago
+    * Get information about today's jobs submitted by a user (or users) 
+
+        .. code-block:: bash
+
+             sacct -S$(date +'%m/%d/%y') -u $USER
+
+    * Get information about jobs submitted by a user (or users) 1 week ago 
    
         .. code-block:: bash
 
-            sacct -S$(date +'%m/%d/%y' --date="1 week ago") -u $USER 
+             sacct -S$(date +'%m/%d/%y' --date="1 week ago") -u $USER 
 
+    * Get information about job(s) by its name(s)
+   
+        .. code-block:: bash
 
+             sacct -S$(date +'%m/%d/%y') --name job_name
 
-* ``ssat``: [6]_
+   .. note::
 
+      ``-S`` argument is to select eligible jobs in any state after the specified time.
+      It is mandatory to search jobs in case that a  ``jobid`` was not specified.
+      It supports multiple date formats, see ``man sacct`` to know more about.     
 
 References
 ----------
 
-.. [1] cool page about stats commands in Slurm
-.. [2] sinfo man page
-.. [3] squeue man page
-.. [4] scancel man page
-.. [5] sacct man page
-.. [6] sstat man page
+.. [1] University of Luxembourg (UL) HPC Team (2018). UL HPC Tutorial: 
+       Advanced scheduling with SLURM. Retrieved 16:45 January 28, 2019 from 
+       https://ulhpc-tutorials.readthedocs.io/en/latest/scheduling/advanced/
+.. [2] SchedMD LLC (2018). Slurm, resource management [sinfo]. Copy of manual text available at
+       https://slurm.schedmd.com/sinfo.html. Retrieved 14:24 January 31, 2019
+.. [3] SchedMD LLC (2018). Slurm, resource management [squeue]. Copy of manual text available at
+       https://slurm.schedmd.com/squeue.html. Retrieved 12:30 February 1, 2019
+.. [4] SchedMD LLC (2018). Slurm, resource management [scancel]. Copy of manual text available at
+       https://slurm.schedmd.com/sinfo.html.  Retrieved 15:47 January 31, 2019
+.. [5] SchedMD LLC (2018). Slurm, resource management [sacct]. Copy of manual text available at
+       https://slurm.schedmd.com/sacct.html. Retrieved 8:44 Febrary 4, 2019

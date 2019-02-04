@@ -40,6 +40,13 @@ FAQ
 
 More information
 -----------------
-  cool pages 
+
+ * `Quick Start User Guide <https://slurm.schedmd.com/quickstart.html>`_.
+ *  `Slurm + tutorial - Software and Environment Module <https://support.ceci-hpc.be/doc/_contents/QuickStart/SubmittingJobs/SlurmTutorial.html>`_.
+ *  Morris A. Jette , Andy B. Yoo , Mark Grondona (2002) 
+    `SLURM: Simple Linux Utility for Resource Management <http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.10.6834>`_.
+
+Author
+------
 
   

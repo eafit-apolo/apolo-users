@@ -44,8 +44,8 @@ Thus, we say that a ``batch`` script has **three** parts:
    and need to be included at the beginning of the file, just after
    the shebang (``e.g. #!/bin/bash``) which should be the first line.
 
-   The following table [3]_ show important and common options, for further
-   information you can check this section.
+   The following table [3]_ shows important and common options, for further
+   information see ``man sbatch``.
 
    .. csv-table:: Sbatch option's
      :header-rows: 1
@@ -380,8 +380,8 @@ References
 .. [2] UCLouvai - University of Leuven (n.d). Slurm Workload Manager - Slide 57. Retrieved 11:33
        January 25, 2019 from http://www.cism.ucl.ac.be/Services/Formations/slurm/2016/slurm.pdf
 
-.. [3] SchedMD LLC (2017). Slurm, resource management [sbatch]. Copy of manual text available at
-       https://slurm.schedmd.com/sbatch.html (Retrieved 17:20 January 30, 2019)
+.. [3] SchedMD LLC (2018). Slurm, resource management [sbatch]. Copy of manual text available at
+       https://slurm.schedmd.com/sbatch.html. Retrieved 17:20 January 30, 2019
 
 
 .. _Module: http://modules.sourceforge.net/man/modulefile.html

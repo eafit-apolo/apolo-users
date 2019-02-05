@@ -11,10 +11,10 @@ What should be the CPU Load on my node?
 =======================================
 The CPU Load is the measure of the amount of computational work that a compute
 node have been performing. It is always a good idea to keep monitoring this 
-measure while we are computing, in order to know how well our job is running
+measure while you are computing in order to know how well your job is running
 and if it agree with the given parameters. 
 
-To do this we are going to log into the compute node (or nodes) that where your
+To do this we are going to log into the compute node (or nodes)  your
 job is running on, then we are going to use htop_. For example, ``compute-0-0``:
 
 .. code-block:: bash
@@ -27,7 +27,7 @@ job is running on, then we are going to use htop_. For example, ``compute-0-0``:
   You must have a running job on the compute node that you will log into, 
   otherwise, you will not be able to do it. In case you have an active session
   on a compute node and all your jobs finish their execution, Slurm is going to kill all
-  user's remained process on that node, including your session.
+  user's remained processes on that node, including your session.
 
 On the htop_. screen you will find all the running process of that node.
 
@@ -56,20 +56,20 @@ and here is the screen of htop_ on the same compute after 20 minutes.
 
 .. image:: src/info/images/htop1.png
 
-As you can see, there is **17** running process and the load avarege is, close to
-``16.00``. All the cores (``16``) were in used.
+As you can see, there is **17** running process (16 tasks + htop) and the load 
+average is close to ``16.00``. All the cores (``16``) are in used.
 
-Do not mind if you find that your ``CPUs Load`` less than expected, that does
-not necessary mean your job is not running in a correct way, it could be that
-your application can not reach that CPU load, for examples, It does a lot of ``I/O``
-processing.
+Do not mind if you find that your ``CPUs Load`` is less than expected, it does
+not necessarily mean that your job is not running in a correct way. It could be 
+due that your application can not reach that CPU load, for example, it 
+frequently does ``I/O`` processing.
 
 .. warning::
 
-  However, if you have a considerally high ``CPU Load`` (e.g 40.00, 50.00, 300.00) 
-  this is not a good thing it will affect consireabily the performance of your job. Your are OVER LOADING 
-  the node.  
-
+  However, if you have a considerably high ``CPUs Load`` 
+  (e.g ``40.00``, ``50.00``, ``300.00``), no matter the case, this is 
+  **not a good thing** and it will affect substantially
+  the performance of your job. Your are **OVER LOADING** the node.
 
 
 In which cases should I use ``srun``?
@@ -111,7 +111,7 @@ Slurm decides how many machines your job needs.
 
 Here_ is a good explanation about the difference between Process and Threads.
 
-image like http://www.maisondelasimulation.fr/smilei/_images/NodeWith2Processes.png 
+.. image:: src/info/images/Nnc.png
 
 .. _Here: https://www.backblaze.com/blog/whats-the-diff-programs-processes-and-threads/
 .. _htop: https://hisham.hm/htop/

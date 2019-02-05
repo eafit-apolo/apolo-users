@@ -46,7 +46,7 @@ More information
  *  Morris A. Jette , Andy B. Yoo , Mark Grondona (2002) 
     `SLURM: Simple Linux Utility for Resource Management <http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.10.6834>`_.
 
-Author
-------
-
+Authors
+-------
+Juan David Arcila-Moreno  <jarcil13@eafit.edu.co>
   

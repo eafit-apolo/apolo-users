@@ -26,11 +26,11 @@ allocated.
      :file: src/info/node_states.csv
 
 The simplest way to get information about the state of our clusters is
-using these commands: ``sinfo`` and ``squeue``. Here we list some useful 
+using the commands: ``sinfo`` and ``squeue``. Here we list some useful 
 examples [1]_ [2]_ [3]_ .
 
-* Report basic node and partition (queue) configurations and state and 
-  long version
+* Report basic node and partition (queue) configurations. Show states (``-s``) and 
+  a long version (``-N``)
   
 
   .. code-block:: bash
@@ -67,7 +67,7 @@ examples [1]_ [2]_ [3]_ .
      squeue -u pepito77
     
 
-* Show queue jobs of a specific partition/queue.
+* Show queued jobs of a specific partition/queue.
 
   .. code-block:: bash
 
@@ -75,7 +75,7 @@ examples [1]_ [2]_ [3]_ .
      squeue -p bigmem
      squeue -p accel
 
-* Show queue jobs that are in a specific state. To know more about job's state see:
+* Show queued jobs that are in a specific state. To know more about job's state see:
   ``What's going on with my job?``
 
   .. code-block:: bash
@@ -100,7 +100,7 @@ examples [1]_ [2]_ [3]_ .
 
 **What's going on with my job?** Getting information about submitted jobs
 -------------------------------------------------------------------------
-Once your job is queue in an specific partition you may want to know its state. 
+Once your job is queued in an specific partition you may want to know its state. 
 There some of the Slurm's job states [3]_. 
 
 .. csv-table:: Job's states
@@ -246,9 +246,9 @@ get the information.
 .. note::
 
   By default these commands only search jobs associated with the cluster you are 
-  log in, however, if you want to search a job that was executed on 
+  log in, however,  for example, if you want to search a job that was executed on 
   :ref:`Cronos <about_cronos>` while you are in a session in 
-  :ref:`Apolo II <about_apolo-ii>` you can do it using the argument 
+  :ref:`Apolo II <about_apolo-ii>`, you can do it using the argument 
   ``-M slurm-cronos``. Other posible options are ``-M slurm-apolo``
   and ``-M all``
  

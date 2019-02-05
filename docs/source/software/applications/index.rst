@@ -11,7 +11,9 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    :maxdepth: 1	
    
    bayescan/index
+   edge_pro/index
    lammps/index
    mafft/index
    raxml/index
    picrust2/index
+   

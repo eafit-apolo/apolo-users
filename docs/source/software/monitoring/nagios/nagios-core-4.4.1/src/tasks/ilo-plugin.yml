@@ -1,0 +1,31 @@
+---
+- name: Create Temp Dir
+  file:
+    path: "{{ temp_dir }}"
+    state: directory
+
+- name: Download iLO REST Plugin
+  git:
+    repo: "{{ ilo_plugin_url }}"
+    clone: yes
+    dest: "{{ temp_dir }}/nagios-ilo-plugin"
+
+- name: Reconfigure files for the aclocal in the system
+  shell: "autoreconf -vfi"
+  args:
+    chdir: "{{ temp_dir }}/nagios-ilo-plugin"
+
+- name: Exec configure
+  shell: "./configure"
+  args:
+    chdir: "{{ temp_dir }}/nagios-ilo-plugin"
+
+- name: Make
+  make:
+    chdir: "{{ temp_dir }}/nagios-ilo-plugin"
+
+- name: Make install
+  make:
+    chdir: "{{ temp_dir }}/nagios-ilo-plugin"
+    target: install
+

@@ -4,7 +4,7 @@ Scientific Applications
 =======================
 
 To find out what is the procedure to build, configure and use the installed
-scientific applications on our supercomputers (:ref:`Apolo II <about_apolo-ii>`
+scientific applications on our supercomputer (:ref:`Apolo II <about_apolo-ii>`
 and :ref:`Cronos <about_cronos>`) you can review the following entries:
 
 .. toctree::
@@ -12,4 +12,8 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    
    bayescan/index
    edge_pro/index
+   lammps/index
+   mafft/index
    raxml/index
+   picrust2/index
+   

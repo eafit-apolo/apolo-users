@@ -1,0 +1,50 @@
+#!/bin/bash
+
+# tee will only read from a fd, so we need to use two
+# execs to read from both stdout and stderr.
+# Receives stdout, logs it and prints to stdout
+exec > >(tee -ia /{{ ansible_log_dir }}/scheduled_run.log)
+# Receives stderr, logs it and its stdout
+# is directed towards stderr.
+exec 2> >(tee -ia /{{ ansible_log_dir }}/scheduled_run.log >&2)
+
+function log {
+    echo "[$(date --rfc-3339=seconds)]: $*"
+}
+
+function finish {
+    flock -u 3
+    rm -rf $lock
+}
+trap finish EXIT
+
+declare -r script_name=`basename $0`
+declare -r lock="/var/run/${script_name}"
+exec 3>$lock
+flock -n 3 || exit 1
+log "Lock acquired"
+declare -r pid="$$"
+echo "$pid" 1>&3
+
+declare -r env={{ env }}
+declare -r repo_dir={{ repo_dir }}
+declare -r cfg_file="$repo_dir/ansible.cfg"
+declare -r inv_file="$repo_dir/environments/$env/inventory"
+
+log "Updating repository"
+cd $repo_dir
+git pull
+cd -
+
+log "Executing ansible"
+
+export ANSIBLE_CONFIG="$cfg_file"
+export DEFAULT_ROLES_PATH="$repo_dir/roles"
+export ANSIBLE_EXTRA_VARS="env=$env repo_dir=$repo_dir $ANSIBLE_EXTRA_VARS"
+ansible-playbook --inventory-file "$inv_file" \
+		 --extra-vars "$ANSIBLE_EXTRA_VARS" \
+		 --vault-id "$env@$repo_dir/scripts/vault-secrets-client.sh" \
+		 $repo_dir/site.yml \
+		 -vv \
+		 $@
+unset ANSIBLE_CONFIG

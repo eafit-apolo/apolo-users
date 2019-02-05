@@ -1,0 +1,16 @@
+---
+- name: Setup Dell Linux Independent Repository
+  yum_repository:
+    name: dell-system-update_independent
+    state: present
+    baseurl: "{{ baseurl_dell_independent_repo }}"
+    description: dell-system-update_independent
+    gpgkey: "{{ gpgkey_dell_independent_repo }}"
+
+- name: Setup Dell Linux Dependent Repository
+  yum_repository:
+    name: dell-system-update_dependent
+    state: present
+    baseurl: "{{ baseurl_dell_dependent_repo }}"
+    description: dell-system-update_dependent
+    gpgkey: "{{ gpgkey_dell_dependent_repo }}"

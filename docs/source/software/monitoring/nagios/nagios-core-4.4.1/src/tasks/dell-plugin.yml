@@ -1,0 +1,20 @@
+---
+- name: Assure existence of tempDir
+  file:
+    path: "{{ temp_dir }}"
+    state: directory
+
+- name: Download Nagios Dell Plugin
+  get_url:
+    url: "{{ dell_plugin_url }}"
+    dest: "{{ temp_dir }}"
+
+- name: Extract Nagios Dell Plugin
+  unarchive:
+    src: "{{ temp_dir }}/Dell_OpenManage_Plugin_Nagios_Core_41Y2V_RHEL6_2.0_A00.tar.gz"
+    dest: "{{ temp_dir }}"
+
+- name: Exec installation script
+  shell: "bash install.sh"
+  args:
+    chdir: "{{ temp_dir }}/Dell_OpenManage_Plugin/Install"

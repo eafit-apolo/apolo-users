@@ -1,0 +1,13 @@
+---
+- name: Check integrity in Nagios configuration
+  shell: "/usr/local/nagios/bin/nagios -v /usr/local/nagios/etc/nagios.cfg"
+  notify:
+    - nagios_started
+    - apache_started
+    - nagios_enabled
+    - apache_enabled
+
+- name: Remove temp dir
+  file:
+    path: "{{ temp_dir }}"
+    state: absent

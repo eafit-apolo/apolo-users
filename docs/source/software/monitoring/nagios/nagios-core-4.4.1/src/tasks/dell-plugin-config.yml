@@ -1,0 +1,10 @@
+---
+- name: Synchronize configuration
+  copy:     
+    src: "{{ item }}"
+    dest: "/{{ item }}"
+  with_items:
+    - usr/local/nagios/dell/config/objects/file1.cfg
+    - usr/local/nagios/dell/config/templates/dell_contacts.cfg
+  notify:
+    - nagios_restart

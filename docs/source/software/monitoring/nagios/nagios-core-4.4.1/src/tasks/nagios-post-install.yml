@@ -1,0 +1,5 @@
+---
+- name: Make install-webconf
+  make:
+    chdir: "{{ temp_dir }}/nagios-4.4.1"
+    target: install-webconf

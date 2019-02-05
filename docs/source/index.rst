@@ -30,7 +30,7 @@ Medellín, Colombia.
 
 .. toctree::
    :maxdepth: 2
-
+   
    gettingstarted/index
    supercomputers/index
    software/index

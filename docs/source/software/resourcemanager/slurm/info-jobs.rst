@@ -17,7 +17,7 @@ Getting information about jobs
 **Getting cluster(s) state**
 ---------------------------- 
 
-In Slurm, nodes have different states [2]_, this tells if a job canfu or not be 
+In Slurm, nodes have different states [2]_, this tells if a job can or not be 
 allocated. 
 
 .. csv-table:: Slurm node's states
@@ -29,15 +29,22 @@ The simplest way to get information about the state of our clusters is
 using the commands: ``sinfo`` and ``squeue``. Here we list some useful 
 examples [1]_ [2]_ [3]_ .
 
-* Report basic node and partition (queue) configurations. Show states (``-s``) and 
-  a long version (``-N``)
+* View information about nodes and partitions and a longer version (``-N``)
   
 
   .. code-block:: bash
 
        sinfo
-       sinfo -s
        sinfo -N
+
+* Show nodes that are in a specific state.
+  
+
+  .. code-block:: bash
+
+       sinfo -t idle
+       sinfo -t mix 
+       sinfo -t alloc 
 
 * Report node state reason (if exists)
  
@@ -76,7 +83,7 @@ examples [1]_ [2]_ [3]_ .
      squeue -p accel
 
 * Show queued jobs that are in a specific state. To know more about job's state see:
-  ``What's going on with my job?``
+  `What's going on with my job? Getting information about submitted jobs`_
 
   .. code-block:: bash
      
@@ -144,8 +151,8 @@ In the following table [3]_ we describe the most common reasons:
 .. warning::
   
   Related with ``QOSMaxCpuPerUserLimit`` Slurm's reason, the maximum number of 
-  allocated resources (in specific Memory and CPUs) per User at the same time 
-  differs between clusters:
+  allocated resources at the same time (in specific Memory and CPUs) per user 
+  differ between clusters:
 
   * **Apolo:**
         **CPUs:** 96
@@ -180,7 +187,7 @@ There is an example of its output from :ref:`Apolo II <about_apolo-ii>`.
 
 **Canceling a job**
 -------------------
-Once your job is submitted and running, you can do some operations in order to
+Once your job is submitted, you can do some operations in order to
 change its state. Here we list some useful examples [1]_ [4]_  .
 
 * Cancel job 1234

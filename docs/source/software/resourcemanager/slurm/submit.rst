@@ -104,6 +104,7 @@ Thus, we say that a ``batch`` script has **three** parts:
 There are other options beyond using ``sbatch`` to submit jobs to Slurm,
 like ``salloc`` or simply using ``srun``. We recommend using ``sbatch``, but
 depending on the specific need of your application those options could be better.
+To know more about see: :ref:`FAQ <faq-slurm>`
 
 
 Debug partition
@@ -289,7 +290,7 @@ This ``input`` usually refers to these cases:
    .. literalinclude:: src/submit/str_directory_array.txt
        :language: bash
 
-   We use one process (called ``ntask`` in Slurm) per each ``job-step``. 
+   We use one process (called ``ntask`` in Slurm) per each ``array-job``. 
    The array goes from 0 to 4, so there are 5 processes copying the 5 files 
    contained in the ``test`` directory.
 
@@ -314,7 +315,8 @@ This ``input`` usually refers to these cases:
 
    Similarly to the last example, we create an array with the values that you want
    to use as parameters in your application. We use one process (``ntasks``)
-   per ``array-job``. We are going to have 4 values (and 4 ``array-jobs``).
+   per ``array-job``. We are going to have 4 parameters (``0.05 100 999 1295.5``) 
+   to process (and 4 ``array-jobs``).
 
    **Force Slurm to run array-jobs in different nodes** 
 

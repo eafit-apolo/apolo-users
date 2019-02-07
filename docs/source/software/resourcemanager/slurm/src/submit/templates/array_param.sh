@@ -20,5 +20,5 @@
 # Array of params
 params=(0.05 100 999 1295.5)
 
-# Work besed on the SLURM_ARRAY_TASK_ID
+# Work based on the SLURM_ARRAY_TASK_ID
 srun echo ${params[$SLURM_ARRAY_TASK_ID]}

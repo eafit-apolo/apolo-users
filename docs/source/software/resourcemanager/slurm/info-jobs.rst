@@ -34,81 +34,81 @@ examples [1]_ [2]_ [3]_ .
 
   .. code-block:: bash
 
-       sinfo
-       sinfo -N
+      $ sinfo
+      $ sinfo -N
 
 * Show nodes that are in a specific state.
   
 
   .. code-block:: bash
 
-       sinfo -t idle
-       sinfo -t mix 
-       sinfo -t alloc 
+      $ sinfo -t idle
+      $ sinfo -t mix
+      $ sinfo -t alloc
 
 * Report node state reason (if exists)
  
   .. code-block:: bash
 
-      sinfo -R
+      $ sinfo -R
 
 
-* Show queued jobs, and long version
+* Show queued jobs and long version
 
   .. code-block:: bash
 
-       squeue
-       squeue -l
+      $ squeue
+      $ squeue -l
 
   .. note::
        ``squeue`` jobs also include running jobs.
 
 
-* Show queued jobs by a specific user. Most of cases you will need to get information
-  about your jobs, using the variable ``$USER`` could be useful. 
+* Show queued jobs by a specific user. Most of the cases you will need to get information
+  about your jobs, using the variable ``$USER`` could be useful.
 
 
   .. code-block:: bash
-    
-     squeue -u $USER
-     squeue -u pepito77
-    
+
+      $ squeue -u $USER
+      $ squeue -u pepito77
+
 
 * Show queued jobs of a specific partition/queue.
 
   .. code-block:: bash
 
-     squeue -p debug
-     squeue -p bigmem
-     squeue -p accel
+      $ squeue -p debug
+      $ squeue -p bigmem
+      $ squeue -p accel
 
-* Show queued jobs that are in a specific state. To know more about job's state see:
+* Show queued jobs that are in a specific state. To know more about the job's state see:
   `What's going on with my job? Getting information about submitted jobs`_
 
   .. code-block:: bash
-     
-      squeue -t PD
-      squeue -t R
-      squeue -t F
-      squeue -t PR
 
-* Show detailed information about node(s)
-   
+      $ squeue -t PD
+      $ squeue -t R
+      $ squeue -t F
+      $ squeue -t PR
+
+* Show detailed information about the node(s)
+
   .. code-block:: bash
 
-      scontrol show node compute-1-25
-      scontrol show node compute-0-5
-      scontrol show node debug-0-0
+      $ scontrol show node compute-1-25
+      $ scontrol show node compute-0-5
+      $ scontrol show node debug-0-0
 
 .. note::
 
    If you need further information, you can always check the command's manual
-   ``man squeue``, ``man sinfo``, etc. 
+   ``man squeue``, ``man sinfo``, etc.
 
 **What's going on with my job?** Getting information about submitted jobs
 -------------------------------------------------------------------------
-Once your job is queued in an specific partition you may want to know its state. 
-There some of the Slurm's job states [3]_. 
+Once your job is queued in a specific partition you may want to know its state.
+There some of the Slurm's job states [3]_.
 
 .. csv-table:: Job's states
      :header-rows: 1
@@ -119,8 +119,8 @@ You can check the expected start time of a job(s) base on the actual queue state
 
 .. code-block:: bash
 
-    squeue --start --job 1234 
-    squeue --start -u $USER
+    $ squeue --start --job 1234
+    $ squeue --start -u $USER
 
 
 You can also check the reason why your job is waiting, usually is displayed by
@@ -129,17 +129,17 @@ display the field ``reason (%R)`` more clearly.
 
 .. code-block:: bash
 
-   squeue -u $USER --format="%j %name %U %R"
-   squeue --jobid 1234 --format="%j %name %U %R"
+    $ squeue -u $USER --format="%j %name %U %R"
+    $ squeue --jobid 1234 --format="%j %name %U %R"
 
 .. note::
 
-   Not only pending jobs have the field reason set, also failure completed jobs 
-   show the reason of its fail in it.   
+   Not only pending jobs set the reason field, also failed jobs
+   show the reason for its failure.
 
 .. note::
 
-   You can also use ``sprio`` in order to know the priority of your job(s). 
+   You can also use ``sprio`` in order to know the priority of your job(s).
    For further information see ``man sprio``
 
 In the following table [3]_ we describe the most common reasons:
@@ -149,9 +149,9 @@ In the following table [3]_ we describe the most common reasons:
      :file: src/info/jobs_reasons.csv
 
 .. warning::
-  
-  Related with ``QOSMaxCpuPerUserLimit`` Slurm's reason, the maximum number of 
-  allocated resources at the same time (in specific Memory and CPUs) per user 
+
+  Related with ``QOSMaxCpuPerUserLimit`` Slurm's reason, the maximum number of
+  allocated resources at the same time (in specific Memory and CPUs) per user
   differ between clusters:
 
   * **Apolo:**
@@ -163,14 +163,14 @@ In the following table [3]_ we describe the most common reasons:
         **Memory:** 384G
 
   It is important to note that those are policies defined by
-  Centro de Computación Científica Apolo.
+  Apolo - Centro de Computación Científica.
 
 
-Another useful command to show information about recently jobs is:
+Another useful command to show information about recent jobs is:
 
 .. code-block:: bash
 
-  scontrol show job 1234
+    $ scontrol show job 1234
 
 There is an example of its output from :ref:`Apolo II <about_apolo-ii>`.
 
@@ -178,11 +178,11 @@ There is an example of its output from :ref:`Apolo II <about_apolo-ii>`.
        :language: bash
 
 .. note::
-  
+
   We also recommend to log in (using ``ssh`` ) into the respective compute node(s)
   of your job and run ``htop`` in order to see if your process(es) are actually
-  running in the way that you expect and the compute's ``CPU Load`` is optimum. 
-  To know more about see: :ref:`FAQ <faq-slurm>`   
+  running in the way you would expect and check if the compute's ``CPU Load``
+  is the optimum. To know more about see: :ref:`FAQ <faq-slurm>`
 
 
 **Canceling a job**
@@ -194,94 +194,94 @@ change its state. Here we list some useful examples [1]_ [4]_  .
 
   .. code-block:: bash
 
-     scancel 1234
+      $ scancel 1234
 
 * Cancel only array ID 9 of job array 1234
 
   .. code-block:: bash
 
-     scancel 1234_9
+      $ scancel 1234_9
 
 * Cancel all my jobs (without taking care of its state)
-    
+
   .. code-block:: bash
 
-     scancel -u $USER
+      $ scancel -u $USER
 
 * Cancel my waiting (``pending`` state) jobs.
-  
+
   .. code-block:: bash
 
-     scancel -u $USER -t pending
+      $ scancel -u $USER -t pending
 
 * Cancel the jobs queue on a given partition (queue)
 
   .. code-block:: bash
 
-     scancel -p longjobs 
+      $ scancel -p longjobs
 
 * Cancel one or more jobs by name
-  
+
   .. code-block:: bash
 
-     scancel --name MyJobName
+      $ scancel --name MyJobName
 
 * Pause the job 1234
-  
+
   .. code-block:: bash
 
-     scontrol hold 1234
+      $ scontrol hold 1234
 
 * Resume the job 1234
-  
+
   .. code-block:: bash
-   
-     scontrol resume 1234
+
+      $ scontrol resume 1234
 
 * Cancel and restart the job 1234
-  
+
   .. code-block:: bash
-  
-     scontrol requeue 1234
-  
+
+      $ scontrol requeue 1234
+
 **What happened with my job?** Getting information about finished jobs
 ----------------------------------------------------------------------
-Here we are going to explain how to get information about completed jobs 
-(that are not longer in the queue). Those commands use the Slurm database to
-get the information. 
+Here we are going to explain how to get information about completed jobs
+(that are no longer in the queue). Those commands use the Slurm database to
+get the information.
 
 .. note::
 
-  By default these commands only search jobs associated with the cluster you are 
-  log in, however,  for example, if you want to search a job that was executed on 
-  :ref:`Cronos <about_cronos>` while you are in a session in 
-  :ref:`Apolo II <about_apolo-ii>`, you can do it using the argument 
-  ``-M slurm-cronos``. Other posible options are ``-M slurm-apolo``
+  By default, these commands only search jobs associated with the cluster you are
+  log in, however,  for example, if you want to search a job that was executed on
+  :ref:`Cronos <about_cronos>` while you are in a session in
+  :ref:`Apolo II <about_apolo-ii>`, you can do it using the argument
+  ``-M slurm-cronos``. Other possible options are ``-M slurm-apolo``
   and ``-M all``
- 
-* ``sacct``: is used to get general accounting data for all jobs and job steps 
+
+* ``sacct``: is used to get general accounting data for all jobs and job steps
   in the Slurm [5]_.
 
-    * In case you remember the ``joid`` you can use
+    * In case you remember the ``jobid`` you can use
 
         .. code-block:: bash
 
             sacct -j1234
 
-    * Get information about today's jobs submitted by a user (or users) 
+    * Get information about today's jobs submitted by a user (or users)
 
         .. code-block:: bash
 
              sacct -S$(date +'%m/%d/%y') -u $USER
 
-    * Get information about jobs submitted by a user (or users) 1 week ago 
-   
+    * Get information about jobs submitted by a user (or users) 1 week ago
+
         .. code-block:: bash
 
-             sacct -S$(date +'%m/%d/%y' --date="1 week ago") -u $USER 
+             sacct -S$(date +'%m/%d/%y' --date="1 week ago") -u $USER
 
-    * Get information about job(s) by its name(s)
-   
+    * Get information about the job(s) by its name(s)
+
         .. code-block:: bash
 
              sacct -S$(date +'%m/%d/%y') --name job_name
@@ -290,13 +290,13 @@ get the information.
 
       ``-S`` argument is to select eligible jobs in any state after the specified time.
       It is mandatory to search jobs in case that a  ``jobid`` was not specified.
-      It supports multiple date formats, see ``man sacct`` to know more about.     
+      It supports multiple date formats, see ``man sacct`` to know more about.
 
 References
 ----------
 
-.. [1] University of Luxembourg (UL) HPC Team (2018). UL HPC Tutorial: 
-       Advanced scheduling with SLURM. Retrieved 16:45 January 28, 2019 from 
+.. [1] University of Luxembourg (UL) HPC Team (2018). UL HPC Tutorial:
+       Advanced scheduling with SLURM. Retrieved 16:45 January 28, 2019 from
        https://ulhpc-tutorials.readthedocs.io/en/latest/scheduling/advanced/
 .. [2] SchedMD LLC (2018). Slurm, resource management [sinfo]. Copy of manual text available at
        https://slurm.schedmd.com/sinfo.html. Retrieved 14:24 January 31, 2019
@@ -305,4 +305,4 @@ References
 .. [4] SchedMD LLC (2018). Slurm, resource management [scancel]. Copy of manual text available at
        https://slurm.schedmd.com/sinfo.html.  Retrieved 15:47 January 31, 2019
 .. [5] SchedMD LLC (2018). Slurm, resource management [sacct]. Copy of manual text available at
-       https://slurm.schedmd.com/sacct.html. Retrieved 8:44 Febrary 4, 2019
+       https://slurm.schedmd.com/sacct.html. Retrieved 8:44 February 4, 2019

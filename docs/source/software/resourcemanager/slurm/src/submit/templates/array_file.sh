@@ -20,5 +20,5 @@
 # Array of files
 files=(./test/*)
 
-# Work besed on the SLURM_ARRAY_TASK_ID
+# Work based on the SLURM_ARRAY_TASK_ID
 srun cp ${files[$SLURM_ARRAY_TASK_ID]} copy_$SLURM_ARRAY_TASK_ID

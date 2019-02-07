@@ -25,7 +25,7 @@ running in the cluster. Like this:
 
 .. code-block:: bash
 		
-   sbatch <batch_script>
+   $ sbatch <batch_script>
 
 A Slurm ``batch`` is a shell script (usually written in ``bash``) where you
 specify all these options to Slurm, including the creation of the environment to
@@ -38,7 +38,7 @@ Thus, we say that a ``batch`` script has **three** parts:
    The idea is to include all the information you think Slurm should know about
    your job (name, notification mail, partition, std_out, std_err, etc) and 
    request all your computational needs, which consist at least in a number of CPUs,
-   the computing expected duration and amounts of RAM.
+   the computing expected duration and the amount of RAM to use.
   
    All these parameters must start with the comment ``#SBATCH``, one per line,  
    and need to be included at the beginning of the file, just after
@@ -68,7 +68,7 @@ Thus, we say that a ``batch`` script has **three** parts:
 
    Next, you should create the necessary environment to make your job run correctly.
    This often means include the same set of steps that you do to run your application
-   locally on your sbatch script, things like export environmental variables,
+   locally on your sbatch script, things like export environment variables,
    create or delete files and directory structures, etc. 
    Remember a Slurm script is a shell script.
 
@@ -89,14 +89,14 @@ Thus, we say that a ``batch`` script has **three** parts:
 
    .. warning:: 
      Slurm **always** propagate the environment of the current user to the job.
-     This could impact the behavior of the job. If you want a clean environment
+     This could impact the behavior of the job. If you want a clean environment,
      add ``#SBATCH --export=NONE`` to your sbatch script. 
      This option is particularly important for jobs that are submitted  on  one  
      cluster  and execute on a different cluster (e.g. with different paths). 
    
 #. **Job's command(s)**
   
-  Finally you put the command that executes your application, including all the
+  Finally, you put the command that executes your application, including all the
   parameters. 
   You will often see the command ``srun`` calling the executable instead of 
   executing the application binary. For more information see `MPI jobs`_ section.  
@@ -124,15 +124,12 @@ this:
 
 .. note::
   Quick aspects about debug partition:
-  
-  * **Apolo:** 
 
+  * **Apolo:**
       * Number of Nodes: 2
       * Number of CPUs per node: 2
       * Memory per node: 2GB
-
   * **Cronos:** Not deployed yet.
-
   For more information, see :ref:`getting cluster information <info-jobs>` section
 
 .. warning::
@@ -142,16 +139,16 @@ this:
 
 Serial jobs
 -----------
-Serial jobs only uses a process with **one** execution thread, 
+Serial jobs only use a process with **one** execution thread,
 this means one core of a CPU, given our configuration without HTT_ 
 (Hyper-Threading Technology). 
 
-This kind of job does not take advantage of our computational resources, but 
+This kind of job does not take advantage of our computational resources but
 is the basic step to create more complex jobs. 
 
 In terms of Slurm, this job uses one ``task (process)`` and one 
 ``cpu-per-task (thread)`` in one ``node``. In fact, we don't need to specify any 
-resource, the default value for those options in Slurm are ``1``.
+resource, the default value for those options in Slurm is ``1``.
 
 Here_ is a good article about the differences between ``Processes`` and 
 ``Threads``.
@@ -166,21 +163,21 @@ In the template below we specify ``ntasks=1`` to make it explicit.
 Shared Memory jobs (OpenMP)
 ---------------------------
 This set up is made to create parallelism using threads on a single machine. 
-OpenMP make communication between process but they must be on the same machine,
+OpenMP makes communication between process but they must be on the same machine,
 it does not make any kind of communication between processes of different physical
 machines.
 
-In the below example we launch the classical ``Hello world`` OpenMP example.
+In the below example we launch the classical "Hello world" OpenMP example.
 It was compiled in :ref:`Cronos <about_cronos>` using ``intel compiler 18.0.1`` 
 as follow:
 
 .. code-block:: bash
 
-    module load intel/18.0.1
-    icc -fopenmp omp_hello.c -o hello_omp_intel_cronos
+    $ module load intel/18.0.1
+    $ icc -fopenmp omp_hello.c -o hello_omp_intel_cronos
 
-We used **16** ``threads``, the maximum number allowed in Cronos' long jobs 
-partition. In terms of Slurm we specify **16** ``cpu-per-task`` on one ``ntask``. 
+We used **16** ``threads``, the maximum number allowed in the Cronos' longjobs
+partition. In terms of Slurm, we specify **16** ``cpus-per-task`` and one ``ntasks``.
 
 .. literalinclude:: src/submit/templates/openmp.sh
        :language: bash
@@ -193,8 +190,7 @@ partition. In terms of Slurm we specify **16** ``cpu-per-task`` on one ``ntask``
 
 .. warning::
   Remember the maximum number of total threads that can be running at the same 
-  time in a compute node. As an extra information, our setup does not use HTT_
-  (Hyper-Threading Technology).
+  time in a compute node.
 
   * **Apolo:**
      * **Longjobs queue:** 32
@@ -205,33 +201,35 @@ partition. In terms of Slurm we specify **16** ``cpu-per-task`` on one ``ntask``
   * **Cronos:**
      * **Longjobs queue:** 16
   
-  Otherwise your job will overpass the maximum multiprocessing grade and this is 
-  going to cause a drastic decrease on the performance of your application.
+  Otherwise, your job will overpass the maximum multiprocessing grade and this is
+  going to cause a drastic decrease in the performance of your application.
   To know more about see: :ref:`FAQ <faq-slurm>`
 
+  As extra information, our setup does not use HTT_ (Hyper-Threading Technology).
+
 .. note::
-  We highly recommend to use the slurm variable ``$SLURM_CPUS_PER_TASK`` to specify 
-  the number of threads that OpenMP is going to work with. Most of applications 
+  We highly recommend using the slurm variable ``$SLURM_CPUS_PER_TASK`` to specify
+  the number of threads that OpenMP is going to work with. Most of the applications
   use  the variable ``OMP_NUM_THREADS`` to defined it. 
 
 MPI jobs
 --------
 
-MPI jobs are able to launch multiple process on multiple nodes. 
+MPI jobs are able to launch multiple processes on multiple nodes.
 There is a lot of possible workflows using MPI, here we are going to
-explain a basic one. Base on this example and modifying its parameters, you can
+explain a basic one. Based on this example and modifying its parameters, you can
 find the configuration for your specific need. 
 
 The example was compiled in :ref:`Cronos <about_cronos>` using ``impi`` as follow:
 
 .. code-block:: bash
     
-    module load impi
-    impicc hello_world_mpi.c -o mpi_hello_world_apolo
+    $ module load impi
+    $ impicc hello_world_mpi.c -o mpi_hello_world_apolo
 
 We submit the classic "Hello world" MPI example using 5 processes (``--ntasks=5``), 
 each one on a different machine (``--ntasks-per-node=1``). Just to be clear, 
-we are going to use 5 machines and 1 CPU per each, leavening the other CPUs
+we are going to use 5 machines and 1 CPU per each, leaving the other CPUs
 (15, in this specific case) free to be allocated by Slurm to other jobs.
 
 .. literalinclude:: src/submit/templates/mpi.sh
@@ -240,7 +238,7 @@ we are going to use 5 machines and 1 CPU per each, leavening the other CPUs
 
 .. note::
    The use of ``srun`` is mandatory here. It creates the necessary 
-   environment to lunch the MPI processes. There you can also specify other parameters.
+   environment to launch the MPI processes. There you can also specify other parameters.
    See ``man srun`` to more information.
 
    Also, the use of ``--mpi=pmi2`` is mandatory, it tells MPI to use the pmi2_ Slurm's 
@@ -270,10 +268,10 @@ Array jobs
 Also called Embarrassingly-Parallel_, this set up is commonly used by users
 that do not have a native parallel application, so they run **multiple parallel
 instances** of their application changing its ``input``. Each instance is
-independent and does not have any kind of communication with other. 
+independent and does not have any kind of communication with others.
 
 To do this, we specify an array using the ``sbatch`` parameter ``--array``,
-multiple values may be specified using a comma separated list and/or a 
+multiple values may be specified using a comma-separated list and/or a
 range of values with a "-" separator (e.g ``--array=1,3,5-10`` or ``--array=1,2,3``).
 This will be the values that the variable ``SLURM_ARRAY_TASK_ID`` is
 going to take in each ``array-job``.
@@ -290,7 +288,7 @@ This ``input`` usually refers to these cases:
    .. literalinclude:: src/submit/str_directory_array.txt
        :language: bash
 
-   We use one process (called ``ntask`` in Slurm) per each ``array-job``. 
+   We use one process (called ``task`` in Slurm) per each ``array-job``.
    The array goes from 0 to 4, so there are 5 processes copying the 5 files 
    contained in the ``test`` directory.
 
@@ -314,9 +312,9 @@ This ``input`` usually refers to these cases:
    You have **multiple parameters** to **process**.
 
    Similarly to the last example, we create an array with the values that you want
-   to use as parameters in your application. We use one process (``ntasks``)
+   to use as parameters in your application. We use one process (``task``)
    per ``array-job``. We are going to have 4 parameters (``0.05 100 999 1295.5``) 
-   to process (and 4 ``array-jobs``).
+   to process and 4 ``array-jobs``.
 
    **Force Slurm to run array-jobs in different nodes** 
 
@@ -339,18 +337,18 @@ use of the variable ``SLURM_ARRAY_TASK_ID``.
 .. note:: 
    The parameter ``ntasks`` specify the number of processes that **EACH** 
    ``array-job`` is going to use. So if you want to use more, you
-   just could to specify it. This idea also apply to all other ``sbatch``
+   just can specify it. This idea also applies to all other ``sbatch``
    parameters. 
 
 .. note:: 
-   You can also limit the  number of simultaneously running tasks from the job 
+   You can also limit the number of simultaneously running tasks from the job
    array using a ``%``  separator. For example ``--array=0-15%4`` will limit the 
    number of simultaneously running tasks from this job array to 4.
    
 
 Slurm's environment variables
 -----------------------------
-In the above examples we often use the output environment variables provided for
+In the above examples, we often used the output of the environment variables provided by
 Slurm. Here you have a table [3]_ with the most common variables. 
 
 .. csv-table:: Output environment variables
@@ -358,12 +356,12 @@ Slurm. Here you have a table [3]_ with the most common variables.
      :widths: 2,7
      :file: src/submit/output_env_table.csv
 
-Slurm's file-pattern
+Slurm's file-patterns
 --------------------
 ``sbatch``  allows filename patterns, this could be useful to name ``std_err`` and
 ``std_out`` files. Here you have a table [3]_ with some of them.  
 
-.. csv-table:: Slurm's file-pattern
+.. csv-table:: Slurm's file-patterns
      :header-rows: 1
      :widths: 3,7
      :file: src/submit/file-patern-table.csv

@@ -12,31 +12,10 @@ cover our most common use cases.
     strongly encourage reading some of the articles describe in `more information`_
     section.
 
-
-Submitting jobs
-----------------
-
 .. toctree::
-   :maxdepth: 2
-
-   submit
-
-
-Getting information about jobs
-------------------------------
-
-.. toctree::
-   :maxdepth: 2
-
-   info-jobs
-
-
-FAQ
----
-.. toctree::
-   :maxdepth: 2
-
-   faq
+    submit
+    info-jobs
+    faq
 
 More information
 -----------------

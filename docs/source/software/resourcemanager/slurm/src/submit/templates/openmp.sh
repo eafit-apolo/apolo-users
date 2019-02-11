@@ -9,7 +9,6 @@
 #SBATCH --partition=longjobs        # Partition
 #SBATCH --ntasks=1                  # Number of tasks (processes)
 #SBATCH --cpus-per-task=16          # Number of threads per task (Cronos-longjobs)
-##SBATCH --test-only                # Uncomment to test the job
 
 
 ##### ENVIRONMENT CREATION #####

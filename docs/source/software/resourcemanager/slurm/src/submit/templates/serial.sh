@@ -8,7 +8,6 @@
 #SBATCH --ntasks=1                   # Number of tasks (processes)
 #SBATCH --time=01:00                 # Walltime
 #SBATCH --partition=longjobs         # Partition
-##SBATCH --test-only                 # Uncomment to test the job
 
 
 ##### ENVIRONMENT CREATION #####

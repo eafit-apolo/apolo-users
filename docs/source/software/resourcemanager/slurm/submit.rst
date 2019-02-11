@@ -94,9 +94,9 @@ Thus, we say that a ``batch`` script has **three** parts:
      This option is particularly important for jobs that are submitted  on  one  
      cluster  and execute on a different cluster (e.g. with different paths). 
    
-#. **Job's command(s)**
+#. **Job(s) steps**
   
-  Finally, you put the command that executes your application, including all the
+  Finally, you put the command(s) that executes your application, including all the
   parameters. 
   You will often see the command ``srun`` calling the executable instead of 
   executing the application binary. For more information see `MPI jobs`_ section.  
@@ -104,38 +104,7 @@ Thus, we say that a ``batch`` script has **three** parts:
 There are other options beyond using ``sbatch`` to submit jobs to Slurm,
 like ``salloc`` or simply using ``srun``. We recommend using ``sbatch``, but
 depending on the specific need of your application those options could be better.
-To know more about see: :ref:`FAQ <faq-slurm>`
-
-
-Debug partition
----------------
-The debug partition is a useful queue created to test your Slurm job script,
-it does not have any performance capabilities but its nodes have the same 
-environment as the longjobs partition.
-
-To use this partition you only need to specify it in your batch script like
-this:
-
-.. code-block:: bash
-
-   #!/bin/bash
-   #SBATCH --partition=debug
-   # Other sbatch parameters
-
-.. note::
-  Quick aspects about debug partition:
-
-  * **Apolo:**
-      * Number of Nodes: 2
-      * Number of CPUs per node: 2
-      * Memory per node: 2GB
-  * **Cronos:** Not deployed yet.
-  For more information, see :ref:`getting cluster information <info-jobs>` section
-
-.. warning::
-  Debug partition has the same environment of longjobs, so if you want to test
-  a job that will be executed in a different queue (e.g Accel or Bigmem) 
-  it does not guarantee a successful execution. 
+To know more about see: :ref:`FAQ <faq-slurm>` and :ref:`testing-slurm`
 
 Serial jobs
 -----------
@@ -163,9 +132,9 @@ In the template below we specify ``ntasks=1`` to make it explicit.
 Shared Memory jobs (OpenMP)
 ---------------------------
 This set up is made to create parallelism using threads on a single machine. 
-OpenMP makes communication between process but they must be on the same machine,
-it does not make any kind of communication between processes of different physical
-machines.
+OpenMP makes communication between threads (``-c`` in Slurm) but they must be on
+the same machine, it does not make any kind of communication between 
+process/threads of different physical machines.
 
 In the below example we launch the classical "Hello world" OpenMP example.
 It was compiled in :ref:`Cronos <about_cronos>` using ``intel compiler 18.0.1`` 
@@ -305,7 +274,7 @@ This ``input`` usually refers to these cases:
 .. warning::
    Except to ``--array``, **ALL** other ``#SBATCH`` options specified in the 
    submitting Slurm script are used to configure **EACH** ``job-array``, including 
-   **ntasks**, **ntasks-per-node**, **time**, **mem**, **exclusive**, etc.
+   **ntasks**, **ntasks-per-node**, **time**, **mem**, etc.
 
 2. **Parameters input** 
 
@@ -325,7 +294,17 @@ This ``input`` usually refers to these cases:
 
    To get this we use the parameter ``--exclusive``, thus, for each ``job-array``
    Slurm will care about not to have other Slurm-job in the same node, even other
-   of your ``job-array``.  
+   of your ``job-array``.
+
+   .. note::
+      
+      Just to be clear, the use of ``--exclusive`` as a **SBATCH** parameter tells
+      Slurm that the job allocation cannot share nodes with other running jobs [4]_ .
+      However, it has a slightly **different** meaning when you use it as a 
+      parameter of a job-step (each separate srun execution inside a **SBATCH** 
+      script, e.g ``srun --exclusive $COMMAND``). For further information see 
+      ``man srun``.
+
 
   .. literalinclude:: src/submit/templates/array_param.sh
        :language: bash
@@ -357,7 +336,7 @@ Slurm. Here you have a table [3]_ with the most common variables.
      :file: src/submit/output_env_table.csv
 
 Slurm's file-patterns
---------------------
+---------------------
 ``sbatch``  allows filename patterns, this could be useful to name ``std_err`` and
 ``std_out`` files. Here you have a table [3]_ with some of them.  
 
@@ -371,6 +350,8 @@ Slurm's file-patterns
    If you need to separate the output of a job per each node requested, ``%N`` is
    specially useful, for example in array-jobs. 
 
+There 
+
 References
 ----------
 
@@ -383,6 +364,8 @@ References
 .. [3] SchedMD LLC (2018). Slurm, resource management [sbatch]. Copy of manual text available at
        https://slurm.schedmd.com/sbatch.html. Retrieved 17:20 January 30, 2019
 
+.. [4] SchedMD LLC (2018). Slurm, resource management [srun]. Copy of manual text available at
+       https://slurm.schedmd.com/srun.html. Retrieved 12:20 January 31, 2019
 
 .. _Module: http://modules.sourceforge.net/man/modulefile.html
 .. _HTT: https://en.wikipedia.org/wiki/Hyper-threading

@@ -14,6 +14,7 @@ cover our most common use cases.
 
 .. toctree::
     submit
+    testing
     info-jobs
     faq
 

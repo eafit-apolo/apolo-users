@@ -266,25 +266,25 @@ get the information.
 
         .. code-block:: bash
 
-            sacct -j1234
+             $ sacct -j1234
 
     * Get information about today's jobs submitted by a user (or users)
 
         .. code-block:: bash
 
-             sacct -S$(date +'%m/%d/%y') -u $USER
+             $ sacct -S$(date +'%m/%d/%y') -u $USER
 
     * Get information about jobs submitted by a user (or users) 1 week ago
 
         .. code-block:: bash
 
-             sacct -S$(date +'%m/%d/%y' --date="1 week ago") -u $USER
+             $ sacct -S$(date +'%m/%d/%y' --date="1 week ago") -u $USER
 
     * Get information about the job(s) by its name(s)
 
         .. code-block:: bash
 
-             sacct -S$(date +'%m/%d/%y') --name job_name
+             $ sacct -S$(date +'%m/%d/%y') --name job_name
 
    .. note::
 

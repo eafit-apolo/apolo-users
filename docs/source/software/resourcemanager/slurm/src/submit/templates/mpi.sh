@@ -9,7 +9,6 @@
 #SBATCH --partition=longjobs        # Partition
 #SBATCH --ntasks=5                  # Number of tasks (processes)
 #SBATCH --ntasks-per-node=1         # Number of task per node (machine)
-##SBATCH --test-only                # Uncomment to test the job
 
 
 ##### ENVIRONMENT CREATION #####

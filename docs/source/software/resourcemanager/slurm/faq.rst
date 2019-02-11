@@ -7,8 +7,8 @@
           :format: html
 
 
-FAQ
-===
+**FAQ**
+=======
 
 .. contents:: Contents
               :local:

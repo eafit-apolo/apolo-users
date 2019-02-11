@@ -7,14 +7,14 @@
           :format: html
 
 
-Getting information about jobs
-==============================
+**Getting information about jobs**
+==================================
 
 .. contents:: Contents
               :local: 
 
 
-**Getting cluster(s) state**
+Getting cluster(s) state
 ---------------------------- 
 
 In Slurm, nodes have different states [2]_, this tells if a job can or not be 
@@ -61,7 +61,7 @@ examples [1]_ [2]_ [3]_ .
       $ squeue -l
 
   .. note::
-       ``squeue`` jobs also include running jobs.
+       ``squeue`` also includes running jobs.
 
 
 * Show queued jobs by a specific user. Most of the cases you will need to get information
@@ -105,7 +105,7 @@ examples [1]_ [2]_ [3]_ .
    If you need further information, you can always check the command's manual
    ``man squeue``, ``man sinfo``, etc.
 
-**What's going on with my job?** Getting information about submitted jobs
+What's going on with my job? Getting information about submitted jobs
 -------------------------------------------------------------------------
 Once your job is queued in a specific partition you may want to know its state.
 There some of the Slurm's job states [3]_.
@@ -135,7 +135,7 @@ display the field ``reason (%R)`` more clearly.
 .. note::
 
    Not only pending jobs set the reason field, also failed jobs
-   show the reason for its failure.
+   set it, showing its failure message.
 
 .. note::
 
@@ -185,7 +185,7 @@ There is an example of its output from :ref:`Apolo II <about_apolo-ii>`.
   is the optimum. To know more about see: :ref:`FAQ <faq-slurm>`
 
 
-**Canceling a job**
+Canceling a job
 -------------------
 Once your job is submitted, you can do some operations in order to
 change its state. Here we list some useful examples [1]_ [4]_  .
@@ -244,7 +244,7 @@ change its state. Here we list some useful examples [1]_ [4]_  .
 
       $ scontrol requeue 1234
 
-**What happened with my job?** Getting information about finished jobs
+What happened with my job? Getting information about finished jobs
 ----------------------------------------------------------------------
 Here we are going to explain how to get information about completed jobs
 (that are no longer in the queue). Those commands use the Slurm database to

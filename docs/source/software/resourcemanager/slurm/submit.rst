@@ -7,8 +7,8 @@
           :format: html
 
 
-Submitting jobs
-===============
+**Submitting jobs**
+===================
 
 .. contents:: Contents
               :local:

@@ -136,7 +136,7 @@ OpenMP makes communication between threads (``-c`` in Slurm) but they must be on
 the same machine, it does not make any kind of communication between 
 process/threads of different physical machines.
 
-In the below example we launch the classical "Hello world" OpenMP example.
+In the below example we launched the classical "Hello world" OpenMP example [5]_.
 It was compiled in :ref:`Cronos <about_cronos>` using ``intel compiler 18.0.1`` 
 as follow:
 
@@ -177,7 +177,7 @@ partition. In terms of Slurm, we specify **16** ``cpus-per-task`` and one ``ntas
   As extra information, our setup does not use HTT_ (Hyper-Threading Technology).
 
 .. note::
-  We highly recommend using the slurm variable ``$SLURM_CPUS_PER_TASK`` to specify
+  We highly recommend using the Slurm variable ``$SLURM_CPUS_PER_TASK`` to specify
   the number of threads that OpenMP is going to work with. Most of the applications
   use  the variable ``OMP_NUM_THREADS`` to defined it. 
 
@@ -196,9 +196,9 @@ The example was compiled in :ref:`Cronos <about_cronos>` using ``impi`` as follo
     $ module load impi
     $ impicc hello_world_mpi.c -o mpi_hello_world_apolo
 
-We submit the classic "Hello world" MPI example using 5 processes (``--ntasks=5``), 
+We submited the classic "Hello world" MPI example [6]_ using 5 processes (``--ntasks=5``), 
 each one on a different machine (``--ntasks-per-node=1``). Just to be clear, 
-we are going to use 5 machines and 1 CPU per each, leaving the other CPUs
+we used 5 machines and 1 CPU per each, leaving the other CPUs
 (15, in this specific case) free to be allocated by Slurm to other jobs.
 
 .. literalinclude:: src/submit/templates/mpi.sh
@@ -251,14 +251,14 @@ This ``input`` usually refers to these cases:
 
    You have **multiple files/directories** to **process**.
   
-   In the below example/template we make a "parallel copy" of the files contained 
+   In the below example/template we made a "parallel copy" of the files contained 
    in ``test`` directory using the ``cp`` command. 
 
    .. literalinclude:: src/submit/str_directory_array.txt
        :language: bash
 
-   We use one process (called ``task`` in Slurm) per each ``array-job``.
-   The array goes from 0 to 4, so there are 5 processes copying the 5 files 
+   We used one process (called ``task`` in Slurm) per each ``array-job``.
+   The array goes from 0 to 4, so there were 5 processes copying the 5 files 
    contained in the ``test`` directory.
 
 
@@ -280,14 +280,14 @@ This ``input`` usually refers to these cases:
 
    You have **multiple parameters** to **process**.
 
-   Similarly to the last example, we create an array with the values that you want
-   to use as parameters in your application. We use one process (``task``)
-   per ``array-job``. We are going to have 4 parameters (``0.05 100 999 1295.5``) 
+   Similarly to the last example, we created an array with some values that we
+   wanted to use as parameters of the application. We used one process (``task``)
+   per ``array-job``. We had 4 parameters (``0.05 100 999 1295.5``) 
    to process and 4 ``array-jobs``.
 
    **Force Slurm to run array-jobs in different nodes** 
 
-   To give another feature to this example, we are going to use ``1`` node for 
+   To give another feature to this example, we used ``1`` node for 
    each ``array-job``, so, even knowing that one node can run up to 16 processes 
    (in the case of :ref:`Cronos <about_cronos>`) and the 4 ``array-jobs`` 
    could be assigned to ``1`` node, we forced Slurm to use ``4`` nodes. 
@@ -350,7 +350,10 @@ Slurm's file-patterns
    If you need to separate the output of a job per each node requested, ``%N`` is
    specially useful, for example in array-jobs. 
 
-There 
+For instance, if you use ``#SBATCH --output=job-%A.%a`` in an array-job the output 
+files will be something like ``job-1234.1``, ``job-1234.2`` , ``job-1234.3``;
+where: ``1234`` refers to the job array’s master job allocation number and ``1``
+, ``2`` and ``3`` refers to the id of each job-array. 
 
 References
 ----------
@@ -367,6 +370,16 @@ References
 .. [4] SchedMD LLC (2018). Slurm, resource management [srun]. Copy of manual text available at
        https://slurm.schedmd.com/srun.html. Retrieved 12:20 January 31, 2019
 
+.. [5] Barney Blaise (2005) OpenMP Example - Hello World - C/C++ Version.
+       Example was taken from 
+       https://computing.llnl.gov/tutorials/openMP/samples/C/omp_hello.c
+       Retrieved 09:32 February 12, 2019
+
+.. [6] Burkardt John (2008) Using MPI: Portable Parallel Programming with the                                          
+       Message-Passing Interface. Example was taken from 
+       https://people.sc.fsu.edu/~jburkardt/c_src/heat_mpi/heat_mpi.c
+       Retrived 09:38 February  12, 2019
+ 
 .. _Module: http://modules.sourceforge.net/man/modulefile.html
 .. _HTT: https://en.wikipedia.org/wiki/Hyper-threading
 .. _Here: https://www.backblaze.com/blog/whats-the-diff-programs-processes-and-threads/

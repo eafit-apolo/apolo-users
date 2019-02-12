@@ -56,11 +56,13 @@ and, if available, interactively run jobs steps under that allocation using
 a sub-shell created by Slurm [1]_ .
 
 This sub-shell will let you write those commands that you use to execute your 
-application on that allocated **compute node(s)**, as it were executed in a 
-sbatch script. Thus, every command will give you an immediately feedback of its 
-``std_out``, ``std_err`` and ``EXIT_CODE`` in your terminal. We recommend to
-follow the same parts we used on a ``sbatch``: **Environment creation** and 
-**Job(s) steps**.  See :ref:`submit` to know more information.
+application on the allocated **compute node(s)** of your job, as they were executed
+on a sbatch script. Thus, every command will give you immediate feedback of its 
+``std_out``, ``std_err`` and ``EXIT_CODE`` in your terminal. We recommend 
+following these parts: **Environment creation** and **Job(s) steps**. 
+See :ref:`submit` to know more information.
+
+
 
 This example shows the submission of HPL_, a well known implementation of 
 the High Performance Computing Linpack Benchmark, it uses ``MPI``. 
@@ -80,20 +82,20 @@ Following the same parts showed in the :ref:`submit` we will have:
 
      $ ./xhpl
 
-In this case we execute HPL_ using  ``16`` processes (``--ntaks=16`` in Slurm). 
-You need to use specify the **Walltime**, when you are using ``salloc`` it 
-refers to the time that the sub-shell will be alive.
+In this case we executed HPL_ using  ``16`` processes (``--ntaks=16`` in Slurm). 
+You need to specify the **Walltime**, it refers to the time that the sub-shell 
+will be alive.
 
-First, we run ``salloc`` specifying the number of processes and the period of time, 
+First, we ran ``salloc`` specifying the number of processes and the period of time, 
 this will allocated the resources and, if available, create the sub-shell. 
 
 .. image:: src/testing/images/hpl1.png
 
-Next we run the commands to create the environment
+Next we ran the commands to create the environment
 
 .. image:: src/testing/images/hpl2.png
 
-Then we execute the job-step. You can notice the `std_out` was immediately 
+Then we executed the job-step. You can notice the `std_out` was immediately 
 written on the terminal 
 
 .. image:: src/testing/images/hpl3.png
@@ -139,7 +141,7 @@ References
 ----------
 
 .. [1] SchedMD LLC (2018). Slurm, resource management [salloc]. Copy of manual text available at
-       https://slurm.schedmd.com/salloc.html. Retrieved 17:20 January 30, 2019
+       https://slurm.schedmd.com/salloc.html. Retrieved 18:11 February 11, 2019
 
 .. [2] SchedMD LLC (2018). Slurm, resource management [sbatch]. Copy of manual text available at
        https://slurm.schedmd.com/sbatch.html. Retrieved 17:20 January 30, 2019

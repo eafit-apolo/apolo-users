@@ -121,3 +121,22 @@ Here_ is a good explanation about the difference between Process and Threads.
 
 .. _Here: https://www.backblaze.com/blog/whats-the-diff-programs-processes-and-threads/
 .. _htop: https://hisham.hm/htop/
+
+
+How to know the name(s) of the allocated node(s) inside my job ?
+---------------------------------------------------------------- 
+The are cases where is useful to know which node(s) has been allocated to run my 
+job. In order to make your script dynamic, you can ask Slurm that information using:
+
+.. code-block:: bash
+   
+     # SBATCH PAMATERTS
+
+     scontrol show hostname > hostnames.out
+
+     # job steps
+
+This example store the name of the allocated machines in the file ``hostname.out``.
+You can use it inside a ``sbatch`` script or as a command in a ``salloc``
+sub-shell.
+

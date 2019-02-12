@@ -33,7 +33,7 @@ this:
    # Other sbatch parameters
 
 .. note::
-  Quick aspects about debug partition:
+  Quick aspects about the debug partition:
 
   * **Apolo:**
       * Number of Nodes: 2
@@ -62,36 +62,24 @@ on a sbatch script. Thus, every command will give you immediate feedback of its
 following these parts: **Environment creation** and **Job(s) steps**. 
 See :ref:`submit` to know more information.
 
-
-
-This example shows the submission of HPL_, a well known implementation of 
+This example shows the submission of HPL_, a well-known implementation of 
 the High Performance Computing Linpack Benchmark, it uses ``MPI``. 
 
 Following the same parts showed in the :ref:`submit` we will have:
 
 * **Environment creation**: We need to load two modules: ``impi`` and ``mkl``
-   
-   .. code-block::bash
-
-     $ module load impi
-     $ mdoule load mkl
-
 * **Job step**: HPL uses one job-step, the execution of ``xhpl``
 
-   .. code-block::bash
-
-     $ ./xhpl
-
-In this case we executed HPL_ using  ``16`` processes (``--ntaks=16`` in Slurm). 
+In this case, we executed HPL_ using  ``16`` processes (``--ntaks=16`` in Slurm). 
 You need to specify the **Walltime**, it refers to the time that the sub-shell 
 will be alive.
 
 First, we ran ``salloc`` specifying the number of processes and the period of time, 
-this will allocated the resources and, if available, create the sub-shell. 
+allocating the resources and, if available, it will create a sub-shell. 
 
 .. image:: src/testing/images/hpl1.png
 
-Next we ran the commands to create the environment
+Next, we ran the commands to create the environment
 
 .. image:: src/testing/images/hpl2.png
 
@@ -105,9 +93,9 @@ written on the terminal
    If you are using ``salloc``, the use of ``srun`` in every **job-step** is mandatory.
    It does not matter the type of job you are computing (even a Serial or OpenMP job).
    This is because, compared with the jobs submitted using sbatch, salloc's jobs
-   does not have a ``BatchHost`` and by default all the commands are executed in the
-   **master node**, **not** in one of the allocated compute nodes, you need to 
-   use srun to explicitly run that command in the allocated node(s)
+   does not have a ``BatchHost`` by default, so all the commands are executed in the
+   **master node**, instead of one of the allocated compute nodes. You need to 
+   use ``srun`` to **explicitly** run that command in the allocated node(s)
 
    This example illustrates the problem of **not** using ``srun`` in a job-step
     

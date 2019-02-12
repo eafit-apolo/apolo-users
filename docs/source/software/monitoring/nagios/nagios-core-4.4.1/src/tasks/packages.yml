@@ -68,9 +68,18 @@
 
 - name: Python dependency for Dell OME Plugin
   pip:
-    name: "{{ item }}"
-    state: present
-  with_items:
+    name:
     - omsdk
     - omdrivers
     - argparse
+    state: present
+
+- name: Dependencies for PNP4Nagios
+  yum:
+    name:
+    - rrdtool
+    - php
+    - perl
+    - rrdtool-perl
+    - rh-php70-php-gd
+    state: present

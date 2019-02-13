@@ -133,7 +133,14 @@ Params                        Value
 
 	wget http://verify.pnp4nagios.org/verify_pnp_config
 	perl verify_pnp_config -m bulk+npcd -c /usr/local/nagios/etc/nagios.cfg -p /usr/local/pnp4nagios/etc/
-	
+
+
+After installing and configuring PNP4Nagios, the main webpage will display a detailed
+environment test:
+
+     .. image:: ../images/pnp4nagios-test.png
+
+If your environment passed all requirements, remove the :bash:`/usr/local/pnp4nagios/share/install.php` file.
 
 Troubleshooting
 ---------------
@@ -143,9 +150,10 @@ Troubleshooting
 php-gd not detected
 ''''''''''''''''''''
 
-It's possible that after installing PHP-GD, the package is unrecognizable by PHP, the solution is
-to create a file in :bash:`/etc/php.d/` that contains the extension information indicating the path
-to the gd.so library.
+**PROBLEM:** After installing PHP-GD, the package is unrecognizable by PHP.
+
+**SOLUTION:** To create a file in :bash:`/etc/php.d/` that contains the
+extension information indicating the path to the gd.so library.
 
 .. code-block:: bash
 

@@ -45,6 +45,7 @@
     - nmap
     - libtdb-devel
     - python
+    - openssl-devel
     state: present
     update_cache: yes
 
@@ -81,5 +82,5 @@
     - php
     - perl
     - rrdtool-perl
-    - rh-php70-php-gd
+    - php-gd
     state: present

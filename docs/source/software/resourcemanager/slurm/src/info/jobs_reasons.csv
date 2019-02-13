@@ -1,0 +1,6 @@
+**Reason**,**Description**
+**QOSMaxCpuPerUserLimit**,"User's allocated jobs are already using the maximum number of CPUs allowed per user. Once the number of allocated CPUs decrease, the job(s) will start"
+**Priority**,"One or more higher priority jobs exist for this queue, usually jobs are allocated with a First In First Out set up, for further information see ``man sprio``"
+**Resources**,"The job is waiting for resources (CPUs, Memory, nodes, etc). to become available"
+**TimeLimit**,The job exhausted its time limit
+**BadConstraints**,The job's constraints can not be satisfied

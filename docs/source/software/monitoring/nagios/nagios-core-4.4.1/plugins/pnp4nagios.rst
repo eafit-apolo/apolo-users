@@ -40,7 +40,7 @@ For more information about these registers read the section :ref:`nagios-plugins
 
 The installation process consists of downloading, uncompressing, configuring and compiling the plugin.
 
-.. note:: **fullinstall** opion installs the main program, runlevel scripts, config and HTML files.
+.. note:: **fullinstall** option installs the main program, runlevel scripts, config and HTML files.
 
 .. literalinclude:: ../src/tasks/pnp4nagios-install.yml
    :language: yaml
@@ -94,12 +94,15 @@ It's necessary to redefine the :bash:`process-service-perfdata-file` and :bash:`
 		command_line    /bin/mv /usr/local/pnp4nagios/var/host-perfdata /usr/local/pnp4nagios/var/spool/host-perfdata.$TIMET$
    }
 
+"Using these commands the file service-perfdata will be moved to var/spool/ after the interval specified in service_perfdata_file_processing_interval has passed. The Nagios macro $TIMET$ is appended to the filename to avoid overwriting of old files unintentionally." [2]_
+   
 NPCD monitors :bash:`/usr/local/pnp4nagios/var/spool/` directory and :bash:`process_perfdata.pl`
 processes these files decoupled from Nagios.
 
-.. note:: This configuration process is intended to be automated with the task :ref:`nagios-config.yml`, these options should be written previously in the config files present in the ansible role.
+.. note:: This configuration process is intended to be automated with the task :ref:`nagios-config.yml`.
+		  These options should be written previously in the config files present in the ansible role.
 
-After configuring PNP4Nagios, it's recomended to start NPCD as a daemon, executing:
+After configuring PNP4Nagios, it's recommended to start NPCD as a daemon, executing:
 
 .. code-block:: bash
 
@@ -119,6 +122,9 @@ configuration file needed by PHP-GD, a dependency of PNP4Nagios.
 Test PNP4Nagios
 ---------------
 
+1. Perl Script
+''''''''''''''
+
 PNP4Nagios can be tested executing a verification script provided by the official page. The main script options are:
 
 ============================= ========================================================
@@ -134,8 +140,10 @@ Params                        Value
 	wget http://verify.pnp4nagios.org/verify_pnp_config
 	perl verify_pnp_config -m bulk+npcd -c /usr/local/nagios/etc/nagios.cfg -p /usr/local/pnp4nagios/etc/
 
-
-After installing and configuring PNP4Nagios, the main webpage will display a detailed
+2. PHP Home Page Check
+''''''''''''''''''''''
+	
+After installing and configuring PNP4Nagios, the Home webpage :bash:`http://<host>/pnp4nagios` will display a detailed
 environment test:
 
      .. image:: ../images/pnp4nagios-test.png
@@ -164,14 +172,15 @@ Can't find Nagios Environment
 '''''''''''''''''''''''''''''
 
 **PROBLEM:** If PNP4Nagios is configured in Sync mode using Nagios Core 4.x, the following message
-appears in the web page:
+appears on the web page:
 
 .. code-block:: bash
 			   
      Cant find Nagios Environment. Exiting ....
      perfdata directory "/usr/local/pnp4nagios/var/perfdata/" is empty. Please check your Nagios config.
 
-**SOLUTION:** Apparently it's a Nagios 4 bug, where environment data used by pnp4nagios is not provided in sync mode [3]_. Bulk mode with NPCD is a better mode for configuring PNP4Nagios.
+**SOLUTION:** Apparently, it's a Nagios 4 bug, where environment data used by pnp4nagios is not provided
+in sync mode [3]_. Bulk mode with NPCD is a better mode for configuring PNP4Nagios.
 
 References
 ----------

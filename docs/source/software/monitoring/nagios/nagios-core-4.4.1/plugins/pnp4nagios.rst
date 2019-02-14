@@ -6,10 +6,10 @@
 PNP4Nagios
 ==========
 
-.. contents:: Table of Contents	      
-
 PNP is an addon to Nagios which analyzes performance data provided
 by plugins and stores them automatically into RRD-databases. [1]_
+
+.. contents:: Table of Contents	      
 
 Basic information
 -----------------
@@ -94,7 +94,11 @@ It's necessary to redefine the :bash:`process-service-perfdata-file` and :bash:`
 		command_line    /bin/mv /usr/local/pnp4nagios/var/host-perfdata /usr/local/pnp4nagios/var/spool/host-perfdata.$TIMET$
    }
 
-"Using these commands the file service-perfdata will be moved to var/spool/ after the interval specified in service_perfdata_file_processing_interval has passed. The Nagios macro $TIMET$ is appended to the filename to avoid overwriting of old files unintentionally." [2]_
+"Using these commands the file service-perfdata will be moved to
+:bash:`/usr/local/pnp4nagios/var/spool/` after the interval specified in
+:bash:`service_perfdata_file_processing_interval` has
+passed. The Nagios macro **$TIMET$** is appended to the filename to avoid
+overwriting of old files unintentionally." [2]_
    
 NPCD monitors :bash:`/usr/local/pnp4nagios/var/spool/` directory and :bash:`process_perfdata.pl`
 processes these files decoupled from Nagios.
@@ -158,15 +162,15 @@ Troubleshooting
 php-gd not detected
 ''''''''''''''''''''
 
-**PROBLEM:** After installing PHP-GD, the package is unrecognizable by PHP.
+**PROBLEM:** PHP-GD is installed but is unrecognizable by PHP.
 
 **SOLUTION:** To create a file in :bash:`/etc/php.d/` that contains the
-extension information indicating the path to the gd.so library.
+extension information indicating the path to the gd.so library. Example:
 
 .. code-block:: bash
 
    [gd]
-   extension=/opt/rh/rh-php70/root/usr/lib64/php/modules/gd.so
+   extension=/usr/lib64/php/modules/gd.so
 
 Can't find Nagios Environment
 '''''''''''''''''''''''''''''

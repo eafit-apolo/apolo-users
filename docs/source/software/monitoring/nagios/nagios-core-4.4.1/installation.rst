@@ -112,8 +112,7 @@ _________________
 
 The objective is to configure Nagios to provide a Web interface, so it's necessary to write in the
 **httpd.conf** file the line **Listen <IP>:80**. In this generic installation, we will insert **Listen 80**,
-allowing every network interface to provide this service. We will also write in this file the definition
-of the ServerName.
+allowing every network interface to provide this service.
 
 Finally, we will associate in **/etc/hosts** our **nagios_ip** with the **ServerName** set previously.
 
@@ -252,6 +251,7 @@ Read the following sections for more information about the installation and conf
 - :ref:`IPMI Sensors <ipmi-sensors-plugin-index>`
 - :ref:`Dell OpenManage <dell-nagios-plugin-index>`
 - :ref:`iLO AgentLess Management Plugin <ilo-rest-plugin-index>`
+- :ref:`PNP4Nagios <pnp4nagios-plugin-index>`
 
 
 Final Check

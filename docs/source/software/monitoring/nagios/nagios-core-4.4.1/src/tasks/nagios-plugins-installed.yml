@@ -19,3 +19,8 @@
   stat:
     path: /usr/local/nagios/dell
   register: dell_plugin_dir
+
+- name: Checks if PNP4Nagios is installed
+  stat:
+    path: /usr/local/pnp4nagios
+  register: pnp_dir

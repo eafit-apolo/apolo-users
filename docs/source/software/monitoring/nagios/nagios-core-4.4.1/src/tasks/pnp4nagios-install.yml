@@ -1,0 +1,30 @@
+---
+- name: Create Temp Dir
+  file:
+    path: "{{ temp_dir }}"
+    state: directory
+
+- name: Download PNP4Nagios Plugin
+  get_url:
+    url: "{{ pnp_plugin_url }}"
+    dest: "{{ temp_dir }}/{{ pnp_plugin_file }}"
+
+- name: Extract PNP4Nagios Plugins
+  unarchive:
+    src: "{{ temp_dir }}/{{ pnp_plugin_file }}"
+    dest: "{{ temp_dir }}"
+
+- name: Exec configure
+  shell: "./configure"
+  args:
+    chdir: "{{ temp_dir }}/pnp4nagios-0.6.26"
+
+- name: Make all
+  make:
+    chdir: "{{ temp_dir }}/pnp4nagios-0.6.26"
+    target: all
+
+- name: Make Full install
+  make:
+    chdir: "{{ temp_dir }}/pnp4nagios-0.6.26"
+    target: fullinstall

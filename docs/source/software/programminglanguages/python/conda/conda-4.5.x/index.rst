@@ -6,8 +6,6 @@
 Conda-4.5.x
 ===========
 
-[Introduction]
-
 .. toctree::
    :caption: User guide
    :maxdepth: 2

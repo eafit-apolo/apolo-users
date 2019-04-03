@@ -8,7 +8,7 @@ Conda environments
 
 What is a virtual environment
 +++++++++++++++++++++++++++++
-A virtual environment [1]_ is a named, isolated, working copy of Python that that maintains its own files, directories, and paths so that you can work with specific versions of libraries or Python itself without affecting other Python projects.
+A virtual environment [1]_ is a named, isolated, working copy of Python that maintains its own files, directories, and paths so that you can work with specific versions of libraries or Python itself without affecting other Python projects.
 
 Creating a virtual environment
 ++++++++++++++++++++++++++++++
@@ -17,9 +17,8 @@ To create a virtual environment run:
 .. code-block:: bash
 
     conda create -n <environment-name>
-
-The environment will be created at user's home in the conda directory :bash:`.conda/envs/<environment-name>`. Then Conda will ask for 
-permission to proceed, press :bash:`y`. 
+ 
+ Then Conda will ask for permission to proceed, press :bash:`y`. Remember, the environment usually is created at user's home directory :bash:`.conda/envs/environment-name>`. 
 
 Activate a virtual environment
 ++++++++++++++++++++++++++++++
@@ -75,7 +74,7 @@ Other useful commands
 
 Create a requirements file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
-The requirements file is a way to get pip to install specific packages to make up an environment [2]_, also this file lists all the packages so is use to documentation. In Conda, you can create this file using:
+The requirements file is a way to get pip to install specific packages to make up an environment [2]_, also this file list all the packages that are use to documentation. In Conda, you can create this file using:
 
 .. code-block:: bash
 

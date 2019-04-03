@@ -16,9 +16,9 @@ To create a virtual environment run:
 
 .. code-block:: bash
 
-    conda create -n <environment-name>
- 
- Then Conda will ask for permission to proceed, press :bash:`y`. Remember, the environment usually is created at user's home directory :bash:`.conda/envs/environment-name>`. 
+    conda create -n <virtual-environment>
+
+Then Conda will ask for permission to proceed, press :bash:`y`. Remember, the environment usually is created at user's home directory :bash:`.conda/envs/environment-name>`. 
 
 Activate a virtual environment
 ++++++++++++++++++++++++++++++

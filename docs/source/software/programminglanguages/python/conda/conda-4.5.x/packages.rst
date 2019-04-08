@@ -14,13 +14,13 @@ To install a package in the current environment use:
 
     conda install <package-name>
 
-Also you can specify an environment for the installation:
+Also, you can specify an environment for the installation:
 
 .. code-block:: bash
 
     conda install -n <environment-name> <package-name>
 
-Additionally, you can install an specific package version:
+Additionally, you can install a specific package version:
 
 .. code-block:: bash
 
@@ -42,11 +42,11 @@ Uninstall a package
 ^^^^^^^^^^^^^^^^^^^
 To remove a list of packages from your current environment use, you can use remove or uninstall (that is an alias for remove):
 
-.. code-block:: bash 
+.. code-block:: bash
 
     conda remove <package-name>
 
-Also you can specify an environment:
+Also, you can specify an environment:
 
 .. code-block:: bash
 
@@ -62,7 +62,7 @@ Also you can specify an environment:
 
 Update packages
 ^^^^^^^^^^^^^^^^
-You can check if a new package update is available, you can choose install it or not:
+You can check if a new package update is available, you can choose to install it or not:
 
 .. code-block:: bash
 

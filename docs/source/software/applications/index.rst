@@ -9,11 +9,13 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
 
 .. toctree::
    :maxdepth: 1	
-   
+
+   ansys/index
    bayescan/index
    edge_pro/index
    lammps/index
    mafft/index
-   raxml/index
    picrust2/index
+   raxml/index
+
    

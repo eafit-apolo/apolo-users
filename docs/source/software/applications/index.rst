@@ -15,3 +15,4 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    mafft/index
    raxml/index
    picrust2/index
+   repet/index

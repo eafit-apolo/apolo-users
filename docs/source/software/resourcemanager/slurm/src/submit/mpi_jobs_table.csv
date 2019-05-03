@@ -1,0 +1,6 @@
+**You want**,**You ask**
+N CPUs,``--ntasks=N``
+N CPUs spread across distinct nodes,``--ntasks=N --nodes=N``
+N CPUs spread across distinct nodes and nobody else around,``--ntasks=N --nodes=N --exclusive``
+N CPUs spread across N/2 nodes,``--ntasks=N --ntasks-per-node=2``
+N CPUs on the same node,``--ntasks=N --ntasks-per-node=N``

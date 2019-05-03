@@ -1,0 +1,27 @@
+JobId=1234 JobName=CuteJob
+   UserId=user1(11) GroupId=user1(34) MCS_label=N/A
+   Priority=2000 Nice=0 Account=ddp QOS=normal
+   JobState=RUNNING Reason=None Dependency=(null)
+   Requeue=1 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
+   RunTime=2-22:33:43 TimeLimit=4-03:00:00 TimeMin=N/A
+   SubmitTime=2019-01-29T03:46:05 EligibleTime=2019-01-29T03:46:05
+   AccrueTime=2019-01-29T03:46:05
+   StartTime=2019-01-29T15:47:12 EndTime=2019-02-02T18:47:12 Deadline=N/A
+   PreemptTime=None SuspendTime=None SecsPreSuspend=0
+   LastSchedEval=2019-01-29T15:47:12
+   Partition=accel AllocNode:Sid=apolo:2222
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=compute-0-5
+   BatchHost=compute-0-5
+   NumNodes=1 NumCPUs=32 NumTasks=32 CPUs/Task=1 ReqB:S:C:T=0:0:*:*
+   TRES=cpu=32,mem=60000M,node=1,billing=32
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=1 MinMemoryCPU=1875M MinTmpDiskNode=0
+   Features=(null) DelayBoot=00:00:00
+   OverSubscribe=OK Contiguous=0 Licenses=(null) Network=(null)
+   Command=/home/user1/cutejob/slurm.sh
+   WorkDir=/home/user1/cutejob
+   StdErr=/home/user1/cutejob/cutejob.1234.err
+   StdIn=/dev/null
+   StdOut=/home/user1/cutejob/cutejob.1234.out
+   Power=

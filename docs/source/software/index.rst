@@ -13,4 +13,5 @@ Software
    resourcemanager/index
    provisioning/index
    monitoring/index
-   
+   operatingsystems/index
+

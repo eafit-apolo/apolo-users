@@ -45,6 +45,7 @@
     - nmap
     - libtdb-devel
     - python
+    - openssl-devel
     state: present
     update_cache: yes
 
@@ -68,9 +69,18 @@
 
 - name: Python dependency for Dell OME Plugin
   pip:
-    name: "{{ item }}"
-    state: present
-  with_items:
+    name:
     - omsdk
     - omdrivers
     - argparse
+    state: present
+
+- name: Dependencies for PNP4Nagios
+  yum:
+    name:
+    - rrdtool
+    - php
+    - perl
+    - rrdtool-perl
+    - php-gd
+    state: present

@@ -61,7 +61,7 @@ Build process
 	     module load intel/intel-18.0.2
 
 
-#. Finally, create the installation directory and move the builded executable.
+#. Finally, create the installation directory and move the built executable.
 		
  **Apolo**
    

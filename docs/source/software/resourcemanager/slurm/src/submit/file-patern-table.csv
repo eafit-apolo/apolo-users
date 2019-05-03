@@ -1,0 +1,6 @@
+**File-patern**,**Expands to**
+``%A``,Job array’s master job allocation number
+``%a``,Job array ID (index) number
+``%j``,jobid of the running job
+``%x``,Job name
+``%N``,short hostname. This will create a separate IO file per node

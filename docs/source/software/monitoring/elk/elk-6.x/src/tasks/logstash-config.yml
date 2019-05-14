@@ -1,0 +1,19 @@
+---
+- name: Configure logstash
+  copy:
+    src: "etc/logstash/{{ item }}"
+    dest: "/etc/logstash/{{ item }}"
+    mode: 0644
+  with_items:
+    - pipelines.yml
+    - logstash.yml
+  notify: enable_restart_logstash
+
+- name: Logstash main pipeline configuration file
+  template:
+    src: "etc/logstash/conf.d/main_pipeline.conf.j2"
+    dest: "/etc/logstash/conf.d/main_pipeline.conf"
+    owner: root
+    group: root
+    mode: 0644
+  notify: enable_restart_logstash

@@ -46,8 +46,8 @@ The architecture in which the ELK Stack was installed is the following.
                       ||
                       ||
                       ||
-                  ------------------
-                      |                |
+              -------------------
+              |                 |
             ------------      ------------
               Filebeat          Filebeat
             ------------      ------------

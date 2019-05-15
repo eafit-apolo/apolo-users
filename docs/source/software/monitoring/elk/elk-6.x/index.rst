@@ -13,9 +13,9 @@ ELK Stack 6.x Installation and Configuration
 
 .. note::
   
-  - Install Java JDK 8, more recent versions may have compatibility problems. Just run the ansible role in the ansible-vms repo.
+  - Install Java JDK 8, more recent versions may have compatibility problems.
   - You must use the same version for Logstash, Elasticsearch, Kibana to avoid compatibility problems.
-  - Also, when reading the guides check that guide version is compatible with the version of your ELK stack.
+  - Also, when reading the guides check that the guide version is compatible with the version of your ELK stack.
   - The RAM used by Logstash and Elasticsearch is a lot. By default 1GB for heap, plus the jvm which is about 2.5 GB of RAM.
   - Install, configure, and start the services in the following order, then you will avoid repeating some steps, and also some problems. Note that this order is the same as the one in the role *elk*.
 
@@ -29,29 +29,31 @@ Basic information
 
 - **Official website:** https://www.elastic.co/elk-stack
 
+.. _installation-label:
+
 Installation
 ------------
-The architecture in which the ELK Stack were installed is the following.
+The architecture in which the ELK Stack was installed is the following.
 
 .. code-block:: bash
-	
-		        ELK Server
-		       ----------------
-		         Kibana
-		         Elasticsearch
-		         Logstash
-		       ----------------
-		              ||
-		              ||
-		              ||
-	              ------------------
+    
+                ELK Server
+               ----------------
+                 Kibana
+                 Elasticsearch
+                 Logstash
+               ----------------
+                      ||
+                      ||
+                      ||
+                  ------------------
                       |                |
-	        ------------      ------------
-	          Filebeat          Filebeat
-	        ------------      ------------
-	         Beat Server       Beat Server
+            ------------      ------------
+              Filebeat          Filebeat
+            ------------      ------------
+             Beat Server       Beat Server
 
-Also, it is important to note that the stack of applications were installed on CentOS 7 using `Ansible <https://www.ansible.com/>`_. Therefore, in the next subsections there will be an explanation of the tasks used to install each of the ELK Stack components.
+Also, it is important to note that the stack of applications was installed on CentOS 7 using `Ansible <https://www.ansible.com/>`_. Therefore, in the next subsections, there will be an explanation of the tasks used to install each of the ELK Stack components.
 
 Before proceeding to the installation of each main component, it is needed to add the ELK's repository to the rpm's repositories.
 
@@ -79,7 +81,7 @@ After installing the needed package, Elasticsearch is configured like this:
 .. literalinclude:: src/tasks/elasticsearch-config.yml
    :language: yaml
 
-The elasticsearch main configuration file, which is a template, is rendered in :bash:`/etc/elasticsearch/`. The template can be found :download:`here <src/templates/etc/elasticsearch/elasticsearch.yml.j2>`. In that template you will find a variable called :yaml:`{{ machine }}`, which is rendered as the hostname of our ELK server, in our case *elk*. So in your case, you can use whatever you want, but from now on in this guide we will use the hostname *elk*. Also, when the configuration file is placed, a notify is made so that the elasticsearch service is started/restarted. The handler looks like this:
+The Elasticsearch main configuration file, which is a template, is rendered in :bash:`/etc/elasticsearch/`. The template can be found :download:`here <src/templates/etc/elasticsearch/elasticsearch.yml.j2>`. In that template, you will find a variable called :yaml:`{{ machine }}`, which is rendered as the hostname of our ELK server, in our case *elk*. So in your case, you can use whatever you want, but from now on in this guide, we will use the hostname *elk*. Also, when the configuration file is placed, a notify is made so that the Elasticsearch service is started/restarted. The handler looks like this:
 
 .. literalinclude:: src/handlers/elasticsearch-handler.yml
    :language: yaml
@@ -90,32 +92,32 @@ After installing the needed package, Kibana is configured like this:
 
 .. literalinclude:: src/tasks/kibana-config.yml
    :language: yaml
-	      
-The kibana main configuration file, which is a template, is rendered in :bash:`/etc/kibana/`. The template can be found :download:`here <src/templates/etc/kibana/kibana.yml.j2>`. Also, when the configuration file is placed, a notify is made so that the kibana service is started/restarted. The handler looks like this:
+          
+The Kibana main configuration file, which is a template, is rendered in :bash:`/etc/kibana/`. The template can be found :download:`here <src/templates/etc/kibana/kibana.yml.j2>`. Also, when the configuration file is placed, a notify is made so that the Kibana service is started/restarted. The handler looks like this:
 
 .. literalinclude:: src/handlers/kibana-handler.yml
    :language: yaml
 
 After installing and configuring Kibana, it is time to give structure to our logs and create/import the dashboards and visualizations needed:
-	      
+          
 1. Access the web interface through *http://elk:5601*. To access it using the domain name *elk* remember to add elk to your *hosts* file.
 2. Organize the information. This will help you plot all your data easily.
 
-  .. note:: Create the indexes, and the mappings BEFORE sending any data to elasticsearch.
+  .. note:: Create the indexes, and the mappings BEFORE sending any data to Elasticsearch.
      
   a) Create *indexes* and *mappings*, that is, give types and formats to your data.
-	 
-     * In the *Dev Tools* section, copy and paste the content of the index and mappings :download:`file <config/index_and_mappings.txt>`, then select it all and click on RUN. Note that these mappings are the ones that we use, you can take as an example and create your owns, for more information go to ELK's documentation about `mappings <https://www.elastic.co/guide/en/kibana/current/tutorial-load-dataset.html#_set_up_mappings>`_.
+     
+     * In the *Dev Tools* section, copy and paste the content of the index and mappings :download:`file <config/index_and_mappings.txt>`, then select it all and click on RUN. Note that these mappings are the ones that we use, you can take them as an example and create yours, for more information go to ELK's documentation about `mappings <https://www.elastic.co/guide/en/kibana/current/tutorial-load-dataset.html#_set_up_mappings>`_.
      * To easily see your mappings go to: Management -> Index management -> Select your index -> Mapping.
-	     
-  b) Continue with **c** and **d** steps after filebeat is sending information as well as logstash is filtering it and passing it to elasticsearch.
-	 
+         
+  b) Continue with **c** and **d** steps after :ref:`filebeat-label` is sending information as well as logstash is filtering it and passing it to elasticsearch. So please go to :ref:`filebeat-label`.
+     
      * You can check that it is already done if you can create *index patterns*, that is, it won't let you create them if you don't have any data.
 
   c) Create the dashboard and visualizations.
-	 
-     * Go to: *Management*, then, under the Kibana section go to *Saved Objects*, then, *Import*, and import the dashboards and visualizations :download:`file <config/dashboards_and_visualizations.json>`.
-     * If you to export the visualizations to a json format, remember to export every saved object, because some visualizations my depend on other objects and they won't work if you don't export them all.
+     
+     * Go to *Management*, then, under the Kibana section go to *Saved Objects*, then, *Import*, and import the dashboards and visualizations :download:`file <config/dashboards_and_visualizations.json>`.
+     * If you want to export the visualizations to a json format, remember to export every saved object, because some visualizations may depend on other objects and they won't work if you don't export them all.
 
   d) In the section *Management* -> *Index Patterns* select one (no matter which one) index pattern and press the star button to make it the default one.
 
@@ -125,11 +127,25 @@ After installing the needed package, Logstash is configured like this:
 
 .. literalinclude:: src/tasks/logstash-config.yml
    :language: yaml
-	      
-Installation, configuration and service startup is defined in the role *elk*.
 
-.. note:: **Logstash Filters:** It is important to know the version of the plugin that you are using so you will be able to search for the proper documentation.
+The first task copies two configuration files, *pipelines.yml* and *logstash.yml*. The first file indicates to Logstash where to find our pipelines configuration files. You can find it :download:`here <src/files/etc/logstash/pipelines.yml>`. The second one is the main configuration file for Logstash. You can find it :download:`here <src/files/etc/logstash/logstash.yml>`.
+
+The second task takes a template and renders it in the pipelines directory. The template represents the description of our main pipeline, that is, inputs, filters, and outputs. You can find it :download:`here <src/templates/etc/logstash/conf.d/main_pipeline.conf.j2>`. 
+
+.. note:: **Logstash Filters:** It is important to know the version of the filter plugins that you are using so you will be able to search for the proper documentation.
+
+.. _filebeat-label:
 
 Filebeat
 ''''''''
-Installation, configuration and service startup is done in the role *elk*.
+Remember that in our case Filebeat is installed in servers different from the ELK Server, see :ref:`installation-label`.
+
+So, the installation playbook looks like this:
+
+.. literalinclude:: src/tasks/filebeat.yml
+   :language: yaml
+
+As previously explained, the three first tasks are for adding the ELK's repository and installing the main component package. The last task is for configuring Filebeat. It takes a template file, which contains the Filebeat main configuration, that is, where it will take the logs from. You can find the template file :download:`here <src/templates/etc/filebeat/filebeat.yml.j2>`. Then, after Filebeat is configured, a notify is sent to a handler to start/restart the Filebeat service. The handler looks like this:
+
+.. literalinclude:: src/handlers/filebeat-handler.yml
+   :language: yaml

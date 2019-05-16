@@ -1,0 +1,73 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# All Vagrant configuration is done below. The "2" in Vagrant.configure
+# configures the configuration version (we support older styles for
+# backwards compatibility). Please don't change it unless you know what
+# you're doing.
+Vagrant.configure("2") do |config|
+
+  config.vm.define "cr0n05", autostart: false do |cronos|
+    
+    cronos.vm.box = "centos/7"
+    cronos.vm.network "private_network", ip: "192.168.1.2"
+    cronos.vm.hostname = "cr0n05"
+
+    cronos.vm.provider "virtualbox" do |v|
+      v.memory = 1024
+    end
+
+    cronos.vm.provision "ansible_local" do |ansible|
+      ansible.become = true
+      ansible.playbook = "site.yml"
+      ansible.verbose = "vv"
+      ansible.extra_vars = {
+        machine: "cr0n05"
+      }
+    end
+    
+  end
+
+  config.vm.define "4p0l0", autostart: false do |apolo|
+    
+    apolo.vm.box = "centos/7"
+    apolo.vm.network "private_network", ip: "192.168.1.3"
+    apolo.vm.hostname = "4p0l0"
+
+    apolo.vm.provider "virtualbox" do |v|
+      v.memory = 1024
+    end
+
+    apolo.vm.provision "ansible_local" do |ansible|
+      ansible.become = true
+      ansible.playbook = "site.yml"
+      ansible.verbose = "vv"
+      ansible.extra_vars = {
+        machine: "4p0l0"
+      }
+    end
+    
+  end
+
+  config.vm.define "elk", autostart: false do |elk|
+    
+    elk.vm.box = "centos/7"
+    elk.vm.network "private_network", ip: "192.168.1.4"
+    elk.vm.hostname = "elk"
+
+    elk.vm.provider "virtualbox" do |v|
+      v.memory = 4096
+    end
+
+    elk.vm.provision "ansible_local" do |ansible|
+      ansible.become = true
+      ansible.playbook = "site.yml"
+      ansible.verbose = "vv"
+      ansible.extra_vars = {
+        machine: "elk"
+      }
+    end
+    
+  end
+  
+end

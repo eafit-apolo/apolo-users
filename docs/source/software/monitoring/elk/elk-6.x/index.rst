@@ -6,6 +6,9 @@
 .. role:: bash(code)
    :language: bash
 
+.. role:: ruby(code)
+   :language: ruby
+
 ELK Stack 6.x Installation and Configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -86,6 +89,8 @@ The Elasticsearch main configuration file, which is a template, is rendered in :
 .. literalinclude:: src/handlers/elasticsearch-handler.yml
    :language: yaml
 
+.. _kibana-label:
+
 Kibana
 ''''''
 After installing the needed package, Kibana is configured like this:
@@ -149,3 +154,34 @@ As previously explained, the three first tasks are for adding the ELK's reposito
 
 .. literalinclude:: src/handlers/filebeat-handler.yml
    :language: yaml
+
+Testing
+-------
+If you want to test all the ELK Stack locally you can easily do it using `Vagrant <https://www.vagrantup.com/intro/index.html>`_.
+
+.. note:: Elasticsearch and Logstash use together at least 5 GB of RAM when not in idle state.
+
+The vagrantfile looks like this:
+
+.. literalinclude:: src/Vagrantfile
+   :language: ruby
+
+In the configuration of each virtual machine, there is a subsection for provisioning. In that subsection there is a variable that is accessed as :bash:`ansible.playbook`. You have to set it to the path to your ansible playbook. You should use the playbook that was explained in the previous section, :ref:`installation-label`. Also in this provisioning subsection, note that the :bash:`ansible.extra_vars` defines a variable called :bash:`machine`, so if you are using the playbook explained before, this variable must match the hostname of the virtual machine. The hostname of the virtual machine can be changed with the variable :bash:`vm.hostname`. For more information read the Vagrant documentation about `vagrantfiles <https://www.vagrantup.com/docs/vagrantfile/>`_.
+
+To start up the virtual cluster use the following bash script with the argument :bash:`up`:
+
+.. literalinclude:: src/scripts/run.sh
+   :language: bash
+
+.. note:: Change elk, cr0n05, 4p0l0, to the vritual machine names that you set up in your Vagrantfile. If you are using the vagrantfile from above, you do not have to change them.
+	  
+Make the virtual machines visible between them by their hostname. You just have to change the :bash:`/etc/hosts` file and add the ip address of the virtual machine that you want to see followed by its hostname. For example, make elk visible by others and in the *elk* machine.
+
+.. code-block:: yaml
+
+   # file /etc/hosts
+   0.0.0.0         elk      # allow others to use the elk hostname instead of the ip
+   192.168.1.2     cr0n05   # make cr0n05 visible to elk by its hostname not just its ip
+   192.168.1.3     4p0l0
+
+After making them visible, run the script with the argument :bash:`privision-elk` so that Elasticsearch, Logstash, and Kibana will be installed. Configure Kibana as explained in :ref:`kibana-label`. Then run the script with the argument :bash:`provision-filebeat`. When it finishes you should be able to open your browser in the elk machine's ip address port 5601.

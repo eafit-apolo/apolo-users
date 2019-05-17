@@ -166,14 +166,14 @@ The vagrantfile looks like this:
 .. literalinclude:: src/Vagrantfile
    :language: ruby
 
-In the configuration of each virtual machine, there is a subsection for provisioning. In that subsection there is a variable that is accessed as :bash:`ansible.playbook`. You have to set it to the path to your ansible playbook. You should use the playbook that was explained in the previous section, :ref:`installation-label`. Also in this provisioning subsection, note that the :bash:`ansible.extra_vars` defines a variable called :bash:`machine`, so if you are using the playbook explained before, this variable must match the hostname of the virtual machine. The hostname of the virtual machine can be changed with the variable :bash:`vm.hostname`. For more information read the Vagrant documentation about `vagrantfiles <https://www.vagrantup.com/docs/vagrantfile/>`_.
+In the configuration of each virtual machine, there is a subsection for provisioning. In that subsection, there is a variable that is accessed as :bash:`ansible.playbook`. You have to set it to the path to your ansible playbook. You should use the playbook that was explained in the previous section, :ref:`installation-label`. Also in this provisioning subsection, note that the :bash:`ansible.extra_vars` defines a variable called :bash:`machine`, so if you are using the playbook explained before, this variable must match the hostname of the virtual machine. The hostname of the virtual machine can be changed with the variable :bash:`vm.hostname`. For more information read the Vagrant documentation about `vagrantfiles <https://www.vagrantup.com/docs/vagrantfile/>`_.
 
 To start up the virtual cluster use the following bash script with the argument :bash:`up`:
 
 .. literalinclude:: src/scripts/run.sh
    :language: bash
 
-.. note:: Change elk, cr0n05, 4p0l0, to the vritual machine names that you set up in your Vagrantfile. If you are using the vagrantfile from above, you do not have to change them.
+.. note:: Change elk, cr0n05, 4p0l0, to the virtual machine names that you set up in your Vagrantfile. If you are using the vagrantfile from above, you do not have to change them.
 	  
 Make the virtual machines visible between them by their hostname. You just have to change the :bash:`/etc/hosts` file and add the ip address of the virtual machine that you want to see followed by its hostname. For example, make elk visible by others and in the *elk* machine.
 
@@ -185,3 +185,8 @@ Make the virtual machines visible between them by their hostname. You just have 
    192.168.1.3     4p0l0
 
 After making them visible, run the script with the argument :bash:`privision-elk` so that Elasticsearch, Logstash, and Kibana will be installed. Configure Kibana as explained in :ref:`kibana-label`. Then run the script with the argument :bash:`provision-filebeat`. When it finishes you should be able to open your browser in the elk machine's ip address port 5601.
+
+Authors
+-------
+
+- Hamilton Tobon Mosquera <htobonm@eafit.edu.co>

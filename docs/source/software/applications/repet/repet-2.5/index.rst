@@ -63,7 +63,7 @@ Repet needs a working environment with some python modules installed:
 .. note:: REPET module will load python/2.7.15_miniconda-4.5.4 automatically
 
 If you want to use REPET with RepeatMasker:
-    * The first time you run :bash:`module load REPET` you will have to move into RepeatMasker directory and run :bash:`perl ./configure`. RepeatMasker will be added to your path when you load REPET.
+    * The first time you run :bash:`module load REPET` you will have to move into RepeatMasker directory and run :bash:`perl ./configure`. 
 
 .. code-block:: bash
 
@@ -111,7 +111,7 @@ In order to use REPET you should load REPET module and activate your Python envi
 
 REPET's main pipelines are TEdenovo and TEannot. Each of them has it's specific guidelines and dependencies. REPET provides vast documentation for this pipelines: https://urgi.versailles.inra.fr/Tools/REPET/TEdenovo-tuto, https://urgi.versailles.inra.fr/Tools/REPET/TEannot-tuto.
 
-REPET implements a module for using resource managers such as :ref:`SLURM <slurm-index>` or TORQUE. REPET will use this module to send jobs to a queue. In order to manage SBATCH parameters you will have to edit the configuration file for the pipeline you are using (e.g. TEdenovo.cfg). Each job has it's own parameters, which can be specified as follows:
+REPET implements a module for using resource managers such as :ref:`SLURM <slurm-index>` or TORQUE. It will use this module to send jobs to a queue. In order to manage SBATCH parameters you will have to edit the configuration file for the pipeline you are using (e.g. TEdenovo.cfg). Each job has it's own parameters, which can be specified as follows:
 
 .. code-block:: yaml
 
@@ -119,7 +119,7 @@ REPET implements a module for using resource managers such as :ref:`SLURM <slurm
 
 This entry will make TEdenovo.py use longjobs as the partition. The job will have 3 hours to finish. The job will redirect stdout to out.log and stderr to err.log. 
 
-The first word must be the partition where you want your job to be sent. Even though, you should specify the partition again using "\--partition=<partition_name>". For :ref:`SLURM <slurm-index>`, it is mandatory to specify the partition as well as the time for the job to finish.
+The first word must be the partition where you want your job to be sent. Even though, you should specify the partition again using "\--partition=<partition_name>". It is mandatory to specify the partition as well as the time for the job to finish.
 
 If for some reason some step did not finish as expected and you do not get an error message, you should erase all data on jobs table, so REPET can use :ref:`SLURM <slurm-index>` to launch jobs again:
 

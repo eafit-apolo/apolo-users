@@ -101,11 +101,13 @@ It will prompt you to enter the path for some applications. You should enter the
 Usage
 -----
 
+.. note:: If you don't already have a MySQL account contact the system administrator. Remember to ask for the database name and hostname for the MySQL server.
+
 In order to use REPET you should load REPET module and activate your Python environment:
 
 .. code-block:: bash
     
-    $ module load REPET/2.5
+    $ module load REPET
 
     $ source activate env_name
 
@@ -145,7 +147,7 @@ Also, be aware that almost all steps create a directory in which will be the out
 Recommended resources
 ---------------------
 
-#. A repo containing bash scripts to use REPET with SLURM: https://github.com/stajichlab/REPET-slurm.
+#. A repository containing bash scripts to use REPET with SLURM: https://github.com/stajichlab/REPET-slurm.
 
 #. A REPET practical course: https://biosphere.france-bioinformatique.fr/wikia2/index.php/REPET_practical_course#Start_TEdenovo_pipeline.
 

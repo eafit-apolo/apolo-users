@@ -24,6 +24,7 @@ Parallel Programming
 - `Introduction to OpenMP - Intel <https://youtu.be/nE-xN4Bf8XI>`_
 - `A Hands on Introduction to OpenMP - OpenMP <https://www.openmp.org/wp-content/uploads/Intro_To_OpenMP_Mattson.pdf>`_
 - `MPI Tutorial <http://mpitutorial.com/>`_
+- `Designing and Building Parallel Programs  <https://www.mcs.anl.gov/~itf/dbpp/text/node1.html>`_
 
 Job Management
 ^^^^^^^^^^^^^^

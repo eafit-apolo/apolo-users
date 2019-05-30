@@ -19,7 +19,7 @@ ELK Stack 6.x Installation and Configuration
   - Install Java JDK 8, more recent versions may have compatibility problems.
   - You must use the same version for Logstash, Elasticsearch, Kibana to avoid compatibility problems.
   - Also, when reading the guides check that the guide version is compatible with the version of your ELK stack.
-  - The RAM used by Logstash and Elasticsearch is a lot. By default 1GB for heap, plus the JVM which is about 2.5 GB of RAM.
+  - Consider the amount of RAM used by Logstash and Elasticsearch. By default 1GB for heap, plus the JVM which is about 2.5 GB of RAM.
   - Install, configure, and start the services in the following order, then you will avoid repeating some steps, and also some problems. Note that this order is the same as the one in the role *elk*.
 
     + Elasticsearch: https://www.elastic.co/guide/en/elasticsearch/reference/6.6/index.html

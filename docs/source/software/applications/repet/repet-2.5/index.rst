@@ -33,7 +33,7 @@ The tar file containing REPET can be found `here`_. The compressed package alrea
 
 For more information on setting up your REPET environment you should follow the guide provided in the beginning of the following web page: https://urgi.versailles.inra.fr/Tools/REPET/TEdenovo-tuto.
 
-REPET needs a MySQL server. Instructions to configure a MySQL server can be found on this `link`_. You also need to create a database and a user for REPET:
+REPET needs a MySQL server, even though we chose MariaDB. Instructions to configure a MySQL server can be found on this `link`_. You also need to create a database and a user for REPET:
 
 .. _link: https://dev.mysql.com/doc/refman/8.0/en/binary-installation.html
 
@@ -98,10 +98,80 @@ It will prompt you to enter the path for some applications. You should enter the
           $ rm RepBaseRepeatMaskerEdition-########.tar 
           $ perl ./configure
 
+* When you load REPET module the following script will be executed. It will loads the environment variables for every REPET dependency, and REPET itself. It also load the Python 2.7 module and GCC module.
+
+.. code-block:: tcl
+
+        #%Module1.0####################################################################
+        ##
+        ## module load REPET 2.5
+        ##
+        ## /share/apps/modules/REPET/2.5
+        ## Written by Vincent Arcila
+        ##
+
+        proc ModulesHelp {} {
+            global version modroot
+            puts stderr "Sets the environment for using REPET\
+                  \nin the shared directory /share/apps/REPET/2.5"
+        }
+
+        module-whatis "(Name________) REPET"
+        module-whatis "(Version_____) 2.5"
+        module-whatis "(System______) x86_64-redhat-linux"
+        module-whatis "(Interpreter_____) Python 2.7"
+
+        # for Tcl script use only
+        set	    topdir	  /share/apps/REPET/2.5
+        set         version       2.5
+        set         sys           x86_64-redhat-linux
+        set	    sourceDir	  /share/apps/REPET/2.5/third_party/RepeatMasker/1.332
+        set	    targetDir     $::env(HOME)/RepeatMasker
+
+        conflict glibc
+
+        module load gcc/5.4.0
+        module load python/2.7.15_miniconda-4.5.4
+
+        if {! [file exist $targetDir]} {
+            file mkdir $targetDir
+            foreach f [glob -directory $sourceDir -nocomplain *] {
+            file copy -force $f $targetDir
+            }
+        }
+
+        puts stderr "NOTE: If this is the first time you load the module remember to move into RepeatMasker's directory\nand execute the configuration script for RepeatMasker:\n\n\t$ cd ::env(HOME)/RepeatMasker\n\t$ perl ./configure\n\nIf you want to configure RepBase follow the instructions provided in: http://apolo-docs.readthedocs.io"
+
+        prepend-path    PATH			$targetDir
+        prepend-path	PATH			$topdir/REPET/bin
+        prepend-path	PATH			$topdir/third_party/RepeatMasker/1.332/
+        prepend-path    PATH                    $topdir/third_party/others/bin
+        prepend-path	PATH			$topdir/third_party/genometools/1.5.9/bin
+        append-path	PATH			$topdir/third_party/blast/2.2.9/bin
+        append-path	PATH			$topdir/third_party/rmblast/2.9.0/bin
+
+        prepend-path	LD_LIBRARY_PATH		$topdir/lib
+        prepend-path	LIBRARY_PATH		$topdir/lib
+        prepend-path	LD_RUN_PATH		$topdir/lib
+
+        prepend-path    LD_LIBRARY_PATH         $topdir/third_party/genometools/1.5.9/lib
+        prepend-path    LIBRARY_PATH            $topdir/third_party/genometools/1.5.9/lib
+        prepend-path    LD_RUN_PATH             $topdir/third_party/genometools/1.5.9/lib
+
+        prepend-path	PERL5LIB		$topdir/third_party/RepeatMasker/1.332
+        prepend-path	PERL5LIB		$topdir/libexec
+
+        prepend-path	INCLUDE_PATH		$topdir/include
+        prepend-path	C_INCLUDE_PATH		$topdir/include
+        prepend-path	CXX_INCLUDE_PATH	$topdir/include
+
+        setenv		REPET_PATH		$topdir/REPET
+        setenv		PYTHONPATH		$topdir/REPET
+
 Usage
 -----
 
-.. note:: If you don't already have a MySQL account contact the system administrator. Remember to ask for the database name and hostname for the MySQL server.
+.. note:: If you don't already have a MariaDB account contact the system administrator. Remember to ask for the database name and hostname for the MariaDB server.
 
 In order to use REPET you should load REPET module and activate your Python environment:
 
@@ -127,8 +197,8 @@ If for some reason some step did not finish as expected and you do not get an er
 
 .. code-block:: bash
         
-        # connect to your MySQL server
-        $ mysql -u <MySQL_username> -h <MySQL_server_hostname> -p
+        # connect to your MariaDB server
+        $ mysql -u <MariaDB_username> -h <MariaDB_server_hostname> -p
 
         # select your database
         mysql> USE <your_database>;
@@ -136,7 +206,7 @@ If for some reason some step did not finish as expected and you do not get an er
         # erase all data in the table
         mysql> TRUNCATE TABLE jobs;
 
-.. note:: If getting the following error: **ERROR 1130 (HY000): Host 'not.your.hostname.com' is not allowed to connect to this MariaDB server** you should try creating the user using the ip from which you will connect and then add "skip-name-resolve" to MySQL configuration:
+.. note:: If getting the following error: **ERROR 1130 (HY000): Host 'not.your.hostname.com' is not allowed to connect to this MariaDB server** you should try creating the user using the ip from which you will connect and then add "skip-name-resolve" to MariaDB configuration:
     .. code-block:: yaml
 
                     [mariadb]
@@ -146,7 +216,7 @@ Also, be aware that almost all steps create a directory in which will be the out
 
 :ref:`SLURM <slurm-index>` scripts for REPET:
     * We provide the scripts and config files needed to run REPET on our cluster: https://github.com/eafit-apolo/apolo-scripts/tree/master/REPET.
-    * You should modify some values accordingly (e.g. you project name or MySQL username on .cfg files).
+    * You should modify some values accordingly (e.g. you project name or MariaDB username on .cfg files).
     * This scripts are based on https://github.com/stajichlab/REPET-slurm. More information on the usage for this scripts can be found there.
    
 Recommended resources

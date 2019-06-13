@@ -31,12 +31,14 @@ The two main Sensu directories are:
 **/opt/sensu**
 ---------------
 
-contains...
+Is the Sensu installation directory. Contains it's services, binaries, libraries,
+it's own Ruby installation and the plugins installed with the command *sensu-install*.
   
 **/etc/sensu**
 ---------------
 
-contains...
+Contains the Sensu configuration files, plugins and handlers. The configuration
+definition can be present in :bash:`/etc/sensu/`
   
 Installation
 ============
@@ -119,7 +121,8 @@ RabbitMQ Configuration
 
 It's necessary to define authentication credentials to let Clients to
 comunicate in a secure way with the Sensu Server through the Message
-Broker RabbitMQ.
+Broker RabbitMQ. This procedure is executed only once in the Sensu
+Server.
 
 .. code-block:: bash
 
@@ -164,46 +167,25 @@ Sensu Configuration
 **Example: /etc/sensu/conf.d/uchiwa.json**
 	  
    .. literalinclude:: src/uchiwa.json
-	  :language: bash
+      :language: bash
    
-Mail Configuration
-------------------
-
-PENDING
    
 Plugins
 ========
 
-#.. toctree::
-#   :maxdepth: 1
-#
-#   plugins/nagios-plugins
-#   plugins/ipmi-sensors
-#   plugins/dell-openmanage
-#   plugins/ilo-rest
-#   plugins/pnp4nagios
+.. toctree::
+   :maxdepth: 1
+
+   plugins/remediator
+   plugins/mailer
    
-Usage
------
-
-Before executing the role it's important to verify the value of the variables in the file
-:bash:`roles/healthckeck/vars/main.yml`. These variables were created in order to uncouple from the code things like IPs, URLs and passwords. In the case of passwords, we used **Ansible Vault** for ciphering them.
-
-.. code-block:: bash
-
-   ansible-vault playbooks/healthcheck.yml --ask-vault-pass
-
-.. caution::
+#plugins/process
+#plugins/cpu-load
+#plugins/disk-usage
+#plugins/check-memory
+#plugins/network-interface
+#plugins/check-sensors
    
-   This Ansible role was created thinking in the Ansible Philosophy: **The tool should be used to represent the state of the server, not as a procedural language but as a declarative one.**
-
-   This role was developed to be run multiple times in the same server: If the real state doesn't matches with the role state, the server is modified in order to match both states. If the server has well configured and well installed Nagios and it's plugins, running the playbook will say **Ok** in most of the tasks, so it  won't break any configuration.
-
-.. note::
-
-   The flag :bash:`--ask-vault-pass` is used because this role uses ansible-vault for encrypting private data like passwords.
-
-
 Troubleshooting
 ================
 

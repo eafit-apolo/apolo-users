@@ -48,9 +48,7 @@ when there is a state change in a specific monitoring check:
 
    .. literalinclude:: ../src/check-mailer.json
 
-
-Troubleshooting
----------------
+#. Restart sensu-server and sensu-api services.
 
 References
 ----------

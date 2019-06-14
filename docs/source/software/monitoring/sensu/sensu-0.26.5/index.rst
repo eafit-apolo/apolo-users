@@ -39,7 +39,24 @@ it's own Ruby installation and the plugins installed with the command *sensu-ins
 
 Contains the Sensu configuration files, plugins and handlers. The configuration
 definition can be present in :bash:`/etc/sensu/`
-  
+
+.. _sensu_services:
+
+Sensu Services
+===============
+
+* **sensu-client:** Executes the tasks indicated in the Message Broker (RabbitMQ) by the Sensu server. It's
+  necessary to restart it if the client configuration changes (local checks, address, etc) in order to update both:
+  the informative and the execution layer of Sensu. If you change a configuration in the client it's not necessary to
+  restart the server.
+
+* **sensu-server:** Distributes the monitoring tasks to the nodes through the message broker and reacts executing the specified
+  handlers when a result has critical or warning state. It's necessary to restart it if the server
+  configuration changes (checks, handlers, etc) in order to update its execution (send monitoring tasks and recieve results).
+
+* **sensu-api:** Manages the service information provided from the Sensu-server to external systems like Uchiwa. It's
+  necessary to restart it if the server configuration changes (checks, handlers, etc) in order to update the informative layer.
+
 Installation
 ============
 
@@ -178,8 +195,8 @@ Plugins
 
    plugins/remediator
    plugins/mailer
+   plugins/process
    
-#plugins/process
 #plugins/cpu-load
 #plugins/disk-usage
 #plugins/check-memory

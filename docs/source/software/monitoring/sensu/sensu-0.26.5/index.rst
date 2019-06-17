@@ -196,11 +196,11 @@ Plugins
    plugins/remediator
    plugins/mailer
    plugins/process
+   plugins/cpu-load
+   plugins/disk-usage
+   plugins/check-memory
+   plugins/network-interface
    
-#plugins/cpu-load
-#plugins/disk-usage
-#plugins/check-memory
-#plugins/network-interface
 #plugins/check-sensors
    
 Troubleshooting

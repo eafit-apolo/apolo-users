@@ -1,19 +1,19 @@
 {
-	"mailer": {
-		"mail_from": "sensu@example.com",
-		"mail_to": [
-			"mail1@example.com",
-			"mail2@example.com"
-		],
-		"smtp_address": "smtp.server.host.example.com",
-		"smtp_port": "25",
-		"smtp_domain": "example.com"
-	},
-	"handlers": {
-		"mailer": {
-			"type": "pipe",
-			"filter": "state-change-only",
-			"command": "/opt/sensu/embedded/bin/handler-mailer.rb"
-		}
-	}
+  "mailer": {
+    "mail_from": "sensu@example.com",
+    "mail_to": [
+      "mail1@example.com",
+      "mail2@example.com"
+    ],
+    "smtp_address": "smtp.server.host.example.com",
+      "smtp_port": "25",
+      "smtp_domain": "example.com"
+  },
+  "handlers": {
+    "mailer": {
+      "type": "pipe",
+      "filter": "state-change-only",
+      "command": "/opt/sensu/embedded/bin/handler-mailer.rb"
+    }
+  }
 }

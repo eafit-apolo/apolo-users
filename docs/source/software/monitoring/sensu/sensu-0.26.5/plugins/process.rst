@@ -32,7 +32,7 @@ Install the plugin executing:
 
 It will be located in :bash:`/opt/sensu/embedded/bin/check-process.rb`, that directory
 is included in the Sensu user PATH, so in the check definition it's not necessary to
-write the full path.
+write the full path in the configuration file.
 
 
 Usage
@@ -45,7 +45,7 @@ The -p argument is for a pattern to match against the list of running processes 
 **Example:** Checks if there is any process running that contains **/usr/sbin/sshd** in its name, status, etc
 from the output of the command :bash:`ps`.
 	  
-   .. literalinclude:: ../src/check-ssh.json
+   .. literalinclude:: ../src/checks/check-ssh.json
 	  :language: bash
 
 .. note:: It's important to set correctly the argument to filter correctly from the running processes. Read more in :ref:`incorrect-process-check`

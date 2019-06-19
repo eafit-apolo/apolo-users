@@ -1,0 +1,9 @@
+{
+  "checks": {
+    "check_ib0_iface": {
+      "command": "check-network-interface.rb --interface ib0 --mtu 65520 --speed 56000 --dryrun",
+      "subscribers": ["example"],
+      "interval": 60
+	}
+  }
+}

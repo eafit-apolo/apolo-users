@@ -5,7 +5,7 @@
 
 .. role:: yaml(code)
    :language: yaml
-	      
+
 Sensu - 0.26.5
 ***************
 
@@ -28,18 +28,17 @@ Directory Hierarchy
 
 The two main Sensu directories are:
 
-/opt/sensu
----------------
+Installation directory
+----------------------
 
-It's the Sensu installation directory. Contains it's services, binaries, libraries,
-it's own Ruby installation and the plugins installed with the command *sensu-install*.
-  
-/etc/sensu
----------------
+:file:`/opt/sensu` is the installation directory. It contains services, binaries, libraries and
+its own Ruby installation with the plugins installed using the command :bash:`sensu-install`.
 
-Contains the Sensu configuration files, plugins, and handlers. The configuration
-definition can be present in :bash:`/etc/sensu/config.json` or as an independent
-JSON file in the directory :bash:`/etc/sensu/conf.d/`.
+Configuration directory
+-----------------------
+
+:file:`/etc/sensu` contains the configuration files, plugins, and handlers. The configuration definition can be present
+in :bash:`/etc/sensu/config.json` or as an independent JSON file in the directory :file:`/etc/sensu/conf.d/`.
 
 .. _sensu_services:
 
@@ -48,8 +47,7 @@ Sensu Services
 
 * **sensu-client:** It executes the tasks indicated in the Message Broker (RabbitMQ) by the Sensu server. It's
   necessary to restart it if the client configuration changes (local checks, address, etc) in order to update both:
-  the informative and the execution layer of Sensu. If you change a configuration in the client, it's not necessary to
-  restart the server.
+  the informative and the execution layer of Sensu. If you change a configuration in the client, it's not necessary to restart the server.
 
 * **sensu-server:** Distributes the monitoring tasks to the nodes through the message broker, and reacts executing the specified
   handlers when a result has a critical or warning state. It's necessary to restart it if the server
@@ -75,7 +73,7 @@ Concepts
 
 * **Filters:** Inspect event data and match its keys/values with filter definition attributes, to determine if the event should be passed to an event handler. Filters are commonly used to filter recurring events (i.e. to eliminate notification noise).
 
-For more information, read [2]_. 
+For more information, read [2]_.
 
 Installation
 ============
@@ -85,24 +83,24 @@ Sensu Client. The procedure is explained for a machine whose Operating
 System is CentOS 7.
 
 
-#. Install the EpelRelease repository
+#. Install the Epel-Release repository
 
    .. code-block:: bash
 
-	  $ yum install epel-release
+      $ yum install epel-release
 
 #. Add the Official Sensu repository, adding the following file
-   to /etc/yum.repos.d/sensu.repo
+   to :bash:`/etc/yum.repos.d/sensu.repo`
 
    .. literalinclude:: src/sensu.repo
-	  :language: bash
+      :language: bash
 
 
 #. Install Sensu
 
    .. code-block:: bash
 
-	  $ yum install sensu
+      $ yum install sensu
 
 Sensu Server
 ------------
@@ -115,28 +113,29 @@ Client, but the Sensu Server, proceed as follows:
 #. Install the additional dependencies for managing the communication between
    clients-server.
 
-   * RabbitMQ is the message bus that manages the communication.
-   * Erlang is a programming language and a runtime dependency for RabbitMQ.
-   * Redis works as Database in Memory and stores temporarily the monitoring information.
-   * Uchiwa is a web Dashboard for visualizing Sensu status and Configuration.
+   * **RabbitMQ** is the message broker that manages the communication.
+   * **Erlang** is a programming language and a runtime dependency for RabbitMQ.
+   * **Redis** works as Database in Memory and stores temporarily the monitoring information.
+   * **Uchiwa** is a web Dashboard for visualizing Sensu status and Configuration.
+
 
    .. code-block:: bash
 
-	  $ yum install erlang redis uchiwa
+      $ yum install erlang redis uchiwa
 
-   RabbitMQ can be installed from it's official RPM:
+   RabbitMQ can be installed from its official RPM:
 
    .. code-block:: bash
 
-	  $ yum install https://www.rabbitmq.com/releases/rabbitmq-server/v3.6.6/rabbitmq-server-3.6.6-1.el6.noarch.rpm
+      $ yum install https://www.rabbitmq.com/releases/rabbitmq-server/v3.6.6/rabbitmq-server-3.6.6-1.el6.noarch.rpm
 
 Configuration
 =============
-	  
+
 Service configuration
 ---------------------
 
-You should start and enable in boot time the following services:
+You should start and enable at boot time the following services:
 
 1. Sensu Client
 ''''''''''''''''
@@ -165,7 +164,7 @@ Server.
    $ rabbitmqctl add_vhost /sensu
    $ rabbitmqctl add_user sensu PASSWORD
    $ rabbitmqctl set_permissions -p /sensu sensu ".*" ".*" ".*"
-  
+
 Sensu Configuration
 -------------------
 
@@ -176,35 +175,35 @@ Sensu Configuration
    :bash:`/etc/sensu/conf.d/`, specifying hostname, subscriptions, etc.
 
    **Example: /etc/sensu/conf.d/client.json**
-	  
+
    .. literalinclude:: src/client.json
-	  :language: bash
+      :language: bash
 
 #. Add the Transport definition in the configuration directory:
 
    **Example: /etc/sensu/conf.d/transport.json**
-	  
+
    .. literalinclude:: src/transport.json
-	  :language: bash
+      :language: bash
 
 #. Add the RabbitMQ definition specifying the credentials previously
    defined:
 
 **Example: /etc/sensu/conf.d/rabbitmq.json**
-	  
+
    .. literalinclude:: src/rabbitmq.json
-	  :language: bash
-				 
+      :language: bash
+
 2. Sensu Server
 ''''''''''''''''
 
 Add the Uchiwa configuration file:
 
 **Example: /etc/sensu/conf.d/uchiwa.json**
-	  
+
    .. literalinclude:: src/uchiwa.json
-      :language: bash   
-   
+      :language: bash
+
 Plugins
 ========
 
@@ -219,7 +218,7 @@ Plugins
    plugins/check-memory
    plugins/network-interface
    plugins/check-sensors
-   
+
 Troubleshooting
 ================
 
@@ -238,13 +237,13 @@ Datacenter Site 1 returned: Connection error. Is the Sensu API running?
 
 **REASON 2:** Redis doesn't support ipv6 (localhost resolves to ::1). Using "localhost" instead of 127.0.0.1 for the host configuration on systems that support IPv6 may result in an IPv6 “localhost” resolution (i.e. ::1) rather than an IPv4 “localhost” resolution [1]_
 
-**SOLUTION:** Update the redis configuration (by default located in :bash:`/etc/sensu/config.json`), changing  the atribute "host" as follows:
+**SOLUTION:** Update the Redis configuration (by default located in :bash:`/etc/sensu/config.json`), changing  the attribute "host" as follows:
 
    .. literalinclude:: src/redis.json
-	  :language: bash
+      :language: bash
 
 After that, please restart the sensu-server service.
-				 
+
 
 Authors
 ========
@@ -254,10 +253,10 @@ Authors
 
 References
 ===========
-  
+
 .. [1] Redis Configuration | Sensu Docs. Retrieved June 12, 2019,
-	   from https://docs.sensu.io/sensu-core/1.0/reference/redis/#redis-definition-specification
+       from https://docs.sensu.io/sensu-core/1.0/reference/redis/#redis-definition-specification
 
 .. [2] Sensu Reference | Sensu Core 0.29. (n.d.). Retrieved June 17, 2019,
-	   from https://docs.sensu.io/sensu-core/0.29/reference/
-	   
+       from https://docs.sensu.io/sensu-core/0.29/reference/
+

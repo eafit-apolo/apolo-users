@@ -3,7 +3,7 @@
 .. role:: bash(code)
    :language: bash
 
-	      
+
 Sensu Plugin - Remediator
 ==========================
 
@@ -22,8 +22,8 @@ Installation
 ------------
 
 .. note:: The entire process of installation and configuration has to be executed only in the
-		  Sensu Server.
-		  
+          Sensu Server.
+
 The handler is a Ruby script that can be downloaded from the official repository: https://github.com/sensu-plugins/sensu-plugins-sensu/blob/master/bin/handler-sensu.rb. It can be located in
 :bash:`/etc/sensu/handlers/remediator.rb`
 
@@ -33,10 +33,10 @@ Configuration
 
 Add the Remediator configuration file:
 
-**Example:** /etc/sensu/conf.d/handlers/remediator.json
-	  
+**Example:** :file:`/etc/sensu/conf.d/handlers/remediator.json`
+
    .. literalinclude:: ../src/remediator/remediator.json
-	  :language: bash
+      :language: bash
 
 Usage
 -----
@@ -58,7 +58,7 @@ The procedure for setting a handler for a check with remediator is:
    .. literalinclude:: ../src/remediator/host.json
 
 #. Create the definition of the check that will be executed to *remediate* a CRITICAL result.
-   
+
    **Example:** If the service ssh is down, the check that will remediate that is the following:
 
    .. literalinclude:: ../src/remediator/reaction.json
@@ -87,19 +87,18 @@ This message appears when you need to run the remediator's action as superuser,
 you defined the rule in sudoer's configuration but you haven't specified that
 the action requires a TTY.
 
-**SOLUTION:** Add following line in sudoers file. [2]_
+**SOLUTION:** Add the following line in the sudoers file. [2]_
 
 .. code-block:: bash
 
-	Defaults:sensu !requiretty
+    Defaults:sensu !requiretty
 
 References
 ----------
 
 .. [1] Sensu-Plugins. (n.d.). Sensu-plugins/sensu-plugins-sensu. Retrieved June 12, 2019,
-	   from https://github.com/sensu-plugins/sensu-plugins-sensu/blob/master/bin/handler-sensu.rb
+       from https://github.com/sensu-plugins/sensu-plugins-sensu/blob/master/bin/handler-sensu.rb
 
 .. [2] Brousse, N. (2014, September 8). Sudo: Sorry, you must have a tty to run sudo.
-	   Retrieved June 13, 2019, from
-	   https://www.shell-tips.com/2014/09/08/sudo-sorry-you-must-have-a-tty-to-run-sudo/
-
+       Retrieved June 13, 2019, from
+       https://www.shell-tips.com/2014/09/08/sudo-sorry-you-must-have-a-tty-to-run-sudo/

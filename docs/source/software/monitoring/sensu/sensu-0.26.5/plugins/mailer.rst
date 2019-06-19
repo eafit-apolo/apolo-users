@@ -3,11 +3,11 @@
 .. role:: bash(code)
    :language: bash
 
-	      
+
 Sensu Plugin - Mailer
 =======================
 
-This handler formats alerts as mails and sends them off to a pre-defined recipient. [1]_
+This handler formats alerts as emails and sends them off to a pre-defined recipient. [1]_
 
 .. contents::
 
@@ -20,8 +20,8 @@ Installation
 ------------
 
 .. note:: The entire process of installation and configuration has to be executed only in the
-		  Sensu Server.
-		  
+          Sensu Server.
+
 The handler is a Ruby script that can be downloaded from the official repository: https://github.com/sensu-plugins/sensu-plugins-mailer/blob/master/bin/handler-mailer.rb.
 
 It can be located in :bash:`/etc/sensu/handlers/mailer.rb`
@@ -33,10 +33,10 @@ Configuration
 Add the Mailer configuration file and set correctly which will be the SMTP server,
 the sender, the mail recipients, etc:
 
-**Example:** /etc/sensu/conf.d/handlers/mailer.json
-	  
+**Example:** :file:`/etc/sensu/conf.d/handlers/mailer.json`
+
    .. literalinclude:: ../src/mailer.json
-	  :language: bash
+      :language: bash
 
 In this example, the handler definition has the filter state-change-only associated. This
 filter executes the mailer handler to send mail only when there is a change in the state,
@@ -45,10 +45,10 @@ count occurrences, that's why it's necessary to have both conditions in the cond
 
 That filter is defined as follows:
 
-**Example:** /etc/sensu/conf.d/filters.json
-	  
+**Example:** :file:`/etc/sensu/conf.d/filters.json`
+
    .. literalinclude:: ../src/filter-state-change.json
-	  :language: bash
+      :language: bash
 
 Usage
 -----
@@ -66,6 +66,6 @@ References
 ----------
 
 .. [1] Sensu-Plugins. (n.d.). Sensu-plugins/sensu-plugins-mailer. Retrieved June 13, 2019,
-	   from https://github.com/sensu-plugins/sensu-plugins-mailer/blob/master/bin/handler-mailer.rb
+       from https://github.com/sensu-plugins/sensu-plugins-mailer/blob/master/bin/handler-mailer.rb
 
 

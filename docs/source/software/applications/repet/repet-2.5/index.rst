@@ -60,7 +60,8 @@ Repet needs a working environment with some python modules installed:
    # create a conda environment named env_name and install mysql-python, pyyaml as needed for REPET
    $ conda create -n env_name mysql-python pyyaml
 
-.. note:: REPET module will load python/2.7.15_miniconda-4.5.4 automatically
+.. note:: REPET module will load python/2.7.15_miniconda-4.5.4 automatically and will copy a RepeatMasker directory
+           into your home which you will have to configure as follow.
 
 If you want to use REPET with RepeatMasker:
     * The first time you run :bash:`module load REPET` you will have to move into RepeatMasker directory and run :bash:`perl ./configure`.
@@ -140,7 +141,10 @@ It will prompt you to enter the path for some applications. You should enter the
             }
         }
 
-        puts stderr "NOTE: If this is the first time you load the module remember to move into RepeatMasker's directory\nand execute the configuration script for RepeatMasker:\n\n\t$ cd ::env(HOME)/RepeatMasker\n\t$ perl ./configure\n\nIf you want to configure RepBase follow the instructions provided in: http://apolo-docs.readthedocs.io"
+        puts stderr "NOTE: If this is the first time you load the module remember to move into
+        RepeatMasker's directory \nand execute the configuration script for RepeatMasker:
+        \n\n\t$ cd ::env(HOME)/RepeatMasker\n\t$ perl ./configure \n\nIf you want to configure
+        RepBase follow the instructions provided in: http://apolo-docs.readthedocs.io"
 
         prepend-path    PATH			$targetDir
         prepend-path	PATH			$topdir/REPET/bin

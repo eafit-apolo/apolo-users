@@ -52,7 +52,7 @@ Usage
 Memory Usage Percent
 ''''''''''''''''''''
 
-Add the Check-Memory-Percent configuration, specifying which will be it's subscribers and it's warning and critical tresholds.
+Add the Check-Memory-Percent configuration, specifying which will be its subscribers and its warning and critical thresholds.
 
    .. literalinclude:: ../src/checks/check-memory-percent.json
 	  :language: bash
@@ -62,7 +62,7 @@ In this example, the check will be in WARNING state if memory usage is over 90% 
 Swap Usage Percent
 ''''''''''''''''''
 
-Add the Check-Swap-Percent configuration, specifying which will be it's subscribers and it's warning and critical tresholds.
+Add the Check-Swap-Percent configuration, specifying which will be its subscribers and its warning and critical thresholds.
 
    .. literalinclude:: ../src/checks/check-swap-percent.json
 	  :language: bash

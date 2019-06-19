@@ -30,7 +30,7 @@ It can be located in :bash:`/etc/sensu/handlers/mailer.rb`
 Configuration
 -------------
 
-Add the Mailer configuration file, setting correctly which will be the SMTP server,
+Add the Mailer configuration file and set correctly which will be the SMTP server,
 the sender, the mail recipients, etc:
 
 **Example:** /etc/sensu/conf.d/handlers/mailer.json
@@ -38,10 +38,22 @@ the sender, the mail recipients, etc:
    .. literalinclude:: ../src/mailer.json
 	  :language: bash
 
+In this example, the handler definition has the filter state-change-only associated. This
+filter executes the mailer handler to send mail only when there is a change in the state,
+that means, in the first occurrence of the state. When a check is in state OK, it doesn't
+count occurrences, that's why it's necessary to have both conditions in the conditional.
+
+That filter is defined as follows:
+
+**Example:** /etc/sensu/conf.d/filters.json
+	  
+   .. literalinclude:: ../src/filter-state-change.json
+	  :language: bash
+
 Usage
 -----
 
-Follow this steps to add mailer as a handler that will send a mail
+Follow these steps to add mailer as a handler that will send a mail
 when there is a state change in a specific monitoring check:
 
 #. Add Mailer as a handler in the check definition:

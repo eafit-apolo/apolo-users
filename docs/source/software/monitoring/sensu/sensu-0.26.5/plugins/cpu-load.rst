@@ -7,7 +7,7 @@
 Sensu Plugin - CPU Load
 =========================
 
-Checks the average CPU load in the last 1, 5 and 15 minutes, stablishing a warning and a caution treshold
+Checks the average CPU load in the last 1, 5 and 15 minutes, establishing a warning and a caution threshold
 for each one of these time intervals.
 
 .. contents::
@@ -46,13 +46,13 @@ The scripts are:
 Usage
 -------
 
-Add the Check-CPU-load configuration, specifying which will be it's subscribers and it's warning and critical tresholds.
+Add the Check-CPU-load configuration, specifying which will be its subscribers and its warning and critical thresholds.
 
    .. literalinclude:: ../src/checks/check-cpu-load.json
 	  :language: bash
 
-In this example, the check will be in WARNING state if the cpu load is greater than 15,15,14 in the last 1,5 and 15 minutes
-respectively, and CRITICAL state if the cpu load is greater than 20,18,18 in the last 1,5 and 15 minutes respectively.
+In this example, the check will be in WARNING state if the CPU load is greater than 15,15,14 in the last 1,5 and 15 minutes
+respectively, and CRITICAL state if the CPU load is greater than 20,18,18 in the last 1,5 and 15 minutes respectively.
 				 
 Authors
 --------

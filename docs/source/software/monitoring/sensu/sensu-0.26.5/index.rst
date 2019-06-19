@@ -7,7 +7,7 @@
    :language: yaml
 	      
 Sensu - 0.26.5
-================
+***************
 
 This documentation page describes the process of installation and configuration
 of an entire monitoring environment using Sensu as the Core and CentOS 7 as the
@@ -28,34 +28,54 @@ Directory Hierarchy
 
 The two main Sensu directories are:
 
-**/opt/sensu**
+/opt/sensu
 ---------------
 
-Is the Sensu installation directory. Contains it's services, binaries, libraries,
+It's the Sensu installation directory. Contains it's services, binaries, libraries,
 it's own Ruby installation and the plugins installed with the command *sensu-install*.
   
-**/etc/sensu**
+/etc/sensu
 ---------------
 
-Contains the Sensu configuration files, plugins and handlers. The configuration
-definition can be present in :bash:`/etc/sensu/`
+Contains the Sensu configuration files, plugins, and handlers. The configuration
+definition can be present in :bash:`/etc/sensu/config.json` or as an independent
+JSON file in the directory :bash:`/etc/sensu/conf.d/`.
 
 .. _sensu_services:
 
 Sensu Services
 ===============
 
-* **sensu-client:** Executes the tasks indicated in the Message Broker (RabbitMQ) by the Sensu server. It's
+* **sensu-client:** It executes the tasks indicated in the Message Broker (RabbitMQ) by the Sensu server. It's
   necessary to restart it if the client configuration changes (local checks, address, etc) in order to update both:
-  the informative and the execution layer of Sensu. If you change a configuration in the client it's not necessary to
+  the informative and the execution layer of Sensu. If you change a configuration in the client, it's not necessary to
   restart the server.
 
-* **sensu-server:** Distributes the monitoring tasks to the nodes through the message broker and reacts executing the specified
-  handlers when a result has critical or warning state. It's necessary to restart it if the server
-  configuration changes (checks, handlers, etc) in order to update its execution (send monitoring tasks and recieve results).
+* **sensu-server:** Distributes the monitoring tasks to the nodes through the message broker, and reacts executing the specified
+  handlers when a result has a critical or warning state. It's necessary to restart it if the server
+  configuration changes (checks, handlers, etc) in order to refresh its execution parameters (send monitoring tasks and receive results).
 
 * **sensu-api:** Manages the service information provided from the Sensu-server to external systems like Uchiwa. It's
   necessary to restart it if the server configuration changes (checks, handlers, etc) in order to update the informative layer.
+
+Concepts
+=========
+
+* **Clients:** Monitoring agents that execute checks and replies the results to it's associated Sensu Server.
+
+* **Subscriptions:** A name that groups 0 or more clients around one particular role or responsibility.
+
+* **Checks:** Commands executed by the Sensu client which monitor a condition or collect measurements (server resources, services, etc).
+
+* **Handlers:** Actions executed by the Sensu server on events, such as sending an email alert, creating or resolving an incident (e.g. in PagerDuty, ServiceNow, etc), or storing metrics in a time-series database (e.g. Graphite).
+
+* **Mutators:** Transform event data prior to handling (i.e. add new attributes to the response)
+
+* **Plugins:** Provide executable scripts or other programs that can be used as Sensu checks, handlers or mutators.
+
+* **Filters:** Inspect event data and match its keys/values with filter definition attributes, to determine if the event should be passed to an event handler. Filters are commonly used to filter recurring events (i.e. to eliminate notification noise).
+
+For more information, read [2]_. 
 
 Installation
 ============
@@ -90,15 +110,14 @@ Sensu Server
 .. note:: It's important to know that a Sensu Server can be also a Sensu Client.
 
 After executing the previous steps, if you are not installing the Sensu
-Client, but the Sensu Server, procede as follows:
+Client, but the Sensu Server, proceed as follows:
 
 #. Install the additional dependencies for managing the communication between
    clients-server.
 
-   * RabbitMQ is the message bus that manages the comunication.
+   * RabbitMQ is the message bus that manages the communication.
    * Erlang is a programming language and a runtime dependency for RabbitMQ.
-   * Redis works as Database in Memory and stores temporarly the monitoring
-	 information.
+   * Redis works as Database in Memory and stores temporarily the monitoring information.
    * Uchiwa is a web Dashboard for visualizing Sensu status and Configuration.
 
    .. code-block:: bash
@@ -136,8 +155,8 @@ You should start and enable in boot time the following services:
 RabbitMQ Configuration
 ----------------------
 
-It's necessary to define authentication credentials to let Clients to
-comunicate in a secure way with the Sensu Server through the Message
+It's necessary to define authentication credentials to let Clients
+communicate in a secure way with the Sensu Server through the Message
 Broker RabbitMQ. This procedure is executed only once in the Sensu
 Server.
 
@@ -154,16 +173,16 @@ Sensu Configuration
 ''''''''''''''''
 
 #. Add the Client definition in :bash:`/etc/sensu/config.json` or in any file with *json* extension into the directory
-:bash:`/etc/sensu/conf.d/`, specifying hostname, subscriptions, etc.
+   :bash:`/etc/sensu/conf.d/`, specifying hostname, subscriptions, etc.
 
-**Example: /etc/sensu/conf.d/client.json**
+   **Example: /etc/sensu/conf.d/client.json**
 	  
    .. literalinclude:: src/client.json
 	  :language: bash
 
 #. Add the Transport definition in the configuration directory:
 
-**Example: /etc/sensu/conf.d/transport.json**
+   **Example: /etc/sensu/conf.d/transport.json**
 	  
    .. literalinclude:: src/transport.json
 	  :language: bash
@@ -179,13 +198,12 @@ Sensu Configuration
 2. Sensu Server
 ''''''''''''''''
 
-#. Add the Uchiwa configuration file:
+Add the Uchiwa configuration file:
 
 **Example: /etc/sensu/conf.d/uchiwa.json**
 	  
    .. literalinclude:: src/uchiwa.json
-      :language: bash
-   
+      :language: bash   
    
 Plugins
 ========
@@ -200,8 +218,7 @@ Plugins
    plugins/disk-usage
    plugins/check-memory
    plugins/network-interface
-   
-#plugins/check-sensors
+   plugins/check-sensors
    
 Troubleshooting
 ================
@@ -217,8 +234,7 @@ Datacenter Site 1 returned: Connection error. Is the Sensu API running?
 
 **REASON 1:** uchiwa.json has the default configuration (Two generic Datacenter configurations)
 
-**SOLUTION:** Edit uchiwa.json with real information.
-
+**SOLUTION:** Edit uchiwa.json with real information and restart uchiwa service.
 
 **REASON 2:** Redis doesn't support ipv6 (localhost resolves to ::1). Using "localhost" instead of 127.0.0.1 for the host configuration on systems that support IPv6 may result in an IPv6 “localhost” resolution (i.e. ::1) rather than an IPv4 “localhost” resolution [1]_
 
@@ -227,6 +243,8 @@ Datacenter Site 1 returned: Connection error. Is the Sensu API running?
    .. literalinclude:: src/redis.json
 	  :language: bash
 
+After that, please restart the sensu-server service.
+				 
 
 Authors
 ========
@@ -237,5 +255,9 @@ Authors
 References
 ===========
   
-.. [1] Redis Configuration | Sensu Docs.
-	   Retrieved June 12, 2019, from https://docs.sensu.io/sensu-core/1.0/reference/redis/#redis-definition-specification
+.. [1] Redis Configuration | Sensu Docs. Retrieved June 12, 2019,
+	   from https://docs.sensu.io/sensu-core/1.0/reference/redis/#redis-definition-specification
+
+.. [2] Sensu Reference | Sensu Core 0.29. (n.d.). Retrieved June 17, 2019,
+	   from https://docs.sensu.io/sensu-core/0.29/reference/
+	   

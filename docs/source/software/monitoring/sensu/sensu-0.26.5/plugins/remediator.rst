@@ -8,8 +8,8 @@ Sensu Plugin - Remediator
 ==========================
 
 This plugin reads configuration from a check definition and triggers
-appropriate remediation actions (defined as other checks) via the
-Sensu API, when the occurrences and severities reach certain values. [1]_
+specified remediation actions (defined as other checks) via the
+Sensu API when the occurrences and severities reach certain values. [1]_
 
 .. contents::
 
@@ -43,13 +43,13 @@ Usage
 
 Remediator is a Sensu handler that triggers actions when a defined check service changes
 to critical status. The way Remediator triggers this action is executing it in the hosts
-that follows a subscription with the hostname of the client that failed.
+that follow a subscription with the hostname of the client that failed.
 
-**Example:** A compute called **test-node** fails in a defined monitoring check. Remediator
-triggers the defined action in the hosts that follows the subscription **test-node**.
+**Example:** A compute node called **test-node** fails in a defined monitoring check. Remediator
+triggers the defined action in the hosts that follow the subscription **test-node**.
 
 That's why every host that wants to receive the trigger from **Remediator**
-has to be subscribed to it's hostname.
+has to be subscribed to its hostname.
 
 The procedure for setting a handler for a check with remediator is:
 
@@ -64,16 +64,16 @@ The procedure for setting a handler for a check with remediator is:
    .. literalinclude:: ../src/remediator/reaction.json
 
 #. Update the definition of the check that will trigger the remediator handler if changes
-   it's state to CRITICAL. You have to add an atribute called remediation, specifing which
+   its state to CRITICAL. You have to add an attribute called remediation, specifying which
    check will remediate the failure.
 
    **Example:** Checks if SSH is running. In this case, the check called *check-sshd* will be
-   remediated by the check *remediate-service-ssh* if it change to severity 2 (CRITICAL) one or
+   remediated by the check *remediate-service-ssh* if it changes to severity 2 (CRITICAL) one or
    more times.
 
    .. literalinclude:: ../src/remediator/check.json
 
-#. If the handler needs superuser permissions to run it's action, it's necessary to add that
+#. If the handler needs superuser permissions to run its action, it's necessary to add that
    rule in the sudoers configuration in the Sensu-Clients.
 
 

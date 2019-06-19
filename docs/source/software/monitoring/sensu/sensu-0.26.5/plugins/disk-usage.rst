@@ -44,7 +44,7 @@ The most important flags are:
 ============================= ========================================================================
 Params                        Value
 ============================= ========================================================================
- -w                           Doesn't throw a critical failure even if exceeds the tresholds.
+ -w                           Doesn't throw a critical failure even if exceeds the thresholds.
  --warn-space PERCENT         Warn if PERCENT or more of disk space used
  --warn-inodes PERCENT        Warn if PERCENT or more of inodes used
  --crit-space PERCENT         Critical if PERCENT or more of disk space used
@@ -55,7 +55,7 @@ Params                        Value
 Execute :bash:`/opt/sensu/embedded/bin/check-disk-usage.rb  --help` to obtain the full list of flags
 supported by the plugin.
 
-**Example:** Checks if the partitions /,/tmp,/var are over 90% or 95% of it's capacity. The inode treshold
+**Example:** Checks if the partitions /,/tmp,/var are over 90% or 95% of it's capacity. The inode threshold
 is the default because was not specified.
 	  
    .. literalinclude:: ../src/checks/disk-usage.json

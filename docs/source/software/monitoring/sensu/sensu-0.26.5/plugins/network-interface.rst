@@ -7,7 +7,7 @@ Sensu Plugin - Network Interface
 =================================
 
 A sensu plugin to efficiently monitor network interfaces on Linux allowing to track metrics
-like speed, duplex, operational status, link carrier etc. [1]_
+like speed, duplex, operational status, link carrier, etc. [1]_
 
 .. contents::
 
@@ -24,15 +24,15 @@ Installation
 .. note:: This installation process has to be performed in each Sensu
 		  Client that will execute this monitoring task.
 
-The plugin is a Ruby script that can be downloaded from the official repository [1]_. It can be located in
-:bash:`/etc/sensu/plugins/`
+The plugin is a Ruby script that can be downloaded from the official repository:
+https://github.com/m4ce/sensu-plugins-network-interface/blob/master/bin/check-network-interface.rb.
+
+It can be located in :bash:`/etc/sensu/plugins/check-network-interface.rb`.
 
 Usage
 -------
 
-Add the Check-Disk-Usage configuration:
-
-The plugin flags:
+The plugin has the following options:
 
 =============================== ========================================================================
 Params                          Value
@@ -53,13 +53,18 @@ Params                          Value
 =============================== ========================================================================
 
 .. note:: If not specified, the plugin will check by default everything
-		 (duplex, carrier, operstate, mtu, speed).
+		 (duplex, carrier, operstate, MTU, speed).
 
 .. note:: The plugin will execute many independent checks that send it's individual results to Sensu Server.
-		  The flag :bash:`--dryrun` avoids that behaviour. It's recommended to use this flag because it's
+		  The flag :bash:`--dryrun` avoids that behavior. It's recommended to use this flag because it's
 		  not necessary to be that descriptive.
 
-**Example:** Checks if the Infiniband interface has a speed of 56 Gbps, and a MTU of 65520.
+Configuration
+--------------
+
+Add the configuration file in a valid directory. Ej: :bash:`/etc/sensu/conf.d/checks/check-interfaces.json`
+		  
+**Example:** Checks if the Infiniband interface has a speed of 56 Gbps, and an MTU of 65520.
 	  
    .. literalinclude:: ../src/checks/network-interface.json
 	  :language: bash
@@ -71,8 +76,8 @@ MTU never fails
 '''''''''''''''
 
 For an unknown reason, the flag for setting the desired MTU doesn't work. The script takes
-dinamically the desired MTU. For infiniband interfaces it expects 65520. So, specifing a
-MTU value doesn't make the diference.
+dynamically the desired MTU. For InfiniBand interfaces, it expects 65520, so, specifying an
+MTU value doesn't make the difference.
 				 
 Authors
 --------

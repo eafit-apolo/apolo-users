@@ -1,0 +1,6 @@
+[sensu]
+name=sensu-main
+baseurl=http://repositories.sensuapp.org/yum/el/7/x86_64/
+gpgkey=https://repositories.sensuapp.org/yum/pubkey.gpg
+gpgcheck=0
+enabled=1

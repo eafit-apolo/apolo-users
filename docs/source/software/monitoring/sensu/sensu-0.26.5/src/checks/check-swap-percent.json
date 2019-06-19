@@ -1,0 +1,9 @@
+{
+  "checks": {
+    "check_swa_usage": {
+        "command": "check-swap-percent.rb -w 10 -c 15",
+        "subscribers": ["example"],
+        "interval": 60
+    }
+  }
+}

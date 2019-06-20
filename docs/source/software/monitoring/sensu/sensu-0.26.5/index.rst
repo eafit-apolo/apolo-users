@@ -42,20 +42,39 @@ in :bash:`/etc/sensu/config.json` or as an independent JSON file in the director
 
 .. _sensu_services:
 
+Introduction
+============
+
+The general sensu architecture is summarized as one or more servers that assign
+monitoring tasks to its clients through a message bus, and stores the results
+in a Database in Memory. Information like configuration and results is provided
+through an API.
+
+.. image:: images/sensu-flow.gif
+   :scale: 60 %
+   :align: center
+   :alt: Execution Flow
+
+
 Sensu Services
 ===============
 
 * **sensu-client:** It executes the tasks indicated in the Message Broker (RabbitMQ) by the Sensu server. It's
-  necessary to restart it if the client configuration changes (local checks, address, etc) in order to update both:
-  the informative and the execution layer of Sensu. If you change a configuration in the client, it's not necessary to restart the server.
+  necessary to restart it if the client configuration changes (local checks, address, etc) to refresh the configuration.
+  If you change a configuration in the client, it's not necessary to restart the server.
 
-* **sensu-server:** Distributes the monitoring tasks to the nodes through the message broker, and reacts executing the specified
+* **sensu-server:** Distributes the monitoring tasks through the message broker, and reacts executing the specified
   handlers when a result has a critical or warning state. It's necessary to restart it if the server
-  configuration changes (checks, handlers, etc) in order to refresh its execution parameters (send monitoring tasks and receive results).
+  configuration changes (checks, handlers, etc) in order to refresh its execution parameters
+  (send monitoring tasks and receive results).
 
 * **sensu-api:** Manages the service information provided from the Sensu-server to external systems like Uchiwa. It's
   necessary to restart it if the server configuration changes (checks, handlers, etc) in order to update the informative layer.
 
+.. image:: images/services.png
+   :scale: 80 %
+   :alt: Services
+  
 Concepts
 =========
 
@@ -207,6 +226,18 @@ Add the Uchiwa configuration file:
 Plugins
 ========
 
+Excluding the specific configurations that each plugin can have, the general
+process to add a plugin is described as follows:
+
+#. Download the script into a directory readable by **sensu** user.
+
+#. Define the check configuration in :bash:`/etc/sensu/config.json` or as an
+   independent JSON file in :bash:`/etc/sensu/conf.d/`, specifying the execution
+   line, frequency, and which subscribers will be associated with the check.
+
+#. Restart **sensu-server** and **sensu-api**. If the check is defined as standalone
+   (locally in the client) restart **sensu-client**.
+   
 .. toctree::
    :maxdepth: 1
 

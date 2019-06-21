@@ -10,3 +10,5 @@ to configure some monitoring systems used in the Scientific Computing Center APO
    :maxdepth: 1
 
    nagios/index
+   sensu/index
+   elk/index

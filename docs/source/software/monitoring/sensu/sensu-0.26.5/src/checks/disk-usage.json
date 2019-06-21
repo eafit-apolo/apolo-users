@@ -1,0 +1,10 @@
+{
+  "checks":{
+    "check-disk-usage": {
+      "command": "/opt/sensu/embedded/bin/check-disk-usage.rb --mount /,/tmp,/var --warn-space 90 --crit-space 95",
+      "interval": 60,
+      "subscribers": ["example"],
+      "handlers": ["mailer"]
+    }
+  }
+}

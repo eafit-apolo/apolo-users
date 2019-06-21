@@ -1,0 +1,10 @@
+{
+  "checks": {
+    "check_cpu_load": {
+      "command": "check-load.rb -c 20,18,18 -w 15,15,14",
+      "subscribers": ["example"],
+      "interval": 60,
+      "handlers": ["mailer"]
+    }
+  }
+}

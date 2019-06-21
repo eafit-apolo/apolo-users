@@ -11,3 +11,4 @@ programming languages available in the supercomputers
    :maxdepth: 1
 
    matlab/index
+   python/index

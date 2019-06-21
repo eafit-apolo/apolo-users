@@ -71,8 +71,16 @@ download and configure the VPN client:
         :alt: Fill the fields
 
     - **Portal:** leto.eafit.edu.co
-    - **Username:** The username assigned by EAFIT or the System Administrator
-    - **Password:** The password of your EAFIT account or the password assigned by the system administrator
+    - **Username:** The username assigned by the Apolo's system administrator.
+    - **Password:** The password used to log in to the clusters.
+
+    .. warning::
+        The password sent to your email is one-time password, the first time you login
+        to our clusters the system will ask you for changing the password, after that the
+        new password will be used to log in to the VPN.
+
+    .. warning::
+        Remember your password will expire every three (3) months.
 
 #. Once connected to the VPN, you will see the word Connected as shown in the image
 

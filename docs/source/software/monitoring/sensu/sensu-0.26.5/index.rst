@@ -46,7 +46,7 @@ Introduction
 ============
 
 The general sensu architecture is summarized as one or more servers that assign
-monitoring tasks to its clients through a message bus, and stores the results
+monitoring tasks to its clients through a message broker, and stores the results
 in a Database in Memory. Information like configuration and results is provided
 through an API.
 

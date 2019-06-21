@@ -25,6 +25,7 @@ Parallel Programming
 - `A Hands on Introduction to OpenMP - OpenMP <https://www.openmp.org/wp-content/uploads/Intro_To_OpenMP_Mattson.pdf>`_
 - `MPI Tutorial <http://mpitutorial.com/>`_
 - `Designing and Building Parallel Programs  <https://www.mcs.anl.gov/~itf/dbpp/text/node1.html>`_
+- `OpenACC Nvidia Courses <https://developer.nvidia.com/openacc-courses>`_
 
 Job Management
 ^^^^^^^^^^^^^^

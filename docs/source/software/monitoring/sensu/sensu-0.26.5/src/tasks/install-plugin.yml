@@ -1,0 +1,3 @@
+- name: Install Nvidia Plugin
+  shell: /usr/bin/sensu-install -p sensu-plugins-nvidia
+  when: 'nvidia_plugin.stat.exists == false'

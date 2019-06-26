@@ -78,7 +78,7 @@ Sensu Services
 Concepts
 =========
 
-* **Clients:** Monitoring agents that execute checks and replies the results to it's associated Sensu Server.
+* **Clients:** Monitoring agents that execute checks and replies the results to its associated Sensu Server.
 
 * **Subscriptions:** A name that groups 0 or more clients around one particular role or responsibility.
 
@@ -250,6 +250,72 @@ process to add a plugin is described as follows:
    plugins/network-interface
    plugins/check-sensors
 
+Integration with Ansible
+=========================
+
+We implemented a Role in Ansible that contains the whole process of installation and configuration
+of a Sensu Client, and it's integration with some plugins. Configuration files are generated dynamically
+using Ansible templates and pre-defined variables in the role.
+
+The structure is:
+
+.. code-block:: bash
+
+	---
+	sensu_clients_data:
+	  compute-1:
+	    subscriptions: ["compute-node","nvidia-gpu"]
+	  compute-2:
+	    subscriptions: ["compute-node"]
+
+These subscriptions define the values present in the configuration file :bash:`client.json`.
+
+Later in this documentation, these subscriptions are used also as conditionals in Ansible
+for the plugins installation and configuration.
+
+
+Add a new Plugin
+-----------------
+
+This procedure explains the general steps required to support a new plugin within
+the Sensu-Clients ansible role.
+
+.. note:: The steps show the configuration of GPU Nvidia Plugin as an example.
+
+#. Add a new subscription or use an existing one to associate the desired
+   nodes with this plugin:
+
+   .. literalinclude:: src/tasks/vars.yml
+
+#. Install the dependencies if needed. You can add a conditional that
+   checks if the current machine has the corresponding subscription defined.
+
+	**Example:**
+
+	.. code-block:: bash
+
+		when: '"nvidia-gpu" in sensu_clients_data[inventory_hostname].subscriptions'
+
+
+#. Check if the plugin is installed (i.e verifying the presence of the script)
+   and register this state into an Ansible variable:
+
+   .. literalinclude:: src/tasks/check-plugin.yml
+
+#. Install the plugin if its presence was not registered in the last step:
+
+   .. literalinclude:: src/tasks/install-plugin.yml
+
+You can add a second conditional that executes this installation only if
+the current machine has the corresponding subscriptions defined.
+
+	**Example:**
+
+	.. code-block:: bash
+
+		  when '"nvidia-gpu" in sensu_clients_data[inventory_hostname].subscriptions'
+
+   
 Troubleshooting
 ================
 

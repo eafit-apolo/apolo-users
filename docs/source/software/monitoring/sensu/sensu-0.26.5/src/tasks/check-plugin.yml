@@ -1,0 +1,5 @@
+- name: Nvidia plugin present
+  stat:
+    path: /opt/sensu/embedded/bin/metrics-nvidia.rb
+  register: nvidia_plugin
+

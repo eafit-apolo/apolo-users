@@ -1,0 +1,5 @@
+sensu_clients_data:
+  compute-1:
+    subscriptions: ["nvidia-gpu"]
+  compute-2:
+    subscriptions: ["nvidia-gpu"]

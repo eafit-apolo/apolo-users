@@ -24,11 +24,10 @@ Installation
 ------------
 
 This entry covers the entire process performed for the installation and
-configuration of MATLAB and the Distributed Computing Server on a cluster with
+configuration of MATLAB and MATLAB Parallel Server on a cluster with
 the conditions described above.
 
 .. toctree::
-   :maxdepth: 1
 
    installation
 

@@ -18,9 +18,15 @@ simulation and model-based design for dynamic and embedded systems.
 
 .. toctree::
    :caption: Versions
-   :maxdepth: 1
+   :maxdepth: 2
 
    matlab-r2018a/index
+
+.. toctree::
+   :caption: License Manager
+   :maxdepth: 2
+
+   matlab-flexlm/index
 
 Resources
 ^^^^^^^^^

@@ -105,7 +105,7 @@ called :code:`network-manager-vpnc`. If you use Gnome or a Gnome compatible wind
 :code:`network-manager-vpnc-gnome` and :code:`vpnc` packages. If you use KDE or a KDE compatible window manager you can install the package kvpnc.
 
 .. code-block:: bash
-    :emphasize-lines: 3,9
+    :emphasize-lines: 3,9,11
     :caption: **Tested on Linux Mint 19**
 
     $ sudo apt search vpnc
@@ -122,19 +122,22 @@ called :code:`network-manager-vpnc`. If you use Gnome or a Gnome compatible wind
     p   vpnc:i386                         - Cisco-compatible VPN client
     p   vpnc-scripts                      - Network configuration scripts for VPNC and OpenConnect
 
+
+.. code-block:: bash
+
     $ sudo apt install vpnc network-manager-vpnc-gnome
 
 Once the correct package is installed according to your distribution, you can proceed to configure the VPN client.
 
 .. warning::
 
-    The following procedure may vary depending on the package installed. We are going to use the configuration for network-manager-vpnc-gnome
-    due this is the most common package on usual Linux distributions.
+    It is strongly recommended to log out and log in before to start the following steps because there are some cases where the VPN connection does not
+    work until log out or reboot is performed after the package installation.
 
 .. warning::
 
-    It is strongly recommended to log out and log in before to start the following steps because there are some cases where the VPN connection does not
-    work until log out or reboot is performed after the package installation.
+    The following procedure may vary depending on the package installed. We are going to use the configuration for network-manager-vpnc-gnome
+    due this is the most common package on usual Linux distributions.
 
 #. Open the main menu and System Settings.
 
@@ -156,15 +159,14 @@ Once the correct package is installed according to your distribution, you can pr
 
 #. Choose Import from file...
 
+    .. note:: The VPN file will be provided by the system administrator, please request it before to continue with this guide.
+
     .. image:: images/systemsettingsnetworkchoose.png
         :align: center
         :alt: Add a new connection
 
-
-   .. note:: The file will be provided by the system administrator, please request it before to continue with this guide.
-
-#. Once the file has been imported you just need to add your username and password provided by the administrator. Note that
-   the group password is filled automatically by the imported file.
+#. Once the file has been imported you just need to add your username and password provided by the administrator. **Note that
+   the group password is filled automatically by the imported file**.
 
     .. image:: images/systemsettingsnetworkconfig.png
         :align: center

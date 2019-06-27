@@ -23,8 +23,8 @@ ELK Stack 6.x Installation and Configuration
   - Install, configure, and start the services in the following order, then you will avoid repeating some steps, and also some problems. Note that this order is the same as the one in the role *elk*.
 
     + Elasticsearch: https://www.elastic.co/guide/en/elasticsearch/reference/6.6/index.html
-    + Kibana: https://www.elastic.co/guide/en/kibana/6.6/index.html
     + Logstash: https://www.elastic.co/guide/en/logstash/6.6/index.html
+    + Kibana: https://www.elastic.co/guide/en/kibana/6.6/index.html
     + Filebeat: https://www.elastic.co/guide/en/beats/filebeat/6.6/index.html
 
 Basic information
@@ -89,6 +89,19 @@ The Elasticsearch main configuration file, which is a template, is rendered in :
 .. literalinclude:: src/handlers/elasticsearch-handler.yml
    :language: yaml
 
+Logstash
+''''''''
+After installing the needed package, Logstash is configured like this:
+
+.. literalinclude:: src/tasks/logstash-config.yml
+   :language: yaml
+
+The first task copies two configuration files, *pipelines.yml* and *logstash.yml*. The first file indicates to Logstash where to find our pipelines configuration files. You can find it :download:`here <src/files/etc/logstash/pipelines.yml>`. The second one is the main configuration file for Logstash. You can find it :download:`here <src/files/etc/logstash/logstash.yml>`.
+
+The second task takes a template and renders it in the pipelines directory. The template represents the description of our main pipeline, that is, inputs, filters, and outputs. You can find it :download:`here <src/templates/etc/logstash/conf.d/main_pipeline.conf.j2>`. 
+
+.. note:: **Logstash Filters:** It is important to know the version of the filter plugins that you are using so you will be able to search for the proper documentation.
+	      
 .. _kibana-label:
 
 Kibana
@@ -115,7 +128,7 @@ After installing and configuring Kibana, it is time to give structure to our log
      * In the *Dev Tools* section, copy and paste the content of the index and mappings :download:`file <config/index_and_mappings.txt>`, then select it all and click on RUN. Note that these mappings are the ones that we use, you can take them as an example and create yours, for more information go to ELK's documentation about `mappings <https://www.elastic.co/guide/en/kibana/current/tutorial-load-dataset.html#_set_up_mappings>`_.
      * To easily see your mappings go to: Management -> Index management -> Select your index -> Mapping.
          
-  b) Continue with **c** and **d** steps after :ref:`filebeat-label` is sending information as well as logstash is filtering it and passing it to elasticsearch. So please go to :ref:`filebeat-label`.
+  b) Continue with **c** and **d** steps after :ref:`filebeat-label` is sending information to logstash. So please go to :ref:`filebeat-label`.
      
      * You can check that it is already done if you can create *index patterns*, that is, it won't let you create them if you don't have any data.
 
@@ -125,19 +138,6 @@ After installing and configuring Kibana, it is time to give structure to our log
      * If you want to export the visualizations to a json format, remember to export every saved object, because some visualizations may depend on other objects and they won't work if you don't export them all.
 
   d) In the section *Management* -> *Index Patterns* select one (no matter which one) index pattern and press the star button to make it the default one.
-
-Logstash
-''''''''
-After installing the needed package, Logstash is configured like this:
-
-.. literalinclude:: src/tasks/logstash-config.yml
-   :language: yaml
-
-The first task copies two configuration files, *pipelines.yml* and *logstash.yml*. The first file indicates to Logstash where to find our pipelines configuration files. You can find it :download:`here <src/files/etc/logstash/pipelines.yml>`. The second one is the main configuration file for Logstash. You can find it :download:`here <src/files/etc/logstash/logstash.yml>`.
-
-The second task takes a template and renders it in the pipelines directory. The template represents the description of our main pipeline, that is, inputs, filters, and outputs. You can find it :download:`here <src/templates/etc/logstash/conf.d/main_pipeline.conf.j2>`. 
-
-.. note:: **Logstash Filters:** It is important to know the version of the filter plugins that you are using so you will be able to search for the proper documentation.
 
 .. _filebeat-label:
 

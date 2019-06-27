@@ -1,0 +1,6 @@
+---
+- name: enable_restart_filebeat
+  service:
+    name: filebeat
+    state: restarted
+    enabled: yes

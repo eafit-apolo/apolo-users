@@ -1,0 +1,9 @@
+---
+- name: Configure kibana
+  template:
+    src: "etc/kibana/kibana.yml.j2"
+    dest: "/etc/kibana/kibana.yml"
+    owner: root
+    group: root
+    mode: 0644
+  notify: enable_restart_kibana

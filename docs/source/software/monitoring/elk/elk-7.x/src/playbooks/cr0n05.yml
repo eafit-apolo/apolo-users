@@ -1,0 +1,4 @@
+---
+- hosts: cr0n05
+  roles:
+    - ../roles/master

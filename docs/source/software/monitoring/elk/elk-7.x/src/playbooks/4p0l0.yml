@@ -1,0 +1,4 @@
+---
+- hosts: 4p0l0
+  roles:
+    - ../roles/master

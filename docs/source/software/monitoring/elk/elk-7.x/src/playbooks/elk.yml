@@ -1,0 +1,4 @@
+---
+- hosts: elk
+  roles:
+    - ../roles/elk

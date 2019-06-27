@@ -19,7 +19,7 @@ ELK Stack 6.x Installation and Configuration
   - Install Java JDK 8, more recent versions may have compatibility problems.
   - You must use the same version for Logstash, Elasticsearch, Kibana to avoid compatibility problems.
   - Also, when reading the guides check that the guide version is compatible with the version of your ELK stack.
-  - The RAM used by Logstash and Elasticsearch is a lot. By default 1GB for heap, plus the jvm which is about 2.5 GB of RAM.
+  - Consider the amount of RAM used by Logstash and Elasticsearch. By default 1GB for heap, plus the JVM which is about 2.5 GB of RAM.
   - Install, configure, and start the services in the following order, then you will avoid repeating some steps, and also some problems. Note that this order is the same as the one in the role *elk*.
 
     + Elasticsearch: https://www.elastic.co/guide/en/elasticsearch/reference/6.6/index.html
@@ -39,7 +39,7 @@ Installation
 The architecture in which the ELK Stack was installed is the following.
 
 .. code-block:: bash
-    
+
                 ELK Server
                ----------------
                  Kibana
@@ -68,7 +68,7 @@ This playbook basically adds the ELK's gpg signing key and takes a template to r
 .. literalinclude:: src/templates/etc/yum.repos.d/elk.repo.j2
    :language: yaml
 
-The :yaml:`{{ elk_version }}` jinja variable refers to the version of your desired stack. In this case 6.c. This variable must be passed as argument when running ansible or have it defined somewhere in your ansible project. For more information about variables go to the Ansible's `documentation <https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html>`_.
+The :yaml:`{{ elk_version }}` jinja variable refers to the version of your desired stack. In this case 6.c. This variable must be passed as an argument when running ansible or have it defined somewhere in your ansible project. For more information about variables go to the Ansible's `documentation <https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html>`_.
 
 Also, it is needed to install Java 8 and the main components (elasticsearch, logstash, kibana) packages.
 
@@ -110,34 +110,34 @@ After installing the needed package, Kibana is configured like this:
 
 .. literalinclude:: src/tasks/kibana-config.yml
    :language: yaml
-          
+
 The Kibana main configuration file, which is a template, is rendered in :bash:`/etc/kibana/`. The template can be found :download:`here <src/templates/etc/kibana/kibana.yml.j2>`. Also, when the configuration file is placed, a notify is made so that the Kibana service is started/restarted. The handler looks like this:
 
 .. literalinclude:: src/handlers/kibana-handler.yml
    :language: yaml
 
 After installing and configuring Kibana, it is time to give structure to our logs and create/import the dashboards and visualizations needed:
-          
+
 1. Access the web interface through *http://elk:5601*. To access it using the domain name *elk* remember to add elk to your *hosts* file.
 2. Organize the information. This will help you plot all your data easily.
 
   .. note:: Create the indexes, and the mappings BEFORE sending any data to Elasticsearch.
-     
+
   a) Create *indexes* and *mappings*, that is, give types and formats to your data.
-     
+
      * In the *Dev Tools* section, copy and paste the content of the index and mappings :download:`file <config/index_and_mappings.txt>`, then select it all and click on RUN. Note that these mappings are the ones that we use, you can take them as an example and create yours, for more information go to ELK's documentation about `mappings <https://www.elastic.co/guide/en/kibana/current/tutorial-load-dataset.html#_set_up_mappings>`_.
      * To easily see your mappings go to: Management -> Index management -> Select your index -> Mapping.
          
   b) Continue with **c** and **d** steps after :ref:`filebeat-label` is sending information to logstash. So please go to :ref:`filebeat-label`.
-     
+
      * You can check that it is already done if you can create *index patterns*, that is, it won't let you create them if you don't have any data.
 
   c) Create the dashboard and visualizations.
-     
-     * Go to *Management*, then, under the Kibana section go to *Saved Objects*, then, *Import*, and import the dashboards and visualizations :download:`file <config/dashboards_and_visualizations.json>`.
-     * If you want to export the visualizations to a json format, remember to export every saved object, because some visualizations may depend on other objects and they won't work if you don't export them all.
 
-  d) In the section *Management* -> *Index Patterns* select one (no matter which one) index pattern and press the star button to make it the default one.
+     * Go to *Management*, then, under the Kibana section go to *Saved Objects*, then, *Import*, and import the dashboards and visualizations :download:`file <config/dashboards_and_visualizations.json>`.
+     * If you want to export the visualizations to a JSON format, remember to export every saved object, because some visualizations may depend on other objects and they won't work if you don't export them all.
+
+  d) In the section *Management* -> *Index Patterns* select one (no matter which one) index pattern and press the start button to make it the default one.
 
 .. _filebeat-label:
 
@@ -150,7 +150,7 @@ So, the installation playbook looks like this:
 .. literalinclude:: src/tasks/filebeat.yml
    :language: yaml
 
-As previously explained, the three first tasks are for adding the ELK's repository and installing the main component package. The last task is for configuring Filebeat. It takes a template file, which contains the Filebeat main configuration, that is, where it will take the logs from. You can find the template file :download:`here <src/templates/etc/filebeat/filebeat.yml.j2>`. Then, after Filebeat is configured, a notify is sent to a handler to start/restart the Filebeat service. The handler looks like this:
+As previously explained, the three first tasks are for adding the ELK's repository and installing the main component package. The last task is for configuring Filebeat. It takes a template file, which contains the Filebeat main configuration, that is, where it will take the logs from. You can find the template file :download:`here <src/templates/etc/filebeat/filebeat.yml.j2>`. Then, after Filebeat is configured, a notification is sent to a handler to start/restart the Filebeat service. The handler looks like this:
 
 .. literalinclude:: src/handlers/filebeat-handler.yml
    :language: yaml
@@ -174,7 +174,7 @@ To start up the virtual cluster use the following bash script with the argument 
    :language: bash
 
 .. note:: Change elk, cr0n05, 4p0l0, to the virtual machine names that you set up in your Vagrantfile. If you are using the vagrantfile from above, you do not have to change them.
-	  
+
 Make the virtual machines visible between them by their hostname. You just have to change the :bash:`/etc/hosts` file and add the ip address of the virtual machine that you want to see followed by its hostname. For example, make elk visible by others and in the *elk* machine.
 
 .. code-block:: yaml
@@ -184,7 +184,7 @@ Make the virtual machines visible between them by their hostname. You just have 
    192.168.1.2     cr0n05   # make cr0n05 visible to elk by its hostname not just its ip
    192.168.1.3     4p0l0
 
-After making them visible, run the script with the argument :bash:`privision-elk` so that Elasticsearch, Logstash, and Kibana will be installed. Configure Kibana as explained in :ref:`kibana-label`. Then run the script with the argument :bash:`provision-filebeat`. When it finishes you should be able to open your browser in the elk machine's ip address port 5601.
+After making them visible, run the script with the argument :bash:`provision-elk` so that Elasticsearch, Logstash, and Kibana will be installed. Configure Kibana as explained in :ref:`kibana-label`. Then run the script with the argument :bash:`provision-filebeat`. When it finishes you should be able to open your browser in the elk machine's ip address port 5601.
 
 Authors
 -------

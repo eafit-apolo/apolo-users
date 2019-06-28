@@ -12,3 +12,4 @@ programming languages available in the supercomputers
 
    matlab/index
    python/index
+   R/index

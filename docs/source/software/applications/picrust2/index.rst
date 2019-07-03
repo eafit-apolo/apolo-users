@@ -13,4 +13,4 @@ Versions
    picrust-2.0.4-beta/index
 
 .. [1] PYCRUSt.
-           Retrieved January 24th, 2018, from http://picrust.github.io/picrust/.
+           Retrieved January 24th, 2019, from http://picrust.github.io/picrust/.

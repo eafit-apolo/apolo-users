@@ -1,0 +1,17 @@
+{
+  "checks": {
+    "check-sshd": {
+      "command": "check-process.rb -p /usr/sbin/sshd",
+      "interval": 60,
+      "handlers": ["remediator","mailer"],
+      "subscribers": ["ssh"],
+      "standalone": false,
+      "remediation": {
+        "remediate-service-ssh": {
+          "occurrences": ["1+"],
+          "severities": [2]
+        }
+      }
+    }
+  }
+}

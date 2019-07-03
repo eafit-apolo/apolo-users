@@ -1,0 +1,11 @@
+{
+  "checks": {
+    "remediate-service-ssh": {
+      "command": "service sshd start",
+      "handlers": ["remediator"],
+      "subscribers": ["ssh"],
+      "standalone": false,
+      "publish": false
+    }
+  }
+}

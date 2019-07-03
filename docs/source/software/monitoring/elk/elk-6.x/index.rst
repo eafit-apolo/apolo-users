@@ -25,6 +25,7 @@ ELK Stack 6.x Installation and Configuration
     + Elasticsearch: https://www.elastic.co/guide/en/elasticsearch/reference/6.6/index.html
     + Logstash: https://www.elastic.co/guide/en/logstash/6.6/index.html
     + Kibana: https://www.elastic.co/guide/en/kibana/6.6/index.html
+
     + Filebeat: https://www.elastic.co/guide/en/beats/filebeat/6.6/index.html
 
 Basic information
@@ -101,7 +102,7 @@ The first task copies two configuration files, *pipelines.yml* and *logstash.yml
 The second task takes a template and renders it in the pipelines directory. The template represents the description of our main pipeline, that is, inputs, filters, and outputs. You can find it :download:`here <src/templates/etc/logstash/conf.d/main_pipeline.conf.j2>`. 
 
 .. note:: **Logstash Filters:** It is important to know the version of the filter plugins that you are using so you will be able to search for the proper documentation.
-	      
+
 .. _kibana-label:
 
 Kibana
@@ -129,6 +130,7 @@ After installing and configuring Kibana, it is time to give structure to our log
      * To easily see your mappings go to: Management -> Index management -> Select your index -> Mapping.
          
   b) Continue with **c** and **d** steps after :ref:`filebeat-label` is sending information to logstash. So please go to :ref:`filebeat-label`.
+
 
      * You can check that it is already done if you can create *index patterns*, that is, it won't let you create them if you don't have any data.
 

@@ -19,10 +19,11 @@ filter {
       match => {
         "message" => [
   	  # Login attemps
-          "%{SYSLOGTIMESTAMP:log.timestamp} %{SYSLOGHOST:system_hostname} sshd(.*)?: %{DATA:sshd_event} %{DATA:sshd_method} for (invalid user )?%{DATA:sshd_user} from %{IPORHOST:sshd_guest_ip} port %{NUMBER:sshd_guest_port} ssh2(: %{GREEDYDATA:sshd_guest_signature})?"
+          "%{SYSLOGTIMESTAMP:log_timestamp} %{SYSLOGHOST:system_hostname} sshd(.*)?: %{DATA:sshd_event} %{DATA:sshd_method} for( invalid user)? %{DATA:sshd_user} from %{IPORHOST:sshd_guest_ip} port %{NUMBER:sshd_guest_port} ssh2(: %{GREEDYDATA:sshd_guest_signature})?",
+	  "%{SYSLOGTIMESTAMP:log_timestamp} %{SYSLOGHOST:system_hostname} sshd(.*)?: %{DATA:sshd_event} user %{DATA:sshd_user} from %{IPORHOST:sshd_guest_ip} port %{NUMBER:sshd_guest_port}"
   	]
       }
-      add_field => { "type" => "sshd_login_attempt"
+      add_field => { "type" => "secure_sshd_login_attempt"
                      "secure_correctly_filtered" => "true" }
     }
 
@@ -30,10 +31,10 @@ filter {
       match => {
         "message" => [
             # Sudo commands
-            "%{SYSLOGTIMESTAMP:log.timestamp} %{SYSLOGHOST:system_hostname} sudo(.*)?:%{SPACE}%{DATA:system_sudo_user} :( %{DATA:system_sudo_error} ;)? TTY=.* ; PWD=%{DATA:system_sudo_workdir} ; USER=%{DATA:system_sudo_asuser} ; COMMAND=(?<system_sudo_command>(?!/usr/sbin/ipmi-sensors.*).*) "     
+            "%{SYSLOGTIMESTAMP:log_timestamp} %{SYSLOGHOST:system_hostname} sudo(.*)?:%{SPACE}%{DATA:system_sudo_user} :( %{DATA:system_sudo_error} ;)? TTY=.* ; PWD=%{DATA:system_sudo_workdir} ; USER=%{DATA:system_sudo_asuser} ; COMMAND=(?<system_sudo_command>(?!/usr/sbin/ipmi-sensors.*).*) "     
         ]
       }
-      add_field => { "type" => "sshd_sudo_command"
+      add_field => { "type" => "secure_sudo_command"
                      "secure_correctly_filtered" => "true" }
     }
 
@@ -41,11 +42,11 @@ filter {
       match => {
         "message" => [
   	  # New groups and users
-  	  "%{SYSLOGTIMESTAMP:log.timestamp} %{SYSLOGHOST:system_hostname} groupadd(.*)?: new group: name=%{DATA:system_groupadd_name}, GID=%{NUMBER:system_groupadd_gid}",
-  	  "%{SYSLOGTIMESTAMP:log.timestamp} %{SYSLOGHOST:system_hostname} useradd(.*)?: new user: name=%{DATA:system_useradd_name}, UID=%{NUMBER:system_useradd_uid}, GID=%{NUMBER:system_useradd_gid}, home=%{DATA:system_useradd_home}, shell=%{DATA:system.useradd_shell}$"
+  	  "%{SYSLOGTIMESTAMP:log_timestamp} %{SYSLOGHOST:system_hostname} groupadd(.*)?: new group: name=%{DATA:system_groupadd_name}, GID=%{NUMBER:system_groupadd_gid}",
+  	  "%{SYSLOGTIMESTAMP:log_timestamp} %{SYSLOGHOST:system_hostname} useradd(.*)?: new user: name=%{DATA:system_useradd_name}, UID=%{NUMBER:system_useradd_uid}, GID=%{NUMBER:system_useradd_gid}, home=%{DATA:system_useradd_home}, shell=%{DATA:system.useradd_shell}$"
         ]
       }
-      add_field => { "type" => "sshd_new_user_group"
+      add_field => { "type" => "secure_new_user_group"
                      "secure_correctly_filtered" => "true" }
     }
 
@@ -57,13 +58,13 @@ filter {
 
     # In case of successful parsing, the @timestamp field is updated with the parsed info
     date {
-      match => [ "log.timestamp", "MMM dd yyyy HH:mm:ss", "MMM d yyyy HH:mm:ss", "MMM dd HH:mm:ss", "MMM d HH:mm:ss" ]
+      match => [ "log_timestamp", "MMM dd yyyy HH:mm:ss", "MMM d yyyy HH:mm:ss", "MMM dd HH:mm:ss", "MMM d HH:mm:ss" ]
       timezone => "America/Bogota"
     }
 
     # Remove field added by filebeat and add a tag to make easier the output part
     mutate {
-      remove_field => ["fromsecure", "log.timestamp"]
+      remove_field => ["fromsecure", "log_timestamp"]
     }
   }
 
@@ -74,7 +75,7 @@ filter {
     grok {
       match => {
         "message" => [
-    	  "\[%{TIMESTAMP_ISO8601:log.timestamp}\] error: (?<error>.*)" #An error ocurred	  
+    	  "\[%{TIMESTAMP_ISO8601:log_timestamp}\] error: (?<error>.*)" #An error ocurred	  
     	]
       }
       add_field => { "type" => "slurm_error"
@@ -84,9 +85,9 @@ filter {
     grok {
       match => {
         "message" => [
-    	  "\[%{TIMESTAMP_ISO8601:log.timestamp}\] slurmctld version (?<version>(\d+\.)?(\d+\.)?(\d+)(\.\d+)?) %{DATA:event} .* cluster (?<cluster>[a-zA-Z0-9\-\_]+)", #Slurm started correctly
-    	  "\[%{TIMESTAMP_ISO8601:log.timestamp}\] (?<state>(Running|Terminate)) .*", #Slurm is running
-    	  "\[%{TIMESTAMP_ISO8601:log.timestamp}\] (?<state>(Registering)) .* (port %{NUMBER:port})? .*" #Slurm is running on port xxx
+    	  "\[%{TIMESTAMP_ISO8601:log_timestamp}\] slurmctld version (?<version>(\d+\.)?(\d+\.)?(\d+)(\.\d+)?) %{DATA:event} .* cluster (?<cluster>[a-zA-Z0-9\-\_]+)", #Slurm started correctly
+    	  "\[%{TIMESTAMP_ISO8601:log_timestamp}\] (?<state>(Running|Terminate)) .*", #Slurm is running
+    	  "\[%{TIMESTAMP_ISO8601:log_timestamp}\] (?<state>(Registering)) .* (port %{NUMBER:port})? .*" #Slurm is running on port xxx
     	]
       }
       add_field => { "type" => "slurm_status"
@@ -96,7 +97,7 @@ filter {
     grok {
       match => {
         "message" => [
-    	  "\[%{TIMESTAMP_ISO8601:log.timestamp}\] email msg to (?<user_email>(?<user_name>[a-zA-Z0-9_.+=:-]+)@[0-9A-Za-z][0-9A-Za-z-]{0,62}(?:\.(?:[0-9A-Za-z][0-9A-Za-z-]{0,62}))*): Slurm Job_id=%{NUMBER:user_jobid} Name=%{DATA:user_jobname} Began, Queued time ((?<user_queuedtime_days>[0-9]?[0-9])-)?(?<user_queuedtime_hours>[0-9]{2}):(?<user_queuedtime_minutes>[0-9]{2}):(?<user_queuedtime_seconds>[0-9]{2})" # Job queued time
+    	  "\[%{TIMESTAMP_ISO8601:log_timestamp}\] email msg to (?<user_email>(?<user_name>[a-zA-Z0-9_.+=:-]+)@[0-9A-Za-z][0-9A-Za-z-]{0,62}(?:\.(?:[0-9A-Za-z][0-9A-Za-z-]{0,62}))*): Slurm Job_id=%{NUMBER:user_jobid} Name=%{DATA:user_jobname} Began, Queued time ((?<user_queuedtime_days>[0-9]?[0-9])-)?(?<user_queuedtime_hours>[0-9]{2}):(?<user_queuedtime_minutes>[0-9]{2}):(?<user_queuedtime_seconds>[0-9]{2})" # Job queued time
     	]
       }
       add_field => { "type" => "slurm_queue"
@@ -105,13 +106,13 @@ filter {
 
     # In case of successful parsing, the @timestamp field is updated with the parsed info
     date {
-      match => [ "log.timestamp", "ISO8601" ]
+      match => [ "log_timestamp", "ISO8601" ]
       timezone => "America/Bogota"
     }
 
     # Remove field added by filebeat and add a tag to make easier the output part
     mutate {
-      remove_field => ["fromslurm", "log.timestamp"]
+      remove_field => ["fromslurm", "log_timestamp"]
     }
   }
 
@@ -124,7 +125,7 @@ filter {
       match => {
         "message" => [
 	  # Common message
-          "%{SYSLOGTIMESTAMP:log.timestamp} %{SYSLOGHOST:hostname} %{DATA:service}(\[.*\])?: %{DATA:message}$"
+          "%{SYSLOGTIMESTAMP:log_timestamp} %{SYSLOGHOST:hostname} %{DATA:service}(\[.*\])?: %{DATA:message}$"
         ]
       }
       add_field => { "type" => "system_message"
@@ -133,13 +134,13 @@ filter {
 
     # In case of successful parsing, the @timestamp field is updated with the parsed info
     date {
-      match => [ "log.timestamp", "MMM dd yyyy HH:mm:ss", "MMM d yyyy HH:mm:ss", "MMM dd HH:mm:ss", "MMM d HH:mm:ss" ]
+      match => [ "log_timestamp", "MMM dd yyyy HH:mm:ss", "MMM d yyyy HH:mm:ss", "MMM dd HH:mm:ss", "MMM d HH:mm:ss" ]
       timezone => "America/Bogota"
     }
 
     # Remove field added by filebeat
     mutate {
-      remove_field => ["frommessages", "log.timestamp"]
+      remove_field => ["frommessages", "log_timestamp"]
     }
   }
 
@@ -151,9 +152,9 @@ filter {
       match => {
         "message" => [
   	  # Search user log
-  	  "\[(?<log.timestamp>%{MONTHDAY}/%{MONTH}/%{YEAR}:%{HOUR}:%{MINUTE}:([0-5][0-9]|60)).*\] .* op=(?<access_operation_id>%{INT}) (?<access_operation_type>SRCH) .* filter=\"\(&\(uid=(?<access_user_id>(%{USERNAME}|%{INT}))\).*\)\" .*",
+  	  "\[(?<log_timestamp>%{MONTHDAY}/%{MONTH}/%{YEAR}:%{HOUR}:%{MINUTE}:([0-5][0-9]|60)).*\] .* op=(?<access_operation_id>%{INT}) (?<access_operation_type>SRCH) .* filter=\"\(&\(uid=(?<access_user_id>(%{USERNAME}|%{INT}))\).*\)\" .*",
   	  # Result of search
-  	  "\[(?<log.timestamp>%{MONTHDAY}/%{MONTH}/%{YEAR}:%{HOUR}:%{MINUTE}:([0-5][0-9]|60)).*\] .* op=(?<access_operation_id>%{INT}) (?<access_operation_type>RESULT) err=(?<access_error_code>%{INT}) .*"
+  	  "\[(?<log_timestamp>%{MONTHDAY}/%{MONTH}/%{YEAR}:%{HOUR}:%{MINUTE}:([0-5][0-9]|60)).*\] .* op=(?<access_operation_id>%{INT}) (?<access_operation_type>RESULT) err=(?<access_error_code>%{INT}) .*"
   	]
 
       }
@@ -162,12 +163,12 @@ filter {
     }
 
     date {
-      match => ["log.timestamp", "dd/MMM/yyyy:HH:mm:ss"]
+      match => ["log_timestamp", "dd/MMM/yyyy:HH:mm:ss"]
       timezone => "America/Bogota"
     }
 
     mutate {
-      remove_field => ["fromfreeipa", "log.timestamp"]
+      remove_field => ["fromfreeipa", "log_timestamp"]
     }
   }
 

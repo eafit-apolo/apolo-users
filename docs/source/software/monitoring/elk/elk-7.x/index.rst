@@ -397,13 +397,28 @@ Create Index Patterns
 '''''''''''''''''''''
 Now that you have some data indexed in Elasticsearch, you can create *Index Patterns*. These are used by Kibana to match indexes and take the data that will be plotted from those indexes matched by your pattern.
 
-Go to *Management* -> *Index Pattern* -> *Create index pattern*. Select its name, and as filter field select *@timestamp*.
+Go to *Management* -> *Index Pattern* -> *Create index pattern*. Select its name, and as time filter field select *@timestamp*.
 
 Plot your data
 ''''''''''''''
 The easiest plot you can create is a frequency histogram. That's what I will explain, but there are a lot more features that Kibana `offers <https://www.elastic.co/guide/en/kibana/current/visualize.html>`_.
 
-In Kibana go to *Visualize*, press the **+** button, select your type of visualization, in this case, *Vertical Bar*.
+In Kibana go to *Visualize*, press the **+** button, select your type of visualization, in this case, *Vertical Bar*. Afther this, select the index pattern that corresponds to the *secure* logs. Now to create a frequency historgram of the users that failed logging in follow these steps:
+
+1. In the left hand side of the Kibana web page you should see a subsection called *Buckets*. Click on *X-Axis*.
+2. As aggregation select *Terms*. For more information about Term `aggregation <https://www.elastic.co/guide/en/elasticsearch/reference/7.2/search-aggregations-bucket-terms-aggregation.html>`_.
+3. As field select *sshd_user*.
+4. As custom label write: User name.
+5. Now instead of *X-Axis* select *Add sub-buckes*. Then select *Split Series*.
+6. Here as aggregation select *Terms* again.
+7. As field select *sshd_event*.
+8. Now type the following in the bar that is in the upper part of your browser (*Filters:*) -> sshd_event : "Failed". This is called *Kibana Query Language* and you can use it to filter your data and plot only what might be useful in the visualization. More information on this query language here, `Kibana Query Language <https://www.elastic.co/guide/en/kibana/7.2/kuery-query.html>`_.
+9. Click on the *play* button in the left hand side of your browser.
+10. Save your visualization with a descriptive name, something like: *[sshd] Failed attempts to log in*
+11. Create a new *Dashboard* if you haven't created one yet, and add your visualization. You should see something like:
+
+.. image:: images/visualization.png
+  :alt: Kibana vertical bars visualization.
 
 Authors
 -------

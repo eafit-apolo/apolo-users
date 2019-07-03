@@ -1,0 +1,48 @@
+# /etc/logstash/conf.d/main_pipeline.conf
+
+input {
+  beats {
+    port => "5044"
+  }
+
+  # Events go to the dead_letter_queue when Elasticsearch response has 400/402 code
+  dead_letter_queue {
+    path => "/var/log/logstash/dead_letter_queue"
+    tags => ["recovered_from_dead_letter_queue"]
+  }
+}
+
+filter {
+  if [fromsecure] {
+
+    grok {
+      match => {
+        "message" => [
+  	  # Login attemps
+          "%{SYSLOGTIMESTAMP:log.timestamp} %{SYSLOGHOST:system_hostname} sshd(.*)?: %{DATA:sshd_event} %{DATA:sshd_method} for (invalid user )?%{DATA:sshd_user} from %{IPORHOST:sshd_guest_ip} port %{NUMBER:sshd_guest_port} ssh2(: %{GREEDYDATA:sshd_guest_signature})?"
+  	]
+      }
+      add_field => { "type" => "secure_sshd_login_attempt"
+                     "secure_correctly_filtered" => "true" }
+    }
+
+    # In case of successful parsing, the @timestamp field is updated with the parsed info
+    date {
+      match => [ "log.timestamp", "MMM dd yyyy HH:mm:ss", "MMM d yyyy HH:mm:ss", "MMM dd HH:mm:ss", "MMM d HH:mm:ss" ]
+      timezone => "America/Bogota"
+    }
+
+    mutate {
+      remove_field => ["fromsecure", "log.timestamp"]
+    }
+  }
+}
+
+output {
+  if [secure_correctly_filtered] {
+    elasticsearch { # Dead Letter Queue is only supported for elasticsearch output
+      index => "secure"
+      hosts => ["elk:9200"]
+    }
+  }
+}

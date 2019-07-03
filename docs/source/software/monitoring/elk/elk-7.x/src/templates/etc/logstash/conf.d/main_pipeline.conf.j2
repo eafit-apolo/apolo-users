@@ -1,6 +1,6 @@
 input {
   beats {
-    port => "5044"
+    port => "{{ logstash_port }}"
   }
 
   # Events go to the dead_letter_queue when Elasticsearch response has 400/402 code
@@ -186,7 +186,7 @@ output {
     elasticsearch { # Dead Letter Queue is only supported for elasticsearch output
       http_compression => true # Elasticsearch uses http compression by default
       index => "secure"
-      hosts => ["elk:9200"]
+      hosts => ["{{ machine }}:{{ elasticsearch_port }}"]
     }
   }
 
@@ -197,7 +197,7 @@ output {
     elasticsearch {
       http_compression => true # Elasticsearch uses http compression by default
       index => "slurm"
-      hosts => ["elk:9200"]
+      hosts => ["{{ machine }}:{{ elasticsearch_port }}"]
     }
   }
 
@@ -208,7 +208,7 @@ output {
     elasticsearch {
       http_compression => true # Elasticsearch uses http compression by default
       index => "messages"
-      hosts => ["elk:9200"]
+      hosts => ["{{ machine }}:{{ elasticsearch_port }}"]
     }
   }
 
@@ -219,7 +219,7 @@ output {
     elasticsearch {
       http_compression => true # Elasticsearch uses http compression by default
       index => "freeipa"
-      hosts => ["elk:9200"]
+      hosts => ["{{ machine }}:{{ elasticsearch_port }}"]
     }
   }
 }

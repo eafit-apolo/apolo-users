@@ -19,7 +19,7 @@ filter {
       match => {
         "message" => [
   	  # Login attemps
-          "%{SYSLOGTIMESTAMP:log.timestamp} %{SYSLOGHOST:system_hostname} sshd(.*)?: %{DATA:sshd_event} %{DATA:sshd_method} for (invalid user )?%{DATA:sshd_user} from %{IPORHOST:sshd_guest_ip} port %{NUMBER:sshd_guest_port} ssh2(: %{GREEDYDATA:sshd_guest_signature})?"
+          "%{SYSLOGTIMESTAMP:log_timestamp} %{SYSLOGHOST:system_hostname} sshd(.*)?: %{DATA:sshd_event} %{DATA:sshd_method} for (invalid user )?%{DATA:sshd_user} from %{IPORHOST:sshd_guest_ip} port %{NUMBER:sshd_guest_port} ssh2(: %{GREEDYDATA:sshd_guest_signature})?"
   	]
       }
       add_field => { "type" => "secure_sshd_login_attempt"
@@ -28,12 +28,12 @@ filter {
 
     # In case of successful parsing, the @timestamp field is updated with the parsed info
     date {
-      match => [ "log.timestamp", "MMM dd yyyy HH:mm:ss", "MMM d yyyy HH:mm:ss", "MMM dd HH:mm:ss", "MMM d HH:mm:ss" ]
+      match => [ "log_timestamp", "MMM dd yyyy HH:mm:ss", "MMM d yyyy HH:mm:ss", "MMM dd HH:mm:ss", "MMM d HH:mm:ss" ]
       timezone => "America/Bogota"
     }
 
     mutate {
-      remove_field => ["fromsecure", "log.timestamp"]
+      remove_field => ["fromsecure", "log_timestamp"]
     }
   }
 }

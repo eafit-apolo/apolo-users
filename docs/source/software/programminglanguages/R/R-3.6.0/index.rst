@@ -117,6 +117,107 @@ The following is the module used for this version.
 
     prepend-path    MAN_PATH                $topdir/share/man
 
+Additional Libraries
+--------------------
+
+Keras GPU
+.........
+
+Follow the steps below to set up Keras with GPU support in R.
+
+.. note:: For the installation, R will be downloaded from Conda because of the Keras library when
+            it is installed does NOT recognize the TensorFlow installation if the R built by us
+            is used.
+
+1. Load the Python 3 module.
+
+.. code-block:: bash
+
+    $ module load python/3.6.8_intel-2019_update-4
+
+2. Create the environment in Conda.
+
+.. code-block:: bash
+
+    $ conda create -n r-tensorflow keras-gpu cudatoolkit=9.2
+
+.. warning:: It is mandatory to specify the CUDA Toolkit version because the current driver version supports
+            up to CUDA 9.2. If the version is omitted conda will install the latest (CUDA 10.0).
+
+3. Activate the environment and install R
+
+.. code-block:: bash
+
+    $ source activate r-tensorflow
+    $ conda install r-essentials r-base
+
+4. Log in to the GPU node through Slurm.
+
+.. code-block:: bash
+
+    $ srun -n 1 -t 60 -p accel --gres gpu:4 --pty bash
+
+.. warning:: You only can log in to the GPU node if you have permissions to launch jobs in the "accel" partition.
+            Ask the administrator if you are not sure.
+
+5. Install the Keras library.
+
+.. code-block:: bash
+
+    $ source activate r-tensorflow
+    $ R
+
+.. code-block:: R
+
+    > install.packages("devtools")
+    > library(devtools)
+    > install_github("rstudio/keras")
+
+6. Test if GPUs are recognized.
+
+.. code-block:: R
+
+    > library(keras)
+    > k=backend()
+    > sess = k$get_session()
+    > sess$list_devices()
+
+7. Check if the processes are running in the GPUs.
+
+.. note:: Login to the GPU node using another terminal session. :bash:`ssh compute-0-5`.
+
+.. code-block:: bash
+
+    $ watch nvidia-smi
+
+.. code-block:: bash
+
+    +-----------------------------------------------------------------------------+
+    | NVIDIA-SMI 396.26                 Driver Version: 396.26                    |
+    |-------------------------------+----------------------+----------------------+
+    | GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+    | Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+    |===============================+======================+======================|
+    |   0  Tesla K80           On   | 00000000:05:00.0 Off |                    0 |
+    | N/A   30C    P0    73W / 149W |     72MiB / 11441MiB |      0%      Default |
+    +-------------------------------+----------------------+----------------------+
+    |   1  Tesla K80           On   | 00000000:06:00.0 Off |                    0 |
+    | N/A   30C    P0    73W / 149W |     72MiB / 11441MiB |      0%      Default |
+    +-------------------------------+----------------------+----------------------+
+    |   2  Tesla K80           On   | 00000000:84:00.0 Off |                    0 |
+    | N/A   34C    P0    57W / 149W |      0MiB / 11441MiB |      0%      Default |
+    +-------------------------------+----------------------+----------------------+
+    |   3  Tesla K80           On   | 00000000:85:00.0 Off |                    0 |
+    | N/A   26C    P8    31W / 149W |      0MiB / 11441MiB |      0%      Default |
+    +-------------------------------+----------------------+----------------------+
+
+    +-----------------------------------------------------------------------------+
+    | Processes:                                                       GPU Memory |
+    |  GPU       PID   Type   Process name                             Usage      |
+    |=============================================================================|
+    |    0     31882      C   ...onda/envs/r-tensorflow/lib/R/bin/exec/R    61MiB |
+    |    1     31882      C   ...onda/envs/r-tensorflow/lib/R/bin/exec/R    61MiB |
+    +-----------------------------------------------------------------------------+
 
 Authors
 -------

@@ -219,7 +219,6 @@ Follow the steps below to set up Keras with GPU support in R.
     |    1     31882      C   ...onda/envs/r-tensorflow/lib/R/bin/exec/R    61MiB |
     +-----------------------------------------------------------------------------+
 
-
 Authors
 -------
 

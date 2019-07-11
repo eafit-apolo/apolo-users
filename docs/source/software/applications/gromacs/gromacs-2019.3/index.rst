@@ -30,6 +30,7 @@ Installation
 The following procedure present the way to compile **GROMACS 2019.3**
 for parallel computing using the GROMACS built-in thread-MPI and CUDA. [1]_
 
+
 .. note:: For the building, the Intel compiler 2017 was used due to compatibility issues with CUDA
           which only supports, for Intel as backend compiler, up to 2017 version.
 

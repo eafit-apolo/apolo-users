@@ -13,6 +13,7 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    ansys/index
    bayescan/index
    edge_pro/index
+   gromacs/index
    lammps/index
    mafft/index
    opensees/index

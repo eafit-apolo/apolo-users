@@ -28,7 +28,7 @@ Installation
 ------------
 
 The following procedure present the way to compile **GROMACS 2019.3**
-for parallel computing using the GROMACS built in thread-MPI and CUDA. [1]_
+for parallel computing using the GROMACS built-in thread-MPI and CUDA. [1]_
 
 .. note:: For the building, the Intel compiler 2017 was used due to compatibility issues with CUDA
           which only supports, for Intel as backend compiler, up to 2017 version.
@@ -71,6 +71,25 @@ for parallel computing using the GROMACS built in thread-MPI and CUDA. [1]_
 
    .. note:: For "FFT_LIBRARY" there are some options like Intel MKL. Generally, it is recommended to use the FFTW because
             there is no advantage in using MKL with GROMACS, and FFTW is often faster. [1]_
+
+   To build the distributed GROMACS version you have to use an MPI library. The GROMACS team recommends
+   OpenMPI version 1.6 (or higher), MPICH version 1.4.1 (or higher).
+
+   .. code-block:: bash
+      :emphasize-lines: 4
+
+      $ module load cmake/3.7.1 \
+                    cuda/9.0 \
+                    openblas/0.2.19_gcc-5.4.0 \
+                    openmpi/1.10.7_gcc-5.4.0 \
+                    python/2.7.15_miniconda-4.5.4
+
+   .. code-block:: bash
+
+        $ cmake .. -DCMAKE_C_COMPILER=mpicc -DCMAKE_CXX_COMPILER=mpicxx -DGMX_MPI=on -DGMX_GPU=on \
+                   -DCUDA_TOOLKIT_ROOT_DIR=/share/apps/cuda/9.0/ -DGMX_CUDA_TARGET_SM="30;37;70" \
+                   -DGMX_SIMD=AVX2_256 -DCMAKE_INSTALL_PREFIX=/share/apps/gromacs/2019.3_intel-17_cuda-9.0 \
+                   -DGMX_FFT_LIBRARY=fftw3 -DGMX_BUILD_OWN_FFTW=ON -DGMX_EXTERNAL_BLAS=on -DREGRESSIONTEST_DOWNLOAD=on
 
    **For more information about the compile options you can refer to the Gromacs Documentation.** [1]_
 

@@ -244,6 +244,7 @@ process to add a plugin is described as follows:
    plugins/remediator
    plugins/mailer
    plugins/process
+   plugins/graphite
    plugins/cpu-load
    plugins/disk-usage
    plugins/check-memory

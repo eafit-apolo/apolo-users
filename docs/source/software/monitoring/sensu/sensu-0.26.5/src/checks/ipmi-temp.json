@@ -1,9 +1,11 @@
 {
   "checks": {
     "check_ipmi_temperature": {
-      "command": "check-sensors.rb -h BMC_ADDRESS -u IPMI_USER -p IPMI_PASSWORD -s 01-inlet_ambient",
-      "subscribers": ["example"],
-      "interval": 60
+	  "command": "check-sensors.rb -h BMC_ADDRESS -u IPMI_USER -p IPMI_PASSWORD -s 01-inlet_ambient",
+	  "type": "metric",
+	  "subscribers": ["example"],
+	  "handlers":["graphite"],
+	  "interval": 60
     }
   }
 }

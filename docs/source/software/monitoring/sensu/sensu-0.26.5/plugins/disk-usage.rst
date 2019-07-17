@@ -52,6 +52,9 @@ Params                        Value
  --mount MOUNTPOINT           Comma separated list of mount point(s) (default: all)
 ============================= ========================================================================
 
+.. warning:: If MOUNTPOINT contains an invalid partition (i.e /this_doesnt_exist) the plugin will not
+			 return Error, it will ignore it and check the others.
+
 Execute :bash:`/opt/sensu/embedded/bin/check-disk-usage.rb  --help` to obtain the full list of flags
 supported by the plugin.
 

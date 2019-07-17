@@ -46,13 +46,17 @@ The scripts are:
 Usage
 -------
 
-Add the Check-CPU-load configuration, specifying which will be its subscribers and its warning and critical thresholds.
+Add the Check-CPU-load configuration, specifying which will be its subscribers and its warning and critical thresholds. The units of the thresholds is load/core.
+
+**Example:** If the machine has 16 cores and we want 18 for the critical threshold, the value is 1.125 (18/16).
 
    .. literalinclude:: ../src/checks/check-cpu-load.json
       :language: bash
 
 In this example, the check will be in WARNING state if the CPU load is greater than 15,15,14 in the last 1,5 and 15 minutes
 respectively, and CRITICAL state if the CPU load is greater than 20,18,18 in the last 1,5 and 15 minutes respectively.
+
+So, with a machine of 16 cores, the values are 0.9365, 0.9365, 0.875 for the Warning threshold and 1.25, 1.125, 1.125 for the Critical threshold.
 
 Authors
 --------

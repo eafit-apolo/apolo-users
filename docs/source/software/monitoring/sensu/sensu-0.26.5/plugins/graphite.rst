@@ -62,14 +62,22 @@ Mutator definition:
 Usage
 -------
 
-#. Add graphite as Handler
-#. Type Metric
+To store the metrics of a plugin as time series in Graphite,
+execute the following steps:
 
-  .. note:: Mail Events OK status
+#. Add **graphite** to the list of handlers in the check definition.
+#. Set the **type** attribute of the check as **metric**.
+
+  .. note:: Graphite handler will communicate Sensu with carbon-cache.
+			In order to activate the handler with an event,
+			it's necessary to set the attribute type to metric. Without
+			that option, the handler will only be executed with a CRITICAL
+			or WARNING state.
 
   .. literalinclude:: ../src/checks/ipmi-temp.json
       :language: bash
 
+#. Restart the Sensu Server and Sensu API services.				 
 
 References
 ----------

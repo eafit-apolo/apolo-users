@@ -9,6 +9,7 @@ to configure some monitoring systems used in the Scientific Computing Center APO
 .. toctree::
    :maxdepth: 1
 
+   architecture/index
    nagios/index
    sensu/index
    elk/index

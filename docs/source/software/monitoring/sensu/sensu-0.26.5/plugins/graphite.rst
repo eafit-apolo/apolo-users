@@ -22,7 +22,7 @@ Installation
 
 .. note:: This installation process has to be performed in the Sensu Server.
 
-Install the plugin executing:
+Install the plugin executing: [2]_
 
 .. code-block:: bash
 
@@ -82,8 +82,12 @@ execute the following steps:
 References
 ----------
 
-.. [1] Sensu Plugins - Graphite. (2018, December 17). Retrieved July 17, 2019, from https://github.com/sensu-plugins/sensu-plugins-graphite
+.. [1] Sensu Plugins - Graphite. (2018, December 17). Retrieved July 17, 2019,
+	   from https://github.com/sensu-plugins/sensu-plugins-graphite
 
+.. [2] Eves, M. (n.d.). Sensu Metrics Collection. Retrieved July 31, 2019,
+	   from https://blog.sensu.io/sensu-metrics-collection-beafdebf28bc
+	   
 Authors
 --------
 

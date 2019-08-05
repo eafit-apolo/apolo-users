@@ -21,6 +21,7 @@ simulation and model-based design for dynamic and embedded systems.
    :maxdepth: 1
 
    matlab-r2018a/index
+   matlab-r2019a/index
 
 Resources
 ^^^^^^^^^

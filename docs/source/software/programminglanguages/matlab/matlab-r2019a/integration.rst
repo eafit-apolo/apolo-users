@@ -94,8 +94,7 @@ Configuring cluster profiles
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 #. Configure MATLAB to run parallel jobs on your cluster by calling
-   :code:`configCluster`. It will prompt you for a cluster selection
-    if the user wants to use Apolo or Cronos nodes.
+   :code:`configCluster`. It will prompt you for a cluster selection if the user wants to use Apolo or Cronos nodes.
 
    .. image:: images/configCluster.png
       :alt: MATLAB client

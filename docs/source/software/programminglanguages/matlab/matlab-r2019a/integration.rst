@@ -94,14 +94,15 @@ Configuring cluster profiles
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 #. Configure MATLAB to run parallel jobs on your cluster by calling
-   :matlab:`configCluster`.
+   :code:`configCluster`. It will prompt you for a cluster selection
+    if the user wants to use Apolo or Cronos nodes.
 
-   .. image:: images/Selection.png
+   .. image:: images/configCluster.png
       :alt: MATLAB client
 
    |br|
 
-#. Modify cluster profile assign it to a variable :bash:`c = parcluster`.
+#. Modify the cluster profile through a variable definition :bash:`c = parcluster`.
 
    .. image:: images/Selection_058.png
 
@@ -114,7 +115,7 @@ Configuring cluster profiles
    |br|
 
 
-- ``TimeLimit`` :raw-html:`&rarr;` Set a limit on the total run time of the job
+- ``TimeLimit`` :raw-html:`&rarr;` (**Mandatory**) Set a limit on the total run time of the job
   allocation (more info_).
 
    - e.g. :matlab:`c.AdditionalProperties.TimeLimit = '3-10:00:00';`
@@ -124,7 +125,7 @@ Configuring cluster profiles
    - e.g. :matlab:`c.AdditionalProperties.AccountName = 'apolo';`
 
 - ``ClusterHost`` :raw-html:`&rarr;` Another way to change the cluster hostname
-  to sumbit jobs.
+  to submit jobs.
 
    - e.g. :matlab:`c.AdditionalProperties.ClusterHost = 'apolo.eafit.edu.co';`
 
@@ -142,14 +143,14 @@ Configuring cluster profiles
 
    - e.g. :matlab:`c.AdditionalProperties.MemUsage = '5G';`
 
-- ``NumGpus`` :raw-html:`&rarr;`  Number of GPUs (double) to use in a job.
+- ``NumGpus`` :raw-html:`&rarr;`  Number of GPUs to use in a job.
 
    - e.g. :matlab:`c.AdditionalProperties.NumGpus = 2;`
 
   .. note::
 
-     The maximum value for  ``NumGpus`` is two, also if you select this option
-     you should use the *'accel'* partition on :ref:`Apolo II <about_apolo-ii>`.
+     The maximum value for  ``NumGpus`` is four, also if you select this option
+     you should use the **'accel'** partition on :ref:`Apolo II <about_apolo-ii>`.
 
 
 - ``Partition`` :raw-html:`&rarr;` Select the desire partition to submit jobs
@@ -194,21 +195,15 @@ Submitting jobs
 General steps
 """""""""""""
 
-#. Load *'apolo remote R2018a'* cluster profile and load the desired properties
+#. Load *'apolo R2019a'* cluster profile and load the desired properties
    to submit a job.
 
    .. code-block:: matlab
 
-      >> % Run cluster configuration
-      >> configCluster
+      >> c = parcluster('apolo R2019a');
 
-      Cluster FQDN (e.g. apolo.eafit.edu.co): cronos.eafit.edu.co
-      Username on Apolo (e.g. mgomezz): mgomezzul
-
-      >> c = parcluster('apolo remote R2018a');
-      >> c.AdditionalProperties.TimeLimit = '1:00:00';
-      >> c.AdditionalProperties.Partition = 'longjobs';
-      >> c.saveProfile
+  .. note:: There was no necessary to set the additional properties because they have
+            been already set when the profile was saved the first time with :bash:`c.saveProfile`.
 
 #. To see the values of the current configuration options, call the specific
    ``AdditionalProperties`` method.
@@ -252,10 +247,11 @@ Serial jobs
       :language: matlab
       :caption: :download:`serial_example.m <src/serial_example.m>`
 
+
    .. code-block:: matlab
 
       >> % Get a handle to the cluster
-      >> c = parcluster('apolo remote R2018a');
+      >> c = parcluster('apolo R2019a'');
 
       >> % Submit job to query where MATLAB is running on the cluster (script)
       >> j = c.batch(@serial_example, 1, {1000});
@@ -278,7 +274,7 @@ Serial jobs
 
    .. code-block:: matlab
 
-      >> c = parcluster('apolo remote R2018a');
+      >> c = parcluster('apolo R2019a'');
       >> jobs = c.Jobs
 
 #. Once we have identified the job we want, we can retrieve the results as
@@ -307,22 +303,22 @@ Serial jobs
 
    - Job submission
 
-   .. code-block:: matlab
+     .. code-block:: matlab
 
-      >> % Get a handle to the cluster
-      >> c = parcluster('apolo remote R2018a');
+        >> % Get a handle to the cluster
+        >> c = parcluster('apolo R2019a');
 
-      >> % Submit job to query where MATLAB is running on the cluster (script)
-      >> j = c.batch('serial_example_script');
+        >> % Submit job to query where MATLAB is running on the cluster (script)
+        >> j = c.batch('serial_example_script');
 
-      >> % Query job for state
-      >> j.State
+        >> % Query job for state
+        >> j.State
 
-      >> %Load results into the client workspace
-      >> j.load
+        >> %Load results into the client workspace
+        >> j.load
 
-      >> % Delete the job after results are no longer needed
-      >> j.delete
+        >> % Delete the job after results are no longer needed
+        >> j.delete
 
 #. Another example using a MATLAB script that supports GPU.
 
@@ -332,16 +328,16 @@ Serial jobs
 
    - Job submission
 
-   .. code-block:: matlab
+     .. code-block:: matlab
 
-      >> % Get a handle to the cluster
-      >> c = parcluster('apolo remote R2018a');
+        >> % Get a handle to the cluster
+        >> c = parcluster('apolo R2019a');
 
-      >> % Submit job to query where MATLAB is running on the cluster (script)
-      >> j = c.batch('gpu_script');
+        >> % Submit job to query where MATLAB is running on the cluster (script)
+        >> j = c.batch('gpu_script');
 
-      >> % Query job for state
-      >> j.State
+        >> % Query job for state
+        >> j.State
 
 #. Another example using Simulink via MATLAB.
 
@@ -353,19 +349,19 @@ Serial jobs
 
    - Job submission
 
-   .. code-block:: matlab
+     .. code-block:: matlab
 
-      >> % Get a handle to the cluster
-      >> c = parcluster('apolo remote R2018a');
+        >> % Get a handle to the cluster
+        >> c = parcluster('apolo remote R2018a');
 
-      >> % Submit job to query where MATLAB is running on the cluster (script)
-      >> j = c.batch('parsim_test_script');
+        >> % Submit job to query where MATLAB is running on the cluster (script)
+        >> j = c.batch('parsim_test_script');
 
-      >> % Query job for state
-      >> j.State
+        >> % Query job for state
+        >> j.State
 
-      >> % Load data to client workspace
-      >> j.load
+        >> % Load data to client workspace
+        >> j.load
 
 Parallel or distributed jobs
 """"""""""""""""""""""""""""
@@ -384,7 +380,7 @@ Let’s use the following example for a parallel job.
    .. code-block:: matlab
 
       >> % Get a handle to the cluster
-      >> c = parcluster('apolo remote R2018a');
+      >> c = parcluster('apolo R2019a');
 
       >> % Submit a batch pool job using 4 workers
       >> j = c.batch(@parallel_example, 1, {1000}, 'Pool', 4);
@@ -398,6 +394,8 @@ Let’s use the following example for a parallel job.
          41.7692
 
    - The job ran in 41.7692 seconds using 4 workers.
+
+    |br|
 
    .. note::
 
@@ -418,7 +416,7 @@ Let’s use the following example for a parallel job.
    .. code-block:: matlab
 
       >> % Get a handle to the cluster
-      >> c = parcluster('apolo remote R2018a');
+      >> c = parcluster('apolo R2019a');
 
       >> % Submit a batch pool job using 8 workers
       >> j = c.batch(@parallel_example, 1, {1000}, ‘Pool’, 8);
@@ -436,10 +434,10 @@ Let’s use the following example for a parallel job.
    .. code-block:: matlab
 
       >> % Get a handle to the cluster
-      >> c = parcluster('apolo remote R2018a');
+      >> c = parcluster('apolo R2019a');
 
       >> % Find the old job
-      >> j = c.findJob(‘ID’, 4);
+      >> j = c.findJob('ID', 4);
 
       >> % Retrieve the state of the job
       >> j.State
@@ -451,11 +449,9 @@ Let’s use the following example for a parallel job.
       22.2082
 
    - The job now runs 22.2082 seconds using 8 workers.
+     Run code with different number of workers to determine the ideal number to use.
 
-     Run code with different number of workers to determine the ideal number to
-     use.
-
-     |
+    |br|
 #. Another example using a parallel script.
 
    .. literalinclude:: src/parallel_example_script.m
@@ -465,7 +461,7 @@ Let’s use the following example for a parallel job.
    .. code-block:: matlab
 
       >> % Get a handle to the cluster
-      >> c = parcluster('apolo remote R2018a');
+      >> c = parcluster('apolo R2019a');
 
       >> % Submit job to query where MATLAB is running on the cluster (script)
       >> j = c.batch('parallel_example_script', 'Pool', 8);
@@ -527,15 +523,15 @@ General steps
    .. code-block:: bash
 
       # Without graphical user interface
-      ssh username@cronos/apolo.eafit.edu.co
+      ssh username@[cronos,apolo].eafit.edu.co
       # or with graphical user interface
-      ssh -X username@cronos/apolo.eafit.edu.co
+      ssh -X username@[cronos,apolo].eafit.edu.co
 
 #. Load MATLAB modufile.
 
    .. code-block:: bash
 
-      module load matlab/r2018a
+      module load matlab/r2019a
 
 #. Run MATLAB client
 
@@ -548,28 +544,54 @@ General steps
 
    .. code-block:: matlab
 
-      configCluster
+      >> configCluster
 
-#. Load *'apolo'* or *'cronos'* cluster profile and load the desired properties
-   to submit a job (MATLAB GUI or command line).
+        >> % Must set TimeLimit before submitting jobs to
+		>> % the cluster.
+
+		>> % i.e. to set the TimeLimit
+		>> c = parcluster('cluster R2019a');
+		>> c.AdditionalProperties.TimeLimit = '1:00:00';
+		>> c.saveProfile
+
+   .. warning:: The :bash:`configCluster` command should be run only the very first time you configure your MATLAB
+                client. It is NOT necessary to run the command each time.
+
+#. Load the cluster profile to submit a job (MATLAB GUI or command line).
 
    .. code-block:: matlab
 
       >> % Must set TimeLimit before submitting jobs to Apolo II or
       >> % Cronos cluster
 
-      >> % e.g. to set the TimeLimit and Partition
-      >> c = parcluster('apolo/cronos');
-      >> c.AdditionalProperties.TimeLimit = '1:00:00';
-      >> c.AdditionalProperties.Partition = 'longjobs';
-      >> c.saveProfile
-      >> % or
-      >> % e.g. to set the NumGpus, TimeLimit and Partition
-      >> c = parcluster('apolo');
-      >> c.AdditionalProperties.TimeLimit = '1:00:00';
-      >> c.AdditionalProperties.Partition = 'accel';
-      >> c.AdditionalProperties.NumGpus = '2';
-      >> c.saveProfile
+      >> c = parcluster()
+
+        c =
+
+         Generic Cluster
+
+            Properties:
+
+                           Profile: cluster R2019a
+                          Modified: false
+                              Host: apolo.eafit.edu.co
+                        NumWorkers: 96
+                        NumThreads: 1
+
+                JobStorageLocation: /home/<user>/MdcsDataLocation/cluster/R2019a/local
+                 ClusterMatlabRoot: /share/common-apps/matlab/r2019a
+                   OperatingSystem: unix
+
+           RequiresOnlineLicensing: false
+         IntegrationScriptsLocation: /share/common-apps/matlab/r2019a/toolbox/local/cluster.local/IntegrationScripts/cluster
+              AdditionalProperties: List properties
+
+            Associated Jobs:
+
+                    Number Pending: 0
+                     Number Queued: 0
+                    Number Running: 0
+                   Number Finished: 0
 
 #. To see the values of the current configuration options, call the specific
    ``AdditionalProperties`` method.
@@ -578,6 +600,23 @@ General steps
 
       >> % To view current properties
       >> c.AdditionalProperties
+
+        ans =
+
+          AdditionalProperties with properties:
+
+                     AccountName: ''
+            AdditionalSubmitArgs: ''
+                    EmailAddress: ''
+                       EmailType: ''
+                     EnableDebug: 0
+                        MemUsage: ''
+                       Partition: ''
+                    ProcsPerNode: 0
+                     Reservation: ''
+                       TimeLimit: ''
+                         UseSmpd: 0
+
 
 #. To clear a value, assign the property an empty value (``''``,
    ``[]``, or ``false``).
@@ -590,7 +629,6 @@ General steps
 
 Submitting jobs
 """""""""""""""
-
 
 .. note::
 
@@ -705,20 +743,17 @@ To run unattended jobs on the cluster follow next steps:
 
    .. code-block:: matlab
 
-      MATLAB is selecting SOFTWARE OPENGL rendering.
-
                             < M A T L A B (R) >
-                  Copyright 1984-2018 The MathWorks, Inc.
-                   R2018a (9.4.0.813654) 64-bit (glnxa64)
-                             February 23, 2018
+                  Copyright 1984-2019 The MathWorks, Inc.
+             R2019a Update 3 (9.6.0.1135713) 64-bit (glnxa64)
+                               June 5, 2019
 
-
-      To get started, type one of these: helpwin, helpdesk, or demo.
+      To get started, type doc.
       For product information, visit www.mathworks.com.
 
       >> Starting parallel pool (parpool) using the 'local' profile ...
       connected to 8 workers.
-      >> >> >> >> >> >>
+
       t =
 
         22.5327
@@ -738,23 +773,20 @@ If it is necessary the user can run interactive jobs  following next steps:
    .. code-block:: bash
 
       srun -N 1 --ntasks-per-node=2 -t 20:00 -p debug --pty bash
-      # If resources are available you get inmediatily a shell in a slave node
+      # If resources are available you get immediately a shell in a slave node
       # e.g. compute-0-6
-      module load matlab/r2018a
+      module load matlab/r2019a
       matlab
 
    .. code-block:: matlab
 
-       MATLAB is selecting SOFTWARE OPENGL rendering.
+                                  < M A T L A B (R) >
+                        Copyright 1984-2019 The MathWorks, Inc.
+                   R2019a Update 3 (9.6.0.1135713) 64-bit (glnxa64)
+                                     June 5, 2019
 
-                            < M A T L A B (R) >
-                  Copyright 1984-2018 The MathWorks, Inc.
-                  R2018a (9.4.0.813654) 64-bit (glnxa64)
-                             February 23, 2018
-
-
-       To get started, type one of these: helpwin, helpdesk, or demo.
-       For product information, visit www.mathworks.com.
+      To get started, type doc.
+      For product information, visit www.mathworks.com.
 
        >> p = parpool(str2num(getenv('SLURM_NTASKS')));
        Starting parallel pool (parpool) using the 'local' profile ...

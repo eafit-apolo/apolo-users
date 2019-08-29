@@ -1,3 +1,5 @@
+# roles/master/tasks/config.yml
+
 ---
 - name: Download public signing key
   shell: rpm --import https://artifacts.elastic.co/GPG-KEY-elasticsearch
@@ -9,7 +11,7 @@
     owner: root
     group: root
     mode: 0644
-    
+
 - name: Install filebeat
   yum:
     name: filebeat

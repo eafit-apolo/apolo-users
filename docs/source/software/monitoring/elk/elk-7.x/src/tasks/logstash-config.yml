@@ -1,3 +1,5 @@
+# roles/elk/tasks/config.yml
+
 ---
 - name: Configure logstash
   copy:

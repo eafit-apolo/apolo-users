@@ -250,7 +250,7 @@ Serial jobs
    .. code-block:: matlab
 
       >> % Get a handle to the cluster
-      >> c = parcluster('apolo R2019a'');
+      >> c = parcluster('apolo R2019a');
 
       >> % Submit job to query where MATLAB is running on the cluster (script)
       >> j = c.batch(@serial_example, 1, {1000});
@@ -273,7 +273,7 @@ Serial jobs
 
    .. code-block:: matlab
 
-      >> c = parcluster('apolo R2019a'');
+      >> c = parcluster('apolo R2019a');
       >> jobs = c.Jobs
 
 #. Once we have identified the job we want, we can retrieve the results as

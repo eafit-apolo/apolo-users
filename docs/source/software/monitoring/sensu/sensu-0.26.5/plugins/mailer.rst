@@ -7,7 +7,7 @@
 Sensu Plugin - Mailer
 =======================
 
-This handler formats alerts as emails and sends them off to a pre-defined recipient. [1]_
+This handler formats alerts as e-mails and sends them off to a pre-defined recipient. [1]_
 
 .. contents::
 

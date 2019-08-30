@@ -13,3 +13,4 @@ to configure some monitoring systems used in the Scientific Computing Center APO
    nagios/index
    sensu/index
    elk/index
+   grafana/index

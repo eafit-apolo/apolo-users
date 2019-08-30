@@ -104,6 +104,34 @@ for parallel computing using the GROMACS built-in thread-MPI and CUDA. [1]_
 
    .. warning:: Some tests may fail, but the installation can continue depending on the number of failed tests.
 
+Usage
+-----
+
+This section describes the method to submit jobs with the resource manager SLURM.
+
+#. Load the necessary environment.
+
+   .. code-block:: bash
+
+      # Apolo
+      module load gromacs/2019.3_intel-17_cuda-9.0
+
+      # Cronos
+      module load gromacs/2016.4_gcc-5.5.0
+
+#. Run Gromacs with SLURM.
+
+   An example:
+
+   .. note::
+
+      This example was tested with :download:`example.fa <src/example.fa>` that contains unlined DNA secuences.
+
+   .. literalinclude:: src/mafft.sh
+      :language: bash
+      :caption: :download:`mafft.sh <src/mafft.sh>`
+
+
 References
 ----------
 
@@ -113,7 +141,11 @@ References
 .. [2] Matching SM architectures. (2019, November 11). Blame Arnon Blog.
        Retrieved July 10, 2019, from https://arnon.dk/matching-sm-architectures-arch-and-gencode-for-various-nvidia-cards/
 
+.. [3] Performance Tuning and Optimization of GROMACS. (2016, May 11). BioExcel Educational Webinar Series
+       Retrieved August 30, 2019, from https://bioexcel.eu/wp-content/uploads/2016/05/2016-05-11-Performance-Tuning-and-Optimization-of-GROMACS.pdf
+
 Authors
 -------
 
 - Johan Sebastián Yepes Ríos <jyepesr1@eafit.edu.co>
+- Hamilton Tobón Mosquera <htobonm@eafit.edu.co>

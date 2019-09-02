@@ -1,0 +1,33 @@
+#%Module1.0####################################################################
+##
+## module load wrf/4.1.2_intel-17.0.1
+##
+## /share/apps/modules/wrf/4.1.2_intel-17.0.1
+## Written by Manuela Carrasco
+##
+
+proc ModulesHelp {} {
+     global version modroot
+     puts stderr "Sets the environment for using wrf-4.1.2\
+          \nin the shared directory /share/apps/wrf/4.1.2/intel-2017_update-1/\
+          \nbuilded with intel-2017_update-1, netcdf-fortran-4.4.4,\
+          \nnetcdf-4.4.0, hdf5-1.8.16, jasper-1.900.1"
+}
+
+module-whatis "(Name________) wrf"
+module-whatis "(Version_____) 4.1.2"
+module-whatis "(Compilers___) intel-2017_update-1"
+module-whatis "(System______) x86_64-redhat-linux"
+module-whatis "(Libraries___) "
+
+# for Tcl script use only
+set         topdir        /share/apps/wrf/4.1.2/intel_17.0.1
+set         version       4.1.2
+set         sys           x86_64-redhat-linux
+
+module load gcc/5.4.0
+module load hdf5/1.8.16_intel-2017_update-1
+module load netcdf/4.4.0_intel-2017_update-1
+module load netcdf-fortran/4.4.3_intel-2017_update-1
+module load mpich2/3.2_intel-2017_update-1
+module load wps/3.7.1_intel-2017_update-1

@@ -14,6 +14,8 @@
 Installation and Configuration
 ------------------------------
 
+.. contents::
+
 .. note::
   - It is **very important** to make your cluster nodes visible between them by their DNS. If you don't do it the services might not properly start and you will have to dig into the logs and find out the problem.
   - Correctly configure the date and time of your cluster. If you don't do so, you might get in trouble visualizing your logs in Kibana. This due that the log timestamp will be on a different date of that of the Kibana server.

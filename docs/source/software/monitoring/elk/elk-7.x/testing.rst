@@ -23,14 +23,14 @@ The vagrantfile looks like this:
 .. literalinclude:: src/Vagrantfile
    :language: ruby
 
-In the configuration of each virtual machine, there is a subsection for provisioning. In that subsection, there is a variable that is accessed as :bash:`ansible.playbook`. You have to set it to the path to your main ansible playbook. You should use the playbooks that were explained in the previous section, :ref:`installation-7.x-label`. Take a look at the provisioning subsection in the vagrantfile, note that the :bash:`ansible.extra_vars` defines a variable called :bash:`machine`, so if you are using the playbooks explained before, this variable must match the hostname of the virtual machine. The hostname of the virtual machine can be changed with the variable :bash:`vm.hostname`. For more information read the Vagrant documentation about `vagrantfiles <https://www.vagrantup.com/docs/vagrantfile/>`_. Before starting the cluster please see the directory structure of our Ansible project :download:`here <config/ansible_dir_structure.txt>`.
+In the configuration of each virtual machine, there is a subsection for provisioning. In that subsection, there is a variable that is accessed as :bash:`ansible.playbook`. Set it to the path to your main ansible playbook. For the purpose of this guide use the playbooks that were explained in the previous section, :ref:`installation-7.x-label`. Take a look at the provisioning subsection in the vagrantfile, note that the :bash:`ansible.extra_vars` defines a variable called :bash:`machine`. If you are using the playbooks explained in :ref:`installation-7.x-label`, this variable must match the hostname of the virtual machine. The hostname of the virtual machine can be changed with the variable :bash:`vm.hostname`. For more information, read the Vagrant documentation about `vagrantfiles <https://www.vagrantup.com/docs/vagrantfile/>`_. Before starting the virtual cluster please see the directory structure that should be matched in order to run the tests :download:`here <config/ansible_dir_structure.txt>`.
 
-The *site.yml* is pretty simple:
+The :bash:`site.yml` is pretty simple:
 
 .. literalinclude:: src/site.yml
    :language: yaml
 
-The *4p0l0.yml*, *cr0n05.yml*, and *elk.yml* playbooks are simple too:
+The :bash:`playbooks/4p0l0.yml`, :bash:`playbooks/cr0n05.yml`, and :bash:`playbooks/elk.yml` playbooks are simple too:
 
 .. literalinclude:: src/playbooks/4p0l0.yml
    :language: yaml
@@ -46,7 +46,7 @@ To start up the virtual cluster use the following bash script with the argument 
 .. literalinclude:: src/scripts/run.sh
    :language: bash
 
-.. note:: Change elk, cr0n05, 4p0l0, to the virtual machine names that you set up in your Vagrantfile. If you are using the above vagrantfile you do not have to change them.
+.. note:: Change elk, cr0n05, 4p0l0, to the virtual machine names that you set up in your Vagrantfile. If you are using the vagrantfile above you do not have to change them.
 
 Make the virtual machines visible between them by their hostname. You just have to change the :bash:`/etc/hosts` file and add the ip address of the virtual machine that you want to see followed by its hostname. For example, make elk visible by others and in the *elk* machine.
 
@@ -57,4 +57,20 @@ Make the virtual machines visible between them by their hostname. You just have 
    192.168.1.2     cr0n05   # make cr0n05 visible to elk by its hostname not just its ip
    192.168.1.3     4p0l0
 
-After making them visible, run the script with the argument :bash:`provision-elk` so that Elasticsearch, Logstash, and Kibana will be installed. Configure Kibana as explained in :ref:`kibana-7.x-label`. Then run the script with the argument :bash:`provision-filebeat`. Now if everything is ok, you can add logging sources, create visualizations and dashboards and whatever you want. To stop the cluster run :bash:`$ ./run.sh halt`.
+After making them visible, run:
+
+.. code-block:: bash
+
+   $ scripts/run.sh provision-elk
+
+With this Elasticsearch, Logstash, and Kibana will be installed. Configure Kibana as explained in :ref:`kibana-7.x-label`. After configuring Kibana run:
+
+.. code-block:: bash
+
+   $ scripts/run.sh provision-filebeat
+
+Now if everything went ok, it can be added logging sources, create visualizations and dashboards, etc. To stop the cluster run:
+
+.. code-block:: bash
+
+   $ scripts/run.sh halt

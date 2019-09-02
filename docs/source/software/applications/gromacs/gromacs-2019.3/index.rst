@@ -121,15 +121,14 @@ This section describes the method to submit jobs with the resource manager SLURM
 
 #. Run Gromacs with SLURM.
 
-   An example:
+   An example with GPU, taken from [4]_:
 
    .. note::
 
-      This example was tested with :download:`example.fa <src/example.fa>` that contains unlined DNA secuences.
+      This example was tested with that contains unlined DNA secuences. [3]_
 
-   .. literalinclude:: src/mafft.sh
-      :language: bash
-      :caption: :download:`mafft.sh <src/mafft.sh>`
+   An example without GPU:
+
 
 
 References
@@ -143,6 +142,9 @@ References
 
 .. [3] Performance Tuning and Optimization of GROMACS. (2016, May 11). BioExcel Educational Webinar Series
        Retrieved August 30, 2019, from https://bioexcel.eu/wp-content/uploads/2016/05/2016-05-11-Performance-Tuning-and-Optimization-of-GROMACS.pdf
+
+.. [4] GROMACS Tutorial Lysozyme in Water. Justin A. Lemkul, Ph.D. Virginia Tech Department of Biochemistry.
+       Retrieved August 30, 2019, from http://www.mdtutorials.com/gmx/lysozyme/index.html
 
 Authors
 -------

@@ -107,7 +107,7 @@ for parallel computing using the GROMACS built-in thread-MPI and CUDA. [1]_
 Usage
 -----
 
-This section describes the method to submit jobs with the resource manager SLURM.
+This section describes a way to submit jobs with the resource manager SLURM.
 
 #. Load the necessary environment.
 
@@ -121,13 +121,26 @@ This section describes the method to submit jobs with the resource manager SLURM
 
 #. Run Gromacs with SLURM.
 
-   An example with GPU, taken from [4]_:
+   a. An example with GPU (Apolo), given by one of our users:
 
-   .. note::
+     .. literalinclude:: src/example_simulation/sbatch.sh
+        :language: bash
+        :linenos:
 
-      This example was tested with that contains unlined DNA secuences. [3]_
+     Note lines 20, 30, 33, 45, 49 the use of :bash:`gmx mdrun` with the flag :bash:`-gputasks 012`. The usage of the latter flag is the following:
 
-   An example without GPU:
+     * Maps the tasks that will be offloaded in the GPUs to the tasks per node. In this case 3 tasks. Recall line 5.
+
+       .. code-block:: bash
+
+          #SBATCH --ntasks-per-node=3
+
+     * The 0,1 and 2 as argument refers to the GPUs devices IDs, respectively.
+     * For example: If you chose 6 tasks per node, one mapping to the GPU could be 001122. This means that the first two tasks would offload their tasks to the GPU with ID 0. The second and third tasks would offload their tasks to the GPU with ID 1 and so on.
+     * Note that the argument for this flag has as many numbers as tasks per node.
+     * For more information see [3]_.
+
+   b. An example without GPU:
 
 
 
@@ -140,11 +153,8 @@ References
 .. [2] Matching SM architectures. (2019, November 11). Blame Arnon Blog.
        Retrieved July 10, 2019, from https://arnon.dk/matching-sm-architectures-arch-and-gencode-for-various-nvidia-cards/
 
-.. [3] Performance Tuning and Optimization of GROMACS. (2016, May 11). BioExcel Educational Webinar Series
-       Retrieved August 30, 2019, from https://bioexcel.eu/wp-content/uploads/2016/05/2016-05-11-Performance-Tuning-and-Optimization-of-GROMACS.pdf
-
-.. [4] GROMACS Tutorial Lysozyme in Water. Justin A. Lemkul, Ph.D. Virginia Tech Department of Biochemistry.
-       Retrieved August 30, 2019, from http://www.mdtutorials.com/gmx/lysozyme/index.html
+.. [3] Getting good performance from mdrun. (2019). GROMACS Development Team.
+       Retrieved September 3, 2019, from http://manual.gromacs.org/documentation/current/user-guide/mdrun-performance.html#running-mdrun-within-a-single-node
 
 Authors
 -------

@@ -123,7 +123,7 @@ This section describes a way to submit jobs with the resource manager SLURM.
 
    a. An example with GPU (Apolo), given by one of our users:
 
-     .. literalinclude:: src/example_simulation/sbatch.sh
+     .. literalinclude:: src/example_simulation/gpu/sbatch.sh
         :language: bash
         :linenos:
 
@@ -136,12 +136,21 @@ This section describes a way to submit jobs with the resource manager SLURM.
           #SBATCH --ntasks-per-node=3
 
      * The 0,1 and 2 as argument refers to the GPUs devices IDs, respectively.
-     * For example: If you chose 6 tasks per node, one mapping to the GPU could be 001122. This means that the first two tasks would offload their tasks to the GPU with ID 0. The second and third tasks would offload their tasks to the GPU with ID 1 and so on.
+     * For example: If you chose 6 tasks per node, one mapping to the GPUs could be 001122. This means that the first two tasks would offload their tasks to the GPU with ID 0. The second and third tasks would offload their tasks to the GPU with ID 1 and so on.
      * Note that the argument for this flag has as many numbers as tasks per node.
      * For more information see [3]_.
 
-   b. An example without GPU:
+   b. An example with CPU only (Cronos):
 
+     .. literalinclude:: src/example_simulation/cpu/sbatch.sh
+        :language: bash
+        :linenos:
+
+     * Note the use of :bash:`gmx_mpi` instead of :bash:`gmx`.
+     * Also, note the use of :bash:`srun --mpi=pmi2` instead of :bash:`mpirun -np <num-tasks>`. The command :bash:`srun --mpi=pmi2` gives to :bash:`gmx_mpi` the context of where and how many tasks to run.
+     * In lines 13 and 14 note that it is requesting 4 nodes and 16 mpi tasks on each node. Recall that each node in Cronos has 16 cores.
+     * In lines 16, 29, 32, 36, 40, 44 note that :bash:`srun --mpi=pmi2` is not used. This is due that, those are preprocessing steps, they do not need to run distributedly.
+     * The needed files to run the example simulation can be found :download:`here <src/example_simulation/cpu/example_cpu.zip>`.
 
 
 References

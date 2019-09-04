@@ -1,6 +1,6 @@
 {
-	"transport": {
-		"name": "rabbitmq",
-		"reconnect_on_error": true
-	}
+  "transport": {
+    "name": "rabbitmq",
+    "reconnect_on_error": true
+  }
 }

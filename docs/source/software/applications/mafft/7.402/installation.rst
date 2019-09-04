@@ -37,7 +37,7 @@ Build process
 
 This entry described the installation process of MAFFT with extensions.
 	   
-#. Get the MAFFT wit extensions package.
+#. Get the MAFFT with the extensions package.
    
    .. code-block:: bash
 
@@ -71,7 +71,7 @@ This entry described the installation process of MAFFT with extensions.
       ...
 
 
-#. Load the necessary enviroment and build it.
+#. Load the necessary environment and build it.
 
    .. code-block:: bash
 
@@ -91,7 +91,7 @@ Mxscarna
 MXSCARNA [1]_. (Multiplex Stem Candidate Aligner for RNAs) is a multiple alignment tool for RNA sequences using progressive alignment based on pairwise structural alignment algorithm of SCARNA. This software is fast enough for large scale analyses, while the accuracies of the alignments are better than or comparable with the existing algorithms which are computationally much more expensive in time and memory.
 
 
-#. Edit the Mxcarna's Makefile whith the following lines.
+#. Edit the Mxcarna's Makefile with the following lines.
 
    :bash:`mafft-7.402-with-extensions/extensions/mxscarna_src/Makefile`
 
@@ -134,7 +134,7 @@ MXSCARNA [1]_. (Multiplex Stem Candidate Aligner for RNAs) is a multiple alignme
 Foldalign
 .........
 
-FOLDALIGN [2]_. an algorithm for local or global simultaneous folding and aligning two or more RNA sequences and is based on the Sankoffs algorithm (SIAM J. Appl. Math., 45:810-825, 1985). Foldalign can make pairwise local or global alignments and structure predictions. FoldalignM makes a multiple global alignment and structure prediction.
+FOLDALIGN [2]_. an algorithm for local or global simultaneous folding and aligning two or more RNA sequences and is based on the Sankoffs algorithm (SIAM J. Appl. Math., 45:810-825, 1985). Foldalign can make pairwise local or global alignments and structure predictions. FoldalignM makes multiple global alignment and structure prediction.
 
 
 

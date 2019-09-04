@@ -18,5 +18,6 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    mafft/index
    opensees/index
    picrust2/index
+   qiime/index
    repet/index
    raxml/index

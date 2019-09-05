@@ -11,8 +11,9 @@
 
 .. _installation-7.x-label:
 
+##############################
 Installation and Configuration
-------------------------------
+##############################
 
 .. contents::
 
@@ -75,8 +76,9 @@ Also, it is needed to install Java 8 and the main components (Elasticsearch, Log
 
 The variable :yaml:`{{ java_version }}` represents the java version used, in this case (and to ensure `compatibility <https://www.elastic.co/support/matrix#matrix_jvm>`_) 1.8.0.
 
+**************
 Elasticsearch
-'''''''''''''
+**************
 After installing the needed package, Elasticsearch is configured like this:
 
 .. literalinclude:: src/tasks/elasticsearch-config.yml
@@ -89,9 +91,9 @@ The Elasticsearch main configuration file, which is the template :bash:`roles/el
 
 .. note:: Note that the identifier given to the notify action in the configuration task must be same as the identifier given to the handler.
 
-
+********
 Logstash
-''''''''
+********
 After installing the needed package, Logstash is configured like this:
 
 .. literalinclude:: src/tasks/logstash-config.yml
@@ -105,8 +107,9 @@ The second task takes a template, :bash:`roles/elk/templates/etc/logstash/conf.d
 
 .. _kibana-7.x-label:
 
+******
 Kibana
-''''''
+******
 After installing the needed package, Kibana is configured like this:
 
 .. literalinclude:: src/tasks/kibana-config.yml
@@ -117,30 +120,36 @@ The Kibana main configuration file, which is the template :bash:`roles/elk/templ
 .. literalinclude:: src/handlers/kibana-handler.yml
    :language: yaml
 
+.. _kibana-7.x-mappings-label:
+
+Indexes and Mappings
+=====================
+
 After installing and configuring Kibana, it is time to give structure to our logs and create/import the dashboards and visualizations needed:
 
 1. Access the web interface through *http://elk:5601*. To access it using the domain name :bash:`elk` remember to make your cluster nodes visible by their DNS', in this case, the node where you have installed Kibana.
 2. Organize the information. This will help you plot all your data easily. If you want to add a new logging source see the section below :ref:`new-source-7.x`.
 
-  .. note:: Create the indexes and the mappings BEFORE sending any data to Elasticsearch.
+  .. warning:: Create the indexes and the mappings BEFORE sending any data to Elasticsearch, otherwise you would end up with data in unexpected indexes.
 
   a) Create *indexes* and *mappings*, that is, give types and format to the data.
 
-     * In the **Dev Tools** section, copy and paste the contents of the index and mappings :download:`file <config/indexes_and_mappings.txt>`, then select it all and click on RUN. Note that these mappings are the ones that we use, you can take them as an example and create yours.
+     * In the **Dev Tools** section, copy and paste the contents of the index and mappings :download:`file <config/indexes_and_mappings.txt>`, then select it all and click on RUN. These mappings can be used as a reference to create more mappings.
      * To easily see your mappings go to: **Management** -> **Index management** -> **Click on your index** -> **Mapping**.
 
   b) Create the dashboard and visualizations.
 
      * Go to the **Management** section, then, go to the subsection **Saved Objects**, then, **Import**, and import the dashboards and visualizations :download:`file <config/dashboards_and_visualizations.json>`.
 
-       .. note:: If you want to export the visualizations to a json format, remember to check the *every saved object* option, because some visualizations may depend on other objects and they likely won't work if you don't export them all.
+       .. note:: If you want to export the visualizations and dashborads to a json format, remember to check the *every saved object* option. Otherwise some visualizations may depend on other objects that might not be exported, ending up with errors when importing them again.
 
-c) In the section **Management** -> **Index Patterns** select one (no matter which one) index pattern and press the star button to make it the default one.
+  c) In the section **Management** -> **Kibana** -> **Index Patterns** select one (no matter which one) index pattern and press the star button to make it the default one.
 
 .. _filebeat-7.x-label:
 
+********
 Filebeat
-''''''''
+********
 Recall that in this case Filebeat is installed in nodes different from the ELK Server, the architecture used here is on :ref:`installation-7.x-label`.
 
 So, the installation playbook looks like this:

@@ -11,8 +11,9 @@
 
 .. _testing-7.x-label:
 
+#######
 Testing
--------
+#######
 
 Testing of the whole ELK Stack can be easily done using `Vagrant <https://www.vagrantup.com/intro/index.html>`_.
 
@@ -24,7 +25,7 @@ Testing of the whole ELK Stack can be easily done using `Vagrant <https://www.va
       :language: ruby
 
 
-   For the purpose of this guide use the Ansible project HERE. This project is explained in :ref:`installation-7.x-label`. Although, in case of setting up another configuration, read this explanation of the Vagrantfile above.
+   For the purpose of this guide use the Ansible project HERE. This project is explained in :ref:`installation-7.x-label`. Although, in case of setting up another configuration, read this explanation of the Vagrantfile above so that it can be replicated.
 
       * In the configuration of each virtual machine, there is a subsection for provisioning. In that subsection, there is a variable that is accessed as :bash:`ansible.playbook`. Set it to the path of the main ansible playbook.
       * Take a look at the provisioning subsection in the vagrantfile, note that the :bash:`ansible.extra_vars` defines a variable called :bash:`machine`, this variable must match the hostname of the virtual machine.
@@ -47,7 +48,7 @@ Testing of the whole ELK Stack can be easily done using `Vagrant <https://www.va
    .. literalinclude:: src/playbooks/elk.yml
       :language: yaml
 
-   The roles *elk* and *master* are responsible for setting up ELK and Filebeat respectively. Go to :ref:`installation-7.x-label`, for a more detailed explanation.
+   The roles :bash:`elk` and :bash:`master` are responsible for setting up ELK and Filebeat respectively. Go to :ref:`installation-7.x-label`, for a more detailed explanation.
 
 #. To start up the virtual cluster use the following bash script with the argument :bash:`up`:
 
@@ -71,18 +72,20 @@ Testing of the whole ELK Stack can be easily done using `Vagrant <https://www.va
 
       $ scripts/run.sh provision-elk
 
-   After correctly provisioning :bash:`elk`, set up the *indexes, mappingsDashboards* in :ref:`kibana-7.x-label`.
+   After correctly provisioning :bash:`elk`, set up the :ref:`kibana-7.x-mappings-label` in Kibana.
 
-.. note::
-   Before provisioning filebeat it is very important to set up the *indexes and mappings* in Kibana.
+   .. warning::
+      Before provisioning filebeat it is very important to set up the *indexes and mappings* in Kibana.
 
-#. After setting up:
+#. After setting up Kibana run:
 
    .. code-block:: bash
 
       $ scripts/run.sh provision-filebeat
 
-#. Now if everything went ok, it can be added logging sources, create visualizations and dashboards, etc. To stop the cluster run:
+#. If everything is ok, new logging sources can be addded, as well as, create visualizations and dashboards, etc.
+
+#. To stop the cluster run:
 
    .. code-block:: bash
 

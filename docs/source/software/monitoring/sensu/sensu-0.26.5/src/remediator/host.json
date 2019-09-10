@@ -1,0 +1,11 @@
+{
+  "client": {
+    "name": "HOSTNAME",
+      "bmc_address": "10.0.0.1",
+      "subscriptions": [
+        "subscription-1",
+        "subscription-2",
+        "HOSTNAME"
+      ]
+  }
+}

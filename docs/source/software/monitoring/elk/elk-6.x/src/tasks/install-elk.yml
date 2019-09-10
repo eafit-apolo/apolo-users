@@ -1,0 +1,13 @@
+---
+- name: Install Java
+  yum:
+    name: java-{{ java_version }}-openjdk-devel
+    state: present
+    
+- name: Install logstash-elasticsearch-kibana
+  yum:
+    name:
+      - logstash
+      - elasticsearch
+      - kibana
+    state: present

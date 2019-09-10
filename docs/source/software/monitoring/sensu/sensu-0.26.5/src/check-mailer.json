@@ -1,0 +1,10 @@
+{
+  "checks": {
+    "check_example": {
+      "command": "check-example.rb",
+      "subscribers": ["examples"],
+      "interval": 60,
+      "handlers": ["mailer"]
+    }
+  }
+}		

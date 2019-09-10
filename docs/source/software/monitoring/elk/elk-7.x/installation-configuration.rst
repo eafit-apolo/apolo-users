@@ -36,23 +36,7 @@ Installation and Configuration
 
 The architecture in which the ELK Stack was installed is the following.
 
-.. code-block:: bash
-
-                ELK Server
-               ----------------
-                 Kibana
-                 Elasticsearch
-                 Logstash
-               ----------------
-                      ||
-                      ||
-                      ||
-              ------------------
-              |                |
-            ------------      ------------
-              Filebeat          Filebeat
-            ------------      ------------
-             Beat Server       Beat Server
+.. image:: images/ELK.png
 
 Although we are using this architecture, it may be modificated in any way, just pay close attention to the configuration files.
 Also, it is important to note that the stack of applications was installed on CentOS 7 using `Ansible <https://www.ansible.com/>`_. Therefore, in the next subsections, there will be an explanation of the Ansible roles used to install and configure each of the ELK Stack components. The directory structure of the Ansible project is described :download:`here <config/ansible_dir_structure.txt>`.

@@ -191,7 +191,8 @@ To check that everything is perfect check out the log when Logstash is starting,
 
 3. Creating Indexes and Mappings
 ''''''''''''''''''''''''''''''''
-Indexes are used by Elasticsearch to store the information sent by Logstash. Mappings are a way to structure that data using a JSON format. Let's see an example to structue the log parsed above:
+Indexes are used by Elasticsearch to store the information sent by Logstash. Mappings are a way to structure that data using a JSON format.
+Let's see an example to structue the log parsed above, for more information about mappings read `here <https://www.elastic.co/guide/en/elasticsearch/reference/7.1/mapping.html>`_:
 
   .. code-block:: bash
 
@@ -200,13 +201,13 @@ Indexes are used by Elasticsearch to store the information sent by Logstash. Map
       "mappings":{
         "properties":{
           "type": { "type" : "keyword" },
-    "system_hostname":{ "type": "keyword" },
-    "sshd_guest_ip":{ "type": "ip" },
-    "sshd_guest_port":{ "type": "integer" },
-    "sshd_guest_signature":{ "type": "text" },
-    "sshd_event":{ "type": "keyword" },
-    "sshd_method":{ "type": "keyword" },
-    "sshd_user":{ "type": "keyword" }
+          "system_hostname":{ "type": "keyword" },
+          "sshd_guest_ip":{ "type": "ip" },
+          "sshd_guest_port":{ "type": "integer" },
+          "sshd_guest_signature":{ "type": "text" },
+          "sshd_event":{ "type": "keyword" },
+          "sshd_method":{ "type": "keyword" },
+          "sshd_user":{ "type": "keyword" }
         }
       }
     }
@@ -216,51 +217,62 @@ Indexes are used by Elasticsearch to store the information sent by Logstash. Map
 
   * :json:`"mappings"` refers to the property that describes the structure of the index.
   * :json:`"properties"` as its name says, is used to describe the properties of the mappings.
-  * The following items are the fields and its types, that is, these fields describe the types of the information parsed in Logstash. For example, :json:`"sshd_guest_ip"` is the field that represents the ip address parsed from the logs. Its type is :json:`ip`. Elasticsearch has a built-in type called :json:`ip` which eases the indexation and visualization of ip addresses. The :json:`"type"` field is useful to differentiate the logs sent from a single source, in this case :bash:`/var/log/secure`. Recall the :ruby:`add_field` option under the Grok plugin in :ref:`how-to-filter-7.x`, we added the field: "type" => "sshd_login_attempt". But, if you are also indexing the sudo commands logs, you can change this field to something like: "type" => "secure_sudo_command". In this way, you can differentiate them easily.
+  * The rest of the items are the fields and its types. These fields describe the types of the information parsed in Logstash. For example:
+
+    * :json:`"sshd_guest_ip"` is the field that represents the ip address parsed from the logs. Its type is :json:`ip`. Elasticsearch has a built-in type called :json:`ip` which eases the indexation and visualization of ip addresses.
+    * The :json:`"type"` field is useful to differentiate the logs sent from a single source, in this case :bash:`/var/log/secure`. Recall the :ruby:`add_field` option under the Grok plugin in :ref:`how-to-filter-7.x`, it was added the field: "type" => "sshd_login_attempt". Therefore, in case of indexing the sudo commands logs, change this field to something like: "type" => "secure_sudo_command". This is how to differentiate them easily.
 
 .. _add-path-filebeat-7.x:
 
-Adding the log path to Filebeat
-'''''''''''''''''''''''''''''''
-Now that you have your data filtered and properly structured, it's time to start sending it to Logstash. Edit the file :bash:`/etc/filebeat/filebeat.yml`, under the section *filebeat.inputs:* add:
+4. Adding the log path to Filebeat
+''''''''''''''''''''''''''''''''''
+Now that the data is filtered and properly structured, it's time to start sending it to Logstash. Go to the machine that has the Filebeat service, edit the file :bash:`/etc/filebeat/filebeat.yml`.
+Under the section :yaml:`filebeat.inputs:` add:
 
-.. code-block:: yaml
-   :linenos:
+  .. code-block:: yaml
+    :linenos:
 
-   - type: log
-     paths:
-       - /var/log/secure*
-     fields:
-       fromsecure: true
-     fields_under_root: true
+    - type: log
+      paths:
+        - /var/log/secure*
+      fields:
+        fromsecure: true
+      fields_under_root: true
 
-The first line indicates the type of information that will be collected. The second line indicates the paths where your logs are located, in this case :bash:`/var/log/`, and :bash:`secure*` matches all the logs that start with the name *secure*. This wildcard is used becase some logs have a date at the end of its name, so it will be inefficiently to add over and over again a path when a log appears in :bash:`/var/log/`. The fourth line, *fields*, indicates to Filebeat to add a new field in to the JSON sent to Logstash. Do you remember the first *if* sentence in the :ref:`how-to-filter-7.x` section. Well, this field is added so that in Logstash you can differentiate the many different log sources. The last option, *fields_under_root*, is used to add the fields under the root of the JSON, and not nested into a field called *beat*.
+  What does it mean?:
 
-Restart the Filebeat service and hopefully everything will work perfectly.
+  * The first line indicates the type of information that will be collected.
+  * The second line indicates the paths where the new logging source is located, in this case :yaml:`/var/log/`, and :yaml:`secure*` matches all the logs that start with the name *secure*. This wildcard is used becase some logs have a date at the end of its name, so it will be painful to add over and over again a path when a log appears in :yaml:`/var/log/`.
+  * The fourth line, :yaml:`fields`, indicates to Filebeat to add a new field in to the JSON sent to Logstash. Recall the first :ruby:`if` sentence in the :ref:`how-to-filter-7.x` section. Well, this field is added so that all the different logging sources can be differentiated in Logstash.
+  * The last option, :yaml:`fields_under_root`, is used to add the fields under the root of the JSON, and not nested into a field called :yaml:`beat`, which is the default behavior.
 
-Create Index Patterns
-'''''''''''''''''''''
-Now that you have some data indexed in Elasticsearch, you can create *Index Patterns*. These are used by Kibana to match indexes and take the data that will be plotted from those indexes matched by your pattern.
+  Restart the Filebeat service and hopefully everything will work perfectly.
+  Otherwise, recall to check the logs usually under :bash:`/usr/share/<service>/logs` or under :bash:`/var/log/<service>`.
 
-Go to *Management* -> *Index Pattern* -> *Create index pattern*. Select its name, and as time filter field select *@timestamp*.
+5. Create Index Patterns
+''''''''''''''''''''''''
+With some data indexed in Elasticsearch, create **Index Patterns**. These are used by Kibana to match (using regular expressions) indexes and take the data that will be plotted from those indexes matched by some pattern.
 
-Plot your data
-''''''''''''''
-The easiest plot you can create is a frequency histogram. That's what I will explain, but there are a lot more features that Kibana `offers <https://www.elastic.co/guide/en/kibana/current/visualize.html>`_.
+Go to **Management** -> **Index Pattern** -> **Create index pattern**. Select its name/pattern, and as time filter field select :json:`@timestamp`.
 
-In Kibana go to *Visualize*, press the **+** button, select your type of visualization, in this case, *Vertical Bar*. Afther this, select the index pattern that corresponds to the *secure* logs. Now to create a frequency historgram of the users that failed logging in follow these steps:
+6 . Plot the data
+'''''''''''''''''
+One of the easiest plots that can be created is a frequency histogram. Nevertheless, there are lots of more features that Kibana `offers <https://www.elastic.co/guide/en/kibana/current/visualize.html>`_.
 
-1. In the left hand side of the Kibana web page you should see a subsection called *Buckets*. Click on *X-Axis*.
-2. As aggregation select *Terms*. For more information about Term `aggregation <https://www.elastic.co/guide/en/elasticsearch/reference/7.2/search-aggregations-bucket-terms-aggregation.html>`_.
-3. As field select *sshd_user*.
-4. As custom label write: User name.
-5. Now instead of *X-Axis* select *Add sub-buckes*. Then select *Split Series*.
-6. Here as aggregation select *Terms* again.
-7. As field select *sshd_event*.
-8. Now type the following in the bar that is in the upper part of your browser (*Filters:*) -> sshd_event : "Failed". This is called *Kibana Query Language* and you can use it to filter your data and plot only what might be useful in the visualization. More information on this query language here, `Kibana Query Language <https://www.elastic.co/guide/en/kibana/7.2/kuery-query.html>`_.
-9. Click on the *play* button in the left hand side of your browser.
-10. Save your visualization with a descriptive name, something like: *[sshd] Failed attempts to log in*
-11. Create a new *Dashboard* if you haven't created one yet, and add your visualization. You should see something like:
+In Kibana go to **Visualize**, press the **+** button, select the type of visualization, in this case, **Vertical Bar**. Afther this, select the index pattern that corresponds to the **secure** logs.
+Then, to create a frequency historgram of the users that failed logging in follow these steps:
+
+#. In the left hand side of the Kibana web page, there is a subsection called **Buckets**. Click on **X-Axis**.
+#. As aggregation select **Terms**. For more information about Term `aggregation <https://www.elastic.co/guide/en/elasticsearch/reference/7.2/search-aggregations-bucket-terms-aggregation.html>`_.
+#. As field select **sshd_user**.
+#. As custom label write: User name.
+#. Now instead of **X-Axis** select **Add sub-buckes**. Then select **Split Series**.
+#. Here as aggregation select **Terms** again.
+#. As field select **sshd_event**.
+#. Now type the following in the bar that is in the upper part of the Kibana's GUI, the **Filters** bar: :bash:`sshd_event : "Failed"`. This is called **Kibana Query Language**, it can be used to filter the data and plot only what is be useful. More information on this query language here, `Kibana Query Language <https://www.elastic.co/guide/en/kibana/7.2/kuery-query.html>`_.
+#. Click on the **play** button in the left hand side of the Kibana's GUI.
+#. Save the visualization with a descriptive name, something like: *[sshd] Failed attempts to log in*.
+#. In case of not having a **Dashboard**, create a new one, then add the visualization. Up to this point it should look something like:
 
 .. image:: images/visualization.png
   :alt: Kibana vertical bars visualization.

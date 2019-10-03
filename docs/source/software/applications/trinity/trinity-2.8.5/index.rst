@@ -103,7 +103,7 @@ The following procedure is the easiest way to install Trinity v2.8.5 in a cluste
         ;;
         esac
 
-    Go to "icpc" and change the "-openmp" to "-qopenmp"
+    Go to ``icpc`` and change the ``-openmp`` to ``-qopenmp``
 
     .. note::
 

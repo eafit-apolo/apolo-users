@@ -58,7 +58,7 @@ The following procedure is the easiest way to install Trinity v2.8.5 in a cluste
 
     .. code-block:: bash
 
-        $ module load bowtie2 samtools jellyfish salmon python/3.6.5_miniconda-4.5.1, intel/19.0.4
+        $ module load bowtie2 samtools jellyfish salmon python/3.6.5_miniconda-4.5.1 intel/19.0.4
         $ echo "We load python because Apolo uses differents versions of python, that's how Apolo works."
 
     .. note::

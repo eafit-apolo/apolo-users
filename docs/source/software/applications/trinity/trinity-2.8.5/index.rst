@@ -62,9 +62,9 @@ The following procedure is the easiest way to install Trinity v2.8.5 in a cluste
 
     .. note::
 
-        In this example, we loaded the intel compiler icc v19.0.4, because trinity does support it, but we have to do some tweaking first. 
+        In this example, we loaded the Intel compiler icc v19.0.4, because trinity does support it, but we have to do some changes first. 
 
-#. Now, we start tweaking some components that are inside the directory you extracted from the tar.gz file.
+#. Now, we start configuring some components that are inside the directory you extracted from the tar.gz file.
 
     .. code-block:: bash
 
@@ -73,8 +73,8 @@ The following procedure is the easiest way to install Trinity v2.8.5 in a cluste
     
     Go to where it says "parafly_target:"
 
-    * Delete the first line that contains "tar -zxvf ${PARAFLY_CODE}.tar.gz && \"
-    * Then, search for the "-fopenmp" flags and change them to "-qopenmp"
+    * Delete the first line that contains ``tar -zxvf ${PARAFLY_CODE}.tar.gz && \``
+    * Then, search for the ``-fopenmp`` flags and change them to ``-qopenmp``
     * Save the file.
 
     After this, extract the ParaFly tar file and go inside the directory.
@@ -84,14 +84,13 @@ The following procedure is the easiest way to install Trinity v2.8.5 in a cluste
         $ tar xfz ParaFly-0.1.0.tar.gz
         $ cd ParaFly-0.1.0
 
-    Now, lets tweak one last thing:
+    Now, lets configure one last thing:
 
     .. code-block:: bash
 
         $ emacs -nw configure
-        $ echo "hit Ctrl + S to search the word openmp"
 
-    After you have located the openmp flags, you should see something like this:
+    Starting line 3125 inside ``configure``, you should see something like this:
 
     .. code-block:: bash
 

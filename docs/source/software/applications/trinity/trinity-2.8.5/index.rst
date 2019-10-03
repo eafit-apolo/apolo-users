@@ -196,7 +196,7 @@ In this section, there is an example run that Trinity already has.
 
         $ conda create --name trinity
         $ conda activate trinity
-        $ pip3 install numpy
+        $ pip install numpy
         $ cd /share/apps/trinity/2.8.5/sample_data/test_Trinity_Assembly/
         $ ./runMe.sh
 

@@ -50,7 +50,7 @@ The following procedure is the easiest way to install Trinity v2.8.5 in a cluste
 
    .. note::
 
-        For jellyfish, the documentation for version 2.3.0 says you don't have to compile yaggo. It didn't work for us, we compiled yaggo, and then, it worked. Also, the intel compiler doesn't work to compile jellyfish, use gcc instead as recommended in the jellyfish documentation.
+        For jellyfish, the documentation for version 2.3.0 says you don't have to compile yaggo. It didn't work for us, we compiled yaggo, and then, it worked. Also, the Intel compiler doesn't work to compile jellyfish, use gcc instead as recommended in the jellyfish documentation.
 
 
 

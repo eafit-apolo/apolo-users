@@ -207,10 +207,10 @@ In this section, there is an example run that Trinity already has.
 References
 ----------
 
-.. [1] Trinity - Trinity Official website.
+ Trinity - Trinity Official website.
        Retrieved Octubre 4, 2019, from https://github.com/trinityrnaseq/trinityrnaseq/wiki
 
-.. [2] Installing Trinity - Trinity Official Website.
+ Installing Trinity - Trinity Official Website.
        Retrieved Octubre 4, 2019, from https://github.com/trinityrnaseq/trinityrnaseq/wiki/Installing-Trinity
 
 Authors

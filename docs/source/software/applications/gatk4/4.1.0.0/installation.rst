@@ -28,7 +28,7 @@ This entry described the installation process of GATK4.
 
       module load java/jdk-1.8.0_112
 
-#. Enter to the directory and compile it.
+#. Enter the directory and compile it.
 
    .. note::
 

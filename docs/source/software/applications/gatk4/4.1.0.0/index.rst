@@ -27,7 +27,7 @@ on a cluster.
 
 Usage
 -----
-This section desribes the method to submit jobs with the resource manager SLURM.
+This section describes the method to submit jobs with the resource manager SLURM.
 
 #. Load the necessary environment.
 
@@ -47,7 +47,7 @@ This section desribes the method to submit jobs with the resource manager SLURM.
 
    .. note::
          
-         If you want to run some test, go to `GATK4 page with tutorials <https://software.broadinstitute.org/gatk/documentation/topic?name=tutorials>`_.
+         If you want to run some tests, go to the `GATK4 page with tutorials <https://software.broadinstitute.org/gatk/documentation/topic?name=tutorials>`_.
 
 Authors
 -------

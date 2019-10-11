@@ -139,10 +139,10 @@ The following procedure is the easiest way to install Trinity v2.8.5 in a cluste
         $ cd ..
         $ rm Changelog.txt Makefile notes README.md
         $ cd ..
-        $ mv trinityrnaseq-Trinity-v2.8.5/ 2.8.5
-        $ sudo mv 2.8.5/ /share/apps/trinity/
+        $ mv trinityrnaseq-Trinity-v2.8.5/ 19.0.4
+        $ sudo mv 19.0.4/ /share/apps/trinity/2.8.5/intel/
     
-    You have Trinity v2.8.5 installed inside the /share/apps/trinity/ directory
+    You have Trinity v2.8.5 installed inside the /share/apps/trinity/2.8.5/intel/19.0.4 directory
 
     .. note::
         The second to last line is the change the name of the directory, this is easier when creating the module file.
@@ -160,25 +160,25 @@ The following procedure is the easiest way to install Trinity v2.8.5 in a cluste
 
         proc ModulesHelp {} {
              puts stderr "Sets the environment for using Trinity 2.8.5\
-                          \nin the shared directory /share/apps/trinity/2.8.5"
+                          \nin the shared directory /share/apps/trinity/2.8.5/intel/19.0.4"
         }
 
         module-whatis "(Name________) Trinity"
         module-whatis "(Version_____) 2.8.5"
-        module-whatis "(Compilers___) icpc and gcc/7.4.0 (for jellyfish)"
+        module-whatis "(Compilers___) intel-19.0.4
         module-whatis "(System______) x86_64-redhat-linux"
         module-whatis "(Libraries___) "
 
         # for Tcl script use only
-        set         topdir        /share/apps/trinity/2.8.5/
+        set         topdir        /share/apps/trinity/2.8.5/intel/19.0.4
         set         version       2.8.5
         set         sys           x86_64-redhat-linux
 
         conflict trinity
         module load jellyfish/2.3.0
-        module load samtools
-        module load salmon
-        module load bowtie2
+        module load samtools/1.3.1_intel-2017_update-1
+        module load salmon/0.14.1
+        module load bowtie2/2.3.2_gcc-4.4.7
         module load intel/19.0.4
         module load python/3.6.5_miniconda-4.5.1
 
@@ -197,7 +197,8 @@ In this section, there is an example run that Trinity already has.
         $ conda create --name trinity
         $ conda activate trinity
         $ pip install numpy
-        $ cd /share/apps/trinity/2.8.5/sample_data/test_Trinity_Assembly/
+        $ module load trinity/2.8.5
+        $ cd /share/apps/trinity/2.8.5/intel/19.0.4/sample_data/test_Trinity_Assembly/
         $ ./runMe.sh
 
     .. note::
@@ -217,3 +218,4 @@ Authors
 -------
 
 - Tomas David Navarro Munera <tdnavarrom@eafit.edu.co>
+

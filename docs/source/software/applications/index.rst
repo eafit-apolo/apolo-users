@@ -18,6 +18,7 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    lammps/index
    mafft/index
    opensees/index
+   pargenes/index
    picrust2/index
    repet/index
    raxml/index

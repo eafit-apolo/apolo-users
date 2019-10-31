@@ -21,7 +21,7 @@ Tested on (Requirements)
 
 * **OS base:** CentOS (x86_64) :math:`\boldsymbol{\ge}` 6.6 (Rocks 6.2)
 * **Dependencies to run ParGenes:**  
-    * gcc 5.0 >  (tested on version 5.4.0)
+    * GCC 5.0 >  (tested on version 5.4.0)
     * Python 2.7 or 3.X (tested on Python 3.6.5)
     * CMAKE > 3.6 (tested on version 3.7.1)
     * mpich2 (tested on version 3.2)
@@ -31,7 +31,7 @@ Installation
 
 The following procedure is the easiest way to install ParGenes (master git version) in a cluster.
 
-#. Clone the git repository of ParGenes in a cluster location (We are going to use the `$HOME` directory).
+#. Clone the git repository of ParGenes in a cluster location (we are going to use the ``$HOME`` directory).
 
    .. code-block:: bash
 
@@ -39,11 +39,11 @@ The following procedure is the easiest way to install ParGenes (master git versi
 
    .. note::
 
-        ParGenes at the moment only runs via `.py` files, therefore is not posible to install it properly in a cluster, only the user that clones the repo can run ParGenes.
+        ParGenes at the moment only runs via ``.py`` files, therefore is not posible to install it properly in a cluster. Only the user that clones the repo can run ParGenes.
 
 
 
-#. Load the dependencies so ParGenes will be able to run, and chech gcc version.
+#. Load the dependencies so ParGenes will be able to run, and check the GCC version.
 
     .. code-block:: bash
 
@@ -58,14 +58,14 @@ The following procedure is the easiest way to install ParGenes (master git versi
         $ cd ParGenes
         $ ./install.sh
     
-    Now you have ParGenes installed inside your `$HOME` directory.
+    Now you have ParGenes installed inside your ``$HOME`` directory.
 
 Running Example
 ----------------
 
 In this section, there is an example run that ParGenes already has.
 
-#.  First, we create a conda environment, in able to run ParGenes in a secure environment (It is not necessary but we recommend it).
+#.  First, we create a conda environment, so we can run ParGenes in a secure environment (it is not necessary but we recommend it).
 
     .. code-block:: bash
 
@@ -77,7 +77,7 @@ In this section, there is an example run that ParGenes already has.
     .. note::
         Make sure to load every module from the beginning, specially mpich2.
 
-    If everything runs without errors, you have installed ParGenes successfully in your $HOME directory
+    If everything runs without errors, you have installed ParGenes successfully in your ``$HOME`` directory
 
 For more information on how to use ParGenes, please visit the official website.
 

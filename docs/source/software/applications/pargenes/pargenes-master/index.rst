@@ -79,6 +79,25 @@ In this section, there is an example run that ParGenes already has.
 
     If everything runs without errors, you have installed ParGenes successfully in your ``$HOME`` directory
 
+#. This is an example for Apolo in SLURM.
+    .. code-block:: bash
+    
+        #!/bin/bash
+
+        #SBATCH --partition=longjobs
+        #SBATCH --nodes=2
+        #SBATCH --ntasks-per-node=1
+        #SBATCH --cpus-per-task=16
+        #SBATCH --time=1:00:00
+        #SBATCH --job-name=ParGenes
+        #SBATCH --partition=longjobs
+        #SBATCH -o result_%N_%j.out
+        #SBATCH -e result_%N_%j.err
+
+        module load mpich2/3.2_gcc-5.4.0 python/3.6.5_miniconda-4.5.1 cmake/3.7.1
+
+        python ~/scripts/ParGenes/pargenes/pargenes-hpc.py -a ~/Bacillus_subtilis/ParGenes_data/mix_msa -o ~/output_dir_slurm3 -c 32 -d nt -b 10000 -R "--model GTR"
+
 For more information on how to use ParGenes, please visit the official website.
 
 References

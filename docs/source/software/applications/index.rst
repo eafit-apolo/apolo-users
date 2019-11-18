@@ -19,6 +19,7 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    mafft/index
    opensees/index
    pargenes/index
+   partitionFinder/index
    picrust2/index
    repet/index
    raxml/index

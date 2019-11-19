@@ -17,6 +17,7 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    gromacs/index
    lammps/index
    mafft/index
+   mothur/index
    opensees/index
    pargenes/index
    partitionFinder/index

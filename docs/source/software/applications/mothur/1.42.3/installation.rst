@@ -22,7 +22,7 @@ Build process
  
    module load hdf5
 
-#. Download and descompress the mothur source code
+#. Download and decompress the Mothur's source code
 
 .. code-block:: bash
 
@@ -30,7 +30,7 @@ Build process
 
    tar fxz v.1.42.3.tar.gz
 
-#. Enter to Mothur makefile and edit the PREFIX path and HDF5 filepaths.
+#. Enter to Mothur makefile and edit the PREFIX path and HDF5 file paths.
 
 .. code-block:: bash
 

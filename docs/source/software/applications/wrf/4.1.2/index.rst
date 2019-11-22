@@ -15,8 +15,7 @@ Basic Information
 - **Deploy date:** April 2019
 - **Official Website:** https://www.mmm.ucar.edu/weather-research-and-forecasting-model
 - **License:** 
-- **Installed on:** :ref:`Apolo II <about_apolo-ii>`, 
-  :ref:`Cronos <about_cronos>`
+- **Installed on:** :ref:`Apolo II <about_apolo-ii>`
 
 Installation
 ------------

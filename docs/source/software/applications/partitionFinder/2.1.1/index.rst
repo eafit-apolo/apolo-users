@@ -61,3 +61,13 @@ This section describes the method to submit jobs with the resource manager SLURM
    .. literalinclude:: src/partitionFinder.yml
       :language: tcl
       :caption: :download:`Partition Finder environment <src/partitionFinder.yml>`
+
+#. Run SLURM with the following bash file.
+
+   .. code-block::
+
+      sbatch partitionFinder.sh
+   
+   .. literalinclude:: src/partitionFinder.sh
+      :language: tcl
+      :caption: :download:`Partition Finder SLURM <src/partitionFinder.sh>`

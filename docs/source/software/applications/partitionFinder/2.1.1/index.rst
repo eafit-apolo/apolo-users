@@ -26,9 +26,38 @@ configuration of Partition Finder in a Cluster with Conda.
 
    conda create -n partitionFinder
 
-#. Install the following dependencies (numpy, pandas, .
+#. Install the following dependencies (numpy, pandas, pytables, pyparsing, scipy and sklearn).
 
+.. code-block:: bash
 
+   conda install numpy pandas pytables pyparsing scipy scikit-learn
+
+#. Download the latest version of Partition Finder and descompress it.
+
+.. code-block:: bash
+
+   wget https://github.com/brettc/partitionfinder/archive/v2.1.1.tar.gz
+   tar xfz v2.1.1.tar.gz
+
+#. Move it to wherever you want to store and give it execution permissions.
+
+.. code-block:: bash
+
+   mv partitionfinder-2.1.1 /path/to/partition/finder
+   chmod +x partitionfinder-2.1.1/PartitionFinder.py
 
 Usage
 -----
+
+This section describes the method to submit jobs with the resource manager SLURM.
+
+.. note::
+
+   If is the first time you need Partition Finder or you want to use it localy,
+   you should create and load the environment.
+
+   :bash:`conda env create -f partitionFinder.yml`
+
+   .. literalinclude:: src/partitionFinder.yml
+      :language: tcl
+      :caption: :download:`Partition Finder environment <src/partitionFinder.yml>`

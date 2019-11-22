@@ -59,7 +59,7 @@ This section describes the method to submit jobs with the resource manager SLURM
    :bash:`conda env create -f partitionFinder.yml`
 
    .. literalinclude:: src/partitionFinder.yml
-      :language: tcl
+      :language: yaml
       :caption: :download:`Partition Finder environment <src/partitionFinder.yml>`
 
 #. Run SLURM with the following bash file.

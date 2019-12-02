@@ -1,3 +1,5 @@
+.. _abyss:
+
 ABySS
 =====
 
@@ -5,7 +7,7 @@ ABySS [1]_ is a de novo sequence assembler intended for short paired-end reads a
 
 .. toctree::
    :caption: Versions
-   :maxdepth: 2
+   :maxdepth: 1
 
    abyss-2.2.3/index
 

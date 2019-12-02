@@ -5,7 +5,7 @@ Trans-ABySS [1]_ is a De novo assembly of RNAseq data using `ABySS <https://gith
 
 .. toctree::
    :caption: Versions
-   :maxdepth: 2
+   :maxdepth: 1
 
    transabyss-2018/index
 

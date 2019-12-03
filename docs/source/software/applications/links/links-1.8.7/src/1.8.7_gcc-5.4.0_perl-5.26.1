@@ -1,0 +1,32 @@
+#%Module1.0####################################################################
+##
+## module load links/1.8.7
+##
+## /share/apps/links/1.8.7/gcc/5.4.0
+## Written by Vincent A. Arcila L and Hamilton Tobon Mosquera.
+##
+
+proc ModulesHelp {} {
+         global version modroot
+         puts stderr "Sets the environment for using links 1.8.7\
+         \nin the shared directory /share/apps/links/1.8.7/gcc/5.4.0\
+         \nbuilt with GCC 5.4.0.
+}
+
+module-whatis "(Name________) links"
+module-whatis "(Version_____) 1.8.7"
+module-whatis "(Compilers___) gcc-5.4.0"
+module-whatis "(System______) x86_64-redhat-linux"
+module-whatis "(Libraries___) "
+
+# for Tcl script use only
+set         topdir        /share/apps/links/1.8.7/gcc/5.4.0
+set         version       1.8.7
+set         sys           x86_64-redhat-linux
+
+conflict links
+module load perl/5.26.1_gcc-4.4.7
+
+prepend-path   PATH            $topdir
+prepend-path   PATH            $topdir/test
+prepend-path   PATH            $topdir/tools

@@ -24,5 +24,13 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    picrust2/index
    repet/index
    raxml/index
+   transabyss/index
+   abyss/index
+   sparsehash/index
+   arcs/index
+   links/index
+   tigmint/index
+   pigz/index
+   blat/index
    transrate/index
    trinity/index

@@ -94,6 +94,10 @@ download and configure the VPN client:
         :align: center
         :alt: Details
 
+
+
+-----
+
 Linux
 -----
 .. note::
@@ -188,6 +192,20 @@ Troubleshooting
         .. raw:: html
 
             <iframe align="middle" width="560" height="315" src="https://www.youtube.com/embed/UucKgiEbBrM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+
+.. seealso::
+    **Issue:** After installing or upgrading the Mac GlobalProtect client, the client never connects and just "spins". 
+    
+    **Solution:**
+    
+    1. Click the Apple icon in the upper left hand corner, then click 'System Preferences', then 'Security'.                                             
+    
+    2. Look for a message at the bottom of the window stating "System software from developer was blocked from loading."  
+    
+    3. To allow the software to load again, click the Allow button. 
+    
+    If that doesn't work, try the following: https://docs.paloaltonetworks.com/globalprotect/4-0/globalprotect-agent-user-guide/globalprotect-agent-for-mac/remove-the-globalprotect-enforcer-kernel-extension 
 
 .. warning::
     Please take in account that you must to use **https** and not **http** protocol to enter in https://leto.eafit.edu.co

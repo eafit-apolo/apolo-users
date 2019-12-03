@@ -28,7 +28,7 @@ Basic Information
 Installation
 ------------
 
-This entry covers the entire process performed for the installation and configuration of MAFFT with extensions (MXSCARNA, Foldalign and CONTRAfold) on a cluster.
+This entry covers the entire process performed for the installation and configuration of MAFFT with extensions (MXSCARNA, Foldalign, and CONTRAfold) on a cluster.
 
 .. toctree::
    :maxdepth: 2
@@ -38,7 +38,7 @@ This entry covers the entire process performed for the installation and configur
 Usage
 -----
 
-This section desribes the method to submit jobs with the resource manager SLURM.
+This section describes the method to submit jobs with the resource manager SLURM.
 
 #. Load the necessary environment.
 
@@ -48,15 +48,15 @@ This section desribes the method to submit jobs with the resource manager SLURM.
 
    .. note::
 
-      Remember to load the properly environment for Cronos or Apolo
+      Remember to load the proper environment for Cronos or Apolo
       
       * Apolo
-	
-	* :bash:`module load mafft/7.402-with-extensions_intel-17.0.1`
-	
+    
+    * :bash:`module load mafft/7.402-with-extensions_intel-17.0.1`
+    
       * Cronos
-	
-	* :bash:`module load mafft/7.402-with-extensions_intel-18.0.2`
+    
+    * :bash:`module load mafft/7.402-with-extensions_intel-18.0.2`
 
 #. Run MAFFT with SLURM.
 

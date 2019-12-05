@@ -14,4 +14,5 @@ Software
    provisioning/index
    monitoring/index
    operatingsystems/index
+   scientific_libraries/index
 

@@ -1,4 +1,4 @@
-.. _parallelNetCDF-index:
+.. _NetCDF-index:
 
 NetCDF
 ======

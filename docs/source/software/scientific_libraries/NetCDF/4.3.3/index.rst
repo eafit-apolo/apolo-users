@@ -1,4 +1,4 @@
-.. _parallelNetCDF-1.6.1-index:
+.. _NetCDF-4.3.3-index:
 
 ParallelNetCDF 1.6.1
 ====================

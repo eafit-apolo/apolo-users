@@ -7,3 +7,4 @@ Scientific Libraries
    :maxdepth: 1
 
    parallelNetCDF/index
+   NetCDF/index

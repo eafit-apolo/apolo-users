@@ -1,7 +1,7 @@
 .. _NetCDF-4.3.3-index:
 
-ParallelNetCDF 1.6.1
-====================
+NetCDF 4.3.3
+============
 
 .. contents:: Table of Contents
 

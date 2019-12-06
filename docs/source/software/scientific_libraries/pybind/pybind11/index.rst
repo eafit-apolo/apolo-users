@@ -46,7 +46,7 @@ Installation
 
     .. code-block:: bash
 
-         $ cmake .. -DCMAKE_INSTALL_PREFIX=/share/apps.... -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++ 
+         $ cmake .. -DCMAKE_INSTALL_PREFIX=<Path> -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++
 
 
 5. Execute the make commands sequence.
@@ -56,12 +56,6 @@ Installation
          $ make -j <N>
          $ make check
          $ make -j <N> install
-
-
-Module
-------
-
-     .. code-block:: tcl
 
 
 Authors

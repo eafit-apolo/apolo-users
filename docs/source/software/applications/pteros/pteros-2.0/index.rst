@@ -53,7 +53,7 @@ Installation
 
     .. code-block:: bash
 
-         $ cmake .. -DCMAKE_INSTALL_PREFIX=/share/apps/pteros/2.0/gcc-5.4.0/ -DEIGEN3_INCLUDE_DIR=/share/apps/eigen/3.3.7/intel-2017_update-1/include/eigen3/ -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++ -DCMAKE_BUILD_TYPE=Release -DBoost_NO_SYSTEM_PATHS=OFF -DWITH_OPENBABEL=OFF -DWITH_GROMACS=OFF -DWITH_PYTHON=ON -DPYTHON_EXECUTABLE:FILEPATH=/share/apps/python/3.6_miniconda-4.5.1/bin/python -Dpybind11_DIR=/home/shidalgoo1/Apps/pybind/pybind11_gcc-5.4.0/share/cmake/pybind11
+         $ cmake .. -DCMAKE_INSTALL_PREFIX=/share/apps/pteros/2.0/gcc-5.4.0/ -DEIGEN3_INCLUDE_DIR=/share/apps/eigen/3.3.7/intel-2017_update-1/include/eigen3/ -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++ -DCMAKE_BUILD_TYPE=Release -DBoost_NO_SYSTEM_PATHS=OFF -DWITH_OPENBABEL=OFF -DWITH_GROMACS=OFF -DWITH_PYTHON=ON -DPYTHON_EXECUTABLE:FILEPATH=/share/apps/python/3.6_miniconda-4.5.1/bin/python -Dpybind11_DIR=<pybind_path_root>/share/cmake/pybind11
 
 
 5. Execute the make commands sequence.
@@ -112,11 +112,30 @@ Run the following command:
 
          $ pteros_analysis.py --help all
 
+
+.. seealso::
+
+    To use pteros you must have the numpy library, so we suggest following the next steps:
+
+        .. code-block:: bash
+
+         $ conda create -n pteros # Create a virtual environment
+         $ conda activate pteros
+         $ conda install numpy
+
+.. warning::
+
+    Some commands may fail, however, the application may work with the features you need
+
 Troubleshooting
 ---------------
 
-If you have problems with the testing installation because it cannot find a library, you must
-rename this file: /python/pteros/_pteros.cpython-37m-x86_64-linux-gnu.so to _pteros.so
+.. seealso::
+
+    If you have this problem: ModuleNotFoundError: No module named '_pteros', probably
+    you must rename this file: <path to Pteros>/python/pteros/_pteros.cpython-37m-x86_64-linux-gnu.so 
+    to _pteros.so
+
 
 Authors
 -------

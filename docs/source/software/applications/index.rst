@@ -8,7 +8,7 @@ scientific applications on our supercomputer (:ref:`Apolo II <about_apolo-ii>`
 and :ref:`Cronos <about_cronos>`) you can review the following entries:
 
 .. toctree::
-   :maxdepth: 1	
+   :maxdepth: 1
 
    ansys/index
    bayescan/index
@@ -34,3 +34,4 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    blat/index
    transrate/index
    trinity/index
+   pteros/index

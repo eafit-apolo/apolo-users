@@ -35,3 +35,4 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    transrate/index
    trinity/index
    pteros/index
+   vmd/index

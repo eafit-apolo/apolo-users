@@ -41,7 +41,7 @@ Apolo
         $ tar xf fftw-3.3.7.tar.gz
 
 
-#. After unpacking NetCDF, continue with the following steps for configuration and compilation:
+#. After unpacking fftw3, continue with the following steps for configuration and compilation:
 
     .. code-block:: bash
 
@@ -71,7 +71,7 @@ Cronos
         $ tar xf fftw-3.3.7.tar.gz
 
 
-#. After unpacking NetCDF, continue with the following steps for configuration and compilation:
+#. After unpacking fftw3, continue with the following steps for configuration and compilation:
 
     .. code-block:: bash
 
@@ -170,13 +170,6 @@ Module
 Use
 ---
     TO-DO
-
-Resources
----------
-
-    * https://www.unidata.ucar.edu/downloads/netcdf/index.jsp
-    * http://www.unidata.ucar.edu/software/netcdf/docs/getting_and_building_netcdf.html
-
 
 Resources
 ---------

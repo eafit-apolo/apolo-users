@@ -31,7 +31,7 @@ Installation
         $ wget https://www.bastoul.net/cloog/pages/download/cloog-0.18.4.tar.gz
         $ tar -xvf cloog-0.18.4.tar.gz
 
-3. After unzipping **Cloog**, continue with the following steps for configuration and compilation:
+2. After unzipping **Cloog**, continue with the following steps for configuration and compilation:
 
     .. code-block:: bash
 

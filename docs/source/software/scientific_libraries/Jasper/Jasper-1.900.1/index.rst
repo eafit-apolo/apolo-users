@@ -17,7 +17,7 @@ Basic information
 Prerequisites
 -------------
 
-- Python 2.7, Python 3.4 o superior
+- Python 2.7, Python 3.4 or higher
 - numpy
 - Pysam
 - matplotlib (Just in case you want to generate graphics)

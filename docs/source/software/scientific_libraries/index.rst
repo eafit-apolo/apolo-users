@@ -27,3 +27,4 @@ Scientific Libraries
    Zlib/index
    ScaLAPACK/index
    Cloog/index
+   MPC/index

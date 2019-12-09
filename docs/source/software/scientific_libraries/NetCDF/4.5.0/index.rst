@@ -9,7 +9,7 @@ NetCDF 4.5.0
 Basic information
 -----------------
 
-- **Official Website:** MIT open source
+- **Official Website:** https://www.unidata.ucar.edu/downloads/netcdf/index.jsp
 - **License:** MIT open source
 - **Installed on:** Apolo II and Cronos
 - **Installation date:** 14/11/2017

@@ -8,3 +8,4 @@ Scientific Libraries
 
    parallelNetCDF/index
    NetCDF/index
+   GMP/index

@@ -18,13 +18,10 @@ Scientific Libraries
    icu/index
    HTSeq/index
    Jasper/index
-<<<<<<< HEAD
    Qt/index
    hypre/index
    gsl/index
    hdf5/index
    mpfr/index
-=======
    Szip/index
    Zlib/index
->>>>>>> 5a0bc3c794ba6fc60dc42a8a143cefd5e9c1eeaf

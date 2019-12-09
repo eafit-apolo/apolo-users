@@ -108,6 +108,7 @@ Module
 Use
 ---
     .. code-block:: bash
+    
         module load boost/1.63.0_gcc-5.4.0_openmpi-1.8.8-x86_64_cuda-8.0
 
 

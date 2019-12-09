@@ -12,3 +12,4 @@ Scientific Libraries
    eigen/index
    pybind/index
    fftw3/index
+   HTSeq/index

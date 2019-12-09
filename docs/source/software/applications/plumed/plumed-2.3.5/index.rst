@@ -18,7 +18,7 @@ Basic information
 Tested on (Requirements)
 ------------------------
 
-* **Dependencies to run WPS:**  
+* **Dependencies to run PLUMED:**  
     * GNU GCC >= 5.4.0
     * Mpich2 >= 3.2
     * OpenBLAS >= 0.2.19
@@ -32,7 +32,7 @@ After solving the previously mentioned dependencies, you can proceed with the in
 
 #. Download the latest version of the software, in this case, the latest version is 2.3.5 of line 2.3.x (Source code - tgz) (http://www.plumed.org/get-it):
 
-    .. code-block:: tcl
+    .. code-block:: bash
 
         cd /home/mgomezzul/apps/plumed/src/gcc-5.4.0
         # Descargar el .tgz en este directorio
@@ -55,7 +55,7 @@ After solving the previously mentioned dependencies, you can proceed with the in
 Module
 ------
 
-    .. code-block:: bash
+    .. code-block:: tcl
 
         #%Module1.0####################################################################
         ##

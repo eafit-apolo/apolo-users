@@ -34,3 +34,4 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    blat/index
    transrate/index
    trinity/index
+   vmd/index

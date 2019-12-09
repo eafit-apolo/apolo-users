@@ -1,4 +1,4 @@
-.. _scientific_libraries:
+.. _scientific_libraries-index:
 
 Scientific Libraries
 ====================
@@ -6,5 +6,8 @@ Scientific Libraries
 .. toctree::
    :maxdepth: 2
 
+   parallelNetCDF/index
+   NetCDF/index
    eigen/index
    pybind/index
+   

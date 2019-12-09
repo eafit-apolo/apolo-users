@@ -72,7 +72,6 @@ Mode of use
 
 This will load the Conda environment and the HTSeq routes will be added to the Path.
 
-
 References
 ----------
 

@@ -13,3 +13,4 @@ Scientific Libraries
    pybind/index
    fftw3/index
    HTSeq/index
+   Jasper/index

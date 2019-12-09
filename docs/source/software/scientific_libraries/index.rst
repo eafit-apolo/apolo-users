@@ -14,3 +14,4 @@ Scientific Libraries
    fftw3/index
    HTSeq/index
    Jasper/index
+   Szip/index

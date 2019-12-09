@@ -1,0 +1,27 @@
+#%Module1.0#####################################################################
+##
+## modulefile blat/36_intel-19.0.4 
+##
+## /share/apps/modules/blat/36_intel-19.0.4
+## Written by Hamilton Tobon Mosquera.
+proc ModulesHelp { } {
+     global version modroot
+     puts stderr "Sets the environment for using blat 36\
+     \nin the shared directory /share/apps/blat/36/intel/19.0.4\
+     \nbuilt with Intel 19.0.4."
+}    
+
+module-whatis "(Name________) blat"
+module-whatis "(Version_____) 36"
+module-whatis "(Compilers___) Intel 19.0.4"
+module-whatis "(System______) x86_64-redhat-linux"
+module-whatis "(Libraries___) "
+
+conflict blat
+
+# for Tcl script use only
+set     topdir       /share/apps/blat/36/intel/19.0.4
+set     version      36
+set     sys          x86_64-redhat-linux
+
+prepend-path   PATH            $topdir/bin

@@ -20,3 +20,4 @@ Scientific Libraries
    Jasper/index
    Szip/index
    Zlib/index
+   ScaLAPACK/index

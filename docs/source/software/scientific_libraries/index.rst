@@ -19,3 +19,4 @@ Scientific Libraries
    HTSeq/index
    Jasper/index
    Szip/index
+   Zlib/index

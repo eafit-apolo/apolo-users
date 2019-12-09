@@ -18,6 +18,11 @@ Scientific Libraries
    icu/index
    HTSeq/index
    Jasper/index
+   Qt/index
+   hypre/index
+   gsl/index
+   hdf5/index
+   mpfr/index
    Szip/index
    Zlib/index
    ScaLAPACK/index

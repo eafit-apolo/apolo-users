@@ -26,3 +26,4 @@ Scientific Libraries
    Szip/index
    Zlib/index
    ScaLAPACK/index
+   Cloog/index

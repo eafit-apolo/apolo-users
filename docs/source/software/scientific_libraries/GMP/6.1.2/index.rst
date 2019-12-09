@@ -105,4 +105,4 @@ Resources
 
 Author
 ------
-Tomas Navarro (Translated)
+Tomas Navarro (Translated the document)

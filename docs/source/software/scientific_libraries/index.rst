@@ -11,3 +11,4 @@ Scientific Libraries
    GMP/index
    eigen/index
    pybind/index
+   fftw3/index

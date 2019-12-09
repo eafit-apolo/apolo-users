@@ -18,7 +18,7 @@ Tested on (Requirements)
 ------------------------
 
 * **OS base:** CentOS (x86_64) :math:`\boldsymbol{\ge}` 6.6 (Rocks 6.2)
-* **Dependencies to run trinity:**  
+* **Dependencies:**  
     * Intel Parallel Studio XE Cluster Edition >= 17.0.1
     * netCDF-C >= 4.5.0
     * hdf5 >= 1.8.19

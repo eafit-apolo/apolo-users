@@ -18,7 +18,7 @@ Tested on (Requirements)
 ------------------------
 
 * **OS base:** CentOS (x86_64) :math:`\boldsymbol{\ge}` 6.6 (Rocks 6.2)
-* **Dependencies to run trinity:**  
+* **Dependencies:**  
     * mpich2 v3.2.1
     * HDF5 v1.8.15-patch-1
     * PNetCDF/1.6.1

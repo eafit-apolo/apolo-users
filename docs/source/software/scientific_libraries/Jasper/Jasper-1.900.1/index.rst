@@ -30,44 +30,7 @@ Installation
     .. code-block:: bash
 
         $ module purge
-        $ module load gcc/5.5.0        ##
-        ## module load jasper/1.900.1_gcc-5.5.0
-        ##
-        ## /share/apps/modules/jasper/1.900.1_gcc-5.5.0
-        ## Written by Mateo Gómez-Zuluaga
-        ##
-
-        proc ModulesHelp {} {
-            global version modroot
-            puts stderr "Sets the environment for using JasPer-1.900.1\
-                        \nin the shared directory /share/apps/jasper/1.900.1/gcc-5.5.0\
-                        \nbuilded with gcc-5.5.0"
-        }
-
-        module-whatis "(Name________) jasper"
-        module-whatis "(Version_____) 1.900.1"
-        module-whatis "(Compilers___) gcc-5.5.0"
-        module-whatis "(System______) x86_64-redhat-linux"
-        module-whatis "(Libraries___) "
-
-        # for Tcl script use only
-        set         topdir        /share/apps/jasper/1.900.1/gcc-5.5.0
-        set         version       1.900.1
-        set         sys           x86_64-redhat-linux
-
-        conflict jasper
-        module load gcc/5.5.0
-
-
-        prepend-path    PATH                    $topdir/bin
-
-        prepend-path    LD_LIBRARY_PATH         $topdir/lib
-        prepend-path    LIBRARY_PATH            $topdir/lib
-        prepend-path    LD_RUN_PATH             $topdir/lib
-
-        prepend-path    C_INCLUDE_PATH          $topdir/include
-        prepend-path    CXX_INCLUDE_PATH        $topdir/include
-        prepend-path    CPLUS_INCLUDE_PATH      $topdir/include
+        $ module load gcc/5.5.0
 
 2. Download the desired version of the software (Source code - tar.gz) [1]_
 

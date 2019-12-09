@@ -11,3 +11,20 @@ Scientific Libraries
    GMP/index
    eigen/index
    pybind/index
+   fftw3/index
+   beagle/index
+   boost/index
+   open_blas/index
+   icu/index
+   HTSeq/index
+   Jasper/index
+   Qt/index
+   hypre/index
+   gsl/index
+   hdf5/index
+   mpfr/index
+   Szip/index
+   Zlib/index
+   ScaLAPACK/index
+   Cloog/index
+   MPC/index

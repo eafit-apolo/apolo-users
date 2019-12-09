@@ -12,3 +12,7 @@ Scientific Libraries
    eigen/index
    pybind/index
    fftw3/index
+   beagle/index
+   boost/index
+   open_blas/index
+   icu/index

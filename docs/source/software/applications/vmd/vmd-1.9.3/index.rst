@@ -13,11 +13,11 @@ Basic information
 
 - **Official Website:** https://www.ks.uiuc.edu/Research/vmd/
 - **Installed on:** :ref:`Apolo II <about_apolo-ii>`
+- **License:**  UIUC Open Source License - http://www.ks.uiuc.edu/Research/vmd/current/LICENSE.html
 
-Tested on (Requirements)
-------------------------
+Dependencies
+------------
 
-* **OS base:** CentOS (x86_64) :math:`\boldsymbol{\ge}` 6.6 (Rocks 6.2)
 * Cuda 8.0
 * GCC 5.4.0
 * Python 2.7.15
@@ -26,7 +26,9 @@ Tested on (Requirements)
 Installation
 ------------
 
-#. Get source code from https://www.ks.uiuc.edu/Development/Download/download.cgi?PackageName=VMD and get it to Apolo.
+#. Get source code from https://www.ks.uiuc.edu/Development/Download/download.cgi?PackageName=VMD.
+
+   .. note:: Yo hould register before download it.
 
 #. Create a folder for VMD and decompress tar file. It will take out two folders (vmd-1.9.3 and plugins)
 
@@ -74,12 +76,14 @@ Installation
 
       $ ./configure
 
-#. Go to src folder and edit the Makefile, this file has a lot of paths that are not compatible because they are burned into the file. 
+#. Go to src folder and edit the Makefile.
 
    .. code-block:: bash 
 
       $ cd src
       $ vim Makefile
+
+   .. note:: This file has a lot of paths that are not compatible because they are burned into the file.
 
    * Put the correct path for the following variables: INCDIRS and LIBDIRS.
 
@@ -121,16 +125,21 @@ Installation
       $ module load cuda/8.0
       $ make depend
 
-#. Finish with compilation and installation.
+#. Finish with compilation and installation. Notice that in the process you should create folders for bin and lib specified in step 6.
 
    .. code-block:: bash 
 
+      $ mkdir -p /share/apps/vmd/1.9.3/bin
+      $ mkdir -p /share/apps/vmd/1.9.3/lib
       $ make
       $ sudo make install
 
 #. Create the corresponding module of VMD 1.9.3.
 
-    .. code-block:: tcl
+    .. code-block:: bash
+
+       $ mkdir /share/apps/modules/vmd/
+       $ vim /share/apps/modules/vmd/1.9.3
 
        #%Module1.0####################################################################
        ##

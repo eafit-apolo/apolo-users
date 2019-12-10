@@ -71,3 +71,8 @@ This section describes the method to submit jobs with the resource manager SLURM
    .. literalinclude:: src/partitionFinder.sh
       :language: tcl
       :caption: :download:`Partition Finder SLURM <src/partitionFinder.sh>`
+
+Authors
+-------
+
+- Manuela Carrasco Pinzón <mcarras1@eafit.edu.co>

@@ -178,5 +178,5 @@ Resources
 
 Author
 ------
-    Mateo Gómez Zuluaga
-    Juan Pablo Alcaraz Flórez
+    * Mateo Gómez Zuluaga
+    * Juan Pablo Alcaraz Flórez

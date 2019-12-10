@@ -109,9 +109,9 @@ Use
 
 Resources
 ---------
-    http://www.mpfr.org/mpfr-3.1.6/
+    * http://www.mpfr.org/mpfr-3.1.6/
 
 
 Author
 ------
-    Tomas Navarro (Translated document)
+    * Tomas Navarro (Translated document)

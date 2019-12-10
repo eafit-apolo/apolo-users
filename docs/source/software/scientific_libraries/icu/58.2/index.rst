@@ -106,9 +106,9 @@ Use
 
 Resources
 ---------
-* http://site.icu-project.org/
+ * http://site.icu-project.org/
 
 
 Author
 ------
-    Mateo Gómez Zuluaga
+    * Mateo Gómez Zuluaga

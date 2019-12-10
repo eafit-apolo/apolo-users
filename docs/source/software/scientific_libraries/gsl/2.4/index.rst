@@ -123,11 +123,9 @@ Use
 
 Resources
 ---------
-    
-    INSTALL file
-    https://www.gnu.org/software/gsl/manual/html_node/Linking-programs-with-the-library.html
+    * https://www.gnu.org/software/gsl/manual/html_node/Linking-programs-with-the-library.html
 
 
 Author
 ------
-    Mateo Gómez Zuluaga
+    * Mateo Gómez Zuluaga

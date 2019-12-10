@@ -110,9 +110,9 @@ Use
 
 Resources
 ---------
-    https://support.hdfgroup.org/downloads/index.html
+    * https://support.hdfgroup.org/downloads/index.html
 
 
 Author
 ------
-    Mateo Gómez Zuluaga
+    * Mateo Gómez Zuluaga

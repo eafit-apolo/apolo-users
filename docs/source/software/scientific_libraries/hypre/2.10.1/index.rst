@@ -115,9 +115,9 @@ Use
 
 Resources
 ---------
-    https://wiki.rc.ufl.edu/doc/Hypre
-    https://software.intel.com/en-us/articles/intel-mkl-link-line-advisor
+    * https://wiki.rc.ufl.edu/doc/Hypre
+    * https://software.intel.com/en-us/articles/intel-mkl-link-line-advisor
 
 Author
 ------
-    Mateo Gómez Zuluaga
+    * Mateo Gómez Zuluaga

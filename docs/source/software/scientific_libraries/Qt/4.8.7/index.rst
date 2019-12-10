@@ -122,12 +122,12 @@ Use
 
 Resources
 ---------
-    https://raw.githubusercontent.com/OpenFOAM/ThirdParty-2.4.x/master/makeQt
-    https://openfoamwiki.net/index.php/Installation/Linux/OpenFOAM-4.0/CentOS_SL_RHEL
-    http://www.linuxfromscratch.org/blfs/view/7.8/x/qt4.html
-    https://software.intel.com/en-us/articles/build-qt-libraries-with-intel-compiler-linux
+    * https://raw.githubusercontent.com/OpenFOAM/ThirdParty-2.4.x/master/makeQt
+    * https://openfoamwiki.net/index.php/Installation/Linux/OpenFOAM-4.0/CentOS_SL_RHEL
+    * http://www.linuxfromscratch.org/blfs/view/7.8/x/qt4.html
+    * https://software.intel.com/en-us/articles/build-qt-libraries-with-intel-compiler-linux
 
 
 Author
 ------
-    Mateo Gómez Zuluaga
+    * Mateo Gómez Zuluaga

@@ -135,9 +135,9 @@ Use
 
 Resources
 ---------
-    https://support.hdfgroup.org/downloads/index.html
+    * https://support.hdfgroup.org/downloads/index.html
 
 
 Author
 ------
-   Andrés Felipe Zapata Palacio
+   * Andrés Felipe Zapata Palacio

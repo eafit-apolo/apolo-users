@@ -155,4 +155,4 @@ Resources
 
 Author
 ------
-Andrés Felipe Zapata Palacio
+ * Andrés Felipe Zapata Palacio

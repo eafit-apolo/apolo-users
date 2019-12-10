@@ -163,16 +163,16 @@ Module
 
 Resources
 ---------
-    https://software.intel.com/en-us/articles/building-boost-with-intel-c-compiler-150
-    http://www.linuxfromscratch.org/blfs/view/cvs/general/boost.html
-    http://www.boost.org/doc/libs/1_66_0/more/getting_started/unix-variants.html
-    https://www.boost.org/doc/libs/1_67_0/more/getting_started/unix-variants.html
-    https://www.boost.org/doc/libs/1_67_0/doc/html/mpi/getting_started.html
-    https://www.boost.org/doc/libs/1_66_0/doc/html/bbv2/overview.html
-    http://www.linuxfromscratch.org/blfs/view/8.2/general/boost.html
+    * https://software.intel.com/en-us/articles/building-boost-with-intel-c-compiler-150
+    * http://www.linuxfromscratch.org/blfs/view/cvs/general/boost.html
+    * http://www.boost.org/doc/libs/1_66_0/more/getting_started/unix-variants.html
+    * https://www.boost.org/doc/libs/1_67_0/more/getting_started/unix-variants.html
+    * https://www.boost.org/doc/libs/1_67_0/doc/html/mpi/getting_started.html
+    * https://www.boost.org/doc/libs/1_66_0/doc/html/bbv2/overview.html
+    * http://www.linuxfromscratch.org/blfs/view/8.2/general/boost.html
 
 
 Author
 ------
-    Mateo Gómez Zuluaga
-    Juan Pablo Alcaraz Flórez
+    * Mateo Gómez Zuluaga
+    * Juan Pablo Alcaraz Flórez

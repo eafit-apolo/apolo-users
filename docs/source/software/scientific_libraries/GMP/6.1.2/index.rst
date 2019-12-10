@@ -82,7 +82,7 @@ Module
         prepend-path    GMPXX_INCLUDE_DIR       $topdir/include
         prepend-path    INFOPATH                $topdir/share/info
 
-        
+
 Use
 ---
     .. code-block:: bash
@@ -98,4 +98,4 @@ Resources
 
 Author
 ------
-Tomas Navarro (Translated the document)
+ * Tomas Navarro (Translated the document)

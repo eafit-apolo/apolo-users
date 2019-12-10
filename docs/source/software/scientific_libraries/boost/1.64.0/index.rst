@@ -114,13 +114,13 @@ Use
 
 Resources
 ---------
-    http://www.boost.org/doc/libs/1_46_1/more/getting_started/unix-variants.html
-    https://software.intel.com/en-us/articles/building-boost-with-intel-c-compiler-150
-    http://www.boost.org/doc/libs/1_61_0/doc/html/mpi/getting_started.html#mpi.bjam
-    http://www.boost.org/build/doc/html/bbv2/overview/invocation.html
-    http://kratos-wiki.cimne.upc.edu/index.php/How_to_compile_the_Boost_if_you_want_to_use_MPI
+    * http://www.boost.org/doc/libs/1_46_1/more/getting_started/unix-variants.html
+    * https://software.intel.com/en-us/articles/building-boost-with-intel-c-compiler-150
+    * http://www.boost.org/doc/libs/1_61_0/doc/html/mpi/getting_started.html#mpi.bjam
+    * http://www.boost.org/build/doc/html/bbv2/overview/invocation.html
+    * http://kratos-wiki.cimne.upc.edu/index.php/How_to_compile_the_Boost_if_you_want_to_use_MPI
 
 
 Author
 ------
-    Mateo Gómez Zuluaga
+    * Mateo Gómez Zuluaga

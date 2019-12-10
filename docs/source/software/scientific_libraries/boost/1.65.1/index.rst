@@ -111,12 +111,12 @@ Module
 
 Resources
 ---------
-    https://software.intel.com/en-us/articles/building-boost-with-intel-c-compiler-150
-    http://www.linuxfromscratch.org/blfs/view/cvs/general/boost.html
-    http://www.boost.org/doc/libs/1_65_1/more/getting_started/unix-variants.html
+    * https://software.intel.com/en-us/articles/building-boost-with-intel-c-compiler-150
+    * http://www.linuxfromscratch.org/blfs/view/cvs/general/boost.html
+    * http://www.boost.org/doc/libs/1_65_1/more/getting_started/unix-variants.html
 
 
 Author
 ------
-    Mateo Gómez Zuluaga
-    Juan Pablo Alcaraz Flórez
+    * Mateo Gómez Zuluaga
+    * Juan Pablo Alcaraz Flórez

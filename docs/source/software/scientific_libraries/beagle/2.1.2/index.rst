@@ -195,4 +195,4 @@ Resources
 
 Author
 ------
-    Mateo Gómez Zuluaga
+* Mateo Gómez Zuluaga

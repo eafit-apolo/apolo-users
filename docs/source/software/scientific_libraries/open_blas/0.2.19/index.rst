@@ -101,9 +101,9 @@ Use
 
 Resources
 ---------
-* https://www.openblas.net/
+ * https://www.openblas.net/
 
 
 Author
 ------
-    Mateo Gómez Zuluaga
+   * Mateo Gómez Zuluaga

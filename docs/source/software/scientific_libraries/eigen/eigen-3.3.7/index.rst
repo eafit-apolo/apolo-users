@@ -50,12 +50,13 @@ Installation
 
          $ module load cmake/3.7.1
          $ module load intel/19.0.4
+         $ module load boost/1.62.0_gcc-5.4.0_openmpi-1.8.8-x86_64
 
 4. Execute the cmake command with the desired directives.
 
     .. code-block:: bash
 
-         $  cmake ..  -DCMAKE_C_COMPILER=icc -DCMAKE_CXX_COMPILER=icpc -DCMAKE_INSTALL_PREFIX=/share/apps/eigen/3.3.7/intel-2017_update-1/
+         $  cmake ..  -DCMAKE_C_COMPILER=icc -DCMAKE_CXX_COMPILER=icpc -DCMAKE_INSTALL_PREFIX=/share/apps/eigen/3.3.7/intel-19.0.4
 
 5. Execute the make commands sequence.
 
@@ -73,32 +74,33 @@ Module
 
      .. code-block:: tcl
 
-            #%Module1.0#####################################################################
-            ##
-            ## modulefile /share/apps/eigen/3.3.7/intel-2017_update-1/
-            ##
+        #%Module1.0#####################################################################
+        ##
+        ## modulefile /share/apps/eigen/3.3.7/intel-19.0.4/
+        ##
 
-            proc ModulesHelp { } {
-                global version modroot
-                    puts stderr "\t Eigen 3.3.7"
-            }
+        proc ModulesHelp { } {
+            global version modroot
+                puts stderr "\t Eigen 3.3.7"
+        }
 
-            module-whatis "\n\n\tSets the environment for using Eigen 3.3.7 \n"
+        module-whatis "\n\n\tSets the environment for using Eigen 3.3.7 \n"
 
 
-            set     topdir		/share/apps/eigen/3.3.7/intel-2017_update-1/
-            set     version		3.3.7
-            set     sys		x86_64-redhat-linux
+        set     topdir		/share/apps/eigen/3.3.7/intel-19.0.4/
+        set     version		3.3.7
+        set     sys		x86_64-redhat-linux
 
-            module load intel/2017_update-1
+        module load intel/19.0.4
+        module load boost/1.62.0_gcc-5.4.0_openmpi-1.8.8-x86_64
 
-            setenv		EIGEN_HOME		$topdir
+        setenv		EIGEN_HOME		$topdir
 
-            prepend-path 	C_INCLUDE_PATH		$topdir/include/eigen3
-            prepend-path 	CXX_INCLUDE_PATH	$topdir/include/eigen3
-            prepend-path 	CPLUS_INCLUDE_PATH	$topdir/include/eigen3
+        prepend-path 	C_INCLUDE_PATH		$topdir/include/eigen3
+        prepend-path 	CXX_INCLUDE_PATH	$topdir/include/eigen3
+        prepend-path 	CPLUS_INCLUDE_PATH	$topdir/include/eigen3
 
-            prepend-path 	MANPATH			$topdir/share
+        prepend-path 	MANPATH			$topdir/share
 
 
 References

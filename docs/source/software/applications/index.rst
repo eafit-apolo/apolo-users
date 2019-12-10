@@ -26,5 +26,4 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    raxml/index
    transrate/index
    trinity/index
-   wps/index
    wrf/index

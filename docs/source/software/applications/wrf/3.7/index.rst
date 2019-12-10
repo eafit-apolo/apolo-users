@@ -31,7 +31,7 @@ configuration of WRF 3.7 on a cluster.
 Usage
 -----
 
-This section desribes the method to submit jobs with the resource manager SLURM.
+This section describes the method to submit jobs with the resource manager SLURM.
 
 #. Run WRF from a SLURM bash script, for this example we will use a test case
 in :bash:`wrf-3.7/tests/em_real`

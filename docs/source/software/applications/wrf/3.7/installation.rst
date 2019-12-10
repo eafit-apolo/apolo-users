@@ -35,7 +35,7 @@ Build process
       tar xvf WRFV3.7.TAR.gz 
       cd WRFV3
 
-#. Load the necesary modules
+#. Load the necessary modules
 
    .. code-block:: bash
 
@@ -130,9 +130,9 @@ role is to prepare input to the real.exe program for real-data simulations.
 
    .. code-block:: bash
 
-      wget https://github.com/wrf-model/WPS/archive/v4.1.tar.gz
-      tar vf 4.1.tar.gz
-      cd WPS-4.1
+      wget https://github.com/wrf-model/WPS/archive/v3.7.tar.gz
+      tar vf 3.7.tar.gz
+      cd WPS-3.7
 
 #. Load the correspondent modules and execute the configuration script.
 
@@ -159,8 +159,6 @@ role is to prepare input to the real.exe program for real-data simulations.
 Modulefile
 ----------
 
-.. literalinclude:: src/4.1.2_intel-17.0.1
-      :language: bash
-      :caption: :download:`4.1.2_intel-17.0.1 <src/4.1.2_intel-17.0.1>`
+WRF must be installed locally in the user's home because of that, there is no module file.
 
 .. [1] Mesoscale & Microscale Meteorology Laboratory. (n.d.). Chapter 3: WRF Preprocessing System. [online] Available at: http://www2.mmm.ucar.edu/wrf/users/docs/user_guide/users_guide_chap3.html [Accessed 28 Aug. 2019].

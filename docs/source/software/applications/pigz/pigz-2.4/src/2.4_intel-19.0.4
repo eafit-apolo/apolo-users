@@ -1,0 +1,29 @@
+#%Module1.0####################################################################
+##
+## module load pigz/2.4_intel-19.0.4
+##
+## /share/apps/modules/pigz/2.4_intel-19.0.4
+## Written by Hamilton Tobon Mosquera.
+##
+
+proc ModulesHelp {} {
+         global version modroot
+         puts stderr "Sets the environment for using Parallel Gzip 2.4, \
+         \nin the shared directory /share/apps/pigz/2.4/intel/19.0.4, \
+         \nbuilt with Intel 19.0.4.\n"
+}
+
+module-whatis "(Name________) pigz"
+module-whatis "(Version_____) 2.4"
+module-whatis "(Compilers___) intel-19.0.4"
+module-whatis "(System______) x86_64-redhat-linux"
+module-whatis "(Libraries___) "
+
+# for Tcl script use only
+set         topdir        /share/apps/pigz/2.4/intel/19.0.4
+set         version       2.4
+set         sys           x86_64-redhat-linux
+
+conflict pigz
+
+prepend-path   PATH            $topdir/bin

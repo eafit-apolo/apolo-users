@@ -18,6 +18,7 @@ route to participation in that activity.
    :maxdepth: 2
 
    R-3.6.0/index
+   R-3.6.1/index
 
 Resources
 ^^^^^^^^^

@@ -14,6 +14,6 @@ applications across scales from tens of meters to thousands of kilometers.
    :caption: Versions
    :maxdepth: 1
 
-   4.1.2/index
+   3.7/index
 
 .. [1] Mesoscale & Microscale Meteorology Laboratory. (n.d.). WEATHER RESEARCH AND FORECASTING MODEL. In Mesoscale & Microscale Meteorology Laboratory, from https://www.mmm.ucar.edu/weather-research-and-forecasting-model

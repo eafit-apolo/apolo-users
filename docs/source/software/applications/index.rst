@@ -10,30 +10,31 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
 .. toctree::
    :maxdepth: 1
 
+   abyss/index
    ansys/index
+   arcs/index
    bayescan/index
+   blat/index
    edge_pro/index
    gatk4/index
    gromacs/index
    lammps/index
+   links/index
    mafft/index
    mothur/index
+   namd/index
    opensees/index
    pargenes/index
    partitionFinder/index
    picrust2/index
+   pigz/index
+   pteros/index
    repet/index
    raxml/index
-   transabyss/index
-   abyss/index
    sparsehash/index
-   arcs/index
-   links/index
    tigmint/index
-   pigz/index
-   blat/index
+   transabyss/index
    transrate/index
    trinity/index
-   pteros/index
    vmd/index
    wrf/index

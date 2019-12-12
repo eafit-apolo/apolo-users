@@ -36,3 +36,4 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    trinity/index
    pteros/index
    vmd/index
+   ost/index

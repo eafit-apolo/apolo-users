@@ -1,5 +1,6 @@
 .. _autoDock:
 
+<<<<<<< HEAD
 AutoDock
 ========
 
@@ -17,3 +18,8 @@ For additional information you can open those links:
    :maxdepth: 1
 
    autoDock-4.2.6/index
+=======
+********
+autoDock
+********
+>>>>>>> bb71d83f272118bc8d97d9903b2c290e2fe54867

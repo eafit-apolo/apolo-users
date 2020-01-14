@@ -11,7 +11,7 @@ PLUMED 2.3.5
 Basic information
 -----------------
 - **Installation Date:** 22/02/2017
-- **URL:** http://http://www.plumed.org/
+- **URL:** http://www.plumed.org/
 - **License:** GNU LESSER GENERAL PUBLIC LICENSE Version 3
 - **Installed on:** Apolo II
 

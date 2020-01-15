@@ -1,6 +1,6 @@
 .. _topHat:
 
-<<<<<<< HEAD
+
 TopHat
 ======
 
@@ -14,8 +14,3 @@ de novo RNA splice sites. TopHat aligns RNA-Seq readings with mammal size genome
    :maxdepth: 1
 
    topHat-2.1.1/index
-=======
-******
-topHat
-******
->>>>>>> bb71d83f272118bc8d97d9903b2c290e2fe54867

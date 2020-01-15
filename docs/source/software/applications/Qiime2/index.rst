@@ -1,6 +1,6 @@
 .. _Qiime2:
 
-<<<<<<< HEAD
+
 Qiime2
 ======
 
@@ -29,8 +29,4 @@ being developed.
    :maxdepth: 1
 
    Qiime2-2018.4/index
-=======
-******
-Qiime2
-******
->>>>>>> bb71d83f272118bc8d97d9903b2c290e2fe54867
+

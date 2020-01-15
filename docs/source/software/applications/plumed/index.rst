@@ -1,6 +1,6 @@
 .. _plumed:
 
-<<<<<<< HEAD
+
 Plumed
 ======
 
@@ -17,8 +17,4 @@ and C/C++ codes.
    :maxdepth: 1
 
    plumed-2.3.5/index
-=======
-******
-plumed
-******
->>>>>>> bb71d83f272118bc8d97d9903b2c290e2fe54867
+

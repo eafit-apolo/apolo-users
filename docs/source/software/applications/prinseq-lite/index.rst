@@ -1,6 +1,6 @@
 .. _prinseq-lite:
 
-<<<<<<< HEAD
+
 Prinseq-lite
 ============
 
@@ -33,8 +33,4 @@ For additional information you can open those links:
    :maxdepth: 1
 
    prinseq-lite-0.20.4/index
-=======
-************
-prinseq-lite
-************
->>>>>>> bb71d83f272118bc8d97d9903b2c290e2fe54867
+

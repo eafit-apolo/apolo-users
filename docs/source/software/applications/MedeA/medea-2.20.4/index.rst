@@ -20,3 +20,21 @@ Requirements
 - libXScrnSaver
 - User previously created in Apollo (i.e. mvelez)
 - SSH without password between the machine that has the MedeA and Apollo GUI.
+
+Steps:
+
+- Packages
+
+.. code-block:: bash
+
+    yum install glibc.i686 libstdc++i686 libX11.i686 libXft.i686 zlib.i686                        
+    yum install mysql-server mysql-client
+
+- SSH without password
+
+.. code-block:: bash
+
+    ssh-keygen
+    ssh-copy-id mvelez@apolo.eafit.edu.co
+
+.. image:: Files/TaskServer.png

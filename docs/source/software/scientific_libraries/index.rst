@@ -28,3 +28,4 @@ Scientific Libraries
    ScaLAPACK/index
    Cloog/index
    MPC/index
+   LAPACK/index

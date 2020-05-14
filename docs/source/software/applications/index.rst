@@ -18,6 +18,7 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    edge_pro/index
    gatk4/index
    gromacs/index
+   gromacs-ls/index
    lammps/index
    links/index
    mafft/index

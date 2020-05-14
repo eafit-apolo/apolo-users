@@ -1,4 +1,4 @@
-.. _gromacs-index:
+.. _gromacs-ls-index:
 
 GROMACS-LS
 ==========
@@ -7,7 +7,7 @@ GROMACS-LS [1]_ is a custom version of GROMACS v4.5.5 developed for local stress
 
 .. toctree::
    :caption: Versions
-   :maxdepth: 2
+   :maxdepth: 1
 
    gromacs-ls-4.5.5/index
 

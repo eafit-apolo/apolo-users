@@ -11,7 +11,7 @@ GROMACS-LS 4.5.5
 Basic information
 -----------------
 
-- **Official Website:** http://manual.gromacs.org/documentation/
+- **Official Website:** https://www.mdstress.org/index.php/gromacs-ls/
 - **License:** GNU General Public License (GPL), version 2.
 - **Installed on:** :ref:`Apolo II <about_apolo-ii>`
 

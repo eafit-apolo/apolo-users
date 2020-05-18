@@ -41,3 +41,4 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    vmd/index
    wrf/index
    ost/index
+   mdstress-lib/index

@@ -9,4 +9,5 @@ This entry contains relevant information related to virtualization tools.
 .. toctree::
 	:maxdepth: 2
 
-	vmwareesxi/index	
+	vmwareesxi/index
+    vagrant-storage/index

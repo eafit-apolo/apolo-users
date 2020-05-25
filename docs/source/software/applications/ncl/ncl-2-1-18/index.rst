@@ -1,10 +1,10 @@
-.. ncl-2.1:
+.. _ncl-2.1:
 
 .. contents:: Table of Contents
 
-********
+************
 NCL 2.1.18
-********
+************
 
 - **Installation date:** 06/02/2017
 - **URL:** https://sourceforge.net/projects/ncl/

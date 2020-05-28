@@ -50,10 +50,10 @@ Installation and implementation
 References
 ----------
 
-.. [1] Vagrant documentation.
+-   Vagrant documentation.
     retrieved from https://www.vagrantup.com/intro/getting-started/boxes.html
 
-.. [2] Vagrant documentation.
+-   Vagrant documentation.
     retrieved from https://www.vagrantup.com/intro/getting-started/up.html
 
 Author

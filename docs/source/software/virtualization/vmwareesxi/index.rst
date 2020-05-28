@@ -5,6 +5,6 @@ VMware ESXi
 ==============
 
 .. toctree::
-	:maxdepth: 2
+    :maxdepth: 2
 	
 	ovftool/index

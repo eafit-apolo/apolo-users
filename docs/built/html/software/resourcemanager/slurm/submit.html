@@ -1,0 +1,952 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Submitting jobs &mdash; apolo-docs 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/sidebar.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Testing my job" href="testing.html" />
+    <link rel="prev" title="SLURM" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+  
+    <a href="../../../index.html">
+  
+
+  
+    
+    <img src="../../../_static/apolo-white.png" style="width: 150px;" class="logo" alt="Logo"/>
+  
+    </a>
+
+    
+      
+      
+      
+	<div class="version" style="color: rgba(255,255,255,0.5);">
+	  0.1
+	</div>
+      
+    
+
+    
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../gettingstarted/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../supercomputers/index.html">Supercomputers</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Software</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../virtualization/index.html">Virtualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../programminglanguages/index.html">Programming Languages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/index.html">Scientific Applications</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Resource Manager</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">SLURM</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#"><strong>Submitting jobs</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="testing.html"><strong>Testing my job</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="info-jobs.html"><strong>Getting information about jobs</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="faq.html"><strong>FAQ</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="index.html#more-information">More information</a></li>
+<li class="toctree-l4"><a class="reference internal" href="index.html#authors">Authors</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#tools">Tools</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../provisioning/index.html">Provisioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../monitoring/index.html">Monitoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../operatingsystems/index.html">Operating Systems</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../how-to-acknowledge.html">How to Acknowledge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../report-a-bug.html">Report a Bug</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">apolo-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Software</a> &raquo;</li>
+        
+          <li><a href="../index.html">Resource Manager</a> &raquo;</li>
+        
+          <li><a href="index.html">SLURM</a> &raquo;</li>
+        
+      <li><strong>Submitting jobs</strong></li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/software/resourcemanager/slurm/submit.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="submitting-jobs">
+<span id="submit"></span><h1><strong>Submitting jobs</strong><a class="headerlink" href="#submitting-jobs" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#what-is-sbatch" id="id25">What is <code class="docutils literal notranslate"><span class="pre">sbatch</span></code>?</a></p></li>
+<li><p><a class="reference internal" href="#serial-jobs" id="id26">Serial jobs</a></p></li>
+<li><p><a class="reference internal" href="#shared-memory-jobs-openmp" id="id27">Shared Memory jobs (OpenMP)</a></p></li>
+<li><p><a class="reference internal" href="#mpi-jobs" id="id28">MPI jobs</a></p></li>
+<li><p><a class="reference internal" href="#array-jobs" id="id29">Array jobs</a></p></li>
+<li><p><a class="reference internal" href="#slurm-s-environment-variables" id="id30">Slurm’s environment variables</a></p></li>
+<li><p><a class="reference internal" href="#slurm-s-file-patterns" id="id31">Slurm’s file-patterns</a></p></li>
+<li><p><a class="reference internal" href="#references" id="id32">References</a></p></li>
+</ul>
+</div>
+<div class="section" id="what-is-sbatch">
+<h2><a class="toc-backref" href="#id25">What is <code class="docutils literal notranslate"><span class="pre">sbatch</span></code>?</a><a class="headerlink" href="#what-is-sbatch" title="Permalink to this headline">¶</a></h2>
+<p><strong>Slurm</strong> has a lot of options to manage all the resources of a cluster to
+achieve any possible combination of needs like:
+Number of CPUs, Number of Nodes, Memory, Time, GPUs, Licenses, etc.</p>
+<p>The command <code class="docutils literal notranslate"><span class="pre">sbatch</span></code> is used to submit a <code class="docutils literal notranslate"><span class="pre">batch</span></code> script, making your job
+running in the cluster. Like this:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sbatch &lt;batch_script&gt;
+</pre></div>
+</div>
+<p>A Slurm <code class="docutils literal notranslate"><span class="pre">batch</span></code> is a shell script (usually written in <code class="docutils literal notranslate"><span class="pre">bash</span></code>) where you
+specify all these options to Slurm, including the creation of the environment to
+make your job run correctly, and the set of commands to run that job.</p>
+<p>Thus, we say that a <code class="docutils literal notranslate"><span class="pre">batch</span></code> script has <strong>three</strong> parts:</p>
+<ol class="arabic">
+<li><p><strong>Sbatch parameters</strong>:</p>
+<p>The idea is to include all the information you think Slurm should know about
+your job (name, notification mail, partition, std_out, std_err, etc) and
+request all your computational needs, which consist at least in a number of CPUs,
+the computing expected duration and the amount of RAM to use.</p>
+<p>All these parameters must start with the comment <code class="docutils literal notranslate"><span class="pre">#SBATCH</span></code>, one per line,
+and need to be included at the beginning of the file, just after
+the shebang (<code class="docutils literal notranslate"><span class="pre">e.g.</span> <span class="pre">#!/bin/bash</span></code>) which should be the first line.</p>
+<p>The following table <a class="footnote-reference brackets" href="#id11" id="id1">3</a> shows important and common options, for further
+information see <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">sbatch</span></code>.</p>
+<table class="colwidths-given docutils align-default" id="id15">
+<caption><span class="caption-text">Sbatch option’s</span><a class="headerlink" href="#id15" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 36%" />
+<col style="width: 23%" />
+<col style="width: 18%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head stub"><p><strong>Option</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+<th class="head"><p><strong>Possible value</strong></p></th>
+<th class="head"><p><strong>Mandatory</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">-J,</span> <span class="pre">--job-name</span></code></p></th>
+<td><p>Job’s name</p></td>
+<td><p>Letters and numbers</p></td>
+<td><p>no</p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">-t,</span> <span class="pre">--time</span></code></p></th>
+<td><p>Maximum <strong>Walltime</strong> of the job</p></td>
+<td><p>Numbers with the format DD-HH:MM:SS</p></td>
+<td><p><strong>yes</strong></p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">--mem</span></code></p></th>
+<td><p>Requested memory per <strong>node</strong></p></td>
+<td><p>size with units: 64G, 600M</p></td>
+<td><p>no</p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">-n,</span> <span class="pre">--ntasks</span></code></p></th>
+<td><p>Number of tasks of the job</p></td>
+<td><p>Number</p></td>
+<td><p>no (default 1)</p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">--ntasks-per-node</span></code></p></th>
+<td><p>Number of tasks assigned to a node</p></td>
+<td><p>Number</p></td>
+<td><p>no (default 1)</p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">-N,</span> <span class="pre">--nodes</span></code></p></th>
+<td><p>Number of nodes requested</p></td>
+<td><p>Number</p></td>
+<td><p>no (default 1)</p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">-c,</span> <span class="pre">--cpus-per-task</span></code></p></th>
+<td><p>Number of threads per task</p></td>
+<td><p>Number</p></td>
+<td><p>no (default 1)</p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">-p,</span> <span class="pre">--partition</span></code></p></th>
+<td><p>Partition/queue where the job will be submited</p></td>
+<td><p>longjobs, bigmem, accel and debug</p></td>
+<td><p>no (default longjobs)</p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">--output</span></code></p></th>
+<td><p>File where the standard output will be written</p></td>
+<td><p>Letters and numbers</p></td>
+<td><p>no</p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">--error</span></code></p></th>
+<td><p>File where the standard error will be written</p></td>
+<td><p>Letters and numbers</p></td>
+<td><p>no</p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">--mail-type</span></code></p></th>
+<td><p>Notify user by email when certain event types occur to the job</p></td>
+<td><p>NONE, ALL, BEGIN, FAIL, REQUEUE, TIME_LIMIT, TIME_LIMIT_%</p></td>
+<td><p>no</p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">--mail-user</span></code></p></th>
+<td><p>Email to receive notification of state shanges</p></td>
+<td><p>Valid email</p></td>
+<td><p>no</p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">--exclusive</span></code></p></th>
+<td><p>The job allocation can not share nodes with other running jobs</p></td>
+<td><p>Does not have values</p></td>
+<td><p>no</p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">--test-only</span></code></p></th>
+<td><p>Validate the batch script and return an estimate of when a job would be scheduled to run</p></td>
+<td><p>Does not have values</p></td>
+<td><p>no</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Each option must be included using <code class="docutils literal notranslate"><span class="pre">#SBATCH</span> <span class="pre">&lt;option&gt;=&lt;value&gt;</span></code></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Some values of the options/parameters may be specific for our clusters.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>About the <code class="docutils literal notranslate"><span class="pre">--mail-type</span></code> option, the value <code class="docutils literal notranslate"><span class="pre">TIME_LIMIT_%</span></code>  means the reached
+time percent, thus, <code class="docutils literal notranslate"><span class="pre">TIME_LIMIT_90</span></code> notify reached the 90% of walltime,
+<code class="docutils literal notranslate"><span class="pre">TIME_LIMIT_50</span></code> at the 50%, etc.</p>
+</div>
+</li>
+<li><p><strong>Environment creation</strong></p>
+<p>Next, you should create the necessary environment to make your job run correctly.
+This often means include the same set of steps that you do to run your application
+locally on your sbatch script, things like export environment variables,
+create or delete files and directory structures, etc.
+Remember a Slurm script is a shell script.</p>
+<p>In case you want to submit a job that uses an <a class="reference internal" href="../../applications/index.html#applications-index"><span class="std std-ref">application</span></a>
+that is installed in our <a class="reference internal" href="../../../supercomputers/index.html#supercomputers"><span class="std std-ref">clusters</span></a> you have to
+<code class="docutils literal notranslate"><span class="pre">load</span></code> its module.</p>
+<p>An application <a class="reference external" href="http://modules.sourceforge.net/man/modulefile.html">Module</a>. is used to create the specific environment needed by
+your application.</p>
+<p>The following table <a class="footnote-reference brackets" href="#id9" id="id2">1</a> show useful commands about modules.</p>
+<table class="colwidths-given docutils align-default" id="id16">
+<caption><span class="caption-text">Module useful commands</span><a class="headerlink" href="#id16" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head stub"><p><strong>Command</strong></p></th>
+<th class="head"><p><strong>Functionality</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">avail</span></code></p></th>
+<td><p>check what software packages are available</p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">whatis</span> <span class="pre">&lt;module-name&gt;</span></code></p></th>
+<td><p>Find out more about a software package</p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">help</span> <span class="pre">&lt;module-name&gt;</span></code></p></th>
+<td><p>A module file may include more detailed help for the software package</p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">show</span> <span class="pre">&lt;module-name&gt;</span></code></p></th>
+<td><p>see exactly what effect loading the module will have with</p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">list</span></code></p></th>
+<td><p>check which modules are currently loaded in your environment</p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">&lt;module-name&gt;</span></code></p></th>
+<td><p>load a module</p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">unload</span> <span class="pre">&lt;module-name&gt;</span></code></p></th>
+<td><p>unload a module</p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">purge</span></code></p></th>
+<td><p>remove all loaded modules from your environment</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Slurm <strong>always</strong> propagate the environment of the current user to the job.
+This could impact the behavior of the job. If you want a clean environment,
+add <code class="docutils literal notranslate"><span class="pre">#SBATCH</span> <span class="pre">--export=NONE</span></code> to your sbatch script.
+This option is particularly important for jobs that are submitted  on  one
+cluster  and execute on a different cluster (e.g. with different paths).</p>
+</div>
+</li>
+<li><p><strong>Job(s) steps</strong></p></li>
+</ol>
+<blockquote>
+<div><p>Finally, you put the command(s) that executes your application, including all the
+parameters.
+You will often see the command <code class="docutils literal notranslate"><span class="pre">srun</span></code> calling the executable instead of
+executing the application binary. For more information see <a class="reference internal" href="#mpi-jobs">MPI jobs</a> section.</p>
+</div></blockquote>
+<p>There are other options beyond using <code class="docutils literal notranslate"><span class="pre">sbatch</span></code> to submit jobs to Slurm,
+like <code class="docutils literal notranslate"><span class="pre">salloc</span></code> or simply using <code class="docutils literal notranslate"><span class="pre">srun</span></code>. We recommend using <code class="docutils literal notranslate"><span class="pre">sbatch</span></code>, but
+depending on the specific need of your application those options could be better.
+To know more about see: <a class="reference internal" href="faq.html#faq-slurm"><span class="std std-ref">FAQ</span></a> and <a class="reference internal" href="testing.html#testing-slurm"><span class="std std-ref">Testing my job</span></a></p>
+</div>
+<div class="section" id="serial-jobs">
+<h2><a class="toc-backref" href="#id26">Serial jobs</a><a class="headerlink" href="#serial-jobs" title="Permalink to this headline">¶</a></h2>
+<p>Serial jobs only use a process with <strong>one</strong> execution thread,
+this means one core of a CPU, given our configuration without <a class="reference external" href="https://en.wikipedia.org/wiki/Hyper-threading">HTT</a>
+(Hyper-Threading Technology).</p>
+<p>This kind of job does not take advantage of our computational resources but
+is the basic step to create more complex jobs.</p>
+<p>In terms of Slurm, this job uses one <code class="docutils literal notranslate"><span class="pre">task</span> <span class="pre">(process)</span></code> and one
+<code class="docutils literal notranslate"><span class="pre">cpu-per-task</span> <span class="pre">(thread)</span></code> in one <code class="docutils literal notranslate"><span class="pre">node</span></code>. In fact, we don’t need to specify any
+resource, the default value for those options in Slurm is <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p>
+<p><a class="reference external" href="https://www.backblaze.com/blog/whats-the-diff-programs-processes-and-threads/">Here</a> is a good article about the differences between <code class="docutils literal notranslate"><span class="pre">Processes</span></code> and
+<code class="docutils literal notranslate"><span class="pre">Threads</span></code>.</p>
+<p>In the template below we specify <code class="docutils literal notranslate"><span class="pre">ntasks=1</span></code> to make it explicit.</p>
+<div class="literal-block-wrapper docutils container" id="id17">
+<div class="code-block-caption"><span class="caption-text"><a class="reference download internal" download="" href="../../../_downloads/791ccc1d0da0becb952be03531b22bb9/serial.sh"><code class="xref download docutils literal notranslate"><span class="pre">serial-template.sh</span></code></a></span><a class="headerlink" href="#id17" title="Permalink to this code">¶</a></div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+
+<span class="c1">#SBATCH --job-name=serial_test       # Job name</span>
+<span class="c1">#SBATCH --mail-type=FAIL,END         # Mail notification</span>
+<span class="c1">#SBATCH --mail-user=&lt;user&gt;@&lt;domain&gt;  # User Email</span>
+<span class="c1">#SBATCH --output=slurm-serial.%j.out # Stdout (%j expands to jobId)</span>
+<span class="c1">#SBATCH --error=slurm-serial.%j.err  # Stderr (%j expands to jobId)</span>
+<span class="c1">#SBATCH --ntasks=1                   # Number of tasks (processes)</span>
+<span class="c1">#SBATCH --time=01:00                 # Walltime</span>
+<span class="c1">#SBATCH --partition=longjobs         # Partition</span>
+
+
+<span class="c1">##### ENVIRONMENT CREATION #####</span>
+
+
+
+<span class="c1">##### JOB COMMANDS #### </span>
+hostname
+date
+sleep <span class="m">50</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="shared-memory-jobs-openmp">
+<h2><a class="toc-backref" href="#id27">Shared Memory jobs (OpenMP)</a><a class="headerlink" href="#shared-memory-jobs-openmp" title="Permalink to this headline">¶</a></h2>
+<p>This set up is made to create parallelism using threads on a single machine.
+OpenMP makes communication between threads (<code class="docutils literal notranslate"><span class="pre">-c</span></code> in Slurm) but they must be on
+the same machine, it does not make any kind of communication between
+process/threads of different physical machines.</p>
+<p>In the below example we launched the classical “Hello world” OpenMP example <a class="footnote-reference brackets" href="#id13" id="id3">5</a>.
+It was compiled in <a class="reference internal" href="../../../supercomputers/cronos/index.html#about-cronos"><span class="std std-ref">Cronos</span></a> using <code class="docutils literal notranslate"><span class="pre">intel</span> <span class="pre">compiler</span> <span class="pre">18.0.1</span></code>
+as follow:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ module load intel/18.0.1
+$ icc -fopenmp omp_hello.c -o hello_omp_intel_cronos
+</pre></div>
+</div>
+<p>We used <strong>16</strong> <code class="docutils literal notranslate"><span class="pre">threads</span></code>, the maximum number allowed in the Cronos’ longjobs
+partition. In terms of Slurm, we specify <strong>16</strong> <code class="docutils literal notranslate"><span class="pre">cpus-per-task</span></code> and one <code class="docutils literal notranslate"><span class="pre">ntasks</span></code>.</p>
+<div class="literal-block-wrapper docutils container" id="id18">
+<div class="code-block-caption"><span class="caption-text"><a class="reference download internal" download="" href="../../../_downloads/7608e103ad90a5db3c0bebdb792a33d9/openmp.sh"><code class="xref download docutils literal notranslate"><span class="pre">openmp-template.sh</span></code></a></span><a class="headerlink" href="#id18" title="Permalink to this code">¶</a></div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+
+<span class="c1">#SBATCH --job-name=openmp_test      # Job name</span>
+<span class="c1">#SBATCH --mail-type=FAIL,END        # Mail notification</span>
+<span class="c1">#SBATCH --mail-user=&lt;user&gt;@&lt;domain&gt; # User Email</span>
+<span class="c1">#SBATCH --output=slurm-omp.%j.out   # Stdout (%j expands to jobId)</span>
+<span class="c1">#SBATCH --error=slurm-omp.%j.err    # Stderr (%j expands to jobId)</span>
+<span class="c1">#SBATCH --time=01:00                # Walltime</span>
+<span class="c1">#SBATCH --partition=longjobs        # Partition</span>
+<span class="c1">#SBATCH --ntasks=1                  # Number of tasks (processes)</span>
+<span class="c1">#SBATCH --cpus-per-task=16          # Number of threads per task (Cronos-longjobs)</span>
+
+
+<span class="c1">##### ENVIRONMENT CREATION #####</span>
+module load intel/18.0.1 
+
+
+<span class="c1">##### JOB COMMANDS #### </span>
+<span class="nb">export</span> <span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="nv">$SLURM_CPUS_PER_TASK</span>
+
+./hello_omp_intel_cronos
+</pre></div>
+</div>
+</div>
+<p><strong>Output</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Hello World from <span class="nv">thread</span> <span class="o">=</span> <span class="m">8</span>
+Hello World from <span class="nv">thread</span> <span class="o">=</span> <span class="m">0</span>
+Number of <span class="nv">threads</span> <span class="o">=</span> <span class="m">16</span>
+Hello World from <span class="nv">thread</span> <span class="o">=</span> <span class="m">4</span>
+Hello World from <span class="nv">thread</span> <span class="o">=</span> <span class="m">15</span>
+Hello World from <span class="nv">thread</span> <span class="o">=</span> <span class="m">5</span>
+Hello World from <span class="nv">thread</span> <span class="o">=</span> <span class="m">3</span>
+Hello World from <span class="nv">thread</span> <span class="o">=</span> <span class="m">2</span>
+Hello World from <span class="nv">thread</span> <span class="o">=</span> <span class="m">10</span>
+Hello World from <span class="nv">thread</span> <span class="o">=</span> <span class="m">9</span>
+Hello World from <span class="nv">thread</span> <span class="o">=</span> <span class="m">1</span>
+Hello World from <span class="nv">thread</span> <span class="o">=</span> <span class="m">11</span>
+Hello World from <span class="nv">thread</span> <span class="o">=</span> <span class="m">6</span>
+Hello World from <span class="nv">thread</span> <span class="o">=</span> <span class="m">12</span>
+Hello World from <span class="nv">thread</span> <span class="o">=</span> <span class="m">14</span>
+Hello World from <span class="nv">thread</span> <span class="o">=</span> <span class="m">7</span>
+Hello World from <span class="nv">thread</span> <span class="o">=</span> <span class="m">13</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Remember the maximum number of total threads that can be running at the same
+time in a compute node.</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>Apolo:</strong></dt><dd><ul>
+<li><p><strong>Longjobs queue:</strong> 32</p></li>
+<li><p><strong>Accel queue:</strong> 32</p></li>
+<li><p><strong>Bigmem queue:</strong> 24</p></li>
+<li><p><strong>Debug queue:</strong> 2</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Cronos:</strong></dt><dd><ul>
+<li><p><strong>Longjobs queue:</strong> 16</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Otherwise, your job will overpass the maximum multiprocessing grade and this is
+going to cause a drastic decrease in the performance of your application.
+To know more about see: <a class="reference internal" href="faq.html#faq-slurm"><span class="std std-ref">FAQ</span></a></p>
+<p>As extra information, our setup does not use <a class="reference external" href="https://en.wikipedia.org/wiki/Hyper-threading">HTT</a> (Hyper-Threading Technology).</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We highly recommend using the Slurm variable <code class="docutils literal notranslate"><span class="pre">$SLURM_CPUS_PER_TASK</span></code> to specify
+the number of threads that OpenMP is going to work with. Most of the applications
+use  the variable <code class="docutils literal notranslate"><span class="pre">OMP_NUM_THREADS</span></code> to defined it.</p>
+</div>
+</div>
+<div class="section" id="mpi-jobs">
+<h2><a class="toc-backref" href="#id28">MPI jobs</a><a class="headerlink" href="#mpi-jobs" title="Permalink to this headline">¶</a></h2>
+<p>MPI jobs are able to launch multiple processes on multiple nodes.
+There is a lot of possible workflows using MPI, here we are going to
+explain a basic one. Based on this example and modifying its parameters, you can
+find the configuration for your specific need.</p>
+<p>The example was compiled in <a class="reference internal" href="../../../supercomputers/cronos/index.html#about-cronos"><span class="std std-ref">Cronos</span></a> using <code class="docutils literal notranslate"><span class="pre">impi</span></code> as follow:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ module load impi
+$ impicc hello_world_mpi.c -o mpi_hello_world_apolo
+</pre></div>
+</div>
+<p>We submited the classic “Hello world” MPI example <a class="footnote-reference brackets" href="#id14" id="id4">6</a> using 5 processes (<code class="docutils literal notranslate"><span class="pre">--ntasks=5</span></code>),
+each one on a different machine (<code class="docutils literal notranslate"><span class="pre">--ntasks-per-node=1</span></code>). Just to be clear,
+we used 5 machines and 1 CPU per each, leaving the other CPUs
+(15, in this specific case) free to be allocated by Slurm to other jobs.</p>
+<div class="literal-block-wrapper docutils container" id="id19">
+<div class="code-block-caption"><span class="caption-text"><a class="reference download internal" download="" href="../../../_downloads/e39ff6a654f21c444950f1aef973612b/mpi.sh"><code class="xref download docutils literal notranslate"><span class="pre">mpi-template.sh</span></code></a></span><a class="headerlink" href="#id19" title="Permalink to this code">¶</a></div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+
+<span class="c1">#SBATCH --job-name=mpi_test         # Job name</span>
+<span class="c1">#SBATCH --mail-type=FAIL,END        # Mail notification</span>
+<span class="c1">#SBATCH --mail-user=&lt;user&gt;@&lt;domain&gt; # User Email</span>
+<span class="c1">#SBATCH --output=slurm-mpi.%j.out   # Stdout (%j expands to jobId)</span>
+<span class="c1">#SBATCH --error=slurm-mpi.%j.err    # Stderr (%j expands to jobId)</span>
+<span class="c1">#SBATCH --time=01:00                # Walltime</span>
+<span class="c1">#SBATCH --partition=longjobs        # Partition</span>
+<span class="c1">#SBATCH --ntasks=5                  # Number of tasks (processes)</span>
+<span class="c1">#SBATCH --ntasks-per-node=1         # Number of task per node (machine)</span>
+
+
+<span class="c1">##### ENVIRONMENT CREATION #####</span>
+module load impi
+
+
+<span class="c1">##### JOB COMMANDS #### </span>
+srun --mpi<span class="o">=</span>pmi2 ./mpi_hello_world_apolo
+</pre></div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The use of <code class="docutils literal notranslate"><span class="pre">srun</span></code> is mandatory here. It creates the necessary
+environment to launch the MPI processes. There you can also specify other parameters.
+See <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">srun</span></code> to more information.</p>
+<p>Also, the use of <code class="docutils literal notranslate"><span class="pre">--mpi=pmi2</span></code> is mandatory, it tells MPI to use the <a class="reference external" href="https://pmix.org/">pmi2</a> Slurm’s
+plugin. This could change when you are using a different implementation of MPI
+(e.g MVAPICH, OpenMPI) but we strongly encourage our users to specify it.</p>
+</div>
+<p><strong>Output</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">HELLO_MPI</span> <span class="o">-</span> <span class="n">Master</span> <span class="n">process</span><span class="p">:</span>
+  <span class="n">C</span><span class="o">/</span><span class="n">MPI</span> <span class="n">version</span>
+  <span class="n">An</span> <span class="n">MPI</span> <span class="n">example</span> <span class="n">program</span><span class="o">.</span>
+
+  <span class="n">Process</span> <span class="mi">3</span> <span class="n">says</span> <span class="s1">&#39;Hello, world!&#39;</span>
+  <span class="n">The</span> <span class="n">number</span> <span class="n">of</span> <span class="n">processes</span> <span class="ow">is</span> <span class="mf">5.</span>
+
+  <span class="n">Process</span> <span class="mi">0</span> <span class="n">says</span> <span class="s1">&#39;Hello, world!&#39;</span>
+  <span class="n">Elapsed</span> <span class="n">wall</span> <span class="n">clock</span> <span class="n">time</span> <span class="o">=</span> <span class="mf">0.000019</span> <span class="n">seconds</span><span class="o">.</span>
+  <span class="n">Process</span> <span class="mi">1</span> <span class="n">says</span> <span class="s1">&#39;Hello, world!&#39;</span>
+  <span class="n">Process</span> <span class="mi">4</span> <span class="n">says</span> <span class="s1">&#39;Hello, world!&#39;</span>
+  <span class="n">Process</span> <span class="mi">2</span> <span class="n">says</span> <span class="s1">&#39;Hello, world!&#39;</span>
+
+<span class="n">HELLO_MPI</span> <span class="o">-</span> <span class="n">Master</span> <span class="n">process</span><span class="p">:</span>
+  <span class="n">Normal</span> <span class="n">end</span> <span class="n">of</span> <span class="n">execution</span><span class="p">:</span> <span class="s1">&#39;Goodbye, world!&#39;</span>
+
+<span class="mi">30</span> <span class="n">January</span> <span class="mi">2019</span> <span class="mi">09</span><span class="p">:</span><span class="mi">29</span><span class="p">:</span><span class="mi">56</span> <span class="n">AM</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>As you can see in that example, we do not specify <code class="docutils literal notranslate"><span class="pre">-N</span></code> or <code class="docutils literal notranslate"><span class="pre">--nodes</span></code> to submit
+the job in 5 different machines. You can let Slurm decides how many machines your
+job needs.</p>
+<p>Try to think in terms of “tasks” rather than “nodes”.</p>
+</div>
+<p>This table shows some other useful cases <a class="footnote-reference brackets" href="#id10" id="id5">2</a>:</p>
+<table class="colwidths-given docutils align-default" id="id20">
+<caption><span class="caption-text">MPI jobs table</span><a class="headerlink" href="#id20" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 59%" />
+<col style="width: 41%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>You want</strong></p></th>
+<th class="head"><p><strong>You ask</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>N CPUs</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">--ntasks=N</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>N CPUs spread across distinct nodes</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">--ntasks=N</span> <span class="pre">--nodes=N</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>N CPUs spread across distinct nodes and nobody else around</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">--ntasks=N</span> <span class="pre">--nodes=N</span> <span class="pre">--exclusive</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>N CPUs spread across N/2 nodes</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">--ntasks=N</span> <span class="pre">--ntasks-per-node=2</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>N CPUs on the same node</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">--ntasks=N</span> <span class="pre">--ntasks-per-node=N</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="array-jobs">
+<h2><a class="toc-backref" href="#id29">Array jobs</a><a class="headerlink" href="#array-jobs" title="Permalink to this headline">¶</a></h2>
+<p>Also called <a class="reference external" href="http://www.cs.iusb.edu/~danav/teach/b424/b424_23_embpar.html">Embarrassingly-Parallel</a>, this set up is commonly used by users
+that do not have a native parallel application, so they run <strong>multiple parallel
+instances</strong> of their application changing its <code class="docutils literal notranslate"><span class="pre">input</span></code>. Each instance is
+independent and does not have any kind of communication with others.</p>
+<p>To do this, we specify an array using the <code class="docutils literal notranslate"><span class="pre">sbatch</span></code> parameter <code class="docutils literal notranslate"><span class="pre">--array</span></code>,
+multiple values may be specified using a comma-separated list and/or a
+range of values with a “-” separator (e.g <code class="docutils literal notranslate"><span class="pre">--array=1,3,5-10</span></code> or <code class="docutils literal notranslate"><span class="pre">--array=1,2,3</span></code>).
+This will be the values that the variable <code class="docutils literal notranslate"><span class="pre">SLURM_ARRAY_TASK_ID</span></code> is
+going to take in each <code class="docutils literal notranslate"><span class="pre">array-job</span></code>.</p>
+<p>This <code class="docutils literal notranslate"><span class="pre">input</span></code> usually refers to these cases:</p>
+<ol class="arabic">
+<li><p><strong>File input</strong></p>
+<p>You have <strong>multiple files/directories</strong> to <strong>process</strong>.</p>
+<p>In the below example/template we made a “parallel copy” of the files contained
+in <code class="docutils literal notranslate"><span class="pre">test</span></code> directory using the <code class="docutils literal notranslate"><span class="pre">cp</span></code> command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./test/
+├── file1.txt
+├── file2.txt
+├── file3.txt
+├── file4.txt
+└── file5.txt
+</pre></div>
+</div>
+<p>We used one process (called <code class="docutils literal notranslate"><span class="pre">task</span></code> in Slurm) per each <code class="docutils literal notranslate"><span class="pre">array-job</span></code>.
+The array goes from 0 to 4, so there were 5 processes copying the 5 files
+contained in the <code class="docutils literal notranslate"><span class="pre">test</span></code> directory.</p>
+<div class="literal-block-wrapper docutils container" id="id21">
+<div class="code-block-caption"><span class="caption-text"><a class="reference download internal" download="" href="../../../_downloads/95e6344026ce18b5cf0f338809662892/array_file.sh"><code class="xref download docutils literal notranslate"><span class="pre">array-file-input-template.sh</span></code></a></span><a class="headerlink" href="#id21" title="Permalink to this code">¶</a></div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+
+<span class="c1">#SBATCH --job-name=array_file_test       # Job name</span>
+<span class="c1">#SBATCH --mail-type=FAIL,END             # Mail notification</span>
+<span class="c1">#SBATCH --mail-user=&lt;user&gt;@&lt;domain&gt;      # User Email</span>
+<span class="c1">#SBATCH --output=slurm-arrayJob%A_%a.out # Stdout (%a expands to stepid, %A to jobid )</span>
+<span class="c1">#SBATCH --error=slurm-array%J.err        # Stderr (%J expands to GlobalJobid)</span>
+<span class="c1">#SBATCH --ntasks=1                       # Number of tasks (processes) for each array-job</span>
+<span class="c1">#SBATCH --time=01:00                     # Walltime for each array-job</span>
+<span class="c1">#SBATCH --partition=debug                # Partition</span>
+
+<span class="c1">#SBATCH --array=0-4    # Array index</span>
+
+
+<span class="c1">##### ENVIRONMENT CREATION #####</span>
+
+
+<span class="c1">##### JOB COMMANDS ####</span>
+
+<span class="c1"># Array of files</span>
+<span class="nv">files</span><span class="o">=(</span>./test/*<span class="o">)</span>
+
+<span class="c1"># Work based on the SLURM_ARRAY_TASK_ID</span>
+srun cp <span class="si">${</span><span class="nv">files</span><span class="p">[</span><span class="nv">$SLURM_ARRAY_TASK_ID</span><span class="p">]</span><span class="si">}</span> copy_<span class="nv">$SLURM_ARRAY_TASK_ID</span>
+</pre></div>
+</div>
+</div>
+<p>Thus, the generated file <code class="docutils literal notranslate"><span class="pre">copy_0</span></code> is the copy of the file <code class="docutils literal notranslate"><span class="pre">test/file1.txt</span></code>
+and the file <code class="docutils literal notranslate"><span class="pre">copy_1</span></code> is the copy of the file <code class="docutils literal notranslate"><span class="pre">test2.txt</span></code> and so on.
+Each one was done by a different Slurm process in parallel.</p>
+</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Except to <code class="docutils literal notranslate"><span class="pre">--array</span></code>, <strong>ALL</strong> other <code class="docutils literal notranslate"><span class="pre">#SBATCH</span></code> options specified in the
+submitting Slurm script are used to configure <strong>EACH</strong> <code class="docutils literal notranslate"><span class="pre">job-array</span></code>, including
+<strong>ntasks</strong>, <strong>ntasks-per-node</strong>, <strong>time</strong>, <strong>mem</strong>, etc.</p>
+</div>
+<ol class="arabic" start="2">
+<li><p><strong>Parameters input</strong></p>
+<p>You have <strong>multiple parameters</strong> to <strong>process</strong>.</p>
+<p>Similarly to the last example, we created an array with some values that we
+wanted to use as parameters of the application. We used one process (<code class="docutils literal notranslate"><span class="pre">task</span></code>)
+per <code class="docutils literal notranslate"><span class="pre">array-job</span></code>. We had 4 parameters (<code class="docutils literal notranslate"><span class="pre">0.05</span> <span class="pre">100</span> <span class="pre">999</span> <span class="pre">1295.5</span></code>)
+to process and 4 <code class="docutils literal notranslate"><span class="pre">array-jobs</span></code>.</p>
+<p><strong>Force Slurm to run array-jobs in different nodes</strong></p>
+<p>To give another feature to this example, we used <code class="docutils literal notranslate"><span class="pre">1</span></code> node for
+each <code class="docutils literal notranslate"><span class="pre">array-job</span></code>, so, even knowing that one node can run up to 16 processes
+(in the case of <a class="reference internal" href="../../../supercomputers/cronos/index.html#about-cronos"><span class="std std-ref">Cronos</span></a>) and the 4 <code class="docutils literal notranslate"><span class="pre">array-jobs</span></code>
+could be assigned to <code class="docutils literal notranslate"><span class="pre">1</span></code> node, we forced Slurm to use <code class="docutils literal notranslate"><span class="pre">4</span></code> nodes.</p>
+<p>To get this we use the parameter <code class="docutils literal notranslate"><span class="pre">--exclusive</span></code>, thus, for each <code class="docutils literal notranslate"><span class="pre">job-array</span></code>
+Slurm will care about not to have other Slurm-job in the same node, even other
+of your <code class="docutils literal notranslate"><span class="pre">job-array</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Just to be clear, the use of <code class="docutils literal notranslate"><span class="pre">--exclusive</span></code> as a <strong>SBATCH</strong> parameter tells
+Slurm that the job allocation cannot share nodes with other running jobs <a class="footnote-reference brackets" href="#id12" id="id6">4</a> .
+However, it has a slightly <strong>different</strong> meaning when you use it as a
+parameter of a job-step (each separate srun execution inside a <strong>SBATCH</strong>
+script, e.g <code class="docutils literal notranslate"><span class="pre">srun</span> <span class="pre">--exclusive</span> <span class="pre">$COMMAND</span></code>). For further information see
+<code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">srun</span></code>.</p>
+</div>
+</li>
+</ol>
+<blockquote>
+<div><div class="literal-block-wrapper docutils container" id="id22">
+<div class="code-block-caption"><span class="caption-text"><a class="reference download internal" download="" href="../../../_downloads/5c6bb4b1c1c9d0a5baccf3774a4c1a82/array_param.sh"><code class="xref download docutils literal notranslate"><span class="pre">array-params-template.sh</span></code></a></span><a class="headerlink" href="#id22" title="Permalink to this code">¶</a></div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+
+<span class="c1">#SBATCH --job-name=array_params_test     # Job name</span>
+<span class="c1">#SBATCH --mail-type=FAIL,END             # Mail notification</span>
+<span class="c1">#SBATCH --mail-user=&lt;user&gt;@&lt;domain&gt;      # User Email</span>
+<span class="c1">#SBATCH --output=slurm-arrayJob%A_%a.out # Stdout (%a expands to stepid, %A to jobid )</span>
+<span class="c1">#SBATCH --error=slurm-array%J.err        # Stderr (%J expands to GlobalJobid)</span>
+<span class="c1">#SBATCH --ntasks=1                       # Number of tasks (processes) for each array-job</span>
+<span class="c1">#SBATCH --time=01:00                     # Walltime for each array-job</span>
+<span class="c1">#SBATCH --partition=debug                # Partition</span>
+
+<span class="c1">#SBATCH --array=0-3    # Array index</span>
+<span class="c1">#SBATCH --exclusive    # Force slurm to use 4 different nodes</span>
+
+<span class="c1">##### ENVIRONMENT CREATION #####</span>
+
+
+<span class="c1">##### JOB COMMANDS ####</span>
+
+<span class="c1"># Array of params</span>
+<span class="nv">params</span><span class="o">=(</span><span class="m">0</span>.05 <span class="m">100</span> <span class="m">999</span> <span class="m">1295</span>.5<span class="o">)</span>
+
+<span class="c1"># Work based on the SLURM_ARRAY_TASK_ID</span>
+srun <span class="nb">echo</span> <span class="si">${</span><span class="nv">params</span><span class="p">[</span><span class="nv">$SLURM_ARRAY_TASK_ID</span><span class="p">]</span><span class="si">}</span>
+</pre></div>
+</div>
+</div>
+</div></blockquote>
+<p>Remember that the <strong>main idea</strong> behind using Array jobs in Slurm is based on the
+use of the variable <code class="docutils literal notranslate"><span class="pre">SLURM_ARRAY_TASK_ID</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The parameter <code class="docutils literal notranslate"><span class="pre">ntasks</span></code> specify the number of processes that <strong>EACH</strong>
+<code class="docutils literal notranslate"><span class="pre">array-job</span></code> is going to use. So if you want to use more, you
+just can specify it. This idea also applies to all other <code class="docutils literal notranslate"><span class="pre">sbatch</span></code>
+parameters.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can also limit the number of simultaneously running tasks from the job
+array using a <code class="docutils literal notranslate"><span class="pre">%</span></code>  separator. For example <code class="docutils literal notranslate"><span class="pre">--array=0-15%4</span></code> will limit the
+number of simultaneously running tasks from this job array to 4.</p>
+</div>
+</div>
+<div class="section" id="slurm-s-environment-variables">
+<h2><a class="toc-backref" href="#id30">Slurm’s environment variables</a><a class="headerlink" href="#slurm-s-environment-variables" title="Permalink to this headline">¶</a></h2>
+<p>In the above examples, we often used the output of the environment variables provided by
+Slurm. Here you have a table <a class="footnote-reference brackets" href="#id11" id="id7">3</a> with the most common variables.</p>
+<table class="colwidths-given docutils align-default" id="id23">
+<caption><span class="caption-text">Output environment variables</span><a class="headerlink" href="#id23" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 78%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Variable</strong></p></th>
+<th class="head"><p><strong>Functionality</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SLURM_JOB_ID</span></code></p></td>
+<td><p>job Id</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">SLURM_ARRAY_TASK_ID</span></code></p></td>
+<td><p>Index of the slurm array</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SLURM_CPUS_PER_TASK</span></code></p></td>
+<td><p>Same as <code class="docutils literal notranslate"><span class="pre">--cpus-per-task</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">SLURM_NTASKS</span></code></p></td>
+<td><p>Same as <code class="docutils literal notranslate"><span class="pre">-n</span></code>, <code class="docutils literal notranslate"><span class="pre">--ntasks</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SLURM_JOB_NUM_NODES</span></code></p></td>
+<td><p>Number of nodes allocated to job</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">SLURM_SUBMIT_DIR</span></code></p></td>
+<td><p>The directory from which <code class="docutils literal notranslate"><span class="pre">sbatch</span></code> was invoked</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="slurm-s-file-patterns">
+<h2><a class="toc-backref" href="#id31">Slurm’s file-patterns</a><a class="headerlink" href="#slurm-s-file-patterns" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">sbatch</span></code>  allows filename patterns, this could be useful to name <code class="docutils literal notranslate"><span class="pre">std_err</span></code> and
+<code class="docutils literal notranslate"><span class="pre">std_out</span></code> files. Here you have a table <a class="footnote-reference brackets" href="#id11" id="id8">3</a> with some of them.</p>
+<table class="colwidths-given docutils align-default" id="id24">
+<caption><span class="caption-text">Slurm’s file-patterns</span><a class="headerlink" href="#id24" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 70%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>File-patern</strong></p></th>
+<th class="head"><p><strong>Expands to</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">%A</span></code></p></td>
+<td><p>Job array’s master job allocation number</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">%a</span></code></p></td>
+<td><p>Job array ID (index) number</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">%j</span></code></p></td>
+<td><p>jobid of the running job</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">%x</span></code></p></td>
+<td><p>Job name</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">%N</span></code></p></td>
+<td><p>short hostname. This will create a separate IO file per node</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you need to separate the output of a job per each node requested, <code class="docutils literal notranslate"><span class="pre">%N</span></code> is
+specially useful, for example in array-jobs.</p>
+</div>
+<p>For instance, if you use <code class="docutils literal notranslate"><span class="pre">#SBATCH</span> <span class="pre">--output=job-%A.%a</span></code> in an array-job the output
+files will be something like <code class="docutils literal notranslate"><span class="pre">job-1234.1</span></code>, <code class="docutils literal notranslate"><span class="pre">job-1234.2</span></code> , <code class="docutils literal notranslate"><span class="pre">job-1234.3</span></code>;
+where: <code class="docutils literal notranslate"><span class="pre">1234</span></code> refers to the job array’s master job allocation number and <code class="docutils literal notranslate"><span class="pre">1</span></code>
+, <code class="docutils literal notranslate"><span class="pre">2</span></code> and <code class="docutils literal notranslate"><span class="pre">3</span></code> refers to the id of each job-array.</p>
+</div>
+<div class="section" id="references">
+<h2><a class="toc-backref" href="#id32">References</a><a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<dl class="footnote brackets">
+<dt class="label" id="id9"><span class="brackets"><a class="fn-backref" href="#id2">1</a></span></dt>
+<dd><p>NYU HPC. (n.d). Slurm + tutorial - Software and Environment Modules. Retrieved
+17:47, January 21, 2019 from <a class="reference external" href="https://wikis.nyu.edu/display/NYUHPC/Slurm+Tutorial">https://wikis.nyu.edu/display/NYUHPC/Slurm+Tutorial</a></p>
+</dd>
+<dt class="label" id="id10"><span class="brackets"><a class="fn-backref" href="#id5">2</a></span></dt>
+<dd><p>UCLouvai - University of Leuven (n.d). Slurm Workload Manager - Slide 57. Retrieved 11:33
+January 25, 2019 from <a class="reference external" href="http://www.cism.ucl.ac.be/Services/Formations/slurm/2016/slurm.pdf">http://www.cism.ucl.ac.be/Services/Formations/slurm/2016/slurm.pdf</a></p>
+</dd>
+<dt class="label" id="id11"><span class="brackets">3</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id7">2</a>,<a href="#id8">3</a>)</span></dt>
+<dd><p>SchedMD LLC (2018). Slurm, resource management [sbatch]. Copy of manual text available at
+<a class="reference external" href="https://slurm.schedmd.com/sbatch.html">https://slurm.schedmd.com/sbatch.html</a>. Retrieved 17:20 January 30, 2019</p>
+</dd>
+<dt class="label" id="id12"><span class="brackets"><a class="fn-backref" href="#id6">4</a></span></dt>
+<dd><p>SchedMD LLC (2018). Slurm, resource management [srun]. Copy of manual text available at
+<a class="reference external" href="https://slurm.schedmd.com/srun.html">https://slurm.schedmd.com/srun.html</a>. Retrieved 12:20 January 31, 2019</p>
+</dd>
+<dt class="label" id="id13"><span class="brackets"><a class="fn-backref" href="#id3">5</a></span></dt>
+<dd><p>Barney Blaise (2005) OpenMP Example - Hello World - C/C++ Version.
+Example was taken from
+<a class="reference external" href="https://computing.llnl.gov/tutorials/openMP/samples/C/omp_hello.c">https://computing.llnl.gov/tutorials/openMP/samples/C/omp_hello.c</a>
+Retrieved 09:32 February 12, 2019</p>
+</dd>
+<dt class="label" id="id14"><span class="brackets"><a class="fn-backref" href="#id4">6</a></span></dt>
+<dd><p>Burkardt John (2008) Using MPI: Portable Parallel Programming with the
+Message-Passing Interface. Example was taken from
+<a class="reference external" href="https://people.sc.fsu.edu/~jburkardt/c_src/heat_mpi/heat_mpi.c">https://people.sc.fsu.edu/~jburkardt/c_src/heat_mpi/heat_mpi.c</a>
+Retrived 09:38 February  12, 2019</p>
+</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="testing.html" class="btn btn-neutral float-right" title="Testing my job" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="SLURM" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Creative Commons Attribution-NonCommercial 4.0 International License
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,304 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>OVF Tool 4.3.0 &mdash; apolo-docs 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../" src="../../../../../_static/documentation_options.js"></script>
+        <script src="../../../../../_static/jquery.js"></script>
+        <script src="../../../../../_static/underscore.js"></script>
+        <script src="../../../../../_static/doctools.js"></script>
+        <script src="../../../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/css/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/css/sidebar.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" />
+    <link rel="next" title="Programming Languages" href="../../../../programminglanguages/index.html" />
+    <link rel="prev" title="OVF TOOL" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+  
+    <a href="../../../../../index.html">
+  
+
+  
+    
+    <img src="../../../../../_static/apolo-white.png" style="width: 150px;" class="logo" alt="Logo"/>
+  
+    </a>
+
+    
+      
+      
+      
+	<div class="version" style="color: rgba(255,255,255,0.5);">
+	  0.1
+	</div>
+      
+    
+
+    
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../gettingstarted/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../supercomputers/index.html">Supercomputers</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../index.html">Software</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../../index.html">Virtualization</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html">VMware ESXi</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html"><strong>OVF TOOL</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../programminglanguages/index.html">Programming Languages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../applications/index.html">Scientific Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../resourcemanager/index.html">Resource Manager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../provisioning/index.html">Provisioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../monitoring/index.html">Monitoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../operatingsystems/index.html">Operating Systems</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../how-to-acknowledge.html">How to Acknowledge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../report-a-bug.html">Report a Bug</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">apolo-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../index.html">Software</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Virtualization</a> &raquo;</li>
+        
+          <li><a href="../../index.html">VMware ESXi</a> &raquo;</li>
+        
+          <li><a href="../index.html"><strong>OVF TOOL</strong></a> &raquo;</li>
+        
+      <li><strong>OVF Tool 4.3.0</strong></li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../../_sources/software/virtualization/vmwareesxi/ovftool/ovftool430/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ovf-tool-4-3-0">
+<h1><strong>OVF Tool 4.3.0</strong><a class="headerlink" href="#ovf-tool-4-3-0" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="basic-information">
+<h2>Basic information<a class="headerlink" href="#basic-information" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Release date:</strong> 17 APR 2018.</p></li>
+<li><p><strong>Official documentation: https://www.vmware.com/support/developer/ovf/</strong></p></li>
+</ul>
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For Windows systems you need the Visual C++ Redistributable for Visual Studio 2015.</p>
+</div>
+<p>Do the following process in your machine.</p>
+<p>You need a VMware user account in order to download this tool. Once you are registered you can download this tool from <a class="reference external" href="https://my.vmware.com/group/vmware/details?downloadGroup=OVFTOOL430&amp;productId=742">here</a>.</p>
+<p>To install on a <strong>linux system</strong>:</p>
+<ol class="arabic simple">
+<li><p>Give the necessary permissions to the downloaded file:</p></li>
+</ol>
+<p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">chmod</span> <span class="pre">+x</span> <span class="pre">VMware-ovftool-4.0.0-2301625-lin.x86_64.bundle</span></code></p>
+<ol class="arabic simple" start="2">
+<li><p>Execute the file with superuser privileges:</p></li>
+</ol>
+<p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">sudo</span> <span class="pre">./VMware-ovftool-4.0.0-2301625-lin.x86_64.bundle</span></code></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are on Windows or OS X install it the way you normally would.</p>
+</div>
+<div class="section" id="create-a-ovf-from-a-virtual-machine">
+<h3>Create a OVF from a virtual machine<a class="headerlink" href="#create-a-ovf-from-a-virtual-machine" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Find the exact name of the virtual machine that you want to package by using the following command:</p></li>
+</ol>
+<p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">ovftool</span> <span class="pre">vi://root&#64;&lt;host's-ip&gt;/</span></code></p>
+<p>After you enter the root password it will raise an error message like the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Error</span><span class="p">:</span> <span class="n">Found</span> <span class="n">wrong</span> <span class="n">kind</span> <span class="n">of</span> <span class="nb">object</span> <span class="p">(</span><span class="n">ResourcePool</span><span class="p">)</span><span class="o">.</span> <span class="n">Possible</span> <span class="n">completions</span> <span class="n">are</span><span class="p">:</span>
+  <span class="n">Virtual</span><span class="o">-</span><span class="n">machine1</span>
+  <span class="n">Virtual</span><span class="o">-</span><span class="n">machine2</span>
+  <span class="n">Virtual</span><span class="o">-</span><span class="n">machine3</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>In order to export the virtual machine:</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Ensure that no iso file is mounted to the VM. Otherwise a copy of it will be created.</p>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">ovftool</span> <span class="pre">vi://root&#64;&lt;host's-ip&gt;/&lt;vm_name&gt;</span> <span class="pre">&lt;exportFileName&gt;.ovf</span></code></p>
+<p>You may be prompted to use the following option: <strong>–allowExtraConfig</strong>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">ovftool</span> <span class="pre">--allowExtraConfig</span> <span class="pre">vi://root&#64;&lt;host's-ip&gt;/&lt;vm_name&gt;</span> <span class="pre">&lt;exportFileName&gt;.ovf</span></code></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Is safe to use “–allowExtraConfig”. According to <em>ovftool</em> official manpage it specifies “whether we allow ExtraConfig options in white list. These options are safe as we have a white list to filter out the low-level and potential unsafe options on the VM.”</p>
+</div>
+</div>
+</div>
+<div class="section" id="authors">
+<h2>Authors<a class="headerlink" href="#authors" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Vincent Alejandro Arcila Larrea (<a class="reference external" href="mailto:vaarcilal&#37;&#52;&#48;eafit&#46;edu&#46;co">vaarcilal<span>&#64;</span>eafit<span>&#46;</span>edu<span>&#46;</span>co</a>).</p></li>
+<li><p>Andrés Felipe Zapata Palacio (<a class="reference external" href="mailto:azapat47&#37;&#52;&#48;eafit&#46;edu&#46;co">azapat47<span>&#64;</span>eafit<span>&#46;</span>edu<span>&#46;</span>co</a>).</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../../../programminglanguages/index.html" class="btn btn-neutral float-right" title="Programming Languages" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral float-left" title="OVF TOOL" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Creative Commons Attribution-NonCommercial 4.0 International License
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

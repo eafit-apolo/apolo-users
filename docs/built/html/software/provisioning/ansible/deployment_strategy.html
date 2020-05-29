@@ -1,0 +1,796 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1. Overview &mdash; apolo-docs 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/sidebar.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="1. Installation of multiple packages" href="tips_and_tricks.html" />
+    <link rel="prev" title="1. Tags" href="dynamic_control.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+  
+    <a href="../../../index.html">
+  
+
+  
+    
+    <img src="../../../_static/apolo-white.png" style="width: 150px;" class="logo" alt="Logo"/>
+  
+    </a>
+
+    
+      
+      
+      
+	<div class="version" style="color: rgba(255,255,255,0.5);">
+	  0.1
+	</div>
+      
+    
+
+    
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../gettingstarted/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../supercomputers/index.html">Supercomputers</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Software</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../virtualization/index.html">Virtualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../programminglanguages/index.html">Programming Languages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/index.html">Scientific Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../resourcemanager/index.html">Resource Manager</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Provisioning</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Ansible</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="index.html#basic-information">Basic information</a></li>
+<li class="toctree-l4"><a class="reference internal" href="index.html#preliminaries">Preliminaries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="index.html#dynamic-control">Dynamic control</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="index.html#deployment-strategy">Deployment strategy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="index.html#tips-and-tricks">Tips and tricks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="index.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="index.html#authors">Authors</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../monitoring/index.html">Monitoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../operatingsystems/index.html">Operating Systems</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../how-to-acknowledge.html">How to Acknowledge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../report-a-bug.html">Report a Bug</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">apolo-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Software</a> &raquo;</li>
+        
+          <li><a href="../index.html">Provisioning</a> &raquo;</li>
+        
+          <li><a href="index.html">Ansible</a> &raquo;</li>
+        
+      <li><span class="section-number">1. </span>Overview</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/software/provisioning/ansible/deployment_strategy.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="overview">
+<span id="sssec-ansible-deployment-overview"></span><h1><span class="section-number">1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
+<p>The proposed architecture aims to provision a system by following the steps below:</p>
+<ol class="arabic simple">
+<li><p>Create ansible’s directory hierarchy, playbooks, roles, taskfiles, etc.
+(basically,the logic that will be used to provision the system), and
+maintain it under version control.</p></li>
+<li><p>ssh into the master node and download the repo from version control.
+Consider using read-only deploy keys to download the repo without having
+to type an username and password; especially in unattended deployments.</p></li>
+<li><p>Run a one-shot script
+to perform an initial setup of the environment required for ansible
+to run properly during and after deployment, followed by the actual
+software execution (see <a class="reference internal" href="#sssec-ansible-bootstrap"><span class="std std-numref">Section 3</span></a>).</p></li>
+<li><p>Check the bootstrap log and verify there were no errors and/or
+unexpected behaviors.</p></li>
+<li><p>If errors arose, fix them and re-run the bootstrap script.</p></li>
+</ol>
+</div>
+<div class="section" id="provisioning-logic">
+<span id="sssec-ansible-logic"></span><h1><span class="section-number">2. </span>Provisioning logic<a class="headerlink" href="#provisioning-logic" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="directory-hierarchy">
+<h2><span class="section-number">2.1. </span>Directory hierarchy<a class="headerlink" href="#directory-hierarchy" title="Permalink to this headline">¶</a></h2>
+<p>The logic should consider constant creation of new playbooks, roles, taskfiles, etc.,
+allowing to easy scale in the future. Take the example below:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># tree /etc/ansible</span>
+.
+├── ansible.cfg
+├── environments
+│   ├── dev
+│   │   ├── group_vars
+│   │   └── inventory
+│   └── prod
+│       ├── group_vars
+│       └── inventory
+├── playbooks
+│   ├── playbook_1.yml
+│   ├── playbook_2.yml
+│   └── playbook_n.yml
+├── roles
+│   ├── role_1
+│   │   ├── handlers
+│   │   │   └── main.yml
+│   │   ├── tasks
+│   │   │   └── main.yml
+│   │   ├── templates
+│   │   └── vars
+│   │       └── main.yml
+│   ├── role_2
+│   │   ├── handlers
+│   │   │   └── main.yml
+│   │   ├── tasks
+│   │   │   └── main.yml
+│   │   ├── templates
+│   │   └── vars
+│   │       └── main.yml
+│   └── role_n
+│       ├── handlers
+│       │   └── main.yml
+│       ├── tasks
+│       │   └── main.yml
+│       ├── templates
+│       └── vars
+│           └── main.yml
+├── scripts
+│   ├── bootstrap.sh
+│   └── vault-client.sh
+└── site.yml
+</pre></div>
+</div>
+</div></blockquote>
+<p>It is designed so that upon calling <code class="code bash docutils literal notranslate"><span class="pre">site.yml</span></code> tasks from a particular set of playbooks,
+from the <code class="code bash docutils literal notranslate"><span class="pre">playbooks</span></code> folder, are applied. This behavior can be accomplished by
+manually importing the playbooks or using variables:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 47%" />
+<col style="width: 53%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Importing playbooks</p></td>
+<td><p>Using variables</p></td>
+</tr>
+<tr class="row-even"><td><div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># /etc/ansible/site.yml</span>
+<span class="nn">---</span>
+<span class="p p-Indicator">-</span> <span class="nt">import_playbook</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">playbooks/playbook_1.yml</span>
+<span class="p p-Indicator">-</span> <span class="nt">import_playbook</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">playbooks/playbook_2.yml</span>
+<span class="p p-Indicator">-</span> <span class="nt">import_playbook</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">playbooks/playbook_n.yml</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># /etc/ansible/environments/prod/group_vars/group1</span>
+<span class="nn">---</span>
+<span class="nt">playbook</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">playbook_1</span>
+
+<span class="c1"># /etc/ansible/environments/prod/group_vars/group2</span>
+<span class="nn">---</span>
+<span class="nt">playbook</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">playbook_2</span>
+
+<span class="c1"># /etc/ansible/environments/prod/group_vars/groupN</span>
+<span class="nn">---</span>
+<span class="nt">playbook</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">playbook_n</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span> <span class="c1"># /etc/ansible/site.yml</span>
+<span class="nn">---</span>
+<span class="p p-Indicator">-</span> <span class="nt">import_playbook</span><span class="p">:</span> <span class="s">&quot;playbooks/{{</span><span class="nv"> </span><span class="s">playbook</span><span class="nv"> </span><span class="s">}}.yml&quot;</span>
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>One could couple all playbooks inside <code class="code bash docutils literal notranslate"><span class="pre">site.yml</span></code>, but that would make future scalability difficult
+and potentially cause problems if a large number of people is working on the same project
+(take <em>git</em> merge conflicts for example).</p>
+<p>If one-shot playbooks (playbooks that run only once, such as whose involving firmware updates) are to be managed,
+it is recommended to modify the directory hierarchy so that the <code class="code bash docutils literal notranslate"><span class="pre">playbooks</span></code> folder holds
+them. For example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>.
+└── playbooks
+    ├── auto
+    │   ├── playbook_1
+    │   ├── playbook_2
+    │   └── playbook_n
+    └── manual
+        ├── playbook_1
+        ├── playbook_2
+        └── playbook_n
+</pre></div>
+</div>
+<p>which would be run like:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>More options can be used, but they will mostly depend on the playbook’s functionality.</p>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ansible-playbook -i /path/to/inventory <span class="se">\</span>
+                 /path/to/ansible/playbooks/manual/&lt;playbook&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="ansible-launcher">
+<h2><span class="section-number">2.2. </span>Ansible launcher<a class="headerlink" href="#ansible-launcher" title="Permalink to this headline">¶</a></h2>
+<p>Using multiple environments, launching ansible from a non-standard location, among others may result
+in a large inconvinient command. Furthermore, if a run is to be triggered by an external entity,
+such as a script that requires ansible to run certain tasks within particular servers (see <a class="reference internal" href="dynamic_control.html#sssec-ansible-tags-example"><span class="std std-numref">Section 1.3</span></a>),
+additional concerns arise (e.g. What if I run ansible while it is already running? how to control the number of runs
+at a given time?).</p>
+<p>To solve the abovementioned issues one can create a template ansible will render as a script:</p>
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1"># Title       : run_ansible</span>
+<span class="c1"># Description : Run ansible</span>
+<span class="c1"># Author      : Tomas Felipe Llano Rios</span>
+<span class="c1"># Date        : Nov 21, 2018</span>
+<span class="c1"># Usage       : bash run_ansible [options]</span>
+<span class="c1"># Help        : bash run_ansible -h</span>
+<span class="c1">#==============================================================================</span>
+
+<span class="c1"># tee only reads and prints from and to a file descriptor,</span>
+<span class="c1"># so we need to use two execs to read and print from and to</span>
+<span class="c1"># both stdout and stderr.</span>
+<span class="c1">#</span>
+<span class="c1"># Receives stdout, logs it and prints to stdout</span>
+<span class="nb">exec</span> &gt; &gt;<span class="o">(</span>tee -ia /<span class="o">{{</span> ansible_log_dir <span class="o">}}</span>/scheduled_run.log<span class="o">)</span>
+<span class="c1"># Receive stderr, log it and print to stderr.</span>
+<span class="nb">exec</span> <span class="m">2</span>&gt; &gt;<span class="o">(</span>tee -ia /<span class="o">{{</span> ansible_log_dir <span class="o">}}</span>/scheduled_run.log &gt;<span class="p">&amp;</span><span class="m">2</span><span class="o">)</span>
+
+<span class="k">function</span> log <span class="o">{</span>
+    <span class="nb">echo</span> <span class="s2">&quot;[</span><span class="k">$(</span>date --rfc-3339<span class="o">=</span>seconds<span class="k">)</span><span class="s2">]: </span><span class="nv">$*</span><span class="s2">&quot;</span>
+<span class="o">}</span>
+
+<span class="k">function</span> print_help <span class="o">{</span>
+    <span class="nb">echo</span> -e <span class="s2">&quot;\nUsage: run_ansible [options]\n&quot;</span>
+    <span class="nb">echo</span> -e <span class="s2">&quot;Where [options] include all ansible-playbook options,&quot;</span>
+    <span class="nb">echo</span> -e <span class="s2">&quot;except for --vault-id and --inventory-file.\n&quot;</span>
+    <span class="nb">echo</span> -e <span class="s2">&quot;Installed using the following configuration:&quot;</span>
+    <span class="nb">echo</span> -e <span class="s2">&quot;\tEnvironment: </span><span class="nv">$env</span><span class="s2">&quot;</span>
+    <span class="nb">echo</span> -e <span class="s2">&quot;\tAnsible home: </span><span class="nv">$repo_dir</span><span class="s2">&quot;</span>
+    <span class="nb">echo</span> -e <span class="s2">&quot;\tAnsible config file: </span><span class="nv">$cfg_file</span><span class="s2">&quot;</span>
+    <span class="nb">echo</span> -e <span class="s2">&quot;\tInventory file: </span><span class="nv">$inv_file</span><span class="s2">\n&quot;</span>
+
+    <span class="nb">command</span> -v ansible-playbook &gt; /dev/null <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+    <span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$?</span><span class="s2">&quot;</span> -eq <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+        <span class="nb">echo</span> -e <span class="s2">&quot;ansible-playbook options:\n&quot;</span>
+        ansible-playbook -h <span class="p">|</span> awk <span class="s1">&#39;/Options:/{y=1;next}y&#39;</span>
+    <span class="k">else</span>
+        <span class="nb">echo</span> -e <span class="s2">&quot;See ansible-playbook help for more information.\n&quot;</span>
+    <span class="k">fi</span>
+<span class="o">}</span>
+
+<span class="c1"># Always release lock before exiting</span>
+<span class="k">function</span> finish <span class="o">{</span>
+    flock -u <span class="m">3</span>
+    rm -rf <span class="nv">$lock</span>
+<span class="o">}</span>
+<span class="nb">trap</span> finish EXIT
+
+<span class="c1"># Create lock to prevent the script from being</span>
+<span class="c1"># executed more than once at a given time.</span>
+<span class="nb">declare</span> -r <span class="nv">script_name</span><span class="o">=</span><span class="sb">`</span>basename <span class="nv">$0</span><span class="sb">`</span>
+<span class="nb">declare</span> -r <span class="nv">lock</span><span class="o">=</span><span class="s2">&quot;/var/run/</span><span class="si">${</span><span class="nv">script_name</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="k">if</span> <span class="o">[</span> -f <span class="s2">&quot;</span><span class="nv">$lock</span><span class="s2">&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="nb">echo</span> <span class="s2">&quot;Another process (pid:`cat </span><span class="nv">$lock</span><span class="s2">`) is already running&quot;</span>
+    <span class="nb">trap</span> - EXIT
+    <span class="nb">exit</span> <span class="m">1</span>
+<span class="k">fi</span>
+<span class="nb">exec</span> <span class="m">3</span>&gt;<span class="nv">$lock</span>
+flock -n <span class="m">3</span>
+log <span class="s2">&quot;Lock acquired&quot;</span>
+<span class="nb">declare</span> -r <span class="nv">pid</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$$</span><span class="s2">&quot;</span>
+<span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$pid</span><span class="s2">&quot;</span> <span class="m">1</span>&gt;<span class="p">&amp;</span><span class="m">3</span>
+
+<span class="nb">declare</span> -r <span class="nv">env</span><span class="o">={{</span> env <span class="o">}}</span>
+<span class="nb">declare</span> -r <span class="nv">repo_dir</span><span class="o">={{</span> repo_dir <span class="o">}}</span>
+<span class="nb">declare</span> -r <span class="nv">cfg_file</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$repo_dir</span><span class="s2">/ansible.cfg&quot;</span>
+<span class="nb">declare</span> -r <span class="nv">inv_file</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$repo_dir</span><span class="s2">/environments/</span><span class="nv">$env</span><span class="s2">/inventory&quot;</span>
+
+<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;-h&quot;</span> <span class="o">]</span> <span class="o">||</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;--help&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    print_help
+    <span class="nb">exit</span> <span class="m">0</span>
+<span class="k">fi</span>
+
+log <span class="s2">&quot;Updating repository&quot;</span>
+<span class="nb">cd</span> <span class="nv">$repo_dir</span>
+git pull
+<span class="nb">cd</span> -
+
+log <span class="s2">&quot;Executing ansible&quot;</span>
+
+<span class="nb">export</span> <span class="nv">ANSIBLE_CONFIG</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$cfg_file</span><span class="s2">&quot;</span>
+<span class="nb">export</span> <span class="nv">DEFAULT_ROLES_PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$repo_dir</span><span class="s2">/roles&quot;</span>
+<span class="nb">export</span> <span class="nv">ANSIBLE_EXTRA_VARS</span><span class="o">=</span><span class="s2">&quot;env=</span><span class="nv">$env</span><span class="s2"> repo_dir=</span><span class="nv">$repo_dir</span><span class="s2"> </span><span class="nv">$ANSIBLE_EXTRA_VARS</span><span class="s2">&quot;</span>
+ansible-playbook --inventory-file <span class="s2">&quot;</span><span class="nv">$inv_file</span><span class="s2">&quot;</span> <span class="se">\</span>
+                 --extra-vars <span class="s2">&quot;</span><span class="nv">$ANSIBLE_EXTRA_VARS</span><span class="s2">&quot;</span> <span class="se">\</span>
+                 --vault-id <span class="s2">&quot;</span><span class="nv">$env</span><span class="s2">@</span><span class="nv">$repo_dir</span><span class="s2">/scripts/vault-secrets-client.sh&quot;</span> <span class="se">\</span>
+                 <span class="nv">$repo_dir</span>/site.yml <span class="se">\</span>
+                 -vv <span class="se">\</span>
+                 <span class="nv">$@</span>
+<span class="nb">unset</span> ANSIBLE_CONFIG
+</pre></div>
+</td></tr></table></div>
+<p>In order to allow for easy migration of the script to, for example, another folder while still pointing
+to the project sources the template obtains one variable, <em>ansible_log_dir</em>, from <code class="code bash docutils literal notranslate"><span class="pre">group_vars</span></code>
+and the remaining two from the bootstrap script. This is corroborated
+in line 47 from <a class="reference internal" href="#sssec-ansible-bootstrap"><span class="std std-numref">Section 3</span></a>, where there are two <em>extra vars</em> (env, repo_dir)
+passed to <code class="code bash docutils literal notranslate"><span class="pre">ansible-playbook</span></code>; all of which are dynamically discovered just before the first run.</p>
+<p>On subsequent runs, <code class="code bash docutils literal notranslate"><span class="pre">run_ansible</span></code> will keep passing down these values recursively. One could argue it is better
+to just place the task inside a one-shot playbook; this implies, however, that modifications made to the template
+should be applied manually and if the rendered script is changed it would not be restored automatically.</p>
+</div>
+<div class="section" id="scheduled-run">
+<h2><span class="section-number">2.3. </span>Scheduled run<a class="headerlink" href="#scheduled-run" title="Permalink to this headline">¶</a></h2>
+<p>It would be tedious to manually run ansible every time a change is done to the project. A nice approach to
+schedule when one wants provisioning to occur is creating a task to install a cron managing
+the time at which to call ansible:</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Given the limited environment in which crons are run, one may need to add
+a task such as:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Adding PATH variable to cronfile</span>
+  <span class="nt">cron</span><span class="p">:</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">PATH</span>
+    <span class="nt">user</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">root</span>
+    <span class="nt">env</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
+    <span class="nt">value</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/bin:/sbin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin</span>
+    <span class="nt">cron_file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ansible_scheduled_run</span>
+</pre></div>
+</div>
+<p>or, if your launcher is written in bash, make it act as if it had been invoked as a login shell
+by using the <code class="code bash docutils literal notranslate"><span class="pre">-l</span></code> option (<code class="code bash docutils literal notranslate"><span class="comment hashbang"><span class="pre">#!/bin/bash</span> <span class="pre">-l</span></span></code>).</p>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Schedule ansible to run every 30 minutes</span>
+  <span class="nt">cron</span><span class="p">:</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;run</span><span class="nv"> </span><span class="s">ansible</span><span class="nv"> </span><span class="s">every</span><span class="nv"> </span><span class="s">30</span><span class="nv"> </span><span class="s">minutes&quot;</span>
+    <span class="nt">user</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">root</span>
+    <span class="nt">minute</span><span class="p">:</span> <span class="s">&quot;*/30&quot;</span>
+    <span class="nt">job</span><span class="p">:</span> <span class="s">&quot;/path/to/run_ansible&quot;</span>
+    <span class="nt">cron_file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ansible_scheduled_run</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="bootstrap">
+<span id="sssec-ansible-bootstrap"></span><h1><span class="section-number">3. </span>bootstrap<a class="headerlink" href="#bootstrap" title="Permalink to this headline">¶</a></h1>
+<p>By means of a few initial instructions the script should install ansible
+in the target system, prepare the environment it requires and
+trigger its first run. To further review whether the bootstrap failed
+or succeeded, and take apropriate actions, it is strongly recommended to log
+the output. Take the following program for example:</p>
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1"># Title       : bootstrap.sh</span>
+<span class="c1"># Description : Install and configure ansible</span>
+<span class="c1"># Author      : Tomas Felipe Llano Rios</span>
+<span class="c1"># Date        : Nov 21, 2018</span>
+<span class="c1"># Usage       : bash bootstrap.sh &lt;environment&gt;</span>
+<span class="c1">#==============================================================================</span>
+
+<span class="c1"># tee only reads and prints from and to a file descriptor,</span>
+<span class="c1"># so we need to use two execs to read and print from and to</span>
+<span class="c1"># both stdout and stderr.</span>
+<span class="c1">#</span>
+<span class="c1"># Receive stdout, log it and print to stdout.</span>
+<span class="nb">exec</span> &gt; &gt;<span class="o">(</span>tee -ia ./bootstrap_run.log<span class="o">)</span>
+<span class="c1"># Receive stderr, log it and print to stderr.</span>
+<span class="nb">exec</span> <span class="m">2</span>&gt; &gt;<span class="o">(</span>tee -ia ./bootstrap_run.log &gt;<span class="p">&amp;</span><span class="m">2</span><span class="o">)</span>
+
+<span class="nb">declare</span> -r <span class="nv">env</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
+<span class="nb">declare</span> -r <span class="nv">script_path</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>readlink -e <span class="nv">$0</span><span class="k">)</span><span class="s2">&quot;</span>
+<span class="nb">declare</span> -r <span class="nv">script_dir</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>dirname <span class="nv">$script_path</span><span class="k">)</span><span class="s2">&quot;</span>
+<span class="nb">declare</span> -r <span class="nv">repo_dir</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">script_dir</span><span class="p">%/*</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="nb">declare</span> -r <span class="nv">cfg_file</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$repo_dir</span><span class="s2">/ansible.cfg&quot;</span>
+<span class="nb">declare</span> -r <span class="nv">inv_file</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$repo_dir</span><span class="s2">/environments/</span><span class="nv">$env</span><span class="s2">/inventory&quot;</span>
+
+<span class="c1"># Check if the environment provided exists within ansible&#39;s</span>
+<span class="c1"># directory hierarchy.</span>
+<span class="nb">declare</span> -r <span class="nv">envs</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>ls <span class="nv">$repo_dir</span>/environments/<span class="k">)</span><span class="s2">&quot;</span>
+<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$envs</span><span class="s2">&quot;</span> !<span class="o">=</span> *<span class="s2">&quot;</span><span class="nv">$env</span><span class="s2">&quot;</span>* <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="nb">echo</span> -e <span class="s2">&quot;\nUnrecognized environment. Choose from:\n</span><span class="nv">$envs</span><span class="s2">\n&quot;</span>
+    <span class="nb">exit</span> <span class="m">1</span>
+<span class="k">fi</span>
+
+<span class="c1"># ansible-vault requires pycrypto 2.6, which is not installed by default</span>
+<span class="c1"># on RHEL6 based systems.</span>
+<span class="nb">declare</span> -i <span class="nv">centos_version</span><span class="o">=</span><span class="sb">`</span>rpm --query centos-release <span class="p">|</span> awk -F<span class="s1">&#39;-&#39;</span> <span class="s1">&#39;{print $3}&#39;</span><span class="sb">`</span>
+<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$centos_version</span><span class="s2">&quot;</span> -eq <span class="s2">&quot;6&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    /usr/bin/yum --enablerepo<span class="o">=</span>epel -y install python-crypto2.6
+<span class="k">fi</span>
+<span class="c1"># Install ansible.</span>
+/usr/bin/yum --enablerepo<span class="o">=</span>epel -y install ansible
+
+<span class="c1"># Run ansible.</span>
+<span class="nb">export</span> <span class="nv">ANSIBLE_CONFIG</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$cfg_file</span><span class="s2">&quot;</span>
+<span class="nb">export</span> <span class="nv">DEFAULT_ROLES_PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$repo_dir</span><span class="s2">/roles&quot;</span>
+ansible-playbook <span class="se">\</span>
+    --inventory-file<span class="o">=</span><span class="s2">&quot;</span><span class="nv">$inv_file</span><span class="s2">&quot;</span> <span class="se">\</span>
+    --extra-vars <span class="s2">&quot;env=</span><span class="nv">$env</span><span class="s2"> repo_dir=</span><span class="nv">$repo_dir</span><span class="s2">&quot;</span> <span class="se">\</span>
+    --vault-id <span class="s2">&quot;</span><span class="nv">$env</span><span class="s2">@</span><span class="nv">$repo_dir</span><span class="s2">/scripts/vault-secrets-client.sh&quot;</span> <span class="se">\</span>
+    <span class="nv">$repo_dir</span>/site.yml <span class="se">\</span>
+    -vv
+</pre></div>
+</td></tr></table></div>
+<p>After running the script, there should be a cronfile in /etc/cron.d and a rendered
+version of the run_ansible script.</p>
+</div>
+<div class="section" id="example">
+<h1><span class="section-number">4. </span>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h1>
+<ol class="arabic">
+<li><p>Create directory tree</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> /some/dir/
+mkdir -p ansible
+<span class="nb">cd</span> ansible <span class="o">&amp;&amp;</span> git init
+git remote add origin &lt;uri&gt;
+mkdir -p <span class="o">{</span>playbooks,environments,roles,scripts<span class="o">}</span>
+mkdir -p roles/master/<span class="o">{</span>tasks,templates<span class="o">}</span>
+mkdir -p environments/production/group_vars/
+<span class="c1"># Create the appropriate files according to your needs.</span>
+<span class="c1"># A good start would be:</span>
+<span class="c1">#touch site.yml \ # Calls the master.yml playbook</span>
+<span class="c1">#      playbooks/master.yml \ # Calls the master role</span>
+<span class="c1">#      roles/master/tasks/main.yml \ # Renders template</span>
+<span class="c1">#      roles/master/templates/run_ansible.j2</span>
+<span class="c1">#      environment/production/inventory</span>
+<span class="c1">#      environment/production/group_vars/all</span>
+</pre></div>
+</div>
+</li>
+<li><p>Download repo</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Consider using read-only deploy keys to download the repo without having
+to type an username and password; especially in unattended deployments.</p>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ssh &lt;user&gt;@&lt;server&gt;
+<span class="nb">cd</span> /usr/local/
+git clone &lt;uri&gt;
+</pre></div>
+</div>
+</li>
+<li><p>Bootstrap. Suppose you run the bootstrap script from
+<code class="code bash docutils literal notranslate"><span class="pre">/usr/local/ansible/scripts/</span></code>, which discovers and passes two variables to ansible: <em>env</em> and <em>repo_dir</em>:</p>
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nb">declare</span> -r <span class="nv">env</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
+<span class="nb">declare</span> -r <span class="nv">script_path</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>readlink -e <span class="nv">$0</span><span class="k">)</span><span class="s2">&quot;</span>
+<span class="nb">declare</span> -r <span class="nv">script_dir</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>dirname <span class="nv">$script_path</span><span class="k">)</span><span class="s2">&quot;</span>
+<span class="nb">declare</span> -r <span class="nv">repo_dir</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">script_dir</span><span class="p">%/*</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="nb">declare</span> -r <span class="nv">cfg_file</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$repo_dir</span><span class="s2">/ansible.cfg&quot;</span>
+<span class="nb">declare</span> -r <span class="nv">inv_file</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$repo_dir</span><span class="s2">/environments/</span><span class="nv">$env</span><span class="s2">/inventory&quot;</span>
+ansible-playbook <span class="se">\</span>
+    --inventory-file<span class="o">=</span><span class="s2">&quot;</span><span class="nv">$inv_file</span><span class="s2">&quot;</span> <span class="se">\</span>
+<span class="hll">    --extra-vars <span class="s2">&quot;env=</span><span class="nv">$env</span><span class="s2"> repo_dir=</span><span class="nv">$repo_dir</span><span class="s2">&quot;</span> <span class="se">\</span>
+</span>    --vault-id <span class="s2">&quot;</span><span class="nv">$env</span><span class="s2">@</span><span class="nv">$repo_dir</span><span class="s2">/scripts/vault-secrets-client.sh&quot;</span> <span class="se">\</span>
+    <span class="nv">$repo_dir</span>/site.yml <span class="se">\</span>
+    -vv
+</pre></div>
+</td></tr></table></div>
+<p>Executing the script in a production environment, like <code class="code bash docutils literal notranslate"><span class="pre">bootstrap.sh</span> <span class="pre">prod</span></code>, will cause
+variables to be passed to ansible as <code class="code bash docutils literal notranslate"><span class="name variable"><span class="pre">env</span></span><span class="operator"><span class="pre">=</span></span><span class="pre">production</span></code> and <code class="code bash docutils literal notranslate"><span class="name variable"><span class="pre">repo_dir</span></span><span class="operator"><span class="pre">=</span></span><span class="pre">/usr/local/ansible/</span></code>;
+therefore producing a <code class="code bash docutils literal notranslate"><span class="pre">run_ansible</span></code> script pointing to <code class="code bash docutils literal notranslate"><span class="pre">/usr/local/ansible/</span></code>.</p>
+</li>
+<li><p>Check for errors</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>less bootstrap_run.log
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="tips_and_tricks.html" class="btn btn-neutral float-right" title="1. Installation of multiple packages" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="dynamic_control.html" class="btn btn-neutral float-left" title="1. Tags" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Creative Commons Attribution-NonCommercial 4.0 International License
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

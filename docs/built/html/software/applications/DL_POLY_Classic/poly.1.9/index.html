@@ -1,0 +1,327 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>POLY &mdash; apolo-docs 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/sidebar.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+  
+    <a href="../../../../index.html">
+  
+
+  
+    
+    <img src="../../../../_static/apolo-white.png" style="width: 150px;" class="logo" alt="Logo"/>
+  
+    </a>
+
+    
+      
+      
+      
+	<div class="version" style="color: rgba(255,255,255,0.5);">
+	  0.1
+	</div>
+      
+    
+
+    
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../gettingstarted/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../supercomputers/index.html">Supercomputers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../index.html">Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../how-to-acknowledge.html">How to Acknowledge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../report-a-bug.html">Report a Bug</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">apolo-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+      <li>POLY</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/software/applications/DL_POLY_Classic/poly.1.9/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="contents topic" id="table-of-contents">
+<span id="poly"></span><p class="topic-title">Table of Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#id1" id="id2">POLY</a></p>
+<ul>
+<li><p><a class="reference internal" href="#dependencies" id="id3">Dependencies</a></p></li>
+<li><p><a class="reference internal" href="#installation" id="id4">Installation</a></p></li>
+<li><p><a class="reference internal" href="#module" id="id5">Module</a></p></li>
+<li><p><a class="reference internal" href="#use-mode" id="id6">Use mode</a></p></li>
+<li><p><a class="reference internal" href="#usage-mode" id="id7">Usage mode</a></p></li>
+<li><p><a class="reference internal" href="#references" id="id8">References</a></p></li>
+<li><p><a class="reference internal" href="#author" id="id9">Author</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id1">
+<h1><a class="toc-backref" href="#id2">POLY</a><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><strong>Installation date:</strong> 19/09/2016</p></li>
+<li><p><strong>URL:</strong> <a class="reference external" href="https://ccpforge.cse.rl.ac.uk/gf/project/dl_poly_classic/">https://ccpforge.cse.rl.ac.uk/gf/project/dl_poly_classic/</a></p></li>
+<li><p><strong>Apolo version:</strong> Apolo I</p></li>
+<li><p><strong>License:</strong> BSD licence</p></li>
+</ul>
+<div class="section" id="dependencies">
+<h2><a class="toc-backref" href="#id3">Dependencies</a><a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>GNU GCC - gcc, gfortran &gt;= 4.8.4</p></li>
+<li><p>MPI - openMPI (mpif90) &gt;= 1.6.5</p></li>
+</ul>
+</div>
+<div class="section" id="installation">
+<h2><a class="toc-backref" href="#id4">Installation</a><a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>First download the tar from the main page from <a class="reference external" href="https://ccpforge.cse.rl.ac.uk/gf/project/dl_poly_classic/frs/?action=FrsReleaseBrowse&amp;frs_package_id=166">https://ccpforge.cse.rl.ac.uk/gf/project/dl_poly_classic/frs/?action=FrsReleaseBrowse&amp;frs_package_id=166</a>, then:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> /home/mgomezzul/apps/dl_poly_classic/dl_class_1.9
+$ wget https://ccpforge.cse.rl.ac.uk/gf/download/frsrelease/255/4726/dl_class_1.9.tar.gz
+$ tar -zxvf dl_class_1.9.tar.gz
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>configure the makefile</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> dl_class_1.9
+$ cp build/MakePAR source/Makefile
+$ <span class="nb">cd</span> <span class="nb">source</span>
+$ module load openmpi/1.6.5_gcc-4.8.4
+$ make gfortran
+</pre></div>
+</div>
+</div>
+<div class="section" id="module">
+<h2><a class="toc-backref" href="#id5">Module</a><a class="headerlink" href="#module" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#%Module1.0#####################################################################</span>
+ <span class="c1">##</span>
+ <span class="c1">## modules dl_class/1.9_openmpi-1.6.5_gcc-4.8.4</span>
+ <span class="c1">##</span>
+ <span class="c1">## /share/apps/modules/dl_class/1.9_openmpi-1.6.5_gcc-4.8.4</span>
+ <span class="c1">## Written by Mateo Gomez-Zuluaga</span>
+ <span class="c1">##</span>
+
+ proc ModulesHelp <span class="o">{</span> <span class="o">}</span> <span class="o">{</span>
+     puts stderr <span class="s2">&quot;\tdl_classic/1.9_openmpi-1.6.5_gcc-4.8.4 - sets the</span>
+<span class="s2">     \n\tEnvironment for DL_POLY Classic in the share directory</span>
+<span class="s2">     \n\t/share/apps/dl_class/1.9/openmpi-1.6.5/gcc-4.8.4\n&quot;</span>
+ <span class="o">}</span>
+
+ module-whatis <span class="s2">&quot;\n\n\tSets the environment for using DL_POLY Classic 1.9 \</span>
+<span class="s2">                \n\tbuilded with openMPI 1.6.5 and GCC 4.8.4 version\n&quot;</span>
+
+ <span class="c1"># for Tcl script use only</span>
+ <span class="nb">set</span>       topdir     /share/apps/dl_class/1.9/openmpi-1.6.5/gcc-4.8.4
+ <span class="nb">set</span>       version    <span class="m">1</span>.9
+ <span class="nb">set</span>       sys        x86_64-redhat-linux
+
+ module load openmpi/1.6.5_gcc-4.8.4
+
+ prepend-path    PATH <span class="nv">$topdir</span>/bin
+</pre></div>
+</div>
+</div>
+<div class="section" id="use-mode">
+<h2><a class="toc-backref" href="#id6">Use mode</a><a class="headerlink" href="#use-mode" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
+<span class="c1">#SBATCH --partition=bigmem</span>
+<span class="c1">#SBATCH --nodes=1</span>
+<span class="c1">#SBATCH --ntasks-per-node=2</span>
+<span class="c1">#SBATCH --time=20:00</span>
+<span class="c1">#SBATCH --job-name=gamess</span>
+<span class="c1">#SBATCH -o result_%N_%j.out</span>
+<span class="c1">#SBATCH -e result_%N_%j.err</span>
+
+<span class="c1"># Don&#39;t share environment variables</span>
+<span class="nb">export</span> <span class="nv">SBATCH_EXPORT</span><span class="o">=</span>NONE
+<span class="nb">export</span> <span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">1</span>
+
+module load intel/2017_update-1 impi/2017_update-1 mkl/2017_update-1
+
+<span class="c1"># Execution line</span>
+rungms c2h6O2 <span class="m">00</span> <span class="nv">$SLURM_NTASKS</span> <span class="nv">$SLURM_NTASKS_PER_NODE</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="usage-mode">
+<h2><a class="toc-backref" href="#id7">Usage mode</a><a class="headerlink" href="#usage-mode" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ module load dl_class/1.9_openmpi-1.6.5_gcc-4.8.4
+</pre></div>
+</div>
+</div>
+<div class="section" id="references">
+<h2><a class="toc-backref" href="#id8">References</a><a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Mail from the people of the University of Cartagena</p></li>
+<li><p>Manual within the software package</p></li>
+</ul>
+</div>
+<div class="section" id="author">
+<h2><a class="toc-backref" href="#id9">Author</a><a class="headerlink" href="#author" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Mateo Gómez Zuluaga</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Creative Commons Attribution-NonCommercial 4.0 International License
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

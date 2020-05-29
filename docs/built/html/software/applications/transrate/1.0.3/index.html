@@ -1,0 +1,430 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Transrate 1.0.3 &mdash; apolo-docs 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/sidebar.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="trimmomatic" href="../../trimmomatic/index.html" />
+    <link rel="prev" title="Transrate" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+  
+    <a href="../../../../index.html">
+  
+
+  
+    
+    <img src="../../../../_static/apolo-white.png" style="width: 150px;" class="logo" alt="Logo"/>
+  
+    </a>
+
+    
+      
+      
+      
+	<div class="version" style="color: rgba(255,255,255,0.5);">
+	  0.1
+	</div>
+      
+    
+
+    
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../gettingstarted/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../supercomputers/index.html">Supercomputers</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Software</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../virtualization/index.html">Virtualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../programminglanguages/index.html">Programming Languages</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Scientific Applications</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../ansys/index.html">ANSYS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../autoDock_Vina/index.html">autoDock_Vina</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../autoDock/index.html">AutoDock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../bayescan/index.html">BayeScan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../BEAST2/index.html">BEAST2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../BioEM/index.html">BioEM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../BLAST/index.html">BLAST</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../blender/index.html">blender</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../bowtie2/index.html">bowtie2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Bpp/index.html">Bpp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../BWA/index.html">BWA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../CDO/index.html">CDO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../CHARMM/index.html">CHARMM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../crystal/index.html">crystal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Cufflinks/index.html">Cufflinks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../delft3D/index.html">delft3D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../DL_POLY_Classic/index.html">DL_POLY_Classic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../edge_pro/index.html">EDGE-pro</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../elmer/index.html">elmer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../fastQC/index.html">fastQC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../gamess/index.html">gamess</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../garli/index.html">garli</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../gatk4/index.html">GATK4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../gromacs/index.html">GROMACS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../gurobi/index.html">gurobi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lammps/index.html">LAMMPS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../leDock/index.html">leDock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lePro/index.html">lePro</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mafft/index.html">MAFFT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../MedeA/index.html">MedeA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mothur/index.html">Mothur</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mrBayes/index.html">mrBayes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../MUSCLE/index.html">MUSCLE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ncl/index.html">ncl</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../OpenFOAM/index.html">OpenFOAM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../opensees/index.html">OpenSees</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../pargenes/index.html">ParGenes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../partitionFinder/index.html">Partition Finder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../picrust2/index.html">PICRUSt2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../plumed/index.html">Plumed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../prinseq-lite/index.html">Prinseq-lite</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../pyrad/index.html">pyrad</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../QE/index.html">QE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Qiime2/index.html">Qiime2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../raxml/index.html">RAxML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../rDock/index.html">rDock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../repet/index.html">REPET</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../SAMtools/index.html">SAMtools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stacks/index.html">stacks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../T-Coffee/index.html">T-Coffee</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../topHat/index.html">TopHat</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">Transrate</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Transrate 1.0.3</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../trimmomatic/index.html">trimmomatic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../trinity/index.html">Trinity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../USPEX/index.html">USPEX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../VASP/index.html">VASP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../vsearch/index.html">vsearch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../wps/index.html">Wps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../wrf/index.html">wrf</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../resourcemanager/index.html">Resource Manager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../provisioning/index.html">Provisioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../monitoring/index.html">Monitoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../operatingsystems/index.html">Operating Systems</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../how-to-acknowledge.html">How to Acknowledge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../report-a-bug.html">Report a Bug</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">apolo-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Software</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Scientific Applications</a> &raquo;</li>
+        
+          <li><a href="../index.html">Transrate</a> &raquo;</li>
+        
+      <li>Transrate 1.0.3</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/software/applications/transrate/1.0.3/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="transrate-1-0-3">
+<span id="index"></span><h1><a class="toc-backref" href="#id3">Transrate 1.0.3</a><a class="headerlink" href="#transrate-1-0-3" title="Permalink to this headline">¶</a></h1>
+<div class="contents topic" id="table-of-contents">
+<p class="topic-title">Table of Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#transrate-1-0-3" id="id3">Transrate 1.0.3</a></p>
+<ul>
+<li><p><a class="reference internal" href="#basic-information" id="id4">Basic information</a></p></li>
+<li><p><a class="reference internal" href="#tested-on-requirements" id="id5">Tested on (Requirements)</a></p></li>
+<li><p><a class="reference internal" href="#installation" id="id6">Installation</a></p></li>
+<li><p><a class="reference internal" href="#running-examples" id="id7">Running Examples</a></p>
+<ul>
+<li><p><a class="reference internal" href="#get-some-data" id="id8">Get Some Data</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#references" id="id9">References</a></p></li>
+<li><p><a class="reference internal" href="#authors" id="id10">Authors</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="basic-information">
+<h2><a class="toc-backref" href="#id4">Basic information</a><a class="headerlink" href="#basic-information" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Official Website:</strong> <a class="reference external" href="http://hibberdlab.com/transrate/">http://hibberdlab.com/transrate/</a></p></li>
+<li><p><strong>License:</strong> MIT License</p></li>
+<li><p><strong>Installed on:</strong> <a class="reference internal" href="../../../../supercomputers/apolo-ii/index.html#about-apolo-ii"><span class="std std-ref">Apolo II</span></a>
+, <a class="reference internal" href="../../../../supercomputers/cronos/index.html#about-cronos"><span class="std std-ref">Cronos</span></a></p></li>
+</ul>
+</div>
+<div class="section" id="tested-on-requirements">
+<h2><a class="toc-backref" href="#id5">Tested on (Requirements)</a><a class="headerlink" href="#tested-on-requirements" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><strong>OS base:</strong> CentOS (x86_64) <span class="math notranslate nohighlight">\(\boldsymbol{\ge}\)</span> 6.6 (Rocks 6.2)</p></li>
+</ul>
+</div>
+<div class="section" id="installation">
+<h2><a class="toc-backref" href="#id6">Installation</a><a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>The following procedure is the easiest way to install Transrate in a cluster.</p>
+<ol class="arabic">
+<li><p>Download the binaries and unzip the file:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ mkdir build <span class="o">&amp;&amp;</span> <span class="nb">cd</span> build
+$ wget https://bintray.com/artifact/download/blahah/generic/transrate-1.0.3-linux-x86_64.tar.gz
+$ tar -xzvf transrate-1.0.3-linux-x86_64.tar.gz
+</pre></div>
+</div>
+</li>
+<li><p>Then we add the directory path to the PATH environment variable:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> transrate-1.0.3-linux-x86_64
+$ <span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>:<span class="nv">$PATH</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>After, the ruby module is loaded (version 2.6.4)</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ module load ruby/2.6.4p104_intel-19.0.4
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Now, we proceed to install the dependencies and the application itself:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ transrate --install-deps all
+$ gem install transrate
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>After the installation is completed you have to create the corresponding module for Transrate 1.0.3</p>
+<blockquote>
+<div><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="c">#%Module1.0#####################################################################</span>
+<span class="c">##</span>
+<span class="c">## modulefile transrate/1.0.3_ruby-2.6.4p104_intel-19.0.4</span>
+<span class="c">##</span>
+<span class="c">## Written by Hamilton Tobon Mosquera.</span>
+
+<span class="k">proc</span> ModulesHelp <span class="k">{</span> <span class="k">}</span> <span class="k">{</span>
+    <span class="k">global</span> version modroot
+    <span class="nb">puts</span> stderr <span class="s2">&quot;\ttransrate - Software for de-novo transcriptome assembly \</span>
+<span class="s2">                \n\tquality analysis.\n&quot;</span>
+<span class="k">}</span>
+
+<span class="nv">module-whatis</span> <span class="s2">&quot;\n\n\tSets the environment for using transrate 1.0.3 ruby gem.&quot;</span>
+
+<span class="nv">conflict</span> transrate
+
+<span class="c"># for Tcl script use only</span>
+<span class="k">set</span>     topdir       <span class="o">~/</span>.local
+<span class="k">set</span>     version      <span class="mf">1.0</span>.3
+<span class="k">set</span>     sys          x86_64-redhat-linux
+
+<span class="nv">module</span> load ruby<span class="o">/</span><span class="mf">2.6</span>.4p104_intel-19.0.4
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ol>
+</div>
+<div class="section" id="running-examples">
+<h2><a class="toc-backref" href="#id7">Running Examples</a><a class="headerlink" href="#running-examples" title="Permalink to this headline">¶</a></h2>
+<p>This guide will take you through the basic ways of using Transrate. It’s worth reading
+through once even if you’re familiar with running command-line tools, as it provides
+guidance about proper selection of input data <a class="footnote-reference brackets" href="#id2" id="id1">1</a> .</p>
+<div class="section" id="get-some-data">
+<h3><a class="toc-backref" href="#id8">Get Some Data</a><a class="headerlink" href="#get-some-data" title="Permalink to this headline">¶</a></h3>
+<p>If you don’t have your own data, you can use our small example dataset to try out the
+contig and read-based metrics:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ mkdir example <span class="o">&amp;&amp;</span> <span class="nb">cd</span> example
+$ wget https://bintray.com/artifact/download/blahah/generic/example_data.tar.gz
+$ tar -xzvf example_data.tar.gz
+$ <span class="nb">cd</span> example_data
+</pre></div>
+</div>
+<p>To continue reviewing the examples worked with this file and the functionality
+of transrate check the following link: <a class="reference external" href="http://hibberdlab.com/transrate/getting_started.html">http://hibberdlab.com/transrate/getting_started.html</a></p>
+</div>
+</div>
+<div class="section" id="references">
+<h2><a class="toc-backref" href="#id9">References</a><a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<dl class="footnote brackets">
+<dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>TransRate: reference free quality assessment of de-novo transcriptome assemblies (2016). Richard D Smith-Unna,
+Chris Boursnell, Rob Patro, Julian M Hibberd, Steven Kelly.
+Genome Research doi: <a class="reference external" href="http://dx.doi.org/10.1101/gr.196469.115">http://dx.doi.org/10.1101/gr.196469.115</a></p>
+</dd>
+</dl>
+</div>
+<div class="section" id="authors">
+<h2><a class="toc-backref" href="#id10">Authors</a><a class="headerlink" href="#authors" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Santiago Hidalgo Ocampo &lt;<a class="reference external" href="mailto:shidalgoo1&#37;&#52;&#48;eafit&#46;edu&#46;co">shidalgoo1<span>&#64;</span>eafit<span>&#46;</span>edu<span>&#46;</span>co</a>&gt;</p></li>
+<li><p>Samuel David Palacios &lt;<a class="reference external" href="mailto:sdpalaciob&#37;&#52;&#48;eafit&#46;edu&#46;co">sdpalaciob<span>&#64;</span>eafit<span>&#46;</span>edu<span>&#46;</span>co</a>&gt;</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../trimmomatic/index.html" class="btn btn-neutral float-right" title="trimmomatic" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral float-left" title="Transrate" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Creative Commons Attribution-NonCommercial 4.0 International License
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

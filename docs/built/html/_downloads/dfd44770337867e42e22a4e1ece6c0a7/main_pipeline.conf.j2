@@ -1,0 +1,152 @@
+input {
+  beats {
+    port => "{{ logstash_port }}"
+  }
+
+  # Events go to the dead_letter_queue when Elasticsearch response has 400/402 code
+  dead_letter_queue {
+    path => "/var/log/logstash/dead_letter_queue"
+    tags => ["recovered_from_dead_letter_queue"]
+  }
+}
+
+filter {
+  ##############################################################################
+  # SECURE (sshd, sudo commands, ...)
+  if [fromsecure] {
+
+    # Match messages that I am interested in
+    grok {
+      match => {
+        "message" => [
+	  # Login attemps 
+          "%{SYSLOGTIMESTAMP:log.timestamp} %{SYSLOGHOST:system.hostname} sshd(.*)?: %{DATA:sshd.event} %{DATA:sshd.method} for (invalid user )?%{DATA:sshd.user} from %{IPORHOST:sshd.guest.ip} port %{NUMBER:sshd.guest.port} ssh2(: %{GREEDYDATA:sshd.guest.signature})?",
+
+          # Sudo commands
+          "%{SYSLOGTIMESTAMP:log.timestamp} %{SYSLOGHOST:system.hostname} sudo(.*)?:%{SPACE}%{DATA:system.sudo.user} :( %{DATA:system.sudo.error} ;)? TTY=.* ; PWD=%{DATA:system.sudo.workdir} ; USER=%{DATA:system.sudo.asuser} ; COMMAND=(?<system.sudo.command>(?!/usr/sbin/ipmi-sensors.*).*)",
+
+	  # New groups and users
+	  "%{SYSLOGTIMESTAMP:log.timestamp} %{SYSLOGHOST:system.hostname} groupadd(.*)?: new group: name=%{DATA:system.groupadd.name}, GID=%{NUMBER:system.groupadd.gid}",
+	  "%{SYSLOGTIMESTAMP:log.timestamp} %{SYSLOGHOST:system.hostname} useradd(.*)?: new user: name=%{DATA:system.useradd.name}, UID=%{NUMBER:system.useradd.uid}, GID=%{NUMBER:system.useradd.gid}, home=%{DATA:system.useradd.home}, shell=%{DATA:system.useradd.shell}$"
+        ]
+      }
+
+      add_field => { "secure.correctly_filtered" => "true" }
+    }
+
+    # IP address coordinates information.
+    # Note: Fails if the IP is a private IP
+    geoip {
+      source => "sshd.guest.ip"
+    }
+
+    # In case of successful parsing, the @timestamp field is updated with the parsed info
+    date {
+      match => [ "log.timestamp", "MMM dd yyyy HH:mm:ss", "MMM d yyyy HH:mm:ss", "MMM dd HH:mm:ss", "MMM d HH:mm:ss" ]
+      timezone => "America/Bogota"
+    }
+
+    # Remove field added by filebeat and add a tag to make easier the output part
+    mutate {
+      remove_field => ["fromsecure", "log.timestamp"]
+    }
+
+  }
+  
+  ##############################################################################  
+  # SLURM
+  if [fromslurm] {
+
+    grok {
+      match => {
+        "message" => [
+	  "\[%{TIMESTAMP_ISO8601:log.timestamp}\] slurmctld version (?<slurm.version>(\d+\.)?(\d+\.)?(\d+)(\.\d+)?) %{DATA:slurm.event} .* cluster (?<slurm.cluster>[a-zA-Z0-9\-\_]+)", #Slurm started correctly
+	  "\[%{TIMESTAMP_ISO8601:log.timestamp}\] (?<slurm.state>(Running|Terminate)) .*", #Slurm is running
+	  "\[%{TIMESTAMP_ISO8601:log.timestamp}\] (?<slurm.state>(Registering)) .* (port %{NUMBER:slurm.port})? .*", #Slurm is running on port xxx
+	  "\[%{TIMESTAMP_ISO8601:log.timestamp}\] error: (?<slurm.error>.*)", #An error ocurred
+	  "\[%{TIMESTAMP_ISO8601:log.timestamp}\] email msg to (?<slurm.user.email>(?<slurm.user.name>[a-zA-Z0-9_.+=:-]+)@[0-9A-Za-z][0-9A-Za-z-]{0,62}(?:\.(?:[0-9A-Za-z][0-9A-Za-z-]{0,62}))*): Slurm Job_id=%{NUMBER:slurm.user.jobid} Name=%{DATA:slurm.user.jobname} Began, Queued time ((?<slurm.user.queuedtime.days>[0-9])-)?(?<slurm.user.queuedtime.hours>[0-9]{2}):(?<slurm.user.queuedtime.minutes>[0-9]{2}):(?<slurm.user.queuedtime.seconds>[0-9]{2})" # Job queued time
+	]
+      }
+      add_field => { "slurm.correctly_filtered" => "true" }
+    }
+
+    # In case of successful parsing, the @timestamp field is updated with the parsed info
+    date {
+      match => [ "log.timestamp", "ISO8601" ]
+      timezone => "America/Bogota"
+    }
+
+    # Remove field added by filebeat and add a tag to make easier the output part
+    mutate {
+      remove_field => ["fromslurm", "log.timestamp"]
+    }
+
+  }
+
+  ##############################################################################  
+  # MESSAGES
+  if [frommessages] {
+
+    # Match messages that I am interested in
+    grok {
+      match => {
+        "message" => [
+	  # Common message
+          "%{SYSLOGTIMESTAMP:log.timestamp} %{SYSLOGHOST:system.hostname} %{DATA:system.service}(\[.*\])?: %{DATA:system.message}$"
+        ]
+      }
+
+      add_field => { "messages.correctly_filtered" => "true" }
+    }
+
+    # In case of successful parsing, the @timestamp field is updated with the parsed info
+    date {
+      match => [ "log.timestamp", "MMM dd yyyy HH:mm:ss", "MMM d yyyy HH:mm:ss", "MMM dd HH:mm:ss", "MMM d HH:mm:ss" ]
+      timezone => "America/Bogota"
+    }
+
+    # Remove field added by filebeat
+    mutate {
+      remove_field => ["frommessages", "log.timestamp"]
+    }
+
+  }
+  
+  # Remove filebeat fields due to their case useless
+  mutate {
+    remove_field => ["beat"]
+  }
+}
+
+output {
+
+  # SECURE
+  if [secure.correctly_filtered] {
+    stdout { codec => rubydebug }
+    elasticsearch { # Dead Letter Queue is only supported for elasticsearch output
+      http_compression => true # Elasticsearch uses http compression by default
+      index => "secure"
+      hosts => ["{{ machine }}:{{ elasticsearch_port }}"]
+    }
+  }
+  
+  # SLURM
+  if [slurm.correctly_filtered] {
+    stdout { codec => rubydebug }
+    elasticsearch {
+      http_compression => true # Elasticsearch uses http compression by default
+      index => "slurm"
+      hosts => ["{{ machine }}:{{ elasticsearch_port }}"]
+    }    
+  }
+
+  # MESSAGES
+  if [messages.correctly_filtered] {
+    stdout { codec => rubydebug }
+    elasticsearch {
+      http_compression => true # Elasticsearch uses http compression by default
+      index => "messages"
+      hosts => ["{{ machine }}:{{ elasticsearch_port }}"]
+    }
+  }
+}

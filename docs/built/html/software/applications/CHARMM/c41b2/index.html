@@ -1,0 +1,582 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>c41b2 &mdash; apolo-docs 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/sidebar.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="crystal" href="../../crystal/index.html" />
+    <link rel="prev" title="CHARMM" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+  
+    <a href="../../../../index.html">
+  
+
+  
+    
+    <img src="../../../../_static/apolo-white.png" style="width: 150px;" class="logo" alt="Logo"/>
+  
+    </a>
+
+    
+      
+      
+      
+	<div class="version" style="color: rgba(255,255,255,0.5);">
+	  0.1
+	</div>
+      
+    
+
+    
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../gettingstarted/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../supercomputers/index.html">Supercomputers</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Software</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../virtualization/index.html">Virtualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../programminglanguages/index.html">Programming Languages</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Scientific Applications</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../ansys/index.html">ANSYS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../autoDock_Vina/index.html">autoDock_Vina</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../autoDock/index.html">AutoDock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../bayescan/index.html">BayeScan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../BEAST2/index.html">BEAST2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../BioEM/index.html">BioEM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../BLAST/index.html">BLAST</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../blender/index.html">blender</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../bowtie2/index.html">bowtie2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Bpp/index.html">Bpp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../BWA/index.html">BWA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../CDO/index.html">CDO</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">CHARMM</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">c41b2</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../crystal/index.html">crystal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Cufflinks/index.html">Cufflinks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../delft3D/index.html">delft3D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../DL_POLY_Classic/index.html">DL_POLY_Classic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../edge_pro/index.html">EDGE-pro</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../elmer/index.html">elmer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../fastQC/index.html">fastQC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../gamess/index.html">gamess</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../garli/index.html">garli</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../gatk4/index.html">GATK4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../gromacs/index.html">GROMACS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../gurobi/index.html">gurobi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lammps/index.html">LAMMPS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../leDock/index.html">leDock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lePro/index.html">lePro</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mafft/index.html">MAFFT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../MedeA/index.html">MedeA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mothur/index.html">Mothur</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mrBayes/index.html">mrBayes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../MUSCLE/index.html">MUSCLE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ncl/index.html">ncl</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../OpenFOAM/index.html">OpenFOAM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../opensees/index.html">OpenSees</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../pargenes/index.html">ParGenes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../partitionFinder/index.html">Partition Finder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../picrust2/index.html">PICRUSt2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../plumed/index.html">Plumed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../prinseq-lite/index.html">Prinseq-lite</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../pyrad/index.html">pyrad</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../QE/index.html">QE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Qiime2/index.html">Qiime2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../raxml/index.html">RAxML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../rDock/index.html">rDock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../repet/index.html">REPET</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../SAMtools/index.html">SAMtools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stacks/index.html">stacks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../T-Coffee/index.html">T-Coffee</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../topHat/index.html">TopHat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../transrate/index.html">Transrate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../trimmomatic/index.html">trimmomatic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../trinity/index.html">Trinity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../USPEX/index.html">USPEX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../VASP/index.html">VASP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../vsearch/index.html">vsearch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../wps/index.html">Wps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../wrf/index.html">wrf</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../resourcemanager/index.html">Resource Manager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../provisioning/index.html">Provisioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../monitoring/index.html">Monitoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../operatingsystems/index.html">Operating Systems</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../how-to-acknowledge.html">How to Acknowledge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../report-a-bug.html">Report a Bug</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">apolo-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Software</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Scientific Applications</a> &raquo;</li>
+        
+          <li><a href="../index.html">CHARMM</a> &raquo;</li>
+        
+      <li>c41b2</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/software/applications/CHARMM/c41b2/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="c41b2">
+<span id="id1"></span><h1><a class="toc-backref" href="#id4">c41b2</a><a class="headerlink" href="#c41b2" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><strong>Installation date:</strong> 5/06/2017</p></li>
+<li><p><strong>URL:</strong>  <a class="reference external" href="https://www.charmm.org/charmm">https://www.charmm.org/charmm</a></p></li>
+<li><p><strong>Apolo version:</strong> Apolo II</p></li>
+<li><p><strong>License:</strong> Payment (Special Contract)</p></li>
+</ul>
+<div class="contents topic" id="table-of-contents">
+<p class="topic-title">Table of contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#c41b2" id="id4">c41b2</a></p>
+<ul>
+<li><p><a class="reference internal" href="#dependencies" id="id5">Dependencies</a></p>
+<ul>
+<li><p><a class="reference internal" href="#apolo" id="id6">Apolo</a></p></li>
+<li><p><a class="reference internal" href="#cronos" id="id7">Cronos</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#installation" id="id8">Installation</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id2" id="id9">Apolo</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id10">Cronos</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#module" id="id11">Module</a></p></li>
+<li><p><a class="reference internal" href="#mode-of-use" id="id12">Mode of Use</a></p></li>
+<li><p><a class="reference internal" href="#slurm-template" id="id13">SLURM Template</a></p></li>
+<li><p><a class="reference internal" href="#references" id="id14">References</a></p></li>
+<li><p><a class="reference internal" href="#author" id="id15">Author</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="dependencies">
+<h2><a class="toc-backref" href="#id5">Dependencies</a><a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="apolo">
+<h3><a class="toc-backref" href="#id6">Apolo</a><a class="headerlink" href="#apolo" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>MPICH 3.2 (This must be compiled without using the PMI interface, as there is a bug with SLURM which makes it impossible to run distributed jobs)</p></li>
+<li><p>GCC-5.4.0</p></li>
+<li><p>Source code GAMESS 2016 R1</p></li>
+<li><p>Cmake &gt;= 3.7.1</p></li>
+</ul>
+</div>
+<div class="section" id="cronos">
+<h3><a class="toc-backref" href="#id7">Cronos</a><a class="headerlink" href="#cronos" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Gnu GCC &gt;= 5.5.0</p></li>
+<li><p>Mpich2 &gt;= 3.2.1</p></li>
+<li><p>FFTW3 &gt;= 3.3.7</p></li>
+<li><p>CMake &gt;= 3.10.2</p></li>
+<li><p>Source code GAMESS 2016 R1 (gamess-current.tar.gz)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="installation">
+<h2><a class="toc-backref" href="#id8">Installation</a><a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id2">
+<h3><a class="toc-backref" href="#id9">Apolo</a><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>After resolving to load the previously mentioned dependencies, you can proceed with the installation of CHARMM-GAMESS.</p>
+<ol class="arabic simple">
+<li><p>Prepare the environment before compilation:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> /apps/charmm/src/charmm-gammess
+$ tar xf c41b2.tar.gz
+$ <span class="nb">cd</span> charmm
+$ wget http://ala.cmm.ki.si/gamess/20160818.1/gamess-20160818.1-charmm.tar.gz
+$ tar xf gamess-20160818.1-charmm.tar.gz
+$ rm gamess-20160818.1-charmm.tar.gz
+$ mkdir source/gamint/gamess
+$ cp ~/apps/gamess/src/gamess/source/* source/gamint/gamess/
+$ rm source/gamint/gamess/vector.src
+$ rm source/gamint/gamess/ga.src
+$ module unload slurm/16.05.6
+$ module load mpich2/3.2_gcc-5.4.0 cmake/3.7.1
+$ patch -p1 &lt; gamess/gamess2016-for-charmm.patch
+$ patch -p1 &lt; gamess/c41b2-for-gamess.patch
+$ chmod <span class="m">755</span> tool/gmscomp
+</pre></div>
+</div>
+<p>For the moment ignore this step.</p>
+<p>We comment on the following line in the <strong>tool/gmscomp</strong> file:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ emacs /home/mgomezzul/apps/charmm/src/charmm-gammess/charmm/tool/gmscomp
+$ ...
+$ <span class="c1">#set EXTRAOPT=&quot;$EXTRAOPT -w -fno-aggressive-loop-optimizations -fno-sanitize=all&quot;</span>
+$ ...
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>After preparing the compilation environment we proceed with the compilation:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ mkdir -p ~/charmm/build
+$ <span class="nb">cd</span> ~/charmm/build
+$ ~/apps/charmm/src/charmm-gammess/charmm/configure --gamess
+$ make -j <span class="m">8</span>
+</pre></div>
+</div>
+<p>3. At the end of the execution of the <strong>make -j 8</strong>, several errors related to functions that are not defined will result,
+this happens because the CHARMM and GAMESS compilation methods are different, making cmake unable to produce the dependencies
+for the parallel compilation of the program. This is why it is necessary to apply a new patch and recompile again.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ~/apps/charmm/src/charmm-gammess/charmm
+$ patch -p1 &lt; gamess/c41b2-phase2.patch
+$ <span class="nb">cd</span> ~/charmm/build
+$ make -j <span class="m">8</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>After finishing with the last parallel make, the <strong>charmm</strong> binary should have been produced, we can try it as follows:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./charmm
+...
+<span class="m">1</span>
+                Chemistry at HARvard Macromolecular Mechanics
+        <span class="o">(</span>CHARMM<span class="o">)</span> - Developmental Version 41b2   February <span class="m">15</span>, <span class="m">2017</span>
+                            Revision unknown
+    Copyright<span class="o">(</span>c<span class="o">)</span> <span class="m">1984</span>-2014  President and Fellows of Harvard College
+                            All Rights Reserved
+  Current operating system: Linux-2.6.32-504.16.2.el6.x86_64<span class="o">(</span>x86_64<span class="o">)</span>@deb
+              Created on  <span class="m">6</span>/6/17 at  <span class="m">9</span>:36:54 by user: mgomezzul
+
+         Maximum number of ATOMS:    <span class="m">360720</span>, and RESidues:      <span class="m">120240</span>
+...
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h3><a class="toc-backref" href="#id10">Cronos</a><a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>After resolving to load the previously mentioned dependencies, you can proceed with the installation of <strong>CHARMM-GAMESS.</strong></p>
+<ol class="arabic simple">
+<li><p>Prepare the compilation environment:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> /home/mgomezzul/apps/charmm-gammes/src/gcc-5.5.0_mpich2-3.2.1
+$ tar xf c41b2.tar.gz
+$ <span class="nb">cd</span> charmm
+We download the patch that allows you to compile charmm with support <span class="k">for</span> gamess
+$ wget http://ala.cmm.ki.si/gamess/20160818.1/gamess-20160818.1-charmm.tar.gz
+$ tar xf gamess-20160818.1-charmm.tar.gz
+$ rm gamess-20160818.1-charmm.tar.gz
+$ mkdir source/gamint/gamess
+$ cp  ~/apps/gammess/src/gamess/source/* source/gamint/gamess/
+$ rm source/gamint/gamess/vector.src
+$ rm source/gamint/gamess/ga.src
+$ module purge
+$ module load fftw/3.3.7_gcc-5.5.0_mpich2-3.2.1 cmake/3.10.2
+$ patch -p1 &lt; gamess/gamess2016-for-charmm.patch
+$ patch -p1 &lt; gamess/c41b2-for-gamess.patch
+$ chmod <span class="m">755</span> tool/gmscomp
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>The following line is commented in the <strong>tool/gmscomp</strong> file:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ emacs /home/mgomezzul/apps/charmm-gammes/src/gcc-5.5.0_mpich2-3.2.1/charmm/tool/gmscomp
+$ ...
+$ <span class="c1">#set EXTRAOPT=&quot;$EXTRAOPT -w -fno-aggressive-loop-optimizations -fno-sanitize=all&quot;</span>
+$ ...
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>After preparing the compilation environment we proceed with it:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ mkdir -p ~/apps/charmm-gammes/build
+$ <span class="nb">cd</span> ~/apps/charmm-gammes/build
+$ <span class="nv">FFTWDIR</span><span class="o">=</span>/share/apps/fftw/3.3.7/gcc-5.5.0_mpich2-3.2.1 <span class="nv">FFTW_HOME</span><span class="o">=</span>/share/apps/fftw/3.3.7/gcc-5.5.0_mpich2-3.2.1 ~/apps/charmm-gammes/src/gcc-5.5.0_mpich2-3.2.1/charmm/configure --prefix<span class="o">=</span>/share/apps/charmm/c41b2/gcc-5.5.0_mpich2-3.2.1 --gamess --with-gcc
+$ make -j <span class="m">16</span> <span class="p">|</span> tee make-charmm.log
+</pre></div>
+</div>
+<p>4. At the end of the execution of the <strong>make -j 16</strong>, several errors related to functions that are not defined will result, this happens because the CHARMM and GAMESS
+compilation methods are different, making cmake unable to produce the dependencies for the parallel compilation of the program. This is why it is necessary to apply
+a new patch and recompile again.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> /home/<span class="nv">$USER</span>/apps/charmm-gammes/src/gcc-5.5.0_mpich2-3.2.1
+$ patch -p1 &lt; gamess/c41b2-phase2.patch
+$ <span class="nb">cd</span> /home/<span class="nv">$USER</span>/apps/charmm-gammes/build
+$ make -j <span class="m">16</span> <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="p">|</span> tee make-charmm.log
+$ sudo mkdir -p /share/apps/charmm/c41b2/gcc-5.5.0_mpich2-3.2.1
+$ sudo chown -R <span class="nv">$USER</span>.apolo /share/apps/charmm/c41b2/gcc-5.5.0_mpich2-3.2.1
+$ sudo make install <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="p">|</span> tee make-charmm.log
+$ sudo chown -R root.root /share/apps/charmm/c41b2/gcc-5.5.0_mpich2-3.2.1
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>After finishing with the last parallel make, the charmm binary should have been produced, we can try it as follows:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./charmm
+...
+<span class="m">1</span>
+              Chemistry at HARvard Macromolecular Mechanics
+        <span class="o">(</span>CHARMM<span class="o">)</span> - Developmental Version 41b2   February <span class="m">15</span>, <span class="m">2017</span>
+                             Revision unknown
+    Copyright<span class="o">(</span>c<span class="o">)</span> <span class="m">1984</span>-2014  President and Fellows of Harvard College
+                           All Rights Reserved
+  Current operating system: Linux-2.6.32-504.16.2.el6.x86_64<span class="o">(</span>x86_64<span class="o">)</span>@deb
+              Created on  <span class="m">6</span>/6/17 at  <span class="m">9</span>:36:54 by user: mgomezzul
+
+         aximum number of ATOMS:    <span class="m">360720</span>, and RESidues:      <span class="m">120240</span>
+...
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="module">
+<h2><a class="toc-backref" href="#id11">Module</a><a class="headerlink" href="#module" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="c">#%Module1.0####################################################################</span>
+<span class="c">##</span>
+<span class="c">## module load charmm/c41b2</span>
+<span class="c">##</span>
+<span class="c">## /share/apps/modules/charmm/c41b2</span>
+<span class="c">## Written by Mateo Gomez-Zuluaga</span>
+<span class="c">##</span>
+
+<span class="k">proc</span> ModulesHelp <span class="k">{}</span> <span class="k">{</span>
+    <span class="k">global</span> version modroot
+    <span class="nb">puts</span> stderr <span class="s2">&quot;Sets the environment for using CHARMM c41b2\</span>
+<span class="s2">        \nin the shared directory\</span>
+<span class="s2">        \n/share/apps/charmm/c41b2\</span>
+<span class="s2">        \nbuilded with GAMESS 2016 R1, MPICH2 3.2 and GCC-5.4.0&quot;</span>
+<span class="k">}</span>
+
+<span class="nv">module-whatis</span> <span class="s2">&quot;(Name________) charmm&quot;</span>
+<span class="nv">module-whatis</span> <span class="s2">&quot;(Version_____) c41b2&quot;</span>
+<span class="nv">module-whatis</span> <span class="s2">&quot;(Compilers___) mpich2-3.2_gcc-5.4.0&quot;</span>
+<span class="nv">module-whatis</span> <span class="s2">&quot;(System______) x86_64-redhat-linux&quot;</span>
+<span class="nv">module-whatis</span> <span class="s2">&quot;(Libraries___) &quot;</span>
+
+<span class="c"># for Tcl script use only</span>
+<span class="k">set</span>         topdir        <span class="o">/</span>share<span class="o">/</span>apps<span class="o">/</span>charmm<span class="o">/</span>c41b2
+<span class="k">set</span>         version       c41b2
+<span class="k">set</span>         sys           x86_64-redhat-linux
+
+<span class="nv">conflict</span> charmm
+
+<span class="nv">module</span> load mpich2<span class="o">/</span><span class="mf">3.2</span>_gcc-5.4.0
+
+
+<span class="nv">prepend-path</span>        PATH            <span class="nv">$topdir</span><span class="o">/</span>bin
+</pre></div>
+</div>
+</div>
+<div class="section" id="mode-of-use">
+<h2><a class="toc-backref" href="#id12">Mode of Use</a><a class="headerlink" href="#mode-of-use" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Have available an example to run charmm-gamess, in our case the example is available in <strong>/home/$USER/test/charm/ilans</strong></p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> /home/<span class="nv">$USER</span>/test/charmm-gamess/test_ilans
+</pre></div>
+</div>
+</div>
+<div class="section" id="slurm-template">
+<h2><a class="toc-backref" href="#id13">SLURM Template</a><a class="headerlink" href="#slurm-template" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
+
+<span class="c1">#!/bin/sh</span>
+
+<span class="c1">#SBATCH --partition=longjobs</span>
+<span class="c1">#SBATCH --nodes=1</span>
+<span class="c1">#SBATCH --ntasks-per-node=16</span>
+<span class="c1">#SBATCH --time=250:00:00</span>
+<span class="c1">#SBATCH --job-name=mdrun-npt</span>
+<span class="c1">#SBATCH -o result_%N_%j.out</span>
+<span class="c1">#SBATCH -e result_%N_%j.err</span>
+
+<span class="c1"># Don&#39;t share environment variables</span>
+<span class="nb">export</span> <span class="nv">SBATCH_EXPORT</span><span class="o">=</span>NONE
+<span class="nb">export</span> <span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">1</span>
+
+module load charmm/c41b2_gcc-5.5.0_mpich2-3.2.1
+
+srun --mpi<span class="o">=</span>pmi2 charmm &lt; min1.inp  &gt; pot.out
+</pre></div>
+</div>
+</div>
+<div class="section" id="references">
+<h2><a class="toc-backref" href="#id14">References</a><a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.charmm.org/charmm/documentation/by-version/c41b1/">https://www.charmm.org/charmm/documentation/by-version/c41b1/</a></p></li>
+<li><p><a class="reference external" href="http://ala.cmm.ki.si/gamess/20160818.1/Compile-CHARMM-with-GAMESS.txt">http://ala.cmm.ki.si/gamess/20160818.1/Compile-CHARMM-with-GAMESS.txt</a></p></li>
+<li><p><a class="reference external" href="http://hpckp.org/index.php/articles/best-practices/97-how-to-build-charmm-c35b1-on-opteron-and-intel-architectures-with-infiniband-network">http://hpckp.org/index.php/articles/best-practices/97-how-to-build-charmm-c35b1-on-opteron-and-intel-architectures-with-infiniband-network</a></p></li>
+<li><p><a class="reference external" href="https://www.charmmtutorial.org/index.php/Installation">https://www.charmmtutorial.org/index.php/Installation</a></p></li>
+<li><p><a class="reference external" href="https://github.com/kgullikson88/Telluric-Fitter/issues/5">https://github.com/kgullikson88/Telluric-Fitter/issues/5</a></p></li>
+</ul>
+</div>
+<div class="section" id="author">
+<h2><a class="toc-backref" href="#id15">Author</a><a class="headerlink" href="#author" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Mateo Gómez Zuluaga</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../crystal/index.html" class="btn btn-neutral float-right" title="crystal" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral float-left" title="CHARMM" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Creative Commons Attribution-NonCommercial 4.0 International License
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

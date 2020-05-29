@@ -1,0 +1,483 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>IPMI Sensors - Nagios Plugin &mdash; apolo-docs 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../" src="../../../../../_static/documentation_options.js"></script>
+        <script src="../../../../../_static/jquery.js"></script>
+        <script src="../../../../../_static/underscore.js"></script>
+        <script src="../../../../../_static/doctools.js"></script>
+        <script src="../../../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/css/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/css/sidebar.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" />
+    <link rel="next" title="Dell OpenManage - Nagios Plugin" href="dell-openmanage.html" />
+    <link rel="prev" title="Nagios-plugins" href="nagios-plugins.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+  
+    <a href="../../../../../index.html">
+  
+
+  
+    
+    <img src="../../../../../_static/apolo-white.png" style="width: 150px;" class="logo" alt="Logo"/>
+  
+    </a>
+
+    
+      
+      
+      
+	<div class="version" style="color: rgba(255,255,255,0.5);">
+	  0.1
+	</div>
+      
+    
+
+    
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../gettingstarted/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../supercomputers/index.html">Supercomputers</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../index.html">Software</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../../virtualization/index.html">Virtualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../programminglanguages/index.html">Programming Languages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../applications/index.html">Scientific Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../resourcemanager/index.html">Resource Manager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../provisioning/index.html">Provisioning</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../index.html">Monitoring</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../../architecture/index.html">Monitoring Architecture</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html">Nagios</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html">Nagios Core - 4.4.1</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sensu/index.html">Sensu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../elk/index.html">ELK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../grafana/index.html">Grafana</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../operatingsystems/index.html">Operating Systems</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../how-to-acknowledge.html">How to Acknowledge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../report-a-bug.html">Report a Bug</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">apolo-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../index.html">Software</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Monitoring</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Nagios</a> &raquo;</li>
+        
+          <li><a href="../index.html">Nagios Core - 4.4.1</a> &raquo;</li>
+        
+      <li>IPMI Sensors - Nagios Plugin</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../../_sources/software/monitoring/nagios/nagios-core-4.4.1/plugins/ipmi-sensors.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ipmi-sensors-nagios-plugin">
+<span id="ipmi-sensors-plugin-index"></span><h1>IPMI Sensors - Nagios Plugin<a class="headerlink" href="#ipmi-sensors-nagios-plugin" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="basic-information">
+<h2>Basic information<a class="headerlink" href="#basic-information" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Official Website:</strong> <a class="reference external" href="https://exchange.nagios.org/directory/Plugins/Hardware/Server-Hardware/IPMI-Sensor-Monitoring-Plugin/details">https://exchange.nagios.org/directory/Plugins/Hardware/Server-Hardware/IPMI-Sensor-Monitoring-Plugin/details</a></p></li>
+<li><p><strong>License:</strong> GPL</p></li>
+<li><p><strong>Version:</strong> 3.9</p></li>
+</ul>
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">include_tasks</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ipmi-sensors-plugin.yml</span>
+  <span class="nt">when</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ipmi_sensor_plugin.stat.exists == false</span>
+<span class="p p-Indicator">-</span> <span class="nt">include_tasks</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ipmi-plugin-status.yml</span>
+</pre></div>
+</div>
+<p>This taskfile is included only when the file <code class="code bash docutils literal notranslate"><span class="pre">/usr/local/nagios/libexec/check_ipmi_sensor</span></code> doesn’t exist.
+This state is registered in <code class="code bash docutils literal notranslate"><span class="pre">nagios-plugins-installed.yml</span></code>, with the module <strong>stat</strong>.</p>
+<p>More information in the section <a class="reference internal" href="../installation.html#nagios-plugins-installed-yml"><span class="std std-ref">Installing Nagios Plugins</span></a>.</p>
+<p>The installation process consists on cloning the git repository and copying the file <code class="code bash docutils literal notranslate"><span class="pre">check_ipmi_sensor</span></code>
+to the Nagios plugins directory.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Assure existence of tempDir</span>
+  <span class="nt">file</span><span class="p">:</span>
+    <span class="nt">path</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">temp_dir</span><span class="nv"> </span><span class="s">}}/check_ipmi_sensor_v3&quot;</span>
+    <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">directory</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Clone git repo in temp dir</span>
+  <span class="nt">git</span><span class="p">:</span>
+    <span class="nt">repo</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">ipmi_plugin_url</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">clone</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
+    <span class="nt">dest</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">temp_dir</span><span class="nv"> </span><span class="s">}}/check_ipmi_sensor_v3&quot;</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Copy the IPMI sensors plugin</span>
+  <span class="nt">copy</span><span class="p">:</span>
+    <span class="nt">src</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">temp_dir</span><span class="nv"> </span><span class="s">}}/check_ipmi_sensor_v3/check_ipmi_sensor&quot;</span>
+    <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/usr/local/nagios/libexec/check_ipmi_sensor</span>
+</pre></div>
+</div>
+<p>After installing or not the plugin, the taskfile <code class="code bash docutils literal notranslate"><span class="pre">ipmi-plugin-status.yml</span></code> is executed,
+checking the owner, the group and the permissions over the plugin.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Correct setup of the executable</span>
+  <span class="nt">file</span><span class="p">:</span>
+    <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/usr/local/nagios/libexec/check_ipmi_sensor</span>
+    <span class="nt">owner</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">nagios</span>
+    <span class="nt">group</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">nagcmd</span>
+    <span class="nt">mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0550</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Assures existence of ipmi-config Directory</span>
+  <span class="nt">file</span><span class="p">:</span>
+    <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/etc/ipmi-config/</span>
+    <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">directory</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Syncronize IPMI configuration</span>
+  <span class="nt">template</span><span class="p">:</span>
+    <span class="nt">src</span><span class="p">:</span> <span class="s">&quot;etc/ipmi-config/{{</span><span class="nv"> </span><span class="s">item</span><span class="nv"> </span><span class="s">}}.j2&quot;</span>
+    <span class="nt">dest</span><span class="p">:</span> <span class="s">&quot;/etc/ipmi-config/{{</span><span class="nv"> </span><span class="s">item</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">owner</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">root</span>
+    <span class="nt">group</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">nagcmd</span>
+    <span class="nt">mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0640</span>
+  <span class="nt">with_items</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ipmi-ilo.cfg</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ipmi-dell.cfg</span>
+  <span class="nt">notify</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">nagios_restart</span>
+</pre></div>
+</div>
+<p>Synchronizes the ipmi-config file with the version present in the
+repo. The passwords are cyphered with <strong>Ansible Vault</strong>.</p>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<p>The following steps are required for setting up this plugin in a specific host:</p>
+<ol class="arabic">
+<li><p>Add the attribute <strong>_ipmi_ip</strong> in the host definition. This attribute is required by the check_ipmi_sensors plugin.
+The attribute <code class="code bash docutils literal notranslate"><span class="pre">_ipmi_excluded_sensors</span></code> is necessary only when the error <a class="reference internal" href="#ipmi-sensor-error"><span class="std std-ref">IPMI Status: Critical [Presence = Critical, Presence = Critical]</span></a> occurs.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>define host<span class="o">{</span>
+  host_name                host_1
+      address                  <span class="m">192</span>.168.1.1
+      _ipmi_ip                 <span class="m">192</span>.168.1.1
+      _ipmi_excluded_sensors   <span class="m">56</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The names of these variables start with an underscore and are in lowercase.
+More info about the usage of custom object variables <a class="footnote-reference brackets" href="#id4" id="id1">1</a> .</p>
+</div>
+</li>
+<li><p>Add the command definition. In this implementation, the command is added in
+<code class="code bash docutils literal notranslate"><span class="pre">/usr/local/nagios/etc/objects/commands.cfg</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>define <span class="nb">command</span> <span class="o">{</span>
+  command_name  check_ipmi_sensor
+  command_line  <span class="nv">$USER1</span>$/check_ipmi_sensor -H <span class="nv">$_HOSTIPMI_IP</span>$ -f <span class="nv">$ARG1</span>$ -x <span class="nv">$_HOSTIPMI_EXCLUDED_SENSORS</span>$ <span class="nv">$ARG2</span>$ <span class="nv">$ARG3</span>$
+<span class="o">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>Add the service definition. In this implementation, the service is added in <code class="code bash docutils literal notranslate"><span class="pre">/usr/local/nagios/etc/objects/common-services.cfg</span></code></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you want to ignore the SEL log entries warning, add
+the flag –nosel in the check_command field <em>(See example below)</em></p>
+</div>
+<p>The plugin can be configured for checking each sensor type independently:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>define service<span class="o">{</span>
+  use                  generic-service
+  host_name            host1
+  service_description  IPMI
+  check_command        check_ipmi_sensor!/etc/ipmi-config/ipmi.cfg!--nosel!-T &lt;sensor_type&gt;
+<span class="o">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The sensor types are listed in the page: IPMI Sensor Types <a class="footnote-reference brackets" href="#id5" id="id2">2</a></p>
+</div>
+<p>Or configured for checking everything in one Service definition:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>define service<span class="o">{</span>
+  use                  generic-service
+  host_name            host1
+  service_description  IPMI
+  check_command        check_ipmi_sensor!/etc/ipmi-config/ipmi.cfg
+<span class="o">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the IPMI plugin is configured for multiple nodes and there is not a common user/password
+between them, you can configure one service per each different credential, defining different
+ipmi-config files.</p>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>define service<span class="o">{</span>
+  use                  generic-service
+  host_name            host1
+  service_description  IPMI
+  check_command        check_ipmi_sensor!/etc/ipmi-config/file1.cfg
+<span class="o">}</span>
+
+    define service<span class="o">{</span>
+  use                  generic-service
+  host_name            host2
+  service_description  IPMI
+  check_command        check_ipmi_sensor!/etc/ipmi-config/file2.cfg
+<span class="o">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The user used for this IPMI monitoring doesn’t need special permissions.</p>
+</div>
+</li>
+<li><p>Create the file with the credentials and with the correct permissions.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>username user
+password passw0rd
+privilege-level user
+ipmi-sensors-interpret-oem-data on
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Owner: nagios</p></li>
+<li><p>Group: nagcmd</p></li>
+<li><p>Mode: 0640</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Read <a class="footnote-reference brackets" href="#id6" id="id3">3</a> for more information about freeIPMI configuration file.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="ipmi-status-critical-x-system-event-log-sel-entries-present">
+<span id="ipmi-sel-error"></span><h3>IPMI Status: Critical [X system event log (SEL) entries present]<a class="headerlink" href="#ipmi-status-critical-x-system-event-log-sel-entries-present" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p>Read System Entry Logs before deleting them. It’s important to see if there is a
+bad behavior registered in these logs.</p>
+<p><code class="code bash docutils literal notranslate"><span class="pre">ipmiutil</span> <span class="pre">sel</span> <span class="pre">-N</span> <span class="operator"><span class="pre">(</span></span><span class="pre">host_ip</span><span class="punctuation"><span class="pre">|</span></span><span class="pre">hostname</span><span class="operator"><span class="pre">)</span></span> <span class="pre">-F</span> <span class="pre">lan2</span> <span class="pre">-U</span> <span class="pre">user</span> <span class="pre">-P</span> <span class="pre">passwd</span></code></p>
+</li>
+<li><p>Clear System Entry Logs with the credentials of a user with enough privileges.
+<code class="code bash docutils literal notranslate"><span class="pre">ipmiutil</span> <span class="pre">sel</span> <span class="pre">-d</span> <span class="pre">-N</span> <span class="operator"><span class="pre">(</span></span><span class="pre">host_ip</span><span class="punctuation"><span class="pre">|</span></span><span class="pre">hostname</span><span class="operator"><span class="pre">)</span></span> <span class="pre">-F</span> <span class="pre">lan2</span> <span class="pre">-U</span> <span class="pre">user</span> <span class="pre">-P</span> <span class="pre">passwd</span></code></p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The password should be written between apostrophes (<strong>‘</strong>) if contains special characters.</p>
+</div>
+</div>
+<div class="section" id="ipmi-status-critical-presence-critical-presence-critical">
+<span id="ipmi-sensor-error"></span><h3>IPMI Status: Critical [Presence = Critical, Presence = Critical]<a class="headerlink" href="#ipmi-status-critical-presence-critical-presence-critical" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p>Execute the following command to identify which sensors are absent.</p>
+<p><code class="code bash docutils literal notranslate"><span class="pre">check_ipmi_sensor</span> <span class="pre">-H</span> <span class="pre">&lt;Host-IP&gt;</span> <span class="pre">-f</span> <span class="pre">&lt;Archivo</span> <span class="pre">de</span> <span class="pre">configuración&gt;</span> <span class="pre">-vvv</span> <span class="punctuation"><span class="pre">|</span></span> <span class="pre">grep</span> <span class="pre">Critical</span></code></p>
+<p>Example of STOUT:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ID  <span class="p">|</span> Name     <span class="p">|</span> Type            <span class="p">|</span> State    <span class="p">|</span> Reading <span class="p">|</span> Units <span class="p">|</span> Lower NR  <span class="p">|</span> Lower C <span class="p">|</span> Lower NC <span class="p">|</span> Upper NC <span class="p">|</span> Upper C <span class="p">|</span> Upper NR <span class="p">|</span> Event
+<span class="m">56</span>  <span class="p">|</span> Presence <span class="p">|</span> Entity Presence <span class="p">|</span> Critical <span class="p">|</span>   N/A   <span class="p">|</span>  N/A  <span class="p">|</span>    N/A    <span class="p">|</span>   N/A   <span class="p">|</span>    N/A   <span class="p">|</span>    N/A   <span class="p">|</span>   N/A   <span class="p">|</span>    N/A   <span class="p">|</span> <span class="s1">&#39;Entity Absent&#39;</span>
+<span class="m">58</span>  <span class="p">|</span> Presence <span class="p">|</span> Entity Presence <span class="p">|</span> Critical <span class="p">|</span>   N/A   <span class="p">|</span>  N/A  <span class="p">|</span>    N/A    <span class="p">|</span>   N/A   <span class="p">|</span>    N/A   <span class="p">|</span>    N/A   <span class="p">|</span>   N/A   <span class="p">|</span>    N/A   <span class="p">|</span> <span class="s1">&#39;Entity Absent&#39;</span>
+IPMI Status: Critical <span class="o">[</span><span class="nv">Presence</span> <span class="o">=</span> Critical <span class="o">(</span><span class="s1">&#39;Entity Absent&#39;</span><span class="o">)</span>, <span class="nv">Presence</span> <span class="o">=</span> Critical <span class="o">(</span><span class="s1">&#39;Entity Absent&#39;</span><span class="o">)]</span> <span class="p">|</span> <span class="s1">&#39;Inlet Temp&#39;</span><span class="o">=</span><span class="m">17</span>.00<span class="p">;</span><span class="m">3</span>.00:42.00<span class="p">;</span>-7.00:47.00 <span class="s1">&#39;CPU Usage&#39;</span><span class="o">=</span><span class="m">100</span>.00<span class="p">;</span>~:101.00<span class="p">;</span> <span class="s1">&#39;IO Usage&#39;</span><span class="o">=</span><span class="m">0</span>.00<span class="p">;</span>~:101.00<span class="p">;</span>
+<span class="s1">&#39;MEM Usage&#39;</span><span class="o">=</span><span class="m">0</span>.00<span class="p">;</span>~:101.00<span class="p">;</span> <span class="s1">&#39;SYS Usage&#39;</span><span class="o">=</span><span class="m">100</span>.00<span class="p">;</span>~:101.00<span class="p">;</span> <span class="s1">&#39;Pwr Consumption&#39;</span><span class="o">=</span><span class="m">320</span>.00<span class="p">;</span>~:452.00<span class="p">;</span>~:540.00 <span class="s1">&#39;Current&#39;</span><span class="o">=</span><span class="m">1</span>.50 <span class="s1">&#39;Temp&#39;</span><span class="o">=</span><span class="m">80</span>.00 <span class="s1">&#39;Temp&#39;</span><span class="o">=</span><span class="m">65</span>.00
+<span class="nv">Presence</span> <span class="o">=</span> <span class="s1">&#39;Entity Absent&#39;</span> <span class="o">(</span>Status: Critical<span class="o">)</span>
+<span class="nv">Presence</span> <span class="o">=</span> <span class="s1">&#39;Entity Absent&#39;</span> <span class="o">(</span>Status: Critical<span class="o">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>Add the attribute <code class="code bash docutils literal notranslate"><span class="pre">_ipmi_excluded_sensors</span></code> which value is a comma-separated list of sensor IDs that contain the absent sensors discovered.</p>
+<p><strong>Example:</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>define host{
+  host_name               host-example
+  address                 0.0.0.0
+  _ipmi_ip                0.0.0.0
+  _ipmi_excluded_sensors  56,58
+}
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<dl class="footnote brackets">
+<dt class="label" id="id4"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>Custom Object Variables. (n.d.). Retrieved August 29, 2018,from
+<a class="reference external" href="https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/3/en/customobjectvars.html">https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/3/en/customobjectvars.html</a></p>
+</dd>
+<dt class="label" id="id5"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p>Krenn, T. (n.d.). IPMI Sensor Types. Retrieved November 20, 2018, from <a class="reference external" href="https://www.thomas-krenn.com/en/wiki/IPMI_Sensor_Types">https://www.thomas-krenn.com/en/wiki/IPMI_Sensor_Types</a></p>
+</dd>
+<dt class="label" id="id6"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
+<dd><p>“freeipmi.conf(5) - Linux man page”, FreeIPMI Core Team. Retrieved
+December 3, 2018, from <a class="reference external" href="https://linux.die.net/man/5/freeipmi.conf">https://linux.die.net/man/5/freeipmi.conf</a></p>
+</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="dell-openmanage.html" class="btn btn-neutral float-right" title="Dell OpenManage - Nagios Plugin" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="nagios-plugins.html" class="btn btn-neutral float-left" title="Nagios-plugins" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Creative Commons Attribution-NonCommercial 4.0 International License
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

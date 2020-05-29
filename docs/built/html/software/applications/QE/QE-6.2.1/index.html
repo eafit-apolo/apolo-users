@@ -1,0 +1,551 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>6.2.1 &mdash; apolo-docs 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/sidebar.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="Qiime2" href="../../Qiime2/index.html" />
+    <link rel="prev" title="6.1" href="../QE-6.1/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+  
+    <a href="../../../../index.html">
+  
+
+  
+    
+    <img src="../../../../_static/apolo-white.png" style="width: 150px;" class="logo" alt="Logo"/>
+  
+    </a>
+
+    
+      
+      
+      
+	<div class="version" style="color: rgba(255,255,255,0.5);">
+	  0.1
+	</div>
+      
+    
+
+    
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../gettingstarted/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../supercomputers/index.html">Supercomputers</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Software</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../virtualization/index.html">Virtualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../programminglanguages/index.html">Programming Languages</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Scientific Applications</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../ansys/index.html">ANSYS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../autoDock_Vina/index.html">autoDock_Vina</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../autoDock/index.html">AutoDock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../bayescan/index.html">BayeScan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../BEAST2/index.html">BEAST2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../BioEM/index.html">BioEM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../BLAST/index.html">BLAST</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../blender/index.html">blender</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../bowtie2/index.html">bowtie2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Bpp/index.html">Bpp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../BWA/index.html">BWA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../CDO/index.html">CDO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../CHARMM/index.html">CHARMM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../crystal/index.html">crystal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Cufflinks/index.html">Cufflinks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../delft3D/index.html">delft3D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../DL_POLY_Classic/index.html">DL_POLY_Classic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../edge_pro/index.html">EDGE-pro</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../elmer/index.html">elmer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../fastQC/index.html">fastQC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../gamess/index.html">gamess</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../garli/index.html">garli</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../gatk4/index.html">GATK4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../gromacs/index.html">GROMACS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../gurobi/index.html">gurobi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lammps/index.html">LAMMPS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../leDock/index.html">leDock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lePro/index.html">lePro</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mafft/index.html">MAFFT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../MedeA/index.html">MedeA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mothur/index.html">Mothur</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mrBayes/index.html">mrBayes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../MUSCLE/index.html">MUSCLE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ncl/index.html">ncl</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../OpenFOAM/index.html">OpenFOAM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../opensees/index.html">OpenSees</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../pargenes/index.html">ParGenes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../partitionFinder/index.html">Partition Finder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../picrust2/index.html">PICRUSt2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../plumed/index.html">Plumed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../prinseq-lite/index.html">Prinseq-lite</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../pyrad/index.html">pyrad</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">QE</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../QE-6.1/index.html">6.1</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">6.2.1</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../Qiime2/index.html">Qiime2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../raxml/index.html">RAxML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../rDock/index.html">rDock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../repet/index.html">REPET</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../SAMtools/index.html">SAMtools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stacks/index.html">stacks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../T-Coffee/index.html">T-Coffee</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../topHat/index.html">TopHat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../transrate/index.html">Transrate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../trimmomatic/index.html">trimmomatic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../trinity/index.html">Trinity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../USPEX/index.html">USPEX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../VASP/index.html">VASP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../vsearch/index.html">vsearch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../wps/index.html">Wps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../wrf/index.html">wrf</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../resourcemanager/index.html">Resource Manager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../provisioning/index.html">Provisioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../monitoring/index.html">Monitoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../operatingsystems/index.html">Operating Systems</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../how-to-acknowledge.html">How to Acknowledge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../report-a-bug.html">Report a Bug</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">apolo-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Software</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Scientific Applications</a> &raquo;</li>
+        
+          <li><a href="../index.html">QE</a> &raquo;</li>
+        
+      <li>6.2.1</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/software/applications/QE/QE-6.2.1/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="qe-6-2-1">
+<span id="id1"></span><h1><a class="toc-backref" href="#id2">6.2.1</a><a class="headerlink" href="#qe-6-2-1" title="Permalink to this headline">¶</a></h1>
+<div class="contents topic" id="table-of-contents">
+<p class="topic-title">Table of contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#qe-6-2-1" id="id2">6.2.1</a></p>
+<ul>
+<li><p><a class="reference internal" href="#pre-requirements" id="id3">Pre requirements</a></p></li>
+<li><p><a class="reference internal" href="#installation" id="id4">Installation</a></p></li>
+<li><p><a class="reference internal" href="#module" id="id5">Module</a></p></li>
+<li><p><a class="reference internal" href="#mode-of-use" id="id6">Mode of use</a></p></li>
+<li><p><a class="reference internal" href="#slurm-template" id="id7">Slurm template</a></p></li>
+<li><p><a class="reference internal" href="#input-file" id="id8">Input file</a></p></li>
+<li><p><a class="reference internal" href="#references" id="id9">References</a></p></li>
+<li><p><a class="reference internal" href="#author" id="id10">Author</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<ul class="simple">
+<li><p><strong>Installation date:</strong> 30/05/2018</p></li>
+<li><p><strong>URL:</strong> <a class="reference external" href="http://www.quantum-espresso.org">http://www.quantum-espresso.org</a></p></li>
+<li><p><strong>Apolo version:</strong> Apolo II and Cronos</p></li>
+<li><p><strong>License:</strong> GNU GENERAL PUBLIC LICENSE Version 2</p></li>
+</ul>
+<div class="section" id="pre-requirements">
+<h2><a class="toc-backref" href="#id3">Pre requirements</a><a class="headerlink" href="#pre-requirements" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Intel Parell Studio XE Cluster Edition 2018 - Update 2</p></li>
+<li><p>Intel Compilers (Fortran and C)</p></li>
+<li><p>Intel MPI (Fortran and C)</p></li>
+<li><p>Intel MKL</p></li>
+</ul>
+</div>
+<div class="section" id="installation">
+<h2><a class="toc-backref" href="#id4">Installation</a><a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Download the latest version of the software (<a class="reference external" href="https://github.com/QEF/q-e/releases">Git Repository</a>):</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> /home/<span class="nv">$USER</span>/apps/qe/src/intel
+wget https://github.com/QEF/q-e/archive/qe-6.2.1.tar.gz
+tar xf qe-6.2.1.tar.gz
+<span class="nb">cd</span> qe-6.2.1
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>To proceed with the configuration and compilation we must follow these steps:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>module load mkl/18.0.2 impi/18.0.2
+module load intel/18.0.2 <span class="c1"># Sobreescribe las variables CC, CXX, FC, etc..</span>
+<span class="nb">unset</span> LD
+<span class="nb">export</span> <span class="nv">LD</span><span class="o">=</span><span class="nv">$MPIF90</span>
+<span class="nb">export</span> <span class="nv">CPP</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$CC</span><span class="s2"> -E&quot;</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>After establishing the compilation environment we must do the following steps for configuration:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo mkdir -p /share/apps/qe/6.2.1/intel-18.0.2
+sudo chown -R <span class="nv">$USER</span>.apolo /share/apps/qe/6.2.1/intel-18.0.2
+../configure --prefix<span class="o">=</span>/share/apps/qe/6.2.1/intel-18.0.2 --build<span class="o">=</span>x86_64-redhat-linux --enable-openmp --enable-parallel --with-scalapack<span class="o">=</span>intel <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="p">|</span> tee conf.log
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>Now we must edit the <strong>make.inc</strong> file and it should look like the one found here (<a class="reference external" href="https://gitlab.com/apolo/apolo-software/blob/master/cronos/qe/6.2.1/intel-18.0.2/make.inc">make.inc</a>)</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>emacs make.inc
+...
+<span class="nv">DFLAGS</span>         <span class="o">=</span>  -D__DFTI -D__MPI -D__SCALAPACK -D__INTEL -D__OPENM
+...
+<span class="nv">CPP</span>            <span class="o">=</span> <span class="s2">&quot;icc -E&quot;</span>
+...
+<span class="nv">CFLAGS</span>         <span class="o">=</span> -O3 -xHost -fno-alias -ansi-alias <span class="k">$(</span>DFLAGS<span class="k">)</span> <span class="k">$(</span>IFLAGS<span class="k">)</span>
+<span class="nv">FFLAGS</span>         <span class="o">=</span> -O3 -xHost -fno-alias -ansi-alias -assume byterecl -g -traceback -qopenmp
+...
+<span class="nv">LD</span>             <span class="o">=</span> mpiifort
+...
+<span class="c1"># External Libraries (if any) : blas, lapack, fft, MPI</span>
+<span class="nv">BLAS_LIBS</span>      <span class="o">=</span>   -lmkl_intel_lp64  -lmkl_intel_thread -lmkl_core
+<span class="nv">BLAS_LIBS_SWITCH</span> <span class="o">=</span> external
+
+<span class="c1"># If you have nothing better, use the local copy via &quot;--with-netlib&quot; :</span>
+<span class="c1"># LAPACK_LIBS = /your/path/to/espresso/LAPACK/lapack.a</span>
+<span class="c1"># LAPACK_LIBS_SWITCH = internal</span>
+<span class="c1"># For IBM machines with essl (-D__ESSL): load essl BEFORE lapack!</span>
+<span class="c1"># remember that LAPACK_LIBS precedes BLAS_LIBS in loading order</span>
+
+<span class="nv">LAPACK_LIBS</span>    <span class="o">=</span>
+<span class="nv">LAPACK_LIBS_SWITCH</span> <span class="o">=</span> external
+
+<span class="nv">SCALAPACK_LIBS</span> <span class="o">=</span> -lmkl_scalapack_lp64 -lmkl_blacs_intelmpi_lp64
+...
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Note:</strong> review in detail the make.inc present in GitLab.</p></li>
+</ul>
+<ol class="arabic simple" start="5">
+<li><p>After the modifications in the previous file we can continue with the compilation</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make all -j <span class="m">8</span> <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="p">|</span> tee qe-make.log
+make install <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="p">|</span> tee qe-make-install.log
+sudo chown -R root.root /share/apps/qe/6.2.1/intel-18.0.2
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Note:</strong> sometimes you have to run the <strong>make -j 8</strong> twice</p></li>
+</ul>
+<ol class="arabic simple" start="6">
+<li><p>Add the potential pseudo</p></li>
+</ol>
+<ul class="simple">
+<li><p><strong>Note:</strong> Check if they are already present in any previous Quatum-Espresso installation</p></li>
+</ul>
+<ol class="arabic simple">
+<li><p>If they are already present in a previous installation.</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo ln -s /share/apps/qe/6.2.1/gcc-5.5.0/pseudo /share/apps/qe/6.2.1/intel-18.0.2/pseudo
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>If they are not present.</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo mkdir -p /share/apps/qe/6.2.1/intel-18.0.2/pseudo
+<span class="nb">cd</span> /share/apps/qe/6.2.1/intel-18.0.2/pseudo
+<span class="c1"># Check the latest version of the pseudos - http://www.quantum-espresso.org/pseudopotentials/</span>
+wget http://www.quantum-espresso.org/wp-content/uploads/upf_files/upf_files.tar
+tar xf upf_files.tar
+rm upf_files.tar
+</pre></div>
+</div>
+</div>
+<div class="section" id="module">
+<h2><a class="toc-backref" href="#id5">Module</a><a class="headerlink" href="#module" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="c">#%Module1.0####################################################################</span>
+<span class="c">##</span>
+<span class="c">## module load qe/6.2.1_intel-18.0.2</span>
+<span class="c">##</span>
+<span class="c">## /share/apps/modules/qe/6.2.1_intel-18.0.2</span>
+<span class="c">## Written by Mateo Gómez-Zuluaga</span>
+<span class="c">##</span>
+
+<span class="k">proc</span> ModulesHelp <span class="k">{}</span> <span class="k">{</span>
+    <span class="k">global</span> version modroot
+    <span class="nb">puts</span> stderr <span class="s2">&quot;Sets the environment for using qe 6.2.1\</span>
+<span class="s2">        \nin the shared directory /share/apps/qe/6.2.1/intel-18.0.2\</span>
+<span class="s2">        \nbuilded with Intel Parallel Studio XE Cluster Edittion 2018 Update 2.&quot;</span>
+<span class="k">}</span>
+
+<span class="nv">module-whatis</span> <span class="s2">&quot;(Name________) qe&quot;</span>
+<span class="nv">module-whatis</span> <span class="s2">&quot;(Version_____) 6.2.1&quot;</span>
+<span class="nv">module-whatis</span> <span class="s2">&quot;(Compilers___) intel-18.0.2&quot;</span>
+<span class="nv">module-whatis</span> <span class="s2">&quot;(System______) x86_64-redhat-linux&quot;</span>
+<span class="nv">module-whatis</span> <span class="s2">&quot;(Libraries___) mkl-18.0.2&quot;</span>
+
+<span class="c"># for Tcl script use only</span>
+<span class="k">set</span>         topdir        <span class="o">/</span>share<span class="o">/</span>apps<span class="o">/</span>qe<span class="o">/</span><span class="mf">6.2</span>.1<span class="o">/</span>intel-18.0.2
+<span class="k">set</span>         version       <span class="mf">6.2</span>.1
+<span class="k">set</span>         sys           x86_64-redhat-linux
+<span class="k">set</span>         user              <span class="k">[</span><span class="nb">exec</span> bash <span class="o">-</span>c <span class="s2">&quot;echo \$USER&quot;</span><span class="k">]</span>
+
+<span class="nv">conflict</span> qe
+<span class="nv">module</span> load mkl<span class="o">/</span><span class="mf">18.0</span>.2
+<span class="nv">module</span> load impi<span class="o">/</span><span class="mf">18.0</span>.2
+
+<span class="nv">setenv</span>              OMP_NUM_THREADS         <span class="mi">1</span>
+<span class="nv">setenv</span>              ESPRESSO_PSEUDO         <span class="nv">$topdir</span><span class="o">/</span>pseudo
+<span class="nv">setenv</span>              PSEUDO_DIR              <span class="nv">$topdir</span><span class="o">/</span>pseudo
+<span class="nv">setenv</span>              ESPRESSO_TMPDIR         <span class="o">/</span>scratch-local<span class="o">/</span><span class="nv">$user</span><span class="o">/</span>qe
+<span class="nv">setenv</span>              TMP_DIR                 <span class="o">/</span>scratch-local<span class="o">/</span><span class="nv">$user</span><span class="o">/</span>qe
+<span class="nv">setenv</span>              NETWORK_PSEUDO          http:<span class="o">//</span>www.quantum-espresso.org<span class="o">/</span>wp-content<span class="o">/</span>uploads<span class="o">/</span>upf_files
+<span class="nv">setenv</span>              BIN_DIR                 <span class="nv">$topdir</span><span class="o">/</span>bin
+
+<span class="nv">prepend-path</span>        PATH                    <span class="nv">$topdir</span><span class="o">/</span>bin
+</pre></div>
+</div>
+</div>
+<div class="section" id="mode-of-use">
+<h2><a class="toc-backref" href="#id6">Mode of use</a><a class="headerlink" href="#mode-of-use" title="Permalink to this headline">¶</a></h2>
+<p>Load the necessary environment through the <strong>module</strong>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>module load qe/6.2.1_intel-18.0.2
+</pre></div>
+</div>
+</div>
+<div class="section" id="slurm-template">
+<h2><a class="toc-backref" href="#id7">Slurm template</a><a class="headerlink" href="#slurm-template" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
+<span class="c1">#SBATCH --partition=longjobs</span>
+<span class="c1">#SBATCH --nodes=1</span>
+<span class="c1">#SBATCH --ntasks-per-node=16</span>
+<span class="c1">#SBATCH --time=1-00</span>
+<span class="c1">#SBATCH --job-name=qe_test</span>
+<span class="c1">#SBATCH -o result_%N_%j.out</span>
+<span class="c1">#SBATCH -e result_%N_%j.err</span>
+
+
+<span class="c1"># Don&#39;t share environment variables</span>
+<span class="nb">export</span> <span class="nv">SBATCH_EXPORT</span><span class="o">=</span>NONE
+<span class="nb">export</span> <span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">1</span>
+
+module load qe/6.2.1_intel-18.0.2
+
+srun --mpi<span class="o">=</span>pmi2 pw.x &lt; test_1.in
+</pre></div>
+</div>
+</div>
+<div class="section" id="input-file">
+<h2><a class="toc-backref" href="#id8">Input file</a><a class="headerlink" href="#input-file" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&amp;CONTROL
+calculation = &quot;scf&quot;, ! single point calculation (default, could be omitted)
+prefix = &quot;CO&quot;, ! all auxiliary files will have filename beginning by prefix
+tprnfor = .true.
+/
+&amp;SYSTEM
+ibrav = 0, ! Bravais lattice defined by user in CELL_PARAMETERS card
+celldm(1)= 1.88972687, ! define length unit as 1 AA= 1/0.529177 bohr
+ntyp = 2, ! number of atomic species (see later ATOMIC_SPECIES)
+nat = 2, ! number of atoms in the unit cell (see later ATOMIC_POSITIONS)
+ecutwfc = 24.D0,
+ecutrho = 144.D0,
+/
+&amp;ELECTRONS
+conv_thr = 1.D-7, ! convergence threshold on total energy , in Rydberg
+/
+CELL_PARAMETERS cubic
+10.0  0.0  0.0
+0.0 10.0  0.0
+0.0  0.0 10.0
+ATOMIC_SPECIES
+O 1.00 O.pbe-rrkjus.UPF
+C 1.00 C.pbe-rrkjus.UPF
+ATOMIC_POSITIONS angstrom
+C 1.152 0.0 0.0
+O 0.000 0.0 0.0
+K_POINTS gamma
+</pre></div>
+</div>
+</div>
+<div class="section" id="references">
+<h2><a class="toc-backref" href="#id9">References</a><a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="http://www.archer.ac.uk/documentation/software/espresso/compiling_5.0.3_mkl-phase1.php">http://www.archer.ac.uk/documentation/software/espresso/compiling_5.0.3_mkl-phase1.php</a></p></li>
+<li><p><a class="reference external" href="https://glennklockwood.blogspot.com.co/2014/02/quantum-espresso-compiling-and-choice.html">https://glennklockwood.blogspot.com.co/2014/02/quantum-espresso-compiling-and-choice.html</a></p></li>
+<li><p><a class="reference external" href="https://proteusmaster.urcf.drexel.edu/urcfwiki/index.php/Compiling_Quantum_Espresso">https://proteusmaster.urcf.drexel.edu/urcfwiki/index.php/Compiling_Quantum_Espresso</a></p></li>
+<li><p><a class="reference external" href="https://www.hpc.ntnu.no/display/hpc/Quantum+Espresso">https://www.hpc.ntnu.no/display/hpc/Quantum+Espresso</a></p></li>
+<li><p><a class="reference external" href="https://nishaagrawal.wordpress.com/2013/03/21/quantum-espresso-5-0-2qe-64-bit-installation-with-intel-compser-xe-2013-and-intel-mpi/">https://nishaagrawal.wordpress.com/2013/03/21/quantum-espresso-5-0-2qe-64-bit-installation-with-intel-compser-xe-2013-and-intel-mpi/</a></p></li>
+<li><p><a class="reference external" href="https://software.intel.com/en-us/articles/quantum-espresso-for-intel-xeon-phi-coprocessor">https://software.intel.com/en-us/articles/quantum-espresso-for-intel-xeon-phi-coprocessor</a></p></li>
+<li><p><a class="reference external" href="http://www.quantum-espresso.org/pseudopotentials/">http://www.quantum-espresso.org/pseudopotentials/</a></p></li>
+</ul>
+</div>
+<div class="section" id="author">
+<h2><a class="toc-backref" href="#id10">Author</a><a class="headerlink" href="#author" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Mateo Gómez Zuluaga</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../Qiime2/index.html" class="btn btn-neutral float-right" title="Qiime2" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../QE-6.1/index.html" class="btn btn-neutral float-left" title="6.1" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Creative Commons Attribution-NonCommercial 4.0 International License
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

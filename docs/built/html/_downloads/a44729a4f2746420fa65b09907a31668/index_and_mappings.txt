@@ -1,0 +1,281 @@
+####################################################
+##################### SLURM LOGS CONFIG ############
+
+PUT /slurm
+{
+  "mappings":{
+    "doc":{
+      "properties":{
+        "slurm": {
+          "properties": {
+            "cluster": {
+              "type": "keyword"
+            },
+            "error": {
+              "type": "text",
+              "analyzer": "standard",
+              
+              "fields": {
+                "keyword":{
+                  "type": "keyword"
+                }
+              }
+            },
+            "event": {
+              "type": "keyword"
+            },
+            "port": {
+              "type": "integer"
+            },
+            "state": {
+              "type": "keyword"
+            },
+            "version": {
+              "type": "keyword"
+            },
+            "user":{
+              "properties":{
+                "name":{
+                  "type": "keyword"
+                },
+                "email":{
+                  "type": "keyword"
+                },
+                "jobid":{
+                  "type": "integer"
+                },
+                "jobname":{
+                  "type": "keyword"
+                },
+                "queuedtime":{
+                  "properties":{
+                    "days":{
+                      "type":"integer"
+                    },
+                    "hours":{
+                      "type": "integer"
+                    },
+                    "minutes":{
+                      "type": "integer"
+                    },
+                    "seconds":{
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        
+      }
+    }
+  }
+}
+
+# Replicas are used only when you have elasticsearch in more than one node, this to load balance queries
+PUT /slurm/_settings
+{
+  "number_of_replicas": 0
+}
+
+####################################################
+##################### SECURE LOGS CONFIG ###########
+
+PUT /secure
+{
+  "mappings":{
+    "doc":{
+      "properties":{
+        
+        "system":{
+          "properties":{
+            
+            "hostname":{
+              "type": "keyword"
+            },
+            "sudo":{
+              "properties":{
+                "user":{
+                  "type": "keyword"
+                },
+                "error":{
+                  "type": "text",
+                  "analyzer": "standard",
+                  
+                  "fields": {
+                    "keyword":{
+                      "type": "keyword"
+                    }
+                  }
+                },
+                "workdir":{
+                  "type": "keyword"
+                },
+                "asuser":{
+                  "type": "keyword"
+                },
+                "command":{
+                  "type": "text",
+                  "analyzer" : "standard",
+                  
+                  "fields": {
+                    "keyword":{
+                      "type": "keyword"
+                    }
+                  }
+                }
+              }
+            },
+            "groupadd":{
+              "properties":{
+                "name":{
+                  "type": "keyword"
+                },
+                "gid":{
+                  "type": "integer"
+                }
+              }
+            },
+            "useradd":{
+              "properties":{
+                "name":{
+                  "type": "keyword"
+                },
+                "uid":{
+                  "type": "integer"
+                },
+                "gid":{
+                  "type": "integer"
+                },
+                "home":{
+                  "type": "keyword"
+                },
+                "shell":{
+                  "type": "keyword"
+                }
+              }
+            }
+            
+          }
+        },
+        
+        "sshd": {
+          "properties": {
+            "guest": {
+              "properties": {
+                "ip": {
+                  "type": "ip"
+                },
+                "port": {
+                  "type": "keyword"
+                },
+                "signature":{
+                  "type": "text"
+                }
+              }
+            },
+            "event": {
+              "type": "keyword"
+            },
+            "method": {
+              "type": "keyword"
+            },
+            "user": {
+              "type": "keyword"
+            }
+          }
+        },
+        
+        "geoip":{
+          "properties":{
+            "city_name":{
+              "type":"keyword"
+            },
+            "country_code3": {
+              "type": "keyword"
+            },
+            "country_code2": {
+              "type": "keyword"
+            },
+            "region_name": {
+              "type": "keyword"
+            },
+            "country_name": {
+              "type": "keyword"
+            },
+            "region_code": {
+              "type": "keyword"
+            },
+            "location": {
+              "type": "geo_point"
+            },
+            "latitude":{
+              "type": "float"
+            },
+            "longitude":{
+              "type": "float"
+            },
+            "ip":{
+              "type": "ip"
+            },
+            "continent_code": {
+              "type": "keyword"
+            },
+            "timezone": {
+              "type": "keyword"
+            }
+          }
+        },
+        
+        "@timestamp":{ "type":"date" }
+        
+      }
+    }
+  }
+}
+
+PUT /secure/_settings
+{
+  "number_of_replicas": 0
+}
+
+####################################################
+##################### MESSAGES LOGS CONFIG #########
+
+PUT /messages
+{
+  "mappings":{
+    "doc":{
+      "properties":{
+        "system": {
+          "properties": {
+            
+            "hostname": {
+              "type": "keyword"
+            },
+            "message": {
+              "type": "text",
+              "analyzer": "standard",
+              
+              "fields": {
+                "keyword":{
+                  "type": "keyword"
+                }
+              }
+            },
+            "service": {
+              "type": "keyword"
+            }
+          }
+        }
+        
+      }
+    }
+  }
+}
+
+PUT /messages/_settings
+{
+  "number_of_replicas": 0
+}

@@ -60,7 +60,6 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    repet/index
    SAMtools/index
    stacks/index
-   T-Coffee/index
    topHat/index
    transrate/index
    trimmomatic/index

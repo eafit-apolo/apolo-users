@@ -1,0 +1,935 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Installation &mdash; apolo-docs 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/sidebar.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="Nagios-plugins" href="plugins/nagios-plugins.html" />
+    <link rel="prev" title="Nagios Core - 4.4.1" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+  
+    <a href="../../../../index.html">
+  
+
+  
+    
+    <img src="../../../../_static/apolo-white.png" style="width: 150px;" class="logo" alt="Logo"/>
+  
+    </a>
+
+    
+      
+      
+      
+	<div class="version" style="color: rgba(255,255,255,0.5);">
+	  0.1
+	</div>
+      
+    
+
+    
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../gettingstarted/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../supercomputers/index.html">Supercomputers</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Software</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../virtualization/index.html">Virtualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../programminglanguages/index.html">Programming Languages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../applications/index.html">Scientific Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../resourcemanager/index.html">Resource Manager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../provisioning/index.html">Provisioning</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Monitoring</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../architecture/index.html">Monitoring Architecture</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">Nagios</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="index.html">Nagios Core - 4.4.1</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensu/index.html">Sensu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../elk/index.html">ELK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grafana/index.html">Grafana</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../operatingsystems/index.html">Operating Systems</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../how-to-acknowledge.html">How to Acknowledge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../report-a-bug.html">Report a Bug</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">apolo-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Software</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Monitoring</a> &raquo;</li>
+        
+          <li><a href="../index.html">Nagios</a> &raquo;</li>
+        
+          <li><a href="index.html">Nagios Core - 4.4.1</a> &raquo;</li>
+        
+      <li>Installation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/software/monitoring/nagios/nagios-core-4.4.1/installation.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="installation">
+<h1><a class="toc-backref" href="#id5">Installation</a><a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<div class="contents topic" id="table-of-contents">
+<p class="topic-title">Table of Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#installation" id="id5">Installation</a></p>
+<ul>
+<li><p><a class="reference internal" href="#tested-on-requirements" id="id6"><strong>Tested on (Requirements)</strong></a></p></li>
+<li><p><a class="reference internal" href="#directory-structure" id="id7">Directory Structure</a></p></li>
+<li><p><a class="reference internal" href="#ansible-structure" id="id8">Ansible Structure</a></p></li>
+<li><p><a class="reference internal" href="#initial-configuration" id="id9">Initial Configuration</a></p>
+<ul>
+<li><p><a class="reference internal" href="#dell-repos-yml" id="id10">dell-repos.yml</a></p></li>
+<li><p><a class="reference internal" href="#packages-yml" id="id11">packages.yml</a></p></li>
+<li><p><a class="reference internal" href="#nagios-users-yml" id="id12">nagios-users.yml</a></p></li>
+<li><p><a class="reference internal" href="#apache-config-yml" id="id13">apache-config.yml</a></p></li>
+<li><p><a class="reference internal" href="#firewall-config-yml" id="id14">firewall-config.yml</a></p></li>
+<li><p><a class="reference internal" href="#ipmi-config-yml" id="id15">ipmi-config.yml</a></p></li>
+<li><p><a class="reference internal" href="#mail-config-yml" id="id16">mail-config.yml</a></p></li>
+<li><p><a class="reference internal" href="#snmp-config-yml" id="id17">snmp-config.yml</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#installing-nagios-core" id="id18">Installing Nagios Core</a></p>
+<ul>
+<li><p><a class="reference internal" href="#nagios-install-yml-and-nagios-installed-yml" id="id19">nagios-install.yml and nagios-installed.yml</a></p></li>
+<li><p><a class="reference internal" href="#nagios-config-yml" id="id20">nagios-config.yml</a></p></li>
+<li><p><a class="reference internal" href="#nagios-post-install-yml" id="id21">nagios-post-install.yml</a></p></li>
+<li><p><a class="reference internal" href="#selinux-config-yml" id="id22">selinux-config.yml</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#installing-nagios-plugins" id="id23">Installing Nagios Plugins</a></p></li>
+<li><p><a class="reference internal" href="#final-check" id="id24">Final Check</a></p></li>
+<li><p><a class="reference internal" href="#references" id="id25">References</a></p></li>
+<li><p><a class="reference internal" href="#authors" id="id26">Authors</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="tested-on-requirements">
+<h2><a class="toc-backref" href="#id6"><strong>Tested on (Requirements)</strong></a><a class="headerlink" href="#tested-on-requirements" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><strong>OS base:</strong> CentOS 7 (x86_64)</p></li>
+<li><p><strong>Provisioner:</strong> Ansible <span class="math notranslate nohighlight">\(\boldsymbol{\ge}\)</span> 4.4.1</p></li>
+<li><p><strong>Extra Libraries:</strong></p>
+<ul>
+<li><p>PyCrypto <span class="math notranslate nohighlight">\(\boldsymbol{\gt}\)</span> 2.6.1</p></li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is important to check if the PyCrypto system version is greater than 2.6.1, because this is a pre-requisite that Ansible-vault needs to work correctly.</p>
+</div>
+</div>
+<div class="section" id="directory-structure">
+<h2><a class="toc-backref" href="#id7">Directory Structure</a><a class="headerlink" href="#directory-structure" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>.
+├── ansible.cfg
+├── inventory
+│   └── hosts
+├── playbooks
+│   ├── healthcheck.yml
+└── roles
+    └── healthcheck
+        ├── handlers
+        ├── tasks
+        ├── vars
+        ├── templates
+        └── files
+</pre></div>
+</div>
+</div>
+<div class="section" id="ansible-structure">
+<h2><a class="toc-backref" href="#id8">Ansible Structure</a><a class="headerlink" href="#ansible-structure" title="Permalink to this headline">¶</a></h2>
+<p>We implemented a Role in Ansible that contains the whole process of installation and configuration of Nagios and it’s integration with some plugins.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>---
+<span class="c1">##############################################################</span>
+<span class="c1">#                   INITIAL-CONFIGURATION                    #</span>
+<span class="c1">##############################################################</span>
+- include_tasks: dell-repos.yml
+- include_tasks: packages.yml
+- include_tasks: nagios-users.yml
+- include_tasks: apache-config.yml
+- include_tasks: firewall-config.yml
+- include_tasks: ipmi-config.yml
+- include_tasks: mail-config.yml
+- include_tasks: snmp-config.yml
+
+<span class="c1">##############################################################</span>
+<span class="c1">#                         NAGIOS-CORE                        #</span>
+<span class="c1">##############################################################</span>
+- include_tasks: nagios-installed.yml
+- include_tasks: nagios-install.yml
+  when: nagios_installed.stat.exists <span class="o">==</span> <span class="nb">false</span>
+- include_tasks: nagios-config.yml
+- include_tasks: nagios-post-install.yml
+  when: nagios_installed.stat.exists <span class="o">==</span> <span class="nb">false</span>
+- include_tasks: selinux-config.yml
+
+<span class="c1">##############################################################</span>
+<span class="c1">#                       NAGIOS-PLUGINS                       #</span>
+<span class="c1">##############################################################</span>
+- include_tasks: nagios-plugins-installed.yml
+
+- include_tasks: nagios-plugins.yml
+  when: nagios_plugins_installed.matched <span class="o">==</span> <span class="m">0</span>
+
+- include_tasks: dell-plugin.yml
+  when: dell_plugin_dir.stat.exists <span class="o">==</span> <span class="nb">false</span>
+- include_tasks: dell-plugin-config.yml
+
+- include_tasks: ipmi-sensors-plugin.yml
+  when: ipmi_sensor_plugin.stat.exists <span class="o">==</span> <span class="nb">false</span>
+- include_tasks: ipmi-plugin-status.yml
+
+- include_tasks: ilo-plugin.yml
+  when: ilo_plugins.matched <span class="o">==</span> <span class="m">0</span>
+- include_tasks: ilo-plugin-config.yml
+
+- include_tasks: pnp4nagios-install.yml
+  when: pnp_dir.stat.exists <span class="o">==</span> <span class="nb">false</span>
+- include_tasks: pnp4nagios-config.yml
+
+<span class="c1">##############################################################</span>
+<span class="c1">#            CHECK-CORRECT-CONFIG &amp; REMOVE TEMP DIR          #</span>
+<span class="c1">##############################################################</span>
+- include_tasks: final-check.yml
+</pre></div>
+</div>
+</div>
+<div class="section" id="initial-configuration">
+<h2><a class="toc-backref" href="#id9">Initial Configuration</a><a class="headerlink" href="#initial-configuration" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="dell-repos-yml">
+<h3><a class="toc-backref" href="#id10">dell-repos.yml</a><a class="headerlink" href="#dell-repos-yml" title="Permalink to this headline">¶</a></h3>
+<p>This procedure is necessary in order to install the package <strong>srvadmin-idrac7</strong> from the official Dell repo.
+This makes it easier to check the presence/absence of the packages using the ansible-module “yum” instead
+of writing manually the process of compilation and verification.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Setup Dell Linux Independent Repository</span>
+  <span class="nt">yum_repository</span><span class="p">:</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">dell-system-update_independent</span>
+    <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">present</span>
+    <span class="nt">baseurl</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">baseurl_dell_independent_repo</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">dell-system-update_independent</span>
+    <span class="nt">gpgkey</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">gpgkey_dell_independent_repo</span><span class="nv"> </span><span class="s">}}&quot;</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Setup Dell Linux Dependent Repository</span>
+  <span class="nt">yum_repository</span><span class="p">:</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">dell-system-update_dependent</span>
+    <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">present</span>
+    <span class="nt">baseurl</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">baseurl_dell_dependent_repo</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">dell-system-update_dependent</span>
+    <span class="nt">gpgkey</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">gpgkey_dell_dependent_repo</span><span class="nv"> </span><span class="s">}}&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="packages-yml">
+<h3><a class="toc-backref" href="#id11">packages.yml</a><a class="headerlink" href="#packages-yml" title="Permalink to this headline">¶</a></h3>
+<p>This taskfile contains the dependencies for using some Ansible modules and for installing Nagios
+core and it’s plugins.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 24%" />
+<col style="width: 76%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>System Packages</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Python-passlib</p></td>
+<td><p>Dependency of Ansible HTPASSWD Module</p></td>
+</tr>
+<tr class="row-odd"><td><p>Python2-pip</p></td>
+<td><p>PIP Installs OMSDK (Dependency of Dell Plugin)</p></td>
+</tr>
+<tr class="row-even"><td><p>LibSELinux-Python</p></td>
+<td><p>Dependency of Ansible SELinux Module</p></td>
+</tr>
+<tr class="row-odd"><td><p>PolicyCoreUtils-Python</p></td>
+<td><p>Dependency of Ansible SELinux Module</p></td>
+</tr>
+<tr class="row-even"><td><p>mailx</p></td>
+<td><p>Provides “mail” command, used in notify nagios commands</p></td>
+</tr>
+<tr class="row-odd"><td><p>ipmiutil</p></td>
+<td><p>Necessary for <a class="reference internal" href="plugins/ipmi-sensors.html#ipmi-sel-error"><span class="std std-ref">IPMI Status: Critical [X system event log (SEL) entries present]</span></a></p></td>
+</tr>
+</tbody>
+</table>
+<p>The other dependencies are listed in the taskfile showed bellow.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This solution uses a list of packages in the yum ansible module instead of an ansible iterator (item) because this
+specification improves the install operation, creating a complete dependency tree instead of calling “n times” the
+yum module.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The &#64; syntax in yum module specifies the item is a package group.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The Dell OpenManage Plugin has two lists of dependencies: The first one is installed with the “yum” module and
+the second one with the “pip” module.</p>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">System Packages</span>
+  <span class="nt">yum</span><span class="p">:</span>
+    <span class="nt">name</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">python-passlib</span>      <span class="c1">#Dependency for htpasswd ansible module</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">python2-pip</span>         <span class="c1">#PIP Installs OMSDK required for Dell plugin</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">libselinux-python</span>          <span class="c1">#SELinux Ansible module dependency</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">policycoreutils-python</span>     <span class="c1">#SELinux Ansible module dependency</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">mailx</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ipmiutil</span>
+    <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">present</span>
+    <span class="nt">update_cache</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
+ 
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">NAGIOS Dependencies</span>
+  <span class="nt">yum</span><span class="p">:</span>
+    <span class="nt">name</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">httpd</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">php</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">glibc</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">gcc</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">glibc-common</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">gd</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">gd-devel</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">make</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">net-snmp</span>
+    <span class="p p-Indicator">-</span> <span class="s">&quot;@development&quot;</span>
+    <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">present</span>
+  <span class="nt">tags</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">centos-7,nagios,packages</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">IPMI_Sensor Monitoring Plugin Dependencies</span>
+  <span class="nt">yum</span><span class="p">:</span>
+    <span class="nt">name</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">freeipmi</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">perl</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">perl-IPC-Run</span>
+    <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">present</span>
+    <span class="nt">update_cache</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Dependencies for iLO REST Plugin</span>
+  <span class="nt">yum</span><span class="p">:</span>
+    <span class="nt">name</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">curl</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">libcurl</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">libcurl-devel</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">nmap</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">libtdb-devel</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">openssl-devel</span>
+    <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">present</span>
+    <span class="nt">update_cache</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Dependencies for Dell OME Plugin</span>
+  <span class="nt">yum</span><span class="p">:</span>
+    <span class="nt">name</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">perl-Sys-Syslog</span>     <span class="c1"># SNMPTT Dependency</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">perl-Net-IP</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">perl-Net-SNMP</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">libwsman1</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">openwsman-perl</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">perl-Socket6</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">snmptt</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">net-snmp-perl</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">srvadmin-idrac7</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">java-1.8.0-openjdk</span> 
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">java-1.8.0-openjdk-devel</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">python-netaddr</span>
+    <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">present</span>
+    <span class="nt">update_cache</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Python dependency for Dell OME Plugin</span>
+  <span class="nt">pip</span><span class="p">:</span>
+    <span class="nt">name</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">omsdk</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">omdrivers</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">argparse</span>
+    <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">present</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Dependencies for PNP4Nagios</span>
+  <span class="nt">yum</span><span class="p">:</span>
+    <span class="nt">name</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">rrdtool</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">php</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">perl</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">rrdtool-perl</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">php-gd</span>
+    <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">present</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="nagios-users-yml">
+<h3><a class="toc-backref" href="#id12">nagios-users.yml</a><a class="headerlink" href="#nagios-users-yml" title="Permalink to this headline">¶</a></h3>
+<p>It is necessary before installing Nagios-Core to create a <strong>Nagios</strong> user, and a <strong>nagcmd</strong> group, whose
+members will be <strong>apache</strong> and <strong>nagios</strong> users. It’s also necessary to let nagios execute /usr/sbin/ipmi-sensors and /usr/sbin/ipmi-sel with root permissions. This is assured making it explicit in the sudoers file.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Group nagcmd needed by NAGIOS</span>
+  <span class="nt">group</span><span class="p">:</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">nagcmd</span>
+    <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">present</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">User nagios</span>
+  <span class="nt">user</span><span class="p">:</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">nagios</span>
+    <span class="nt">groups</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">nagcmd</span>
+    <span class="nt">password</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">nagios_passwd</span><span class="nv"> </span><span class="s">}}&quot;</span>
+ 
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">User apache in group nagcmd</span>
+  <span class="nt">user</span><span class="p">:</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">apache</span>
+    <span class="nt">groups</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">nagcmd</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SUDO permissions for ipmi execution</span>
+  <span class="nt">lineinfile</span><span class="p">:</span>
+    <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/etc/sudoers</span>
+    <span class="nt">regexp</span><span class="p">:</span> <span class="s">&#39;^nagios\s&#39;</span>
+    <span class="nt">line</span><span class="p">:</span> <span class="s">&#39;nagios</span><span class="nv"> </span><span class="s">ALL=(root)</span><span class="nv"> </span><span class="s">NOPASSWD:</span><span class="nv"> </span><span class="s">/usr/sbin/ipmi-sensors,</span><span class="nv"> </span><span class="s">/usr/sbin/ipmi-sel&#39;</span>
+    <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">present</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="apache-config-yml">
+<h3><a class="toc-backref" href="#id13">apache-config.yml</a><a class="headerlink" href="#apache-config-yml" title="Permalink to this headline">¶</a></h3>
+<p>The objective is to configure Nagios to provide a Web interface, so it’s necessary to write in the
+<strong>httpd.conf</strong> file the line <strong>Listen &lt;IP&gt;:80</strong>. In this generic installation, we will insert <strong>Listen 80</strong>,
+allowing every network interface to provide this service.</p>
+<p>Finally, we will associate in <strong>/etc/hosts</strong> our <strong>nagios_ip</strong> with the <strong>ServerName</strong> set previously.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Apache necessary line in httpd.conf</span>
+  <span class="nt">lineinfile</span><span class="p">:</span>
+    <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/etc/httpd/conf/httpd.conf</span>
+    <span class="nt">line</span><span class="p">:</span> <span class="s">&quot;Listen</span><span class="nv"> </span><span class="s">80&quot;</span>
+  <span class="nt">notify</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">apache_restart</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Define Host</span>
+  <span class="nt">lineinfile</span><span class="p">:</span>
+    <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/etc/hosts</span>
+    <span class="nt">line</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">nagios_ip</span><span class="nv"> </span><span class="s">}}</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">health_server_name</span><span class="nv"> </span><span class="s">}}&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="firewall-config-yml">
+<h3><a class="toc-backref" href="#id14">firewall-config.yml</a><a class="headerlink" href="#firewall-config-yml" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It’s important to remember that Firewalld is the firewall of the system in CentOS 7.</p>
+</div>
+<p>We will need to allow HTTP port in the firewall configuration. The SNMP ports (161-162) should be allowed for the correct operation of iLO REST Plugin. We decided to allow these firewall requirements in the <strong>public</strong> zone.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Allow requests throw port 80</span>
+  <span class="nt">firewalld</span><span class="p">:</span>
+    <span class="nt">zone</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">public</span>
+    <span class="nt">service</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">http</span>
+    <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">enabled</span>
+    <span class="nt">permanent</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+  <span class="nt">notify</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">apache_restart</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">firewalld_restart</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Allow SNMP ports for iLO REST Plugin</span>
+  <span class="nt">firewalld</span><span class="p">:</span>
+    <span class="nt">zone</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">public</span>
+    <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">161-162/udp</span>
+    <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">enabled</span>
+    <span class="nt">permanent</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+  <span class="nt">notify</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">firewalld_restart</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ipmi-config-yml">
+<h3><a class="toc-backref" href="#id15">ipmi-config.yml</a><a class="headerlink" href="#ipmi-config-yml" title="Permalink to this headline">¶</a></h3>
+<p>Assures the existence of ipmi-config directory and synchronizes the ipmi.cfg file with <strong>root</strong> as owner, <strong>nagcmd</strong> as Group owner and permissions 640: read and write for Owner and read-only for group members. If the final state of the task is <strong>changed</strong>, Nagios daemon is restarted.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Assures existence of ipmi-config Directory</span>
+  <span class="nt">file</span><span class="p">:</span>
+    <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/etc/ipmi-config/</span>
+    <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">directory</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Syncronize IPMI configuration</span>
+  <span class="nt">template</span><span class="p">:</span>
+    <span class="nt">src</span><span class="p">:</span> <span class="s">&quot;etc/ipmi-config/{{</span><span class="nv"> </span><span class="s">item</span><span class="nv"> </span><span class="s">}}.j2&quot;</span>
+    <span class="nt">dest</span><span class="p">:</span> <span class="s">&quot;/etc/ipmi-config/{{</span><span class="nv"> </span><span class="s">item</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">owner</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">root</span>
+    <span class="nt">group</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">nagcmd</span>
+    <span class="nt">mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0640</span>
+  <span class="nt">with_items</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ipmi-ilo.cfg</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ipmi-dell.cfg</span>
+  <span class="nt">notify</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">nagios_restart</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="mail-config-yml">
+<h3><a class="toc-backref" href="#id16">mail-config.yml</a><a class="headerlink" href="#mail-config-yml" title="Permalink to this headline">¶</a></h3>
+<p>Synchronizes the mail configuration file with the version located in the repository.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Read the section <a class="reference internal" href="index.html#mail-configuration"><span class="std std-ref">Mail Configuration</span></a> for more details.</p>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Synchronizes the mail configuration</span>
+  <span class="nt">copy</span><span class="p">:</span>
+    <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">etc/mail.rc</span>
+    <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/etc/mail.rc</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="snmp-config-yml">
+<h3><a class="toc-backref" href="#id17">snmp-config.yml</a><a class="headerlink" href="#snmp-config-yml" title="Permalink to this headline">¶</a></h3>
+<p>The Dell plugin requires this previous SNMP configuration, read the section
+<a class="reference internal" href="plugins/dell-openmanage.html#snmp-dell"><span class="std std-ref">Preconfiguration</span></a> for more details.</p>
+<p>Synchronizes <strong>/etc/snmp/snmptt.ini</strong> and <strong>/etc/snmp/snmptrapd.conf</strong> snmp configuration files,
+with the version located in the repository. If there is a modification, snmptt and snmptrapd services
+are restarted. After that, those services are enabled in boot time if they were not enabled.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Synchronize Nagios config files</span>
+  <span class="nt">copy</span><span class="p">:</span>
+    <span class="nt">src</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">dest</span><span class="p">:</span> <span class="s">&quot;/{{</span><span class="nv"> </span><span class="s">item</span><span class="nv"> </span><span class="s">}}&quot;</span>
+  <span class="nt">with_items</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">etc/snmp/snmptt.ini</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">etc/snmp/snmptrapd.conf</span>
+  <span class="nt">notify</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">snmptt_restart</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">snmptrapd_restart</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SNMP services enabled in boot time</span>
+  <span class="nt">service</span><span class="p">:</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
+  <span class="nt">with_items</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">snmptt</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">snmptrapd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="installing-nagios-core">
+<h2><a class="toc-backref" href="#id18">Installing Nagios Core</a><a class="headerlink" href="#installing-nagios-core" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="nagios-install-yml-and-nagios-installed-yml">
+<h3><a class="toc-backref" href="#id19">nagios-install.yml and nagios-installed.yml</a><a class="headerlink" href="#nagios-install-yml-and-nagios-installed-yml" title="Permalink to this headline">¶</a></h3>
+<p>This taskfile is included only when the path /usr/local/nagios doesn’t exist. This state is registered in nagios-installed.yml, with the module <strong>stat</strong>.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Check if NAGIOS is installed</span>
+  <span class="nt">stat</span><span class="p">:</span>
+    <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/usr/local/nagios</span>
+  <span class="nt">register</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">nagios_installed</span>
+</pre></div>
+</div>
+<p>Nagios Core is downloaded from <code class="code yaml docutils literal notranslate"><span class="punctuation indicator"><span class="pre">{{</span></span> <span class="name variable"><span class="pre">nagios_core_url</span></span> <span class="punctuation indicator"><span class="pre">}}</span></span></code> and stored in <code class="code bash docutils literal notranslate"><span class="operator"><span class="pre">{{</span></span> <span class="pre">temp_dir</span> <span class="operator"><span class="pre">}}</span></span></code>, then it is configured with <strong>nagcmd</strong> as the command group, and openssl enabled. Then, the MakeFile is executed as follows <a class="footnote-reference brackets" href="#id4" id="id1">1</a>:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 73%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Make options used</p></th>
+<th class="head"><p>Descriptions</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>make all</p></td>
+<td><p>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>make install</p></td>
+<td><p>Install main program, CGI’s and HTML files</p></td>
+</tr>
+<tr class="row-even"><td><p>make install-init</p></td>
+<td><p>Install the init script</p></td>
+</tr>
+<tr class="row-odd"><td><p>make install-commandmode</p></td>
+<td><p>Install and configures permissions for holding external command file</p></td>
+</tr>
+<tr class="row-even"><td><p>make install-config</p></td>
+<td><p>Generates templates for initial configuration</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The directive <code class="code bash docutils literal notranslate"><span class="pre">make</span> <span class="pre">install-webconf</span></code> is executed in <a class="reference internal" href="#nagios-post-install"><span class="std std-ref">nagios-post-install.yml</span></a></p>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Create Temp Dir</span>
+  <span class="nt">file</span><span class="p">:</span>
+    <span class="nt">path</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">temp_dir</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">directory</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Download Nagios Core</span>
+  <span class="nt">get_url</span><span class="p">:</span>
+    <span class="nt">url</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">nagios_core_url</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">dest</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">temp_dir</span><span class="nv"> </span><span class="s">}}&quot;</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Extract Nagios</span>
+  <span class="nt">unarchive</span><span class="p">:</span>
+    <span class="nt">src</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">temp_dir</span><span class="nv"> </span><span class="s">}}/nagios-4.4.1.tar.gz&quot;</span>
+    <span class="nt">dest</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">temp_dir</span><span class="nv"> </span><span class="s">}}&quot;</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Exec configure</span>
+  <span class="nt">shell</span><span class="p">:</span> <span class="s">&quot;./configure</span><span class="nv"> </span><span class="s">--build=x86_64-redhat-linux</span><span class="nv"> </span><span class="s">--with-command-group=nagcmd</span><span class="nv"> </span><span class="s">--with-openssl&quot;</span>
+  <span class="nt">args</span><span class="p">:</span>
+    <span class="nt">chdir</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">temp_dir</span><span class="nv"> </span><span class="s">}}/nagios-4.4.1&quot;</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Make all</span>
+  <span class="nt">make</span><span class="p">:</span>
+    <span class="nt">chdir</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">temp_dir</span><span class="nv"> </span><span class="s">}}/nagios-4.4.1&quot;</span>
+    <span class="nt">target</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">all</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Make install</span>
+  <span class="nt">make</span><span class="p">:</span>
+     <span class="nt">chdir</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">temp_dir</span><span class="nv"> </span><span class="s">}}/nagios-4.4.1&quot;</span>
+     <span class="nt">target</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">install</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Install Nagios-init scripts</span>
+  <span class="nt">make</span><span class="p">:</span>
+    <span class="nt">chdir</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">temp_dir</span><span class="nv"> </span><span class="s">}}/nagios-4.4.1&quot;</span>
+    <span class="nt">target</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">install-init</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Install Nagios Command-mode</span>
+  <span class="nt">make</span><span class="p">:</span>
+    <span class="nt">chdir</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">temp_dir</span><span class="nv"> </span><span class="s">}}/nagios-4.4.1&quot;</span>
+    <span class="nt">target</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">install-commandmode</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Generates Templates for Nagios configure Files</span>
+  <span class="nt">make</span><span class="p">:</span>
+    <span class="nt">chdir</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">temp_dir</span><span class="nv"> </span><span class="s">}}/nagios-4.4.1&quot;</span>
+    <span class="nt">target</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">install-config</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="nagios-config-yml">
+<span id="id2"></span><h3><a class="toc-backref" href="#id20">nagios-config.yml</a><a class="headerlink" href="#nagios-config-yml" title="Permalink to this headline">¶</a></h3>
+<p>This taskfile synchronize the Nagios config files with the ones stored in the repository, if there is a change in this synchronization, Nagios daemon is restarted with the handler <code class="code yaml docutils literal notranslate"><span class="literal scalar plain"><span class="pre">nagios_restart</span></span></code>.</p>
+<p>Then, the module <strong>htpasswd</strong> assigns the password stored with Ansible Vault in the variable <code class="code yaml docutils literal notranslate"><span class="punctuation indicator"><span class="pre">{{</span></span> <span class="name variable"><span class="pre">nagios_admin_passwd</span></span> <span class="punctuation indicator"><span class="pre">}}</span></span></code> using ldap_sha1 as crypt scheme and restarts Nagios daemon if the final state of the task is <strong>changed</strong>.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Synchronize Nagios config files</span>
+  <span class="nt">copy</span><span class="p">:</span>     
+    <span class="nt">src</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">dest</span><span class="p">:</span> <span class="s">&quot;/{{</span><span class="nv"> </span><span class="s">item</span><span class="nv"> </span><span class="s">}}&quot;</span>
+  <span class="nt">with_items</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">usr/local/nagios/etc/objects/contacts.cfg</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">usr/local/nagios/etc/objects/localhost.cfg</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">usr/local/nagios/etc/objects/commands.cfg</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">usr/local/nagios/etc/nagios.cfg</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">usr/local/nagios/etc/objects/common.cfg</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">usr/local/nagios/etc/objects/timeperiods.cfg</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">usr/local/nagios/etc/objects/common_services.cfg</span>
+  <span class="nt">notify</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">nagios_restart</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Assing password for the Web GUI user nagiosadmin</span>
+  <span class="nt">htpasswd</span><span class="p">:</span> 
+    <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/usr/local/nagios/etc/htpasswd.users</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">nagiosadmin</span>
+    <span class="nt">password</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">nagios_admin_passwd</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">crypt_scheme</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ldap_sha1</span>
+  <span class="nt">notify</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">nagios_restart</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="nagios-post-install-yml">
+<span id="nagios-post-install"></span><h3><a class="toc-backref" href="#id21">nagios-post-install.yml</a><a class="headerlink" href="#nagios-post-install-yml" title="Permalink to this headline">¶</a></h3>
+<p>After <strong>nagios-config.yml</strong> is completed, <code class="code bash docutils literal notranslate"><span class="pre">make</span> <span class="pre">install-webconf</span></code> is executed, generating
+the Apache config file for Nagios Web Interface. This step is executed only if Nagios Core was
+not installed before the current execution.</p>
+<blockquote>
+<div><div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Make install-webconf</span>
+  <span class="nt">make</span><span class="p">:</span>
+    <span class="nt">chdir</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">temp_dir</span><span class="nv"> </span><span class="s">}}/nagios-4.4.1&quot;</span>
+    <span class="nt">target</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">install-webconf</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="selinux-config-yml">
+<span id="id3"></span><h3><a class="toc-backref" href="#id22">selinux-config.yml</a><a class="headerlink" href="#selinux-config-yml" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>By default, the files under the directory <strong>/usr/local/nagios/var/rw</strong> don’t
+belongs to the <strong>httpd_sys_rw_content_t</strong> context. It is necessary to add these contexts
+(this is what the taskfile does) because the way Web interface interacts with
+Nagios is with the Command File <strong>/usr/local/nagios/var/rw/nagios.cmd</strong> executing
+from <strong>/usr/local/nagios/sbin/</strong></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The error <code class="code bash docutils literal notranslate"><span class="pre">Could</span> <span class="pre">not</span> <span class="pre">stat</span><span class="operator"><span class="pre">()</span></span> <span class="name builtin"><span class="pre">command</span></span> <span class="pre">file</span> <span class="pre">/usr/local/nagios/var/rw/nagios.cmd</span></code>
+is fixed by this taskfile. The explanation is in the <a class="reference internal" href="index.html#nagios-cmd-error"><span class="std std-ref">Nagios Command Error</span></a> section.</p>
+</div>
+<p>It’s necessary to execute <code class="code bash docutils literal notranslate"><span class="pre">restorecon</span> <span class="pre">-r</span> <span class="pre">&lt;directory&gt;</span></code> in order to restart the SELinux
+configuration over these directories. This is executed by a handler in the Ansible role.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Allow apache to modify nagios command file</span>
+  <span class="nt">sefcontext</span><span class="p">:</span>
+    <span class="nt">target</span><span class="p">:</span> <span class="s">&#39;/usr/local/nagios/var/rw(/.*)?&#39;</span>
+    <span class="nt">setype</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">httpd_sys_rw_content_t</span>
+    <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">present</span>
+  <span class="nt">notify</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">nagios_cmd_selinux_sync</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Allow apache to execute in /usr/local/nagios/sbin</span>
+  <span class="nt">sefcontext</span><span class="p">:</span>
+    <span class="nt">target</span><span class="p">:</span> <span class="s">&#39;/usr/local/nagios/sbin&#39;</span>
+    <span class="nt">setype</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">httpd_sys_script_exec_t</span>
+    <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">present</span>
+  <span class="nt">notify</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">nagios_sbin_selinux_sync</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="installing-nagios-plugins">
+<span id="nagios-plugins-installed-yml"></span><h2><a class="toc-backref" href="#id23">Installing Nagios Plugins</a><a class="headerlink" href="#installing-nagios-plugins" title="Permalink to this headline">¶</a></h2>
+<p>The taskfile <code class="code bash docutils literal notranslate"><span class="pre">nagios-plugins-installed.yml</span></code> registers in ansible variables if the plugins are
+installed or not.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Checks if NAGIOS basic plugins are installed</span>
+  <span class="nt">find</span><span class="p">:</span>
+    <span class="nt">paths</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/usr/local/nagios/libexec</span>
+  <span class="nt">register</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">nagios_plugins_installed</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Checks if IPMI-Sensor plugin is installed</span>
+  <span class="nt">stat</span><span class="p">:</span>
+    <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/usr/local/nagios/libexec/check_ipmi_sensor</span>
+  <span class="nt">register</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ipmi_sensor_plugin</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Checks if iLO REST plugin is installed</span>
+  <span class="nt">find</span><span class="p">:</span>
+    <span class="nt">paths</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/usr/local/nagios/libexec</span>
+    <span class="nt">patterns</span><span class="p">:</span> <span class="s">&quot;*hpeilo*&quot;</span>
+  <span class="nt">register</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ilo_plugins</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Checks if Dell OME plugin is installed</span>
+  <span class="nt">stat</span><span class="p">:</span>
+    <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/usr/local/nagios/dell</span>
+  <span class="nt">register</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">dell_plugin_dir</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Checks if PNP4Nagios is installed</span>
+  <span class="nt">stat</span><span class="p">:</span>
+    <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/usr/local/pnp4nagios</span>
+  <span class="nt">register</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pnp_dir</span>
+</pre></div>
+</div>
+<p>Read the following sections for more information about the installation and configuration process of the plugins.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="plugins/nagios-plugins.html#nagios-plugins-index"><span class="std std-ref">Nagios Plugins</span></a></p></li>
+<li><p><a class="reference internal" href="plugins/ipmi-sensors.html#ipmi-sensors-plugin-index"><span class="std std-ref">IPMI Sensors</span></a></p></li>
+<li><p><a class="reference internal" href="plugins/dell-openmanage.html#dell-nagios-plugin-index"><span class="std std-ref">Dell OpenManage</span></a></p></li>
+<li><p><a class="reference internal" href="plugins/ilo-rest.html#ilo-rest-plugin-index"><span class="std std-ref">iLO AgentLess Management Plugin</span></a></p></li>
+<li><p><a class="reference internal" href="plugins/pnp4nagios.html#pnp4nagios-plugin-index"><span class="std std-ref">PNP4Nagios</span></a></p></li>
+</ul>
+</div>
+<div class="section" id="final-check">
+<h2><a class="toc-backref" href="#id24">Final Check</a><a class="headerlink" href="#final-check" title="Permalink to this headline">¶</a></h2>
+<p>The final steps include removing <code class="code yaml docutils literal notranslate"><span class="punctuation indicator"><span class="pre">{{</span></span> <span class="name variable"><span class="pre">temp_dir</span></span> <span class="punctuation indicator"><span class="pre">}}</span></span></code> and checking the Nagios configuration with the
+command <code class="code bash docutils literal notranslate"><span class="pre">/usr/local/nagios/bin/nagios</span> <span class="pre">-v</span> <span class="pre">/usr/local/nagios/etc/nagios.cfg</span></code>.</p>
+<p>This execution finishes assuring with handlers that nagios and apache services are started and enabled
+to start in boot time.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Check integrity in Nagios configuration</span>
+  <span class="nt">shell</span><span class="p">:</span> <span class="s">&quot;/usr/local/nagios/bin/nagios</span><span class="nv"> </span><span class="s">-v</span><span class="nv"> </span><span class="s">/usr/local/nagios/etc/nagios.cfg&quot;</span>
+  <span class="nt">notify</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">nagios_started</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">apache_started</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">nagios_enabled</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">apache_enabled</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Remove temp dir</span>
+  <span class="nt">file</span><span class="p">:</span>
+    <span class="nt">path</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">temp_dir</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">absent</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="references">
+<h2><a class="toc-backref" href="#id25">References</a><a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<dl class="footnote brackets">
+<dt class="label" id="id4"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>NagiosEnterprises/nagioscore. Retrieved August 17, 2018, from <a class="reference external" href="https://github.com/NagiosEnterprises/nagioscore">https://github.com/NagiosEnterprises/nagioscore</a></p>
+</dd>
+</dl>
+</div>
+<div class="section" id="authors">
+<h2><a class="toc-backref" href="#id26">Authors</a><a class="headerlink" href="#authors" title="Permalink to this headline">¶</a></h2>
+<p>Andrés Felipe Zapata Palacio</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="plugins/nagios-plugins.html" class="btn btn-neutral float-right" title="Nagios-plugins" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Nagios Core - 4.4.1" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Creative Commons Attribution-NonCommercial 4.0 International License
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

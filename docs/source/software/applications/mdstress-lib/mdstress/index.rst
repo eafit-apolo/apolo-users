@@ -60,7 +60,4 @@ References
 Gromacs documentation
     retrieved May 18, 2020 from https://www.mdstress.org/index.php/documentation/
 
-Author
--------
-
-Manuela Herrera López
+:Author: Manuela Herrera-López

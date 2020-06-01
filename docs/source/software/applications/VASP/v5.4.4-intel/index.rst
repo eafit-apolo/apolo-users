@@ -2,15 +2,14 @@
 
 .. contents:: Table of Contents
 
-****************
+******************
 VASP/5.4.4 INTEL
-****************
+******************
 
 - **Installation date:** 27/07/2017
 - **URL:** https://www.vasp.at/
 - **Apolo version:** Apolo II
-- **License:**  VASP is not public-domain or share-ware, and will be distributed only after a license contract
-has been signed. Please visit VASP homepage to know more details on obtaining the license.
+- **License:**  VASP is not public-domain or share-ware, and will be distributed only after a license contract has been signed. Please visit VASP homepage to know more details on obtaining the license.
 
 
 Dependencies
@@ -19,7 +18,7 @@ Dependencies
 - Intel Parallel Studio XE Cluster Edition >= 2017-U1
 
 Installation
-------------
+-------------
 
 After solving the aforementioned dependencies, you can proceed with the installation.
 
@@ -131,7 +130,7 @@ It should look like the following:
     make all 2>&1 | tee vasp-make.log
 
 Module
-------
+-------
 
 .. code-block:: bash
 
@@ -171,7 +170,7 @@ Module
 
 
 Usage mode
----------
+------------
 
 .. code-block:: bash
 
@@ -179,7 +178,7 @@ Usage mode
 
 
 References
-----------
+-----------
 
 - README
 - https://software.intel.com/en-us/articles/building-vasp-with-intel-mkl-and-intel-compilers
@@ -187,6 +186,6 @@ References
 - http://cms.mpi.univie.ac.at/wiki/index.php/Installing_VASP
 
 Author
-------
+-------
 
 - Mateo Gómez Zuluaga

@@ -15,5 +15,5 @@ GAMESS can compute Honda SCF functions within the range of RHF, ROHF, UHF, GVB, 
    :caption: Versions
    :maxdepth: 2
 
-    ga-2014/index
-    ga-2016/index
+   ga-2014/index
+   ga-2016/index

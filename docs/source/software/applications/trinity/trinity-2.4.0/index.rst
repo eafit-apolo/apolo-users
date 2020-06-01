@@ -63,7 +63,7 @@ After solving the aforementioned dependencies, you can proceed with the installa
     ./runMe.sh
 
 Module
-------
+-------
 
 .. code-block:: bash
 
@@ -97,7 +97,7 @@ Module
 
 
 Usage mode
----------
+-----------
 
 .. code-block:: bash
 

@@ -16,4 +16,4 @@ partitioned models and morphology-like datatypes. It is written and maintained b
    :caption: Versions
    :maxdepth: 2
 
-    g-2.01/index
+   g-2.01/index

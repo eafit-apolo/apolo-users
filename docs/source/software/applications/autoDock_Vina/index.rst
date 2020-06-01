@@ -14,4 +14,4 @@ Oleg Trott in the "Molecular Graphics" laboratory at the Scripps Research Instit
    :caption: Versions
    :maxdepth: 2
 
-    auto-1.1.2/index
+   auto-1.1.2/index

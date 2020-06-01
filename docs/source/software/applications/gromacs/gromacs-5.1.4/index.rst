@@ -68,25 +68,25 @@ After resolving the aforementioned dependencies, you can proceed with the instal
 References
 ----------
 
-.. [1] Gromacs instructions.
+- Gromacs instructions.
         Retrieved July 10, 2019, from http://www.gromacs.org/Documentation/Installation_Instructions_5.0
-.. [2] Gromacs github
+- Gromacs github
         Retrieved July 10, 2019, from https://github.com/gromacs/gromacs/blob/master/cmake/FindNVML.cmake
-.. [3] Lindqvist
+- Lindqvist
         Retrieved July 10, 2019, from http://verahill.blogspot.com.co/2013/04/396-compiling-gromacs-46-with-openblas.html
-.. [4] Compiling GROMACS on Cluster
+- Compiling GROMACS on Cluster
         Retrieved July 10, 2019, from https://ringo.ams.stonybrook.edu/index.php/Compiling_GROMACS_on_Cluster
-.. [5] Lindqvist
+- Lindqvist
         Retrieved July 10, 2019, from http://verahill.blogspot.com/2012/03/building-gromacs-with-fftw3-and-openmpi.html
-.. [6] How to compile gromacs
+- How to compile gromacs
         Retrieved July 10, 2019, from https://mini.ourphysics.org/wiki/index.php/How_to_compile_Gromacs
-.. [7] Github issue
+- Github issue
         Retrieved July 10, 2019, from https://github.com/linux-sunxi/linux-sunxi/issues/62
-.. [8] Nvidia gromacs
+- Nvidia gromacs
         Retrieved July 10, 2019, from https://ngc.nvidia.com/catalog/containers/hpc:gromacs
-.. [9] Running VASP on Nvidia GPUs
+- Running VASP on Nvidia GPUs
         Retrieved July 10, 2019, from https://www.nsc.liu.se/~pla/
-.. [10] Gromacs (GPU)
+- Gromacs (GPU)
         Retrieved July 10, 2019, from http://www.hpcadvisorycouncil.com/pdf/GROMACS_GPU.pdf
 
 Authors

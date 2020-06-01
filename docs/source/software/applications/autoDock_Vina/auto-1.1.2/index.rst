@@ -12,7 +12,7 @@ AutoDock Vina
 - **License:** Apache License Version 2.0
 
 Installation
-------------
+--------------
 
 #. First download the tar from the main page
 
@@ -77,6 +77,7 @@ References
 
 - Mail from the people of the University of Cartagena
 - Manual within the software package
+
 Author
 ------
 

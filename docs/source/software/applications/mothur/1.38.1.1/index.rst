@@ -1,9 +1,9 @@
-.. _plumed-2.3.5-index:
+.. _mothur-index:
 
 .. role:: bash(code)
    :language: bash
 
-PLUMED 2.3.5
+MOTHUR
 ============
 
 .. contents:: Table of Contents
@@ -11,7 +11,6 @@ PLUMED 2.3.5
 Basic information
 -----------------
 - **Installation Date:** 05/09/2016
-- **URL:** http://www.plumed.org/
 - **License:** GNU LESSER GENERAL PUBLIC LICENSE Version 3
 - **Installed on:** Apolo II
 
@@ -26,7 +25,7 @@ Tested on (Requirements)
 Installation
 ------------
 
-After solving the previously mentioned dependencies, you can proceed with the installation of **Plumed**.
+After solving the previously mentioned dependencies, you can proceed with the installation.
 
 #. Download the latest version of the software (Source code - tgz) (https://github.com/mothur/mothur/releases): 
 

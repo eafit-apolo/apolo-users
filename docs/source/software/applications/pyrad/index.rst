@@ -13,4 +13,4 @@ allows you to include "indel" variation which improves the identification of hom
    :caption: Versions
    :maxdepth: 2
 
-    py-30/index
+   py-30/index

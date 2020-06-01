@@ -9,8 +9,7 @@ VASP/5.4.4 GNU
 - **Installation date:** 27/07/2017
 - **URL:** https://www.vasp.at/
 - **Apolo version:** Apolo II
-- **License:**  VASP is not public-domain or share-ware, and will be distributed only after a license contract
-has been signed. Please visit VASP homepage to know more details on obtaining the license.
+- **License:**  VASP is not public-domain or share-ware, and will be distributed only after a license contract has been signed. Please visit VASP homepage to know more details on obtaining the license.
 
 
 Dependencies
@@ -22,7 +21,7 @@ Dependencies
 - OpenMPI 1.10.7
 
 Installation
-------------
+-------------
 
 After solving the aforementioned dependencies, you can proceed with the installation.
 
@@ -154,7 +153,7 @@ And
     make all 2>&1 | tee vasp-make.log
 
 Module
-------
+-------
 
 .. code-block:: bash
 
@@ -194,7 +193,7 @@ Module
     prepend-path    PATH                    $topdir/bin
 
 Usage mode
----------
+------------
 
 .. code-block:: bash
 
@@ -202,11 +201,11 @@ Usage mode
 
 
 References
-----------
+-----------
 
 - http://www.ivofilot.nl/posts/view/28/How+to+build+VASP+5.3.5+using+the+GNU+compiler+on+Linux+Ubuntu+14.04+LTS
 
 Author
-------
+--------
 
 - Andrés Felipe Zapata Palacio

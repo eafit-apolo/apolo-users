@@ -34,5 +34,5 @@ For over 30 years Deltares has been in the forefront of these types of combined 
    :caption: Versions
    :maxdepth: 2
 
-    r7792/index
-    r8799/index
+   r7792/index
+   r8799/index

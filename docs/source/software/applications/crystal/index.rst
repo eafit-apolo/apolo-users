@@ -31,6 +31,6 @@ non-conducting systems.
 
 .. toctree::
    :caption: Versions
-   :maxdepth: 2
+   :maxdepth: 1
 
    crystal.1.0.4/index

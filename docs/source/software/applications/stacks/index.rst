@@ -15,5 +15,5 @@ the performance of population genomics and phylogeography.
    :caption: Versions
    :maxdepth: 2
 
-    s1.44/index
-    s1.46/index
+   s1.44/index
+   s1.46/index

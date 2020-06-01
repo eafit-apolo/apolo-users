@@ -13,5 +13,5 @@ and no-surprises pricing.
    :caption: Versions
    :maxdepth: 2
 
-    gurobi-5.6.0/index
-    gurobi-7.5.0/index
+   gurobi-5.6.0/index
+   gurobi-7.5.0/index

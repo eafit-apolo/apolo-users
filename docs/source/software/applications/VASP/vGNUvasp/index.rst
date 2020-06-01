@@ -9,8 +9,7 @@ VASP/5.4.4 - GNU - VASPsol
 - **Installation date:** 14/02/2018
 - **URL:** https://www.vasp.at/ and http://vaspsol.mse.ufl.edu/
 - **Apolo version:** Apolo II
-- **License:**  VASP is not public-domain or share-ware, and will be distributed only after a license contract
-has been signed. Please visit VASP homepage to know more details on obtaining the license.
+- **License:**  VASP is not public-domain or share-ware, and will be distributed only after a license contract has been signed. Please visit VASP homepage to know more details on obtaining the license.
 
 
 Dependencies
@@ -211,7 +210,7 @@ Module
     prepend-path    PATH                    $topdir/bin
 
 Usage mode
----------
+------------
 
 .. code-block:: bash
 

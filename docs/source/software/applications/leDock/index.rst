@@ -20,6 +20,6 @@ For additional information you can open those links:
 
 .. toctree::
    :caption: Versions
-   :maxdepth: 2
+   :maxdepth: 1
 
-    ledock-1.0/index
+   ledock-1.0/index

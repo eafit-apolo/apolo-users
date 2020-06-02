@@ -1,0 +1,454 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>VMD 1.9.3 &mdash; apolo-docs 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/sidebar.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="WRF" href="../../wrf/index.html" />
+    <link rel="prev" title="VMD" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+  
+    <a href="../../../../index.html">
+  
+
+  
+    
+    <img src="../../../../_static/apolo-white.png" style="width: 150px;" class="logo" alt="Logo"/>
+  
+    </a>
+
+    
+      
+      
+      
+	<div class="version" style="color: rgba(255,255,255,0.5);">
+	  0.1
+	</div>
+      
+    
+
+    
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../gettingstarted/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../supercomputers/index.html">Supercomputers</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Software</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../virtualization/index.html">Virtualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../programminglanguages/index.html">Programming Languages</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Scientific Applications</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../abyss/index.html">ABySS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ansys/index.html">ANSYS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../arcs/index.html">ARCS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../bayescan/index.html">BayeScan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../blat/index.html">BLAT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../edge_pro/index.html">EDGE-pro</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../gatk4/index.html">GATK4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../gromacs/index.html">GROMACS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../gromacs-ls/index.html">GROMACS-LS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lammps/index.html">LAMMPS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../links/index.html">LINKS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Lmod/index.html">Lmod</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mafft/index.html">MAFFT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mothur/index.html">Mothur</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../namd/index.html">NAMD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../opensees/index.html">OpenSees</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../pargenes/index.html">ParGenes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../partitionFinder/index.html">Partition Finder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../picrust2/index.html">PICRUSt2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../pigz/index.html">Pigz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../pteros/index.html">Pteros</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../repet/index.html">REPET</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../raxml/index.html">RAxML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sparsehash/index.html">Google Sparsehash</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tigmint/index.html">Tigmint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../transabyss/index.html">Trans-ABySS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../transrate/index.html">Transrate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../trinity/index.html">Trinity</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">VMD</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">VMD 1.9.3</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../wrf/index.html">WRF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ost/index.html">Openstructure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mdstress-lib/index.html">MDSTRESS-LIB</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../resourcemanager/index.html">Resource Manager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../provisioning/index.html">Provisioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../monitoring/index.html">Monitoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../operatingsystems/index.html">Operating Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../scientific_libraries/index.html">Scientific Libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../how-to-acknowledge.html">How to Acknowledge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../report-a-bug.html">Report a Bug</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">apolo-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Software</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Scientific Applications</a> &raquo;</li>
+        
+          <li><a href="../index.html">VMD</a> &raquo;</li>
+        
+      <li>VMD 1.9.3</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/software/applications/vmd/vmd-1.9.3/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="vmd-1-9-3">
+<span id="vmd-1-9-3-index"></span><h1><a class="toc-backref" href="#id1">VMD 1.9.3</a><a class="headerlink" href="#vmd-1-9-3" title="Permalink to this headline">¶</a></h1>
+<div class="contents topic" id="table-of-contents">
+<p class="topic-title">Table of Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#vmd-1-9-3" id="id1">VMD 1.9.3</a></p>
+<ul>
+<li><p><a class="reference internal" href="#basic-information" id="id2">Basic information</a></p></li>
+<li><p><a class="reference internal" href="#dependencies" id="id3">Dependencies</a></p></li>
+<li><p><a class="reference internal" href="#installation" id="id4">Installation</a></p></li>
+<li><p><a class="reference internal" href="#authors" id="id5">Authors</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="basic-information">
+<h2><a class="toc-backref" href="#id2">Basic information</a><a class="headerlink" href="#basic-information" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Official Website:</strong> <a class="reference external" href="https://www.ks.uiuc.edu/Research/vmd/">https://www.ks.uiuc.edu/Research/vmd/</a></p></li>
+<li><p><strong>Installed on:</strong> <a class="reference internal" href="../../../../supercomputers/apolo-ii/index.html#about-apolo-ii"><span class="std std-ref">Apolo II</span></a></p></li>
+<li><p><strong>License:</strong>  UIUC Open Source License - <a class="reference external" href="http://www.ks.uiuc.edu/Research/vmd/current/LICENSE.html">http://www.ks.uiuc.edu/Research/vmd/current/LICENSE.html</a></p></li>
+</ul>
+</div>
+<div class="section" id="dependencies">
+<h2><a class="toc-backref" href="#id3">Dependencies</a><a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Cuda 8.0</p></li>
+<li><p>GCC 5.4.0</p></li>
+<li><p>Python 2.7.15</p></li>
+<li><p>TCL 8.5</p></li>
+</ul>
+</div>
+<div class="section" id="installation">
+<h2><a class="toc-backref" href="#id4">Installation</a><a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p>Get source code from <a class="reference external" href="https://www.ks.uiuc.edu/Development/Download/download.cgi?PackageName=VMD">https://www.ks.uiuc.edu/Development/Download/download.cgi?PackageName=VMD</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Yo hould register before download it.</p>
+</div>
+</li>
+<li><p>Create a folder for VMD and decompress tar file. It will take out two folders (vmd-1.9.3 and plugins)</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ tar -xvf vmd-1.9.3.src.tar.gz
+</pre></div>
+</div>
+</li>
+<li><p>Go to vmd-1.9.3 folder and create a new directory called plugins and save the path to it because it will be used in the following step.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> vmd-1.9.3
+$ mkdir plugins
+</pre></div>
+</div>
+</li>
+<li><p>Before starting the compilation of vmd, we should compile plugins in the following way in the folder called plugins that was extracted in the first step.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> plugins
+$ module load netcdf/4.5.0_intel-17.0.1
+$ module load gcc/7.4.0
+$ <span class="nb">export</span> <span class="nv">PLUGINDIR</span><span class="o">=</span>&lt;path_to_new_folder_plugins&gt;
+$ make LINUXAMD64 <span class="nv">TCLINC</span><span class="o">=</span>/usr/include <span class="nv">TCLLIB</span><span class="o">=</span>/usr/lib64/libtcl.so
+$ make distrib
+</pre></div>
+</div>
+</li>
+<li><p>Return to vmd-1.9.3 folder and edit configure.options file according to the tools and dependencies to use during the compilation.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ vim configure.options
+$ LINUXAMD64 CUDA TCL PYTHON PTHREADS NUMPY ICC
+</pre></div>
+</div>
+</li>
+<li><p>Edit configure file and change the path of <strong>$install_bin_dir</strong> and <strong>$install_library_dir</strong> with the location bin and lib directories of vmd.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ vim configure
+$ <span class="nv">$install_bin_dir</span><span class="o">=</span><span class="s2">&quot;&lt;path_to_bin_vmd_dir&gt;&quot;</span><span class="p">;</span>
+$ <span class="nv">$install_library_dir</span><span class="o">=</span><span class="s2">&quot;&lt;path_to_lib_vmd_dir&gt;&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Run configure script.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./configure
+</pre></div>
+</div>
+</li>
+<li><p>Go to src folder and edit the Makefile.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> src
+$ vim Makefile
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This file has a lot of paths that are not compatible because they are burned into the file.</p>
+</div>
+<ul class="simple">
+<li><p>Put the correct path for the following variables: INCDIRS and LIBDIRS.</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">INCDIRS</span> <span class="o">=</span> -I/share/apps/python/2.7_miniconda-4.5.4/include/python2.7 -I/share/apps/python/2.7_miniconda-4.5.4/lib/python2.7/site-packages/numpy/core/include -I/usr/include -I../plugins/include -I../plugins/LINUXAMD64/molfile -I.
+<span class="nv">LIBDIRS</span>     <span class="o">=</span> -L/share/apps/cuda/8.0/lib64 -L/share/apps/python/2.7_miniconda-4.5.4/lib/python2.7/config -L/usr/lib64 -L../plugins/LINUXAMD64/molfile
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Change NVCC binary with the correct path.</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">NVCC</span> <span class="o">=</span> /share/apps/cuda/8.0/bin/nvcc
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Put the correct architecture of Apolo in NVCCFLAGS, it is important to notice that the maximum verion of cuda that VMD supports is 8.0 so it is not compatible with Tesla V100 GPUs in Apolo. K80 GPUS is architecture compute_37 and sm_37 for arch and code variables.</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">NVCCFLAGS</span>   <span class="o">=</span> --ptxas-options<span class="o">=</span>-v -gencode <span class="nv">arch</span><span class="o">=</span>compute_37,code<span class="o">=</span>sm_37 --ftz<span class="o">=</span><span class="nb">true</span>  --machine <span class="m">64</span> -O3  -DARCH_LINUXAMD64 <span class="k">$(</span>DEFINES<span class="k">)</span> <span class="k">$(</span>INCDIRS<span class="k">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Also, change the GPU arthitecture in <strong>.cu.ptx</strong> section.</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">$(</span>NVCC<span class="k">)</span> <span class="k">$(</span>DEFINES<span class="k">)</span> --use_fast_math -I-L/share/apps/cuda/8.0/include -gencode <span class="nv">arch</span><span class="o">=</span>compute_37,code<span class="o">=</span>sm_37 -ptx $&lt; -o ../LINUXAMD64/<span class="nv">$@</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Change python version in LIBS, by default it will have python2.5.</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">LIBS</span> <span class="o">=</span> -Wl,-rpath -Wl,<span class="nv">$$</span>ORIGIN/ -lcudart_static -lpython2.7 -lpthread -lpthread  -ltcl8.5  -lmolfile_plugin -ll -lm -ldl -lutil -lrt <span class="k">$(</span>VMDEXTRALIBS<span class="k">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>Load modules needed for compilation and check dependencies.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ module load python/2.7.15_miniconda-4.5.4
+$ module load gcc/5.4.0
+$ module load cuda/8.0
+$ make depend
+</pre></div>
+</div>
+</li>
+<li><p>Finish with compilation and installation. Notice that in the process you should create folders for bin and lib specified in step 6.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ mkdir -p /share/apps/vmd/1.9.3/bin
+$ mkdir -p /share/apps/vmd/1.9.3/lib
+$ make
+$ sudo make install
+</pre></div>
+</div>
+</li>
+<li><p>Create the corresponding module of VMD 1.9.3.</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ mkdir /share/apps/modules/vmd/
+$ vim /share/apps/modules/vmd/1.9.3
+
+<span class="c1">#%Module1.0####################################################################</span>
+<span class="c1">##</span>
+<span class="c1">## module load vmd/1.9.3</span>
+<span class="c1">##</span>
+<span class="c1">## /share/apps/modules/vmd/1.9.3</span>
+<span class="c1">## Written by Manuela Carrasco Pinzon</span>
+<span class="c1">##</span>
+
+proc ModulesHelp <span class="o">{}</span> <span class="o">{</span>
+     global version modroot
+     puts stderr <span class="s2">&quot;Sets the environment for using vmd 1.9.3\</span>
+<span class="s2">                  \nin the shared directory /share/apps/vmd/1.9.3/&quot;</span>
+<span class="o">}</span>
+
+module-whatis <span class="s2">&quot;(Name________) vmd&quot;</span>
+module-whatis <span class="s2">&quot;(Version_____) 1.9.3&quot;</span>
+module-whatis <span class="s2">&quot;(Compilers___) intel-17.0.1&quot;</span>
+module-whatis <span class="s2">&quot;(System______) x86_64-redhat-linux&quot;</span>
+module-whatis <span class="s2">&quot;(Libraries___) &quot;</span>
+
+<span class="c1"># for Tcl script use only</span>
+<span class="nb">set</span>         topdir        /share/apps/vmd/1.9.3
+<span class="nb">set</span>         version       <span class="m">1</span>.9.3
+<span class="nb">set</span>         sys           x86_64-redhat-linux
+
+module load gcc/5.4.0
+module load cuda/8.0
+module load python/2.7.15_miniconda-4.5.4
+
+prepend-path    PATH                    <span class="nv">$topdir</span>/bin
+
+prepend-path    MANPATH                 <span class="nv">$topdir</span>/lib/doc
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ol>
+</div>
+<div class="section" id="authors">
+<h2><a class="toc-backref" href="#id5">Authors</a><a class="headerlink" href="#authors" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Juan Diego Ocampo García &lt;<a class="reference external" href="mailto:jocamp18&#37;&#52;&#48;eafit&#46;edu&#46;co">jocamp18<span>&#64;</span>eafit<span>&#46;</span>edu<span>&#46;</span>co</a>&gt;</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../wrf/index.html" class="btn btn-neutral float-right" title="WRF" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral float-left" title="VMD" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Creative Commons Attribution-NonCommercial 4.0 International License
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

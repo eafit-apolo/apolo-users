@@ -1,0 +1,32 @@
+#%Module1.0####################################################################
+##
+## module load raxml/8.2.12_intel-18.02
+##
+## /share/apps/modules/raxml/8.2.12_intel-18.02
+## Written by Mateo Gómez Zuluaga
+##
+
+proc ModulesHelp {} {
+     global version modroot
+     puts stderr "Sets the environment for using raxml 8.2.12\
+		  \nin the shared directory \
+		  \n/share/apps/raxml/8.2.12/intel-18.02\
+		  \nbuilded with Intel Parallel Studio Cluster Edition XE 18.02\
+		  \n"
+}
+
+module-whatis "(Name________) raxml"
+module-whatis "(Version_____) 8.2.12"
+module-whatis "(Compilers___) intel-18.02"
+module-whatis "(System______) x86_64-redhat-linux"
+module-whatis "(Libraries___) "
+
+# for Tcl script use only
+set         topdir        /share/apps/raxml/8.2.12/intel-18.02
+set         version       8.2.12
+set         sys           x86_64-redhat-linux
+
+conflict raxml
+module load impi/18.0.2
+ 
+prepend-path	PATH			$topdir/bin

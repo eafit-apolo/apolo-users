@@ -1,0 +1,425 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Partition Finder 2.1.1 &mdash; apolo-docs 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/sidebar.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="PICRUSt2" href="../../picrust2/index.html" />
+    <link rel="prev" title="Partition Finder" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+  
+    <a href="../../../../index.html">
+  
+
+  
+    
+    <img src="../../../../_static/apolo-white.png" style="width: 150px;" class="logo" alt="Logo"/>
+  
+    </a>
+
+    
+      
+      
+      
+	<div class="version" style="color: rgba(255,255,255,0.5);">
+	  0.1
+	</div>
+      
+    
+
+    
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../gettingstarted/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../supercomputers/index.html">Supercomputers</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Software</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../virtualization/index.html">Virtualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../programminglanguages/index.html">Programming Languages</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Scientific Applications</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../abyss/index.html">ABySS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ansys/index.html">ANSYS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../arcs/index.html">ARCS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../bayescan/index.html">BayeScan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../blat/index.html">BLAT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../edge_pro/index.html">EDGE-pro</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../gatk4/index.html">GATK4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../gromacs/index.html">GROMACS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../gromacs-ls/index.html">GROMACS-LS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lammps/index.html">LAMMPS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../links/index.html">LINKS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Lmod/index.html">Lmod</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mafft/index.html">MAFFT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mothur/index.html">Mothur</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../namd/index.html">NAMD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../opensees/index.html">OpenSees</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../pargenes/index.html">ParGenes</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">Partition Finder</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Partition Finder 2.1.1</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../picrust2/index.html">PICRUSt2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../pigz/index.html">Pigz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../pteros/index.html">Pteros</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../repet/index.html">REPET</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../raxml/index.html">RAxML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sparsehash/index.html">Google Sparsehash</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tigmint/index.html">Tigmint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../transabyss/index.html">Trans-ABySS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../transrate/index.html">Transrate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../trinity/index.html">Trinity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../vmd/index.html">VMD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../wrf/index.html">WRF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ost/index.html">Openstructure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mdstress-lib/index.html">MDSTRESS-LIB</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../resourcemanager/index.html">Resource Manager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../provisioning/index.html">Provisioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../monitoring/index.html">Monitoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../operatingsystems/index.html">Operating Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../scientific_libraries/index.html">Scientific Libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../how-to-acknowledge.html">How to Acknowledge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../report-a-bug.html">Report a Bug</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">apolo-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Software</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Scientific Applications</a> &raquo;</li>
+        
+          <li><a href="../index.html">Partition Finder</a> &raquo;</li>
+        
+      <li>Partition Finder 2.1.1</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/software/applications/partitionFinder/2.1.1/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="partition-finder-2-1-1">
+<span id="partfinder-2-1-1-index"></span><h1>Partition Finder 2.1.1<a class="headerlink" href="#partition-finder-2-1-1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="basic-information">
+<h2>Basic Information<a class="headerlink" href="#basic-information" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Deploy date:</strong> 5 December 2016</p></li>
+<li><p><strong>Official Website:</strong> <a class="reference external" href="http://www.robertlanfear.com/partitionfinder/">http://www.robertlanfear.com/partitionfinder/</a></p></li>
+<li><p><strong>License:</strong> GNU General Public License</p></li>
+<li><p><strong>Installed on:</strong> <a class="reference internal" href="../../../../supercomputers/apolo-ii/index.html#about-apolo-ii"><span class="std std-ref">Apolo II</span></a></p></li>
+</ul>
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>This entry covers the entire process performed for the installation and
+configuration of Partition Finder in a Cluster with Conda.</p>
+<ol class="arabic simple">
+<li><p>Create a Conda Environment for Partition Finder</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda create -n partitionFinder
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>Install the following dependencies (numpy, pandas, pytables, pyparsing, scipy, and sklearn).</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install numpy pandas pytables pyparsing scipy scikit-learn
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>Download the latest version of Partition Finder and decompress it.</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget https://github.com/brettc/partitionfinder/archive/v2.1.1.tar.gz
+tar xfz v2.1.1.tar.gz
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>Move it to wherever you want to store and give it execution permissions.</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mv partitionfinder-2.1.1 /path/to/partition/finder
+chmod +x partitionfinder-2.1.1/PartitionFinder.py
+</pre></div>
+</div>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<p>This section describes the method to submit jobs with the resource manager SLURM.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If it is the first time you need Partition Finder or you want to use it locally,
+you should create and load the environment.</p>
+<p><code class="code bash docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">create</span> <span class="pre">-f</span> <span class="pre">partitionFinder.yml</span></code></p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text"><a class="reference download internal" download="" href="../../../../_downloads/06822c3b36aabac2fd16ea5e09137974/partitionFinder.yml"><code class="xref download docutils literal notranslate"><span class="pre">Partition</span> <span class="pre">Finder</span> <span class="pre">environment</span></code></a></span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">partitionFinder</span>
+<span class="nt">channels</span><span class="p">:</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">file:///share/apps/intel/ps_xe/2019_update-4/conda_channel</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">/share/apps/intel/ps_xe/2019_update-4/conda_channel</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">intel</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">defaults</span>
+<span class="nt">dependencies</span><span class="p">:</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">_libgcc_mutex=0.1=main</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">atomicwrites=1.3.0=py27_1</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">attrs=19.3.0=py_0</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">blosc=1.16.3=hd408876_0</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">contextlib2=0.6.0.post1=py_0</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">hdf5=1.10.4=hb1b8bf9_0</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">importlib_metadata=0.23=py27_0</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">libgcc-ng=9.1.0=hdf63c60_0</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">libgfortran-ng=7.3.0=hdf63c60_0</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">libstdcxx-ng=9.1.0=hdf63c60_0</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">lz4-c=1.8.1.2=h14c3975_0</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">lzo=2.10=h49e0be7_2</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">mock=1.0.1=py27_0</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">more-itertools=5.0.0=py27_0</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">packaging=19.2=py_0</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pluggy=0.13.0=py27_0</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">py=1.8.0=py_0</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pytables=3.5.2=py27h71ec239_1</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pytest=4.6.2=py27_0</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">snappy=1.1.7=hbae5bb6_3</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">zipp=0.6.0=py_0</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">zstd=1.3.7=h0b5b093_0</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">backports=1.0=py27_9</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">backports.functools_lru_cache=1.5=py27_2</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">bzip2=1.0.6=17</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">certifi=2018.1.18=py27_2</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">cycler=0.10.0=py27_7</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">daal=2019.4=intel_243</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">daal4py=2019.4=py27h7b7c402_0</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">freetype=2.9=3</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">funcsigs=1.0.2=py27_7</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">functools32=3.2.3.2=py27_7</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">icc_rt=2019.4=intel_243</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">impi_rt=2019.4=intel_243</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">intel-openmp=2019.4=intel_243</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">intelpython=2019.4=0</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">kiwisolver=1.0.1=py27_2</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">libpng=1.6.36=2</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">matplotlib=2.2.4=py27_1</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">mkl=2019.4=intel_243</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">mkl_fft=1.0.11=py27h7b7c402_2</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">mkl_random=1.0.2=py27h7b7c402_4</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">numexpr=2.6.8=py27_2</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">numpy=1.16.2=py27h7b7c402_0</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">numpy-base=1.16.2=py27_0</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">openssl=1.0.2r=2</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pandas=0.24.1=py27_3</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pip=10.0.1=py27_0</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pyparsing=2.2.0=py27_2</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">python=2.7.16=3</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">python-dateutil=2.6.0=py27_12</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pytz=2018.4=py27_3</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">scikit-learn=0.20.3=py27h7b7c402_5</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">scipy=1.2.1=py27h7b7c402_3</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">six=1.11.0=py27_3</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">sqlite=3.27.2=4</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic">
+<li><p>Run SLURM with the following bash file.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sbatch partitionFinder.sh
+</pre></div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text"><a class="reference download internal" download="" href="../../../../_downloads/9d5e69920d3ba2371ceae9edc4366533/partitionFinder.sh"><code class="xref download docutils literal notranslate"><span class="pre">Partition</span> <span class="pre">Finder</span> <span class="pre">SLURM</span></code></a></span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
+<div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="c">#!/bin/bash                                                                                                          </span>
+
+<span class="c">#SBATCH --job-name=serial_test       # Job name                                                                      </span>
+<span class="c">#SBATCH --mail-type=ALL         # Mail notification                                                                  </span>
+<span class="c">#SBATCH --mail-user=&lt;user&gt;@&lt;domain&gt;  # User Email                                                                    </span>
+<span class="c">#SBATCH --output=mothur-%j.out # Stdout (%j expands to jobId)                                                        </span>
+<span class="c">#SBATCH --error=mothur-%j.err  # Stderr (%j expands to jobId)                                                        </span>
+<span class="c">#SBATCH --ntasks=1                   # Number of tasks (processes)                                                   </span>
+<span class="c">#SBATCH --time=01:00                 # Walltime                                                                      </span>
+<span class="c">#SBATCH --partition=longjobs         # Partition                                                                     </span>
+
+
+<span class="c">##### ENVIRONMENT CREATION #####                                                                                     </span>
+
+<span class="nv">module</span> load python
+<span class="nb">source</span> activate partitionFinder
+
+<span class="c">##### JOB COMMANDS ####                                                                                              </span>
+<span class="o">/</span><span class="nv">path</span><span class="o">/</span>to<span class="o">/</span>partition<span class="o">/</span>finder<span class="o">/</span>PartitionFinder.py <span class="o">/</span>path<span class="o">/</span>to<span class="o">/</span>partitionFinder<span class="o">/</span>input<span class="o">/</span>files
+</pre></div>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="authors">
+<h2>Authors<a class="headerlink" href="#authors" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Manuela Carrasco Pinzón &lt;<a class="reference external" href="mailto:mcarras1&#37;&#52;&#48;eafit&#46;edu&#46;co">mcarras1<span>&#64;</span>eafit<span>&#46;</span>edu<span>&#46;</span>co</a>&gt;</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../picrust2/index.html" class="btn btn-neutral float-right" title="PICRUSt2" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral float-left" title="Partition Finder" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Creative Commons Attribution-NonCommercial 4.0 International License
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

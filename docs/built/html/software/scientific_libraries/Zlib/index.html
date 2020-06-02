@@ -1,0 +1,275 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Zlib &mdash; apolo-docs 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/sidebar.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Zlib 1.2.11" href="Zlib-1.2.11/index.html" />
+    <link rel="prev" title="Szip 2.1.1" href="../Szip/Szip-2.1.1/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+  
+    <a href="../../../index.html">
+  
+
+  
+    
+    <img src="../../../_static/apolo-white.png" style="width: 150px;" class="logo" alt="Logo"/>
+  
+    </a>
+
+    
+      
+      
+      
+	<div class="version" style="color: rgba(255,255,255,0.5);">
+	  0.1
+	</div>
+      
+    
+
+    
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../gettingstarted/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../supercomputers/index.html">Supercomputers</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Software</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../virtualization/index.html">Virtualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../programminglanguages/index.html">Programming Languages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/index.html">Scientific Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../resourcemanager/index.html">Resource Manager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../provisioning/index.html">Provisioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../monitoring/index.html">Monitoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../operatingsystems/index.html">Operating Systems</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Scientific Libraries</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../parallelNetCDF/index.html">ParallelNetCDF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../NetCDF/index.html">NetCDF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../GMP/index.html">GMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../eigen/index.html">Eigen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pybind/index.html">Pybind</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../fftw3/index.html">FFTW3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../beagle/index.html">Beagle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../boost/index.html">Boost</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../open_blas/index.html">OpenBLAS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../icu/index.html">ICU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../HTSeq/index.html">HTSeq</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Jasper/index.html">Jaspe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Qt/index.html">Qt framework</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../hypre/index.html">Hypre</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gsl/index.html">GSL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../hdf5/index.html">Hdf5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mpfr/index.html">MPFR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Szip/index.html">Szip</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Zlib</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Zlib-1.2.11/index.html">Zlib 1.2.11</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../ScaLAPACK/index.html">ScaLAPACK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Cloog/index.html">Cloog</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../MPC/index.html">MPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LAPACK/index.html">LAPACK</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../how-to-acknowledge.html">How to Acknowledge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../report-a-bug.html">Report a Bug</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">apolo-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Software</a> &raquo;</li>
+        
+          <li><a href="../index.html">Scientific Libraries</a> &raquo;</li>
+        
+      <li>Zlib</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/software/scientific_libraries/Zlib/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="zlib">
+<span id="id1"></span><h1>Zlib<a class="headerlink" href="#zlib" title="Permalink to this headline">¶</a></h1>
+<p>ZLib <a class="footnote-reference brackets" href="#id3" id="id2">1</a> is designed to be a free, general-purpose, legally unencumbered – that is, not covered by
+any patents – lossless data-compression library for use on virtually any computer hardware and operating
+system. The zlib data format is itself portable across platforms. Unlike the LZW compression method used in
+Unix compress(1) and in the GIF image format, the compression method currently used in zlib essentially
+never expands the data.</p>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Versions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Zlib-1.2.11/index.html">Zlib 1.2.11</a></li>
+</ul>
+</div>
+<dl class="footnote brackets">
+<dt class="label" id="id3"><span class="brackets"><a class="fn-backref" href="#id2">1</a></span></dt>
+<dd><p><a class="reference external" href="https://www.zlib.net/">https://www.zlib.net/</a></p>
+</dd>
+</dl>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Zlib-1.2.11/index.html" class="btn btn-neutral float-right" title="Zlib 1.2.11" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../Szip/Szip-2.1.1/index.html" class="btn btn-neutral float-left" title="Szip 2.1.1" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Creative Commons Attribution-NonCommercial 4.0 International License
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

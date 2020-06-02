@@ -1,0 +1,400 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1. Tags &mdash; apolo-docs 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/sidebar.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="1. Overview" href="deployment_strategy.html" />
+    <link rel="prev" title="1. Inventory" href="preliminaries.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+  
+    <a href="../../../index.html">
+  
+
+  
+    
+    <img src="../../../_static/apolo-white.png" style="width: 150px;" class="logo" alt="Logo"/>
+  
+    </a>
+
+    
+      
+      
+      
+	<div class="version" style="color: rgba(255,255,255,0.5);">
+	  0.1
+	</div>
+      
+    
+
+    
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../gettingstarted/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../supercomputers/index.html">Supercomputers</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Software</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../virtualization/index.html">Virtualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../programminglanguages/index.html">Programming Languages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/index.html">Scientific Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../resourcemanager/index.html">Resource Manager</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Provisioning</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Ansible</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="index.html#basic-information">Basic information</a></li>
+<li class="toctree-l4"><a class="reference internal" href="index.html#preliminaries">Preliminaries</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="index.html#dynamic-control">Dynamic control</a></li>
+<li class="toctree-l4"><a class="reference internal" href="index.html#deployment-strategy">Deployment strategy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="index.html#tips-and-tricks">Tips and tricks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="index.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="index.html#authors">Authors</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../monitoring/index.html">Monitoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../operatingsystems/index.html">Operating Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../scientific_libraries/index.html">Scientific Libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../how-to-acknowledge.html">How to Acknowledge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../report-a-bug.html">Report a Bug</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">apolo-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Software</a> &raquo;</li>
+        
+          <li><a href="../index.html">Provisioning</a> &raquo;</li>
+        
+          <li><a href="index.html">Ansible</a> &raquo;</li>
+        
+      <li><span class="section-number">1. </span>Tags</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/software/provisioning/ansible/dynamic_control.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="tags">
+<span id="sssec-ansible-tags"></span><h1><span class="section-number">1. </span>Tags<a class="headerlink" href="#tags" title="Permalink to this headline">¶</a></h1>
+<p>Running specific parts of a playbook, role or taskfile is what tags are all about.
+Their purpose is to filter tasks based on a tag and then execute them.
+Take the playbook below for example,</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+<span class="c1"># /tmp/playbook.yml</span>
+<span class="p p-Indicator">-</span> <span class="nt">hosts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">all</span>
+  <span class="nt">tasks</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Install emacs</span>
+      <span class="nt">package</span><span class="p">:</span>
+        <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">emacs-nox</span>
+        <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">installed</span>
+      <span class="nt">tags</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">good</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Place emacs config file</span>
+      <span class="nt">copy</span><span class="p">:</span>
+        <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">.emacs</span>
+        <span class="nt">dest</span><span class="p">:</span> <span class="p p-Indicator">{{</span> <span class="nv">ansible_env.HOME</span> <span class="p p-Indicator">}}</span>
+      <span class="nt">tags</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">evil</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Install vim</span>
+      <span class="nt">package</span><span class="p">:</span>
+        <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vim</span>
+        <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">present</span>
+      <span class="nt">tags</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">evil</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Install nano</span>
+      <span class="nt">package</span><span class="p">:</span>
+        <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">nano</span>
+        <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">installed</span>
+</pre></div>
+</div>
+<p>you could install emacs by running:</p>
+<ol class="arabic simple">
+<li><p><code class="code bash docutils literal notranslate"><span class="pre">ansible-playbook</span> <span class="pre">/tmp/playbook.yml</span> <span class="pre">--tags</span> <span class="pre">good</span></code></p></li>
+<li><p><code class="code bash docutils literal notranslate"><span class="pre">ansible-playbook</span> <span class="pre">/tmp/playbook.yml</span> <span class="pre">--skip-tags</span> <span class="pre">evil</span></code></p></li>
+</ol>
+<p>The former can be understood as “only run tasks tagged as good”, hence tasks one
+and two will be the only ones to be executed. The latter, on the other hand, means
+“run every task not tagged as evil”, therefore tasks one, two AND four will be executed.</p>
+<div class="section" id="inheritance">
+<span id="sssec-ansible-tags-inheritance"></span><h2><span class="section-number">1.1. </span>Inheritance<a class="headerlink" href="#inheritance" title="Permalink to this headline">¶</a></h2>
+<p>Tags only affect tasks; this means tagging a task, role or playbook import will only
+serve the purpose of tagging all tasks within it.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><em>include</em> statements DO NOT tag tasks within them. Multi-tagging only applies
+to dynamic includes, such as <em>import</em> statements.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+<span class="c1"># Tasks within taskfile_1.yml will not be tagged,</span>
+<span class="c1"># but the include will.</span>
+<span class="p p-Indicator">-</span> <span class="nt">include_tasks</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">taskfile_1.yml</span>
+  <span class="nt">tags</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">tag_1</span>
+
+<span class="c1"># Tasks within taskfile_2 will be tagged, as well</span>
+<span class="c1"># as the import statement itself.</span>
+<span class="p p-Indicator">-</span> <span class="nt">import_tasks</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">taskfile_2.yml</span>
+  <span class="nt">tags</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">tag_2</span>
+</pre></div>
+</div>
+</div>
+<p>Think of it as multi-tagging, where
+declaring one tag automatically tags a set of tasks. For example, the playbook below</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+<span class="p p-Indicator">-</span> <span class="nt">hosts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">all</span>
+  <span class="nt">roles</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">role</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">apache</span>
+      <span class="nt">vars</span><span class="p">:</span>
+        <span class="nt">ssl_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">443</span>
+      <span class="nt">tags</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">web</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">container</span>
+</pre></div>
+</div>
+<p>will tag all tasks within the role apache.</p>
+</div>
+<div class="section" id="special-tags">
+<span id="sssec-ansible-tags-special"></span><h2><span class="section-number">1.2. </span>Special tags<a class="headerlink" href="#special-tags" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 65%" />
+<col style="width: 18%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Tag</p></th>
+<th class="head"><p>Meaning</p></th>
+<th class="head"><p>Explicit</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>always</p></td>
+<td><p>always run a task; can be skipped
+using –skip-tags always.</p></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="row-odd"><td><p>never</p></td>
+<td><p>never run a task, unless explicitly
+told to do so.</p></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="row-even"><td><p>tagged</p></td>
+<td><p>run tagged tasks only</p></td>
+<td><p>no</p></td>
+</tr>
+<tr class="row-odd"><td><p>untagged</p></td>
+<td><p>run untagged tasks only</p></td>
+<td><p>no</p></td>
+</tr>
+<tr class="row-even"><td><p>all</p></td>
+<td><p>run all tasks (DEFAULT)</p></td>
+<td><p>no</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="example">
+<span id="sssec-ansible-tags-example"></span><h2><span class="section-number">1.3. </span>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<p>Consider a provisioned cluster with 501 nodes (1 master, 500 slaves),
+where ansible’s average running time is 25 to 30 minutes.</p>
+<p>Suppose you are given the task
+of automating the creation of the folder <code class="code bash docutils literal notranslate"><span class="pre">/scratch-local</span></code> and its
+subdirectories, so that each node has a directory per scientist, named after
+the convention <code class="code bash docutils literal notranslate"><span class="pre">/scratch-local/&lt;username&gt;</span></code>.</p>
+<p>In order to accomplish the task,
+you intend to read the usernames from the datacenter’s FreeIpa manager
+and later use them to create the appropriate directories under
+<code class="code bash docutils literal notranslate"><span class="pre">/scratch-local/</span></code>:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1">#/tmp/scratch_local.yml</span>
+<span class="nn">---</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Get users from FreeIpa</span>
+  <span class="nt">shell</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ipa user-find --raw --pkey-only | awk &#39;/uid:/{print $2}&#39;</span>
+  <span class="nt">register</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">get_users</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Create dirs</span>
+  <span class="nt">file</span><span class="p">:</span>
+    <span class="nt">path</span><span class="p">:</span> <span class="s">&quot;/scratch-local/{{</span><span class="nv"> </span><span class="s">item</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">directory</span>
+    <span class="nt">owner</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item</span><span class="nv"> </span><span class="s">}}&quot;</span>
+  <span class="nt">loop</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">get_users.stdout_lines</span><span class="nv"> </span><span class="s">}}&quot;</span>
+</pre></div>
+</div>
+<p>Running the above taskfile will ensure all scientists have their own folder in the
+specified path. You quickly realize, however, that it will take 25 to 30 minutes
+for the changes to be applied and upon the creation of new user accounts
+at worst 30 minutes * N° of new users (if they are not created within
+ansible’s run interval). So, you decide to tag the tasks:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1">#/tmp/playbook.yml</span>
+<span class="nn">---</span>
+<span class="p p-Indicator">-</span> <span class="nt">hosts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">computes</span>
+  <span class="nt">tasks</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">import_tasks</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">scratch_local.yml</span>
+    <span class="nt">tags</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">scratch</span>
+</pre></div>
+</div>
+<p>Finally, you tell your boss incorporating your code to the git repo holding
+ansible data and running the command <code class="code bash docutils literal notranslate"><span class="pre">ansible-playbook</span> <span class="pre">--tags</span> <span class="pre">scratch</span> <span class="pre">&lt;playbook&gt;</span></code>
+will do the job without further delay.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="deployment_strategy.html" class="btn btn-neutral float-right" title="1. Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="preliminaries.html" class="btn btn-neutral float-left" title="1. Inventory" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Creative Commons Attribution-NonCommercial 4.0 International License
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

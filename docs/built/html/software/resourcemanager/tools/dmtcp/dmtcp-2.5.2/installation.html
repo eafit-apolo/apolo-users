@@ -1,0 +1,361 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Tested on (Requirements) &mdash; apolo-docs 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../" src="../../../../../_static/documentation_options.js"></script>
+        <script src="../../../../../_static/jquery.js"></script>
+        <script src="../../../../../_static/underscore.js"></script>
+        <script src="../../../../../_static/doctools.js"></script>
+        <script src="../../../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/css/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/css/sidebar.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" />
+    <link rel="next" title="Provisioning" href="../../../../provisioning/index.html" />
+    <link rel="prev" title="DMTCP-2.5.2" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+  
+    <a href="../../../../../index.html">
+  
+
+  
+    
+    <img src="../../../../../_static/apolo-white.png" style="width: 150px;" class="logo" alt="Logo"/>
+  
+    </a>
+
+    
+      
+      
+      
+	<div class="version" style="color: rgba(255,255,255,0.5);">
+	  0.1
+	</div>
+      
+    
+
+    
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../gettingstarted/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../supercomputers/index.html">Supercomputers</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../index.html">Software</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../../virtualization/index.html">Virtualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../programminglanguages/index.html">Programming Languages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../applications/index.html">Scientific Applications</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../index.html">Resource Manager</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../../slurm/index.html">SLURM</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../../index.html#tools">Tools</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html">DMTCP</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../provisioning/index.html">Provisioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../monitoring/index.html">Monitoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../operatingsystems/index.html">Operating Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../scientific_libraries/index.html">Scientific Libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../how-to-acknowledge.html">How to Acknowledge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../report-a-bug.html">Report a Bug</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">apolo-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../index.html">Software</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Resource Manager</a> &raquo;</li>
+        
+          <li><a href="../index.html">DMTCP</a> &raquo;</li>
+        
+          <li><a href="index.html">DMTCP-2.5.2</a> &raquo;</li>
+        
+      <li>Tested on (Requirements)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../../_sources/software/resourcemanager/tools/dmtcp/dmtcp-2.5.2/installation.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="sidebar" id="dmtcp-2-5-2-installation">
+<p class="sidebar-title">Contents</p>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#tested-on-requirements" id="id2">Tested on (Requirements)</a></p></li>
+<li><p><a class="reference internal" href="#build-process" id="id3">Build process</a></p></li>
+<li><p><a class="reference internal" href="#module-file" id="id4">Module file</a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="tested-on-requirements">
+<h1><a class="toc-backref" href="#id2">Tested on (Requirements)</a><a class="headerlink" href="#tested-on-requirements" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><strong>OS base:</strong> CentOS (x86_64) <span class="math notranslate nohighlight">\(\boldsymbol{\ge}\)</span> 6.6</p></li>
+<li><p><strong>Scheduler:</strong> SLURM <span class="math notranslate nohighlight">\(\boldsymbol{\ge}\)</span> 16.05.6</p></li>
+<li><p><strong>Compiler:</strong> GNU GCC <span class="math notranslate nohighlight">\(\boldsymbol{\ge}\)</span> 4.4.7-11</p></li>
+</ul>
+</div>
+<div class="section" id="build-process">
+<h1><a class="toc-backref" href="#id3">Build process</a><a class="headerlink" href="#build-process" title="Permalink to this headline">¶</a></h1>
+<p>This entry describes the installation process of DMTCP.</p>
+<ol class="arabic">
+<li><p>Get DMTCP latest version from its sourceforge page
+(<a class="reference external" href="https://sourceforge.net/projects/dmtcp/files/2.5.2/dmtcp-2.5.2.tar.gz/download">page</a>)</p></li>
+<li><p>Send the installation package to the master node on your cluster.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>scp dmtcp-2.5.2.tar.gz &lt;usename&gt;t@&lt;FQDN&gt;:<span class="nv">$installer_path</span>$
+</pre></div>
+</div>
+</li>
+<li><p>Unzip and access the installer files.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ssh -X root@&lt;FQDN&gt;
+<span class="nb">cd</span> <span class="nv">$installer_path</span>$
+tar xf dmtcp-2.5.2.tar.gz
+</pre></div>
+</div>
+</li>
+<li><p>Create the installation directory and change its owner to the user that it is
+doing this process.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir -p /share/apps/dmtcp/2.5.2
+chown &lt;username&gt;.&lt;user group&gt; /share/apps/dmtcp/2.5.2
+</pre></div>
+</div>
+</li>
+<li><p>Go to DMTCP path and build it with the acording flags presented here.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./configure <span class="se">\</span>
+--prefix<span class="o">=</span>/share/apps/dmtcp/2.5.2 <span class="se">\</span>
+--build<span class="o">=</span>x86_64-redhat-linux <span class="se">\</span>
+--enable-infiniband-support <span class="se">\</span>
+--enable-pthread-mutex-wrappers
+make <span class="o">&amp;&amp;</span> make install
+</pre></div>
+</div>
+</li>
+<li><p>After this process, repeat the configure process to install the (<strong>32 Bits</strong>)
+compatibility following these commands.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./configure <span class="se">\</span>
+--prefix<span class="o">=</span>/share/apps/dmtcp/2.5.2 <span class="se">\</span>
+--build<span class="o">=</span>x86_64-redhat-linux <span class="se">\</span>
+--enable-infiniband-support <span class="se">\</span>
+--enable-pthread-mutex-wrappers <span class="se">\</span>
+--enable-m32
+make clean
+make <span class="o">&amp;&amp;</span> make install
+</pre></div>
+</div>
+</li>
+<li><p>Change the owner of the installation directory to finish this process.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chown root.root /share/apps/dmtcp/2.5.2
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="module-file">
+<h1><a class="toc-backref" href="#id4">Module file</a><a class="headerlink" href="#module-file" title="Permalink to this headline">¶</a></h1>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text"><a class="reference download internal" download="" href="../../../../../_downloads/58c0345cab2dc9637b2d6b6a73103c5b/2.5.2"><code class="xref download docutils literal notranslate"><span class="pre">Module</span> <span class="pre">file</span></code></a></span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
+<div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="c">#%Module1.0####################################################################</span>
+<span class="c">##</span>
+<span class="c">## module load dmtcp/2.5.2</span>
+<span class="c">##</span>
+<span class="c">## /share/apps/modules/dmtcp/2.5.2</span>
+<span class="c">## Written by Sebastian Patiño Barrientos</span>
+<span class="c">##</span>
+
+<span class="k">proc</span> ModulesHelp <span class="k">{}</span> <span class="k">{</span>
+     <span class="k">global</span> version modroot
+     <span class="nb">puts</span> stderr <span class="s2">&quot;Sets the environment for using dmtcp 2.5.2\</span>
+<span class="s2">		  \nin the shared directory \</span>
+<span class="s2">		  \n/share/apps/dmtcp/2.5.2/\</span>
+<span class="s2">		  \nbuilded with gcc-4.4.7&quot;</span>
+<span class="k">}</span>
+
+<span class="nv">module-whatis</span> <span class="s2">&quot;(Name________) dmtcp&quot;</span>
+<span class="nv">module-whatis</span> <span class="s2">&quot;(Version_____) 2.5.2&quot;</span>
+<span class="nv">module-whatis</span> <span class="s2">&quot;(Compilers___) gcc-4.4.7&quot;</span>
+<span class="nv">module-whatis</span> <span class="s2">&quot;(System______) x86_64-redhat-linux&quot;</span>
+<span class="nv">module-whatis</span> <span class="s2">&quot;(Libraries___) &quot;</span>
+
+<span class="c"># for Tcl script use only</span>
+<span class="k">set</span>         topdir        <span class="o">/</span>share<span class="o">/</span>apps<span class="o">/</span>dmtcp<span class="o">/</span><span class="mf">2.5</span>.2<span class="o">/</span>
+<span class="k">set</span>         version       <span class="mf">2.5</span>.2
+<span class="k">set</span>         sys           x86_64-redhat-linux
+
+<span class="nv">conflict</span> dmtcp
+ 
+
+<span class="nv">prepend-path</span>	PATH			<span class="nv">$topdir</span><span class="o">/</span>bin
+
+<span class="nv">prepend-path</span>	LD_LIBRARY_PATH		<span class="nv">$topdir</span><span class="o">/</span>lib
+<span class="nv">prepend-path</span>	LIBRARY_PATH		<span class="nv">$topdir</span><span class="o">/</span>lib
+<span class="nv">prepend-path</span>	LD_RUN_PATH		<span class="nv">$topdir</span><span class="o">/</span>lib
+
+<span class="nv">prepend-path</span>	C_INCLUDE_PATH		<span class="nv">$topdir</span><span class="o">/</span>include
+<span class="nv">prepend-path</span>	CXX_INCLUDE_PATH	<span class="nv">$topdir</span><span class="o">/</span>include
+<span class="nv">prepend-path</span>	CPLUS_INCLUDE_PATH	<span class="nv">$topdir</span><span class="o">/</span>include
+
+<span class="nv">prepend-path</span>	MANPATH			<span class="nv">$topdir</span><span class="o">/</span>share<span class="o">/</span>man
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../../../provisioning/index.html" class="btn btn-neutral float-right" title="Provisioning" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="DMTCP-2.5.2" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Creative Commons Attribution-NonCommercial 4.0 International License
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

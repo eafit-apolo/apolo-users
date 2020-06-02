@@ -1,0 +1,33 @@
+#%Module1.0####################################################################
+##
+## module load arcs/1.1.0_gcc-7.4.0
+##
+## /share/apps/modules/arcs/1.1.0_gcc-7.4.0
+## Written by Vincent A. Arcila L and Hamilton Tobon Mosquera.
+##
+
+proc ModulesHelp {} {
+         global version modroot
+         puts stderr "Sets the environment for using arcs 1.1.0 \
+         \nin the shared directory /share/apps/arcs/1.1.0/gcc/7.4.0 \
+         \nbuilt with GCC 7.4.0."
+}
+
+module-whatis "(Name________) arcs"
+module-whatis "(Version_____) 1.1.0"
+module-whatis "(Compilers___) gcc-7.4.0"
+module-whatis "(System______) x86_64-redhat-linux"
+module-whatis "(Libraries___) "
+
+# for Tcl script use only
+set         topdir        /share/apps/arcs/1.1.0/gcc/7.4.0
+set         version       1.1.0
+set         sys           x86_64-redhat-linux
+
+conflict arcs
+module load boost/1.67.0_intel-17.0.1
+module load links/1.8.7_gcc-5.4.0_perl-5.26.1
+module load sparsehash/2.0.3_intel-19.0.4
+ 
+
+prepend-path   PATH            $topdir/bin

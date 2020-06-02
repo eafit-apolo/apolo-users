@@ -1,0 +1,672 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Sensu - 0.26.5 &mdash; apolo-docs 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/sidebar.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="Sensu Plugin - Remediator" href="plugins/remediator.html" />
+    <link rel="prev" title="Sensu" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+  
+    <a href="../../../../index.html">
+  
+
+  
+    
+    <img src="../../../../_static/apolo-white.png" style="width: 150px;" class="logo" alt="Logo"/>
+  
+    </a>
+
+    
+      
+      
+      
+	<div class="version" style="color: rgba(255,255,255,0.5);">
+	  0.1
+	</div>
+      
+    
+
+    
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../gettingstarted/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../supercomputers/index.html">Supercomputers</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Software</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../virtualization/index.html">Virtualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../programminglanguages/index.html">Programming Languages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../applications/index.html">Scientific Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../resourcemanager/index.html">Resource Manager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../provisioning/index.html">Provisioning</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Monitoring</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../architecture/index.html">Monitoring Architecture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nagios/index.html">Nagios</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">Sensu</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Sensu - 0.26.5</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../elk/index.html">ELK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grafana/index.html">Grafana</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../operatingsystems/index.html">Operating Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../scientific_libraries/index.html">Scientific Libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../how-to-acknowledge.html">How to Acknowledge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../report-a-bug.html">Report a Bug</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">apolo-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Software</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Monitoring</a> &raquo;</li>
+        
+          <li><a href="../index.html">Sensu</a> &raquo;</li>
+        
+      <li>Sensu - 0.26.5</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/software/monitoring/sensu/sensu-0.26.5/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="sensu-0-26-5">
+<span id="sensu-0-26-5-index"></span><h1><a class="toc-backref" href="#id9">Sensu - 0.26.5</a><a class="headerlink" href="#sensu-0-26-5" title="Permalink to this headline">¶</a></h1>
+<p>This documentation page describes the process of installation and configuration
+of an entire monitoring environment using Sensu as the Core and CentOS 7 as the
+base Operating System.</p>
+<div class="contents topic" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#sensu-0-26-5" id="id9">Sensu - 0.26.5</a></p>
+<ul>
+<li><p><a class="reference internal" href="#basic-information" id="id10">Basic information</a></p></li>
+<li><p><a class="reference internal" href="#directory-hierarchy" id="id11">Directory Hierarchy</a></p>
+<ul>
+<li><p><a class="reference internal" href="#installation-directory" id="id12">Installation directory</a></p></li>
+<li><p><a class="reference internal" href="#configuration-directory" id="id13">Configuration directory</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#introduction" id="id14">Introduction</a></p></li>
+<li><p><a class="reference internal" href="#id1" id="id15">Sensu Services</a></p></li>
+<li><p><a class="reference internal" href="#concepts" id="id16">Concepts</a></p></li>
+<li><p><a class="reference internal" href="#installation" id="id17">Installation</a></p>
+<ul>
+<li><p><a class="reference internal" href="#sensu-server" id="id18">Sensu Server</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#configuration" id="id19">Configuration</a></p>
+<ul>
+<li><p><a class="reference internal" href="#service-configuration" id="id20">Service configuration</a></p>
+<ul>
+<li><p><a class="reference internal" href="#sensu-client" id="id21">1. Sensu Client</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id22">2. Sensu Server</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#rabbitmq-configuration" id="id23">RabbitMQ Configuration</a></p></li>
+<li><p><a class="reference internal" href="#sensu-configuration" id="id24">Sensu Configuration</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id4" id="id25">1. Sensu Client</a></p></li>
+<li><p><a class="reference internal" href="#id5" id="id26">2. Sensu Server</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#plugins" id="id27">Plugins</a></p></li>
+<li><p><a class="reference internal" href="#integration-with-ansible" id="id28">Integration with Ansible</a></p>
+<ul>
+<li><p><a class="reference internal" href="#add-a-new-plugin" id="id29">Add a new Plugin</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#troubleshooting" id="id30">Troubleshooting</a></p>
+<ul>
+<li><p><a class="reference internal" href="#connection-error-is-the-sensu-api-running" id="id31">Connection error. Is the Sensu API running?</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#authors" id="id32">Authors</a></p></li>
+<li><p><a class="reference internal" href="#references" id="id33">References</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="basic-information">
+<h2><a class="toc-backref" href="#id10">Basic information</a><a class="headerlink" href="#basic-information" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Deploy date:</strong> 11th June, 2019</p></li>
+<li><p><strong>Official Website:</strong> <a class="reference external" href="https://sensu.io/">https://sensu.io/</a></p></li>
+<li><p><strong>License:</strong> MIT License.</p></li>
+</ul>
+</div>
+<div class="section" id="directory-hierarchy">
+<h2><a class="toc-backref" href="#id11">Directory Hierarchy</a><a class="headerlink" href="#directory-hierarchy" title="Permalink to this headline">¶</a></h2>
+<p>The two main Sensu directories are:</p>
+<div class="section" id="installation-directory">
+<h3><a class="toc-backref" href="#id12">Installation directory</a><a class="headerlink" href="#installation-directory" title="Permalink to this headline">¶</a></h3>
+<p><code class="file docutils literal notranslate"><span class="pre">/opt/sensu</span></code> is the installation directory. It contains services, binaries, libraries and
+its own Ruby installation with the plugins installed using the command <code class="code bash docutils literal notranslate"><span class="pre">sensu-install</span></code>.</p>
+</div>
+<div class="section" id="configuration-directory">
+<h3><a class="toc-backref" href="#id13">Configuration directory</a><a class="headerlink" href="#configuration-directory" title="Permalink to this headline">¶</a></h3>
+<p><code class="file docutils literal notranslate"><span class="pre">/etc/sensu</span></code> contains the configuration files, plugins, and handlers. The configuration definition can be present
+in <code class="code bash docutils literal notranslate"><span class="pre">/etc/sensu/config.json</span></code> or as an independent JSON file in the directory <code class="file docutils literal notranslate"><span class="pre">/etc/sensu/conf.d/</span></code>.</p>
+</div>
+</div>
+<div class="section" id="introduction">
+<span id="sensu-services"></span><h2><a class="toc-backref" href="#id14">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>The general sensu architecture is summarized as one or more servers that assign
+monitoring tasks to its clients through a message broker, and stores the results
+in a Database in Memory. Information like configuration and results is provided
+through an API.</p>
+<a class="reference internal image-reference" href="../../../../_images/sensu-flow.gif"><img alt="Execution Flow" class="align-center" src="../../../../_images/sensu-flow.gif" style="width: 360.0px; height: 360.0px;" /></a>
+</div>
+<div class="section" id="id1">
+<h2><a class="toc-backref" href="#id15">Sensu Services</a><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><strong>sensu-client:</strong> It executes the tasks indicated in the Message Broker (RabbitMQ) by the Sensu server. It’s
+necessary to restart it if the client configuration changes (local checks, address, etc) to refresh the configuration.
+If you change a configuration in the client, it’s not necessary to restart the server.</p></li>
+<li><p><strong>sensu-server:</strong> Distributes the monitoring tasks through the message broker, and reacts executing the specified
+handlers when a result has a critical or warning state. It’s necessary to restart it if the server
+configuration changes (checks, handlers, etc) in order to refresh its execution parameters
+(send monitoring tasks and receive results).</p></li>
+<li><p><strong>sensu-api:</strong> Manages the service information provided from the Sensu-server to external systems like Uchiwa. It’s
+necessary to restart it if the server configuration changes (checks, handlers, etc) in order to update the informative layer.</p></li>
+</ul>
+<a class="reference internal image-reference" href="../../../../_images/services.png"><img alt="Services" src="../../../../_images/services.png" style="width: 736.8000000000001px; height: 311.20000000000005px;" /></a>
+</div>
+<div class="section" id="concepts">
+<h2><a class="toc-backref" href="#id16">Concepts</a><a class="headerlink" href="#concepts" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Clients:</strong> Monitoring agents that execute checks and replies the results to its associated Sensu Server.</p></li>
+<li><p><strong>Subscriptions:</strong> A name that groups 0 or more clients around one particular role or responsibility.</p></li>
+<li><p><strong>Checks:</strong> Commands executed by the Sensu client which monitor a condition or collect measurements (server resources, services, etc).</p></li>
+<li><p><strong>Handlers:</strong> Actions executed by the Sensu server on events, such as sending an email alert, creating or resolving an incident (e.g. in PagerDuty, ServiceNow, etc), or storing metrics in a time-series database (e.g. Graphite).</p></li>
+<li><p><strong>Mutators:</strong> Transform event data prior to handling (i.e. add new attributes to the response)</p></li>
+<li><p><strong>Plugins:</strong> Provide executable scripts or other programs that can be used as Sensu checks, handlers or mutators.</p></li>
+<li><p><strong>Filters:</strong> Inspect event data and match its keys/values with filter definition attributes, to determine if the event should be passed to an event handler. Filters are commonly used to filter recurring events (i.e. to eliminate notification noise).</p></li>
+</ul>
+<p>For more information, read <a class="footnote-reference brackets" href="#id8" id="id2">2</a>.</p>
+</div>
+<div class="section" id="installation">
+<h2><a class="toc-backref" href="#id17">Installation</a><a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>This first installation procedure is the same in both: Sensu Server and
+Sensu Client. The procedure is explained for a machine whose Operating
+System is CentOS 7.</p>
+<ol class="arabic">
+<li><p>Install the Epel-Release repository</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ yum install epel-release
+</pre></div>
+</div>
+</li>
+<li><p>Add the Official Sensu repository, adding the following file
+to <code class="code bash docutils literal notranslate"><span class="pre">/etc/yum.repos.d/sensu.repo</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>sensu<span class="o">]</span>
+<span class="nv">name</span><span class="o">=</span>sensu-main
+<span class="nv">baseurl</span><span class="o">=</span>http://repositories.sensuapp.org/yum/el/7/x86_64/
+<span class="nv">gpgkey</span><span class="o">=</span>https://repositories.sensuapp.org/yum/pubkey.gpg
+<span class="nv">gpgcheck</span><span class="o">=</span><span class="m">0</span>
+<span class="nv">enabled</span><span class="o">=</span><span class="m">1</span>
+</pre></div>
+</div>
+</li>
+<li><p>Install Sensu</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ yum install sensu
+</pre></div>
+</div>
+</li>
+</ol>
+<div class="section" id="sensu-server">
+<h3><a class="toc-backref" href="#id18">Sensu Server</a><a class="headerlink" href="#sensu-server" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It’s important to know that a Sensu Server can be also a Sensu Client.</p>
+</div>
+<p>After executing the previous steps, if you are not installing the Sensu
+Client, but the Sensu Server, proceed as follows:</p>
+<ol class="arabic">
+<li><p>Install the additional dependencies for managing the communication between
+clients-server.</p>
+<ul class="simple">
+<li><p><strong>RabbitMQ</strong> is the message broker that manages the communication.</p></li>
+<li><p><strong>Erlang</strong> is a programming language and a runtime dependency for RabbitMQ.</p></li>
+<li><p><strong>Redis</strong> works as Database in Memory and stores temporarily the monitoring information.</p></li>
+<li><p><strong>Uchiwa</strong> is a web Dashboard for visualizing Sensu status and Configuration.</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ yum install erlang redis uchiwa
+</pre></div>
+</div>
+<p>RabbitMQ can be installed from its official RPM:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ yum install https://www.rabbitmq.com/releases/rabbitmq-server/v3.6.6/rabbitmq-server-3.6.6-1.el6.noarch.rpm
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="configuration">
+<h2><a class="toc-backref" href="#id19">Configuration</a><a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="service-configuration">
+<h3><a class="toc-backref" href="#id20">Service configuration</a><a class="headerlink" href="#service-configuration" title="Permalink to this headline">¶</a></h3>
+<p>You should start and enable at boot time the following services:</p>
+<div class="section" id="sensu-client">
+<h4><a class="toc-backref" href="#id21">1. Sensu Client</a><a class="headerlink" href="#sensu-client" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>sensu-client</p></li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h4><a class="toc-backref" href="#id22">2. Sensu Server</a><a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>uchiwa</p></li>
+<li><p>sensu-server</p></li>
+<li><p>sensu-api</p></li>
+<li><p>redis</p></li>
+<li><p>rabbitmq-server</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="rabbitmq-configuration">
+<h3><a class="toc-backref" href="#id23">RabbitMQ Configuration</a><a class="headerlink" href="#rabbitmq-configuration" title="Permalink to this headline">¶</a></h3>
+<p>It’s necessary to define authentication credentials to let Clients
+communicate in a secure way with the Sensu Server through the Message
+Broker RabbitMQ. This procedure is executed only once in the Sensu
+Server.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ rabbitmqctl add_vhost /sensu
+$ rabbitmqctl add_user sensu PASSWORD
+$ rabbitmqctl set_permissions -p /sensu sensu <span class="s2">&quot;.*&quot;</span> <span class="s2">&quot;.*&quot;</span> <span class="s2">&quot;.*&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sensu-configuration">
+<h3><a class="toc-backref" href="#id24">Sensu Configuration</a><a class="headerlink" href="#sensu-configuration" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id4">
+<h4><a class="toc-backref" href="#id25">1. Sensu Client</a><a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<ol class="arabic">
+<li><p>Add the Client definition in <code class="code bash docutils literal notranslate"><span class="pre">/etc/sensu/config.json</span></code> or in any file with <em>json</em> extension into the directory
+<code class="code bash docutils literal notranslate"><span class="pre">/etc/sensu/conf.d/</span></code>, specifying hostname, subscriptions, etc.</p>
+<p><strong>Example: /etc/sensu/conf.d/client.json</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+  <span class="s2">&quot;client&quot;</span>: <span class="o">{</span>
+    <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;HOSTNAME&quot;</span>,
+      <span class="s2">&quot;bmc_address&quot;</span>: <span class="s2">&quot;10.0.0.1&quot;</span>,
+      <span class="s2">&quot;subscriptions&quot;</span>: <span class="o">[</span>
+        <span class="s2">&quot;subscription-1&quot;</span>,
+        <span class="s2">&quot;subscription-2&quot;</span>
+      <span class="o">]</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>Add the Transport definition in the configuration directory:</p>
+<p><strong>Example: /etc/sensu/conf.d/transport.json</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+  <span class="s2">&quot;transport&quot;</span>: <span class="o">{</span>
+    <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;rabbitmq&quot;</span>,
+    <span class="s2">&quot;reconnect_on_error&quot;</span>: <span class="nb">true</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>Add the RabbitMQ definition specifying the credentials previously
+defined:</p></li>
+</ol>
+<p><strong>Example: /etc/sensu/conf.d/rabbitmq.json</strong></p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+  <span class="s2">&quot;rabbitmq&quot;</span>: <span class="o">{</span>
+	<span class="s2">&quot;host&quot;</span>: <span class="s2">&quot;SENSU_SERVER_IP&quot;</span>,
+	<span class="s2">&quot;port&quot;</span>: <span class="m">5672</span>,
+	<span class="s2">&quot;vhost&quot;</span>: <span class="s2">&quot;/sensu&quot;</span>,
+	<span class="s2">&quot;user&quot;</span>: <span class="s2">&quot;sensu&quot;</span>,
+	<span class="s2">&quot;password&quot;</span>: <span class="s2">&quot;PASSWORD&quot;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="id5">
+<h4><a class="toc-backref" href="#id26">2. Sensu Server</a><a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<p>Add the Uchiwa configuration file:</p>
+<p><strong>Example: /etc/sensu/conf.d/uchiwa.json</strong></p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+  <span class="s2">&quot;sensu&quot;</span>: <span class="o">[</span>
+    <span class="o">{</span>
+      <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;Site Name&quot;</span>,
+      <span class="s2">&quot;host&quot;</span>: <span class="s2">&quot;127.0.0.1&quot;</span>,
+      <span class="s2">&quot;port&quot;</span>: <span class="m">4567</span>,
+      <span class="s2">&quot;ssl&quot;</span>: false,
+      <span class="s2">&quot;path&quot;</span>: <span class="s2">&quot;&quot;</span>,
+      <span class="s2">&quot;user&quot;</span>: <span class="s2">&quot;&quot;</span>,
+      <span class="s2">&quot;pass&quot;</span>: <span class="s2">&quot;&quot;</span>,
+      <span class="s2">&quot;timeout&quot;</span>: <span class="m">10</span>
+    <span class="o">}</span>
+  <span class="o">]</span>,
+  <span class="s2">&quot;uchiwa&quot;</span>: <span class="o">{</span>
+    <span class="s2">&quot;host&quot;</span>: <span class="s2">&quot;127.0.0.1&quot;</span>,
+    <span class="s2">&quot;port&quot;</span>: <span class="m">3000</span>,
+    <span class="s2">&quot;refresh&quot;</span>: <span class="m">10</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+</div>
+</div>
+<div class="section" id="plugins">
+<h2><a class="toc-backref" href="#id27">Plugins</a><a class="headerlink" href="#plugins" title="Permalink to this headline">¶</a></h2>
+<p>Excluding the specific configurations that each plugin can have, the general
+process to add a plugin is described as follows:</p>
+<ol class="arabic simple">
+<li><p>Download the script into a directory readable by <strong>sensu</strong> user.</p></li>
+<li><p>Define the check configuration in <code class="code bash docutils literal notranslate"><span class="pre">/etc/sensu/config.json</span></code> or as an
+independent JSON file in <code class="code bash docutils literal notranslate"><span class="pre">/etc/sensu/conf.d/</span></code>, specifying the execution
+line, frequency, and which subscribers will be associated with the check.</p></li>
+<li><p>Restart <strong>sensu-server</strong> and <strong>sensu-api</strong>. If the check is defined as standalone
+(locally in the client) restart <strong>sensu-client</strong>.</p></li>
+</ol>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="plugins/remediator.html">Sensu Plugin - Remediator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins/mailer.html">Sensu Plugin - Mailer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins/process.html">Sensu Plugin - Check Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins/graphite.html">Sensu Plugin - Graphite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins/cpu-load.html">Sensu Plugin - CPU Load</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins/disk-usage.html">Sensu Plugin - Disk Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins/check-memory.html">Sensu Plugin - Memory Checks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins/network-interface.html">Sensu Plugin - Network Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins/check-sensors.html">Sensu Plugin - IPMI Sensors Plugin</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="integration-with-ansible">
+<h2><a class="toc-backref" href="#id28">Integration with Ansible</a><a class="headerlink" href="#integration-with-ansible" title="Permalink to this headline">¶</a></h2>
+<p>We implemented a Role in Ansible that contains the whole process of installation and configuration
+of a Sensu Client, and it’s integration with some plugins. Configuration files are generated dynamically
+using Ansible templates and pre-defined variables in the role.</p>
+<p>The structure is:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>---
+sensu_clients_data:
+  compute-1:
+    subscriptions: <span class="o">[</span><span class="s2">&quot;compute-node&quot;</span>,<span class="s2">&quot;nvidia-gpu&quot;</span><span class="o">]</span>
+  compute-2:
+    subscriptions: <span class="o">[</span><span class="s2">&quot;compute-node&quot;</span><span class="o">]</span>
+</pre></div>
+</div>
+<p>These subscriptions define the values present in the configuration file <code class="code bash docutils literal notranslate"><span class="pre">client.json</span></code>.</p>
+<p>Later in this documentation, these subscriptions are used also as conditionals in Ansible
+for the plugins installation and configuration.</p>
+<div class="section" id="add-a-new-plugin">
+<h3><a class="toc-backref" href="#id29">Add a new Plugin</a><a class="headerlink" href="#add-a-new-plugin" title="Permalink to this headline">¶</a></h3>
+<p>This procedure explains the general steps required to support a new plugin within
+the Sensu-Clients ansible role.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The steps show the configuration of GPU Nvidia Plugin as an example.</p>
+</div>
+<ol class="arabic">
+<li><p>Add a new subscription or use an existing one to associate the desired
+nodes with this plugin:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sensu_clients_data</span><span class="p">:</span>
+  <span class="n">compute</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+    <span class="n">subscriptions</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;nvidia-gpu&quot;</span><span class="p">]</span>
+  <span class="n">compute</span><span class="o">-</span><span class="mi">2</span><span class="p">:</span>
+    <span class="n">subscriptions</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;nvidia-gpu&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><p>Install the dependencies if needed. You can add a conditional that
+checks if the current machine has the corresponding subscription defined.</p>
+<blockquote>
+<div><p><strong>Example:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>when: <span class="s1">&#39;&quot;nvidia-gpu&quot; in sensu_clients_data[inventory_hostname].subscriptions&#39;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Check if the plugin is installed (i.e verifying the presence of the script)
+and register this state into an Ansible variable:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">Nvidia</span> <span class="n">plugin</span> <span class="n">present</span>
+  <span class="n">stat</span><span class="p">:</span>
+    <span class="n">path</span><span class="p">:</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">sensu</span><span class="o">/</span><span class="n">embedded</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">metrics</span><span class="o">-</span><span class="n">nvidia</span><span class="o">.</span><span class="n">rb</span>
+  <span class="n">register</span><span class="p">:</span> <span class="n">nvidia_plugin</span>
+
+</pre></div>
+</div>
+</li>
+<li><p>Install the plugin if its presence was not registered in the last step:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">Install</span> <span class="n">Nvidia</span> <span class="n">Plugin</span>
+  <span class="n">shell</span><span class="p">:</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">sensu</span><span class="o">-</span><span class="n">install</span> <span class="o">-</span><span class="n">p</span> <span class="n">sensu</span><span class="o">-</span><span class="n">plugins</span><span class="o">-</span><span class="n">nvidia</span>
+  <span class="n">when</span><span class="p">:</span> <span class="s1">&#39;nvidia_plugin.stat.exists == false&#39;</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>You can add a second conditional that executes this installation only if
+the current machine has the corresponding subscriptions defined.</p>
+<blockquote>
+<div><p><strong>Example:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>when <span class="s1">&#39;&quot;nvidia-gpu&quot; in sensu_clients_data[inventory_hostname].subscriptions&#39;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="troubleshooting">
+<h2><a class="toc-backref" href="#id30">Troubleshooting</a><a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="connection-error-is-the-sensu-api-running">
+<h3><a class="toc-backref" href="#id31">Connection error. Is the Sensu API running?</a><a class="headerlink" href="#connection-error-is-the-sensu-api-running" title="Permalink to this headline">¶</a></h3>
+<img alt="Connection Error" src="../../../../_images/sensu-error.png" />
+<p><strong>PROBLEM:</strong>
+Datacenter Site 1 returned: Connection error. Is the Sensu API running?</p>
+<p><strong>REASON 1:</strong> uchiwa.json has the default configuration (Two generic Datacenter configurations)</p>
+<p><strong>SOLUTION:</strong> Edit uchiwa.json with real information and restart uchiwa service.</p>
+<p><strong>REASON 2:</strong> Redis doesn’t support ipv6 (localhost resolves to ::1). Using “localhost” instead of 127.0.0.1 for the host configuration on systems that support IPv6 may result in an IPv6 “localhost” resolution (i.e. ::1) rather than an IPv4 “localhost” resolution <a class="footnote-reference brackets" href="#id7" id="id6">1</a></p>
+<p><strong>SOLUTION:</strong> Update the Redis configuration (by default located in <code class="code bash docutils literal notranslate"><span class="pre">/etc/sensu/config.json</span></code>), changing  the attribute “host” as follows:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+    ...
+    <span class="s2">&quot;redis&quot;</span>: <span class="o">{</span>
+      <span class="s2">&quot;host&quot;</span>: <span class="s2">&quot;127.0.0.1&quot;</span>,
+      <span class="s2">&quot;port&quot;</span>: <span class="m">6379</span>
+    <span class="o">}</span>,
+    ...
+<span class="o">}</span>	
+</pre></div>
+</div>
+</div></blockquote>
+<p>After that, please restart the sensu-server service.</p>
+</div>
+</div>
+<div class="section" id="authors">
+<h2><a class="toc-backref" href="#id32">Authors</a><a class="headerlink" href="#authors" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Andrés Felipe Zapata Palacio &lt;<a class="reference external" href="mailto:azapat47&#37;&#52;&#48;eafit&#46;edu&#46;co">azapat47<span>&#64;</span>eafit<span>&#46;</span>edu<span>&#46;</span>co</a>&gt;</p></li>
+</ul>
+</div>
+<div class="section" id="references">
+<h2><a class="toc-backref" href="#id33">References</a><a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<dl class="footnote brackets">
+<dt class="label" id="id7"><span class="brackets"><a class="fn-backref" href="#id6">1</a></span></dt>
+<dd><p>Redis Configuration | Sensu Docs. Retrieved June 12, 2019,
+from <a class="reference external" href="https://docs.sensu.io/sensu-core/1.0/reference/redis/#redis-definition-specification">https://docs.sensu.io/sensu-core/1.0/reference/redis/#redis-definition-specification</a></p>
+</dd>
+<dt class="label" id="id8"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p>Sensu Reference | Sensu Core 0.29. (n.d.). Retrieved June 17, 2019,
+from <a class="reference external" href="https://docs.sensu.io/sensu-core/0.29/reference/">https://docs.sensu.io/sensu-core/0.29/reference/</a></p>
+</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="plugins/remediator.html" class="btn btn-neutral float-right" title="Sensu Plugin - Remediator" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral float-left" title="Sensu" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Creative Commons Attribution-NonCommercial 4.0 International License
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

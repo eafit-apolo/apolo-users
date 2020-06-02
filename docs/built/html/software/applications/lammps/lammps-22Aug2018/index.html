@@ -1,0 +1,546 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>LAMMPS - 22Aug2018 &mdash; apolo-docs 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/sidebar.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="LINKS" href="../../links/index.html" />
+    <link rel="prev" title="LAMMPS" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+  
+    <a href="../../../../index.html">
+  
+
+  
+    
+    <img src="../../../../_static/apolo-white.png" style="width: 150px;" class="logo" alt="Logo"/>
+  
+    </a>
+
+    
+      
+      
+      
+	<div class="version" style="color: rgba(255,255,255,0.5);">
+	  0.1
+	</div>
+      
+    
+
+    
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../gettingstarted/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../supercomputers/index.html">Supercomputers</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Software</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../virtualization/index.html">Virtualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../programminglanguages/index.html">Programming Languages</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Scientific Applications</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../abyss/index.html">ABySS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ansys/index.html">ANSYS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../arcs/index.html">ARCS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../bayescan/index.html">BayeScan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../blat/index.html">BLAT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../edge_pro/index.html">EDGE-pro</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../gatk4/index.html">GATK4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../gromacs/index.html">GROMACS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../gromacs-ls/index.html">GROMACS-LS</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">LAMMPS</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">LAMMPS - 22Aug2018</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../links/index.html">LINKS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Lmod/index.html">Lmod</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mafft/index.html">MAFFT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mothur/index.html">Mothur</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../namd/index.html">NAMD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../opensees/index.html">OpenSees</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../pargenes/index.html">ParGenes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../partitionFinder/index.html">Partition Finder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../picrust2/index.html">PICRUSt2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../pigz/index.html">Pigz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../pteros/index.html">Pteros</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../repet/index.html">REPET</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../raxml/index.html">RAxML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sparsehash/index.html">Google Sparsehash</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tigmint/index.html">Tigmint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../transabyss/index.html">Trans-ABySS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../transrate/index.html">Transrate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../trinity/index.html">Trinity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../vmd/index.html">VMD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../wrf/index.html">WRF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ost/index.html">Openstructure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mdstress-lib/index.html">MDSTRESS-LIB</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../resourcemanager/index.html">Resource Manager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../provisioning/index.html">Provisioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../monitoring/index.html">Monitoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../operatingsystems/index.html">Operating Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../scientific_libraries/index.html">Scientific Libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../how-to-acknowledge.html">How to Acknowledge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../report-a-bug.html">Report a Bug</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">apolo-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Software</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Scientific Applications</a> &raquo;</li>
+        
+          <li><a href="../index.html">LAMMPS</a> &raquo;</li>
+        
+      <li>LAMMPS - 22Aug2018</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/software/applications/lammps/lammps-22Aug2018/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="lammps-22aug2018">
+<span id="lammps-22aug2018-index"></span><h1><a class="toc-backref" href="#id11">LAMMPS - 22Aug2018</a><a class="headerlink" href="#lammps-22aug2018" title="Permalink to this headline">¶</a></h1>
+<div class="contents topic" id="table-of-contents">
+<p class="topic-title">Table of Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#lammps-22aug2018" id="id11">LAMMPS - 22Aug2018</a></p>
+<ul>
+<li><p><a class="reference internal" href="#basic-information" id="id12">Basic information</a></p></li>
+<li><p><a class="reference internal" href="#tested-on-requirements" id="id13">Tested on (Requirements)</a></p></li>
+<li><p><a class="reference internal" href="#installation" id="id14">Installation</a></p></li>
+<li><p><a class="reference internal" href="#alternative-installation-modes" id="id15">Alternative Installation modes</a></p></li>
+<li><p><a class="reference internal" href="#test-lammps" id="id16">Test LAMMPS</a></p></li>
+<li><p><a class="reference internal" href="#modulefile" id="id17">Modulefile</a></p></li>
+<li><p><a class="reference internal" href="#references" id="id18">References</a></p></li>
+<li><p><a class="reference internal" href="#authors" id="id19">Authors</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="basic-information">
+<h2><a class="toc-backref" href="#id12">Basic information</a><a class="headerlink" href="#basic-information" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Official Website:</strong> <a class="reference external" href="https://lammps.sandia.gov/">https://lammps.sandia.gov/</a></p></li>
+<li><p><strong>License:</strong> GNU GENERAL PUBLIC LICENSE (GPL)</p></li>
+<li><p><strong>Installed on:</strong> <a class="reference internal" href="../../../../supercomputers/apolo-ii/index.html#about-apolo-ii"><span class="std std-ref">Apolo II</span></a>
+, <a class="reference internal" href="../../../../supercomputers/cronos/index.html#about-cronos"><span class="std std-ref">Cronos</span></a></p></li>
+</ul>
+</div>
+<div class="section" id="tested-on-requirements">
+<h2><a class="toc-backref" href="#id13">Tested on (Requirements)</a><a class="headerlink" href="#tested-on-requirements" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><strong>OS base:</strong> CentOS (x86_64) <span class="math notranslate nohighlight">\(\boldsymbol{\ge}\)</span> 6.6 (Rocks 6.2)</p></li>
+<li><p><strong>Compiler:</strong> Intel MPI Library <span class="math notranslate nohighlight">\(\boldsymbol{\ge}\)</span> 17.0.1</p></li>
+<li><p><strong>Math Library:</strong> Intel MKL <span class="math notranslate nohighlight">\(\boldsymbol{\ge}\)</span> 17.0.1</p></li>
+</ul>
+</div>
+<div class="section" id="installation">
+<h2><a class="toc-backref" href="#id14">Installation</a><a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>The following procedure will compile LAMMPS as an executable, using the Intel MPI implementation
+and MKL as the Linear Algebra Library.</p>
+<ol class="arabic">
+<li><p>Load the necessary modules for compiling LAMMPS</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ module load impi
+$ module load mkl
+$ module load python/3.x.x
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The installation script requires Python <span class="math notranslate nohighlight">\(\boldsymbol{\ge}\)</span> 3.0</p>
+</div>
+</li>
+<li><p>Download and compile the desired packages before compiling lammps.</p>
+<p>The flag <code class="code bash docutils literal notranslate"><span class="pre">yes-all</span></code> activates the compilation of all the packages. However, some
+lammps packages require external libraries and additional configuration procedures.</p>
+<p>After executing <code class="code bash docutils literal notranslate"><span class="pre">yes-all</span></code>, these packages that require additional configuration procedures
+can be disabled executing <code class="code bash docutils literal notranslate"><span class="pre">make</span> <span class="pre">no-lib</span></code>.</p>
+<p>These make options (yes-all, no-lib) are used to reproduce the list of packages
+present in LAMMPS Ubuntu prebuild version. For more information read <a class="footnote-reference brackets" href="#id5" id="id1">1</a>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git clone -b stable_22Aug2018 https://github.com/lammps/lammps.git
+$ <span class="nb">cd</span> lammps/src
+$ make yes-all     <span class="c1"># install all pkgs in src dir</span>
+$ make no-lib      <span class="c1"># remove all pkgs with libs</span>
+</pre></div>
+</div>
+</li>
+<li><p>To check which packages are going to be installed, execute:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ make ps
+</pre></div>
+</div>
+</li>
+<li><p>If you want to install an additional package, read the specific procedure in <a class="footnote-reference brackets" href="#id6" id="id2">2</a>.</p>
+<p>After following the procedure described in the page, execute:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ make yes-&lt;LIB_NAME&gt;
+</pre></div>
+</div>
+<p>Example for USER_COLVARS</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ make yes-user-colvars
+</pre></div>
+</div>
+<p>Verify again executing <code class="code bash docutils literal notranslate"><span class="pre">make</span> <span class="pre">ps</span></code> that you have enabled correctly the installation of
+the desired packages.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If you have an existing version of LAMMPS and you want
+to add a new package it’s necessary to recompile LAMMPS.</p>
+</div>
+</li>
+<li><p>Compile LAMMPS with it’s packages. This procedure will compile it
+using the Intel architecture options defined by default in
+<code class="code bash docutils literal notranslate"><span class="pre">src/MAKE/OPTIONS/Makefile.intel_cpu_intelmpi</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ make intel_cpu_intelmpi
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="code bash docutils literal notranslate"><span class="pre">icpc:</span> <span class="name builtin"><span class="pre">command</span></span> <span class="pre">line</span> <span class="pre">warning</span> <span class="comment single"><span class="pre">#10006:</span> <span class="pre">ignoring</span> <span class="pre">unknown</span> <span class="pre">option</span> <span class="pre">‘-qopt-zmm-usage=high’</span></span></code></p>
+<p>This message appears when you compile LAMMPS using the intel_cpu_intelmpi architecture but
+the Intel processor doesn’t have the AVX512 instruction set. If this is the case, just ignore
+the warning message. For more information about the flag <code class="code bash docutils literal notranslate"><span class="pre">qopt-zmm-usage</span></code> read <a class="footnote-reference brackets" href="#id7" id="id3">3</a>.</p>
+</div>
+</li>
+<li><p>If you want to install LAMMPS in a specific directory, create the directories and copy
+the binary as follows:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ mkdir -p &lt;INSTALL_DIR&gt;/bin
+$ cp lmp_intel_cpu_intelmpi &lt;INSTALL_DIR&gt;/bin/
+$ <span class="nb">cd</span> &lt;INSTALL_DIR&gt;/bin/
+$ ln -s lmp_intel_cpu_intelmpi lammps
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For more information about the installation process, read the official page <a class="footnote-reference brackets" href="#id8" id="id4">4</a>.</p>
+</div>
+</li>
+<li><p>Finally, if the program will be used with Environment modules, create the respective module.</p></li>
+</ol>
+</div>
+<div class="section" id="alternative-installation-modes">
+<h2><a class="toc-backref" href="#id15">Alternative Installation modes</a><a class="headerlink" href="#alternative-installation-modes" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>If you want to compile LAMMPS as a static library called <code class="code bash docutils literal notranslate"><span class="pre">liblammps_machine.a</span></code>, then execute:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ make <span class="nv">mode</span><span class="o">=</span>lib &lt;machine&gt;
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>If you want to compile LAMMPS as a shared library called <code class="code bash docutils literal notranslate"><span class="pre">liblammps_machine.so</span></code>, then execute:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ make <span class="nv">mode</span><span class="o">=</span>shlib &lt;machine&gt;
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="test-lammps">
+<h2><a class="toc-backref" href="#id16">Test LAMMPS</a><a class="headerlink" href="#test-lammps" title="Permalink to this headline">¶</a></h2>
+<p>After installing LAMMPS, run the benchmarks present in the repository.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sbatch example.sh
+</pre></div>
+</div>
+<p>The following code is an example for running LAMMPS using SLURM:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH --job-name=LAMMPS_Bench</span>
+<span class="c1">#SBATCH --nodes=1</span>
+<span class="c1">#SBATCH --ntasks=16</span>
+<span class="c1">#SBATCH --partition=longjobs</span>
+<span class="c1">#SBATCH --time=01:00:00</span>
+<span class="c1">#SBATCH -o results_%j.out</span>
+<span class="c1">#SBATCH -e results_%j.err</span>
+
+<span class="nb">export</span> <span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">1</span>
+
+module load lammps
+
+<span class="nb">export</span> <span class="nv">WDIR</span><span class="o">=</span>&lt;REPO_DIR&gt;/bench
+
+srun --mpi<span class="o">=</span>pmi2 lammps -in <span class="nv">$WDIR</span>/in.lj
+srun --mpi<span class="o">=</span>pmi2 lammps -in <span class="nv">$WDIR</span>/in.chain
+srun --mpi<span class="o">=</span>pmi2 lammps -in <span class="nv">$WDIR</span>/in.eam
+srun --mpi<span class="o">=</span>pmi2 lammps -in <span class="nv">$WDIR</span>/in.chute
+srun --mpi<span class="o">=</span>pmi2 lammps -in <span class="nv">$WDIR</span>/in.rhodo
+</pre></div>
+</div>
+</div>
+<div class="section" id="modulefile">
+<h2><a class="toc-backref" href="#id17">Modulefile</a><a class="headerlink" href="#modulefile" title="Permalink to this headline">¶</a></h2>
+<p><strong>Apolo II</strong></p>
+<div class="literal-block-wrapper docutils container" id="id9">
+<div class="code-block-caption"><span class="caption-text"><a class="reference download internal" download="" href="../../../../_downloads/f0e3f59db278496870ef372148378e6e/22Aug18_apolo"><code class="xref download docutils literal notranslate"><span class="pre">Module</span> <span class="pre">file</span></code></a></span><a class="headerlink" href="#id9" title="Permalink to this code">¶</a></div>
+<div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="c">#%Module1.0####################################################################</span>
+<span class="c">##</span>
+<span class="c">## module load lammps/22Aug18_impi-2017_update-1</span>
+<span class="c">##</span>
+<span class="c">## /share/apps/modules/lammps/22Aug18_impi-2017_update-1</span>
+<span class="c">## Written by Andres Felipe Zapata Palacio</span>
+<span class="c">##</span>
+
+<span class="k">proc</span> ModulesHelp <span class="k">{}</span> <span class="k">{</span>
+     <span class="k">global</span> version modroot
+     <span class="nb">puts</span> stderr <span class="s2">&quot;Sets the environment for using lammps 22Aug18\</span>
+<span class="s2">		  \nin the shared directory \</span>
+<span class="s2">		  \n/share/apps/lammps/22Aug18/impi-2017_update-1/\</span>
+<span class="s2">		  \nbuilded with impi-2017_update-1&quot;</span>
+<span class="k">}</span>
+
+<span class="nv">module-whatis</span> <span class="s2">&quot;(Name________) lammps&quot;</span>
+<span class="nv">module-whatis</span> <span class="s2">&quot;(Version_____) 22Aug18&quot;</span>
+<span class="nv">module-whatis</span> <span class="s2">&quot;(Compilers___) impi-2017_update-1&quot;</span>
+<span class="nv">module-whatis</span> <span class="s2">&quot;(System______) x86_64-redhat-linux&quot;</span>
+<span class="nv">module-whatis</span> <span class="s2">&quot;(Libraries___) mkl-2017_update-1&quot;</span>
+
+<span class="c"># for Tcl script use only</span>
+<span class="k">set</span>         topdir        <span class="o">/</span>share<span class="o">/</span>apps<span class="o">/</span>lammps<span class="o">/</span><span class="mi">22</span>Aug18<span class="o">/</span>impi-2017_update-1<span class="o">/</span>
+<span class="k">set</span>         version       <span class="mi">22</span>Aug18
+<span class="k">set</span>         sys           x86_64-redhat-linux
+
+<span class="nv">conflict</span> lammps
+<span class="nv">module</span> load impi<span class="o">/</span><span class="mi">2017</span>_update-1
+<span class="nv">module</span> load mkl<span class="o">/</span><span class="mi">2017</span>_update-1
+ 
+<span class="nv">setenv</span>		LAMMPSROOT		<span class="nv">$topdir</span>
+
+<span class="nv">prepend-path</span>	PATH			<span class="nv">$topdir</span><span class="o">/</span>bin
+</pre></div>
+</div>
+</div>
+<p><strong>Cronos</strong></p>
+<div class="literal-block-wrapper docutils container" id="id10">
+<div class="code-block-caption"><span class="caption-text"><a class="reference download internal" download="" href="../../../../_downloads/6b6e1d715f5e5ef9dfe41eeba6c205ea/22Aug18_cronos"><code class="xref download docutils literal notranslate"><span class="pre">Module</span> <span class="pre">file</span></code></a></span><a class="headerlink" href="#id10" title="Permalink to this code">¶</a></div>
+<div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="c">#%Module1.0####################################################################</span>
+<span class="c">##</span>
+<span class="c">## module load lammps/22Aug18_impi-18.0.2</span>
+<span class="c">##</span>
+<span class="c">## /share/apps/modules/lammps/22Aug18_impi-18.0.2</span>
+<span class="c">## Written by Andres Felipe Zapata Palacio</span>
+<span class="c">##</span>
+
+<span class="k">proc</span> ModulesHelp <span class="k">{}</span> <span class="k">{</span>
+     <span class="k">global</span> version modroot
+     <span class="nb">puts</span> stderr <span class="s2">&quot;Sets the environment for using lammps 22Aug18\</span>
+<span class="s2">		  \nin the shared directory \</span>
+<span class="s2">		  \n/share/apps/lammps/22Aug18/impi-18.0.2/\</span>
+<span class="s2">		  \nbuilded with impi-18.0.2&quot;</span>
+<span class="k">}</span>
+
+<span class="nv">module-whatis</span> <span class="s2">&quot;(Name________) lammps&quot;</span>
+<span class="nv">module-whatis</span> <span class="s2">&quot;(Version_____) 22Aug18&quot;</span>
+<span class="nv">module-whatis</span> <span class="s2">&quot;(Compilers___) impi-18.0.2&quot;</span>
+<span class="nv">module-whatis</span> <span class="s2">&quot;(System______) x86_64-redhat-linux&quot;</span>
+<span class="nv">module-whatis</span> <span class="s2">&quot;(Libraries___) mkl-18.0.2&quot;</span>
+
+<span class="c"># for Tcl script use only</span>
+<span class="k">set</span>         topdir        <span class="o">/</span>share<span class="o">/</span>apps<span class="o">/</span>lammps<span class="o">/</span><span class="mi">22</span>Aug18<span class="o">/</span>impi-18.0.2<span class="o">/</span>
+<span class="k">set</span>         version       <span class="mi">22</span>Aug18
+<span class="k">set</span>         sys           x86_64-redhat-linux
+
+<span class="nv">conflict</span> lammps
+<span class="nv">module</span> load impi<span class="o">/</span><span class="mf">18.0</span>.2
+<span class="nv">module</span> load mkl<span class="o">/</span><span class="mf">18.0</span>.2
+ 
+<span class="nv">setenv</span>		LAMMPSROOT		<span class="nv">$topdir</span>
+
+<span class="nv">prepend-path</span>	PATH			<span class="nv">$topdir</span><span class="o">/</span>bin
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="references">
+<h2><a class="toc-backref" href="#id18">References</a><a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<dl class="footnote brackets">
+<dt class="label" id="id5"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>Download an executable for Linux, Pre-built Ubuntu Linux executables -LAMMPS documentation.
+Retrieved January 17, 2019, from <a class="reference external" href="https://lammps.sandia.gov/doc/Install_linux.html#ubuntu">https://lammps.sandia.gov/doc/Install_linux.html#ubuntu</a></p>
+</dd>
+<dt class="label" id="id6"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p>Include packages in build - LAMMPS documentation
+Retrieved June 10, 2019, from <a class="reference external" href="https://lammps.sandia.gov/doc/Build_package.html">https://lammps.sandia.gov/doc/Build_package.html</a></p>
+</dd>
+<dt class="label" id="id7"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
+<dd><p>Intel® C++ Compiler 19.0 Developer Guide and Reference, qopt-zmm-usage, Qopt-zmm-usage.
+Retrieved January 17, 2019, from
+<a class="reference external" href="https://software.intel.com/en-us/cpp-compiler-developer-guide-and-reference-qopt-zmm-usage-qopt-zmm-usage">https://software.intel.com/en-us/cpp-compiler-developer-guide-and-reference-qopt-zmm-usage-qopt-zmm-usage</a></p>
+</dd>
+<dt class="label" id="id8"><span class="brackets"><a class="fn-backref" href="#id4">4</a></span></dt>
+<dd><p>Download source via Git - LAMMPS documentation.
+Retrieved January 17, 2019, from <a class="reference external" href="https://lammps.sandia.gov/doc/Install_git.html">https://lammps.sandia.gov/doc/Install_git.html</a></p>
+</dd>
+</dl>
+</div>
+<div class="section" id="authors">
+<h2><a class="toc-backref" href="#id19">Authors</a><a class="headerlink" href="#authors" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Andrés Felipe Zapata Palacio &lt;<a class="reference external" href="mailto:azapat47&#37;&#52;&#48;eafit&#46;edu&#46;co">azapat47<span>&#64;</span>eafit<span>&#46;</span>edu<span>&#46;</span>co</a>&gt;</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../links/index.html" class="btn btn-neutral float-right" title="LINKS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral float-left" title="LAMMPS" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Creative Commons Attribution-NonCommercial 4.0 International License
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

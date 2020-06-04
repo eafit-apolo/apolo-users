@@ -86,7 +86,8 @@ Installation and implementation
 References
 ^^^^^^^^^^
 
-.. [1] Vagrant documentation. retrieved from https://www.vagrantup.com/intro/getting-started/boxes.html
+.. [1] Vagrant documentation.
+   Retrieved from https://www.vagrantup.com/intro/getting-started/boxes.html
 
 :Author: Manuela Herrera-López <mherreral@eafit.edu.co>
 

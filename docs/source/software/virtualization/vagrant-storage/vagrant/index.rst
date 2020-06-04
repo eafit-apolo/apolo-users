@@ -3,7 +3,8 @@
 VAGRANT
 =========
 
-- The main purpose of this article is documenting how to face a problem with the machine storage, but we will see briefly how to download it.
+The main purpose of this article is documenting how to face a problem with the machine storage in vagrant,
+and also we will see briefly how to install it.
 
 .. contents:: Table of Contents
 
@@ -21,25 +22,59 @@ Tested on (Requirements)
 Installation and implementation
 --------------------------------
 
-- Search the name of the vagrant package in your packet manager and install it, then make some directory to locate
-    the machines we will create
+#. Search the name of the vagrant package in your packet manager and install it, then make some directory to locate
+   the machines we will create
 
     .. code-block:: bash
 
         $ sudo yum install vagrant #install vagrant
-        $ mkdir Desktop/vagrant #create the directory
-        $ cd Desktop/vagrant
-        $ vagrant init #for creating the vagrant file
 
-- At this point yo will see a vagrantfile that you can edit. Set your box with the os that you prefer, the host for the
-    machine, configure the nets and the box provider. When the file is complete, save it and run the following commands:
+#. Create a directory where you will work with vagrant and enter into it.
+
+   .. code-block:: bash
+
+      $ mkdir Desktop/vagrant
+      $ cd Desktop/vagrant
+
+#. Initialize the directory with Vagrant, it will generate a new file called Vagrantfile, it will be the
+   base for vagrant.
+
+   .. code-block:: bash
+
+      $ vagrant init
+
+#. Enter to the file and edit it with the options you want to your Vagrant machine such as hostname,
+   network interfaces, bootstrap script, vagrant box, etc. For example:
+
+   .. code-block:: ruby
+
+      BOX_IMAGE = "bento/centos-8.1"
+      NODE_COUNT = 2
+
+      Vagrant.configure("2") do |config|
+        config.vm.box = BOX_IMAGE
+        config.vm.define "controller" do |ctrlr|
+          ctrlr.vm.hostname = "ctrlr.test.lan"
+          ctrlr.vm.network "private_network", ip: "192.168.50.2"
+          ctrlr.vm.provider "virtualbox" do |v|
+            v.name = "Controller"
+          end
+        end
+      end
+
+#. In the same folder where the Vagrant file is located run the following commands:
 
     .. code-block:: bash
 
-        $ vagrant up #you will have to wait, is a long process
+        $ vagrant up
+
+#. Go to the new machine using ssh.
+
+   .. code-block:: bash
+
         $ vagrant ssh
 
-- I faced some problem with my CentOS 8 machine, it had only 10G of space and 30G of free space, so I did the following:
+#. I faced some problem with my CentOS 8 machine, it had only 10G of space and 30G of free space, so I did the following:
 
     .. code-block:: bash
 
@@ -48,18 +83,11 @@ Installation and implementation
         $ df -h #for checking if it worked
 
 References
-----------
+^^^^^^^^^^
+.. [1] Vagrant documentation. retrieved from https://www.vagrantup.com/intro/getting-started/boxes.html
+.. [2] Vagrant documentation. retrieved from https://www.vagrantup.com/intro/getting-started/up.html
 
--   Vagrant documentation.
-    retrieved from https://www.vagrantup.com/intro/getting-started/boxes.html
-
--   Vagrant documentation.
-    retrieved from https://www.vagrantup.com/intro/getting-started/up.html
-
-Author
---------
-
-Manuela Herrera-López
+:Author: Manuela Herrera-López <mherreral@eafit.edu.co>
 
 
 

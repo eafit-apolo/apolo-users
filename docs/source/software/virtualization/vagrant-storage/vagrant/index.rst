@@ -25,9 +25,9 @@ Installation and implementation
 #. Search the name of the vagrant package in your packet manager and install it, then make some directory to locate
    the machines we will create
 
-    .. code-block:: bash
+   .. code-block:: bash
 
-        $ sudo yum install vagrant #install vagrant
+      $ sudo yum install vagrant #install vagrant
 
 #. Create a directory where you will work with vagrant and enter into it.
 
@@ -44,7 +44,8 @@ Installation and implementation
       $ vagrant init
 
 #. Enter to the file and edit it with the options you want to your Vagrant machine such as hostname,
-   network interfaces, bootstrap script, vagrant box, etc. For example:
+   network interfaces, bootstrap script, vagrant box, etc. (You can read more about boxes at [1]_).
+   For example:
 
    .. code-block:: ruby
 
@@ -64,9 +65,9 @@ Installation and implementation
 
 #. In the same folder where the Vagrant file is located run the following commands:
 
-    .. code-block:: bash
+   .. code-block:: bash
 
-        $ vagrant up
+      $ vagrant up
 
 #. Go to the new machine using ssh.
 
@@ -76,16 +77,16 @@ Installation and implementation
 
 #. I faced some problem with my CentOS 8 machine, it had only 10G of space and 30G of free space, so I did the following:
 
-    .. code-block:: bash
+   .. code-block:: bash
 
-        $ sudo cfdisk #change the space, and write to the disk
-        $ sudo xfs_growfs -d / #for making the changes
-        $ df -h #for checking if it worked
+      $ sudo cfdisk #change the space, and write to the disk
+      $ sudo xfs_growfs -d / #for making the changes
+      $ df -h #for checking if it worked
 
 References
 ^^^^^^^^^^
+
 .. [1] Vagrant documentation. retrieved from https://www.vagrantup.com/intro/getting-started/boxes.html
-.. [2] Vagrant documentation. retrieved from https://www.vagrantup.com/intro/getting-started/up.html
 
 :Author: Manuela Herrera-López <mherreral@eafit.edu.co>
 

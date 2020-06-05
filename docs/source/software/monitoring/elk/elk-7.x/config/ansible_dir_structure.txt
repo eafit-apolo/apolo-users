@@ -1,0 +1,54 @@
+.
+├── ansible-dir-structure.txt
+├── hosts
+├── playbooks
+│   ├── 4p0l0.yml
+│   ├── cr0n05.yml
+│   └── elk.yml
+├── roles
+│   ├── elk
+│   │   ├── files
+│   │   │   └── etc
+│   │   │       └── logstash
+│   │   │           ├── logstash.yml
+│   │   │           └── pipelines.yml
+│   │   ├── handlers
+│   │   │   └── main.yml
+│   │   ├── tasks
+│   │   │   ├── add-elk-repo.yml
+│   │   │   ├── config.yml
+│   │   │   ├── install-elk.yml
+│   │   │   └── main.yml
+│   │   ├── templates
+│   │   │   └── etc
+│   │   │       ├── elasticsearch
+│   │   │       │   └── elasticsearch.yml.j2
+│   │   │       ├── kibana
+│   │   │       │   └── kibana.yml.j2
+│   │   │       ├── logstash
+│   │   │       │   └── conf.d
+│   │   │       │       └── main_pipeline.conf.j2
+│   │   │       └── yum.repos.d
+│   │   │           └── elk.repo.j2
+│   │   └── vars
+│   │       └── main.yml
+│   └── master
+│       ├── handlers
+│       │   └── main.yml
+│       ├── tasks
+│       │   ├── filebeat.yml
+│       │   └── main.yml
+│       ├── templates
+│       │   └── etc
+│       │       ├── filebeat
+│       │       │   └── filebeat.yml.j2
+│       │       └── yum.repos.d
+│       │           └── elk.repo.j2
+│       └── vars
+│           └── main.yml
+├── scripts
+│   └── run.sh
+├── site.yml
+└── Vagrantfile
+
+25 directories, 26 files

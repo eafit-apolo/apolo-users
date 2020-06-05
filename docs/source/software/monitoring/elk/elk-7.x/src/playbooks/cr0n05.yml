@@ -1,0 +1,5 @@
+# playbooks/cr0n05.yml
+---
+- hosts: cr0n05
+  roles:
+    - ../roles/master

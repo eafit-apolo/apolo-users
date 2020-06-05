@@ -154,6 +154,42 @@ The example below was adapted from [2]_
             -batch \
             -stdout-comms
 
+Fluent
+~~~~~~
+
+Fluent software contains the broad, physical modeling capabilities needed to model flow, turbulence, heat transfer and reactions for industrial applications.
+These range from air flow over an aircraft wing to combustion in a furnace, from bubble columns to oil platforms, from blood flow to semiconductor manufacturing and from clean room design to wastewater treatment plants.
+Fluent spans an expansive range, including special models, with capabilities to model in-cylinder combustion, aero-acoustics, turbomachinery and multiphase systems. [3]_
+
+How to run it in our cluster?. This example was adapted from [4]_:
+
+    .. code-block:: bash
+
+        #!/bin/bash
+        #SBATCH --job-name=jobfluent_test
+        #SBATCH --error=jobfluent_test.err.%j
+        #SBATCH --output=jobfluent_test.out.%j
+        #SBATCH --time=00:10:00
+        #SBATCH --ntasks=16
+        #SBATCH --nodes=1
+        #SBATCH --partition=longjobs
+
+        # Load Ansys.
+        module load ansys/19.2
+
+        # Generate list of hosts.
+        MYHOSTLIST="hosts.$SLURM_JOB_ID"
+        srun hostname | sort > $MYHOSTLIST
+
+        # Run AnsysFluent.
+        fluent 3ddp \
+            -g \
+            -mpi=intel \
+            -t $SLURM_NTASKS \
+            -cnf=$MYHOSTLIST \
+            -i fluent.jou \
+            > fluent.out
+
 References
 ----------
 
@@ -162,6 +198,12 @@ References
 
 .. [2] HKHLR-How To - Run ANSYS CFX on an HPC-Cluster.
        Retrieved April 10, 2019, from https://www.hkhlr.de/sites/default/files/field_download_file/HowTo-ANSYS_CFX.pdf
+
+.. [3] ANSYS Fluent - ANSYS Official website.
+       Retrieved September 10, 2019, from https://www.ansys.com/products/fluids/ansys-fluent
+
+.. [4] HKHLR-How To - Run ANSYS Fluent on an HPC-Cluster.
+       Retrieved September 10, 2019, from https://www.hkhlr.de/sites/default/files/field_download_file/HKHLR-HowTo-Ansys_Fluent.pdf
 
 Authors
 -------

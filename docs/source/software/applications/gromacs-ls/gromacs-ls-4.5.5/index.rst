@@ -137,7 +137,6 @@ References
 .. [2] LAPACK Documentation. Linear Algebra PACKage.
        Retrieved May 14, 2020, from https://apolo-docs.readthedocs.io/en/latest/software/scientific_libraries/index.html
 
-Authors
--------
+:Authors:
 
 - Tomas David Navarro Munera <tdnavarrom@eafit.edu.co>

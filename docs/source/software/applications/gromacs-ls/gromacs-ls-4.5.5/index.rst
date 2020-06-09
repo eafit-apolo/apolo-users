@@ -43,7 +43,7 @@ for local stress calculations from molecular simulations. [1]_
                     fftw/3.3.5_gcc-5.4.0_openmpi-1.8.8-x86_64 \
                     lapack/3.5.0_gcc-5.4.0
 
-   .. note:: LAPACK V3.5.0 is the recommended version of LAPACK from GROMACS-LS, you can see how to install it in our Scientific Libraries section. [2]_
+   .. note:: LAPACK V3.5.0 is the recommended version of LAPACK from GROMACS-LS, you can see how to install it in our Scientific Libraries section or here :ref:`LAPACK-3.5.0-index`.
 
 #. Download the latest version of GROMACS-LS
 
@@ -134,10 +134,7 @@ References
 .. [1] GROMACS-LS Documentation. Custom Version of GROMACS.
        Retrieved May 14, 2020, from https://www.mdstress.org/files/5914/4657/7530/Local_stress.pdf
 
-.. [2] LAPACK Documentation. Linear Algebra PACKage.
-       Retrieved May 14, 2020, from https://apolo-docs.readthedocs.io/en/latest/software/scientific_libraries/index.html
 
-Authors
--------
+:Authors:
 
 - Tomas David Navarro Munera <tdnavarrom@eafit.edu.co>

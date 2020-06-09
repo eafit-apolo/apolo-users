@@ -93,6 +93,6 @@ Resources
     * http://www.netlib.org/lapack/
 
 
-Author
-------
+:Author:
+
  * Tomas David Navarro Munera

@@ -18,10 +18,11 @@ Basic information
 Tested on (Requirements)
 ------------------------
 
-* **OS base:** CentOS (x86_64) :math:`\boldsymbol{\ge}` 8
-* **Dependencies to run mdstress-lib:**
-    * fftw
-    * lapack
+- **OS base:** CentOS (x86_64) :math:`\boldsymbol{\ge}` 8
+
+- **Dependencies to run mdstress-lib:**
+    - fftw
+    - lapack
 
 Installation
 -------------
@@ -29,6 +30,7 @@ Installation
 For the installation process we'll follow the guide on the gromacs documentation [1]_
 
 #. First of all, we need to load the following modules for the compilation
+
     .. code-block:: bash
 
         $ module load fftw/3.3.5_intel_impi-2017_update-1
@@ -36,6 +38,7 @@ For the installation process we'll follow the guide on the gromacs documentation
         $ module load lapack/3.6.1_gcc-4.9.4
 
 #. Then download the tar.gz file and unpack it
+
     .. code-block:: bash
 
         $ wget --trust-server-name https://www.mdstress.org/index.php/download_file/view/50/173/
@@ -43,6 +46,7 @@ For the installation process we'll follow the guide on the gromacs documentation
         $ cd mdstress-library
 
 #. Then we need to create a directory named "built", and then we run the cmake tool
+
     .. code-block:: bash
 
         $ mkdir build
@@ -50,6 +54,7 @@ For the installation process we'll follow the guide on the gromacs documentation
         $ ccmake ../
 
 #. The interface of cmake will appear and you have to edit some things
+
     .. image:: images/cmake1.png
 
     - Then press c to configure
@@ -59,6 +64,6 @@ For the installation process we'll follow the guide on the gromacs documentation
 References
 ^^^^^^^^^^^
 
- Gromacs documentation, retrieved on May 18, 2020 from https://www.mdstress.org/index.php/documentation/
+.. [1] Gromacs documentation, retrieved on May 18, 2020 from https://www.mdstress.org/index.php/documentation/
 
 :Author: Manuela Herrera-López

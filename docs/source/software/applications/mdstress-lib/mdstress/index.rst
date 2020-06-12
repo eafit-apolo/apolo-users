@@ -26,6 +26,8 @@ Tested on (Requirements)
 Installation
 -------------
 
+For the installation process we'll follow the guide on the gromacs documentation [1]_
+
 #. First of all, we need to load the following modules for the compilation
     .. code-block:: bash
 
@@ -55,9 +57,8 @@ Installation
     - Press c again and the it will appear the option to press g, press it and do **make** and **make install**
 
 References
-----------
+^^^^^^^^^^^
 
-Gromacs documentation
-    retrieved May 18, 2020 from https://www.mdstress.org/index.php/documentation/
+ Gromacs documentation, retrieved on May 18, 2020 from https://www.mdstress.org/index.php/documentation/
 
 :Author: Manuela Herrera-López

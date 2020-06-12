@@ -43,6 +43,12 @@ Installation and implementation
 
       $ vagrant init
 
+#. Then download the plugin that will help for changing the size of our virtual machine
+
+   .. code-block:: bash
+
+      $ vagrant plugin install vagrant-disksize
+
 #. Enter to the file and edit it with the options you want to your Vagrant machine such as hostname,
    network interfaces, bootstrap script, vagrant box, etc. (You can read more about boxes at [1]_).
    For example:
@@ -54,6 +60,7 @@ Installation and implementation
 
       Vagrant.configure("2") do |config|
         config.vm.box = BOX_IMAGE
+        config.disksize.size = '50GB' #the plugin we've previously installed
         config.vm.define "controller" do |ctrlr|
           ctrlr.vm.hostname = "ctrlr.test.lan"
           ctrlr.vm.network "private_network", ip: "192.168.50.2"
@@ -75,11 +82,28 @@ Installation and implementation
 
         $ vagrant ssh
 
-#. I faced some problem with my CentOS 8 machine, it had only 10G of space and 30G of free space, so I did the following:
+#. Looking at the vm's space we find out the following:
+
+    .. image:: img/doc1.png
+
+#. Then we try to expand the space through the commands:
 
    .. code-block:: bash
 
       $ sudo cfdisk #change the space, and write to the disk
+
+- It should look like this:
+
+.. image:: img/doc2.png
+
+- Here we have to resize the disk clicking on the **Write** option
+
+.. image:: img/doc3.png
+
+-  Then enter and exit, after that process run the following commands:
+
+    .. code-block:: bash
+
       $ sudo xfs_growfs -d / #for making the changes
       $ df -h #for checking if it worked
 

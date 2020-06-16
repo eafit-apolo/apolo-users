@@ -29,3 +29,4 @@ Scientific Libraries
    Cloog/index
    MPC/index
    LAPACK/index
+   cunit/index

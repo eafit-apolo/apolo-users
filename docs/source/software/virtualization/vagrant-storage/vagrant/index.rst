@@ -96,10 +96,11 @@ Installation and implementation
 
 .. image:: img/doc2.png
 
-- Here we have to resize the disk clicking on the **Write** option
+- Here we have to click on the **resize** option and it should look like the following:
 
 .. image:: img/doc3.png
 
+- After that it will ask for verification, just type "yes" and then click on **write**
 -  Then enter and exit, after that process run the following commands:
 
     .. code-block:: bash

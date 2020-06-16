@@ -17,16 +17,14 @@ Basic information
 Tested on (Requirements)
 ------------------------
 
-* **OS base:** CentOS (x86_64) :math:`\boldsymbol{\ge}` 6.6 (Rocks 6.2)
-* **Dependencies:**  
-    *  python >= 2.7.11
-    *  libm (by default)
+- **OS base:** CentOS (x86_64) :math:`\boldsymbol{\ge}` 6.6 (Rocks 6.2)
 
-
+- **Dependencies:**
+    - python >= 2.7.11
+    - libm (by default)
 
 Installation
 ------------
-
 
 #. Download the desired version of the software (Source code - tar.gz)
 
@@ -81,13 +79,8 @@ Module
         prepend-path PATH $topdir/bin
 
 
-
-
-Use
----
-
 Slurm template
-~~~~~~~~~~~~~~
+------------------
 
     .. code-block:: bash
 

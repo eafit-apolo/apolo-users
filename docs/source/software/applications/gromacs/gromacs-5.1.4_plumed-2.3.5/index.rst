@@ -89,26 +89,16 @@ To run Gromacs + Plumed it is necessary to have the following files:
 References
 ----------
 
-- Gromacs instructions.
-        Retrieved July 10, 2019, from http://www.gromacs.org/Documentation/Installation_Instructions_5.0
-- Gromacs github
-        Retrieved July 10, 2019, from https://github.com/gromacs/gromacs/blob/master/cmake/FindNVML.cmake
-- Lindqvist
-        Retrieved July 10, 2019, from http://verahill.blogspot.com.co/2013/04/396-compiling-gromacs-46-with-openblas.html
-- Compiling GROMACS on Cluster
-        Retrieved July 10, 2019, from https://ringo.ams.stonybrook.edu/index.php/Compiling_GROMACS_on_Cluster
-- Lindqvist
-        Retrieved July 10, 2019, from http://verahill.blogspot.com/2012/03/building-gromacs-with-fftw3-and-openmpi.html
-- How to compile gromacs
-        Retrieved July 10, 2019, from https://mini.ourphysics.org/wiki/index.php/How_to_compile_Gromacs
-- Github issue
-        Retrieved July 10, 2019, from https://github.com/linux-sunxi/linux-sunxi/issues/62
-- Nvidia gromacs
-        Retrieved July 10, 2019, from https://ngc.nvidia.com/catalog/containers/hpc:gromacs
-- Running VASP on Nvidia GPUs
-        Retrieved July 10, 2019, from https://www.nsc.liu.se/~pla/
-- Gromacs (GPU)
-        Retrieved July 10, 2019, from http://www.hpcadvisorycouncil.com/pdf/GROMACS_GPU.pdf
+- Gromacs instructions. Retrieved July 10, 2019, from http://www.gromacs.org/Documentation/Installation_Instructions_5.0
+- Gromacs github. Retrieved July 10, 2019, from https://github.com/gromacs/gromacs/blob/master/cmake/FindNVML.cmake
+- Lindqvist. Retrieved July 10, 2019, from http://verahill.blogspot.com.co/2013/04/396-compiling-gromacs-46-with-openblas.html
+- Compiling GROMACS on Cluster. Retrieved July 10, 2019, from https://ringo.ams.stonybrook.edu/index.php/Compiling_GROMACS_on_Cluster
+- Lindqvist.Retrieved July 10, 2019, from http://verahill.blogspot.com/2012/03/building-gromacs-with-fftw3-and-openmpi.html
+- How to compile gromacs. Retrieved July 10, 2019, from https://mini.ourphysics.org/wiki/index.php/How_to_compile_Gromacs
+- Github issue. Retrieved July 10, 2019, from https://github.com/linux-sunxi/linux-sunxi/issues/62
+- Nvidia gromacs. Retrieved July 10, 2019, from https://ngc.nvidia.com/catalog/containers/hpc:gromacs
+- Running VASP on Nvidia GPUs. Retrieved July 10, 2019, from https://www.nsc.liu.se/~pla/
+- Gromacs (GPU). Retrieved July 10, 2019, from http://www.hpcadvisorycouncil.com/pdf/GROMACS_GPU.pdf
 
 Authors
 -------

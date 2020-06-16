@@ -1,11 +1,12 @@
 .. _bwa-0.7.15:
 
+BWA 0.7.15
+===========
 
 .. contents:: Table of contents
 
-******
-0.7.15
-******
+Basic information
+--------------------
 
 - **Installation date:** 27/02/2017
 - **URL:** http://bio-bwa.sourceforge.net/
@@ -80,7 +81,7 @@ Module
 
 
 
-Mode of use
+Usage mode
 -----------
 
 Load the necessary environment through the **module:**

@@ -1,7 +1,5 @@
 .. _poly:
 
-.. contents:: Table of Contents
-
 *****
 POLY
 *****
@@ -10,6 +8,8 @@ POLY
 - **URL:** https://ccpforge.cse.rl.ac.uk/gf/project/dl_poly_classic/
 - **Apolo version:** Apolo I
 - **License:** BSD licence
+
+.. contents:: Table of Contents
 
 Dependencies
 --------------

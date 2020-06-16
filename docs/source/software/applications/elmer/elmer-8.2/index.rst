@@ -4,13 +4,12 @@
 8.2
 ***
 
-.. contents:: Table of contents
-
-
 - **Installation date:** 06/03/2017
 - **URL:** https://www.csc.fi/web/elmer
 - **Apolo version:** Apolo II
 - **License:** LGPL license
+
+.. contents:: Table of contents
 
 Pre requirements
 ----------------

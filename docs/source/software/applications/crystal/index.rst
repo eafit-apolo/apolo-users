@@ -24,10 +24,8 @@ calculations can be performed with all-electron and valence-only basis sets with
 Extensions:
 ------------
 
-- **MPP** - An enhanced massive parallel version of the code to allow users to reach an improved scaling in
-parallel executing on supercomputing resources.
-- **CRYSCOR** - local second order Møller-Plesset Perturbation Theory - LMP2 for 1D-, 2D- and 3D-periodic
-non-conducting systems.
+- **MPP** - An enhanced massive parallel version of the code to allow users to reach an improved scaling in parallel executing on supercomputing resources.
+- **CRYSCOR** - local second order Møller-Plesset Perturbation Theory - LMP2 for 1D-, 2D- and 3D-periodic non-conducting systems.
 
 .. toctree::
    :caption: Versions

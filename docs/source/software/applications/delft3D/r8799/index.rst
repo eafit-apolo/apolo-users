@@ -1,7 +1,5 @@
 .. _r8799:
 
-.. contents:: Table of Contents
-
 *****
 r7799
 *****
@@ -11,6 +9,7 @@ r7799
 - **Apolo version:** Apolo II and Cronos
 - **License:**  GNU GENERAL PUBLIC LICENSE 3.0
 
+.. contents:: Table of Contents
 
 Dependencies
 -------------

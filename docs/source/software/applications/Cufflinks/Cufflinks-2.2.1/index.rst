@@ -1,15 +1,14 @@
 .. _Cufflinks-2.2.1:
 
-.. contents:: Table of Contents
-
-*****
-2.2.1
-*****
+Cufflinks 2.2.1
+================
 
 - **Installation date:** 28/02/2017
 - **URL:** http://cole-trapnell-lab.github.io/cufflinks/
 - **Apolo version:** Apolo II
 - **License:** Boost Software License, Version 1.0
+
+.. contents:: Table of Contents
 
 Installation
 ------------

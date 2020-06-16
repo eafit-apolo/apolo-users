@@ -15,9 +15,7 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    autoDock/index
    bayescan/index
    BEAST2/index
-   BioEM/index
    BLAST/index
-   blender/index
    bowtie2/index
    Bpp/index
    BWA/index

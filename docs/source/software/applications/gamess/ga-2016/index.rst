@@ -1,7 +1,5 @@
 .. _ga-16:
 
-.. contents:: Table of Contents
-
 ************
 GAMESS 2016
 ************
@@ -10,6 +8,8 @@ GAMESS 2016
 - **URL:** http://www.msg.ameslab.gov/GAMESS/
 - **Apolo version:** Apolo II
 - **License:** ACADEMIC LICENSE
+
+.. contents:: Table of Contents
 
 Dependencies
 --------------

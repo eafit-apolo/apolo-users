@@ -1,7 +1,5 @@
 .. _crystal49:
 
-.. contents:: Table of Contents
-
 **************
 Crystal 1.0.4
 **************
@@ -10,6 +8,8 @@ Crystal 1.0.4
 - **URL:** http://www.crystalsolutions.eu/crystal.html
 - **Apolo version:** Apolo II
 - **License:** Academic license
+
+.. contents:: Table of Contents
 
 Dependencies
 -------------

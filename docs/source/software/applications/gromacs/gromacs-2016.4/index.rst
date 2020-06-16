@@ -27,7 +27,7 @@ Installation
 
 After resolving the aforementioned dependencies, you can proceed with the installation of GROMACS.
 
-#. Download the latest version of GROMACS
+#. Download the latest version of GROMACS [1]_
 
    .. code-block:: bash
 

@@ -1,10 +1,14 @@
 .. _vina:
 
-.. contents:: Table of Contents
-
 **************
 AutoDock Vina
 **************
+
+
+.. contents:: Table of Contents
+
+Basic information
+--------------------
 
 - **Installation date:** 19/09/2016
 - **URL:** http://vina.scripps.edu/index.html
@@ -64,8 +68,8 @@ Module
     prepend-path    PATH $topdir/bin
 
 
-Use mode
-----------
+Usage mode
+------------
 
 .. code-block:: bash
 

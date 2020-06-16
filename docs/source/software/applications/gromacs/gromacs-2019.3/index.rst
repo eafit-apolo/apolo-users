@@ -107,10 +107,10 @@ for parallel computing using the GROMACS built-in thread-MPI and CUDA. [1]_
 References
 ----------
 
-- GROMACS Documentation. (2019, June 14). GROMACS. Fast, Flexible and Free.
+.. [1] GROMACS Documentation. (2019, June 14). GROMACS. Fast, Flexible and Free.
        Retrieved July 10, 2019, from http://manual.gromacs.org/documentation/current/manual-2019.3.pdf
 
-- Matching SM architectures. (2019, November 11). Blame Arnon Blog.
+.. [2] Matching SM architectures. (2019, November 11). Blame Arnon Blog.
        Retrieved July 10, 2019, from https://arnon.dk/matching-sm-architectures-arch-and-gencode-for-various-nvidia-cards/
 
 Authors

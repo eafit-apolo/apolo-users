@@ -1,9 +1,5 @@
 .. _fastQC-0.11.5:
 
-
-
-.. contents:: Table of Contents
-
 ******
 0.11.5
 ******
@@ -13,6 +9,7 @@
 - **Apolo version:** Apolo II
 - **License:** GNU GENERAL PUBLIC LICENSE, Version 3
 
+.. contents:: Table of Contents
 
 Installation
 ------------

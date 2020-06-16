@@ -91,8 +91,8 @@ Module
 
 
 
-Use
----
+Usage mode
+------------
 
     .. code-block:: bash
 

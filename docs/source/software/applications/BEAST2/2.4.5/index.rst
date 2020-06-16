@@ -17,11 +17,10 @@ Basic information
 Tested on (Requirements)
 ------------------------
 
-* **OS base:** CentOS (x86_64) :math:`\boldsymbol{\ge}` 6.6 (Rocks 6.2)
-* **Dependencies:**  
-    * Java JDK - 1.8.0 u112
+- **OS base:** CentOS (x86_64) :math:`\boldsymbol{\ge}` 6.6 (Rocks 6.2)
 
-
+- **Dependencies:**
+    - Java JDK - 1.8.0 u112
 
 Installation
 ------------

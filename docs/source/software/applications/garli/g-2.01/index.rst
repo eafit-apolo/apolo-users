@@ -1,7 +1,5 @@
 .. _garli.2.01:
 
-.. contents:: Table of Contents
-
 ***********
 Garli 2.01
 ***********
@@ -10,6 +8,8 @@ Garli 2.01
 - **URL:** http://phylo.bio.ku.edu/slides/GarliDemo/garliExercise.Evolution2014.html
 - **Apolo version:** Apolo II
 - **License:** GNU GENERAL PUBLIC LICENSE Version 3
+
+.. contents:: Table of Contents
 
 Dependencies
 -------------

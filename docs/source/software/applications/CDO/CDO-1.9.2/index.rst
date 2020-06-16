@@ -1,9 +1,7 @@
 .. _CDO-1.9.2:
 
-
-*****
-1.9.2
-*****
+CDO 1.9.2
+===========
 
 - **Installation date:** 22/02/2017
 - **URL:** https://code.mpimet.mpg.de/projects/cdo/
@@ -100,7 +98,7 @@ Module file
 
 
 
-Mode of use
+Usage mode
 -----------
 
 .. code-block:: bash

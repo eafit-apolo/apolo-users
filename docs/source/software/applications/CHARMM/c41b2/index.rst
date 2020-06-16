@@ -1,9 +1,7 @@
 .. _c41b2:
 
-
-*****
-c41b2
-*****
+CHARMM c41b2
+============
 
 - **Installation date:** 5/06/2017
 - **URL:**  https://www.charmm.org/charmm

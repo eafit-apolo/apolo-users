@@ -1,7 +1,5 @@
 .. _ga-14:
 
-.. contents:: Table of Contents
-
 ************
 GAMESS 2014
 ************
@@ -10,6 +8,8 @@ GAMESS 2014
 - **URL:** http://www.msg.ameslab.gov/GAMESS/
 - **Apolo version:** Apolo I
 - **License:** ACADEMIC LICENSE
+
+.. contents:: Table of Contents
 
 Dependencies
 --------------

@@ -6,6 +6,8 @@
 GATK4-4.1.0.0
 =============
 
+.. contents:: Table of Contents
+
 Basic Information
 -----------------
 

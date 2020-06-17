@@ -220,8 +220,7 @@ Packages Search for Linux and Unix - Lmod-8.2.7-1.el8.x86_64.rpm.
        Retrieved May 15, 2020, from https://centos.pkgs.org/8/epel-x86_64/Lmod-8.2.7-1.el8.x86_64.rpm.html
 
 
-Authors
--------
+:Authors:
 
 - Tomas David Navarro Munera <tdnavarrom@eafit.edu.co>
 - Santiago Alzate Cardona <salzatec1@eafit.edu.co>

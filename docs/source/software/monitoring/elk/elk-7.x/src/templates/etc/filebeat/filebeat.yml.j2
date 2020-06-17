@@ -1,0 +1,31 @@
+filebeat.inputs:
+- type: log
+  paths:
+    - /var/log/secure*
+  fields:
+    fromsecure: true
+  fields_under_root: true # Added fields are not under [beats] field
+
+- type: log
+  paths:
+    - /var/log/slurm/slurmctld.log
+  fields:
+    fromslurm: true
+  fields_under_root: true
+
+- type: log
+  paths:
+    - /var/log/messages*
+  fields:
+    frommessages: true
+  fields_under_root: true
+
+- type: log
+  paths:
+    - /var/log/dirsrv/slapd-APOLO-EAFIT-EDU-CO/access*
+  fields:
+    fromfreeipa: true
+  fields_under_root: true
+
+output.logstash:
+  hosts: ["{{ elk_machine }}:{{ logstash_port }}"]

@@ -12,4 +12,6 @@ The Elastic Stack is the next evolution of the ELK Stack. For more information g
    :maxdepth: 1
 
    elk-6.x/index
+   elk-7.x/index
+
        

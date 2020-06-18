@@ -91,17 +91,17 @@ Module
       prepend-path    LIBRARY_PATH            $topdir/lib
       prepend-path    LD_RUN_PATH             $topdir/lib
 
-      prepend-path    C_PATH          	$topdir/lib
+      prepend-path    C_PATH          	      $topdir/lib
 
       prepend-path    C_INCLUDE_PATH          $topdir/include
       prepend-path    CXX_INCLUDE_PATH        $topdir/include
       prepend-path    CPLUS_INCLUDE_PATH      $topdir/include
 
-      prepend-path	INFODIR			$topdir/share/info
-      prepend-path	INFOPATH		$topdir/share/info
+      prepend-path	INFODIR			          $topdir/share/info
+      prepend-path	INFOPATH		          $topdir/share/info
 
-      setenv		UDUNITS_HOME		$topdir
-      setenv		UDUNITS2_XML_PATH	$topdir/share/udunits/udunits2.xml
+      setenv		UDUNITS_HOME		      $topdir
+      setenv		UDUNITS2_XML_PATH	      $topdir/share/udunits/udunits2.xml
 
 
 

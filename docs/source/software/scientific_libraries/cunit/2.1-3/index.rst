@@ -90,7 +90,7 @@ Module
       prepend-path    LIBRARY_PATH            $topdir/lib
       prepend-path    LD_RUN_PATH             $topdir/lib
 
-      prepend-path    C_PATH          	$topdir/lib
+      prepend-path    C_PATH          	      $topdir/lib
 
       prepend-path    C_INCLUDE_PATH          $topdir/include
       prepend-path    CXX_INCLUDE_PATH        $topdir/include

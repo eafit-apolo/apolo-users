@@ -30,3 +30,4 @@ Scientific Libraries
    MPC/index
    LAPACK/index
    cunit/index
+   udunits/index

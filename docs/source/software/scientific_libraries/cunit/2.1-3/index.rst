@@ -39,7 +39,6 @@ Installation
    .. code-block:: bash
 
       $ module load gcc/5.4.0
-      $ mkdir build
       $ aclocal
       $ autoconf
       $ automake  # If this command fails go to Troubleshooting

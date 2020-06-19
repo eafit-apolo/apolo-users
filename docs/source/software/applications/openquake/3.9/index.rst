@@ -1,4 +1,4 @@
-.. _openquake-index:
+.. _openquake3.9-index:
 
 
 OpenQuake 3.9

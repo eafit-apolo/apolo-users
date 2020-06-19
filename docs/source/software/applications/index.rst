@@ -26,6 +26,8 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    mothur/index
    namd/index
    opensees/index
+   openquake/index
+   ost/index
    pargenes/index
    partitionFinder/index
    picrust2/index
@@ -40,4 +42,4 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    trinity/index
    vmd/index
    wrf/index
-   ost/index
+

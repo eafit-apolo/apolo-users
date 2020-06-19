@@ -7,24 +7,19 @@ download and configure the VPN client:
 
 #. Open your favorite browser and go to https://leto.eafit.edu.co
 
-    .. image:: images/1-browser-leto.PNG
+    .. image:: images/vpnwin/vpnwin1.png
         :align: center
         :alt: Open your browser
 
-#. Accept the not issued certificate
-
-    .. image:: images/2-browser-leto.PNG
-        :align: center
-        :alt: Access to the not certified web page
 
 #. Log in with your **username** and **password** given by EAFIT or Apolo's staff
 
-    .. image:: images/3-browser-leto.PNG
+    .. image:: images/vpnwin/vpnwin2.png
         :align: center
         :alt: Login
 
 #. Download and install the version of Global Protect client according to your operating system
-    .. image:: images/4-browser-leto.PNG
+    .. image:: images/vpnwin/vpnwin3.png
         :align: center
         :alt: Download the proper version
 

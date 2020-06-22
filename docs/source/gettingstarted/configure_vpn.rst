@@ -72,7 +72,6 @@ download and configure the VPN client:
         :alt: Connected Taskbar
 
 
-
     .. image:: images/vpnwin/vpnwin10.png
         :align: center
         :alt: Connected!
@@ -82,7 +81,6 @@ download and configure the VPN client:
     .. image:: images/vpnwin/vpnwin11.png
         :align: center
         :alt: Details
-
 
 
     .. image:: images/vpnwin/vpnwin12.png

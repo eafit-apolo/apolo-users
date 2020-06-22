@@ -12,32 +12,29 @@ download and configure the VPN client:
         :alt: Open your browser
 
 
-#. Log in with your **username** and **password** given by EAFIT or Apolo's staff
+    Log in with your **username** and **password** given by EAFIT or Apolo's staff
 
-    .. image:: images/vpnwin/vpnwin2.png
-        :align: center
-        :alt: Login
 
 #. Download and install the version of Global Protect client according to your operating system
-    .. image:: images/vpnwin/vpnwin3.png
+    .. image:: images/vpnwin/vpnwin2.png
         :align: center
         :alt: Download the proper version
 
 #. Install the Global Protect application
 
-    .. image:: images/5-globalprotect-install.PNG
+    .. image:: images/vpnwin/vpnwin3.png
         :align: center
         :alt: Install app
 
 #. Choose where to install it, take into account your permissions on the system
 
-    .. image:: images/6-globalprotect-install.PNG
+    .. image:: images/vpnwin/vpnwin4.png
         :align: center
         :alt: Install app
 
 #. Finish installation
 
-    .. image:: images/7-globalprotect-install.PNG
+    .. image:: images/vpnwin/vpnwin5.png
         :align: center
         :alt: Install app
 
@@ -49,23 +46,16 @@ download and configure the VPN client:
 
 #. Launch the Global Protect application and fill the portal input **Portal** with *leto.eafit.edu.co*
 
-    .. image:: images/9-globalprotect-conf.PNG
+    .. image:: images/vpnwin/vpnwin6.png
         :align: center
         :alt: Configuration of the application
 
-#. Accept the untrusted certificate
-
-    .. image:: images/10-globalprotect-conf.PNG
-        :align: center
-        :alt: Accept the invalid certificate
-
 #. Fill the fields with the following information:
 
-    .. image:: images/11-globalprotect-conf.PNG
+    .. image:: images/vpnwin/vpnwin8.png
         :align: center
         :alt: Fill the fields
 
-    - **Portal:** leto.eafit.edu.co
     - **Username:** The username assigned by the Apolo's system administrator.
     - **Password:** The password used to log in to the clusters.
 
@@ -77,17 +67,28 @@ download and configure the VPN client:
     .. warning::
         Remember your password will expire every three (3) months.
 
-#. Once connected to the VPN, you will see the word Connected as shown in the image
+#. Once connected to the VPN, you will see the word Connected as shown in the image (do to the Taskbar)
 
-    .. image:: images/12-globalprotect-conf.PNG
+    .. image:: images/vpnwin/vpnwin9.png
+        :align: center
+        :alt: Connected Taskbar
+
+    .. image:: images/vpnwin/vpnwin10.png
         :align: center
         :alt: Connected!
 
 #. You can see some network parameter in the Details tab
 
-    .. image:: images/13-globalprotect-conf.PNG
+    .. image:: images/vpnwin/vpnwin11.png
         :align: center
         :alt: Details
+
+    .. image:: images/vpnwin/vpnwin12.png
+        :align: center
+        :alt: Details
+
+    .. warning::
+        You must login for the next 24 hours or the account will be deactivated.
 
 
 

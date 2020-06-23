@@ -19,6 +19,7 @@ Tested on (Requirements)
 ------------------------
 
 * **OS base:** CentOS (x86_64) :math:`\boldsymbol{\ge}` 6.6 (Rocks 6.2)
+
 * **Dependencies to run OpenQuake:**
     * Python 3.X (tested on Python 3.6.5)
 
@@ -31,7 +32,7 @@ The following procedure is the easiest way to install OpenQuake 3.9 in a cluster
 
         OpenQuake at the moment only runs via ``.py`` files, therefore is not posible to install it properly in a cluster. Only the user that clones the repo can run OpenQuake.
 
-
+Now, for being able to install and run OpenQuake please follow these instructions:
 
 #. Load the dependencies so OpenQuake will be able to run.
 
@@ -39,21 +40,23 @@ The following procedure is the easiest way to install OpenQuake 3.9 in a cluster
 
         $ module load python/3.6.5_miniconda-4.5.1
 
-Now, for being able to install and run OpenQuake please follow these instructions:
 
 #. We create a conda environment, so we can run OpenQuake in a secure environment (it is not necessary but we recommend it).
+
     .. code-block:: bash
 
         $ conda create --name openquake3.9
         $ conda activate openquake3.9
 
 #. Clone the repository
+
     .. code-block:: bash
 
         $ mkdir src && cd src
         $ git clone https://github.com/gem/oq-engine.git --depth=1
 
 #. Install the dependencies
+
     .. code-block:: bash
 
         $ pip install -r oq-engine/requirements-py36-linux64.txt -r oq-engine/requirements-extra-py36-linux64.txt

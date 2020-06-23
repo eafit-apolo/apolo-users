@@ -14,6 +14,7 @@ download and configure the VPN client:
 
 
 #. Download and install the version of Global Protect client according to your operating system
+
     .. image:: images/vpnwin/vpnwin2.png
         :align: center
         :alt: Download the proper version
@@ -65,30 +66,33 @@ download and configure the VPN client:
     .. warning::
         Remember your password will expire every three (3) months.
 
-#. Once connected to the VPN, you will see the word Connected as shown in the image (do to the Taskbar)
+#. Once connected to the VPN, go to the Taskbar as you see in the image
 
     .. image:: images/vpnwin/vpnwin9.png
         :align: center
         :alt: Connected Taskbar
 
+#. You will see the word Connected as shown in the image
 
     .. image:: images/vpnwin/vpnwin10.png
         :align: center
         :alt: Connected!
 
-#. You can see some network parameter in the Details tab
+#. You can see some network parameter in the Details tab, go to the menu and click on Configuration
 
     .. image:: images/vpnwin/vpnwin11.png
         :align: center
         :alt: Details
 
+#. See the network parameters
 
     .. image:: images/vpnwin/vpnwin12.png
         :align: center
         :alt: Details
 
-    .. warning::
-        You must login for the next 24 hours or the account will be deactivated.
+
+.. warning::
+    You must login for the next 24 hours or the account will be deactivated.
 
 
 
@@ -105,27 +109,34 @@ called :code:`network-manager-vpnc`. If you use Gnome or a Gnome compatible wind
 :code:`network-manager-vpnc-gnome` and :code:`vpnc` packages. If you use KDE or a KDE compatible window manager you can install the package kvpnc.
 
 .. code-block:: bash
-    :emphasize-lines: 3,9,11
-    :caption: **Tested on Linux Mint 19**
+    :emphasize-lines: 9,10,12,13
+    :caption: **Tested on Ubuntu 18.04**
 
     $ sudo apt search vpnc
     [sudo] password for user:
-    p   kvpnc                             - frontend to VPN clients
-    p   kvpnc:i386                        - frontend to VPN clients
-    p   kvpnc-dbg                         - frontend to VPN clients - debugging symbols
-    p   kvpnc-dbg:i386                    - frontend to VPN clients - debugging symbols
-    p   network-manager-vpnc              - network management framework (VPNC plugin core)
-    p   network-manager-vpnc:i386         - network management framework (VPNC plugin core)
-    p   network-manager-vpnc-gnome        - network management framework (VPNC plugin GNOME GUI)
-    p   network-manager-vpnc-gnome:i386   - network management framework (VPNC plugin GNOME GUI)
-    p   vpnc                              - Cisco-compatible VPN client
-    p   vpnc:i386                         - Cisco-compatible VPN client
-    p   vpnc-scripts                      - Network configuration scripts for VPNC and OpenConnect
+    kvpnc/bionic 0.9.6a-4build1 amd64
+    frontend to VPN clients
+
+    kvpnc-dbg/bionic 0.9.6a-4build1 amd64
+    frontend to VPN clients - debugging symbols
+
+    network-manager-vpnc/bionic-updates,bionic-security,now 1.2.4-6ubuntu0.1 amd64
+    network management framework (VPNC plugin core)
+
+    network-manager-vpnc-gnome/bionic-updates,bionic-security,now 1.2.4-6ubuntu0.1 amd64
+    network management framework (VPNC plugin GNOME GUI)
+
+    vpnc/bionic,now 0.5.3r550-3 amd64
+    Cisco-compatible VPN client
+
+    vpnc-scripts/bionic,bionic,now 0.1~git20171005-1 all
+    Network configuration scripts for VPNC and OpenConnect
 
 
 .. code-block:: bash
 
     $ sudo apt install vpnc network-manager-vpnc-gnome
+
 
 Once the correct package is installed according to your distribution, you can proceed to configure the VPN client.
 
@@ -141,19 +152,13 @@ Once the correct package is installed according to your distribution, you can pr
 
 #. Open the main menu and System Settings.
 
-    .. image:: images/systemsettings.png
+    .. image:: images/vpnlin/menu.png
         :align: center
         :alt: System Settings
 
-#. Look for Network item on Hardware section.
+#. Look for Network item and click on the plus symbol to add a new connection.
 
-    .. image:: images/systemsettingsnetwork.png
-        :align: center
-        :alt: Look for Network
-
-#. Click on the plus symbol to add a new connection.
-
-    .. image:: images/systemsettingsnetworkadd.png
+    .. image:: images/vpnlin/add_vpn.png
         :align: center
         :alt: Add a new connection
 
@@ -161,24 +166,29 @@ Once the correct package is installed according to your distribution, you can pr
 
     .. note:: The VPN file will be provided by the system administrator, please request it before to continue with this guide.
 
-    .. image:: images/systemsettingsnetworkchoose.png
+    .. image:: images/vpnlin/choose_import.png
         :align: center
         :alt: Add a new connection
 
 #. Once the file has been imported you just need to add your username and password provided by the administrator. **Note that
    the group password is filled automatically by the imported file**.
 
-    .. image:: images/systemsettingsnetworkconfig.png
+    .. image:: images/vpnlin/config_id.png
         :align: center
         :alt: Fill the fields
 
 #. On IPv4 options on the left panel, please add the following route and apply the configuration.
 
-    .. image:: images/systemsettingsnetworkconfigadvanced.png
+    .. image:: images/vpnlin/config_ipv4.png
         :align: center
         :alt: Advanced configuration
 
 #. Now you can connect to the cluster through the VPN.
+
+    .. image:: images/vpnlin/connected.png
+        :align: center
+        :alt: Connected
+
 
 Troubleshooting
 ---------------

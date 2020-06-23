@@ -197,7 +197,7 @@ Troubleshooting
 
         .. raw:: html
 
-            <iframe align="middle" width="560" height="315" src="https://www.youtube.com/embed/C7LXgZ3hCsQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <iframe align="middle" width="560" height="315" src="https://youtu.be/C7LXgZ3hCsQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 
 .. seealso::

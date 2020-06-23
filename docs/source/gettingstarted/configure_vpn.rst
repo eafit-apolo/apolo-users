@@ -197,7 +197,7 @@ Troubleshooting
 
         .. raw:: html
 
-            <iframe align="middle" width="560" height="315" src="https://www.youtube.com/embed/UucKgiEbBrM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <iframe align="middle" width="560" height="315" src="https://www.youtube.com/watch?v=C7LXgZ3hCsQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 
 .. seealso::
@@ -213,5 +213,3 @@ Troubleshooting
     
     If that doesn't work, try the following: https://docs.paloaltonetworks.com/globalprotect/4-0/globalprotect-agent-user-guide/globalprotect-agent-for-mac/remove-the-globalprotect-enforcer-kernel-extension 
 
-.. warning::
-    Please take in account that you must to use **https** and not **http** protocol to enter in https://leto.eafit.edu.co

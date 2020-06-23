@@ -23,6 +23,7 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    links/index
    Lmod/index
    mafft/index
+   mdstress-lib/index
    mothur/index
    namd/index
    opensees/index
@@ -42,4 +43,3 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    trinity/index
    vmd/index
    wrf/index
-

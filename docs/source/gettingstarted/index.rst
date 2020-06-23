@@ -68,13 +68,6 @@ particular operating system.
 
     configure_vpn
 
-Configure Documentation Environment
-===================================
-
-.. toctree::
-    :maxdepth: 1
-
-    configure_documentation_env
 
 Educational Resources
 =====================

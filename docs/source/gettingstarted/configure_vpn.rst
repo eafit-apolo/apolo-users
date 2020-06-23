@@ -92,7 +92,7 @@ download and configure the VPN client:
 
 
 .. warning::
-    You must login for the next 24 hours or the account will be deactivated.
+    You must login for the next 5 hours or the account will be deactivated.
 
 
 
@@ -211,5 +211,7 @@ Troubleshooting
     
     3. To allow the software to load again, click the Allow button. 
     
-    If that doesn't work, try the following: https://docs.paloaltonetworks.com/globalprotect/4-0/globalprotect-agent-user-guide/globalprotect-agent-for-mac/remove-the-globalprotect-enforcer-kernel-extension 
+    If that doesn't work, try the following: https://docs.paloaltonetworks.com/globalprotect/4-0/globalprotect-agent-user-guide/globalprotect-agent-for-mac/remove-the-globalprotect-enforcer-kernel-extension
 
+.. seealso::
+    Sometimes, When you close the mac with the VPN open, there may be problems in re-establishing the connection to the VPN, so it is suggested that you close the program and reopen it.

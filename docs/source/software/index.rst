@@ -10,7 +10,7 @@ Software
    virtualization/index
    programminglanguages/index
    applications/index
-   resourcemanager/index
+   managementsoftware/index
    provisioning/index
    monitoring/index
    operatingsystems/index

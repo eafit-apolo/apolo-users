@@ -24,6 +24,7 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    Lmod/index
    mafft/index
    mdstress-lib/index
+   mpich/index
    mothur/index
    namd/index
    opensees/index

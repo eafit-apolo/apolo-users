@@ -14,5 +14,6 @@ never expands the data.
    :maxdepth: 1
 
    Zlib-1.2.11/index
+   Zlib-1.2.11-Intel/index
 
 .. [1] https://www.zlib.net/

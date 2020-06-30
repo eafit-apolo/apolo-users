@@ -28,7 +28,7 @@ Tested on (Requirements)
 Installation
 ------------
 
-The following procedure presents the way to compile **GROMAS-LS 4.5.5**
+The following procedure presents the way to compile **GROMACS-LS 4.5.5**
 for local stress calculations from molecular simulations. [1]_
 
 
@@ -76,7 +76,7 @@ for local stress calculations from molecular simulations. [1]_
 
    .. code-block:: bash
 
-      $ cmake .. -DCMAKE_INSTALL_PREFIX=/share/apps/gromacs-ls/4.5.5/gcc/5.4.0/
+      $ cmake .. -DCMAKE_INSTALL_PREFIX=/share/apps/gromacs-ls/4.5.5/gcc/5.4.0
 
 
 #. Execute the make commands sequence.
@@ -94,7 +94,7 @@ for local stress calculations from molecular simulations. [1]_
       #%Module1.0#####################################################################
       ##
       ## modulefile /share/apps/modules/gromacs-ls/4.5.5_gcc-5.4.0
-      ## Written by Juan Diego Ocampo
+      ## Written by Juan Diego Ocampo & Tomas David Navarro Munera
       ##
 
       proc ModulesHelp { } {
@@ -107,7 +107,7 @@ for local stress calculations from molecular simulations. [1]_
       module-whatis "(Compilers___) gcc-5.4.0"
       module-whatis "(System______) x86_64-redhat-linux"
 
-      set     topdir		/share/apps/gromacs-ls/4.5.5/gcc/5.4.0/
+      set     topdir		/share/apps/gromacs-ls/4.5.5/gcc/5.4.0
       set     version		4.5.5
       set     sys		x86_64-redhat-linux
 

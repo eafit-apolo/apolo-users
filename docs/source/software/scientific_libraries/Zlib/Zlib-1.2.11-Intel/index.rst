@@ -1,7 +1,7 @@
 .. _Zlib-1.2.11-intel:
 
-Zlib 1.2.11
-===========
+Zlib 1.2.11 - Intel
+===================
 
 .. contents:: Table of Contents
 
@@ -9,7 +9,7 @@ Zlib 1.2.11
 Basic information
 -----------------
 
-- **Instalation date:** 01/02/2018
+- **Instalation date:** June 2020
 - **Official Website:** https://www.zlib.net/
 - **Supercomputer:** Apolo II
 - **License:** Zlib License
@@ -30,7 +30,7 @@ Installation
 
     .. code-block:: bash
 
-        $ cd /home/salzatec1/apps/zlib
+        $ cd $HOME/apps/zlib
         $ wget https://zlib.net/zlib-1.2.11.tar.gz
         $ tar -xvf zlib-1.2.11.tar.gz
 
@@ -43,9 +43,7 @@ Installation
         $ make -j 10 2>&1 | tee zlib-make.log
         $ make check 2>&1 | tee zlib-make-check.log
         $ sudo mkdir -p /share/apps/zlib/1.2.11/intel-19.0.4
-        $ sudo chown -R tdnavarro.apolo /share/apps/zlib/1.2.11/intel-19.0.4
-        $ make install 2>&1 | tee gmp-make-install.log
-        $ sudo chown -R root.root /share/apps/zlib/1.2.11/intel-19.0.4
+        $ sudo make install 2>&1 | tee gmp-make-install.log
 
 Module
 ------

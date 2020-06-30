@@ -1,7 +1,7 @@
 .. _Szip-2.1.1-intel:
 
-Szip 2.1.1
-==========
+Szip 2.1.1 - Intel
+==================
 
 .. contents:: Table of Contents
 
@@ -9,9 +9,9 @@ Szip 2.1.1
 Basic information
 -----------------
 
-- **Instalation date:** 01/02/2018
+- **Instalation date:** June 2020
 - **Official Website:** https://www.zlib.net/
-- **Supercomputer:** Cronos
+- **Supercomputer:** Apolo II
 - **License:** Non commercial Use **[SEARCH]**
 
 
@@ -46,9 +46,7 @@ Installation
         $ make -j 10 2>&1 | tee szip-make.log
         $ make check 2>&1 | tee szip-make-check.log
         $ sudo mkdir -p /share/apps/szip/2.1.1/intel-19.0.4
-        $ sudo chown -R tdnavarro.apolo /share/apps/szip/2.1.1/intel-19.0.4
-        $ make install 2>&1 | tee szip-make-install.log
-        $ sudo chown -R root.root /share/apps/szip/2.1.1/intel-19.0.4
+        $ sudo make install 2>&1 | tee szip-make-install.log
 
 Module
 ------

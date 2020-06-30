@@ -40,14 +40,14 @@ Installation
 
     .. code-block:: bash
 
-        cd netcdf-c
-        module load hdf5/1.12_intel_19.0.4
-        export LDFLAGS="-L/share/apps/hdf5/1.12/intel-19.0.4/lib"
-        export CPPFLAGS="-I/share/apps/hdf5/1.12/intel-19.0.4/include"
-        ./configure --prefix=/share/apps/netcdf/4.7.4/intel-19.0.4 --build=x86_64-redhat-linux --enable-largefile
-        make 2>&1 | tee netcdf-make.log
-        sudo mkdir -p /share/apps/netcdf/4.5.0/intel-17.0.1
-        make install 2>&1 | tee netcdf-make-install.log
+        $ cd netcdf-c
+        $ module load hdf5/1.12_intel_19.0.4
+        $ export LDFLAGS="-L/share/apps/hdf5/1.12/intel-19.0.4/lib"
+        $ export CPPFLAGS="-I/share/apps/hdf5/1.12/intel-19.0.4/include"
+        $ ./configure --prefix=/share/apps/netcdf/4.7.4/intel-19.0.4 --build=x86_64-redhat-linux --enable-largefile
+        $ make 2>&1 | tee netcdf-make.log
+        $ sudo mkdir -p /share/apps/netcdf/4.5.0/intel-17.0.1
+        $ sudo make install 2>&1 | tee netcdf-make-install.log
 
 
 Module
@@ -122,4 +122,4 @@ Resources
 Author
 ------
  * Tomas David Navarro
- * Santigao Alzate Cardona
+ * Santiago Alzate Cardona

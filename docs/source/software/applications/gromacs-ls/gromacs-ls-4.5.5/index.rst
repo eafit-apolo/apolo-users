@@ -76,7 +76,7 @@ for local stress calculations from molecular simulations. [1]_
 
    .. code-block:: bash
 
-      $ cmake .. -DCMAKE_INSTALL_PREFIX=/share/apps/gromacs-ls/4.5.5/gcc/5.4.0
+      $ cmake .. -DCMAKE_INSTALL_PREFIX=/share/apps/gromacs-ls/4.5.5/gcc/5.4.0/
 
 
 #. Execute the make commands sequence.

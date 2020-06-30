@@ -38,7 +38,7 @@ Installation
         $ cd mpich-3.3.2
 
 
-#. The following steps
+#. Then we can continue with the installation
 
     .. code-block:: bash
 
@@ -51,10 +51,10 @@ Installation
 .. note::
 
     The configure can vary on the environment you are working on. In Apolo the only way to make it function is to burn the environmental variables directly in the configure.
-    In your environment this may not be necessary.
+    Also you may need to unset F90 and F90FLAGS variables depending in your enviroment.
 
 
 Author
 ------
  - Tomas David Navarro
- - Santigo alzate Cardona
+ - Santigo Alzate Cardona

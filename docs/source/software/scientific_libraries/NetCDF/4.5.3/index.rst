@@ -36,7 +36,7 @@ Installation
         cd $HOME/apps/netCDF/intel
         git clone https://github.com/Unidata/netcdf-fortran.git
 
-#. After unpacking NetCDF, continue with the followin   g steps for configuration and compilation:
+#. After unpacking NetCDF, continue with the following steps for configuration and compilation:
 
     .. code-block:: bash
 

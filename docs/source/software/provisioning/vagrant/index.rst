@@ -88,8 +88,15 @@ of ansible_local handling and other options.
    For more information about vagrantfile and how to create it go to
    https://www.vagrantup.com/docs/vagrantfile/
 
-Authors
--------
+Troublehooting
+^^^^^^^^^^^^^^
+
+.. toctree::
+   :maxdepth: 1
+
+   vagrant-storage/index
+
+:Author:
 
 - Manuela Carrasco Pinzón <mcarras1@eafit.edu.co>
 - Tomás Felipe Llano Rios <tllanos@eafit.edu.co>

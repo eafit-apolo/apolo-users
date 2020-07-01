@@ -1,7 +1,7 @@
-.. _vagrant-index:
+.. _vagrant-resize:
 
-VAGRANT
-=========
+Disk Resize
+===========
 
 The main purpose of this article is documenting how to face a problem with the machine storage in vagrant,
 and also we will see briefly how to install it.
@@ -19,15 +19,8 @@ Tested on (Requirements)
 - **Base OS:** Fedora 31
 - **OS for the virtual machine:** CentOS 8
 
-Installation and implementation
+Disk Resize Example in Vagrant
 --------------------------------
-
-#. Search the name of the vagrant package in your packet manager and install it, then make some directory to locate
-   the machines we will create
-
-   .. code-block:: bash
-
-      $ sudo yum install vagrant #install vagrant
 
 #. Create a directory where you will work with vagrant and enter into it.
 

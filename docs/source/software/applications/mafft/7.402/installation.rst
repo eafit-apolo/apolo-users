@@ -1,4 +1,4 @@
-.. _maff-7.402-installation:
+.. _mafft-7.402-installation:
 
 .. role:: bash(code)
     :language: bash

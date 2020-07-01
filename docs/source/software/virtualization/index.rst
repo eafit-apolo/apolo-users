@@ -7,6 +7,6 @@ Virtualization
 This entry contains relevant information related to virtualization tools.
 
 .. toctree::
-	:maxdepth: 2
+    :maxdepth: 1
 
-	vmwareesxi/index	
+    vmwareesxi/index

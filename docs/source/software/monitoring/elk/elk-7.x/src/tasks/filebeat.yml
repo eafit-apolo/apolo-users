@@ -1,0 +1,27 @@
+# roles/master/tasks/config.yml
+
+---
+- name: Download public signing key
+  shell: rpm --import https://artifacts.elastic.co/GPG-KEY-elasticsearch
+
+- name: Add elk repository file
+  template:
+    src: "etc/yum.repos.d/elk.repo.j2"
+    dest: "/etc/yum.repos.d/elk.repo"
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Install filebeat
+  yum:
+    name: filebeat
+    state: present
+
+- name: Configure filebeat
+  template:
+    src: etc/filebeat/filebeat.yml.j2
+    dest: /etc/filebeat/filebeat.yml
+    owner: root
+    group: rot
+    mode: 0644
+  notify: enable_restart_filebeat

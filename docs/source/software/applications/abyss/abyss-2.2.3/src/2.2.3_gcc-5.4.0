@@ -1,0 +1,33 @@
+#%Module1.0####################################################################
+##
+## module load abyss/2.2.3_gcc-5.4.0
+##
+## /share/apps/modules/abyss/2.2.3_gcc-5.4.0
+## Written by Vincent A. Arcila L and Hamilton Tobon Mosquera.
+##
+
+proc ModulesHelp {} {
+         global version modroot
+         puts stderr "Sets the environment for using abyss 2.2.3\
+         \nin the shared directory /share/apps/abyss/2.2.3/gcc/5.4.0\
+         \nbuilt with GCC 5.4.0."
+}
+
+module-whatis "(Name________) abyss"
+module-whatis "(Version_____) 2.2.3"
+module-whatis "(Compilers___) gcc-5.4.0"
+module-whatis "(System______) x86_64-redhat-linux"
+module-whatis "(Libraries___) "
+
+# for Tcl script use only
+set         topdir        /share/apps/abyss/2.2.3/gcc/5.4.0
+set         version       2.2.3
+set         sys           x86_64-redhat-linux
+
+conflict abyss
+module load mvapich2/2.2.3a_gcc-5.4.0
+module load arcs/1.1.0_gcc-7.4.0
+module load tigmint/1.1.2_miniconda-4.5.1
+
+prepend-path   PATH            $topdir/bin
+prepend-path   MANPATH         $topdir/share/man

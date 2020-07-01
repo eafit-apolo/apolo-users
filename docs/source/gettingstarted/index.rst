@@ -12,7 +12,7 @@ How to apply for computing time on Apolo
 The first contact to evaluate the viability of computing in Apolo is by means of an email to apolo@eafit.edu.co or a
 call +57 (4) 2619592. An appointment will be scheduled via physical or virtual to assess the needs of the user.
 At Apolo, researchers from the Universidad EAFIT can compute for free. Other universities, academic institutions or
-industrial companies can compute, applying costs on the **core-hour**  basis.
+industrial companies can compute, applying costs on the **core-hour**, **gpu-hour** and **TiB-month** basis.
 
 How to estimate time to use on Apolo
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -67,6 +67,7 @@ particular operating system.
     :maxdepth: 2
 
     configure_vpn
+
 
 Educational Resources
 =====================

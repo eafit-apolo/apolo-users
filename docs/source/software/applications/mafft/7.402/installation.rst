@@ -1,4 +1,4 @@
-.. _maff-7.402-installation:
+.. _mafft-7.402-installation:
 
 .. role:: bash(code)
     :language: bash
@@ -36,8 +36,8 @@ Build process
      * :bash:`module load intel/18.0.2`
 
 This entry described the installation process of MAFFT with extensions.
-	   
-#. Get the MAFFT wit extensions package.
+         
+#. Get the MAFFT with the extensions package.
    
    .. code-block:: bash
 
@@ -62,7 +62,7 @@ This entry described the installation process of MAFFT with extensions.
    To:
 
    .. code-block:: bash
-		   
+               
       PREFIX = /your/path
       ...
       #CC = gcc
@@ -71,7 +71,7 @@ This entry described the installation process of MAFFT with extensions.
       ...
 
 
-#. Load the necessary enviroment and build it.
+#. Load the necessary environment and build it.
 
    .. code-block:: bash
 
@@ -88,10 +88,10 @@ This entry described the extension's installation process.
 Mxscarna
 ........
 
-MXSCARNA [1]_. (Multiplex Stem Candidate Aligner for RNAs) is a multiple alignment tool for RNA sequences using progressive alignment based on pairwise structural alignment algorithm of SCARNA. This software is fast enough for large scale analyses, while the accuracies of the alignments are better than or comparable with the existing algorithms which are computationally much more expensive in time and memory.
+MXSCARNA [1]_. (Multiplex Stem Candidate Aligner for RNAs) is a multiple alignment tool for RNA sequences using progressive alignment based on the pairwise structural alignment algorithm of SCARNA. This software is fast enough for large scale analyses, while the accuracies of the alignments are better than or comparable with the existing algorithms which are computationally much more expensive in time and memory.
 
 
-#. Edit the Mxcarna's Makefile whith the following lines.
+#. Edit the Mxcarna's Makefile with the following lines.
 
    :bash:`mafft-7.402-with-extensions/extensions/mxscarna_src/Makefile`
 
@@ -134,7 +134,7 @@ MXSCARNA [1]_. (Multiplex Stem Candidate Aligner for RNAs) is a multiple alignme
 Foldalign
 .........
 
-FOLDALIGN [2]_. an algorithm for local or global simultaneous folding and aligning two or more RNA sequences and is based on the Sankoffs algorithm (SIAM J. Appl. Math., 45:810-825, 1985). Foldalign can make pairwise local or global alignments and structure predictions. FoldalignM makes a multiple global alignment and structure prediction.
+FOLDALIGN [2]_. an algorithm for local or global simultaneous folding and aligning two or more RNA sequences and is based on the Sankoffs algorithm (SIAM J. Appl. Math., 45:810-825, 1985). Foldalign can make pairwise local or global alignments and structure predictions. FoldalignM makes multiple global alignment and structure prediction.
 
 
 
@@ -157,17 +157,17 @@ FOLDALIGN [2]_. an algorithm for local or global simultaneous folding and aligni
 
       .. code-block:: c++
 
-	 ...
-	 cc = g++
-	 ...
+       ...
+       cc = g++
+       ...
 
    To:
 
       .. code-block:: c++
 
-	 ...
-	 cc = icpc
-	 ...
+       ...
+       cc = icpc
+       ...
 
 #. Load the necessary environment and build it.
 
@@ -186,9 +186,9 @@ FOLDALIGN [2]_. an algorithm for local or global simultaneous folding and aligni
 Contrafold
 ..........
 
-CONTRAfold [3]_. is a novel secondary structure prediction method based on conditional log-linear models (CLLMs), a flexible class of probabilistic models which generalize upon SCFGs by using discriminative training and feature-rich scoring. By incorporating most of the features found in typical thermodynamic models, CONTRAfold achieves the highest single sequence prediction accuracies to date, outperforming currently available probabilistic and physics-based techniques. 
+CONTRAfold [3]_. is a novel secondary structure prediction method based on conditional log-linear models (CLLMs), a flexible class of probabilistic models that generalize upon SCFGs by using discriminative training and feature-rich scoring. By incorporating most of the features found in typical thermodynamic models, CONTRAfold achieves the highest single sequence prediction accuracies to date, outperforming currently available probabilistic and physics-based techniques. 
 
-#. Get the Contrafold package and move it to MAFFT extension's directory.
+#. Get the Contrafold package and move it to the MAFFT extension's directory.
 
    .. code-block:: bash
 
@@ -255,20 +255,20 @@ Or something similar about a compilation error, it appears because in Utilities.
 
       .. code-block:: c++
 
-	 #define UTILITIES_HPP
+       #define UTILITIES_HPP
       
-	 #include <algorithm>
-	 ...
+       #include <algorithm>
+       ...
 
    To:
 
       .. code-block:: c++
 
-	 #define UTILITIES_HPP
+       #define UTILITIES_HPP
       
-	 #include <limits.h>
-	 #include <algorithm>
-	 ...
+       #include <limits.h>
+       #include <algorithm>
+       ...
 
 #. Repeat step 2.
 

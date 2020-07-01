@@ -62,8 +62,7 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    prinseq-lite/index
    pyrad/index
    QE/index
-   qiime/index
-   Qiime2/index
+   qiime2/index
    raxml/index
    rDock/index
    repet/index

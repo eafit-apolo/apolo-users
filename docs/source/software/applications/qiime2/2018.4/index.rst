@@ -1,4 +1,4 @@
-.. _Qiime2-2018.4-index:
+.. _2018.4-index:
 
 .. role:: bash(code)
    :language: bash

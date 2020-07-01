@@ -10,4 +10,3 @@ This entry contains relevant information related to virtualization tools.
     :maxdepth: 1
 
     vmwareesxi/index
-    vagrant-storage/index

@@ -1,4 +1,4 @@
-. _mothur-1.42.3-index:
+.. _mothur-1.42.3-index:
 
 .. role:: bash(code)
     :language: bash

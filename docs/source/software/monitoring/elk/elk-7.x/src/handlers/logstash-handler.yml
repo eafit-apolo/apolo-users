@@ -1,0 +1,8 @@
+# roles/elk/handlers/main.yml
+
+---
+- name: enable_restart_logstash
+  systemd:
+    name: logstash
+    state: restarted
+    enabled: yes

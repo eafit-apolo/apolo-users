@@ -11,3 +11,4 @@ several processes within a cluster.
    :maxdepth: 1
 
    ansible/index
+   vagrant/index

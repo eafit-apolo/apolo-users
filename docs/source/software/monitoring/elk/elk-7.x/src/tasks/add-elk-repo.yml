@@ -1,0 +1,13 @@
+# roles/elk/tasks/add-elk-repo.yml
+
+---
+- name: Download public signing key
+  shell: rpm --import https://artifacts.elastic.co/GPG-KEY-elasticsearch
+
+- name: Add elk repository file
+  template:
+    src: "etc/yum.repos.d/elk.repo.j2"
+    dest: "/etc/yum.repos.d/elk.repo"
+    owner: root
+    group: root
+    mode: 0644

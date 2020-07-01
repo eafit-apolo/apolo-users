@@ -1,0 +1,8 @@
+# roles/master/handlers/main.yml
+
+---
+- name: enable_restart_filebeat
+  service:
+    name: filebeat
+    state: restarted
+    enabled: yes

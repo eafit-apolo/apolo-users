@@ -5,44 +5,35 @@ Windows and Mac OSX
 To configure the VPN on Windows and Mac OS X systems, you must follow exactly the same procedure. Here are the steps to
 download and configure the VPN client:
 
-#. Open your favorite browser and go to https://leto.eafit.edu.co
+#. Open your favorite browser and go to https://leto.eafit.edu.co and log in with your **username** and **password** given by EAFIT or Apolo's staff
 
-    .. image:: images/1-browser-leto.PNG
+
+    .. image:: images/vpnwin/vpnwin1.png
         :align: center
         :alt: Open your browser
 
-#. Accept the not issued certificate
-
-    .. image:: images/2-browser-leto.PNG
-        :align: center
-        :alt: Access to the not certified web page
-
-#. Log in with your **username** and **password** given by EAFIT or Apolo's staff
-
-    .. image:: images/3-browser-leto.PNG
-        :align: center
-        :alt: Login
 
 #. Download and install the version of Global Protect client according to your operating system
-    .. image:: images/4-browser-leto.PNG
+
+    .. image:: images/vpnwin/vpnwin2.png
         :align: center
         :alt: Download the proper version
 
 #. Install the Global Protect application
 
-    .. image:: images/5-globalprotect-install.PNG
+    .. image:: images/vpnwin/vpnwin3.png
         :align: center
         :alt: Install app
 
 #. Choose where to install it, take into account your permissions on the system
 
-    .. image:: images/6-globalprotect-install.PNG
+    .. image:: images/vpnwin/vpnwin4.png
         :align: center
         :alt: Install app
 
 #. Finish installation
 
-    .. image:: images/7-globalprotect-install.PNG
+    .. image:: images/vpnwin/vpnwin5.png
         :align: center
         :alt: Install app
 
@@ -54,23 +45,16 @@ download and configure the VPN client:
 
 #. Launch the Global Protect application and fill the portal input **Portal** with *leto.eafit.edu.co*
 
-    .. image:: images/9-globalprotect-conf.PNG
+    .. image:: images/vpnwin/vpnwin6.png
         :align: center
         :alt: Configuration of the application
 
-#. Accept the untrusted certificate
-
-    .. image:: images/10-globalprotect-conf.PNG
-        :align: center
-        :alt: Accept the invalid certificate
-
 #. Fill the fields with the following information:
 
-    .. image:: images/11-globalprotect-conf.PNG
+    .. image:: images/vpnwin/vpnwin8.png
         :align: center
         :alt: Fill the fields
 
-    - **Portal:** leto.eafit.edu.co
     - **Username:** The username assigned by the Apolo's system administrator.
     - **Password:** The password used to log in to the clusters.
 
@@ -82,17 +66,33 @@ download and configure the VPN client:
     .. warning::
         Remember your password will expire every three (3) months.
 
-#. Once connected to the VPN, you will see the word Connected as shown in the image
+#. Once connected to the VPN, go to the Taskbar as you see in the image
 
-    .. image:: images/12-globalprotect-conf.PNG
+    .. image:: images/vpnwin/vpnwin9.png
+        :align: center
+        :alt: Connected Taskbar
+
+#. You will see the word Connected as shown in the image
+
+    .. image:: images/vpnwin/vpnwin10.png
         :align: center
         :alt: Connected!
 
-#. You can see some network parameter in the Details tab
+#. You can see some network parameter in the Details tab, go to the menu and click on Configuration
 
-    .. image:: images/13-globalprotect-conf.PNG
+    .. image:: images/vpnwin/vpnwin11.png
         :align: center
         :alt: Details
+
+#. See the network parameters
+
+    .. image:: images/vpnwin/vpnwin12.png
+        :align: center
+        :alt: Details
+
+
+.. warning::
+    You must login for the next 5 hours or the account will be deactivated.
 
 
 
@@ -109,27 +109,34 @@ called :code:`network-manager-vpnc`. If you use Gnome or a Gnome compatible wind
 :code:`network-manager-vpnc-gnome` and :code:`vpnc` packages. If you use KDE or a KDE compatible window manager you can install the package kvpnc.
 
 .. code-block:: bash
-    :emphasize-lines: 3,9,11
-    :caption: **Tested on Linux Mint 19**
+    :emphasize-lines: 9,10,12,13
+    :caption: **Tested on Ubuntu 18.04**
 
     $ sudo apt search vpnc
     [sudo] password for user:
-    p   kvpnc                             - frontend to VPN clients
-    p   kvpnc:i386                        - frontend to VPN clients
-    p   kvpnc-dbg                         - frontend to VPN clients - debugging symbols
-    p   kvpnc-dbg:i386                    - frontend to VPN clients - debugging symbols
-    p   network-manager-vpnc              - network management framework (VPNC plugin core)
-    p   network-manager-vpnc:i386         - network management framework (VPNC plugin core)
-    p   network-manager-vpnc-gnome        - network management framework (VPNC plugin GNOME GUI)
-    p   network-manager-vpnc-gnome:i386   - network management framework (VPNC plugin GNOME GUI)
-    p   vpnc                              - Cisco-compatible VPN client
-    p   vpnc:i386                         - Cisco-compatible VPN client
-    p   vpnc-scripts                      - Network configuration scripts for VPNC and OpenConnect
+    kvpnc/bionic 0.9.6a-4build1 amd64
+    frontend to VPN clients
+
+    kvpnc-dbg/bionic 0.9.6a-4build1 amd64
+    frontend to VPN clients - debugging symbols
+
+    network-manager-vpnc/bionic-updates,bionic-security,now 1.2.4-6ubuntu0.1 amd64
+    network management framework (VPNC plugin core)
+
+    network-manager-vpnc-gnome/bionic-updates,bionic-security,now 1.2.4-6ubuntu0.1 amd64
+    network management framework (VPNC plugin GNOME GUI)
+
+    vpnc/bionic,now 0.5.3r550-3 amd64
+    Cisco-compatible VPN client
+
+    vpnc-scripts/bionic,bionic,now 0.1~git20171005-1 all
+    Network configuration scripts for VPNC and OpenConnect
 
 
 .. code-block:: bash
 
     $ sudo apt install vpnc network-manager-vpnc-gnome
+
 
 Once the correct package is installed according to your distribution, you can proceed to configure the VPN client.
 
@@ -145,19 +152,13 @@ Once the correct package is installed according to your distribution, you can pr
 
 #. Open the main menu and System Settings.
 
-    .. image:: images/systemsettings.png
+    .. image:: images/vpnlin/menu.png
         :align: center
         :alt: System Settings
 
-#. Look for Network item on Hardware section.
+#. Look for Network item and click on the plus symbol to add a new connection.
 
-    .. image:: images/systemsettingsnetwork.png
-        :align: center
-        :alt: Look for Network
-
-#. Click on the plus symbol to add a new connection.
-
-    .. image:: images/systemsettingsnetworkadd.png
+    .. image:: images/vpnlin/add_vpn.png
         :align: center
         :alt: Add a new connection
 
@@ -165,24 +166,29 @@ Once the correct package is installed according to your distribution, you can pr
 
     .. note:: The VPN file will be provided by the system administrator, please request it before to continue with this guide.
 
-    .. image:: images/systemsettingsnetworkchoose.png
+    .. image:: images/vpnlin/choose_import.png
         :align: center
         :alt: Add a new connection
 
 #. Once the file has been imported you just need to add your username and password provided by the administrator. **Note that
    the group password is filled automatically by the imported file**.
 
-    .. image:: images/systemsettingsnetworkconfig.png
+    .. image:: images/vpnlin/config_id.png
         :align: center
         :alt: Fill the fields
 
 #. On IPv4 options on the left panel, please add the following route and apply the configuration.
 
-    .. image:: images/systemsettingsnetworkconfigadvanced.png
+    .. image:: images/vpnlin/config_ipv4.png
         :align: center
         :alt: Advanced configuration
 
 #. Now you can connect to the cluster through the VPN.
+
+    .. image:: images/vpnlin/connected.png
+        :align: center
+        :alt: Connected
+
 
 Troubleshooting
 ---------------
@@ -191,7 +197,7 @@ Troubleshooting
 
         .. raw:: html
 
-            <iframe align="middle" width="560" height="315" src="https://www.youtube.com/embed/UucKgiEbBrM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <iframe align="middle" width="560" height="315" src="https://www.youtube.com/embed/C7LXgZ3hCsQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 
 .. seealso::
@@ -205,7 +211,7 @@ Troubleshooting
     
     3. To allow the software to load again, click the Allow button. 
     
-    If that doesn't work, try the following: https://docs.paloaltonetworks.com/globalprotect/4-0/globalprotect-agent-user-guide/globalprotect-agent-for-mac/remove-the-globalprotect-enforcer-kernel-extension 
+    If that doesn't work, try the following: https://docs.paloaltonetworks.com/globalprotect/4-0/globalprotect-agent-user-guide/globalprotect-agent-for-mac/remove-the-globalprotect-enforcer-kernel-extension
 
-.. warning::
-    Please take in account that you must to use **https** and not **http** protocol to enter in https://leto.eafit.edu.co
+.. seealso::
+    Sometimes, When you close the mac with the VPN open, there may be problems in re-establishing the connection to the VPN, so it is suggested that you close the program and reopen it.

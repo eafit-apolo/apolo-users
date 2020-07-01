@@ -64,10 +64,15 @@ This section describes the method to submit jobs with the resource manager SLURM
 
 #. Run SLURM with the following bash file.
 
-   .. code-block::
+   .. code-block:: bash
 
       sbatch partitionFinder.sh
-   
+
    .. literalinclude:: src/partitionFinder.sh
       :language: tcl
       :caption: :download:`Partition Finder SLURM <src/partitionFinder.sh>`
+
+Authors
+-------
+
+- Manuela Carrasco Pinzón <mcarras1@eafit.edu.co>

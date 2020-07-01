@@ -1,7 +1,20 @@
-.. _resourcemanager-index:
+.. _managementsoftware-index:
 
-Resource Manager
-================
+Management Software
+===================
+
+Lmod
+----
+
+This entry contains all relevant information about Lmod and its compilation in Apolo.
+
+.. toctree::
+   :maxdepth: 1
+
+   lmod/index
+
+SLURM
+-----
 
 This entry contains all relevant information about Apolo's current resource
 manager SLURM, and the available tools related to this software.

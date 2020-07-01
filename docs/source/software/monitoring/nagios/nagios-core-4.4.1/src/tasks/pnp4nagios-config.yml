@@ -1,0 +1,19 @@
+---
+- name: Service NPCD enabled at boot time
+  service: 
+    name: npcd
+    enabled: yes
+    state: started
+
+- name: Synchronize gd.ini file
+  copy:
+    src: etc/php.d/gd.ini
+    dest: /etc/php.d/gd.ini
+  notify: apache_restart
+
+- name: Correct Group and Owner for PNP dirs
+  file:
+    path: /usr/local/pnp4nagios
+    group: nagcmd
+    owner: nagios
+    recurse: yes

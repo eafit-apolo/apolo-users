@@ -1,0 +1,10 @@
+# roles/elk/templates/etc/yum.repos.d/elk.repo.j2
+
+[elastic-{{ elk_version }}]
+name=Elastic repository for {{ elk_version }} packages
+baseurl=https://artifacts.elastic.co/packages/{{ elk_version }}/yum
+gpgcheck=1
+gpgkey=https://artifacts.elastic.co/GPG-KEY-elasticsearch
+enabled=1
+autorefresh=1
+type=rpm-md

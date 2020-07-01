@@ -91,6 +91,7 @@ Plugins
    plugins/ipmi-sensors
    plugins/dell-openmanage
    plugins/ilo-rest
+   plugins/pnp4nagios
    
 Usage
 -----

@@ -1,0 +1,11 @@
+# roles/elk/tasks/config.yml
+
+---
+- name: Configure elasticsearch
+  template:
+    src: "etc/elasticsearch/elasticsearch.yml.j2"
+    dest: "/etc/elasticsearch/elasticsearch.yml"
+    owner: root
+    group: root
+    mode: 0644
+  notify: enable_restart_elasticsearch

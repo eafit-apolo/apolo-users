@@ -1,0 +1,7 @@
+**State**,**Description**
+**DOWN**,The node is unavailable for use
+**ALLOCATED**,The node has been allocated to one or more jobs.
+**IDLE**,The node is not allocated to any jobs and is available for use
+**MIXED**,The node has some of its CPUs **ALLOCATED** while others are **IDLE**
+**DRAINED**,The node is unavailable for use per **system administrator** request
+**MAINT**,The node is under maintenance by **system administrator**

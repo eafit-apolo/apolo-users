@@ -1,0 +1,11 @@
+{ "checks":
+  {
+    "service_sshd": {
+      "command": "check-process.rb -p /usr/sbin/sshd",
+      "interval": 60,
+      "handlers": ["mailer"],
+      "subscribers": ["ssh"],
+      "standalone": false,
+    }
+  }
+}

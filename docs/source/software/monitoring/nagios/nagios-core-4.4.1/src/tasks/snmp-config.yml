@@ -1,6 +1,6 @@
 ---
 - name: Synchronize Nagios config files
-  copy:     
+  copy:
     src: "{{ item }}"
     dest: "/{{ item }}"
   with_items:

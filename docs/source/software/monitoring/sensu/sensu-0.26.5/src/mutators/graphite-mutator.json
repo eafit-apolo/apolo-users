@@ -1,0 +1,8 @@
+{
+  "mutators": {
+    "graphite_mutator": {
+      "command": "/opt/sensu/embedded/bin/mutator-graphite.rb",
+      "timeout": 10
+    }
+  }
+}

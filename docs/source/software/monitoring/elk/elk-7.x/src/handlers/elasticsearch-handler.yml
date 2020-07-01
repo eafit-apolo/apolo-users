@@ -1,0 +1,8 @@
+# roles/elk/handlers/main.yml
+
+---
+- name: enable_restart_elasticsearch
+  systemd:
+    name: elasticsearch
+    state: restarted
+    enabled: yes

@@ -91,7 +91,7 @@ The following procedure is the easiest way to install and configure Lmod V8.2.7 
         ``/share/apps/modules/`` is our custom location for modules, you need to add in the configuration files your own path.
 
 
-#. Now, lets configure one last thing, this are the files needed to load pre-defined modules when an user logs into your cluster:
+#. Now, lets configure one last thing, these are the files needed to load pre-defined modules when an user logs into your cluster:
 
     .. code-block:: bash
 
@@ -134,7 +134,7 @@ The following procedure is the easiest way to install and configure Lmod V8.2.7 
         endif
 
 
-#. We create the StdEnv.lua file, which has the modules that we want to load from the beginning.
+#. We create the StdEnv.lua file, which has the modules that we want to load from the beginning. For this example, we will use SLURM and Munge.
 
     .. code-block:: bash
 

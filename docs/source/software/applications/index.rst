@@ -21,7 +21,6 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    gromacs-ls/index
    lammps/index
    links/index
-   Lmod/index
    mafft/index
    mdstress-lib/index
    mothur/index

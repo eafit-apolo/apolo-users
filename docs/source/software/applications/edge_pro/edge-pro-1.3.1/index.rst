@@ -6,6 +6,8 @@
 EDGE-pro - 1.3.1
 ================
 
+.. contents:: Table of Contents
+
 Basic information
 -----------------
 

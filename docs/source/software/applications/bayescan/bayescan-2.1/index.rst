@@ -6,6 +6,8 @@
 BayeScan - 2.1
 ===============
 
+.. contents:: Table of Contents
+
 Basic information
 -----------------
 

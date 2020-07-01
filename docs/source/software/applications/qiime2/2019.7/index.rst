@@ -3,7 +3,7 @@
 .. role:: bash(code)
     :language: bash
 
-QIIME2 2019.7
+Qiime2 2019.7
 =============
 
 Basic Information

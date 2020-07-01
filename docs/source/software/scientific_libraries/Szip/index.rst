@@ -14,5 +14,6 @@ of New Mexico (UNM) and integrated with HDF4 by UNM researchers and developers.
    :maxdepth: 1
 
    Szip-2.1.1/index
+   Szip-2.1.1-intel/index
 
 .. [1] https://support.hdfgroup.org/doc_resource/SZIP/

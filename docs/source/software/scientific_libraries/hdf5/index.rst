@@ -11,3 +11,4 @@ HDF5 is a data model, library, and file format for storing and managing data. It
 
    1.8.15-p1/index
    1.8.19/index
+   1.12.0/index

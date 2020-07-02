@@ -93,6 +93,13 @@ The output should be similar to this:
         If any other installation of the Engine exists on the same machine, like a system-wide installation made with packages, you must change the DbServer port from the default one (1908) to any other unused port.
         Change it in the file: oq-engine/openquake/engine/openquake.cfg
 
+Usage
+_____
+
+   .. note::
+
+        For a detailed manual of the use of the application go to https://docs.openquake.org/manuals/OpenQuake%20Manual%20%28latest%29.pdf
+
 For more information on how to use OpenQuake, please visit the official website.
 
 References

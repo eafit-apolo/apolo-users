@@ -98,28 +98,81 @@ Usage
 
 An OpenQuake-engine seismic source input model contains a list of sources belonging to a finite set of possible typologies. Each source type is defined by a set of parameters - called source data - which are used to specify the source geometry and the properties of seismicity occurrence.
 
-To measure the impacts of an earthquake, OpenQuake relies on two calculations, hazard and risk calculations, which must be performed through a configuration file called job.ini See an example of a job.ini for a hazard calculation.
+To measure the impacts of an earthquake, OpenQuake relies on two calculations, hazard and risk calculations, which must be performed through a configuration file called job.ini
+See an example of a job.ini for a hazard calculation:
 
     .. image:: images/ej_job.png
         :align: center
         :alt: hazard example
 
+Running Example
+***************
 
-   .. note::
+#. This is an example for Apolo in SLURM.
 
-        For a detailed manual of the use of the application go to https://docs.openquake.org/manuals/OpenQuake%20Manual%20%28latest%29.pdf
+    .. image:: images/ej_sbatch.png
+        :align: center
+        :alt: running example
 
-   .. note::
 
-        To directly generate the job.ini file, OpenQuake has a tool called ipt so the user only has to set the necessary parameters. More information at: https://github.com/gem/oq-engine/blob/engine-3.9/doc/running/server.md
+#. Use this command to run the job:
+
+    .. code-block:: bash
+
+        $ sbatch slurm_Apolo.sh
 
 
 Basic Commands
 **************
 
+#. To see the results of running the calculations, use  the following command (the first one in case of risk calculations, the second one in case of hazard calculations).
+
+    .. code-block:: bash
+
+        $ oq engine --lrc
+
+        $ oq engine --lhc
+
+#. To see the specific outputs of a calculation, identify the calculation id and use this command. You can see the calculation after running the previous command and then identify the number at the beginning of the required calculation line.
+
+    .. code-block:: bash
+
+        $ oq engine --lo <calculation_id>
+
+#. To export a specific output of a calculation, identify the output id (you can see it after running the previous command) and use this command to get the output and save it in the directory of your preference, if it doesn't exist, it will be created.
+
+    .. code-block:: bash
+
+        $ oq engine --eo <output_id> <directory_path>
+
+#. Always remember to end OpenQuake after finishing the job using this command.
+
+    .. code-block:: bash
+
+        $ oq dbserver stop
 
 
-For more information on how to use OpenQuake, please visit the official website.
+   .. seealso::
+
+        #. For a detailed manual of the use of the application go to https://docs.openquake.org/manuals/OpenQuake%20Manual%20%28latest%29.pdf
+        #. To directly generate the job.ini file, OpenQuake has a tool called ipt so the user only has to set the necessary parameters. More information at: https://github.com/gem/oq-engine/blob/engine-3.9/doc/running/server.md
+
+   .. note::
+
+        If it fails when you run the job, use this command to see error details.
+
+        .. code-block:: bash
+
+            $ less <job_name>-<job_id>.err
+
+    The job id is the one specified in the slurm file as job-name, and the id is the one sent by email when the job started running.
+
+
+
+
+
+
+For more information of how to use OpenQuake, please visit the official website.
 
 References
 ----------

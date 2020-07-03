@@ -91,14 +91,33 @@ The output should be similar to this:
         In case of multiple installations:
 
         If any other installation of the Engine exists on the same machine, like a system-wide installation made with packages, you must change the DbServer port from the default one (1908) to any other unused port.
-        Change it in the file: oq-engine/openquake/engine/openquake.cfg
+        Change it in the file: ``oq-engine/openquake/engine/openquake.cfg``
 
 Usage
-_____
+-----
+
+An OpenQuake-engine seismic source input model contains a list of sources belonging to a finite set of possible typologies. Each source type is defined by a set of parameters - called source data - which are used to specify the source geometry and the properties of seismicity occurrence.
+
+To measure the impacts of an earthquake, OpenQuake relies on two calculations, hazard and risk calculations, which must be performed through a configuration file called job.ini See an example of a job.ini for a hazard calculation.
+
+    .. image:: images/ej_job.png
+        :align: center
+        :alt: hazard example
+
 
    .. note::
 
         For a detailed manual of the use of the application go to https://docs.openquake.org/manuals/OpenQuake%20Manual%20%28latest%29.pdf
+
+   .. note::
+
+        To directly generate the job.ini file, OpenQuake has a tool called ipt so the user only has to set the necessary parameters. More information at: https://github.com/gem/oq-engine/blob/engine-3.9/doc/running/server.md
+
+
+Basic Commands
+**************
+
+
 
 For more information on how to use OpenQuake, please visit the official website.
 
@@ -109,6 +128,8 @@ References
         https://www.globalquakemodel.org/oq-get-started
  Installation - OpenQuake Official Website.
         https://github.com/gem/oq-engine
+ Usage - OpenQuake User Manual
+        https://docs.openquake.org/manuals/OpenQuake%20Manual%20%28latest%29.pdf
 
 :Author:
 

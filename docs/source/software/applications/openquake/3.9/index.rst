@@ -133,7 +133,7 @@ Basic Commands
 
         $ oq engine --lhc
 
-#. To see the specific outputs of a calculation, identify the calculation id and use this command. You can see the calculation after running the previous command and then identify the number at the beginning of the required calculation line.
+#. To see the specific outputs of a calculation, identify the calculation id and use the following command. You can see the calculation after running the previous command and then identify the number at the beginning of the required calculation line.
 
     .. code-block:: bash
 

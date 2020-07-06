@@ -43,9 +43,9 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    links/index
    mafft/index
    mdstress-lib/index
-   mpich/index
    MedeA/index
    mothur/index
+   mpich/index
    mrBayes/index
    MUSCLE/index
    namd/index

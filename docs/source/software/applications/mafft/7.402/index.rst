@@ -28,7 +28,7 @@ Basic Information
 Installation
 ------------
 
-This entry covers the entire process performed for the installation and configuration of MAFFT with extensions (MXSCARNA, Foldalign, and CONTRAfold) on a cluster.
+This entry covers the entire process performed for the installation and configuration of MAFFT with extensions (MXSCARNA, Foldalign and CONTRAfold) on a cluster.
 
 .. toctree::
    :maxdepth: 2

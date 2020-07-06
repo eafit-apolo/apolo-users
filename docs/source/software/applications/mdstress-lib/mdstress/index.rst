@@ -53,7 +53,7 @@ For the installation process we'll follow the guide on the gromacs documentation
         $ cd build
         $ ccmake ../
 
-#. The interface of cmake will appear and you have to edit some things
+#. The interface of cmake will appear and you have to edit a few things
 
     .. image:: images/cmake1.png
 

@@ -174,6 +174,10 @@ Basic Commands
 
 For more information of how to use OpenQuake, please visit the official website.
 
+        Change it in the file: oq-engine/openquake/engine/openquake.cfg
+
+For more information on how to use OpenQuake, please visit the official website.
+
 References
 ----------
 

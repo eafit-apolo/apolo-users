@@ -82,6 +82,18 @@ can find the basic knowledge and skills to make good use of all the resources of
 
     educational_resources
 
+Apolo User Tools
+================
+
+Apolo staff has implemented a repository in GitHub that contains some scripts, tools and aliases to help our users with
+some needs they have mainly about the system or SLURM. Also, it is a public repository and users could add new aliases
+or commands to it.
+
+.. toctree::
+    :maxdepth: 2
+
+    apolo_user_tools
+
 Get Help
 ========
 

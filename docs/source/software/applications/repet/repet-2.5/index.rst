@@ -219,8 +219,18 @@ If for some reason some step did not finish as expected and you do not get an er
 
 Also, be aware that almost all steps create a directory in which will be the output files from those specific steps. If your step failed, there will be the logs along with the files the step produced.
 
+Examples
+********
+
 :ref:`SLURM <slurm-index>` scripts for REPET:
-    * We provide the scripts and config files needed to run REPET on our cluster: https://github.com/eafit-apolo/apolo-scripts/tree/master/REPET.
+
+    * We provide the scripts and config files needed to run REPET on our cluster, you can download the examples:
+
+        - :download:`TEannot-example <repet-examples/TEannot-example.zip>`
+
+        - :download:`TEdenovo-example <repet-examples/TEdenovo-example.zip>`
+
+
     * You should modify some values accordingly (e.g. you project name or MariaDB username on .cfg files).
     * This scripts are based on https://github.com/stajichlab/REPET-slurm. More information on the usage for this scripts can be found there.
    

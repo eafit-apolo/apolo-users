@@ -22,7 +22,7 @@ Requirements
 Installation
 ------------
 
-1. Download the installation medium of the following link `USPEX 9.4.4 <http://uspex.stonybrook.edu/uspexdownloads.php#log>`_ and enter with the credentials provided by Jorge David.
+1. Download the installation medium of the following link https://uspex-team.org/en/uspex/downloads and enter with the credentials provided by Jorge David.
 
 2 .Upload the file **USPEX-9.4.4.tar.gz** to Apollo and perform the following steps:
 

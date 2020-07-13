@@ -71,7 +71,7 @@ TO-DO
 References
 ----------
 
-- https://github.com/cole-trapnell-lab/cufflinkslinks
+- https://github.com/cole-trapnell-lab/cufflinks
 
 Author
 ------

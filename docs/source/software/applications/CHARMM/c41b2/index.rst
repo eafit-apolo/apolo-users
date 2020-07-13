@@ -264,7 +264,6 @@ References
 
 - https://www.charmm.org/charmm/documentation/by-version/c41b1/
 - http://ala.cmm.ki.si/gamess/20160818.1/Compile-CHARMM-with-GAMESS.txt
-- http://hpckp.org/index.php/articles/best-practices/97-how-to-build-charmm-c35b1-on-opteron-and-intel-architectures-with-infiniband-network
 - https://www.charmmtutorial.org/index.php/Installation
 - https://github.com/kgullikson88/Telluric-Fitter/issues/5
 

@@ -23,12 +23,12 @@ Pre requirements
 Installation
 ------------
 
-1. Download the latest version of the software (Repository) (http://qe-forge.org/gf/project/q-e/frs/?action=FrsReleaseBrowse&frs_package_id=18):
+1. Download the latest version of the software (Repository) (https://github.com/QEF/q-e):
 
 .. code-block:: bash
 
     cd /home/mgomezzul/apps/qe/src/intel
-    wget http://qe-forge.org/gf/download/frsrelease/240/1075/qe-6.1.tar.gz
+    wget https://github.com/QEF/q-e/archive/qe-6.1.0.tar.gz
     tar xf qe-6.1.tar.gz
     cd qe-6.1
 
@@ -181,7 +181,7 @@ References
 - http://www.archer.ac.uk/documentation/software/espresso/compiling_5.0.3_mkl-phase1.php
 - https://glennklockwood.blogspot.com.co/2014/02/quantum-espresso-compiling-and-choice.html
 - https://proteusmaster.urcf.drexel.edu/urcfwiki/index.php/Compiling_Quantum_Espresso
-- https://www.hpc.ntnu.no/display/hpc/Quantum+Espresso
+- https://www.hpc.ntnu.no/ntnu-hpc-group/vilje/user-guide/software/quantum-espresso
 - https://nishaagrawal.wordpress.com/2013/03/21/quantum-espresso-5-0-2qe-64-bit-installation-with-intel-compser-xe-2013-and-intel-mpi/
 - https://software.intel.com/en-us/articles/quantum-espresso-for-intel-xeon-phi-coprocessor
 - http://www.quantum-espresso.org/pseudopotentials/

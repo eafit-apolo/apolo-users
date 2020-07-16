@@ -29,6 +29,9 @@ Available Commands
 *  **sncores:** This command print the total number of cores in the system and groups it by its status (Allocated, idle and
    other).
 *  **squeue-stats:** This command prints statistics about current waiting and active jobs.
+*  **sqos-usage:** This command is used to check how many hours a group has used of the total available in the qos of
+   the group (This command applies just for paid users).
+*  **du-home:** This command prints the total used space in disk of the user who executed the command.
 
 :Authors:
    - Juan David Arcila Moreno <jarcil13@eafit.edu.co>

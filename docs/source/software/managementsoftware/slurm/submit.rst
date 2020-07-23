@@ -355,6 +355,21 @@ files will be something like ``job-1234.1``, ``job-1234.2`` , ``job-1234.3``;
 where: ``1234`` refers to the job array’s master job allocation number and ``1``
 , ``2`` and ``3`` refers to the id of each job-array. 
 
+Constraining Features on a job
+------------------------------
+In Apolo II, one can specify what type of CPU instruction set to use. One can choose
+between `AVX2 <https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#AVX2>`_ and
+`AVX512 <https://en.wikipedia.org/wiki/AVX-512>`_. These *features* can be specify
+using the SBATCH option ``--constraint=<list>`` where ``<list>`` is the **features** to constrain.
+For example, ``--constraint="AVX2"`` will allocate only nodes that have AVX2 in their instruction
+set. ``--constraint="AVX2|AVX512"`` will allocate only nodes that have either AVX512 or AVX2.
+
+One can also have a job requiring some nodes to have AVX2 and some others using AVX512. For this
+one would use operators **'&'** and **'*'**. The ampersand works as a **'and'** operator, and the
+**'*'** is used to specify the number of nodes that must comply a single feature. For example, 
+``--constraint="[AVX2*2&AVX512*3]"`` is asking for two nodes with AVX2 and three with AVX512.
+The squared brackets are mandatory.
+
 References
 ----------
 

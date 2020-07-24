@@ -49,10 +49,25 @@ Get an account
 ==============
 
 To use Apolo you will need to have the following items:
+
     - A VPN account, created by the system administrators. In the following section you will find a tutorial to
       configure the VPN account in different operating systems.
     - An account on Apolo's clusters, created by system administrators, this account is personal and non-transferable.
     - Test if your accounts are working and launch a job!
+
+In order to get an account, you need to send an email to apolo@eafit.edu.co with the following information:
+
+    - User
+    - Mail
+    - Name
+    - Last Name
+    - Cell Phone Number
+    - Working or Investigation Group
+    - Type of user (undergrad, master, phd, research)
+    - Main usage of Apolo (CPU, memory, GPU, disk)
+    - Operating System of the PC you will use to access to Apolo
+    - Applications that you will use in Apolo.
+    - Possible times for the introductory meeting
 
 Configure VPN
 ==============

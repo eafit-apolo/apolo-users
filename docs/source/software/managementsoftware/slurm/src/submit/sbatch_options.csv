@@ -13,3 +13,4 @@
 ``--mail-user``,Email to receive notification of state shanges,Valid email,no
 ``--exclusive``,The job allocation can not share nodes with other running jobs, Does not have values, no
 ``--test-only``,Validate the batch script and return an estimate of when a job would be scheduled to run, Does not have values, no
+``--constraint``,Some nodes have *features* associated with them. Use this option to specify which features the nodes associated with your job must have,The name of the feature to use, no

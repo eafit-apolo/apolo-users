@@ -195,6 +195,49 @@ Once the correct package is installed according to your distribution, you can pr
 
 Connect through the terminal
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+To be able to connect to the VPN through the terminal, the :code:`vpnc` package is needed.
+
+.. code-block:: bash
+
+    $ sudo apt search vpnc
+
+    network-manager-vpnc/focal,now 1.2.6-2 amd64 [installed,automatic]
+      network management framework (VPNC plugin core)
+
+    network-manager-vpnc-gnome/focal,now 1.2.6-2 amd64 [installed]
+      network management framework (VPNC plugin GNOME GUI)
+
+    vpnc/focal,now 0.5.3r550-3.1 amd64 [installed]
+      Cisco-compatible VPN client
+
+    vpnc-scripts/focal,focal,now 0.1~git20190117-1 all [installed,automatic]
+      Network configuration scripts for VPNC and OpenConnect
+
+.. code-block:: bash
+
+    $ sudo apt install vpnc
+
+After installing the package, you'll need to convert the .pcf file to a .conf file.
+
+.. code-block:: bash
+
+   $ pcf2vpnc ./Apolo-vpn-file.pcf Apolo-vpn-file.conf
+
+Once you have the .conf file, you can initiate the VPN connection using the next command. You'll also be asked for the VPN password.
+
+.. code-block:: bash
+
+   $ sudo vpnc ./Apolo-vpn-file.conf
+   Enter password for username@leto.eafit.edu.co:
+
+If the given password was correct It'll start the VPN service on the background.
+
+To stop the VPN, just run:
+
+.. code-block:: bash
+
+   $ sudo vpnc-disconnect
+   Terminating vpnc daemon (pid: 171941)
 
 Troubleshooting
 ---------------

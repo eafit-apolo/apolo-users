@@ -114,7 +114,7 @@ If you use Gnome or a Gnome compatible window manager you should install the :co
 
 .. code-block:: bash
     :emphasize-lines: 9,10,12,13
-    :caption: **Tested on Ubuntu 18.04**
+    :caption: **Tested on Ubuntu 18.04 and 20.04**
 
     $ sudo apt search vpnc
     [sudo] password for user:

@@ -195,6 +195,12 @@ Once the correct package is installed according to your distribution, you can pr
 
 Connect through the terminal
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. note::
+
+     Tested on Ubuntu 20.04. 
+
+     Depending on your distribution some extra packages might be needed.
+
 To be able to connect to the VPN through the terminal, the :code:`vpnc` package is needed.
 
 .. code-block:: bash

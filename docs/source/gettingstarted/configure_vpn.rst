@@ -104,10 +104,9 @@ Linux
     Depending on your distribution this procedure could change.
 
 To configure the VPN on Linux, you have to use your package manager to install a Cisco Compatible VPN client. The most
-common client is vpnc, which is embedded on a set of scripts. Usually, the package with these scripts is
-called :code:`vpnc`.
+common client is vpnc, which is embedded on a set of scripts. Usually, the package with these scripts is called :code:`vpnc`.
 
-Connection through a GUI
+Connect through a GUI
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you use Gnome or a Gnome compatible window manager you should install the :code:`network-manager-vpnc-gnome` and :code:`vpnc` packages. If you use KDE or a KDE compatible window manager you'll need to install the :code:`plasma-nm` and :code:`vpnc` packages instead.

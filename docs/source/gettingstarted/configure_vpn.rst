@@ -104,13 +104,16 @@ Linux
     Depending on your distribution this procedure could change.
 
 To configure the VPN on Linux, you have to use your package manager to install a Cisco Compatible VPN client. The most
-common client is vpnc, which is embedded on a set of scripts in the package. Usually, the package with these scripts is
-called :code:`network-manager-vpnc`. If you use Gnome or a Gnome compatible window manager you should install the
-:code:`network-manager-vpnc-gnome` and :code:`vpnc` packages. If you use KDE or a KDE compatible window manager you can install the package kvpnc.
+common client is vpnc, which is embedded on a set of scripts. Usually, the package with these scripts is called :code:`vpnc`.
+
+Connect through a GUI
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you use Gnome or a Gnome compatible window manager you should install the :code:`network-manager-vpnc-gnome` and :code:`vpnc` packages. If you use KDE or a KDE compatible window manager you'll need to install the :code:`plasma-nm` and :code:`vpnc` packages instead.
 
 .. code-block:: bash
     :emphasize-lines: 9,10,12,13
-    :caption: **Tested on Ubuntu 18.04**
+    :caption: **Tested on Ubuntu 18.04 and 20.04**
 
     $ sudo apt search vpnc
     [sudo] password for user:
@@ -189,6 +192,56 @@ Once the correct package is installed according to your distribution, you can pr
         :align: center
         :alt: Connected
 
+Connect through the terminal
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. note::
+     Depending on your distribution some extra packages might be needed.
+
+To be able to connect to the VPN through the terminal, the :code:`vpnc` package is needed.
+
+.. code-block:: bash
+    :emphasize-lines: 9,10
+    :caption: **Tested on Ubuntu 20.04**
+
+    $ sudo apt search vpnc
+
+    network-manager-vpnc/focal,now 1.2.6-2 amd64 [installed,automatic]
+      network management framework (VPNC plugin core)
+
+    network-manager-vpnc-gnome/focal,now 1.2.6-2 amd64 [installed]
+      network management framework (VPNC plugin GNOME GUI)
+
+    vpnc/focal,now 0.5.3r550-3.1 amd64 [installed]
+      Cisco-compatible VPN client
+
+    vpnc-scripts/focal,focal,now 0.1~git20190117-1 all [installed,automatic]
+      Network configuration scripts for VPNC and OpenConnect
+
+.. code-block:: bash
+
+    $ sudo apt install vpnc
+
+After installing the package, you'll need to convert the .pcf file to a .conf file.
+
+.. code-block:: bash
+
+   $ pcf2vpnc ./Apolo-vpn-file.pcf Apolo-vpn-file.conf
+
+Once you have the .conf file, you can initiate the VPN connection using the next command. You'll also be asked for the VPN password.
+
+.. code-block:: bash
+
+   $ sudo vpnc ./Apolo-vpn-file.conf
+   Enter password for username@leto.eafit.edu.co:
+
+If the given password was correct It'll start the VPN service on the background.
+
+To stop the VPN, just run:
+
+.. code-block:: bash
+
+   $ sudo vpnc-disconnect
+   Terminating vpnc daemon (pid: 171941)
 
 Troubleshooting
 ---------------

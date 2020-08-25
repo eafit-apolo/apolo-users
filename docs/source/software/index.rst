@@ -15,4 +15,5 @@ Software
    monitoring/index
    operatingsystems/index
    scientific_libraries/index
+   accelerators/index
 

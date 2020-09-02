@@ -48,8 +48,8 @@ the meaning of each one:
 Daemon initiation and single server
 ***********************************
 
-By using the / var / log / nvidia-mps directory to store the activity logs, both the daemon and the MPS server restrict the use
-of the service to the root user, since the permissions on the / var path make it impossible for other users access its content.
+By using the /var/log/nvidia-mps directory to store the activity logs, both the daemon and the MPS server restrict the use
+of the service to the root user, since the permissions on the /var path make it impossible for other users access its content.
 In order to start the daemon and the server without requiring the intervention of a superuser, it is necessary to use the
 environment variables described above as illustrated in the following example:
 

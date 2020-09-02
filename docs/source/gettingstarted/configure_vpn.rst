@@ -192,6 +192,20 @@ Once the correct package is installed according to your distribution, you can pr
         :align: center
         :alt: Connected
 
+#. Once you are connected to the VPN, access Apolo via SSH with the following command and type your password:
+
+.. code-block:: bash
+
+   $ ssh <username>@apolo.eafit.edu.co
+
+.. image:: images/vpnlin/img-ssh.png
+    :align: center
+    :alt: access via ssh
+
+.. note::
+    Remember that the first time it will be necessary to change the password assigned by a new one that must contain a combination of lower case, upper case, numbers and special characters. It must have a minimum of 8 characters.
+
+
 Connect through the terminal
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. note::
@@ -242,6 +256,22 @@ To stop the VPN, just run:
 
    $ sudo vpnc-disconnect
    Terminating vpnc daemon (pid: 171941)
+
+
+
+Once you are connected to the VPN, access Apolo via SSH with the following command and type your password:
+
+.. code-block:: bash
+
+   $ ssh <username>@apolo.eafit.edu.co
+
+.. image:: images/vpnlin/img-ssh.png
+    :align: center
+    :alt: access via ssh
+
+.. note::
+    Remember that the first time it will be necessary to change the password assigned by a new one that must contain a combination of lower case, upper case, numbers and special characters. It must have a minimum of 8 characters.
+
 
 Troubleshooting
 ---------------

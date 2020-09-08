@@ -135,7 +135,7 @@ Some common commands in packrat. [2]_
 
         > packrat::init("<project_directory_path>")
 
-- To install a required package
+- To install a required package.
 
    .. code-block:: bash
 
@@ -147,19 +147,19 @@ Some common commands in packrat. [2]_
 
         > packrat::snapshot()
 
-- To see the current status of the project
+- To see the current status of the project.
 
    .. code-block:: bash
 
         > packrat::status()
 
-- To remove a package
+- To remove a package.
 
    .. code-block:: bash
 
         > remove.packages("<package_name>")
 
-- To restore the removed packages
+- To restore the removed packages.
 
    .. code-block:: bash
 

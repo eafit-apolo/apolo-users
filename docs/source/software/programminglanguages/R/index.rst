@@ -29,6 +29,11 @@ R.
 * `R Tutorials <http://r-tutorials.com/>`_
 * `HOWTO: Install Local R Packages <https://www.osc.edu/book/export/html/4519>`_
 
+.. toctree::
+   :maxdepth: 1
+
+   packrat/index
+
 
 References
 ^^^^^^^^^^

@@ -10,11 +10,16 @@ Basic Knowledge & Skills
 - `Bash Programming - Introduction HOW-TO - The Linux Documentation Project <http://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO.html>`_
 - `Principiante Emacs  (Español) <https://www.emacswiki.org/emacs/PrincipianteEmacs>`_
 - `Vim Tutorial - Open VIM <https://www.openvim.com/>`_
+- `Cluster Design <https://clusterdesign.org/fat-trees/>`_
 
 Parallel Computing and High Performance Computing
 -------------------------------------------------
 - `Introduction to parallel computing - Lawrence Livermore National Laboratory <https://computing.llnl.gov/tutorials/parallel_comp/>`_
+
+- :ref:`hpc-tables`
+
 - `Supercomputing - Future Learn <https://www.futurelearn.com/courses/supercomputing>`_
+
 - `High Performance Computing in the Cloud - Future Learn <https://www.futurelearn.com/courses/high-performance-computing-cloud>`_
 
 Parallel Programming

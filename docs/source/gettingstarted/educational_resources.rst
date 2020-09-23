@@ -16,7 +16,10 @@ Parallel Computing and High Performance Computing
 -------------------------------------------------
 - `Introduction to parallel computing - Lawrence Livermore National Laboratory <https://computing.llnl.gov/tutorials/parallel_comp/>`_
 
-- :ref:`hpc-tables`
+.. toctree::
+    :maxdepth: 1
+
+    hpc-tables
 
 - `Supercomputing - Future Learn <https://www.futurelearn.com/courses/supercomputing>`_
 

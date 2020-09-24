@@ -241,7 +241,13 @@ After installing the package, you'll need to convert the .pcf file to a .conf fi
 
    $ pcf2vpnc ./Apolo-vpn-file.pcf Apolo-vpn-file.conf
 
-Once you have the .conf file, you can initiate the VPN connection using the next command. You'll also be asked for the VPN password.
+Once you have the .conf file, you'll need to change the following line
+
+.. code-block:: bash
+
+    Xauth username jdpinedac
+
+And replace 'jdpinedac' for the username given to you by the Apolo staff. After that, you can initiate the VPN connection using the vpnc program.
 
 .. code-block:: bash
 

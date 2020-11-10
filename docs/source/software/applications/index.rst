@@ -61,6 +61,7 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    picrust2/index
    pigz/index
    plumed/index
+   prank/index
    pteros/index
    prinseq-lite/index
    pyrad/index

@@ -38,6 +38,7 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    gromacs/index
    gromacs-ls/index
    gurobi/index
+   kraken/index
    lammps/index
    leDock/index
    lePro/index
@@ -60,6 +61,7 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    picrust2/index
    pigz/index
    plumed/index
+   prank/index
    prinseq-lite/index
    pteros/index
    pyrad/index

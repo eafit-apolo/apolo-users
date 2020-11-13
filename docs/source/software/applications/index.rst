@@ -13,8 +13,8 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    abyss/index
    ansys/index
    arcs/index
-   autoDock_Vina/index
    autoDock/index
+   autoDock_Vina/index
    bayescan/index
    BEAST2/index
    BLAST/index
@@ -53,8 +53,8 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    namd/index
    ncl/index
    OpenFOAM/index
-   opensees/index
    openquake/index
+   opensees/index
    ost/index
    pargenes/index
    partitionFinder/index
@@ -62,15 +62,14 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    pigz/index
    plumed/index
    prank/index
-   pteros/index
    prinseq-lite/index
+   pteros/index
    pyrad/index
    QE/index
    qiime2/index
    raxml/index
    rDock/index
    repet/index
-   raxml/index
    SAMtools/index
    sparsehash/index
    stacks/index

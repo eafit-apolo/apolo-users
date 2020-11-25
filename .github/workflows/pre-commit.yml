@@ -1,0 +1,25 @@
+name: pre-commit-hooks
+on:
+  push:
+    branches:
+      # Runs on any branch containing an '/'
+      - '*/*'
+
+jobs:
+  check-pre-commit-hooks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v2
+
+      - name: Install pre-commit framework
+        run: pip install pre-commit
+
+      - name: Run pre-commit hooks
+        run: |
+          commit_hash=$(git log -1 --format='%H')
+          pre-commit run --files $(git show --pretty='' --name-only \
+          $commit_hash)

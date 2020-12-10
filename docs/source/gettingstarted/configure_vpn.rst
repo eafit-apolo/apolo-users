@@ -94,9 +94,80 @@ download and configure the VPN client:
 .. warning::
     You must login for the next 5 hours or the account will be deactivated.
 
+Using Vagrant to set up a VirtualMachine
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+If for any reason you can't connect on Mac or Windows using the "Global Protect" application, you can use vagrant to set up a linux virtual machine and connect to the Apolo network through it.
 
+.. note::
 
------
+   This is something to use as last resource, it may make things a little complex. We highly recommend to use the "Global Protect" application and contact the Apolo staff for any doubts or problems but they might be a situation where the application has problem with a specific version of Windows or Mac and we'll recommend you to use this method.
+
+Explaining each tool is out of the scope of this guide. We are going to show a step by step on how to install and use each of the tool to connect to the Apolo network. For more information we recommend to look at the apropiated doc of each tool:
+
+* https://www.vagrantup.com/docs
+
+* https://www.virtualbox.org/wiki/Documentation
+
+#. Open your favorite browser, go to https://www.virtualbox.org/wiki/Downloads and download the package appropiated to your platform.
+
+#. Open your favorite browser, go to https://www.vagrantup.com/downloads.html and download the package appropiated to your platform.
+
+#. After installing both applications, copy and paste the following text on a file with the name *Vagrantfile* and save it to any directory, for the rest of the guide we're going to suppose the *Vagrantfile* was stored at the Desktop.
+
+        .. code-block:: bash
+
+            # -*- mode: ruby -*-
+            # vi: set ft=ruby :
+            Vagrant.configure("2") do |config|
+              # boxes at https://vagrantcloud.com/search.
+              config.vm.box = "ubuntu/focal"
+
+              config.vm.provision "shell", inline: <<-SHELL
+                apt-get update
+                apt-get install -y vpnc openssh
+              SHELL
+            end
+
+#. Also copy the file with the extension **.pcf** given to you by the Apolo staff to the same directory where the **Vagrantfile** is.
+
+        .. note::
+            If you don't have any file with that extension please write to the staff asking for the file needed on linux to connect to the VPN. You'll need it in the next steps.
+
+#. Then you need to open the terminal and navigate to the desktop directory. On Windows you can open the terminal pressing the *Windows Key* + *R* then typing *cmd.exe* and clicking *OK*.
+
+        .. image:: images/vagrant/01.png
+
+#. While being on the same directory where the Vagrantfile is, start the virtual machine.
+
+        .. code-block:: bash
+
+            $ vagrant up
+
+        .. note::
+
+           If you are running MacOS and this command failed please check the *Security & Privacy* panel on *System Preference* and allow the *System software from Oracle America was blocked from loading*
+           More info at https://appuals.com/virtualbox-the-installation-failed-on-mac/
+
+#. Then connect to the virtual machine.
+
+        .. code-block:: bash
+
+            $ vagrant ssh
+
+#. Now that you are connected to the virtual machine follow the steps on the _`Connect through the terminal` section.
+
+        .. note::
+           You can access the same directory where you *Vagrantfile* is within the virtual machine at the path */vagrant*.
+
+To turn off the virtual machine, you can do it from the terminal with.
+
+.. code-block:: bash
+
+   $ vagrant halt
+
+Or through the *VirtualBox GUI*.
+
+.. image:: images/vagrant/02.png
 
 Linux
 -----
@@ -290,16 +361,16 @@ Troubleshooting
 
 
 .. seealso::
-    **Issue:** After installing or upgrading the Mac GlobalProtect client, the client never connects and just "spins". 
-    
+    **Issue:** After installing or upgrading the Mac GlobalProtect client, the client never connects and just "spins".
+
     **Solution:**
-    
-    1. Click the Apple icon in the upper left hand corner, then click 'System Preferences', then 'Security'.                                             
-    
-    2. Look for a message at the bottom of the window stating "System software from developer was blocked from loading."  
-    
-    3. To allow the software to load again, click the Allow button. 
-    
+
+    1. Click the Apple icon in the upper left hand corner, then click 'System Preferences', then 'Security'.
+
+    2. Look for a message at the bottom of the window stating "System software from developer was blocked from loading."
+
+    3. To allow the software to load again, click the Allow button.
+
     If that doesn't work, try the following: https://docs.paloaltonetworks.com/globalprotect/4-0/globalprotect-agent-user-guide/globalprotect-agent-for-mac/remove-the-globalprotect-enforcer-kernel-extension
 
 .. seealso::

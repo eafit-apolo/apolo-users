@@ -32,6 +32,13 @@ Installation
     tar xf OpenFOAM-v2006.tgz
     tar xf ThirdParty-v2006.tgz
 
+#. Load the dependencies' modules:
+
+.. code-block:: bash
+
+    module load gcc/7.4.0 openmpi/3.1.5_intel-19.0.4 boost/1.67.0_gcc-5.4.0 cmake/3.7.1
+
+
 
 #. Edit the following archives:
 
@@ -164,7 +171,7 @@ Slurm template
     if [[ "${SLURM_SUBMIT_HOST}" != "apolo.eafit.edu.co" ]]; then
     ## OpenFOAM-v1712 - Cronos Configuration
         echo "No estoy en apolo"
-        module load openmpi/1.10.7_gcc-5.5.0
+        module load openmpi/3.1.5_intel-19.0.4
         module load fftw/3.3.7_gcc-5.5.0
         module load boost/1.66.0_gcc-5.5.0
         source /share/apps/openfoam/v2006/gcc-7.4.0/OpenFOAM-v2006/etc/bashrc

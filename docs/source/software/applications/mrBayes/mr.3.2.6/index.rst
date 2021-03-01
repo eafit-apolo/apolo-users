@@ -3,7 +3,7 @@
 .. contents:: Table of Contents
 
 ********
-MrBayes
+MrBayes 3.2.6
 ********
 
 - **Installation date:** 08/02/2017

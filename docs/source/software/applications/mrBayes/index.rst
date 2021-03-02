@@ -39,3 +39,4 @@ crash;
    :maxdepth: 2
 
    mr.3.2.6/index
+   mr.3.2.7/index

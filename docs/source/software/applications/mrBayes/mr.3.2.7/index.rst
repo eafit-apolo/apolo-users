@@ -1,10 +1,10 @@
 .. _mrbayes:
 
-.. contents:: Table of Contents
-
 *************
 MrBayes 3.2.7
 *************
+
+.. contents:: Table of Contents
 
 - **Installation date:** 23/02/2021
 - **URL:** http://mrbayes.sourceforge.net/index.php

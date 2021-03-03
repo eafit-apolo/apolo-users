@@ -173,7 +173,7 @@ References
 
 - https://nbisweden.github.io/MrBayes/download.html
 
-Author
-------
+
+:Author:
 
 - Bryan López Parra <blopezp@eafit.edu.co>

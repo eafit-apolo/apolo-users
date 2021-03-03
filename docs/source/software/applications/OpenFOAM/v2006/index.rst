@@ -1,15 +1,16 @@
 .. _openv2006:
 
-.. contents:: Table of Contents
-
 ***************
 OpenFOAM/v2006+
 ***************
+
+.. contents:: Table of Contents
 
 - **Installation date:** 16/02/2021
 - **URL:** http://openfoam.com/
 - **Apolo version:** Apolo
 - **License:** General Public Licence
+
 
 Dependencies
 -------------

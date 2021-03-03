@@ -116,6 +116,6 @@ Resources
  * http://www.beast2.org/
 
 
-Author
-------
-    * Bryan López Parra <blopezp@eafit.edu.co>
+:Author:
+
+* Bryan López Parra <blopezp@eafit.edu.co>

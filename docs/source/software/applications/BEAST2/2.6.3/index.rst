@@ -90,7 +90,7 @@ Use
 
         module load beast2/2.6.3
 
-Slurm tamplate
+Slurm template
 --------------
 
     .. code-block:: bash
@@ -113,7 +113,7 @@ Slurm tamplate
 
 Resources
 ---------
- * http://www.beast2.org/
+* http://www.beast2.org/
 
 
 :Author:

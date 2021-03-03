@@ -177,6 +177,28 @@ The following is an example on how to install R in conda with an additional libr
 
 4. Make sure you activate the environment in the `slurm_file` if you are going to run tasks with this method.
 
+.. code-block:: bash
+
+    #!/bin/bash
+
+    #SBATCH --job-name=test_123       # Job name
+    #SBATCH --mail-type=ALL         # Mail notification
+    #SBATCH --mail-user=tdnavarrom@eafit.edu.co  # User Email
+    #SBATCH --output=%x.%j.out # Stdout (%j expands to jobId)
+    #SBATCH --error=%x.%j.err  # Stderr (%j expands to jobId)
+    #SBATCH --ntasks=3
+    #SBATCH --ntasks-per-node=1
+    #SBATCH --cpus-per-task=6           # Number of tasks (processes)
+    #SBATCH --time=13-23:01:00            # Walltime
+    #SBATCH --partition=longjobs         # Partition
+
+    ## load module
+    module load python/3.7_miniconda-4.8.3
+    source activate r-test
+
+    ## run code
+    Rscript simple_script.R
+    conda deactivate
 
 
 :Authors:

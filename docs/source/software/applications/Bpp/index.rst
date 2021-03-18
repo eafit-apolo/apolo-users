@@ -12,3 +12,4 @@ The BP&P program implements a series of Bayesian inference methods under the mul
    :maxdepth: 1
 
    3.3/index
+   4.3.8/index

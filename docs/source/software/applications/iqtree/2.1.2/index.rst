@@ -11,7 +11,7 @@ Basic information
 
 - **Official Website:** https://github.com/iqtree/iqtree2/
 - **License:** GNU GENERAL PUBLIC LICENSE Version 3
-- **Installed on:** Apolo II and Cronos
+- **Installed on:** Apolo II
 - **Installation date:** 07/02/2021
 
 Tested on (Requirements)
@@ -31,7 +31,8 @@ Installation
 
     .. code-block:: bash
 
-        cd /home/tdnavarrom/apps/iqutree/
+        mkdir apps/iqutree -p
+        cd apps/iqutree/
         wget https://github.com/iqtree/iqtree2/releases/download/v2.1.2/iqtree-2.1.2-Linux.tar.gz
         tar xfz iqtree-2.1.2-Linux.tar.gz
 

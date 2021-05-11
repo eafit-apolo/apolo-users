@@ -55,7 +55,7 @@ The slurm.conf file describes general Slurm configuration information. Here we m
 
 .. note::
 
-	Fairshare is only supported on centOS 7 onwards.
+	Fairshare is only supported on CentOS 7 onwards.
 
 .. warning::
 

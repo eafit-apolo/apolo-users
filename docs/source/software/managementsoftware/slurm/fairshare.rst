@@ -64,7 +64,7 @@ The slurm.conf file describes general Slurm configuration information. Here we m
 ¿How do I configure Slurm Fair Shares?
 --------------------------------------
 
-SLURM Fair Sharing can be configured using the sacctmgr tool. The following example illustrates how 50% Fair Sharing between two Users, User1 and User2, can be configured.
+Slurm Fair Sharing can be configured using the sacctmgr tool. The following example illustrates how 50% Fair Sharing between two Users, User1 and User2, can be configured.
 
 #.	The Fairshare of the parent account must be modified.
 		.. code-block:: bash
@@ -93,7 +93,7 @@ SLURM Fair Sharing can be configured using the sacctmgr tool. The following exam
 
 .. note::
 
-	In this case the fairshare has been configured with small values, since it has been tested in Apolo test environment, which has few resources and is used for testing before moving to production, also has the centOS 8 operating system.
+	In this case the fairshare has been configured with small values, since it has been tested in Apolo test environment, which has few resources and is used for testing before moving to production, also has the CentOS 8 operating system.
 
 Authors
 -------

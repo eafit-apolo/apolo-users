@@ -16,6 +16,7 @@ cover our most common use cases.
     submit
     testing
     info-jobs
+    fairshare
     faq
 
 More information

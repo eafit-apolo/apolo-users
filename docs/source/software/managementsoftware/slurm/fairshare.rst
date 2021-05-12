@@ -16,7 +16,6 @@ Tested
 ------
 
 - **Installation date:** 30/04/2021
-- **URL:** http://mrbayes.sourceforge.net/index.php
 - **Apolo version:** Apolo Test Environment
 
 Fair-share Factor

@@ -175,7 +175,12 @@ The following is an example on how to install R in conda with an additional libr
     $ conda install bioconductor-dada2=1.16 r-base r-essentials
 
 
-4. Make sure you activate the environment in the `slurm_file` if you are going to run tasks with this method.
+.. note::
+
+    If the package is not available in conda, please install it using the R version of conda (See the instruction above to install R in conda) inside the R Studio interpreter like this: ``install.packages("<package_name>");`` .
+
+
+4. Make sure you activate the environment in the ``slurm_file`` if you are going to run tasks with this method.
 
 .. code-block:: bash
 

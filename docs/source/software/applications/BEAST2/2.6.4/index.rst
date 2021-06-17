@@ -62,7 +62,7 @@ Module
         module-whatis "\n\n\tSets the environment for using beast2\n"
 
         # for Tcl script use only
-        set     topdir          /share/apps/modules/beast2/2.6.4
+        set     topdir          /share/apps/beast2/2.6.4
         set     version         2.6.4
         set     sys             linux-x86_64
 
@@ -85,6 +85,27 @@ Use
 
         module load beast2/2.6.4
 
+Example slurm job file:
+
+    .. code-block:: bash
+
+        #!/bin/sh
+        #SBATCH --partition=longjobs
+        #SBATCH --nodes=1
+        #SBATCH --cpus-per-task=4
+        #SBATCH --ntasks=1
+        #SBATCH --time=2:00:00
+        #SBATCH --job-name=testBEAST2
+        #SBATCH -o %x_%j.out      # File to which STDOUT will be written
+        #SBATCH -e %x_%j.err      # File to which STDERR will be written
+        #SBATCH --mail-type=ALL
+        #SBATCH --mail-user=jpossaz@eafit.edu.co
+
+        module load beast2/2.6.4
+        export OMP_NUM_THREADS=4
+        DISPLAY="" beast -threads 4 testRNA.xml
+
+Make sure that your xml file can and will use all of the threads that you assign to the job.
 
 Resources
 ---------

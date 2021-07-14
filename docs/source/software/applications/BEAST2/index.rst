@@ -10,4 +10,5 @@ BEAST is a cross-platform program for Bayesian inference using MCMC of molecular
    :maxdepth: 1
 
    2.4.5/index
+   2.6.3/index
    2.6.4/index

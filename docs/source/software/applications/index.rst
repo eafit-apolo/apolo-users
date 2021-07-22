@@ -59,6 +59,7 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    ost/index
    pargenes/index
    partitionFinder/index
+   phylonet/index
    picrust2/index
    pigz/index
    plumed/index

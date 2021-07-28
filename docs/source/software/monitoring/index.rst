@@ -14,3 +14,4 @@ to configure some monitoring systems used in the Scientific Computing Center APO
    sensu/index
    elk/index
    grafana/index
+   apolomonitoring/index

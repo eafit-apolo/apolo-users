@@ -251,7 +251,7 @@ Technology diagram of Apolo Monitoring
 
 #. At the end of the SCP, another cron is run to review the downloaded data and then inject the information into the database.
 
-#. When an Apolo administrator wants to use the web application, he/she will have to search from a web browser (Google Chrome), www.apolomonitoringeafit.xyz to be able to use it.
+#. When an Apolo administrator wants to use the web application, he/she will have to search from a web browser (Google Chrome), hostname to be able to use it.
 
 #. When looking up the web application in the browser, the Internet will communicate with the web server, then the web server will communicate with the DNS server to resolve the name of the web application and give a response.
 

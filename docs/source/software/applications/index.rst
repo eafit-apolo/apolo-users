@@ -10,6 +10,7 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
 .. toctree::
    :maxdepth: 1
 
+   ASTRAL/index
    abyss/index
    ansys/index
    arcs/index

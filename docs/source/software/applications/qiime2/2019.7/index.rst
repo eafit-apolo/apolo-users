@@ -51,20 +51,20 @@ Testing
 """""""
 #. Load the python module with conda.
 
-   .. code-block::
+   .. code-block:: bash
    
       module load python
 
 #. Activate the conda environment :bash:`source activate <environment-name>`,
    this example we use the qiimw2-2019.7 environment.
 
-   .. code-block::
+   .. code-block:: bash
    
       source activate qiime2-2019.7
 
 #. Run a simple command.
    
-   .. code-block::
+   .. code-block:: bash
    
       qiime --help
    

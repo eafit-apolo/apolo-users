@@ -35,7 +35,7 @@ Load the needed modules or add the to the path
 
 3. execute permissions
 
-.. code-block::
+.. code-block:: bash
 
     $ chmod +x /share/apps/lepro/2013/bin/lepro
 

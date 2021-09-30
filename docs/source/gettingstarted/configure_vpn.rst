@@ -8,14 +8,14 @@ download and configure the VPN client:
 #. Open your favorite browser and go to https://leto.eafit.edu.co and log in with your **username** and **password** given by EAFIT or Apolo's staff
 
 
-    .. image:: images/vpnwin/vpnwin1.png
+    .. image:: images/GP1_Login.png
         :align: center
         :alt: Open your browser
 
 
 #. Download and install the version of Global Protect client according to your operating system
 
-    .. image:: images/vpnwin/vpnwin2.png
+    .. image:: images/GP2_Download.png
         :align: center
         :alt: Download the proper version
 
@@ -45,13 +45,13 @@ download and configure the VPN client:
 
 #. Launch the Global Protect application and fill the portal input **Portal** with *leto.eafit.edu.co*
 
-    .. image:: images/vpnwin/vpnwin6.png
+    .. image:: images/GP3_Portal.png
         :align: center
         :alt: Configuration of the application
 
 #. Fill the fields with the following information:
 
-    .. image:: images/vpnwin/vpnwin8.png
+    .. image:: images/GP4_Login.png
         :align: center
         :alt: Fill the fields
 
@@ -74,7 +74,7 @@ download and configure the VPN client:
 
 #. You will see the word Connected as shown in the image
 
-    .. image:: images/vpnwin/vpnwin10.png
+    .. image:: images/GP5_Connected.png
         :align: center
         :alt: Connected!
 
@@ -86,7 +86,7 @@ download and configure the VPN client:
 
 #. See the network parameters
 
-    .. image:: images/vpnwin/vpnwin12.png
+    .. image:: images/GP6_Configuration.png
         :align: center
         :alt: Details
 
@@ -232,7 +232,7 @@ Once the correct package is installed according to your distribution, you can pr
 
 #. Look for Network item and click on the plus symbol to add a new connection.
 
-    .. image:: images/vpnlin/add_vpn.png
+    .. image:: images/Linux1_Config.png
         :align: center
         :alt: Add a new connection
 
@@ -240,26 +240,26 @@ Once the correct package is installed according to your distribution, you can pr
 
     .. note:: The VPN file will be provided by the system administrator, please request it before to continue with this guide.
 
-    .. image:: images/vpnlin/choose_import.png
+    .. image:: images/Linux2_Import.png
         :align: center
         :alt: Add a new connection
 
 #. Once the file has been imported you just need to add your username and password provided by the administrator. **Note that
    the group password is filled automatically by the imported file**.
 
-    .. image:: images/vpnlin/config_id.png
+    .. image:: images/Linux3_ConfigVPN.png
         :align: center
         :alt: Fill the fields
 
 #. On IPv4 options on the left panel, please add the following route and apply the configuration.
 
-    .. image:: images/vpnlin/config_ipv4.png
+    .. image:: images/Linux4_IPv4.png
         :align: center
         :alt: Advanced configuration
 
 #. Now you can connect to the cluster through the VPN.
 
-    .. image:: images/vpnlin/connected.png
+    .. image:: images/Linux5_ActivateVPN.png
         :align: center
         :alt: Connected
 
@@ -323,7 +323,7 @@ And replace 'jdpinedac' for the username given to you by the Apolo staff. After 
 .. code-block:: bash
 
    $ sudo vpnc ./Apolo-vpn-file.conf
-   Enter password for username@leto.eafit.edu.co:
+   Enter password for username@leto.omega.eafit.edu.co:
 
 If the given password was correct It'll start the VPN service on the background.
 

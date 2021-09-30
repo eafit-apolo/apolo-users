@@ -24,7 +24,7 @@ configuration of all WRF 4.1.1 dependencies on a cluster with an Intel compiler.
 
 #. Export the following environmental variables.
 
-    .. code-block::
+    .. code-block:: bash
 
         export CFLAGS='-O3 -xHost -ip -no-prec-div -static-intel'
         export CXXFLAGS='-O3 -xHost -ip -no-prec-div -static-intel'

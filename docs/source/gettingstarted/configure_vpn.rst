@@ -5,7 +5,7 @@ Windows and Mac OSX
 To configure the VPN on Windows and Mac OS X systems, you must follow exactly the same procedure. Here are the steps to
 download and configure the VPN client:
 
-#. Open your favorite browser and go to https://leto.eafit.edu.co and log in with your **username** and **password** given by EAFIT or Apolo's staff
+#. Open your favorite browser and go to https://leto.omega.eafit.edu.co and log in with your **username** and **password** given by EAFIT or Apolo's staff
 
 
     .. image:: images/GP1_Login.png
@@ -43,7 +43,7 @@ download and configure the VPN client:
         :align: center
         :alt: Close Install app
 
-#. Launch the Global Protect application and fill the portal input **Portal** with *leto.eafit.edu.co*
+#. Launch the Global Protect application and fill the portal input **Portal** with *leto.omega.eafit.edu.co*
 
     .. image:: images/GP3_Portal.png
         :align: center

@@ -48,9 +48,9 @@ If you have not created a conda enviroment, you can create it with the command
 
     $ conda install -c conda-forge r-base=4.1.2
 
-we recommend using the conda-forge channel  for the installation as well as the installation of other R packages, since it has the most recent packages.
+.. note:: We recommend using the conda-forge channel  for the installation as well as the installation of other R packages, since it has the most recent packages.
 
-4. check the installation.
+4. Check the installation.
 
 .. code-block:: bash
 
@@ -67,13 +67,13 @@ Installing R packages
 
     $ conda activate ENV_NAME
 
-1. Install the package.
+2. Install the package.
 
 .. code-block:: bash
 
     $ conda install PACKAGE_NAME
 
-We recommend that the user looks up the name of the package in the anaconda repository before installing the package, to make sure that is the correct one.
+.. note:: We recommend that the user looks up the name of the package in the anaconda repository before installing the package, to make sure that is the correct one.
 
 Running Example
 ---------------

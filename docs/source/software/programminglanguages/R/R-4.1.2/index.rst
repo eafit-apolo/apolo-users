@@ -42,6 +42,9 @@ If you have not created a conda enviroment, you can create it with the command
 
     $ conda create --name ENV_NAME
 
+
+.. note:: Creating a conda enviroment or changing between enviroments will not hinder your capabilities in navigating in the console as you normally would do.
+
 3. Install R
 
 .. code-block:: bash
@@ -58,8 +61,8 @@ If you have not created a conda enviroment, you can create it with the command
 
 You should be able to see the name of the package, version installed and the channel it was downloaded from.
 
-Installing R packages
----------------------
+Installing R packages with conda
+--------------------------------
 
 1. Move to the conda enviroment you want to install the packages in.
 
@@ -67,13 +70,47 @@ Installing R packages
 
     $ conda activate ENV_NAME
 
+.. note:: If you don't know in what conda enviroment you currently are, you can check with the command $ conda env list, the enviroment you have activated will be marked with an asterisk.
+
 2. Install the package.
 
 .. code-block:: bash
 
     $ conda install PACKAGE_NAME
 
-.. note:: We recommend that the user looks up the name of the package in the anaconda repository before installing the package, to make sure that is the correct one.
+.. note:: Before installing the package, to make sure the one you are installing is the correct one, we recomend that the user looks up beforehand the name of the package in the anaconda repository: https://anaconda.org/search.
+  Here you can also find the command to install the packages if you have any problem installing them.
+
+.. note:: With this method you can install packages for R without having to use install.packages("package_name") inside R.
+
+
+Installing R packages with R Studio Interpreter
+-----------------------------------------------
+
+1. load the conda module
+
+.. code-block:: bash
+
+   $ module load miniconda3-4.10.3-oneapi-2022.0.0-2mgeehu
+
+2. activate the enviroment where R is installed
+
+.. code-block:: bash
+
+   $ conda activate ENV_NAME
+
+.. note:: If you don't know in what conda enviroment you currently are, you can check with the command $ conda
+   env list, the enviroment you have activated will be marked with an asterisk.
+
+3. Enter to R Studio interpreter
+
+.. code-block:: bash
+
+   $ R
+
+Once you have enter to the R Studio interpreter you can install the packages with the command::
+
+        install.packages("package_name")
 
 Running Example
 ---------------
@@ -93,8 +130,8 @@ Running Example
 
 
     ##### ENVIRONMENT CREATION #####
-    source activate test1
     module load miniconda3-4.10.3-oneapi-2022.0.0-2mgeehu
+    source activate test1
 
     ##### JOB COMMANDS ####
     Rscript simple_script.r

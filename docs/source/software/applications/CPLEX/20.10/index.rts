@@ -1,0 +1,137 @@
+.. _cplex-20.10-index:
+
+.. role:: bash(code)
+   :language: bash
+
+CPLEX 20.10
+===========
+
+- **Installation Date:** 02/18/2022
+-  **URL:** https://www.ibm.com/products/ilog-cplex-optimization-studio
+- - **Installed on:** :ref:`Apolo II <about_apolo-ii>`
+- **License:** Proprietary software.
+
+.. contents:: Table of Contents
+
+Dependencies
+------------
+
+All dependencies are bundled in the installer
+
+Installation
+------------
+
+#. Download the latest version of CPLEX Studio
+
+- Navigate to http://www.ibm.com/software/howtobuy/passportadvantage/paocustomer/sdma/SDMA?PO=DOWNLOAD_FIND_BY_PART_NUMBER 
+  and log in using your IBM ID.
+
+- Search for the corresponding download for your version: IBM ILOG CPLEX Optimization Studio V[Version] for Linux x86-64 Multilingual.
+
+- Download the file.
+
+#. Run the installer
+
+Run the downloaded file as root and follow the instructions in the terminal. Don't forget to
+set the installation path correctly. 
+
+#. Example module file
+
+   .. code-block:: bash
+
+        #%Module1.0####################################################################
+        ##
+        ## module load CPLEX_Studio201/201
+        ##
+        ## /share/apps/modules/CPLEX_Studio201/201
+        ## Written by Juan Pablo Ossa Zapata
+        ##
+        
+        proc ModulesHelp {} {
+             global version modroot
+             puts stderr "Sets the environment for using CPLEX Studio 201\
+        		  \nin the shared directory /share/apps/CPLEX_Studio201/."
+        }
+        
+        module-whatis "(Name________) cplex studio"
+        module-whatis "(Version_____) 201"
+        module-whatis "(Compilers___) "
+        module-whatis "(System______) x86_64-redhat-linux"
+        module-whatis "(Libraries___) "
+        
+        # for Tcl script use only
+        set         topdir        /share/apps/CPLEX_Studio201
+        set         version       201
+        set         sys           x86_64-redhat-linux
+        
+        conflict CPLEX_Studio201
+        
+        
+        prepend-path	PATH			$topdir/cpoptimizers/bin
+        prepend-path	PATH			$topdir/opl/oplide/jre/bin
+        prepend-path	PATH			$topdir/opl/oplide/features/org.eclipse.equinox.executable.nls1_3.7.2.v201711161131/bin
+        prepend-path	PATH			$topdir/opl/oplide/features/org.eclipse.equinox.executable.nls2a_3.7.2.v201711161131/bin
+        prepend-path	PATH			$topdir/opl/oplide/features/org.eclipse.equinox.executable.nls2_3.7.2.v201711161131/bin
+        prepend-path	PATH			$topdir/opl/oplide/features/org.eclipse.equinox.executable_3.7.2.v20171108-1834/bin
+        prepend-path	PATH			$topdir/opl/oplide/plugins/org.apache.ant_1.10.1.v20170504-0840/bin
+        prepend-path	PATH			$topdir/opl/ant/bin
+        prepend-path	PATH			$topdir/opl/bin
+        prepend-path	PATH			$topdir/cplex/bin
+        prepend-path	PATH			$topdir/cpoptimizer/bin
+        prepend-path	C_INCLUDE_PATH		$topdir/opl/include
+        prepend-path	C_INCLUDE_PATH		$topdir/concert/include
+        prepend-path	C_INCLUDE_PATH		$topdir/cplex/include
+        prepend-path	C_INCLUDE_PATH		$topdir/cpoptimizer/include
+        prepend-path    CXX_INCLUDE_PATH        $topdir/opl/include
+        prepend-path    CXX_INCLUDE_PATH        $topdir/concert/include
+        prepend-path    CXX_INCLUDE_PATH        $topdir/cplex/include
+        prepend-path    CXX_INCLUDE_PATH        $topdir/cpoptimizer/include
+        prepend-path    CPLUS_INCLUDE_PATH      $topdir/opl/include
+        prepend-path    CPLUS_INCLUDE_PATH      $topdir/concert/include
+        prepend-path    CPLUS_INCLUDE_PATH      $topdir/cplex/include
+        prepend-path    CPLUS_INCLUDE_PATH      $topdir/cpoptimizer/include
+        prepend-path	LD_LIBRARY_PATH		$topdir/opl/oplide/jre/lib
+        prepend-path	LD_LIBRARY_PATH		$topdir/opl/oplide/plugins/ilog.views.eclipse.chart.runtime_8.10.0.v20161008/lib
+        prepend-path	LD_LIBRARY_PATH		$topdir/opl/oplide/plugins/ilog.views.eclipse.framework.runtime_8.10.0.v20161008/lib
+        prepend-path	LD_LIBRARY_PATH		$topdir/opl/oplide/plugins/ilog.views.eclipse.gantt.runtime_8.10.0.v20161008/lib
+        prepend-path	LD_LIBRARY_PATH		$topdir/opl/oplide/plugins/ilog.views.eclipse.utilities.runtime_8.10.0.v20161008/lib
+        prepend-path	LD_LIBRARY_PATH		$topdir/opl/oplide/plugins/org.apache.ant_1.10.1.v20170504-0840/lib
+        prepend-path	LD_LIBRARY_PATH		$topdir/opl/ant/lib
+        prepend-path	LD_LIBRARY_PATH		$topdir/opl/lib
+        prepend-path	LD_LIBRARY_PATH		$topdir/concert/lib
+        prepend-path	LD_LIBRARY_PATH		$topdir/cplex/lib
+        prepend-path	LD_LIBRARY_PATH		$topdir/cpoptimizer/lib
+        prepend-path    LIBRARY_PATH         $topdir/opl/oplide/jre/lib
+        prepend-path    LIBRARY_PATH         $topdir/opl/oplide/plugins/ilog.views.eclipse.chart.runtime_8.10.0.v20161008/lib
+        prepend-path    LIBRARY_PATH         $topdir/opl/oplide/plugins/ilog.views.eclipse.framework.runtime_8.10.0.v20161008/lib
+        prepend-path    LIBRARY_PATH         $topdir/opl/oplide/plugins/ilog.views.eclipse.gantt.runtime_8.10.0.v20161008/lib
+        prepend-path    LIBRARY_PATH         $topdir/opl/oplide/plugins/ilog.views.eclipse.utilities.runtime_8.10.0.v20161008/lib
+        prepend-path    LIBRARY_PATH         $topdir/opl/oplide/plugins/org.apache.ant_1.10.1.v20170504-0840/lib
+        prepend-path    LIBRARY_PATH         $topdir/opl/ant/lib
+        prepend-path    LIBRARY_PATH         $topdir/opl/lib
+        prepend-path    LIBRARY_PATH         $topdir/concert/lib
+        prepend-path    LIBRARY_PATH         $topdir/cplex/lib
+        prepend-path    LIBRARY_PATH         $topdir/cpoptimizer/lib
+        prepend-path    LD_RUN_PATH         $topdir/opl/oplide/jre/lib
+        prepend-path    LD_RUN_PATH         $topdir/opl/oplide/plugins/ilog.views.eclipse.chart.runtime_8.10.0.v20161008/lib
+        prepend-path    LD_RUN_PATH         $topdir/opl/oplide/plugins/ilog.views.eclipse.framework.runtime_8.10.0.v20161008/lib
+        prepend-path    LD_RUN_PATH         $topdir/opl/oplide/plugins/ilog.views.eclipse.gantt.runtime_8.10.0.v20161008/lib
+        prepend-path    LD_RUN_PATH         $topdir/opl/oplide/plugins/ilog.views.eclipse.utilities.runtime_8.10.0.v20161008/lib
+        prepend-path    LD_RUN_PATH         $topdir/opl/oplide/plugins/org.apache.ant_1.10.1.v20170504-0840/lib
+        prepend-path    LD_RUN_PATH         $topdir/opl/ant/lib
+        prepend-path    LD_RUN_PATH         $topdir/opl/lib
+        prepend-path    LD_RUN_PATH         $topdir/concert/lib
+        prepend-path    LD_RUN_PATH         $topdir/cplex/lib
+        prepend-path    LD_RUN_PATH         $topdir/cpoptimizer/lib
+
+
+
+References
+----------
+
+- CPLEX Instructions. Retrieved March 18, 2022, from https://www.ibm.com/support/pages/downloading-ibm-ilog-cplex-optimization-studio-v1290
+
+Authors
+-------
+
+- Juan Pablo Ossa Zapata

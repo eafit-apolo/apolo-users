@@ -25,6 +25,7 @@ Scientific Libraries
    mpfr/index
    Szip/index
    Zlib/index
+   Zstd/index
    ScaLAPACK/index
    Cloog/index
    MPC/index

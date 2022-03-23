@@ -16,5 +16,6 @@ avoid control overhead and to produce a very effective code.
    :maxdepth: 1
 
    Cloog-0.18.4/index
+   Cloog-0.20.0/index
 
 .. [1] https://www.cloog.org/

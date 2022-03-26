@@ -40,6 +40,7 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    gurobi/index
    iqtree/index
    kraken/index
+   ioapi/index
    lammps/index
    leDock/index
    lePro/index

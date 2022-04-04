@@ -7,7 +7,7 @@ FFTW is a C subroutine library for computing the discrete Fourier transform (DFT
 
 The FFTW package was developed at MIT by Matteo Frigo and Steven G. Johnson.
 
-Our benchmarks, performed on on a variety of platforms, show that FFTW's performance is typically superior to that of other publicly available FFT software, and is even competitive with vendor-tuned codes. In contrast to vendor-tuned codes, however, FFTW's performance is portable: the same program will perform well on most architectures without modification. Hence the name, "FFTW," which stands for the somewhat whimsical title of "Fastest Fourier Transform in the West."s. 
+Our benchmarks, performed on on a variety of platforms, show that FFTW's performance is typically superior to that of other publicly available FFT software, and is even competitive with vendor-tuned codes. In contrast to vendor-tuned codes, however, FFTW's performance is portable: the same program will perform well on most architectures without modification. Hence the name, "FFTW," which stands for the somewhat whimsical title of "Fastest Fourier Transform in the West."s.
 
 
 .. toctree::
@@ -16,3 +16,4 @@ Our benchmarks, performed on on a variety of platforms, show that FFTW's perform
 
    3.3.6/index
    3.3.7/index
+   3.3.10/index

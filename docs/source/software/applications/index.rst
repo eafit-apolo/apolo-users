@@ -87,3 +87,4 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    vsearch/index
    wps/index
    wrf/index
+   makedepf90/index

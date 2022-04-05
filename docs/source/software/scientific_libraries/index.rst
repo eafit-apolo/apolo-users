@@ -31,3 +31,4 @@ Scientific Libraries
    LAPACK/index
    cunit/index
    udunits/index
+   curl/index

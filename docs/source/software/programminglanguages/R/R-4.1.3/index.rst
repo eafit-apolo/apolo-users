@@ -38,35 +38,47 @@ After the dependencies have been resolved and configured, the **R** installation
 
 1. Download the selected version from an official mirror (https://cran.r-project.org/mirrors.html).
 
+    .. code-block:: bash
+
+        $ wget https://cran.r-project.org/src/base/R-4/R-4.1.3.tar.gz
+        $ tar xvzf R-4.1.3.tar.gz
+
+
 2. Load the corresponding modules to set the building environment.
+
+    .. code-block:: bash
+
+        $ module load zlib/1.2.11_Intel_oneAPI-2022_update-1 bzip2/1.1.0_Intel_oneAPI-2022_update-1  xz/5.2.5_Intel_oneAPI-2022_update-1 pcre2/10.39_Intel_oneAPI-2022_update-1 curl/7.82.0_Intel_oneAPI-2022_update1
+        $ module load java/jdk-17.0.2 intel/2022_oneAPI-update1 mpi/2021.5.1 mkl/2022.0.2 lapack/3.10.0_Intel_oneAPI-2022_update-1
+        
 
 3. Configure the resources
 
-.. code-block:: bash
+    .. code-block:: bash
 
-   ./configure --prefix=/share/apps/r/4.1.3/Intel_oneAPI-2022_update-1\
-   --build=x86_64-redhat-linux --enable-R-shlib\
-   --with-blas="-L/share/apps/intel/oneAPI/2022_update-1/mkl/2022.0.2/lib/intel64 \
-   -lmkl_rt -liomp5 -lpthread" --with-lapack --enable-BLAS-shlib\
-   --without-x --enable-memory-profiling\
-   LDFLAGS="$LDFLAGS -qopenmp -L/share/apps/bzip2/1.1.0/Intel_oneAPI-2022_update-1/lib64\
-   -L/share/apps/pcre2/10.39/Intel_oneAPI-2022_update-1/lib64\
-   -L/share/apps/xz/5.2.5/Intel_oneAPI-2022_update-1/lib"\
-   CFLAGS="$CFLAGS -fPIC -qopenmp -O3 -ipo -xHost\
-   -I/share/apps/bzip2/1.1.0/Intel_oneAPI-2022_update-1/include\
-   -I/share/apps/pcre2/10.39/Intel_oneAPI-2022_update-1/include\
-   -I/share/apps/xz/5.2.5/Intel_oneAPI-2022_update-1/include"\
-   CXXFLAGS="$CXXFLAGS -fPIC -qopenmp -O3 -ipo -xHost\
-   -I/share/apps/bzip2/1.1.0/Intel_oneAPI-2022_update-1/include\
-   -I/share/apps/xz/5.2.5/Intel_oneAPI-2022_update-1/include"\
-   FFLAGS="$FFLAGS -fPIC -qopenmp -O3 -ipo -xHost"\
-   FCFLAGS="$FCFLAGS -fPIC -qopenmp -O3 -ipo -xHost" --with-readline=no
+        ./configure --prefix=/share/apps/r/4.1.3/Intel_oneAPI-2022_update-1\
+        --build=x86_64-redhat-linux --enable-R-shlib\
+        --with-blas="-L/share/apps/intel/oneAPI/2022_update-1/mkl/2022.0.2/lib/intel64 \
+        -lmkl_rt -liomp5 -lpthread" --with-lapack --enable-BLAS-shlib\
+        --without-x --enable-memory-profiling\
+        LDFLAGS="$LDFLAGS -qopenmp -L/share/apps/bzip2/1.1.0/Intel_oneAPI-2022_update-1/lib64\
+        -L/share/apps/pcre2/10.39/Intel_oneAPI-2022_update-1/lib64\
+        -L/share/apps/xz/5.2.5/Intel_oneAPI-2022_update-1/lib"\
+        CFLAGS="$CFLAGS -fPIC -qopenmp -O3 -ipo -xHost\
+        -I/share/apps/bzip2/1.1.0/Intel_oneAPI-2022_update-1/include\
+        -I/share/apps/pcre2/10.39/Intel_oneAPI-2022_update-1/include\
+        -I/share/apps/xz/5.2.5/Intel_oneAPI-2022_update-1/include"\
+        CXXFLAGS="$CXXFLAGS -fPIC -qopenmp -O3 -ipo -xHost\
+        -I/share/apps/bzip2/1.1.0/Intel_oneAPI-2022_update-1/include\
+        -I/share/apps/xz/5.2.5/Intel_oneAPI-2022_update-1/include"\
+        FFLAGS="$FFLAGS -fPIC -qopenmp -O3 -ipo -xHost"\
+        FCFLAGS="$FCFLAGS -fPIC -qopenmp -O3 -ipo -xHost" --with-readline=no
 
 4. Before doing make, delete or comment the following line on src/include/config.h.in
 
-::
+    ::
 
-#undef HAVE_MATHERR
+    #undef HAVE_MATHERR
 
 
 Module
@@ -74,7 +86,7 @@ Module
 
 The following is the module used for this version.
 
-.. code-block:: tcl
+    .. code-block:: tcl
 
         #%Module1.0#####################################################################
         ##
@@ -89,8 +101,8 @@ The following is the module used for this version.
         }
 
         module-whatis "\n\n\tSets the environment for R language \
-                       \n\tbuilt with  Intel MKL oneAPI 2022 (Update-1)version \
-                       \n\t(Update-1)\n"
+                    \n\tbuilt with  Intel MKL oneAPI 2022 (Update-1)version \
+                    \n\t(Update-1)\n"
 
         # for Tcl script use only
         set       topdir     /share/apps/r/4.1.3/Intel_oneAPI-2022_update-1
@@ -121,7 +133,6 @@ The following is the module used for this version.
         prepend-path    PKG_CONFIG_PATH         $topdir/lib64/pkgconfig
 
         prepend-path    MAN_PATH                $topdir/share/man
-
 
 
 :Authors:

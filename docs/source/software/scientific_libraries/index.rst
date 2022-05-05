@@ -30,5 +30,6 @@ Scientific Libraries
    MPC/index
    LAPACK/index
    Libpng/index
+   libtool/index
    cunit/index
    udunits/index

@@ -16,6 +16,7 @@ GMP is carefully designed to be as fast as possible, both for small operands and
    :maxdepth: 1
 
    6.1.2/index
+   6.2.1/index
 
 Resources
 ---------

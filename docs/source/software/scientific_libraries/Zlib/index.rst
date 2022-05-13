@@ -15,5 +15,6 @@ never expands the data.
 
    Zlib-1.2.11/index
    Zlib-1.2.11-Intel/index
+   Zlib-1.2.11-gcc/index
 
 .. [1] https://www.zlib.net/

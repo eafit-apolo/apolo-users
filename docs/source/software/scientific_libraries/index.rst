@@ -29,6 +29,10 @@ Scientific Libraries
    Cloog/index
    MPC/index
    LAPACK/index
+   Libpng/index
+   libtool/index
    cunit/index
    udunits/index
    curl/index
+   pcre2/index
+

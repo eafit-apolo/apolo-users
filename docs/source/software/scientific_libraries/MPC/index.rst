@@ -13,5 +13,6 @@ At the same time, speed of operation at high precision is a major design goal.
    :maxdepth: 1
 
    MPC-1.0.3/index
+   MPC-1.2.1/index
 
 .. [1] http://www.multiprecision.org/mpc/

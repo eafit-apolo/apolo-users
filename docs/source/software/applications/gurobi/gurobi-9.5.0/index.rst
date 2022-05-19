@@ -6,9 +6,9 @@
 GUROBI 9.5.0
 ************
 
-- **Installation date:**
+- **Installation date:** 17/02/2022
 - **URL:** http://www.gurobi.com/
-- **Apolo version:** Cronos
+- **Apolo version:** Apolo II
 - **License:** ACADEMIC LICENSE
 
 Installation
@@ -21,7 +21,6 @@ Installation
     $ tar -xvf gurobi9.5.0_linux64.tar.gz -C <installdir>
 
 
-#.
 
 Module
 ---------
@@ -73,14 +72,17 @@ Module
 
         prepend-path PYTHONPATH		$topdir
 
-#. Load the module
+Load the module
+
+.. code-block:: bash
+
+        $ module load gurobi/9.5.0
 
 References
 ------------
 
-- http://www.gurobi.com/documentation/7.5/quickstart_linux.pdf
+- https://www.gurobi.com/documentation/9.5/quickstart_linux/index.html
 
-Author
-------
+:Author:
 
-- Andrés Felipe Zapata Palacio
+- Laura Sánchez Córdoba

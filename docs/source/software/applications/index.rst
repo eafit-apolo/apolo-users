@@ -26,6 +26,7 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    CHARMM/index
    clustalw/index
    crystal/index
+   curl/index
    Cufflinks/index
    delft3D/index
    DL_POLY_Classic/index
@@ -40,6 +41,7 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    gurobi/index
    iqtree/index
    kraken/index
+   ioapi/index
    lammps/index
    leDock/index
    lePro/index

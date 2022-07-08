@@ -32,3 +32,4 @@ Extensions:
    :maxdepth: 1
 
    crystal.1.0.4/index
+   crystal17/index

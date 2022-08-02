@@ -30,5 +30,9 @@ Scientific Libraries
    Cloog/index
    MPC/index
    LAPACK/index
+   Libpng/index
+   libtool/index
    cunit/index
    udunits/index
+   Doc/Zstd-1.5.2
+   pcre2/index

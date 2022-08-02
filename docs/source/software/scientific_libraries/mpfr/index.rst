@@ -13,6 +13,7 @@ The main goal of MPFR is to provide a library for multiple-precision floating-po
    :maxdepth: 1
 
    3.1.6/index
+   4.1.0/index
 
 
 Resources

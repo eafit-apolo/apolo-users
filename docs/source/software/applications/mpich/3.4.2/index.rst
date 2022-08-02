@@ -20,6 +20,9 @@ Tested on (Requirements)
 
 - **Compiler** GCC 9.3.0
 
+.. note::
+   This version of MPICH is recommended for WRFCMAQ
+
 Installation
 -------------
 
@@ -56,4 +59,4 @@ Installation
 
 :Author:
 
- - Bryan López Parra
+ - Bryan López Parra <blopezp@eafit.edu.co>

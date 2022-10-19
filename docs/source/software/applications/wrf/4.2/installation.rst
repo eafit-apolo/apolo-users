@@ -72,7 +72,7 @@ Download libraries
    .. code-block:: bash
 
       cd wrf_install_gcc
-      wget https://gigenet.dl.sourceforge.net/project/libpng/zlib/1.2.11/zlib-1.2.11.tar.gz
+      wget https://www.zlib.net/fossils/zlib-1.2.11.tar.gz
       tar -zxvf zlib-1.2.11.tar.gz
       wget https://onboardcloud.dl.sourceforge.net/project/libpng/libpng16/1.6.37/libpng-1.6.37.tar.gz
       tar -zxvf libpng-1.6.37.tar.gz
@@ -118,6 +118,17 @@ Build libpng
       ./configure --prefix=/home/blopezp/wrf_lib_gcc
       make
       make install
+
+
+Build Jpeg
+----------
+
+   .. code-block:: bash
+
+      ./configure --prefix=/home/wrf/wrf_libs_intel/
+      make
+      make install
+
 
 Build HDF5
 ----------
@@ -168,18 +179,19 @@ Build JasPer
 
           sed -i 's/char *optstr/const char *optstr/g' src/libjasper/jpg/jpg_dummy.c
 
-Build Jpeg
-----------
-
-   .. code-block:: bash
-
-      ./configure --prefix=/home/wrf/wrf_libs_intel/
-      make
-      make install
 
 Distributed Memory Installation
 -------------------------------
 This is the installation for the distributed memory option that WRF has, please follow it exactly as it is.
+
+#. Download the source code.
+
+   .. code-block::
+
+      mkdir WRF
+      cd WRF
+      wget https://github.com/wrf-model/WRF/archive/refs/tags/v4.2.tar.gz
+
 
 #. Export the necessary modules
 
@@ -203,7 +215,7 @@ This is the installation for the distributed memory option that WRF has, please 
 
       ./configure
 
-#. Remove the "time" command from the following line.
+#. Remove the "time" command from the following line in the configure.wrf file.
 
 
    .. code-block:: bash

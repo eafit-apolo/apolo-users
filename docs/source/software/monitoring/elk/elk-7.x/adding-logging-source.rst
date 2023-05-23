@@ -171,7 +171,7 @@ It has more `options <https://www.elastic.co/guide/en/logstash/current/plugins-f
     :language: ruby
 
   In summary:
-  
+
   * The first section, :ruby:`input`, indicates to Logstash where it will receive logs from. In this case Filebeat, on port 5044, and something called the **Dead Letter Queue**. This is where logs that couldn't be indexed go. For example, Logstash received a log, but Elasticsearch crashed, so the log couldn't be indexed, then the log is written to the Dead Letter Queue allowing it to be reindexed later.
 
   * The last block, :ruby:`output`, indicates to Logstash where it will send logs to. In this case Elasticsearch, which is in the host :ruby:`elk` on port :ruby:`9200`, to the **index** :ruby:`secure`. Elasticsearch indexes will be explained in :ref:`create-indexes-mappings-7.x`, think about them as tables where the logs will be registered.
@@ -219,7 +219,7 @@ Let's see an example to structue the log parsed above, for more information abou
   * :json:`"properties"` as its name says, is used to describe the properties of the mappings.
   * The rest of the items are the fields and its types. These fields describe the types of the information parsed in Logstash. For example:
 
-    * :json:`"sshd_guest_ip"` is the field that represents the ip address parsed from the logs. Its type is :json:`ip`. Elasticsearch has a built-in type called :json:`ip` which eases the indexation and visualization of ip addresses.
+    * :json:`"sshd_guest_ip"` is the field that represents the ip address parsed from the logs. Its type is :json:`"ip"`. Elasticsearch has a built-in type called :json:`"ip"` which eases the indexation and visualization of ip addresses.
     * The :json:`"type"` field is useful to differentiate the logs sent from a single source, in this case :bash:`/var/log/secure`. Recall the :ruby:`add_field` option under the Grok plugin in :ref:`how-to-filter-7.x`, it was added the field: "type" => "sshd_login_attempt". Therefore, in case of indexing the sudo commands logs, change this field to something like: "type" => "secure_sudo_command". This is how to differentiate them easily.
 
 .. _add-path-filebeat-7.x:
@@ -253,7 +253,7 @@ Under the section :yaml:`filebeat.inputs:` add:
 ''''''''''''''''''''''''
 With some data indexed in Elasticsearch, create **Index Patterns**. These are used by Kibana to match (using regular expressions) indexes and take the data that will be plotted from those indexes matched by some pattern.
 
-Go to **Management** -> **Index Pattern** -> **Create index pattern**. Select its name/pattern, and as time filter field select :json:`@timestamp`.
+Go to **Management** -> **Index Pattern** -> **Create index pattern**. Select its name/pattern, and as time filter field select :json:`"@timestamp"`.
 
 6 . Plot the data
 '''''''''''''''''

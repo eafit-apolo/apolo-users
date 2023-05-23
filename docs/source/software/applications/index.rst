@@ -75,6 +75,7 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    rDock/index
    repet/index
    SAMtools/index
+   SMOKE/index
    sparsehash/index
    stacks/index
    tigmint/index

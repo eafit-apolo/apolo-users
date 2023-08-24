@@ -144,3 +144,8 @@ If everything is correctly configured and the necessary modules are loaded you w
     2. error:can't convert CHARACTER(1) TO INTEGER(4) at (1); in the error line where it says LFIP = '' change the quotation marks by a zero.
 
 After correcting the errors all executables should be created, and the compilation should be complete.
+
+References
+----------
+
+SMOKE v4.8.1 User’s Manual

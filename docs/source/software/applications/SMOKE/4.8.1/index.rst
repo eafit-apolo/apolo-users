@@ -149,3 +149,8 @@ References
 ----------
 
 SMOKE v4.8.1 User’s Manual
+    https://www.cmascenter.org/smoke/documentation/4.8.1/manual_smokev481.pdf
+
+:Author:
+
+- Juan Diego Herrera <jdherrera@eafit.edu.co>

@@ -24,6 +24,7 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    BWA/index
    CDO/index
    CHARMM/index
+   Calculix/index
    clustalw/index
    crystal/index
    curl/index

@@ -93,4 +93,8 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    vsearch/index
    wps/index
    wrf/index
+<<<<<<< HEAD
    makedepf90/index
+=======
+   Geant4/index
+>>>>>>> Doc: added documentation for Geant4

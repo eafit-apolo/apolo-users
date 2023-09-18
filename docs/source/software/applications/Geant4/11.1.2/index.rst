@@ -29,7 +29,6 @@ Installation
 
         $ module load cmake-3.22.2-gcc-9.3.0-paiswui expat-2.4.6-gcc-9.3.0-nlngbc3 gcc/9.3.0 mpich/4.1_gcc-9.3.0
 
-
 #. Then, download the tar.gz file and unpack it
 
     .. code-block:: bash
@@ -37,9 +36,7 @@ Installation
         $ wget https://gitlab.cern.ch/geant4/geant4/-/archive/v11.1.2/geant4-v11.1.2.tar.gz
         $ tar -xvf geant4-v11.1.2.tar.gz
 
-
 #. Then, we create two directories in the same location than we unpack the tar.gz file, one for build and the other for install
-
 
     .. code-block:: bash
 
@@ -61,7 +58,6 @@ Installation
     of the University, this flag doesn't work, because it uses a protocol that this firewall doesn't allow. But you are free to try.
 
 #. Now, if we need to use the data, we must install this manually as follows
-
 
     .. code-block:: bash
 
@@ -101,11 +97,7 @@ Installation
 
     This process is very slow, so you must be patient.
 
-<<<<<<< HEAD
 #. Then, we must modify one file to use this data
-=======
-#. Then, we must modify one file to upload this data
->>>>>>> Doc:Geant4
 
     .. code-block:: bash
 

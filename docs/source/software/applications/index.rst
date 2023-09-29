@@ -92,3 +92,4 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    wrf/index
    Geant4/index
    ROOT/index
+   dorado/index

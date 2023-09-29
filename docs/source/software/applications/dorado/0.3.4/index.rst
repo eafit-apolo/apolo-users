@@ -34,13 +34,13 @@ Installation
 
         $ tar xf dorado-0.3.4-linux-x64.tar.gz
 
-#. Then, we enter in the dorado directorie
+#. Then, we enter in the dorado directory
 
     .. code-block:: bash
 
         $ cd dorado-0.3.4-linux-x64
 
-#. Now we are ready to use dorado.
+#. Now we are ready to use dorado
 
     .. code-block:: bash
 

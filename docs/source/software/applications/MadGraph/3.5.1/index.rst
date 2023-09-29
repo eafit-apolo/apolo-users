@@ -1,7 +1,7 @@
-.. _dorado-0.3.4:
+.. _madgraph-3.5.1:
 
 
-DORADO-0.3.4
+MADGRAPH-3.5.1
 ===========
 
 .. contents:: Table of Contents
@@ -9,7 +9,8 @@ DORADO-0.3.4
 Basic information
 -----------------
 
-- **Install page:** https://github.com/nanoporetech/dorado/tree/master
+- **Official website:** http://madgraph.phys.ucl.ac.be/
+- **Install page:** https://launchpad.net/mg5amcnlo
 - **Installed on:** APOLO II
 
 Tested on (Requirements)
@@ -26,25 +27,25 @@ Installation
 
     .. code-block:: bash
 
-        $ wget https://cdn.oxfordnanoportal.com/software/analysis/dorado-0.3.4-linux-x64.tar.gz
+        $ wget https://launchpad.net/mg5amcnlo/3.0/3.5.x/+download/MG5_aMC_v3.5.1.tar.gz
 
 #. Then, we unpack this tar.gz file
 
     .. code-block:: bash
 
-        $ tar xf dorado-0.3.4-linux-x64.tar.gz
+        $ tar xf MG5_aMC_v3.5.1.tar.gz
 
-#. Then, we enter in the dorado directory
-
-    .. code-block:: bash
-
-        $ cd dorado-0.3.4-linux-x64
-
-#. Now we are ready to use dorado
+#. Then, we enter in the MadGraph directory
 
     .. code-block:: bash
 
-        $ ./bin/dorado
+        $ cd MG5_aMC_v3_5_1
+
+#. Now we are ready to use MadGraph
+
+    .. code-block:: bash
+
+        $ ./bin/mg5_aMC
 
 :Author:
 

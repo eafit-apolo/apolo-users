@@ -34,4 +34,5 @@ Scientific Libraries
    libtool/index
    cunit/index
    udunits/index
+   bzip2/index
    pcre2/index

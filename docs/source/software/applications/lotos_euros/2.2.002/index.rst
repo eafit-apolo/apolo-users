@@ -147,3 +147,7 @@ Next, define the model data and the output path like so:
 This section is usually defined by the user since they are the ones that have to source the data for the model to run.
 
 The output directory is defined by the variable **my.scratch**, it is recomended that this is not in the scratch directory but in the home directory of the user in Apolo II, if you try to use it in the scratch or any other path it will not generate any output files.
+
+:Authors:
+
+- Jacobo Monsalve Guzman <jmonsalve@eafit.edu.co>

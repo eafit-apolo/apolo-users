@@ -46,6 +46,7 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    leDock/index
    lePro/index
    links/index
+   lotos_euros/index
    mafft/index
    mdstress-lib/index
    MedeA/index

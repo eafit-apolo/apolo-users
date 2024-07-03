@@ -17,6 +17,8 @@ Dependencies
 ------------
 
 - gcc-11.2.0
+- samtools
+- htslib
 
 Installation
 ------------
@@ -51,7 +53,7 @@ References
 ----------
 - Li H. and Durbin R. (2009) Fast and accurate short read alignment with Burrows-Wheeler transform. Bioinformatics, 25, 1754-1760. [PMID: 19451168].
 
-- Li H. and Durbin R. (2010) Fast and accurate long-read alignment with Burrows-Wheeler transform. Bioinformatics, 26, 589-595. [PMID: 20080505]. - 
+- Li H. and Durbin R. (2010) Fast and accurate long-read alignment with Burrows-Wheeler transform. Bioinformatics, 26, 589-595. [PMID: 20080505]. -
 
 - Li H. (2013) Aligning sequence reads, clone sequences and assembly contigs with BWA-MEM. arXiv:1303.3997v2 [q-bio.GN].
 - Makefile (inside bz2)

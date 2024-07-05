@@ -1,22 +1,20 @@
-.. _SAMtools:
+.. _samtools-index:
 
-********
-SAMtools
-********
+SAMTOOLS
+=====
 
-Description
------------
+[1] Samtools is a suite of programs for interacting with high-throughput sequencing data. It consists of three separate repositories:
 
-BWA is a software package for mapping low-divergent sequences against a large reference genome, 
-such as the human genome. It consists of three algorithms: BWA-backtrack, BWA-SW and BWA-MEM. 
-The first algorithm is designed for Illumina sequence reads up to 100bp, while the rest two for 
-longer sequences ranged from 70bp to 1Mbp. BWA-MEM and BWA-SW share similar features such as 
-long-read support and split alignment, but BWA-MEM, which is the latest, is generally 
-recommended for high-quality queries as it is faster and more accurate. 
-BWA-MEM also has better performance than BWA-backtrack for 70-100bp Illumina reads.s. 
+- Samtools: Reading/writing/editing/indexing/viewing SAM/BAM/CRAM format
+- BCFtools: Reading/writing BCF2/VCF/gVCF files and calling/filtering/summarising SNP and short indel sequence variants
+- HTSlib: A C library for reading/writing high-throughput sequencing data
 
+Samtools and BCFtools both use HTSlib internally, but these source packages contain their own copies of htslib so they can be built independently.
 .. toctree::
-    :caption: Versions
-    :maxdepth: 1
+   :caption: Versions
+   :maxdepth: 1
 
-    SAMtools-1.3.1/index
+   samtools-1.20.0/index
+
+.. [1] SamTools. (s. f.). https://www.htslib.org/
+       Retrieved 8:13, June 17, 2023

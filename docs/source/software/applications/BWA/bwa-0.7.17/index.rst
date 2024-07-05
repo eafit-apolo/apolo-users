@@ -17,8 +17,7 @@ Dependencies
 ------------
 
 - gcc-11.2.0
-- samtools
-- htslib
+
 
 Installation
 ------------

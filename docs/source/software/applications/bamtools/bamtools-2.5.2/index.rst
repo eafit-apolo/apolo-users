@@ -10,11 +10,17 @@ BAMTOOLS 2.5.2
 
 Basic information
 ------------------
-
+- **Installation Date:** 17/06/2024
 - **Official Website:** https://github.com/pezmaster31/bamtools/wiki
 - **Installed on:** :ref:`Apolo II <about_apolo-ii>`
- 
+- **License:** Apolo License
 
+Dependencies
+------------
+
+- gcc-11.2.0
+- samtools
+- htslib
 
 Tested on (Requirements)
 ------------------------
@@ -57,7 +63,7 @@ BamTools requires CMake (version >= 3.0). If you are missing CMake or have an ol
 
 #. After running cmake, just run:
 
-  
+
     .. code-block:: bash
         $ make install
 
@@ -71,7 +77,7 @@ References
 ----------
 
 .. [1] Bamtools Github Repository.
-       Retrieved June 18, 2024, from https://github.com/pezmaster31/bamtools 
+       Retrieved June 18, 2024, from https://github.com/pezmaster31/bamtools
 
 
 

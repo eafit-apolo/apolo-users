@@ -50,4 +50,4 @@ Installation
 
 :Author:
 
- - Juan Manuel Gómez <jmgomezp@eafit.edu.co>
+- Juan Manuel Gómez <jmgomezp@eafit.edu.co>

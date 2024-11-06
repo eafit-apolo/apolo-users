@@ -3,7 +3,7 @@
 TensorFlow
 ==========
 
-TensorFlow is an open-source machine learning framework developed by Google. It provides a comprehensive ecosystem of tools, libraries, and community resources that enable researchers and developers to design, build, and deploy machine learning and deep learning models. TensorFlow supports various tasks such as computer vision, natural language processing, reinforcement learning, and time-series analysis.
+TensorFlow [1]_ is an open-source machine learning framework developed by Google. It provides a comprehensive ecosystem of tools, libraries, and community resources that enable researchers and developers to design, build, and deploy machine learning and deep learning models. TensorFlow supports various tasks such as computer vision, natural language processing, reinforcement learning, and time-series analysis.
 
 Key features of TensorFlow include:
 

@@ -18,7 +18,7 @@ Tested on (Requirements)
 ------------------------
 
 * **OS base:** CentOS (x86_64) :math:`\boldsymbol{\ge}` 6.6 (Rocks 6.2)
-* **Dependencies:**  
+* **Dependencies:**
     * mpich2 v3.2.1
     * Zlib v1.2.11
     * Szip v2.1.1
@@ -109,7 +109,7 @@ Module
         module load mpich2/3.2.1_gcc-5.5.0
         module load szip/2.1.1_gcc-5.5.0
         module load zlib/1.2.11_gcc-5.5.0
-        
+
         setenv          HDF5                    $topdir
 
         prepend-path    PATH                    $topdir/bin

@@ -184,7 +184,3 @@ References
 ----------
 
 .. [1] http://www.netlib.org/scalapack/scalapack.tgz
-
-
-
-

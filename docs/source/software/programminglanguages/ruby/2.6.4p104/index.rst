@@ -49,7 +49,7 @@ Installation
     $ sudo su
     $ module load intel/19.0.4
     $ make install
-    
+
 Module
 ------
 
@@ -59,14 +59,14 @@ The following is the module used for this version.
 
     #%Module1.0#####################################################################
     ##
-    ## modulefile ruby/2.6.4_intel-19.0.4 
+    ## modulefile ruby/2.6.4_intel-19.0.4
     ##
     ## Written by Santiago Hidalgo Ocampo and Samuel David Palacios B.
     ##
     proc ModulesHelp { } {
         global version modroot
         puts stderr "\truby - Interpretive, interactive programming language"
-    }    
+    }
 
     module-whatis "\n\n\tSets the environment for using ruby 2.6.4p104 binaries \
                 \n\tprovided by Intel (2019 update 4)\n"

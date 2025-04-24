@@ -9,7 +9,7 @@
     owner: root
     group: root
     mode: 0644
-    
+
 - name: Install filebeat
   yum:
     name: filebeat

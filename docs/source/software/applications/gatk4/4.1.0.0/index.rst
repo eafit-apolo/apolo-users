@@ -19,7 +19,7 @@ Basic Information
 Installation
 ------------
 
-This entry covers the entire process performed for the installation GATK4 
+This entry covers the entire process performed for the installation GATK4
 on a cluster.
 
 .. toctree::
@@ -48,7 +48,7 @@ This section describes the method to submit jobs with the resource manager SLURM
       :caption: :download:`gatk.sh <src/gatk4.sh>`
 
    .. note::
-         
+
          If you want to run some tests, go to the `GATK4 page with tutorials <https://software.broadinstitute.org/gatk/documentation/topic?name=tutorials>`_.
 
 Authors

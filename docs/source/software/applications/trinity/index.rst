@@ -19,4 +19,4 @@ Trinity [1]_  developed at the Broad Institute and the Hebrew University of Jeru
    trinity-2.8.5/index
    trinity-2.4.0/index
 
-.. [1] Trinityrnaseq. (n.d.). trinityrnaseq/trinityrnaseq. Retrieved October 1, 2019, from https://github.com/trinityrnaseq/trinityrnaseq/wiki. 
+.. [1] Trinityrnaseq. (n.d.). trinityrnaseq/trinityrnaseq. Retrieved October 1, 2019, from https://github.com/trinityrnaseq/trinityrnaseq/wiki.

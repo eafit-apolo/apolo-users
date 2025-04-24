@@ -1,6 +1,6 @@
 ---
 - name: Synchronize Nagios config files
-  copy:     
+  copy:
     src: "{{ item }}"
     dest: "/{{ item }}"
   with_items:
@@ -15,7 +15,7 @@
     - nagios_restart
 
 - name: Assing password for the Web GUI user nagiosadmin
-  htpasswd: 
+  htpasswd:
     path: /usr/local/nagios/etc/htpasswd.users
     name: nagiosadmin
     password: "{{ nagios_admin_passwd }}"

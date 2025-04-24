@@ -9,7 +9,7 @@ We emphasize libraries that work well with the C++ Standard Library. Boost libra
 
 We aim to establish "existing practice" and provide reference implementations so that Boost libraries are suitable for eventual standardization. Ten Boost libraries are included in the C++ Standards Committee's Library Technical Report (TR1) and in the new C++11 Standard. C++11 also includes several more Boost libraries in addition to those from TR1. More Boost libraries are proposed for standardization in C++17.
 
-Since 2006 an intimate week long annual conference related to Boost called C++ Now has been held in Aspen, Colorado each May. Boost has been a participant in the annual Google Summer of Code since 2007. 
+Since 2006 an intimate week long annual conference related to Boost called C++ Now has been held in Aspen, Colorado each May. Boost has been a participant in the annual Google Summer of Code since 2007.
 
 
 .. toctree::

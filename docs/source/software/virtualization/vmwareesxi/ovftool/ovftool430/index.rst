@@ -5,12 +5,12 @@ Basic information
 -----------------
 
 - **Release date:** 17 APR 2018.
-- **Official documentation: https://www.vmware.com/support/developer/ovf/** 
+- **Official documentation: https://www.vmware.com/support/developer/ovf/**
 
 Installation
 ------------
 
-.. note:: 
+.. note::
 	For Windows systems you need the Visual C++ Redistributable for Visual Studio 2015.
 
 Do the following process in your machine.
@@ -26,7 +26,7 @@ To install on a **linux system**:
 
 ``$ chmod +x VMware-ovftool-4.0.0-2301625-lin.x86_64.bundle``
 
-2. Execute the file with superuser privileges: 
+2. Execute the file with superuser privileges:
 
 ``$ sudo ./VMware-ovftool-4.0.0-2301625-lin.x86_64.bundle``
 
@@ -35,7 +35,7 @@ To install on a **linux system**:
 
 
 Create a OVF from a virtual machine
-___________________________________ 
+___________________________________
 
 
 1. Find the exact name of the virtual machine that you want to package by using the following command:
@@ -43,7 +43,7 @@ ___________________________________
 ``$ ovftool vi://root@<host's-ip>/``
 
 After you enter the root password it will raise an error message like the following::
-    
+
     Error: Found wrong kind of object (ResourcePool). Possible completions are:
       Virtual-machine1
       Virtual-machine2
@@ -52,7 +52,7 @@ After you enter the root password it will raise an error message like the follow
 
 2. In order to export the virtual machine:
 
-.. note:: 
+.. note::
 	Ensure that no iso file is mounted to the VM. Otherwise a copy of it will be created.
 
 ``$ ovftool vi://root@<host's-ip>/<vm_name> <exportFileName>.ovf``

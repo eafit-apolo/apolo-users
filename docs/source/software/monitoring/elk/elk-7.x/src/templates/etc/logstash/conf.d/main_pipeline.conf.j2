@@ -31,7 +31,7 @@ filter {
       match => {
         "message" => [
             # Sudo commands
-            "%{SYSLOGTIMESTAMP:log_timestamp} %{SYSLOGHOST:system_hostname} sudo(.*)?:%{SPACE}%{DATA:system_sudo_user} :( %{DATA:system_sudo_error} ;)? TTY=.* ; PWD=%{DATA:system_sudo_workdir} ; USER=%{DATA:system_sudo_asuser} ; COMMAND=(?<system_sudo_command>(?!/usr/sbin/ipmi-sensors.*).*) "     
+            "%{SYSLOGTIMESTAMP:log_timestamp} %{SYSLOGHOST:system_hostname} sudo(.*)?:%{SPACE}%{DATA:system_sudo_user} :( %{DATA:system_sudo_error} ;)? TTY=.* ; PWD=%{DATA:system_sudo_workdir} ; USER=%{DATA:system_sudo_asuser} ; COMMAND=(?<system_sudo_command>(?!/usr/sbin/ipmi-sensors.*).*) "
         ]
       }
       add_field => { "type" => "secure_sudo_command"
@@ -75,7 +75,7 @@ filter {
     grok {
       match => {
         "message" => [
-    	  "\[%{TIMESTAMP_ISO8601:log_timestamp}\] error: (?<error>.*)" #An error ocurred	  
+    	  "\[%{TIMESTAMP_ISO8601:log_timestamp}\] error: (?<error>.*)" #An error ocurred
     	]
       }
       add_field => { "type" => "slurm_error"

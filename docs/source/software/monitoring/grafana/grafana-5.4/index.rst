@@ -5,7 +5,7 @@
 
 .. role:: yaml(code)
    :language: yaml
-	      
+
 =============
  Grafana 5.4
 =============
@@ -54,7 +54,7 @@ Installation
 #. Download the Official RPM:
 
    .. code-block:: bash
-				   
+
       $ wget https://dl.grafana.com/oss/release/grafana-5.4.3-1.x86_64.rpm.
 
 #. Install the downloaded RPM:
@@ -80,7 +80,7 @@ The procedure to configure it with apache is:
 
   .. literalinclude:: src/grafana.apache.conf
 	 :language: bash
-   
+
 #. Enable Apache to redirect Grafana App port
 
    .. code-block:: bash
@@ -111,7 +111,7 @@ generates an incorrect redirection with the default values present in :bash:`gra
 **SOLUTION:** Edit the variable :bash:`root_url` in :bash:`/etc/grafana/grafana.ini` as follows:
 
 .. code-block:: bash
-				
+
    root_url = %(protocol)s://%(domain)s:%(http_port)s/grafana
 
 Restart grafana-server to refresh the configuration:
@@ -123,7 +123,7 @@ Restart grafana-server to refresh the configuration:
 
 Basic Authentication Failed
 -----------------------------
-	 
+
 **PROBLEM:** The Login process fails in Grafana Webpage displaying the following JSON:
 
 .. code-block:: bash
@@ -164,7 +164,7 @@ Execute:
 .. code-block:: bash
 
    $ setcap 'cap_net_bind_service=+ep' /usr/sbin/grafana-server
-	
+
 Authors
 =======
 
@@ -172,10 +172,9 @@ Authors
 
 References
 ==========
-  
+
 .. [1] Grafana Labs. (n.d.). Installing on RPM-based Linux.
 	   Retrieved June 20, 2019, from http://docs.grafana.org/installation/rpm/
 
 .. [2] Kerrisk, M. (2019, May 11). Capabilities Manual. Retrieved June 20,
 	   2019, from http://man7.org/linux/man-pages/man7/capabilities.7.html
-	   

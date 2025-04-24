@@ -28,4 +28,3 @@
   make:
     chdir: "{{ temp_dir }}/nagios-ilo-plugin"
     target: install
-

@@ -19,7 +19,7 @@ filter {
     grok {
       match => {
         "message" => [
-	  # Login attemps 
+	  # Login attemps
           "%{SYSLOGTIMESTAMP:log.timestamp} %{SYSLOGHOST:system.hostname} sshd(.*)?: %{DATA:sshd.event} %{DATA:sshd.method} for (invalid user )?%{DATA:sshd.user} from %{IPORHOST:sshd.guest.ip} port %{NUMBER:sshd.guest.port} ssh2(: %{GREEDYDATA:sshd.guest.signature})?",
 
           # Sudo commands
@@ -52,8 +52,8 @@ filter {
     }
 
   }
-  
-  ##############################################################################  
+
+  ##############################################################################
   # SLURM
   if [fromslurm] {
 
@@ -83,7 +83,7 @@ filter {
 
   }
 
-  ##############################################################################  
+  ##############################################################################
   # MESSAGES
   if [frommessages] {
 
@@ -111,7 +111,7 @@ filter {
     }
 
   }
-  
+
   # Remove filebeat fields due to their case useless
   mutate {
     remove_field => ["beat"]
@@ -129,7 +129,7 @@ output {
       hosts => ["{{ machine }}:{{ elasticsearch_port }}"]
     }
   }
-  
+
   # SLURM
   if [slurm.correctly_filtered] {
     stdout { codec => rubydebug }
@@ -137,7 +137,7 @@ output {
       http_compression => true # Elasticsearch uses http compression by default
       index => "slurm"
       hosts => ["{{ machine }}:{{ elasticsearch_port }}"]
-    }    
+    }
   }
 
   # MESSAGES

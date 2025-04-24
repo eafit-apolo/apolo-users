@@ -15,5 +15,5 @@
 module load impi
 
 
-##### JOB COMMANDS #### 
+##### JOB COMMANDS ####
 srun --mpi=pmi2 ./mpi_hello_world_apolo

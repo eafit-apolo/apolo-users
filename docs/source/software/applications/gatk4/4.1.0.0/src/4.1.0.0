@@ -25,7 +25,7 @@ set         sys           x86_64-redhat-linux
 
 conflict gatk
 module load java/jdk-1.8.0_112
- 
+
 
 prepend-path    PATH                    $topdir
 prepend-path    PATH                    $topdir/libexec

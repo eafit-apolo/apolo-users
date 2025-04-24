@@ -30,17 +30,17 @@ INCL = -I$(PROBCONS) -I$(VIENNA) -I./
 # 3) Dependencies
 ################################################################################
 
-TARGETS = mxscarna 
+TARGETS = mxscarna
 
 OBJS = Main.o McCaskill.o vienna/energy_param.o seq2scs.o Globaldp.o postProcessings.o AlifoldMEA.o
 
 .PHONY : all
-all : $(TARGETS) 
+all : $(TARGETS)
 
 mxscarna : $(OBJS)
 	$(CXX) $(LIBS) $(OFLAGS) -lm -o $@ $(OBJS)
 
-rfold:  
+rfold:
 	cd $(RFOLD); \
 	make; \
 	cd .. \
@@ -48,11 +48,11 @@ rfold:
 probcons:
 	cd $(PROBCONS); \
 	make; \
-	cd .. 
+	cd ..
 
 #probcons : MultiSequence.h ProbabilisticModel.h ScoreType.h Sequence.h FileBuffer.h SparseMatrix.h EvolutionaryTree.h Defaults.h SafeVector.h Main.cc
 #	$(CXX) -lm -o probcons $(OBJS)
-#Main.cc 
+#Main.cc
 
 Main.o :  $(PROBCONS)/SafeVector.h $(PROBCONS)/FileBuffer.h $(PROBCONS)/Sequence.h $(PROBCONS)/MultiSequence.h $(PROBCONS)/EvolutionaryTree.h scarna.hpp BPPMatrix.hpp StemCandidate.hpp Globaldp.hpp AlifoldMEA.h Main.cc
 	$(CXX) $(INCL) $(OFLAGS) -c Main.cc -o Main.o
@@ -73,5 +73,5 @@ AlifoldMEA.o: nrutil.h Util.hpp Beta.hpp BPPMatrix.hpp $(PROBCONS)/MultiSequence
 
 .PHONY : clean
 clean:
-	rm -f $(TARGETS) *.o *.h~ *.hpp~ *.cpp~ *.cc~ $(VIENNA)/*.o 
+	rm -f $(TARGETS) *.o *.h~ *.hpp~ *.cpp~ *.cc~ $(VIENNA)/*.o
 	$(MAKE) -C $(PROBCONS) clean

@@ -10,7 +10,7 @@
     - ipmiutil
     state: present
     update_cache: yes
- 
+
 - name: NAGIOS Dependencies
   yum:
     name:
@@ -61,7 +61,7 @@
     - snmptt
     - net-snmp-perl
     - srvadmin-idrac7
-    - java-1.8.0-openjdk 
+    - java-1.8.0-openjdk
     - java-1.8.0-openjdk-devel
     - python-netaddr
     state: present

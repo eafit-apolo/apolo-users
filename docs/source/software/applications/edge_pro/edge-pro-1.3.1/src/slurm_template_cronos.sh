@@ -18,10 +18,3 @@ module load edge_pro
 OMP_NUM_THREADS=16
 
 edge.pl -g Cjejuni.fa -p Cjejuni.ptt -r Cjejuni.rnt -u wild1.fastq -s /share/apps/edge_pro/1.3.1/intel-18.0.2/scripts -t 16
-
-
-
-
-
-
-

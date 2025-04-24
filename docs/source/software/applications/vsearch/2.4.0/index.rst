@@ -18,7 +18,7 @@ Tested on (Requirements)
 ------------------------
 
 * **OS base:** CentOS (x86_64) :math:`\boldsymbol{\ge}` 6.6 (Rocks 6.2)
-* **Dependencies:**  
+* **Dependencies:**
     * g++ >= 4.9.4
 
 
@@ -51,8 +51,8 @@ Installation
 
     .. code-block:: bash
 
-        sudo mkdir -p /share/apps/vsearch/2.4.0/gcc/4.9.4 
-        sudo chown -R mgomezzul.apolo /share/apps/vsearch/2.4.0/gcc/4.9.4 
+        sudo mkdir -p /share/apps/vsearch/2.4.0/gcc/4.9.4
+        sudo chown -R mgomezzul.apolo /share/apps/vsearch/2.4.0/gcc/4.9.4
         make install
         sudo chown -R root.root /share/apps/vsearch/2.4.0/gcc/4.9.4
 

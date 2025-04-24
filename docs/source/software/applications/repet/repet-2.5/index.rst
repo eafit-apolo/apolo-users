@@ -200,7 +200,7 @@ The first word must be the partition where you want your job to be sent. Even th
 If for some reason some step did not finish as expected and you do not get an error message, you should erase all data on jobs table, so REPET can use :ref:`SLURM <slurm-index>` to launch jobs again:
 
 .. code-block:: bash
-        
+
         # connect to your MariaDB server
         $ mysql -u <MariaDB_username> -h <MariaDB_server_hostname> -p
 
@@ -233,7 +233,7 @@ Examples
 
     * You should modify some values accordingly (e.g. you project name or MariaDB username on .cfg files).
     * This scripts are based on https://github.com/stajichlab/REPET-slurm. More information on the usage for this scripts can be found there.
-   
+
 Recommended resources
 ----------------------------
 

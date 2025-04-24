@@ -19,7 +19,7 @@ Tested on (Requirements)
 ------------------------
 
 * **OS base:** CentOS (x86_64) :math:`\boldsymbol{\ge}` 6.6 (Rocks 6.2)
-* **Dependencies to run WPS:**  
+* **Dependencies to run WPS:**
     * WRF 3.7.1
     * jasper 1.900.1
 
@@ -56,7 +56,7 @@ The following procedure is the easiest way to install Wps v3.7.1 in a cluster.
 
         # for Tcl script use only
         set         topdir        /share/apps/wps/3.7.1/intel-2017_update-1
-        set         version       3.7.1                                                                                                                                               
+        set         version       3.7.1
         set         sys           x86_64-redhat-linux
 
         module load intel/2017_update-1
@@ -102,7 +102,7 @@ The following procedure is the easiest way to install Wps v3.7.1 in a cluster.
 
     .. code-block:: bash
 
-        DM_FC = mpif90 -f90=ifort 
+        DM_FC = mpif90 -f90=ifort
 
 #. Now if we can start with the Wps compilation:
 
@@ -125,7 +125,7 @@ Geogrid
 ~~~~~~~
 
 **Objective:** Generate the files 'geo_em.dxx.nc' as output, where xx represents the domain number. [2]_
-  
+
 #. Position yourself in the directory where you want to generate the output files, in our case it will be in the same directory of the geogrid.exe binary
 
     .. code-block:: bash
@@ -189,4 +189,3 @@ Authors
 -------
 - Alejandro Salgado-Gómez
 - Andrés Felipe Zapata Palacio
-

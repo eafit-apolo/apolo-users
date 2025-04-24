@@ -18,7 +18,7 @@ Tested on (Requirements)
 ------------------------
 
 * **OS base:** CentOS (x86_64) :math:`\boldsymbol{\ge}` 6.6 (Rocks 6.2)
-* **Dependencies:**  
+* **Dependencies:**
     * GNU GCC >= 5.4.0 (64 Bits)
     * OpenMPI >= 1.8.8 (64 Bits)
     * Python >= 2.7.12
@@ -76,7 +76,7 @@ Module
                         \n\tLIB in the shared directory /share/apps/boost/1.64.0/intel_impi/2017_update-1\n"
         }
 
-        module-whatis "\n\n\tSets the environment for using BOOST 1.64.0 \ 
+        module-whatis "\n\n\tSets the environment for using BOOST 1.64.0 \
                 \n\tbuilded with gcc-5.4.0, OpenMPI 1.8.8 x86_64, Python 2.7.12 Intel\n"
 
         # for Tcl script use only
@@ -87,7 +87,7 @@ Module
         conflict boost
 
         module load openmpi/1.8.8-x86_64_gcc-5.4.0_cuda-8.0
-        module load python/2.7.12_intel-2017_update-1 
+        module load python/2.7.12_intel-2017_update-1
         module load icu/58.2_gcc-5.4.0
 
         prepend-path    PATH			$topdir/bin

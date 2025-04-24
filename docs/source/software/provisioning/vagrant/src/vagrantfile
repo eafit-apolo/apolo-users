@@ -1,11 +1,11 @@
-# -*- mode: ruby -*-                                                         
-#          
-# Title       : vagrantfile                                                  
+# -*- mode: ruby -*-
+#
+# Title       : vagrantfile
 # Description : A vagranfile example with some custom configuration.
 # Author      : Manuela Carrasco
 # Date        : Jan 21, 2019
-# Usage       : vagrant [options] -- command [<args>] 
-# Help        : vagrant -h                                                   
+# Usage       : vagrant [options] -- command [<args>]
+# Help        : vagrant -h
 #==============================================================================
 
 # This example has custom options like "machine" but we won't show the code
@@ -37,4 +37,3 @@ Vagrant.configure("2") do |config| # The vagrantfile api version is 2
     end
   end
   config.vm.hostname = "my-virtualmachine" # Set VM hostname
-      

@@ -15,7 +15,7 @@ ELK Stack 6.x Installation and Configuration
 .. contents::
 
 .. note::
-  
+
   - Install Java JDK 8, more recent versions may have compatibility problems.
   - You must use the same version for Logstash, Elasticsearch, Kibana to avoid compatibility problems.
   - Also, when reading the guides check that the guide version is compatible with the version of your ELK stack.
@@ -99,7 +99,7 @@ After installing the needed package, Logstash is configured like this:
 
 The first task copies two configuration files, *pipelines.yml* and *logstash.yml*. The first file indicates to Logstash where to find our pipelines configuration files. You can find it :download:`here <src/files/etc/logstash/pipelines.yml>`. The second one is the main configuration file for Logstash. You can find it :download:`here <src/files/etc/logstash/logstash.yml>`.
 
-The second task takes a template and renders it in the pipelines directory. The template represents the description of our main pipeline, that is, inputs, filters, and outputs. You can find it :download:`here <src/templates/etc/logstash/conf.d/main_pipeline.conf.j2>`. 
+The second task takes a template and renders it in the pipelines directory. The template represents the description of our main pipeline, that is, inputs, filters, and outputs. You can find it :download:`here <src/templates/etc/logstash/conf.d/main_pipeline.conf.j2>`.
 
 .. note:: **Logstash Filters:** It is important to know the version of the filter plugins that you are using so you will be able to search for the proper documentation.
 
@@ -128,7 +128,7 @@ After installing and configuring Kibana, it is time to give structure to our log
 
      * In the *Dev Tools* section, copy and paste the content of the index and mappings :download:`file <config/index_and_mappings.txt>`, then select it all and click on RUN. Note that these mappings are the ones that we use, you can take them as an example and create yours, for more information go to ELK's documentation about `mappings <https://www.elastic.co/guide/en/kibana/current/tutorial-load-dataset.html#_set_up_mappings>`_.
      * To easily see your mappings go to: Management -> Index management -> Select your index -> Mapping.
-         
+
   b) Continue with **c** and **d** steps after :ref:`filebeat-label` is sending information to logstash. So please go to :ref:`filebeat-label`.
 
 

@@ -13,7 +13,7 @@ Cufflinks assembles transcripts, estimates their abundances, and tests for diffe
 
 Cufflinks was originally developed as part of a collaborative effort between the Laboratory for Mathematical and Computational Biology, led by Lior Pachter at UC Berkeley, Steven Salzberg’s computational genomics group at the Institute of Genetic Medicine at Johns Hopkins University, and Barbara Wold’s lab at Caltech. The project is now maintained by Cole Trapnell’s lab at the University of Washington.
 
-Cufflinks is provided under the OSI-approved Boost License 
+Cufflinks is provided under the OSI-approved Boost License
 
 .. toctree::
     :caption: Versions

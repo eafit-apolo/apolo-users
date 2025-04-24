@@ -1,16 +1,16 @@
-#!/bin/sh                                                                                                                                                                                                                                     
+#!/bin/sh
 
-#SBATCH --partition=longjobs                                                                                                                                                                                                                  
-#SBATCH --nodes=1                                                                                                                                                                                                                             
-#SBATCH --ntasks-per-node=1                                                                                                                                                                                                                   
-#SBATCH --time=05:00                                                                                                                                                                                                                          
-#SBATCH --job-name=gatk_example                                                                                                                                                                                                               
-#SBATCH -o gatk4_%j.out                                                                                                                                                                                                                   
-#SBATCH -e gatk4_%j.err                                                                                                                                                                                                                   
-#SBATCH --mail-type=END,FAIL                                                                                                                                                                                                                  
+#SBATCH --partition=longjobs
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --time=05:00
+#SBATCH --job-name=gatk_example
+#SBATCH -o gatk4_%j.out
+#SBATCH -e gatk4_%j.err
+#SBATCH --mail-type=END,FAIL
 #SBATCH --mail-user=youremail@email.com
 
-# Don't share environment variables                                                                                                                                                                                                           
+# Don't share environment variables
 
 module load gatk4/4.1.0.0
 

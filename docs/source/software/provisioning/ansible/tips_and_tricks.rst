@@ -8,7 +8,7 @@
 .. role:: raw-html(raw)
    :format: html
 
-	    
+
 Installation of multiple packages
 ---------------------------------
 
@@ -18,7 +18,7 @@ However, this can prove to be slow due to packages being
 installed one by one.
 
 .. code-block:: yaml
-   
+
    ---
    - name: Install multiple packages one by one
      yum:
@@ -37,7 +37,7 @@ single transaction is to provide a list of their names to
 the yum module:
 
 .. code-block:: yaml
-   
+
    ---
    - name: Install multiple packages in one transaction
      yum:
@@ -73,4 +73,3 @@ ansible's hash-filters or other tools such as openssl or python.
 .. code-block:: bash
 
    openssl passwd -1 '<password>'
-       

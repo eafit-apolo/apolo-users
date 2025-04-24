@@ -25,7 +25,7 @@ Installation
         $ unzip batSrc.zip && cd blatSrc
 
     To use the Intel's compiler modify the file :bash:`inc/common.mk`: like this:
-    
+
     .. code-block:: bash
 
         CC=icc
@@ -36,7 +36,7 @@ Installation
     .. code-block:: bash
 
         mkdir -p ~/bin/x86_64
-    
+
     Compile:
 
     .. code-block:: bash

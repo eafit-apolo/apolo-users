@@ -18,7 +18,7 @@ Tested on (Requirements)
 ------------------------
 
 * **OS base:** CentOS (x86_64) :math:`\boldsymbol{\ge}` 6.6 (Rocks 6.2)
-* **Dependencies:**  
+* **Dependencies:**
     * mpich2 v3.2.1
     * HDF5 v1.8.15-patch-1
     * PNetCDF/1.6.1
@@ -123,7 +123,7 @@ Module
         module load mpich2/3.2.1_gcc-5.5.0
         module load hdf5/1.8.15-patch1_gcc-5.5.0_mpich2-3.2.1
         module load pnetcdf/1.6.1_gcc-5.5.0_mpich2-3.2.1
-        
+
         setenv          NETCDF                  $topdir
 
         prepend-path    PATH                    $topdir/bin
@@ -144,7 +144,7 @@ Module
 Use
 ---
     .. code-block:: bash
-    
+
         module load netcdf/4.3.3_gcc-5.5.0_mpich2-3.2.1
 
 Resources

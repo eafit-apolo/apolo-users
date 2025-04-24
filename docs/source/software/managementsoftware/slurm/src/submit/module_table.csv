@@ -5,5 +5,5 @@
 ``module show <module-name>``,see exactly what effect loading the module will have with
 ``module list``,check which modules are currently loaded in your environment
 ``module load <module-name>``,load a module
-``module unload <module-name>``,unload a module	
+``module unload <module-name>``,unload a module
 ``module purge``,remove all loaded modules from your environment

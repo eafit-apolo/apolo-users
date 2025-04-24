@@ -19,7 +19,7 @@ Tested on (Requirements)
 ------------------------
 
 * **OS base:** CentOS (x86_64) :math:`\boldsymbol{\ge}` 6.6 (Rocks 6.2)
-* **Dependencies:**  
+* **Dependencies:**
     * Intel Compiler >= 2017_update-1
     * Gnu GCC >= 5.5.0
     * Mpich2 >= 3.2.1
@@ -100,7 +100,7 @@ Cronos
 
             The idea is to produce the single and double precision version and install them in the same place as the names of the resulting files are different, making it easier for the user to use them.
 
-        
+
         .. code-block:: bash
 
             $ make clean

@@ -14,7 +14,7 @@
 
 
 
-##### JOB COMMANDS #### 
+##### JOB COMMANDS ####
 hostname
 date
 sleep 50

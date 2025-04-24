@@ -18,7 +18,7 @@ Basic information
 Tested on (Requirements)
 ------------------------
 
-* **Dependencies to run Qiime2:**  
+* **Dependencies to run Qiime2:**
     * Python >= 3.6.5 (Miniconda)
 
 Installation

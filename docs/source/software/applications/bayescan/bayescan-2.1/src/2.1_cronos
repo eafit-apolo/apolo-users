@@ -26,7 +26,6 @@ set         version       2.1_intel-18.0.2
 set         sys           x86_64-redhat-linux
 
 conflict bayescan
- 
+
 
 prepend-path	PATH			$topdir/bin
-

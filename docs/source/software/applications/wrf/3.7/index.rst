@@ -14,13 +14,13 @@ Basic Information
 
 - **Deploy date:** April 2015
 - **Official Website:** https://www.mmm.ucar.edu/weather-research-and-forecasting-model
-- **License:** 
+- **License:**
 - **Installed on:** :ref:`Apolo II <about_apolo-ii>`
 
 Installation
 ------------
 
-This entry covers the entire process performed for the installation and 
+This entry covers the entire process performed for the installation and
 configuration of WRF 3.7 on a cluster.
 
 .. toctree::

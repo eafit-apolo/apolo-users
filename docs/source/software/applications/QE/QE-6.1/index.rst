@@ -84,7 +84,7 @@ Module
             \n\tcalculations and materials modeling at the nanoscale \
                 \n\tbuilded with Intel Parallel Studio XE Cluster Edition \
             \n\t2017 Update 1 (Intel MPI and Intel MKL)\n"
-        
+
 
     # for Tcl script use only
     set   	  topdir	/share/apps/qe/6.1/intel_17.0.1_impi_17.0.1_mkl_17.0.1
@@ -94,8 +94,8 @@ Module
 
     conflict qe
 
-    module load intel/2017_update-1 
-    module load impi/2017_update-1 
+    module load intel/2017_update-1
+    module load impi/2017_update-1
     module load mkl/2017_update-1
 
     prepend-path PATH		$topdir/bin

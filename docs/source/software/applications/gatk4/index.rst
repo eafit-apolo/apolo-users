@@ -6,11 +6,11 @@
 GATK4
 =====
 
-GATK [1]_, pronounced "Gee Ay Tee Kay" (not "Gat-Kay"), stands for 
-GenomeAnalysisToolkit. It is a collection of command-line tools for analyzing 
-high-throughput sequencing data with a primary focus on variant discovery. The 
-tools can be used individually or chained together into complete workflows. We 
-provide end-to-end workflows, called GATK Best Practices, tailored for specific 
+GATK [1]_, pronounced "Gee Ay Tee Kay" (not "Gat-Kay"), stands for
+GenomeAnalysisToolkit. It is a collection of command-line tools for analyzing
+high-throughput sequencing data with a primary focus on variant discovery. The
+tools can be used individually or chained together into complete workflows. We
+provide end-to-end workflows, called GATK Best Practices, tailored for specific
 use cases.
 
 .. toctree::

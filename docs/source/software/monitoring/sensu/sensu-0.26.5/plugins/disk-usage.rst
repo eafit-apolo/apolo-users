@@ -3,7 +3,7 @@
 .. role:: bash(code)
    :language: bash
 
-	      
+
 Sensu Plugin - Disk Usage
 ============================
 
@@ -25,7 +25,7 @@ Installation
 		  Client that will execute this monitoring task.
 
 Install the plugin executing:
-		  
+
 .. code-block:: bash
 
 	$ sensu-install -p disk-usage
@@ -60,14 +60,13 @@ supported by the plugin.
 
 **Example:** Checks if the partitions /,/tmp,/var are over 90% or 95% of it's capacity. The inode threshold
 is the default because was not specified.
-	  
+
    .. literalinclude:: ../src/checks/disk-usage.json
 	  :language: bash
 
-		  
+
 References
 ----------
 
 .. [1] Sensu-Plugins. (n.d.). Sensu-plugins/sensu-plugins-disk-checks. Retrieved June 14, 2019,
 	   from https://github.com/sensu-plugins/sensu-plugins-disk-checks
-

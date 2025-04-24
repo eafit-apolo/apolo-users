@@ -96,4 +96,4 @@ References
 Authors
 -------
 
-- Juan David Arcila Moreno 
+- Juan David Arcila Moreno

@@ -17,4 +17,3 @@
     permanent: true
   notify:
   - firewalld_restart
-

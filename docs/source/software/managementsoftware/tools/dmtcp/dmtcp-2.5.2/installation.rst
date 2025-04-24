@@ -20,7 +20,7 @@ Build process
 -------------
 This entry describes the installation process of DMTCP.
 
-#. Get DMTCP latest version from its sourceforge page 
+#. Get DMTCP latest version from its sourceforge page
    (`page <https://sourceforge.net/projects/dmtcp/files/2.5.2/dmtcp-2.5.2.tar.gz/download>`_)
 
 #. Send the installation package to the master node on your cluster.
@@ -37,7 +37,7 @@ This entry describes the installation process of DMTCP.
       cd $installer_path$
       tar xf dmtcp-2.5.2.tar.gz
 
-#. Create the installation directory and change its owner to the user that it is 
+#. Create the installation directory and change its owner to the user that it is
    doing this process.
 
    .. code-block:: bash
@@ -49,22 +49,22 @@ This entry describes the installation process of DMTCP.
 
    .. code-block:: bash
 
-      ./configure \ 
-      --prefix=/share/apps/dmtcp/2.5.2 \ 
-      --build=x86_64-redhat-linux \  
-      --enable-infiniband-support \ 
+      ./configure \
+      --prefix=/share/apps/dmtcp/2.5.2 \
+      --build=x86_64-redhat-linux \
+      --enable-infiniband-support \
       --enable-pthread-mutex-wrappers
       make && make install
 
-#. After this process, repeat the configure process to install the (**32 Bits**) 
+#. After this process, repeat the configure process to install the (**32 Bits**)
    compatibility following these commands.
 
    .. code-block:: bash
 
-      ./configure \ 
-      --prefix=/share/apps/dmtcp/2.5.2 \ 
-      --build=x86_64-redhat-linux \  
-      --enable-infiniband-support \ 
+      ./configure \
+      --prefix=/share/apps/dmtcp/2.5.2 \
+      --build=x86_64-redhat-linux \
+      --enable-infiniband-support \
       --enable-pthread-mutex-wrappers \
       --enable-m32
       make clean

@@ -9,7 +9,7 @@ PNP4Nagios
 PNP is an addon to Nagios which analyzes performance data provided
 by plugins and stores them automatically into RRD-databases. [1]_
 
-.. contents:: Table of Contents	      
+.. contents:: Table of Contents
 
 Basic information
 -----------------
@@ -30,7 +30,7 @@ Dependencies
 * Perl
 * Perl RRDTool
 * PHP-GD
-  
+
 Installation
 ------------
 
@@ -52,14 +52,14 @@ PNP4Nagios can be configured in 5 different modes:
 
 * Synchronous
 * Bulk
-* Bulk with NPCD 
+* Bulk with NPCD
 * Bulk with NPCD and npcdmod
 * Gearman
 
 This procedure will configure PNP4Nagios in **Bulk with NPCD mode**. Bulk mode reduces the load on the Nagios Server because the data collection and Processing is not executed by a Nagios process but by NPCD.
 
 Nagios Performance C Daemon (NPCD) processes the Performance Data produced by Nagios plugins.
-  
+
 .. note:: For more information about the different configuration modes, read [2]_.
 
 Edit the following options in **nagios.cfg** file:
@@ -99,7 +99,7 @@ It's necessary to redefine the :bash:`process-service-perfdata-file` and :bash:`
 :bash:`service_perfdata_file_processing_interval` has
 passed. The Nagios macro **$TIMET$** is appended to the filename to avoid
 overwriting of old files unintentionally." [2]_
-   
+
 NPCD monitors :bash:`/usr/local/pnp4nagios/var/spool/` directory and :bash:`process_perfdata.pl`
 processes these files decoupled from Nagios.
 
@@ -120,9 +120,9 @@ configuration file needed by PHP-GD, a dependency of PNP4Nagios.
 .. literalinclude:: ../src/tasks/pnp4nagios-config.yml
    :language: yaml
 
-			  
+
 .. _pnp_test:
-			  
+
 Test PNP4Nagios
 ---------------
 
@@ -146,7 +146,7 @@ Params                        Value
 
 2. PHP Home Page Check
 ''''''''''''''''''''''
-	
+
 After installing and configuring PNP4Nagios, the Home webpage :bash:`http://<host>/pnp4nagios` will display a detailed
 environment test:
 
@@ -179,7 +179,7 @@ Can't find Nagios Environment
 appears on the web page:
 
 .. code-block:: bash
-			   
+
      Cant find Nagios Environment. Exiting ....
      perfdata directory "/usr/local/pnp4nagios/var/perfdata/" is empty. Please check your Nagios config.
 

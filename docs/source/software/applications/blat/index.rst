@@ -8,7 +8,7 @@ similarity of length 25 bases or more. It may miss more divergent or shorter
 sequence alignments. It will find perfect sequence matches of 20 bases.
 BLAT on proteins finds sequences of 80% and greater similarity of
 length 20 amino acids or more. In practice DNA BLAT works well on primates,
-and protein BLAT on land vertebrates. 
+and protein BLAT on land vertebrates.
 
 .. toctree::
    :caption: Versions

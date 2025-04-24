@@ -5,7 +5,7 @@ if [ "$1" == "up" ]; then
 elif [ "$1" == "provision-elk" ]; then
     vagrant provision elk
 elif [ "$1" == "provision-filebeat" ]; then
-    vagrant provision cr0n05 4p0l0    
+    vagrant provision cr0n05 4p0l0
 else
     echo "Usage: ./run.sh up|provision-elk|provision-filebeat"
 fi

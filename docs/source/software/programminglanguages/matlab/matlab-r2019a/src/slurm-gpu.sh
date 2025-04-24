@@ -7,8 +7,7 @@
 #SBATCH -n 1
 #SBATCH -t 20:00
 #SBATCH --gres=gpu:2
- 
+
 module load matlab/r2018a
 
 matlab -nosplash -nodesktop < gpu_script.m
-

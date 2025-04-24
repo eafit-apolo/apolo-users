@@ -5,7 +5,7 @@
 
 .. role:: yaml(code)
    :language: yaml
-	      
+
 Nagios Core - 4.4.1
 ====================
 
@@ -24,23 +24,23 @@ Directory Hierarchy
 -------------------
 
 - **bin:** Nagios binaries.
-  
+
 - **dell:** Stores scripts, configuration files, images and
   resources of Dell Plugin.
-  
+
 - **etc:** Stores Nagios configuration files.
-  
+
 - **include**
-  
+
 - **libexec:** Contains most of the plugins installed.
-  
+
 - **sbin:** Nagios scripts
-  
+
 - **share:** Contains Web interface files.
-  
-- **var** 
-  
-  
+
+- **var**
+
+
 Installation
 ------------
 
@@ -63,7 +63,7 @@ Mail Configuration
 The commands :bash:`notify-host-by-email` and :bash:`notify-service-by-email` were modified adding the flag -A:
 
    .. code-block:: bash
-		   
+
       /usr/bin/printf "MAIL_BODY" | /bin/mail -A nagios -s "SUBJECT" $CONTACTEMAIL$
 
    In order to uncouple the mail definition from the command line, the flag :bash:`-A nagios` was added. With this option, **mail** will use the configuration defined in the account nagios, in the file
@@ -80,7 +80,7 @@ Example:
    set ssl-verify=ignore
    }
 
-   
+
 Plugins
 -------
 
@@ -92,7 +92,7 @@ Plugins
    plugins/dell-openmanage
    plugins/ilo-rest
    plugins/pnp4nagios
-   
+
 Usage
 -----
 
@@ -104,7 +104,7 @@ Before executing the role it's important to verify the value of the variables in
    ansible-vault playbooks/healthcheck.yml --ask-vault-pass
 
 .. caution::
-   
+
    This Ansible role was created thinking in the Ansible Philosophy: **The tool should be used to represent the state of the server, not as a procedural language but as a declarative one.**
 
    This role was developed to be run multiple times in the same server: If the real state doesn't matches with the role state, the server is modified in order to match both states. If the server has well configured and well installed Nagios and it's plugins, running the playbook will say **Ok** in most of the tasks, so it  won't break any configuration.

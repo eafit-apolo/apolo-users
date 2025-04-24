@@ -22,26 +22,26 @@ Basic information
 Installation
 ------------
 
-This entry covers the entire process performed in the installation and test of 
-**EDGE-pro** on a cluster with the conditions described below. It is worth 
-mentioning that this application does not meet the Linux Directory Hierarchy 
+This entry covers the entire process performed in the installation and test of
+**EDGE-pro** on a cluster with the conditions described below. It is worth
+mentioning that this application does not meet the Linux Directory Hierarchy
 Standard, so we change the directory structure to make it work with ``modules``,
 ``Slurm``, and other subsystems.
 
-As a side note, the performance of **EDGE-pro** depends directly on the 
-**bowtie**'s performance, so we suggest making a different tuning compilation of it. 
+As a side note, the performance of **EDGE-pro** depends directly on the
+**bowtie**'s performance, so we suggest making a different tuning compilation of it.
 
 
 .. toctree::
    :maxdepth: 1
 
-   installation	      
-      	
+   installation
+
 Usage
 -----
 In the following example we are going to run a test included in the source code
-of **EDGE-pro**. Note that we are using one single compute-node. Bowtie will be 
-using ``OpenMP`` with 16 and 32 threads, in Cronos and Apolo, respectively. 
+of **EDGE-pro**. Note that we are using one single compute-node. Bowtie will be
+using ``OpenMP`` with 16 and 32 threads, in Cronos and Apolo, respectively.
 
 **Apolo**
 
@@ -55,7 +55,7 @@ using ``OpenMP`` with 16 and 32 threads, in Cronos and Apolo, respectively.
        :language: bash
        :caption: :download:`slurm_edge_pro_cronos.sh <src/slurm_template_cronos.sh>`
 
-     
+
 To run the previous example.
 
 .. code-block:: bash
@@ -65,16 +65,16 @@ To run the previous example.
 .. note::
 
     As you can notice in the previous examples we are using the flag ``-s``.
-    This is because we must specify to **EDGE_pro** where is the directory 
-    that contains: the built executable, the binaries of ``bowtie2`` and 
+    This is because we must specify to **EDGE_pro** where is the directory
+    that contains: the built executable, the binaries of ``bowtie2`` and
     additional scripts.
 
 .. note::
 
      In this example we are using the default version of **EDGE-pro**
      module. We recommend to specify the version. To use the
-     version of this entry, pleace load the module as follow: 
-      
+     version of this entry, pleace load the module as follow:
+
 
       In Apolo II:
 
@@ -92,4 +92,3 @@ Authors
 -------
 
 - Juan David Arcila-Moreno <jarcil13@eafit.edu.co>
-		       

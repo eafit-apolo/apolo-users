@@ -3,7 +3,7 @@
 .. role:: bash(code)
    :language: bash
 
-	      
+
 iLO AgentLess Management - Nagios Plugin
 ========================================
 
@@ -19,9 +19,9 @@ Basic information
 **Tested on (Requirements)**
 ----------------------------
 
-* HPE ProLiant Server 
+* HPE ProLiant Server
 * **Nagios Core:** Version :math:`\boldsymbol{\ge}` 3.5.0
-  
+
 Dependencies
 ------------
 
@@ -33,7 +33,7 @@ Dependencies
 - python
 - net-snmp-utils *(Also required by Nagios Core)*
 - glibc-devel *(Also required by Nagios Core)*
-  
+
 Installation
 ------------
 
@@ -61,7 +61,7 @@ configures the permissions over Nagios credential file.
 
 .. warning:: It's important to configure nagios as the owner of the nagios credential file as is described in
 			 this configuration taskfile.
-			  
+
 Usage
 -----
 
@@ -71,7 +71,7 @@ Defining Hosts, commands and services
 .. warning:: It's necessary to read the section :ref:`nagios_centos_7` before proceeding to configure.
 
 For starting the configuration of the iLO plugin, run the following command:
-	     
+
 .. code-block:: bash
 
    /usr/local/nagios/libexec/hpeilo_nagios_config
@@ -106,11 +106,11 @@ Example of simple configuration using the script:
    Do you wish to replace it?(y/n) (Blank is y):
 
 With regard to the current question: If you answer NO, then the script will
-save a backup in the folder :bash:`/usr/local/nagios/etc/ilo/.backup/`, and 
+save a backup in the folder :bash:`/usr/local/nagios/etc/ilo/.backup/`, and
 will override the configuration file.
-	  
+
 .. code-block:: text
-		
+
    Do you wish to run configuration file to complete the process (y/n) (Blank is y):
    Running configuration  file ....
    Reading host-group configuration file : /usr/local/nagios/libexec/hpeilo_nagios_config.cfg
@@ -131,7 +131,7 @@ will override the configuration file.
 
 .. note:: If you created the temporal file /etc/init.d/nagios, it's important to delete it after generating
 		  the configuration of iLO plugin.
-		 
+
 iLO Credentials
 '''''''''''''''
 
@@ -140,7 +140,7 @@ The iLO credentials used by the plugin are cyphered and stored in the file
 
 .. code-block:: bash
 
-   /usr/local/nagios/libexec/credit_save -H <hostname> [-V] [-h] 
+   /usr/local/nagios/libexec/credit_save -H <hostname> [-V] [-h]
 
 ============================= ========================================================================
 Params                        Value
@@ -166,7 +166,7 @@ This is possible executing the command :bash:`autoreconf -vfi` in the source dir
 when :bash:`./configure` is executed the following error message will appear.
 
 .. code-block:: bash
-		
+
    WARNING: 'aclocal-1.14' is missing on your system.
    You should only need it if you modified 'acinclude.m4' or
    'configure.ac' or m4 files included by 'configure.ac'.
@@ -178,7 +178,7 @@ when :bash:`./configure` is executed the following error message will appear.
    <http://www.perl.org/>
 
 .. _nagios_centos_7:
-   
+
 Installation in CentOS 7
 ''''''''''''''''''''''''
 
@@ -190,7 +190,7 @@ Installation in CentOS 7
 The error will show an error output during the execution of the configuration scripts as the showed below:
 
 .. code-block:: bash
-   
+
    Do you wish to write above configured data to host-group configuration file. (y/n) (Blank is y):
    HPE iLO host-group configuration file saved at /usr/local/nagios/libexec/hpeilo_nagios_config.cfg
    grep: /etc/init.d/nagios*: No existe el fichero o el directorio
@@ -255,13 +255,11 @@ normal when the machine is powered off.
 Message:
 
 .. code-block:: bash
-				
-	Check iLO credit is correct saved.(/usr/local/nagios/libexec/credit_save -H 10.150.4.188) 
+
+	Check iLO credit is correct saved.(/usr/local/nagios/libexec/credit_save -H 10.150.4.188)
 
 
 References
 ----------
 
 .. [1] "User’s Manual Nagios Plug-in for HPE iLO RESTful Extension", Hewlett Packard Enterprise (HPE). Retrieved December 3, 2018, from https://goo.gl/knRFPr.
-
-

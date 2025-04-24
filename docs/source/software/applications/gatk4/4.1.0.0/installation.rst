@@ -19,7 +19,7 @@ This entry described the installation process of GATK4.
 #. Clone the GATK4 repository.
 
    .. code-block:: bash
-    
+
       git clone https://github.com/broadinstitute/gatk
 
 #. Load the Java module.
@@ -33,13 +33,13 @@ This entry described the installation process of GATK4.
    .. note::
 
       You can choose tha way to build:
-      
+
       - ./gradlew bundle or ./gradlew
 
         * This creates a zip archive in the build/ directory with a name like gatk-VERSION.zip containing a complete standalone GATK distribution, you can also run GATK commands directly from the root of your git clone after running this command.
 
       - ./gradlew installDist
-        
+
         * Does a fast build that only lets you run GATK tools from inside your git clone, and locally only (not on a cluster).
 
       - ./gradlew installAll

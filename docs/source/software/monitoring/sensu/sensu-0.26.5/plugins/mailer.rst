@@ -67,5 +67,3 @@ References
 
 .. [1] Sensu-Plugins. (n.d.). Sensu-plugins/sensu-plugins-mailer. Retrieved June 13, 2019,
        from https://github.com/sensu-plugins/sensu-plugins-mailer/blob/master/bin/handler-mailer.rb
-
-

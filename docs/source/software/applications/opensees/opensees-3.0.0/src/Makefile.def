@@ -279,4 +279,3 @@ include $(FE)/Makefile.incl
 TCL_INCLUDES = -I/usr/include/tcl-private/generic
 
 INCLUDES =  $(TCL_INCLUDES) $(FE_INCLUDES) $(MACHINE_INCLUDES)
-

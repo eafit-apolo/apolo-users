@@ -19,4 +19,3 @@ under different license terms.
    :maxdepth: 1
 
    poly.1.9/index
-    

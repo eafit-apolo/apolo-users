@@ -116,7 +116,7 @@ of transrate check the following link: http://hibberdlab.com/transrate/getting_s
 References
 ----------
 
-.. [1] TransRate: reference free quality assessment of de-novo transcriptome assemblies (2016). Richard D Smith-Unna, 
+.. [1] TransRate: reference free quality assessment of de-novo transcriptome assemblies (2016). Richard D Smith-Unna,
        Chris Boursnell, Rob Patro, Julian M Hibberd, Steven Kelly.
        Genome Research doi: http://dx.doi.org/10.1101/gr.196469.115
 

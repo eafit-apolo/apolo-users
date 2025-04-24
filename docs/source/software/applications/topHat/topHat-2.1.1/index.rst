@@ -18,17 +18,17 @@ Basic information
 Tested on (Requirements)
 ------------------------
 
-* **Dependencies to run TopHat:**  
+* **Dependencies to run TopHat:**
     - Bowtie2
     - Intel compiler (C y C++)
-    
+
 Installation
 ------------
 
 After solving the previously mentioned dependencies, you can proceed with the installation.
 
 #. Download the latest version of the software (Source code - tar.gz) (ccb.jhu.edu/software/tophat/downloads/tophat-2.1.1.Linux_x86_64.tar.gz):
- 
+
     .. code-block:: bash
 
         tar -zxvf tophat-2.1.1.Linux_x86_64.tar.gz

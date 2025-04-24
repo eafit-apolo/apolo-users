@@ -20,7 +20,7 @@ Tested on (Requirements)
 ------------------------
 
 * **OS base:** CentOS (x86_64) :math:`\boldsymbol{\ge}` 6.6 (Rocks 6.2)
-* **Dependencies to run ParGenes:**  
+* **Dependencies to run ParGenes:**
     * GCC 5.0 >  (tested on version 5.4.0)
     * Python 2.7 or 3.X (tested on Python 3.6.5)
     * CMAKE > 3.6 (tested on version 3.7.1)
@@ -57,7 +57,7 @@ The following procedure is the easiest way to install ParGenes (master git versi
 
         $ cd ParGenes
         $ ./install.sh
-    
+
     Now you have ParGenes installed inside your ``$HOME`` directory.
 
 Running Example
@@ -81,7 +81,7 @@ In this section, there is an example run that ParGenes already has.
 
 #. This is an example for Apolo in SLURM.
     .. code-block:: bash
-    
+
         #!/bin/bash
 
         #SBATCH --partition=longjobs
@@ -113,4 +113,3 @@ Authors
 -------
 
 - Tomas David Navarro Munera <tdnavarrom@eafit.edu.co>
-

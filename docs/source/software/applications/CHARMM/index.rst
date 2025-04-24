@@ -7,9 +7,9 @@ CHARMM
 
 (Chemistry at HARvard Macromolecular Mechanics)
 
-A molecular simulation program with broad application to many-particle systems with 
-a comprehensive set of energy functions, a variety of enhanced sampling methods, and support for multi-scale 
-techniques including QM/MM, MM/CG, and a range of implicit solvent models. 
+A molecular simulation program with broad application to many-particle systems with
+a comprehensive set of energy functions, a variety of enhanced sampling methods, and support for multi-scale
+techniques including QM/MM, MM/CG, and a range of implicit solvent models.
 
 - CHARMM primarily targets biological systems including peptides, proteins, prosthetic groups, small molecule ligands, nucleic acids, lipids, and carbohydrates, as they occur in solution, crystals, and membrane environments. CHARMM also finds broad applications for inorganic materials with applications in materials design.
 

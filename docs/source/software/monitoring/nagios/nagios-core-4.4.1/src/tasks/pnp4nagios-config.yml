@@ -1,6 +1,6 @@
 ---
 - name: Service NPCD enabled at boot time
-  service: 
+  service:
     name: npcd
     enabled: yes
     state: started

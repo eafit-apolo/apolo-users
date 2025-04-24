@@ -86,13 +86,13 @@ Disk Resize Example in Vagrant
       $ sudo cfdisk #change the space, and write to the disk
 
    - It should look like this:
-   
+
    .. image:: img/doc2.png
-   
+
    - Here we have to click on the **resize** option and it should look like the following:
-   
+
    .. image:: img/doc3.png
-   
+
    - After that it will ask for verification, just type "yes" and then click on **write**
 
 #. Then enter and exit, after that process run the following commands:
@@ -109,6 +109,3 @@ References
    Retrieved from https://www.vagrantup.com/intro/getting-started/boxes.html
 
 :Author: Manuela Herrera-López <mherreral@eafit.edu.co>
-
-
-

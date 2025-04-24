@@ -18,7 +18,7 @@ Tested on (Requirements)
 ------------------------
 
 * **OS base:** CentOS (x86_64) :math:`\boldsymbol{\ge}` 6.6 (Rocks 6.2)
-* **Dependencies:**  
+* **Dependencies:**
     * GMP 6.1.2
 
 
@@ -85,7 +85,7 @@ Module
 
         conflict mpfr
         module load gmp/6.1.2_gcc-4.4.7-18
-        
+
         prepend-path    LD_LIBRARY_PATH         $topdir/lib
         prepend-path    LIBRARY_PATH            $topdir/lib
         prepend-path    LD_RUN_PATH             $topdir/lib

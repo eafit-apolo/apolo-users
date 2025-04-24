@@ -19,4 +19,3 @@ In addition, if applies, please also acknowledge the grant related with your res
     The computational resources used in this product was funded by the {Funding Institution} with grant {Grant Code ID}.
 
 We would also appreciate to inform us about your publications in which you acknowledge one of the clusters.
-

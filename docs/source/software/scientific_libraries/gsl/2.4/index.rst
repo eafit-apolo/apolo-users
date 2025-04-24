@@ -18,7 +18,7 @@ Tested on (Requirements)
 ------------------------
 
 * **OS base:** CentOS (x86_64) :math:`\boldsymbol{\ge}` 6.6 (Rocks 6.2)
-* **Dependencies:**  
+* **Dependencies:**
     * GNU GCC >= 5.4.0
 
 
@@ -42,7 +42,7 @@ Installation
     .. code-block:: bash
 
         module load gcc/5.4.0
-        ./configure --prefix=/share/apps/gsl/2.4/gcc-5.4.0 --build=x86_64-redhat-linux --enable-shared --enable-static 2>&1 | tee gsl-config.log 
+        ./configure --prefix=/share/apps/gsl/2.4/gcc-5.4.0 --build=x86_64-redhat-linux --enable-shared --enable-static 2>&1 | tee gsl-config.log
         make 2>&1 | tee make-gsl.log
 
 
@@ -92,7 +92,7 @@ Module
 
         conflict gsl
         module load gcc/5.4.0
-        
+
 
         prepend-path	PATH			$topdir/bin
 

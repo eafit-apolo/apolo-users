@@ -32,7 +32,7 @@ Build process
    .. code-block:: bash
 
       wget http://www2.mmm.ucar.edu/wrf/src/WRFV3.7.TAR.gz
-      tar xvf WRFV3.7.TAR.gz 
+      tar xvf WRFV3.7.TAR.gz
       cd WRFV3
 
 #. Load the necessary modules
@@ -61,7 +61,7 @@ Build process
       $JASPERLIB or $JASPERINC not found in environment, configuring to build without grib2 I/O...
       ------------------------------------------------------------------------
       Please select from among the following Linux x86_64 options:
-  
+
       1. (serial)   2. (smpar)   3. (dmpar)   4. (dm+sm)   PGI (pgf90/gcc)
       5. (serial)   6. (smpar)   7. (dmpar)   8. (dm+sm)   PGI (pgf90/pgcc): SGI MPT
       9. (serial)  10. (smpar)  11. (dmpar)  12. (dm+sm)   PGI (pgf90/gcc): PGI accelerator
@@ -81,11 +81,11 @@ Build process
       60. (serial)  61. (smpar)  62. (dmpar)  63. (dm+sm)   PGI (pgf90/pgcc): -f90=pgf90
       64. (serial)  65. (smpar)  66. (dmpar)  67. (dm+sm)   INTEL (ifort/icc): HSW/BDW
       68. (serial)  69. (smpar)  70. (dmpar)  71. (dm+sm)   INTEL (ifort/icc): KNL MIC
-  
+
       Enter selection [1-71] : 35
       ------------------------------------------------------------------------
       Compile for nesting? (1=basic, 2=preset moves, 3=vortex following) [default 1]: 1
-  
+
       Configuration successful!
       ------------------------------------------------------------------------
       testing for MPI_Comm_f2c and MPI_Comm_c2f
@@ -93,15 +93,15 @@ Build process
       testing for fseeko and fseeko64
       fseeko64 is supported
       ------------------------------------------------------------------------
-    
+
    The configuration file is configuration.wrf.
 
 #. Compile WRF, with the case you need.
 
     .. code-block:: bash
-      
+
        ./compile <case> | tee wrf-compilation.log
-    
+
     In :bash:`main/` you should see the following executables:
 
     * If you compile a real case:
@@ -112,7 +112,7 @@ Build process
          real.exe
          ndown.exe
          tc.exe
-    
+
     * If you compile an idealized case
 
       .. code-block:: bash
@@ -123,7 +123,7 @@ Build process
 Compile WSP
 ###########
 
-The WRF Preprocessing System (WPS) [1]_ is a set of three programs whose collective 
+The WRF Preprocessing System (WPS) [1]_ is a set of three programs whose collective
 role is to prepare input to the real.exe program for real-data simulations.
 
 #. Download the latest version of WSP

@@ -18,7 +18,7 @@ Tested on (Requirements)
 ------------------------
 
 * **OS base:** CentOS (x86_64) :math:`\boldsymbol{\ge}` 6.6 (Rocks 6.2)
-* **Dependencies:**  
+* **Dependencies:**
     * Intel Parallel Studio XE Cluster Edition >= 17.0.1
     * zlib >= 1.2.11
     * szip >= 2.1
@@ -87,7 +87,7 @@ Module
         module load intel/2017_update-1
         module load szip/2.1_intel-2017_update-1
         module load zlib/1.2.11_intel-2017_update-1
-        
+
 
         prepend-path	PATH			$topdir/bin
 

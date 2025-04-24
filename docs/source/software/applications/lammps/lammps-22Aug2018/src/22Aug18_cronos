@@ -28,8 +28,7 @@ set         sys           x86_64-redhat-linux
 conflict lammps
 module load impi/18.0.2
 module load mkl/18.0.2
- 
+
 setenv		LAMMPSROOT		$topdir
 
 prepend-path	PATH			$topdir/bin
-

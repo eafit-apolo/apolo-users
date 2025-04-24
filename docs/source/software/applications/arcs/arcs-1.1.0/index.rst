@@ -32,7 +32,7 @@ Installation
         $ mkdir build && cd build
         $ ../configure CFLAGS="-O3 -mavx2" CXXFLAGS="-O3 -mavx2" --prefix=/share/apps/arcs/1.1.0/gcc/7.4.0
         $ make -j4 && make check
-        
+
     Make sure all the checks run correctly. Then install it:
 
     .. code-block:: bash

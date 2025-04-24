@@ -9,7 +9,7 @@
     name: nagios
     groups: nagcmd
     password: "{{ nagios_passwd }}"
- 
+
 - name: User apache in group nagcmd
   user:
     name: apache

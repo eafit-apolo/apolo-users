@@ -50,7 +50,7 @@ After resolving to load the previously mentioned dependencies, you can proceed w
     $ rm gamess-20160818.1-charmm.tar.gz
     $ mkdir source/gamint/gamess
     $ cp ~/apps/gamess/src/gamess/source/* source/gamint/gamess/
-    $ rm source/gamint/gamess/vector.src 
+    $ rm source/gamint/gamess/vector.src
     $ rm source/gamint/gamess/ga.src
     $ module unload slurm/16.05.6
     $ module load mpich2/3.2_gcc-5.4.0 cmake/3.7.1
@@ -78,8 +78,8 @@ We comment on the following line in the **tool/gmscomp** file:
     $ ~/apps/charmm/src/charmm-gammess/charmm/configure --gamess
     $ make -j 8
 
-3. At the end of the execution of the **make -j 8**, several errors related to functions that are not defined will result, 
-this happens because the CHARMM and GAMESS compilation methods are different, making cmake unable to produce the dependencies 
+3. At the end of the execution of the **make -j 8**, several errors related to functions that are not defined will result,
+this happens because the CHARMM and GAMESS compilation methods are different, making cmake unable to produce the dependencies
 for the parallel compilation of the program. This is why it is necessary to apply a new patch and recompile again.
 
 .. code-block:: bash
@@ -97,12 +97,12 @@ for the parallel compilation of the program. This is why it is necessary to appl
     ...
     1
                     Chemistry at HARvard Macromolecular Mechanics
-            (CHARMM) - Developmental Version 41b2   February 15, 2017            
-                                Revision unknown                                
+            (CHARMM) - Developmental Version 41b2   February 15, 2017
+                                Revision unknown
         Copyright(c) 1984-2014  President and Fellows of Harvard College
                                 All Rights Reserved
-      Current operating system: Linux-2.6.32-504.16.2.el6.x86_64(x86_64)@deb     
-                  Created on  6/6/17 at  9:36:54 by user: mgomezzul   
+      Current operating system: Linux-2.6.32-504.16.2.el6.x86_64(x86_64)@deb
+                  Created on  6/6/17 at  9:36:54 by user: mgomezzul
 
              Maximum number of ATOMS:    360720, and RESidues:      120240
     ...
@@ -125,7 +125,7 @@ After resolving to load the previously mentioned dependencies, you can proceed w
     $ rm gamess-20160818.1-charmm.tar.gz
     $ mkdir source/gamint/gamess
     $ cp  ~/apps/gammess/src/gamess/source/* source/gamint/gamess/
-    $ rm source/gamint/gamess/vector.src 
+    $ rm source/gamint/gamess/vector.src
     $ rm source/gamint/gamess/ga.src
     $ module purge
     $ module load fftw/3.3.7_gcc-5.5.0_mpich2-3.2.1 cmake/3.10.2
@@ -151,8 +151,8 @@ After resolving to load the previously mentioned dependencies, you can proceed w
     $ FFTWDIR=/share/apps/fftw/3.3.7/gcc-5.5.0_mpich2-3.2.1 FFTW_HOME=/share/apps/fftw/3.3.7/gcc-5.5.0_mpich2-3.2.1 ~/apps/charmm-gammes/src/gcc-5.5.0_mpich2-3.2.1/charmm/configure --prefix=/share/apps/charmm/c41b2/gcc-5.5.0_mpich2-3.2.1 --gamess --with-gcc
     $ make -j 16 | tee make-charmm.log
 
-4. At the end of the execution of the **make -j 16**, several errors related to functions that are not defined will result, this happens because the CHARMM and GAMESS 
-compilation methods are different, making cmake unable to produce the dependencies for the parallel compilation of the program. This is why it is necessary to apply 
+4. At the end of the execution of the **make -j 16**, several errors related to functions that are not defined will result, this happens because the CHARMM and GAMESS
+compilation methods are different, making cmake unable to produce the dependencies for the parallel compilation of the program. This is why it is necessary to apply
 a new patch and recompile again.
 
 .. code-block:: bash
@@ -174,12 +174,12 @@ a new patch and recompile again.
     ...
     1
                   Chemistry at HARvard Macromolecular Mechanics
-            (CHARMM) - Developmental Version 41b2   February 15, 2017            
-                                 Revision unknown                                
+            (CHARMM) - Developmental Version 41b2   February 15, 2017
+                                 Revision unknown
         Copyright(c) 1984-2014  President and Fellows of Harvard College
                                All Rights Reserved
-      Current operating system: Linux-2.6.32-504.16.2.el6.x86_64(x86_64)@deb     
-                  Created on  6/6/17 at  9:36:54 by user: mgomezzul   
+      Current operating system: Linux-2.6.32-504.16.2.el6.x86_64(x86_64)@deb
+                  Created on  6/6/17 at  9:36:54 by user: mgomezzul
 
              aximum number of ATOMS:    360720, and RESidues:      120240
     ...
@@ -219,7 +219,7 @@ Module
     conflict charmm
 
     module load mpich2/3.2_gcc-5.4.0
-    
+
 
     prepend-path	PATH		$topdir/bin
 

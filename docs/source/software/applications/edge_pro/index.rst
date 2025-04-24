@@ -3,8 +3,8 @@
 EDGE-pro
 ========
 
-**EDGE-pro** [1]_  (Estimated Degree of Gene Expression in PROkaryotes) is an 
-efficient software system to estimate gene expression levels in prokaryotic 
+**EDGE-pro** [1]_  (Estimated Degree of Gene Expression in PROkaryotes) is an
+efficient software system to estimate gene expression levels in prokaryotic
 genomes from RNA-seq data.
 
 EDGE-pro uses **Bowtie2** for alignment and then estimates expression directly
@@ -23,10 +23,10 @@ Perl scripts.
 References
 ----------
 
-.. [1] T. Magoc, D. Wood, and S.L. Salzberg. (2013, May 31). EDGE-pro 
-       Official Page. Retrieved 09:52, January 16, 2019 from 
+.. [1] T. Magoc, D. Wood, and S.L. Salzberg. (2013, May 31). EDGE-pro
+       Official Page. Retrieved 09:52, January 16, 2019 from
        http://ccb.jhu.edu/software/EDGE-pro/ .
 
-.. [2] T. Magoc, D. Wood, and S.L. Salzberg. EDGE-pro: Estimated Degree of Gene 
+.. [2] T. Magoc, D. Wood, and S.L. Salzberg. EDGE-pro: Estimated Degree of Gene
        Expression in Prokaryotic Genomes.
        Evolutionary Bioinformatics vol.9, pp.127-136, 2013

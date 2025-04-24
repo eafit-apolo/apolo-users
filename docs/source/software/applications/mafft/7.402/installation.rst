@@ -17,9 +17,9 @@ Tested on (Requirements)
 - **Optional extensions:**
 
   * `Mxscarna <https://www.ncrna.org/softwares/mxscarna/>`_ (Included in the mafft-7.402-with-extensions-src.tgz package)
-    
+
   * `Foldalign <https://rth.dk/resources/foldalign/>`_ :math:`\boldsymbol{\ge}` 2.5.1
-  
+
   * `Contrafold <http://contra.stanford.edu/contrafold/>`_ :math:`\boldsymbol{\ge}` 2.02
 
 Build process
@@ -28,30 +28,30 @@ Build process
 .. note::
 
    * In :ref:`Apolo II <about_apolo-ii>` was used the Intel Compiler 17.0.1.
-     
+
      * :bash:`module load intel/2017_Update-1`
-   
+
    * In :ref:`Cronos <about_cronos>` was used the Intel Compiler 18.0.2.
-     
+
      * :bash:`module load intel/18.0.2`
 
 This entry described the installation process of MAFFT with extensions.
-         
+
 #. Get the MAFFT with the extensions package.
-   
+
    .. code-block:: bash
 
       wget https://mafft.cbrc.jp/alignment/software/mafft-7.402-with-extensions-src.tgz
       tar xfvz mafft-7.402-with-extensions-src.tgz
-   
+
 #. Edit MAFFT's Makefile with the following lines.
-   
+
    :bash:`mafft-7.402-with-extensions/core/Makefile`
 
    From:
 
    .. code-block:: bash
-   
+
       PREFIX = /usr/local
       ...
       CC = gcc
@@ -62,7 +62,7 @@ This entry described the installation process of MAFFT with extensions.
    To:
 
    .. code-block:: bash
-               
+
       PREFIX = /your/path
       ...
       #CC = gcc
@@ -99,15 +99,15 @@ MXSCARNA [1]_. (Multiplex Stem Candidate Aligner for RNAs) is a multiple alignme
 
 
    From:
-   
+
    .. code-block:: bash
 
-      ...      
+      ...
       CXX = g++
       ...
-      
+
    To:
-   
+
    .. code-block:: bash
 
       ...
@@ -150,7 +150,7 @@ FOLDALIGN [2]_. an algorithm for local or global simultaneous folding and aligni
 #. Edit Foldalign's Makefile with the following lines.
 
    :bash:`mafft-7.402-with-extensions/src/mafft-7.402-with-extensions/extensions/foldalign/Makefile`
-   
+
    :download:`Makefile <src/foldalign-Makefile>`
 
    from:
@@ -176,7 +176,7 @@ FOLDALIGN [2]_. an algorithm for local or global simultaneous folding and aligni
       module load intel/2017_update-1
       make clean
       make
-      
+
 #. Move the binaries to libexec MAFFT directory.
 
    .. code-block:: bash
@@ -186,7 +186,7 @@ FOLDALIGN [2]_. an algorithm for local or global simultaneous folding and aligni
 Contrafold
 ..........
 
-CONTRAfold [3]_. is a novel secondary structure prediction method based on conditional log-linear models (CLLMs), a flexible class of probabilistic models that generalize upon SCFGs by using discriminative training and feature-rich scoring. By incorporating most of the features found in typical thermodynamic models, CONTRAfold achieves the highest single sequence prediction accuracies to date, outperforming currently available probabilistic and physics-based techniques. 
+CONTRAfold [3]_. is a novel secondary structure prediction method based on conditional log-linear models (CLLMs), a flexible class of probabilistic models that generalize upon SCFGs by using discriminative training and feature-rich scoring. By incorporating most of the features found in typical thermodynamic models, CONTRAfold achieves the highest single sequence prediction accuracies to date, outperforming currently available probabilistic and physics-based techniques.
 
 #. Get the Contrafold package and move it to the MAFFT extension's directory.
 
@@ -248,7 +248,7 @@ Or something similar about a compilation error, it appears because in Utilities.
 #. Edit Utilities.hpp and add the *limits.h* library.
 
    :bash:`mafft-7.402-with-extensions/extensions/contrafold/src/Utilities.hpp`
-   
+
    :download:`Utilities.hpp <src/Utilities.hpp>`
 
    from:
@@ -256,7 +256,7 @@ Or something similar about a compilation error, it appears because in Utilities.
       .. code-block:: c++
 
        #define UTILITIES_HPP
-      
+
        #include <algorithm>
        ...
 
@@ -265,7 +265,7 @@ Or something similar about a compilation error, it appears because in Utilities.
       .. code-block:: c++
 
        #define UTILITIES_HPP
-      
+
        #include <limits.h>
        #include <algorithm>
        ...

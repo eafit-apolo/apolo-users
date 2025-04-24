@@ -20,13 +20,13 @@ Tested on (Requirements)
 ------------------------
 
 * **OS base:** CentOS (x86_64) :math:`\boldsymbol{\ge}` 6.6 (Rocks 6.2)
-* **Dependencies to run trinity:**  
+* **Dependencies to run trinity:**
     * bowtie2  (tested on version 2.3.2)
     * jellyfish (tested on version 2.3.0) depends on yaggo
     * yaggo (tested on version 1.5.10)
     * salmon   (tested on version 0.14.1)
     * samtools (tested on version 1.3.1)
-    * Python 2.7 or 3.X with numpy 
+    * Python 2.7 or 3.X with numpy
     * CMAKE (teste on version 3.7.1)
 
 Installation
@@ -63,7 +63,7 @@ The following procedure is the easiest way to install Trinity v2.8.5 in a cluste
 
     .. note::
 
-        In this example, we loaded the Intel compiler icc v19.0.4, because trinity does support it, but we have to do some changes first. 
+        In this example, we loaded the Intel compiler icc v19.0.4, because trinity does support it, but we have to do some changes first.
 
 #. Now, we start configuring some components that are inside the directory you extracted from the tar.gz file.
 
@@ -71,7 +71,7 @@ The following procedure is the easiest way to install Trinity v2.8.5 in a cluste
 
         $ cd trinityrnaseq-Trinity-v2.8.5/trinity-plugins
         $ emacs -nw Makefile
-    
+
     Go to where it says "parafly_target:"
 
     * Delete the first line that contains ``tar -zxvf ${PARAFLY_CODE}.tar.gz && \``
@@ -117,8 +117,8 @@ The following procedure is the easiest way to install Trinity v2.8.5 in a cluste
         $ cd trinityrnaseq-Trinity-v2.8.5
         $ make -j4
         $ make -j4 plugins
-    
-    
+
+
 
 #. Now, Trinity's installer doesn't work well, it copies all the files inside the main trinity directory to /usr/local/bin, so for us to install it correctly, we had to delete some files manually and change the name of the main tirnity directory.
 
@@ -141,7 +141,7 @@ The following procedure is the easiest way to install Trinity v2.8.5 in a cluste
         $ cd ..
         $ mv trinityrnaseq-Trinity-v2.8.5/ 19.0.4
         $ sudo mv 19.0.4/ /share/apps/trinity/2.8.5/intel/
-    
+
     You have Trinity v2.8.5 installed inside the /share/apps/trinity/2.8.5/intel/19.0.4 directory
 
     .. note::
@@ -218,4 +218,3 @@ Authors
 -------
 
 - Tomas David Navarro Munera <tdnavarrom@eafit.edu.co>
-

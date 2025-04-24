@@ -17,7 +17,7 @@ Basic information
 Tested on (Requirements)
 ------------------------
 
-* **Dependencies to run PLUMED:**  
+* **Dependencies to run PLUMED:**
     * zlib y zlib-devel
     * bzip2 y bzip2-devel
     * boost >= 1.58.0
@@ -27,7 +27,7 @@ Installation
 
 After solving the previously mentioned dependencies, you can proceed with the installation.
 
-#. Download the latest version of the software (Source code - tgz) (https://github.com/mothur/mothur/releases): 
+#. Download the latest version of the software (Source code - tgz) (https://github.com/mothur/mothur/releases):
 
     .. code-block:: bash
 
@@ -83,7 +83,7 @@ Module
         module load openblas/0.2.19_gcc-5.4.0
         module load gsl/2.4_gcc-5.4.0
         module load libmatheval/1.1.11
-        
+
 
         prepend-path	PATH			$topdir/bin
 
@@ -102,7 +102,7 @@ Mode of Use
 -----------
 
 - The use of **Plumed** in this case is limited to patching the **Gromacs** source code for this MD to use **Plumed** for physical handling.
-  
+
     .. code-block:: bash
 
        module load wrf/3.7.1_gcc-5.4.0

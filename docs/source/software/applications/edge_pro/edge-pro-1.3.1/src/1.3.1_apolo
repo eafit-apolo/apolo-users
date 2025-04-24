@@ -28,7 +28,6 @@ set         sys           x86_64-redhat-linux
 conflict edge_pro
 module load intel/2017_update-1
 module load bowtie2/2.3.0_intel-2017_update-1
- 
+
 
 prepend-path	PATH			$topdir/bin
-

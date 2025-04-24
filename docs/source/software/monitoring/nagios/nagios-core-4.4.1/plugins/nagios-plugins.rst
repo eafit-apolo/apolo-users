@@ -12,14 +12,14 @@ Basic information
 -----------------
 
 - **Official Website:** https://nagios-plugins.org/
-- **License:** GNU General Public License v3.0 
+- **License:** GNU General Public License v3.0
 - **Description:** The official Nagios Plugins package contains over 50 plugins to get you started monitoring all the basics. [1]_
 
 **Tested on (Requirements)**
 ----------------------------
 
 * **Nagios Core:** Version :math:`\boldsymbol{\ge}` 3.5.0
-  
+
 Installation
 ------------
 

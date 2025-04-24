@@ -35,14 +35,14 @@ the meaning of each one:
 +                         | positive integer values (separated by commas) starting with the number zero (0).                 |
 +-------------------------+--------------------------------------------------------------------------------------------------+
 + CUDA_MPS_PIPE_DIRECTORY | The different MPS clients communicate through named pipes located by default in the              |
-+                         | /tmp/nvidia-mps directory, which can be modified by assigning a different path to this variable. | 
++                         | /tmp/nvidia-mps directory, which can be modified by assigning a different path to this variable. |
 +-------------------------+--------------------------------------------------------------------------------------------------+
 + CUDA_MPS_LOG_DIRECTORY  | The MPS service control daemon uses the control.log file to record the status of the MPS         |
 +                         | servers, commands executed by a user as well as their output, and starting and stopping          |
 +                         | information for the daemon. The MPS server maintains the log server.log, where it stores data    |
 +                         | about its startup, shutdown and status of each client. Both are stored by default in the         |
 +                         | /var/log/nvidia-mps directory, which can be modified by assigning a different path to this       |
-+                         | variable.                                                                                        | 
++                         | variable.                                                                                        |
 +-------------------------+--------------------------------------------------------------------------------------------------+
 
 Daemon initiation and single server
@@ -76,16 +76,16 @@ must be transformed as follows:
     .. code-block:: bash
 
         NGPUS=2
-    
+
         for (( i = 0; i < $NGPUS; ++i  ))
         do
             mkdir /tmp/mps_$i
             mkdir /tmp/mps_log_$i
-        
+
             export CUDA_VISIBLE_DEVICES=$i
             export  CUDA_MPS_PIPE_DIRECTORY="/tmp/mps_$i"
             export  CUDA_MPS_LOG_DIRECTORY="/tmp/mps_$i"
-        
+
             nvidia-cuda-mps-control -d
         done
 
@@ -123,8 +123,8 @@ you have two cards, the basic structure of a script to stop the MPS service woul
 .. code-block:: bash
 
     NGPUS=2
- 
-    for (( i = 0; i < $NGPUS; ++i ))  
+
+    for (( i = 0; i < $NGPUS; ++i ))
     do
         export CUDA_MPS_PIPE_DIRECTORY="/tmp/mps_$i"
         echo "quit" | nvidia-cuda-mps-control
@@ -146,18 +146,18 @@ variable CUDA_VISIBLE_DEVICES, while the latter require the creation of a script
 indicate to the service which MPI process it will carry out. your instructions based on which server. The structure of this script is explained below:
 
     - Initially, it is necessary to obtain the identifier of each MPI process, so that all can be distributed equally on the activated MPS servers;
-      This identifier is known as rank according to the MPI standard and is stored in an environment variable, whose name may vary depending on the MPI 
+      This identifier is known as rank according to the MPI standard and is stored in an environment variable, whose name may vary depending on the MPI
       implementation used: openmpi, mpich, mvapich, etc. The example illustrated below makes use of the variable OMPI_COMM_WORLD_LOCAL_RANK belonging to openmpi:
 
         .. code-block:: bash
 
              lrank="$OMPI_COMM_WORLD_LOCAL_RANK"
-    
+
     - After obtaining the identifier of each process, it is necessary to define the value of the variable CUDA_MPS_PIPE_DIRECTORY, ensuring that the distribution
-      carried out is the same on each MPS server. The example illustrated below assumes that the maximum number of processes to use is four (4), the system has 
+      carried out is the same on each MPS server. The example illustrated below assumes that the maximum number of processes to use is four (4), the system has
       two cards and the directories where the named pipes used by each MPS server are located correspond to those described throughout the section Activation:
 
-        .. code-block:: bash 
+        .. code-block:: bash
 
              case ${lrank} in
                 [0])
@@ -181,11 +181,11 @@ An example of the correct way of running a program that uses MPI and benefits fr
 .. code-block:: bash
 
     $ cat mps_runnable.sh
-   
+
         #!/bin/bash
-    
+
         lrank="$OMPI_COMM_WORLD_LOCAL_RANK"
-    
+
         case ${lrank} in
             [0])
                 export CUDA_MPS_PIPE_DIRECTORY=/tmp/mps_0
@@ -200,9 +200,9 @@ An example of the correct way of running a program that uses MPI and benefits fr
                 export CUDA_MPS_PIPE_DIRECTORY=/tmp/mps_1
                 ;;
         esac
-    
+
         program_that_uses_gpu
-    
+
     $ mpirun -np 4 ./mps_runnable.sh
 
 Troubleshooting

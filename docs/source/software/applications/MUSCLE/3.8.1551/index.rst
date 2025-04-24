@@ -18,7 +18,7 @@ Tested on (Requirements)
 ------------------------
 
 * **OS base:** CentOS (x86_64) :math:`\boldsymbol{\ge}` 6.6 (Rocks 6.2)
-* **Dependencies:**  
+* **Dependencies:**
     * g++ >= 4.9.4
 
 
@@ -43,7 +43,7 @@ Installation
         cd muscle3.8.31/src/
         emacs mk
         ...
-        # mateo                                                                                                                                                     
+        # mateo
         g++ $ENV_GCC_OPTS -c -O3 -march=native -mfpmath=sse -D_FILE_OFFSET_BITS=64 -DNDEBUG=1 $CPPName.cpp -o $CPPName.o  >> muscle.make.stdout.txt 2>> muscle.make.stderr.txt
         ...
 

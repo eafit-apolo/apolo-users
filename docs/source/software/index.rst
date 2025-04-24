@@ -16,4 +16,3 @@ Software
    operatingsystems/index
    scientific_libraries/index
    accelerators/index
-

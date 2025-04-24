@@ -78,7 +78,7 @@ std::string RemoveGaps(const std::string &s);
 // same as sprintf but returns a string
 std::string SPrintF(const char *fmt, ...);
 
-// write progress message to console (stderr) and return to 
+// write progress message to console (stderr) and return to
 // beginning of line; wipes out any previous message on current line
 void WriteProgressMessage(const std::string &message);
 

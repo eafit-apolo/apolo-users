@@ -27,8 +27,8 @@ and test of **BayeScan** on a cluster with the conditions described below.
 .. toctree::
    :maxdepth: 1
 
-   installation	      
-      	
+   installation
+
 Usage
 -----
 In the following example we are going to run a test included in the source code
@@ -38,19 +38,19 @@ threads.
 .. literalinclude:: src/bayescan_run.sh
        :language: bash
        :caption: :download:`slurm.sh <src/bayescan_run.sh>`
-	     
+
 To run the previous example.
 
 .. code-block:: bash
-		
+
    sbatch bayescan_run.sh
 
 .. note::
 
      In this example we are using the default version of **BayeScan**
      module. We recommend to specify the version. To use the
-     version of this entry, pleace load the module as follow: 
-      
+     version of this entry, pleace load the module as follow:
+
 
       In Apolo II:
 
@@ -65,7 +65,7 @@ To run the previous example.
 	 module load bayescan/2.1_intel-18.0.2
 
 
-	 
+
 Performance Tests
 -----------------
 The following test was performed in :ref:`Cronos <about_cronos>`.
@@ -85,8 +85,8 @@ The test for our **builded version** was executed by the example provided in
     As you can see in the sbatch script, the time was calculated using
     ``time`` command.
 
-**Results**  
-       
+**Results**
+
 +------------------+-----------------------------------+
 |     Compiled     |                Time               |
 |     version      |                                   |
@@ -104,4 +104,3 @@ Authors
 -------
 
 - Juan David Arcila-Moreno <jarcil13@eafit.edu.co>
-		       

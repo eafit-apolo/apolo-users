@@ -30,7 +30,7 @@ Testing of the whole ELK Stack can be easily done using `Vagrant <https://www.va
       * In the configuration of each virtual machine, there is a subsection for provisioning. In that subsection, there is a variable that is accessed as :bash:`ansible.playbook`. Set it to the path of the main ansible playbook.
       * Take a look at the provisioning subsection in the vagrantfile, note that the :bash:`ansible.extra_vars` defines a variable called :bash:`machine`, this variable must match the hostname of the virtual machine.
       * The hostname of the virtual machine can be changed with the variable :bash:`vm.hostname`. For more information, read the Vagrant documentation about `vagrantfiles <https://www.vagrantup.com/docs/vagrantfile/>`_.
-      * The variables :bash:`elk_ip` and :bash:`elk_hostname` under the configuration of :bash:`4p0l0` and :bash:`cr0n05`, are used to make :bash:`elk` visible by its hostname automatically. 
+      * The variables :bash:`elk_ip` and :bash:`elk_hostname` under the configuration of :bash:`4p0l0` and :bash:`cr0n05`, are used to make :bash:`elk` visible by its hostname automatically.
 
    The :bash:`site.yml` uses one playbook or another depending on the value of the variable :bash:`machine`:
 

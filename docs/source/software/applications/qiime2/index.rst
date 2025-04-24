@@ -22,7 +22,7 @@ and widely-used analysis pipeline.
 QIIME 2 currently supports an initial end-to-end microbiome analysis pipeline. New functionality will
 regularly become available through QIIME 2 plugins. You can view a list of plugins that are currently
 available on the QIIME 2 plugin availability page. The future plugins page lists plugins that are
-being developed. 
+being developed.
 
 .. toctree::
    :caption: Versions

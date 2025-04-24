@@ -18,7 +18,7 @@ Tested on (Requirements)
 ------------------------
 
 * **OS base:** CentOS (x86_64) :math:`\boldsymbol{\ge}` 6.6 (Rocks 6.2)
-* **Dependencies:**  
+* **Dependencies:**
     * Intel Parallel Studio XE Cluster Edition 2017 (Update 1) (Intel Compiler, Intel MPI and MKL)
 
 
@@ -83,7 +83,7 @@ Module
 
         conflict hypre
 
-        module load intel/2017_update-1 
+        module load intel/2017_update-1
         module load impi/2017_update-1
         module load mkl/2017_update-1
 

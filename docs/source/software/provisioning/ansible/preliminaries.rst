@@ -9,7 +9,7 @@
    :format: html
 
 .. _sssec-ansible_inventory:
-      
+
 Inventory
 ---------------------
 
@@ -27,7 +27,7 @@ and would typically follow the conventions shown below:
 
       ; lbservers -> Group
       ; [host1,host2].example.com -> Members
-      [lbservers]        
+      [lbservers]
       host1.example.com
       host2.example.com
 
@@ -76,7 +76,7 @@ and would typically follow the conventions shown below:
       .. _`Ansible's Variable Precedence article`: https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#variable-precedence-where-should-i-put-a-variable
 
    .. code-block:: ini
-	 
+
       ; lbsouth and lbnorth will inherit all
       ; variables declared within lbservers.
       [lbservers:children]
@@ -101,10 +101,10 @@ and would typically follow the conventions shown below:
 
    .. figure:: src/images/inventory_example-children/inventory_example-children.png
       :alt: lbservers' components
-      
+
 It is impotant to highlight that there are two default groups: :bash:`all` and
 :bash:`ungrouped`, which, unlike any other group, can be omitted within the
-inventory file, as their definitions are both implicit. Please be aware that: 
+inventory file, as their definitions are both implicit. Please be aware that:
 
 #. Hierarchically, all groups and hosts are members of :bash:`all`.
 
@@ -168,19 +168,19 @@ lbservers group can reside in multiple files under
 :bash:`$ANSIBLE_HOME/group_vars/lbservers/`. e.g.
 
    .. code-block:: yaml
-      
+
       # $ANSIBLE_HOME/group_vars/lbservers/requests
       ---
       requests_timeout: 5
 
    .. code-block:: yaml
-      
+
       # $ANSIBLE_HOME/group_vars/lbservers/config
       ---
       max_hosts_to_serve: 10
 
-.. _sssec-ansible_modules:	 
-      
+.. _sssec-ansible_modules:
+
 Modules
 ---------------------
 
@@ -198,7 +198,7 @@ which tasks to apply on which hosts. This information is contained within a
 definition block called "Play". Take the following playbook for example:
 
 .. code-block:: yaml
-		
+
    ---
    - hosts: lbsouth
      vars:
@@ -207,7 +207,7 @@ definition block called "Play". Take the following playbook for example:
    - hosts: lbnorth
      vars:
        nginx_conf_dir: /opt/nginx/
-		
+
    - hosts: lbservers
      vars:
        nginx_log_dir: /var/log/ansible
@@ -280,12 +280,12 @@ create reusable components and write simpler playbooks.
 A role's layout would typically look as below:
 
 .. note::
-   
+
    There are more directories than those listed below. See `Ansible's official documentation`_
    for more information.
 
 .. _`Ansible's official documentation`: https://docs.ansible.com/ansible/2.5/user_guide/playbooks_reuse_roles.html
-    
+
 .. code-block:: bash
 
    <playbook 1>
@@ -342,14 +342,14 @@ example on the `Playbooks`_ section.
    .. code-block:: yaml
 
       # $ANSIBLE_HOME/roles/nginx/tasks/config.yml
-      ---		   
+      ---
       - name: Place nginx config file
        template:
          src: templates/nginx.conf.j2
 	 dest: "{{ nginx_conf_dir }}/nginx.conf"
        notify:
          - restart nginx
-	   
+
       - name: Ensure nginx is running
 	systemd:
           name: nginx
@@ -381,11 +381,11 @@ example on the `Playbooks`_ section.
       One would typically store variables inside
       :bash:`$ANSIBLE_HOME/roles/<role>/vars/main.yml` as for ansible to auto-load
       them, but there is also the alternative to do it manually (shown in this example).
-	 
+
    .. code-block:: bash
 
       mkdir -p $ANSIBLE_HOME/roles/nginx/vars
-		   
+
    .. code-block:: yaml
 
       # $ANSIBLE_HOME/roles/nginx/vars/config.yml
@@ -428,8 +428,8 @@ example on the `Playbooks`_ section.
       ---
       requests_timeout: 3
       nginx_conf_dir: /etc/nginx/conf
-   
-      
+
+
 #. **Decouple handlers**. Handlers are stored the same way taskfiles are, but in
    a different location. They are placed inside the "handler" directory, which
    is at the same level as the "tasks" directory.
@@ -461,20 +461,20 @@ example on the `Playbooks`_ section.
       :emphasize-lines: 5
 
       # $ANSIBLE_HOME/roles/nginx/tasks/config.yml
-      ---		   
+      ---
       - name: Place nginx config file
        template:
          src: templates/etc/nginx/conf/nginx.conf.j2
 	 dest: "{{ nginx_conf_dir }}/nginx.conf"
        notify:
          - restart nginx
-	   
+
       - name: Ensure nginx is running
 	systemd:
           name: nginx
 	  state: started
 	  enabled: true
-	 
+
 #. **Call the role** from the playbook (Note how it became simpler).
 
    .. code-block:: yaml
@@ -494,10 +494,10 @@ Finally, consider the designated behavior for each role 'x' component
 - If roles/x/meta/main.yml exists, any role dependencies listed therein will be added to the list of roles (ansible 1.3 and later).
 - Any copy, script, template or include tasks (in the role) can reference files in roles/x/{files,templates,tasks}/ (dir depends on task) without having to path them relatively or absolutely.
 
-.. _sssec-ansible_vault:  
-	    
+.. _sssec-ansible_vault:
+
 Vault (Encryption)
---------------------- 
+---------------------
 
 .. note::
 
@@ -521,7 +521,7 @@ the original.
 
      ansible-vault --vault-id <env>@<vault-password script> create <file>
 
-Alternatively, if you intend to be prompted for the password, then:     
+Alternatively, if you intend to be prompted for the password, then:
 
   .. code-block:: bash
 
@@ -530,7 +530,7 @@ Alternatively, if you intend to be prompted for the password, then:
      # However, environments would not be taked into consideration.
      ansible-vault --vault-id <env>@prompt create <file>
 
-Encrypt files    
+Encrypt files
 ~~~~~~~~~~~~~
 
   .. code-block:: bash
@@ -544,7 +544,7 @@ Encrypt variables as a string
 
      ansible-vault encrypt_string --vault-id <env>@<vault-password script> --stdin-name '<varname>'
 
-     
+
 Edit encrypted files
 ~~~~~~~~~~~~~~~~~~~~
 
@@ -559,30 +559,30 @@ View encrypted file
 ~~~~~~~~~~~~~~~~~~~
 
   .. code-block:: bash
-		  
+
      ansible-vault --vault-id <env>@<vault-password script> view <file>
 
 View encrypted string
 ~~~~~~~~~~~~~~~~~~~~~
 
    .. code-block:: bash
-		   
+
       ansible localhost -m debug -a var='<variable_to_decrypt>' \
       -e "@<file_containing_variable>" \
       --vault-id <env>@<vault-password script>
-     
+
 Decrypt files
 ~~~~~~~~~~~~~
 
   .. code-block:: bash
-		  
+
      ansible-vault --vault-id <env>@<vault-password script> decrypt <file-1> [file-2 file-3 ... file-n]
 
 Change encryption key
 ~~~~~~~~~~~~~~~~~~~~~
 
   .. code-block:: bash
-		  
+
      ansible-vault rekey <file-1> [file-2 file-3 ... file-n]
 
 vault-password script
@@ -648,9 +648,9 @@ Let us delve into a more detailed example:
 
    .. code-block:: bash
       :linenos:
-   
+
       #!/bin/bash
-   
+
       case $1 in
         "--vault-id")
         declare -r env="$2"
@@ -659,13 +659,13 @@ Let us delve into a more detailed example:
         exit 1
         ;;
       esac
-   
+
       declare -r cluster=`hostname | awk -F'.' '{print $1}'`
       declare -r cmd="ssh remote \
       cat /etc/secrets/$env/$cluster"
-   
+
       declare -r vault_passwd="$($cmd)"
-   
+
       echo "$vault_passwd"
 
 #. The vault id reprents an environment: dev (development), prod (production).
@@ -692,7 +692,7 @@ Let us delve into a more detailed example:
    .. code-block:: INI
 
       ; ~/ansible/inventory
-      
+
       [cluster1]
       cluster1.local
       compute-1-0.local
@@ -712,7 +712,7 @@ Let us delve into a more detailed example:
       cluster1
       cluster2
       cluster3
-      
+
 #. Create a playbook to change the root password. Since repeating code is an awful
    practice, we decided to create a reusable task and manage the user password
    through a variable.
@@ -732,7 +732,7 @@ Let us delve into a more detailed example:
 
    .. code-block:: bash
 
-      # Password - cluster1: 123		   
+      # Password - cluster1: 123
       openssl passwd -1 -salt
       Password:
       Verifying - Password:
@@ -761,9 +761,9 @@ Let us delve into a more detailed example:
 
       - Remember to give Vault's --vault-id option the apropriate
 	environment for each server.
-   
+
    .. code-block:: bash
-		   
+
       ssh cluster1.local
       ansible-vault encrypt_string \
       --vault-id prod@/usr/sbin/keyring-client.sh \
@@ -779,7 +779,7 @@ Let us delve into a more detailed example:
           6131643734643639383332613635323264363065316464366232
       Encryption successful
       exit
-      
+
 #. Create the group variable :bash:`root_password_hash` and assign it the
    appropriate hash.
 
@@ -805,7 +805,7 @@ Let us delve into a more detailed example:
       # ~/ansible/group_vars/cluster2
       ---
       root_password_hash: !vault |
-          $ANSIBLE_VAULT;1.2;AES256;prod      
+          $ANSIBLE_VAULT;1.2;AES256;prod
           <encrypted hash>
 
    .. code-block:: yaml
@@ -813,9 +813,9 @@ Let us delve into a more detailed example:
       # ~/ansible/group_vars/cluster3
       ---
       root_password_hash: !vault |
-          $ANSIBLE_VAULT;1.2;AES256;dev      
+          $ANSIBLE_VAULT;1.2;AES256;dev
           <encrypted hash>
-   
+
    Note how each vault id corresponds to the cluster's environment, which, in this case, determines
    the script's behavior (see figure :ref:`fig-sample-vault-script-workflow`).
 
@@ -828,7 +828,7 @@ Let us delve into a more detailed example:
       git add --all
       git commit -m "<some message>"
       git push -u origin master
-   
+
 #. Download the repository from each cluster orchestrator and run ansible.
 
    .. warning::
@@ -838,9 +838,9 @@ Let us delve into a more detailed example:
       is member of despite the existance of multiple cluster declarations
       within the inventory file. This approach, however, is not recommended
       for a production environment.
-      
+
    .. code-block:: bash
-		   
+
       ssh cluster1.local
       cd /etc
       git clone git@github.com:username/ansible
@@ -848,15 +848,15 @@ Let us delve into a more detailed example:
       -i /etc/ansible/inventory \
       /etc/ansible/site.yml
       exit
-      
+
       ssh cluster2.local
       cd /etc
-      git clone git@github.com:username/ansible      
+      git clone git@github.com:username/ansible
       ansible-playbook --vault-id prod@/usr/sbin/keyring-client.sh \
       -i /etc/ansible/inventory \
       /etc/ansible/site.yml
       exit
-      
+
       ssh cluster3.local
       cd /etc
       git clone git@github.com:username/ansible
@@ -867,24 +867,24 @@ Let us delve into a more detailed example:
 
    In order to decrypt the variable :bash:`root_password_hash` ansible executes :bash:`/usr/sbin/keyring-client.sh`,
    which:
-   
+
       #. Acesses :bash:`remote` using ssh
       #. Retrieves the appropriate password, contingent on the cluster's name and
 	 environment.
       #. Prints the password to the standard output.
-	 
+
    The workflow depicted in the figure :ref:`fig-sample-vault-script-workflow` shows what ansible will do on each
    cluster.
 
    .. _fig-sample-vault-script-workflow:
-   
+
    .. figure:: src/images/simple_vault-password_script_workflow.png
       :alt: Simple vault-password script workflow
 
       Sample vault script workflow
 
-.. _sssec-ansible_envs:      
-      
+.. _sssec-ansible_envs:
+
 Environments
 ------------
 
@@ -929,7 +929,7 @@ on each system:
 .. code-block:: bash
    :linenos:
    :emphasize-lines: 2-8
-		     
+
    playbook.yml
    environments/
      production/
@@ -954,7 +954,7 @@ on each system:
        vars/
          config.yml
 
-- For production servers	 
+- For production servers
 
   .. code-block:: bash
 
@@ -973,20 +973,20 @@ Ansible will load variables from the specified environment, expand them and run
 tasks accordingly, as depicted in figure :ref:`fig-simple-multienv-activity-diagram`.
 
 .. _fig-simple-multienv-activity-diagram:
-   
+
 .. figure:: src/images/simple_multienv_activity_diagram.png
    :alt: Simple multi-environment activity diagram
 
    Simple multi-environment activity diagram
-      
+
 .. rubric:: References
 
 .. [#one] Ansible Vault, August 17 - 2018. Retrieved August 30 - 2018, from https://docs.ansible.com/ansible/latest/user_guide/vault.html?highlight=vault
 
 .. [#two] Ansible Vault, Providing Vault Passwords, August 17 - 2018. Retrieved August 30 - 2018, from https://docs.ansible.com/ansible/latest/user_guide/vault.html?highlight=vault#providing-vault-passwords.
-       
+
 .. [#three] Issue: Allow the vault_id to be passed to vault password scripts #31001, September 27 - 2018. Retrieved Retrieved August 30 - 2018, from https://github.com/ansible/ansible/issues/31001
 
-.. [#four] Vault secrets client inc new 'keyring' client #27669, October 13 - 2018. Retrieved August 30 - 2018, from https://github.com/ansible/ansible/pull/27669      
+.. [#four] Vault secrets client inc new 'keyring' client #27669, October 13 - 2018. Retrieved August 30 - 2018, from https://github.com/ansible/ansible/pull/27669
 
 .. [#five] Using Roles, September 06 - 2018. Retrieved September 06 - 2018, from https://docs.ansible.com/ansible/2.5/user_guide/playbooks_reuse_roles.html#using-roles

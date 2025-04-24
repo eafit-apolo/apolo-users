@@ -20,4 +20,3 @@ other domains including industrial sensors, home automation, weather, and proces
 
 .. [2] Grafana Labs. (n.d.). Grafana Documentation.
 	   Retrieved June 20, 2019, from https://grafana.com/docs/v4.3/
-   

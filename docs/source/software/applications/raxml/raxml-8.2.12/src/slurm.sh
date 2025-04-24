@@ -16,7 +16,7 @@ export OMP_NUM_THREADS=1
 # Load RAxML module file
 module load raxml/8.2.12_intel-17.0.1
 
-# Launch RAxML (MPI with srun (pmi2) and PThreads using '-T' argument 
+# Launch RAxML (MPI with srun (pmi2) and PThreads using '-T' argument
 # and SLURM_CPUS_PER_TASK environment variable.
 srun --mpi=pmi2 raxmlHPC-HYBRID-AVX2 -s funiji.fasta -T $SLURM_CPUS_PER_TASK \
      -X -f a -n out_1 -m GTRGAMMA -x 6669 -p 2539 -N 100

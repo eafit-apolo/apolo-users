@@ -11,7 +11,7 @@ Basic Information
 
 - **Deploy date:** 3 August 2018.
 - **Official Website:** http://dmtcp.sourceforge.net/
-- **License:** `Lesser GNU Public License (LGPL) 
+- **License:** `Lesser GNU Public License (LGPL)
   <https://www.gnu.org/licenses/lgpl.html>`_
 - **Installed on:** :ref:`Cronos <about_cronos>`
 - **Supported versions:** Serial, parallel jobs
@@ -33,15 +33,15 @@ Usage
 This subsection explains a method for submiting jobs to the cluster and
 restarting them using DMTCP's checkpointing services.
 
-For both types of jobs, in the SLURM launch script, load the necessary 
-environment including DMTCP's module. After that, source the coordinator bash 
-script in order to use the start_coordinator function. Remember to assing a 
+For both types of jobs, in the SLURM launch script, load the necessary
+environment including DMTCP's module. After that, source the coordinator bash
+script in order to use the start_coordinator function. Remember to assing a
 checkpointing interval **in seconds** with the -i flag.
 
 The last step in both cases is launching the program in the next way.
 
 .. code-block:: bash
-		
+
    dmtcp_launch --rm <Your program binary> <args>...
 
 
@@ -55,11 +55,11 @@ For serial software
 .. literalinclude:: src/examples_dmtcp/serial_example/dmtcp-restart.sh
    :language: bash
    :caption: :download:`Restart script example <src/examples_dmtcp/serial_example/dmtcp-restart.sh>`
-	     
+
 For parallel software
 .....................
 
-In this example we run an OpenMP application. Notice that in the restart script 
+In this example we run an OpenMP application. Notice that in the restart script
 we don't assign again the OMP_NUM_THREADS variable again.
 
 .. literalinclude:: src/examples_dmtcp/parallel_example/dmtcp-launch.sh
@@ -85,11 +85,11 @@ For launching a manual checkpoint use this command
    $JOBDIR/dmtcp_command.$JOBID -c
 
 For changing the checkpointing interval use this command
-   
+
 .. code-block:: bash
 
    $JOBDIR/dmtcp_command.$JOBID -i <time_in_seconds>
-	   
+
 Authors
 -------
 

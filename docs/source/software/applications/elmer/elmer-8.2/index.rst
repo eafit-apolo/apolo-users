@@ -62,11 +62,11 @@ Module
 
     module-whatis "\n\n\tSets the environment for using Elmer 8.2 \
                 \n\tbuilded with Intel Parallel Studio XE Cluster Edition 2017 Update 1\n"
-        
+
 
     # for Tcl script use only
     set   	topdir     /share/apps/elmer/8.2/intel_impi/2017_update-1/
-    set 	version	   8.2  
+    set 	version	   8.2
     set     sys        x86_64-redhat-linux
 
     conflict elmer

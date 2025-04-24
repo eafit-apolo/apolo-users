@@ -11,14 +11,14 @@
 ==================================
 
 .. contents:: Contents
-              :local: 
+              :local:
 
 
 Getting cluster(s) state
----------------------------- 
+----------------------------
 
-In Slurm, nodes have different states [2]_, this tells if a job can or not be 
-allocated. 
+In Slurm, nodes have different states [2]_, this tells if a job can or not be
+allocated.
 
 .. csv-table:: Slurm node's states
      :header-rows: 1
@@ -26,11 +26,11 @@ allocated.
      :file: src/info/node_states.csv
 
 The simplest way to get information about the state of our clusters is
-using the commands: ``sinfo`` and ``squeue``. Here we list some useful 
+using the commands: ``sinfo`` and ``squeue``. Here we list some useful
 examples [1]_ [2]_ [3]_ .
 
 * View information about nodes and partitions and a longer version (``-N``)
-  
+
 
   .. code-block:: bash
 
@@ -38,7 +38,7 @@ examples [1]_ [2]_ [3]_ .
       $ sinfo -N
 
 * Show nodes that are in a specific state.
-  
+
 
   .. code-block:: bash
 
@@ -47,7 +47,7 @@ examples [1]_ [2]_ [3]_ .
       $ sinfo -t alloc
 
 * Report node state reason (if exists)
- 
+
   .. code-block:: bash
 
       $ sinfo -R

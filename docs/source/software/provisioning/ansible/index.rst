@@ -20,9 +20,9 @@ Basic information
 
 - **Installed on:** :ref:`Apolo II <about_apolo-ii>`,
   :ref:`Cronos <about_cronos>`
-       
-.. _ssec-ansible_preliminaries:       
-       
+
+.. _ssec-ansible_preliminaries:
+
 Preliminaries
 ---------------------
 
@@ -49,7 +49,7 @@ executed in a particular run.
    :numbered:
 
    dynamic_control
-      
+
 .. _ssec-ansible_deployment-strategies:
 
 Deployment strategy
@@ -82,9 +82,9 @@ Tips and tricks
    :numbered:
 
    tips_and_tricks
-   
+
 .. _ssec-ansible_troubleshooting:
-   
+
 Troubleshooting
 ---------------------
 
@@ -93,8 +93,8 @@ Troubleshooting
    :numbered:
 
    troubleshooting
-   
-     
+
+
 Authors
 ---------------------
 

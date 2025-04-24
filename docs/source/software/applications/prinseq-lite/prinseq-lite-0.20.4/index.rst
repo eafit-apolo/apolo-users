@@ -18,7 +18,7 @@ Basic information
 Tested on (Requirements)
 ------------------------
 
-* **Dependencies to run Prinseq-lite:**  
+* **Dependencies to run Prinseq-lite:**
     * Perl >= 5.26.1
 
 Installation
@@ -80,7 +80,7 @@ Module
 
         conflict prinseq-lite
         module load perl/5.26.1_gcc-5.5.0
-        
+
 
         prepend-path	PATH			$topdir/bin
 
@@ -101,4 +101,4 @@ References
 Authors
 -------
 
-- Juan David Arcila Moreno 
+- Juan David Arcila Moreno

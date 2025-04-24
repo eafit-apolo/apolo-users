@@ -16,4 +16,3 @@ This Tool is used in the computing center to monitor IPMI sensors, Fans, CPU usa
 .. [1] Nagios. Website Copyright © 2009-2018 Nagios Enterprises, LLC. All rights reserved.
        Retrieved 13:50, August 14th, 2018, from
        https://www.nagios.org/about/
-       

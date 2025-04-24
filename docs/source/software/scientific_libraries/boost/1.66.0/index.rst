@@ -18,7 +18,7 @@ Tested on (Requirements)
 ------------------------
 
 * **OS base:** CentOS (x86_64) :math:`\boldsymbol{\ge}` 6.6 (Rocks 6.2)
-* **Dependencies:**  
+* **Dependencies:**
     * GNU Gcc >= 5.5.0
     * OpenMPI >= 1.10.7
     * Python >= 2.7.14
@@ -92,7 +92,7 @@ Module
         module load python/2.7.14_intel-18_u1
         module load icu/58.2_gcc-5.5.0
         module load openmpi/1.10.7_gcc-5.5.0
-        
+
         prepend-path	PATH			$topdir/bin
 
         prepend-path	LD_LIBRARY_PATH		$topdir/lib

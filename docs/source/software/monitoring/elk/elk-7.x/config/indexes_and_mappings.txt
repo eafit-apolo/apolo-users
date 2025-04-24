@@ -10,7 +10,7 @@ PUT /slurm
       "error": {
         "type": "text",
         "analyzer": "standard",
-          
+
         "fields": {
           "keyword":{
             "type": "keyword"
@@ -52,7 +52,7 @@ PUT /secure
       "system_sudo_error":{
         "type": "text",
         "analyzer": "standard",
-        
+
         "fields": {
           "keyword":{
             "type": "keyword"
@@ -64,7 +64,7 @@ PUT /secure
       "system_sudo_command":{
         "type": "text",
         "analyzer" : "standard",
-        
+
         "fields": {
           "keyword":{
             "type": "keyword"
@@ -78,7 +78,7 @@ PUT /secure
       "system_useradd_gid":{ "type": "integer" },
       "system_useradd_home":{ "type": "keyword" },
       "system_useradd_shell":{ "type": "keyword" },
-      
+
       "sshd_guest_ip":{ "type": "ip" },
       "sshd_guest_port":{ "type": "integer" },
       "sshd_guest_signature":{ "type": "text" },
@@ -106,7 +106,7 @@ PUT /messages
       "message":{
         "type": "text",
         "analyzer": "standard",
-        
+
         "fields": {
           "keyword":{
             "type": "keyword"

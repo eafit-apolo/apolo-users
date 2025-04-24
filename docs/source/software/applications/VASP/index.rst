@@ -21,4 +21,3 @@ and the full stress tensor can be calculated with VASP and used to relax atoms i
     v5.4.4-intel/index
     vGNU/index
     vGNUvasp/index
-

@@ -80,7 +80,7 @@ Download libraries
       tar -zxvf hdf5-1.12.0.tar.gz
       wget https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.7.4.tar.gz
       tar -zxvf v4.7.4.tar.gz
-      https://github.com/Unidata/netcdf-fortran/archive/refs/tags/v4.5.3.tar.gz
+      wget https://github.com/Unidata/netcdf-fortran/archive/refs/tags/v4.5.3.tar.gz
       tar -zxvf v4.5.3.tar.gz
       wget https://www.ece.uvic.ca/~frodo/jasper/software/jasper-1.900.29.tar.gz
       tar -zxvf jasper-1.900.29.tar.gz
@@ -125,7 +125,7 @@ Build Jpeg
 
    .. code-block:: bash
 
-      ./configure --prefix=/home/wrf/wrf_libs_intel/
+      ./configure --prefix=/home/wrf/wrf_lib_gcc
       make
       make install
 
@@ -136,7 +136,7 @@ Build HDF5
    .. code-block:: bash
 
       cd hdf5-1.12.0
-      ./configure --prefix=/home/blopezp/wrf_lib_gcc --with-zlib=/home/blopezp/wrf_lib_gcc/ --enable-fortran
+      ./configure --prefix=/home/blopezp/wrf_lib_gcc --with-zlib=/home/blopezp/wrf_lib_gcc --enable-fortran
       make
       make install
 
@@ -168,7 +168,7 @@ Build JasPer
    .. code-block:: bash
 
       cd jasper-1.900.29
-      ./configure --prefix=/home/wrf/wrf_libs_intel/
+      ./configure --prefix=/home/wrf/wrf_lib_gcc
       make
       make install
 

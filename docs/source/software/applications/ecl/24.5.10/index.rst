@@ -29,13 +29,11 @@ Installation
 
         $ mkdir build_ecl
 
-
 #. Then, we need to clone the GitHub repository
 
     .. code-block:: bash
 
         $ git clone https://github.com/roswell/ecl.git
-
 
 #. Then, we can continue with the installation
 
@@ -45,7 +43,6 @@ Installation
         $ ./configure --prefix=../build_ecl
         $ make -j 10
         $ make install
-
 
 #. Finally, we can add ecl to our PATH environment variable
 

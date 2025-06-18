@@ -73,6 +73,7 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    pyrad/index
    QE/index
    qiime2/index
+   Racket/index
    raxml/index
    rDock/index
    repet/index

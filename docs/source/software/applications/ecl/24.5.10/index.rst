@@ -9,8 +9,7 @@ ECL 24.5.10
 Basic information
 -----------------
 
-- **Official Website:** https://www.mpich.org/
-- **Downloads page:** https://www.mpich.org/downloads
+- **Official Website:** https://github.com/roswell/ecl
 - **Installed on:** APOLO II
 
 Tested on (Requirements)

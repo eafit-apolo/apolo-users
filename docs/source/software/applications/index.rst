@@ -31,6 +31,7 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    Cufflinks/index
    delft3D/index
    DL_POLY_Classic/index
+   ecl/index
    edge_pro/index
    elmer/index
    fastQC/index
@@ -61,6 +62,7 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    openquake/index
    opensees/index
    ost/index
+   parallel/index
    pargenes/index
    partitionFinder/index
    phylonet/index

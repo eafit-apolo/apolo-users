@@ -62,6 +62,7 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    openquake/index
    opensees/index
    ost/index
+   parallel/index
    pargenes/index
    partitionFinder/index
    phylonet/index

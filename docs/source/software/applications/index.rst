@@ -41,6 +41,7 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    gromacs/index
    gromacs-ls/index
    gurobi/index
+   intel/index
    iqtree/index
    kraken/index
    ioapi/index

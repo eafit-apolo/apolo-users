@@ -1,7 +1,7 @@
 function t = serial_example(n)
 
 t0 = tic;
-A = 500; 
+A = 500;
 a = zeros(n);
 
 for i = 1:n

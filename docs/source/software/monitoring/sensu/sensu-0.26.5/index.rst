@@ -74,7 +74,7 @@ Sensu Services
 .. image:: images/services.png
    :scale: 80 %
    :alt: Services
-  
+
 Concepts
 =========
 
@@ -237,7 +237,7 @@ process to add a plugin is described as follows:
 
 #. Restart **sensu-server** and **sensu-api**. If the check is defined as standalone
    (locally in the client) restart **sensu-client**.
-   
+
 .. toctree::
    :maxdepth: 1
 
@@ -316,7 +316,7 @@ the current machine has the corresponding subscriptions defined.
 
 		  when '"nvidia-gpu" in sensu_clients_data[inventory_hostname].subscriptions'
 
-   
+
 Troubleshooting
 ================
 
@@ -357,4 +357,3 @@ References
 
 .. [2] Sensu Reference | Sensu Core 0.29. (n.d.). Retrieved June 17, 2019,
        from https://docs.sensu.io/sensu-core/0.29/reference/
-

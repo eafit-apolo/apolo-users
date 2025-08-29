@@ -41,7 +41,7 @@ Installation
         $ CFLAGS="-O3 -mavx2 -fopenmp" CXXFLAGS="-O3 -mavx2 -fopenmp" ../configure --prefix=/share/apps/abyss/2.2.3/gcc/5.4.0 --enable-mpich --with-mpi=/share/apps/mvapich2/2.2.3a/gcc-5.4.0
         $ make -j10
         $ make check
-    
+
     Make sure all the tests passed. Then install it:
 
     .. code-block:: bash

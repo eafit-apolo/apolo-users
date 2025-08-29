@@ -6,5 +6,5 @@ The Apolo Scientific Computing Center's documentation provides a comprehensive o
 
 This documentation is designed to promote consistency, streamline onboarding, and facilitate efficient troubleshooting across the infrastructure and services maintained by the center.
 
-You can access the full documentation at:  
+You can access the full documentation at:
 [https://apolo-users.readthedocs.io/en/latest/](https://apolo-users.readthedocs.io/en/latest/)

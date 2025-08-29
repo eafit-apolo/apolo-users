@@ -42,7 +42,7 @@ Installation
 
         $ sudo mkdir -p /share/apps/pigz/2.4/intel/19.0.4/bin
         $ sudo cp pigz unpigz /share/apps/pigz/2.4/intel/19.0.4/bin
-    
+
 #. Create and place the needed module file. Create a file with the following content:
 
     .. literalinclude:: src/2.4_intel-19.0.4

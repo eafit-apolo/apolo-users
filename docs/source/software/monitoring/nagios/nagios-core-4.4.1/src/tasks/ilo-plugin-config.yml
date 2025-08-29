@@ -10,7 +10,7 @@
     state: directory
 
 - name: Synchronize configuration
-  copy:     
+  copy:
     src: "{{ item }}"
     dest: "/{{ item }}"
   with_items:

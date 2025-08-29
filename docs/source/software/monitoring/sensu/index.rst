@@ -15,4 +15,3 @@ This Tool is used in the computing center to monitor Memory usage, Service avail
 
 .. [1] Workflow automation for monitoring | Sensu. (n.d.).
 	   Retrieved June 11, 2019, from https://sensu.io/
-   

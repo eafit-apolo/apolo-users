@@ -253,8 +253,8 @@ Example
    .. note::
 
       Consider using read-only deploy keys to download the repo without having
-      to type an username and password; especially in unattended deployments.   
-   
+      to type an username and password; especially in unattended deployments.
+
    .. code-block:: bash
 
       ssh <user>@<server>
@@ -269,7 +269,7 @@ Example
       :linenos:
       :lines: 18-23,45-50
       :emphasize-lines: 9
-      
+
    Executing the script in a production environment, like :bash:`bootstrap.sh prod`, will cause
    variables to be passed to ansible as :bash:`env=production` and :bash:`repo_dir=/usr/local/ansible/`;
    therefore producing a :bash:`run_ansible` script pointing to :bash:`/usr/local/ansible/`.

@@ -18,7 +18,7 @@ Tested on (Requirements)
 ------------------------
 
 * **OS base:** CentOS (x86_64) :math:`\boldsymbol{\ge}` 6.6 (Rocks 6.2)
-* **Dependencies:**  
+* **Dependencies:**
     * Intel Parallel Studio XE Cluster Edition (2017-U1)
     * Cuda >= 7.0 (Opcional, soporte aceleradora)
     * Controlador NVIDIA en el Master (Opcional, soporte aceleradora)

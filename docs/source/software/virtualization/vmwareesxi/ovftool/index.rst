@@ -13,7 +13,7 @@ Versions
 --------
 .. toctree::
 	:maxdepth: 1
-	
+
 	ovftool430/index
 
 .. [1] OVF Tool documentation. Retrieved September 21, 2018, from https://www.vmware.com/support/developer/ovf/

@@ -33,7 +33,7 @@ ansible configuration so the structure changes to: :bash:`vagrant
    * If you use a diferent configuration for vagrant remember to delete the
      custom option :bash:`--custom-option=option --` to use the vagrant's usual
      commands
-   
+
 #. Use the :bash:`up` command alongside the :bash:`--provision` argument to
    import the VM into VirtualBox and run ansible.
 
@@ -52,17 +52,17 @@ ansible configuration so the structure changes to: :bash:`vagrant
 
 .. note::
    Our Vagrant's custom options are:
-   
+
    - machine: Machine hostname for ansible and the playbooks's name.
    - vault-id: The password file for ansible.
-      
+
 **Useful commands**
 
-- **ssh:** Connects to machine via SSH.                          
+- **ssh:** Connects to machine via SSH.
   :bash:`vagrant ssh`
 - **reload:** Restarts vagrant machine, loads new Vagrantfile configuration.
   :bash:`vagrant reload`
-- **halt:** Stops the vagrant machine.                            
+- **halt:** Stops the vagrant machine.
   :bash:`vagrant halt`
 - **destroy:** Stops and deletes all traces of the vagrant machine.
   :bash:`vagrant destroy`

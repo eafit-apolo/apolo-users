@@ -18,14 +18,14 @@ Newer pycrypto required
 
   - "ERROR: ansible-vault requires a newer version of pycrypto than the one installed on your platform"
   - "ERROR! Vault password script path/to/script returned non-zero (1): None"
-    
+
 - **Reproduced on:** CentOS 6
 - **Software versions affected:** ansible >= 2.4
 - **How to reproduce?** Download ansible's RPM from the official website and install it. Thereupon,
   try using :bash:`ansible-vault` to encrypt something and the error message shall emerge.
 - **Solution:**
   Install EPEL's ansible package. It is patched to support previous versions of python-crypto (See [Kura14]_).
-  
+
   .. code-block:: bash
 
      # Install epel repository
@@ -57,7 +57,7 @@ Invalid user password
            name: root
            password: 1234
 
-- **Solution:** Use the password's crypted value that would normally be placed inside :bash:`/etc/shadow`. For example: 
+- **Solution:** Use the password's crypted value that would normally be placed inside :bash:`/etc/shadow`. For example:
 
     .. code-block:: bash
 
@@ -66,7 +66,7 @@ Invalid user password
        Password: 1234
        Verifying - Password:
        $1$PmZtHS1g$yjx.gQWWFduYPzN/j1jdY
-       
+
        # Creating a sha-256 hash using python 2
        python -c "import random,string,crypt
        randomsalt = ''.join(random.sample(string.ascii_letters,8))
@@ -76,10 +76,9 @@ Invalid user password
   If your playbook is under version control consider using Ansible Vault to encrypt the hash either as a
   string or placing it inside a file and subsequentially encrypting it. If using the former, DO NOT press
   the return key after writing the hash, but [Ctrl] + [d] two times instead.
-	   
+
 .. rubric:: References
 
 .. [Kura14] Kuratomi, Toshio:
    [ansible/el6] Fix ansible-vault for newer python-crypto dependency. fedoraproject.org, March 14 2014.
    Retrieved September 13, 2018 from https://lists.fedoraproject.org/pipermail/scm-commits/Week-of-Mon-20140310/1207203.html
-	 

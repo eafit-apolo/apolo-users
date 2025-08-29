@@ -76,9 +76,9 @@ This is the installation for the distributed memory option that WRF has, please 
 #. Compile WRF, with the case you need, we recommend the case to be ``em_real``.
 
     .. code-block:: bash
-      
+
        ./compile <case> | tee wrf-compilation.log
-    
+
     In :bash:`main/` you should see the following executables:
 
     * If you compile a real case:
@@ -89,7 +89,7 @@ This is the installation for the distributed memory option that WRF has, please 
          real.exe
          ndown.exe
          tc.exe
-    
+
     * If you compile an idealized case
 
       .. code-block:: bash
@@ -147,7 +147,7 @@ Modulefile
 Compile WPS 4.1 Distributed
 ###########################
 
-The WRF Preprocessing System (WPS) [1]_ is a set of three programs whose collective 
+The WRF Preprocessing System (WPS) [1]_ is a set of three programs whose collective
 role is to prepare input to the real.exe program for real-data simulations.
 
 #. Download the latest version of WSP

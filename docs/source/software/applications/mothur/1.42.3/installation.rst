@@ -19,7 +19,7 @@ Build process
 #. Load the right environment.
 
 .. code-block:: bash
- 
+
    module load hdf5
 
 #. Download and decompress the Mothur's source code

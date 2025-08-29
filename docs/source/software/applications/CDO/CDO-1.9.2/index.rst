@@ -92,7 +92,7 @@ Module file
     set         sys           x86_64-redhat-linux
 
     conflict cdo
- 
+
 
     prepend-path	PATH			$topdir/bin
 

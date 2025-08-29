@@ -29,6 +29,7 @@ Scientific Libraries
    ScaLAPACK/index
    Cloog/index
    MPC/index
+   MCT/index
    LAPACK/index
    Libpng/index
    libtool/index

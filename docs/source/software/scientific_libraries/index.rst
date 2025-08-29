@@ -25,13 +25,16 @@ Scientific Libraries
    mpfr/index
    Szip/index
    Zlib/index
+   Zstd/index
    ScaLAPACK/index
    Cloog/index
    MPC/index
+   MCT/index
    LAPACK/index
    Libpng/index
    libtool/index
    cunit/index
    udunits/index
    bzip2/index
+   Zstd/Zstd-1.5.2/index
    pcre2/index

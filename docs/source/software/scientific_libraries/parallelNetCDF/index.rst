@@ -18,4 +18,3 @@ Parallel netCDF (PnetCDF) is a parallel I/O library for accessing NetCDF files i
 Resources
 ---------
 .. [1] http://cucis.ece.northwestern.edu/projects/PnetCDF/
-

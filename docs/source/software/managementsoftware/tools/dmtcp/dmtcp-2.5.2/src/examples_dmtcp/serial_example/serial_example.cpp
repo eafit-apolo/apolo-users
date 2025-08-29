@@ -15,5 +15,5 @@ int main(){
     cout << "i = " << i << '\n' << ctime(&rawtime);
   }
 
-  cout << "Goodbye world" << endl; 
+  cout << "Goodbye world" << endl;
 }

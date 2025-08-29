@@ -4,7 +4,7 @@
    :language: bash
 
 .. role:: python(code)
-   :language: python	      
+   :language: python
 
 IPMI Sensors - Nagios Plugin
 ============================
@@ -43,7 +43,7 @@ checking the owner, the group and the permissions over the plugin.
 .. literalinclude:: ../src/tasks/ipmi-plugin-status.yml
    :language: yaml
 
-			  
+
 Configuration
 -------------
 
@@ -52,7 +52,7 @@ Configuration
 
 Synchronizes the ipmi-config file with the version present in the
 repo. The passwords are cyphered with **Ansible Vault**.
-			  
+
 Usage
 -----
 
@@ -68,7 +68,7 @@ The following steps are required for setting up this plugin in a specific host:
 		address                  192.168.1.1
 		_ipmi_ip                 192.168.1.1
 		_ipmi_excluded_sensors   56
-		
+
 
    .. note:: The names of these variables start with an underscore and are in lowercase.
              More info about the usage of custom object variables [1]_ .
@@ -77,7 +77,7 @@ The following steps are required for setting up this plugin in a specific host:
    :bash:`/usr/local/nagios/etc/objects/commands.cfg`
 
    .. code-block:: bash
-		   
+
       define command {
         command_name  check_ipmi_sensor
         command_line  $USER1$/check_ipmi_sensor -H $_HOSTIPMI_IP$ -f $ARG1$ -x $_HOSTIPMI_EXCLUDED_SENSORS$ $ARG2$ $ARG3$
@@ -87,11 +87,11 @@ The following steps are required for setting up this plugin in a specific host:
 
    .. note:: If you want to ignore the SEL log entries warning, add
 			 the flag --nosel in the check_command field *(See example below)*
-   
+
    The plugin can be configured for checking each sensor type independently:
-   
+
    .. code-block:: bash
-	
+
       define service{
         use                  generic-service
         host_name            host1
@@ -104,7 +104,7 @@ The following steps are required for setting up this plugin in a specific host:
    Or configured for checking everything in one Service definition:
 
    .. code-block:: bash
-	
+
       define service{
         use                  generic-service
         host_name            host1
@@ -115,16 +115,16 @@ The following steps are required for setting up this plugin in a specific host:
    .. note:: If the IPMI plugin is configured for multiple nodes and there is not a common user/password
 			 between them, you can configure one service per each different credential, defining different
 			 ipmi-config files.
-			 
+
    .. code-block:: bash
-	
+
       define service{
         use                  generic-service
         host_name            host1
         service_description  IPMI
         check_command        check_ipmi_sensor!/etc/ipmi-config/file1.cfg
       }
-	  
+
 	  define service{
         use                  generic-service
         host_name            host2
@@ -132,7 +132,7 @@ The following steps are required for setting up this plugin in a specific host:
         check_command        check_ipmi_sensor!/etc/ipmi-config/file2.cfg
       }
 
-	
+
    .. note:: The user used for this IPMI monitoring doesn't need special permissions.
 
 #. Create the file with the credentials and with the correct permissions.
@@ -143,13 +143,13 @@ The following steps are required for setting up this plugin in a specific host:
 	  password passw0rd
 	  privilege-level user
 	  ipmi-sensors-interpret-oem-data on
-   
+
    * Owner: nagios
    * Group: nagcmd
    * Mode: 0640
 
    .. note:: Read [3]_ for more information about freeIPMI configuration file.
-			 
+
 Troubleshooting
 ---------------
 
@@ -160,7 +160,7 @@ IPMI Status: Critical [X system event log (SEL) entries present]
 
 #. Read System Entry Logs before deleting them. It's important to see if there is a
    bad behavior registered in these logs.
-   
+
    :bash:`ipmiutil sel -N (host_ip|hostname) -F lan2 -U user -P passwd`
 
 #. Clear System Entry Logs with the credentials of a user with enough privileges.
@@ -174,13 +174,13 @@ IPMI Status: Critical [Presence = Critical, Presence = Critical]
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 #. Execute the following command to identify which sensors are absent.
-   
+
    :bash:`check_ipmi_sensor -H <Host-IP> -f <Archivo de configuración> -vvv | grep Critical`
 
    Example of STOUT:
 
    .. code-block:: bash
-     
+
       ID  | Name     | Type            | State    | Reading | Units | Lower NR  | Lower C | Lower NC | Upper NC | Upper C | Upper NR | Event
       56  | Presence | Entity Presence | Critical |   N/A   |  N/A  |    N/A    |   N/A   |    N/A   |    N/A   |   N/A   |    N/A   | 'Entity Absent'
       58  | Presence | Entity Presence | Critical |   N/A   |  N/A  |    N/A    |   N/A   |    N/A   |    N/A   |   N/A   |    N/A   | 'Entity Absent'
@@ -190,7 +190,7 @@ IPMI Status: Critical [Presence = Critical, Presence = Critical]
       Presence = 'Entity Absent' (Status: Critical)
 
 #. Add the attribute :bash:`_ipmi_excluded_sensors` which value is a comma-separated list of sensor IDs that contain the absent sensors discovered.
-   
+
    **Example:**
 
    .. code-block:: text
@@ -201,7 +201,7 @@ IPMI Status: Critical [Presence = Critical, Presence = Critical]
         _ipmi_ip                0.0.0.0
         _ipmi_excluded_sensors  56,58
       }
-		   
+
 References
 ----------
 

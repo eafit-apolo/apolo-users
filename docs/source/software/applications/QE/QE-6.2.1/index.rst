@@ -149,7 +149,7 @@ Module
     conflict qe
     module load mkl/18.0.2
     module load impi/18.0.2
-    
+
     setenv		OMP_NUM_THREADS		1
     setenv		ESPRESSO_PSEUDO		$topdir/pseudo
     setenv		PSEUDO_DIR		$topdir/pseudo

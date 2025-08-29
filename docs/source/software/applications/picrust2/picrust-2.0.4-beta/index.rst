@@ -21,7 +21,7 @@ You should follow the following procedure in order to install this software on a
 #. Load conda module. On :ref:`Apolo II <about_apolo-ii>` is python/3.6.5_miniconda-4.5.1, on :ref:`Cronos <about_cronos>` python/3.6.5_miniconda-4.5.4.
 
    .. code-block:: bash
-          
+
           $ module load <conda_module>
 
    .. note:: Be aware you can also try out the intel optimized conda modules, which are proved to increase performance in several applications: on :ref:`Apolo II <about_apolo-ii>` is python/3.5.2_intel-2017_update-1, on :ref:`Cronos <about_cronos>` is python/3.6.2_intel-18_u1.
@@ -30,7 +30,7 @@ You should follow the following procedure in order to install this software on a
 
 
    .. code-block:: bash
-          
+
           $ git clone https://github.com/picrust/picrust2.git
           $ cd picrust2
 
@@ -41,14 +41,14 @@ You should follow the following procedure in order to install this software on a
 
 
    .. code-block:: bash
-          
+
           $ conda env create -f picrust2-env.yaml
 
 #. Activate the conda environment and finish installing PICRUSt2:
 
 
    .. code-block:: bash
-          
+
           $ source activate picrust2
           $ pip install --no-deps --editable .
 
@@ -56,7 +56,7 @@ You should follow the following procedure in order to install this software on a
 
 
    .. code-block:: bash
-          
+
           $ pytest
 
 Authors

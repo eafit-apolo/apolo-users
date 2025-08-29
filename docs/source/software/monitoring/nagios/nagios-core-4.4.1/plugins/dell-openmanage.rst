@@ -10,7 +10,7 @@ Basic information
 -----------------
 
 - **Official Website:** https://www.dell.com/support/home/co/es/cobsdt1/drivers/driversdetails?driverid=41y2v
-  
+
 - **License:** Dell Software License
 
 - **Version:** 2.0
@@ -26,35 +26,35 @@ Dependencies
 **PIP:**
 
 - omsdk
-  
+
 - omdrivers
-  
+
 - argparse
 
 **YUM:**
 
 - perl-Sys-Syslog (SNMPTT Dependency)
-  
+
 - perl-Net-IP
-  
+
 - perl-Net-SNMP
-  
+
 - libwsman1
-  
+
 - openwsman-perl
-  
+
 - perl-Socket6
-  
+
 - snmptt
-  
+
 - net-snmp-perl
-  
+
 - srvadmin-idrac7
-  
+
 - java-1.8.0-openjdk
-  
+
 - java-1.8.0-openjdk-devel
-  
+
 - python-netaddr
 
 .. _snmp-dell:
@@ -90,7 +90,7 @@ Preconfiguration
 .. note:: The following lines are added to :bash:`/etc/snmp/snmptt.ini` by the Dell plugin installation process.
 
 .. code:: bash
-					
+
 		  [TrapFiles]
 		  # A list of snmptt.conf files (this is NOT the snmptrapd.conf file).  The COMPLETE path
 		  # and filename.  Ex: '/etc/snmp/snmptt.conf'
@@ -102,7 +102,7 @@ Preconfiguration
 		  /usr/local/nagios/dell/config/templates/Dell_Agent_free_Server_Traps.conf
 		  /etc/snmp/snmptt.conf
 		  END
-	
+
 2. Edit :bash:`/etc/snmp/snmptrapd.conf` and add the following lines
 
 .. code:: bash
@@ -136,18 +136,18 @@ Configuration
 This playbook synchronizes the dell configuration files located in :bash:`/usr/local/nagios/dell/config/objects/` and the dell_contacts file.
 
 .. literalinclude:: ../src/tasks/dell-plugin-config.yml
-			  
+
 Usage
 -----
 
 The plugin has a script that discovers and generates the necessary configuration files for Dell servers present in a given IP, IP range or subnet.
 
-To configure a specific host: 
+To configure a specific host:
 
 .. code:: bash
 
 	  $ /usr/local/nagios/dell/scripts/dell_device_discovery.pl -H host -P protocol -f
-	  
+
 ============================= ========================================================
 Params                        Value
 ============================= ========================================================
@@ -159,7 +159,7 @@ Params                        Value
  -f                           Force rewrite of config file.
 ============================= ========================================================
 
-.. note:: If you need more information about the command, execute it with the flag :bash:`-h` 
+.. note:: If you need more information about the command, execute it with the flag :bash:`-h`
 
 Troubleshooting
 ---------------
@@ -182,9 +182,9 @@ The solution is to edit the host definition:
 	  address                 192.168.1.1
 	  display_name            idrac8
 	  icon_image              idrac.png
-	  ...                     ...	  
+	  ...                     ...
 	}
-		  
+
 	define service{
 	  use                     Dell Traps
 	  host_name               idrac8
@@ -192,7 +192,7 @@ The solution is to edit the host definition:
 	}
 
 Update the fields host_name, alias, and display_name.
-	
+
 .. code:: bash
 
 	define host{
@@ -202,16 +202,16 @@ Update the fields host_name, alias, and display_name.
 	  address                 192.168.1.1
 	  display_name            mgmt-master
 	  icon_image              idrac.png
-	  ...                     ...	  
+	  ...                     ...
 	}
-		  
+
 	define service{
 	  use                     Dell Traps
 	  host_name               mgmt-master
 	  service_description     Dell Server Traps
 	}
 
-		  
+
 References
 -------------
 

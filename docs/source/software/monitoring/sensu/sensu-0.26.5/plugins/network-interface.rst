@@ -2,7 +2,7 @@
 
 .. role:: bash(code)
    :language: bash
-	      
+
 Sensu Plugin - Network Interface
 =================================
 
@@ -63,9 +63,9 @@ Configuration
 --------------
 
 Add the configuration file in a valid directory. Ej: :bash:`/etc/sensu/conf.d/checks/check-interfaces.json`
-		  
+
 **Example:** Checks if the Infiniband interface has a speed of 56 Gbps, and an MTU of 65520.
-	  
+
    .. literalinclude:: ../src/checks/network-interface.json
 	  :language: bash
 
@@ -78,7 +78,7 @@ MTU never fails
 For an unknown reason, the flag for setting the desired MTU doesn't work. The script takes
 dynamically the desired MTU. For InfiniBand interfaces, it expects 65520, so, specifying an
 MTU value doesn't make the difference.
-				 
+
 Authors
 --------
 
@@ -86,7 +86,6 @@ Authors
 
 References
 -----------
-  
+
 .. [1] Cerutti, M. (2017, April 10). Sensu plugin for monitoring network interfaces.
 	   Retrieved June 17, 2019, from https://github.com/m4ce/sensu-plugins-network-interface
-	   

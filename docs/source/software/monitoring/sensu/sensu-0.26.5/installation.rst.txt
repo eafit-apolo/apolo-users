@@ -7,11 +7,11 @@
 
 .. role:: yaml(code)
    :language: yaml
-      
+
 Installation
 =============
 
-.. contents:: Table of Contents	      
+.. contents:: Table of Contents
 
 **Tested on (Requirements)**
 ----------------------------
@@ -21,15 +21,15 @@ Installation
 * **Extra Libraries:**
 
   * PyCrypto :math:`\boldsymbol{\gt}` 2.6.1
-    
+
 .. note:: It is important to check if the PyCrypto system version is greater than 2.6.1, because this is a pre-requisite that Ansible-vault needs to work correctly.
 
 Directory Structure
 -------------------
-.. code-block:: bash		
+.. code-block:: bash
 
 	.
-        ├── ansible.cfg	
+        ├── ansible.cfg
 	├── inventory
 	│   └── hosts
 	├── playbooks
@@ -126,7 +126,7 @@ ___________________
    It's important to remember that Firewalld is the firewall of the system in CentOS 7.
 
 We will need to allow HTTP port in the firewall configuration. The SNMP ports (161-162) should be allowed for the correct operation of iLO REST Plugin. We decided to allow these firewall requirements in the **public** zone.
-   
+
 .. literalinclude:: src/tasks/firewall-config.yml
    :language: yaml
 
@@ -134,7 +134,7 @@ ipmi-config.yml
 ________________
 
 Assures the existence of ipmi-config directory and synchronizes the ipmi.cfg file with **root** as owner, **nagcmd** as Group owner and permissions 640: read and write for Owner and read-only for group members. If the final state of the task is **changed**, Nagios daemon is restarted.
-   
+
 .. literalinclude:: src/tasks/ipmi-config.yml
    :language: yaml
 
@@ -144,7 +144,7 @@ ________________
 Synchronizes the mail configuration file with the version located in the repository.
 
 .. warning:: Read the section :ref:`mail-configuration` for more details.
-   
+
 .. literalinclude:: src/tasks/mail-config.yml
    :language: yaml
 
@@ -160,10 +160,10 @@ are restarted. After that, those services are enabled in boot time if they were 
 
 .. literalinclude:: src/tasks/snmp-config.yml
    :language: yaml
-			  
+
 Installing Nagios Core
 ----------------------
-		 
+
 nagios-install.yml and nagios-installed.yml
 ___________________________________________
 
@@ -190,7 +190,7 @@ make install-config        Generates templates for initial configuration
    :language: yaml
 
 .. _nagios-config.yml:
-      
+
 nagios-config.yml
 _________________
 
@@ -214,7 +214,7 @@ not installed before the current execution.
       :language: yaml
 
 .. _selinux-config.yml:
-		 
+
 selinux-config.yml
 _______________________
 
@@ -232,10 +232,10 @@ configuration over these directories. This is executed by a handler in the Ansib
 
 .. literalinclude:: src/tasks/selinux-config.yml
    :language: yaml
-			  
+
 
 .. _nagios-plugins-installed.yml:
-	      
+
 Installing Nagios Plugins
 -------------------------
 
@@ -245,7 +245,7 @@ installed or not.
 .. literalinclude:: src/tasks/nagios-plugins-installed.yml
    :language: yaml
 
-Read the following sections for more information about the installation and configuration process of the plugins.	      
+Read the following sections for more information about the installation and configuration process of the plugins.
 
 - :ref:`Nagios Plugins <nagios-plugins-index>`
 - :ref:`IPMI Sensors <ipmi-sensors-plugin-index>`
@@ -266,7 +266,7 @@ to start in boot time.
 .. literalinclude:: src/tasks/final-check.yml
    :language: yaml
 
-  
+
 References
 ----------
 

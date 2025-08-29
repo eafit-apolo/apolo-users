@@ -8,7 +8,7 @@
 Vagrant.configure("2") do |config|
 
   config.vm.define "cr0n05", autostart: false do |cronos|
-    
+
     cronos.vm.box = "centos/7"
     cronos.vm.network "private_network", ip: "192.168.1.2"
     cronos.vm.hostname = "cr0n05"
@@ -25,11 +25,11 @@ Vagrant.configure("2") do |config|
         machine: "cr0n05"
       }
     end
-    
+
   end
 
   config.vm.define "4p0l0", autostart: false do |apolo|
-    
+
     apolo.vm.box = "centos/7"
     apolo.vm.network "private_network", ip: "192.168.1.3"
     apolo.vm.hostname = "4p0l0"
@@ -46,11 +46,11 @@ Vagrant.configure("2") do |config|
         machine: "4p0l0"
       }
     end
-    
+
   end
 
   config.vm.define "elk", autostart: false do |elk|
-    
+
     elk.vm.box = "centos/7"
     elk.vm.network "private_network", ip: "192.168.1.4"
     elk.vm.hostname = "elk"
@@ -67,7 +67,7 @@ Vagrant.configure("2") do |config|
         machine: "elk"
       }
     end
-    
+
   end
-  
+
 end

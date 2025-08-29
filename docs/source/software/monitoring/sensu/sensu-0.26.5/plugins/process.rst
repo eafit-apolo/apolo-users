@@ -3,7 +3,7 @@
 .. role:: bash(code)
    :language: bash
 
-	      
+
 Sensu Plugin - Check Process
 =============================
 
@@ -25,7 +25,7 @@ Installation
 		  Client that will execute this monitoring task.
 
 Install the plugin executing:
-		  
+
 .. code-block:: bash
 
 	$ sensu-install -p process-checks
@@ -44,13 +44,13 @@ The -p argument is for a pattern to match against the list of running processes 
 
 **Example:** Checks if there is any process running that contains **/usr/sbin/sshd** in its name, status, etc
 from the output of the command :bash:`ps`.
-	  
+
    .. literalinclude:: ../src/checks/check-ssh.json
 	  :language: bash
 
 .. note:: It's important to set correctly the argument to filter correctly from the running processes. Read more in :ref:`incorrect-process-check`.
 
-		  
+
 Troubleshooting
 ---------------
 
@@ -69,4 +69,3 @@ References
 
 .. [1] Sensu-Plugins. (n.d.). Sensu-plugins/sensu-plugins-process-checks. Retrieved June 14, 2019,
 	   from https://github.com/sensu-plugins/sensu-plugins-process-checks/blob/master/bin/check-process.rb
-

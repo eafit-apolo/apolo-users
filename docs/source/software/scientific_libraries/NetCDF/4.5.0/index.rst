@@ -18,7 +18,7 @@ Tested on (Requirements)
 ------------------------
 
 * **OS base:** CentOS (x86_64) :math:`\boldsymbol{\ge}` 6.6 (Rocks 6.2)
-* **Dependencies:**  
+* **Dependencies:**
     * Intel Parallel Studio XE Cluster Edition >= 17.0.1
     * hdf5 >= 1.8.19
     * zlib >= 1.2.11
@@ -90,7 +90,7 @@ Module
         module load szip/2.1_intel-2017_update-1
         module load zlib/1.2.11_intel-2017_update-1
         module load libtool/2.4.6_intel-17.0.1
-        module load hdf5/1.8.19_intel-2017_update-1 
+        module load hdf5/1.8.19_intel-2017_update-1
 
         prepend-path	PATH			$topdir/bin
 

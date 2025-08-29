@@ -48,7 +48,7 @@ The following procedure is the easiest way to install and configure Lmod V8.2.7 
 
         $ cd /etc/profile.d/
         $ nano 00-modulepath.sh
-    
+
     Go to where it says "export MODULEPATH="
 
     *  Before the ``|| :`` add the following ``:/share/apps/modules/``

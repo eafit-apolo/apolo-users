@@ -1,6 +1,6 @@
 n = 1000;
 t0 = tic;
-A = 500; 
+A = 500;
 a = zeros(n);
 fileID = fopen('/home/mgomezzul/time.txt','wt');
 

@@ -24,8 +24,10 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    BWA/index
    CDO/index
    CHARMM/index
+   Calculix/index
    clustalw/index
    crystal/index
+   curl/index
    Cufflinks/index
    delft3D/index
    DL_POLY_Classic/index
@@ -40,10 +42,12 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    gurobi/index
    iqtree/index
    kraken/index
+   ioapi/index
    lammps/index
    leDock/index
    lePro/index
    links/index
+   lotos_euros/index
    mafft/index
    mdstress-lib/index
    MedeA/index
@@ -73,6 +77,7 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    rDock/index
    repet/index
    SAMtools/index
+   SMOKE/index
    sparsehash/index
    stacks/index
    tigmint/index
@@ -87,3 +92,4 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    vsearch/index
    wps/index
    wrf/index
+   makedepf90/index

@@ -112,8 +112,8 @@ What is the difference between ``N``, ``n`` and ``c``?
 ``N`` refers to the number of **Nodes**. Nodes can compute one or more
 **tasks** (``n``), ideally a **node** can compute up to its number of cores at the same time, also
 depending on the specific application. Each task has one or more  **threads** (``c``).
-We recommend to specify ``n`` tasks rather than ``N`` nodes, you should let 
-Slurm decides how many machines your job needs. 
+We recommend to specify ``n`` tasks rather than ``N`` nodes, you should let
+Slurm decides how many machines your job needs.
 
 Here_ is a good explanation about the difference between Process and Threads.
 
@@ -124,12 +124,12 @@ Here_ is a good explanation about the difference between Process and Threads.
 
 
 How to know the name(s) of the allocated node(s) inside my job ?
----------------------------------------------------------------- 
-The are cases where is useful to know which node(s) has been allocated to run my 
+----------------------------------------------------------------
+The are cases where is useful to know which node(s) has been allocated to run my
 job. In order to make your script dynamic, you can ask Slurm that information using:
 
 .. code-block:: bash
-   
+
      # SBATCH PAMATERTS
 
      scontrol show hostname > hostnames.out
@@ -139,4 +139,3 @@ job. In order to make your script dynamic, you can ask Slurm that information us
 This example store the name of the allocated machines in the file ``hostname.out``.
 You can use it inside a ``sbatch`` script or as a command in a ``salloc``
 sub-shell.
-

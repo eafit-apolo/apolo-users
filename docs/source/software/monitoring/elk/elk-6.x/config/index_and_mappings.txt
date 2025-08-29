@@ -14,7 +14,7 @@ PUT /slurm
             "error": {
               "type": "text",
               "analyzer": "standard",
-              
+
               "fields": {
                 "keyword":{
                   "type": "keyword"
@@ -67,7 +67,7 @@ PUT /slurm
             }
           }
         }
-        
+
       }
     }
   }
@@ -87,10 +87,10 @@ PUT /secure
   "mappings":{
     "doc":{
       "properties":{
-        
+
         "system":{
           "properties":{
-            
+
             "hostname":{
               "type": "keyword"
             },
@@ -102,7 +102,7 @@ PUT /secure
                 "error":{
                   "type": "text",
                   "analyzer": "standard",
-                  
+
                   "fields": {
                     "keyword":{
                       "type": "keyword"
@@ -118,7 +118,7 @@ PUT /secure
                 "command":{
                   "type": "text",
                   "analyzer" : "standard",
-                  
+
                   "fields": {
                     "keyword":{
                       "type": "keyword"
@@ -156,10 +156,10 @@ PUT /secure
                 }
               }
             }
-            
+
           }
         },
-        
+
         "sshd": {
           "properties": {
             "guest": {
@@ -186,7 +186,7 @@ PUT /secure
             }
           }
         },
-        
+
         "geoip":{
           "properties":{
             "city_name":{
@@ -227,9 +227,9 @@ PUT /secure
             }
           }
         },
-        
+
         "@timestamp":{ "type":"date" }
-        
+
       }
     }
   }
@@ -250,14 +250,14 @@ PUT /messages
       "properties":{
         "system": {
           "properties": {
-            
+
             "hostname": {
               "type": "keyword"
             },
             "message": {
               "type": "text",
               "analyzer": "standard",
-              
+
               "fields": {
                 "keyword":{
                   "type": "keyword"
@@ -269,7 +269,7 @@ PUT /messages
             }
           }
         }
-        
+
       }
     }
   }

@@ -93,7 +93,7 @@ Use
 
 Resources
 ---------
- * http://www.beast2.org/ 
+ * http://www.beast2.org/
 
 
 Author

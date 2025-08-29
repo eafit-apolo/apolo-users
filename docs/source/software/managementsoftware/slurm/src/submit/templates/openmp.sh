@@ -12,10 +12,10 @@
 
 
 ##### ENVIRONMENT CREATION #####
-module load intel/18.0.1 
+module load intel/18.0.1
 
 
-##### JOB COMMANDS #### 
+##### JOB COMMANDS ####
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
 ./hello_omp_intel_cronos

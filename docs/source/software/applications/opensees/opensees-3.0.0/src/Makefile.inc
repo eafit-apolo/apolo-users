@@ -25,7 +25,7 @@ ISCOTCH    = -I$(SCOTCHDIR)/include  # Should be provided for pt-scotch (not nee
 # You have to choose one among the following two lines depending on
 # the type of analysis you want to perform. If you want to perform only
 # sequential analysis choose the first (remember to add -Dscotch in the ORDERINGSF
-# variable below); for both parallel and sequential analysis choose the second 
+# variable below); for both parallel and sequential analysis choose the second
 # line (remember to add -Dptscotch in the ORDERINGSF variable below)
 
 LSCOTCH    = -L$(SCOTCHDIR)/lib -lptesmumps -lptscotch -lptscotcherr -lscotch
@@ -44,7 +44,7 @@ IPARMETIS    = $(LMETISDIR)/include
 # You have to choose one among the following two lines depending on
 # the type of analysis you want to perform. If you want to perform only
 # sequential analysis choose the first (remember to add -Dmetis in the ORDERINGSF
-# variable below); for both parallel and sequential analysis choose the second 
+# variable below); for both parallel and sequential analysis choose the second
 # line (remember to add -Dparmetis in the ORDERINGSF variable below)
 
 LMETIS    = -L$(LMETISDIR)/lib -lmetis
@@ -65,13 +65,13 @@ IORDERINGSC = $(IPARMETIS) $(IMETIS) $(IPORD) $(ISCOTCH)
 
 PLAT    =
 LIBEXT  = .a
-OUTC    = -o 
-OUTF    = -o 
+OUTC    = -o
+OUTF    = -o
 RM = /bin/rm -f
 CC = mpiicc
 FC = mpiifort
 FL = mpiifort
-AR = ar vr 
+AR = ar vr
 #RANLIB = ranlib
 RANLIB  = echo
 

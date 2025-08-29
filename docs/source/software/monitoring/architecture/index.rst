@@ -54,7 +54,7 @@ be added without problems.
   in-memory metric datapoints, used by the Graphite web app to retrieve “hot data”. [4]_
 
 * **Graphite Web:** Graphite's user interface and RESTful API endpoint.
-  
+
 * **Whisper:** Fixed-size database, similar in design and purpose to RRD (round-robin-database).
   Whisper allows for higher resolution (seconds per point) of recent data to degrade into lower
   resolutions for long-term retention of historical data.
@@ -109,5 +109,3 @@ References
 
 .. [4] The Carbon Daemons. (n.d.). Retrieved July 30, 2019,
 	   from https://graphite.readthedocs.io/en/latest/carbon-daemons.html
-
-	   

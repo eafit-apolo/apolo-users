@@ -2,7 +2,7 @@
 
 .. role:: bash(code)
    :language: bash
-	      
+
 Sensu Plugin - IPMI Sensors Plugin
 ====================================
 
@@ -31,7 +31,7 @@ You have to install rubyipmi gem using the binary located in the Sensu directori
 
 It will install the gem in the directory :bash:`/opt/sensu/embedded/lib/ruby/gems/2.3.0`, which is
 used by Sensu client.
-	
+
 Installation
 ------------
 
@@ -67,9 +67,9 @@ Configuration
 --------------
 
 Add the configuration file in a valid directory. Ej: :bash:`/etc/sensu/conf.d/checks/ipmi-temp.json`
-		  
+
 **Example:** Check the Ambient temperature in iLO4
-	  
+
    .. literalinclude:: ../src/checks/ipmi-temp.json
 	  :language: bash
 
@@ -78,7 +78,7 @@ You can obtain the full list of sensors, executing the command without specifyin
 .. code-block:: bash
 
    $ /opt/sensu/embedded/bin/ruby /etc/sensu/plugins/check-sensors.rb -h BMC_ADDRESS -u USER -p PASS
-				 
+
 Authors
 --------
 
@@ -86,7 +86,6 @@ Authors
 
 References
 -----------
-  
+
 .. [1] Mencel, M. (2018, November 01). Sensu-Plugins-ipmi.
 	   Retrieved June 17, 2019, from https://github.com/sensu-plugins/sensu-plugins-ipmi
-	   

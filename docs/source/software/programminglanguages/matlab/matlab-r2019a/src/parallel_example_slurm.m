@@ -1,7 +1,7 @@
 function t = parallel_example_slurm(n)
 
 t0 = tic;
-A = 500; 
+A = 500;
 a = zeros(n);
 
 parfor i = 1:n

@@ -27,7 +27,7 @@ Steps:
 
 .. code-block:: bash
 
-    yum install glibc.i686 libstdc++i686 libX11.i686 libXft.i686 zlib.i686                        
+    yum install glibc.i686 libstdc++i686 libX11.i686 libXft.i686 zlib.i686
     yum install mysql-server mysql-client
 
 - SSH without password

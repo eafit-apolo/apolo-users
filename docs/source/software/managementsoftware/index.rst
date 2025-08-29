@@ -27,10 +27,10 @@ manager SLURM, and the available tools related to this software.
 Tools
 -----
 
-In this subsection we present the current tools available for its use with 
+In this subsection we present the current tools available for its use with
 SLURM.
 
 .. toctree::
    :maxdepth: 1
-	      
+
    tools/dmtcp/index

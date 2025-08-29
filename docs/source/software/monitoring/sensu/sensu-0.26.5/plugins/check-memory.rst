@@ -3,7 +3,7 @@
 .. role:: bash(code)
    :language: bash
 
-	      
+
 Sensu Plugin - Memory Checks
 =============================
 
@@ -24,7 +24,7 @@ Installation
 		  Client that will execute this monitoring task.
 
 Install the plugin executing:
-		  
+
 .. code-block:: bash
 
 	$ sensu-install -p memory-checks
@@ -45,7 +45,7 @@ The scripts are:
 * bin/check-swap.rb
 * bin/metrics-memory-percent.rb
 * bin/metrics-memory.rb
-										
+
 Usage
 -------
 
@@ -68,7 +68,7 @@ Add the Check-Swap-Percent configuration, specifying which will be its subscribe
 	  :language: bash
 
 In this example, the check will be in WARNING state if swap usage is over 10% and CRITICAL over 15%.
-				 
+
 Authors
 --------
 

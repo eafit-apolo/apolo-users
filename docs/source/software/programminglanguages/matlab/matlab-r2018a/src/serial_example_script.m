@@ -1,5 +1,5 @@
 t0 = tic;
-A = 500; 
+A = 500;
 a = zeros(100);
 fileID = fopen('/home/mgomezzul/time.txt','wt');
 for i = 1:100

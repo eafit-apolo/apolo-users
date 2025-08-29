@@ -77,7 +77,7 @@ execute the following steps:
   .. literalinclude:: ../src/checks/ipmi-temp.json
       :language: bash
 
-#. Restart the Sensu Server and Sensu API services.				 
+#. Restart the Sensu Server and Sensu API services.
 
 References
 ----------
@@ -87,7 +87,7 @@ References
 
 .. [2] Eves, M. (n.d.). Sensu Metrics Collection. Retrieved July 31, 2019,
 	   from https://blog.sensu.io/sensu-metrics-collection-beafdebf28bc
-	   
+
 Authors
 --------
 

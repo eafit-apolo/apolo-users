@@ -6,10 +6,10 @@
 Mothur
 ======
 
-Mothur [1]_ is an open-source software package for bioinformatics data processing. 
-The package is frequently used in the analysis of DNA from uncultured microbes. 
-Mothur is capable of processing data generated from several DNA sequencing 
-methods including 454 pyrosequencing, Illumina HiSeq and MiSeq, Sanger, PacBio, 
+Mothur [1]_ is an open-source software package for bioinformatics data processing.
+The package is frequently used in the analysis of DNA from uncultured microbes.
+Mothur is capable of processing data generated from several DNA sequencing
+methods including 454 pyrosequencing, Illumina HiSeq and MiSeq, Sanger, PacBio,
 and IonTorrent.
 
 .. toctree::

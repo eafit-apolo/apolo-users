@@ -9,7 +9,7 @@ Tested on (Requirements)
 - **OS base:** CentOS (x86_64) :math:`\boldsymbol{\ge}` 6.6
 - **Compiler:** GCC :math:`\boldsymbol{\ge}` 7.4.
 - **Requirements:**
-  
+
   * CHARM++ :math:`\boldsymbol{\ge}` 6.8.2 with GCC 7.4.
   * CUDA 10.1 (Optional).
 
@@ -21,17 +21,17 @@ Build process
 #. Decompress the tar file.
 
    .. code-block:: bash
-   
+
       tar xfz NAMD_2.13_Source.tar.gz
       cd NAMD_2.13_Source
 
 #. Compile CHARM++.
 
-    **Charm++** [1]_ is a parallel object-oriented programming language based on C++ and 
-    developed in the Parallel Programming Laboratory at the University of Illinois 
-    at Urbana–Champaign. Charm++ is designed with the goal of enhancing programmer 
-    productivity by providing a high-level abstraction of a parallel program while 
-    at the same time delivering good performance on a wide variety of underlying 
+    **Charm++** [1]_ is a parallel object-oriented programming language based on C++ and
+    developed in the Parallel Programming Laboratory at the University of Illinois
+    at Urbana–Champaign. Charm++ is designed with the goal of enhancing programmer
+    productivity by providing a high-level abstraction of a parallel program while
+    at the same time delivering good performance on a wide variety of underlying
     hardware platforms.
 
     #. Decompress it (the namd source files contains the needed source files of CHARM).
@@ -40,13 +40,13 @@ Build process
 
           tar xf charm-6.8.2.tar
           cd charm-6.8.2
-    
+
     #. Compile it. The command structure is :bash:`build <target> <version> <options> [charmc-options ...]`
 
       .. code-block:: bash
 
          ## To compile NAMD with CUDA
-         ./build charm++ multicore-linux-x86_64 smp gcc --with-production 
+         ./build charm++ multicore-linux-x86_64 smp gcc --with-production
 
          ## To compile NAMD with MPI
          ./build charm++ mpi-linux-x86_64 mpicxx gcc --with-production

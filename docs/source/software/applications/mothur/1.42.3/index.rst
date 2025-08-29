@@ -17,7 +17,7 @@ Basic Information
 Installation
 ------------
 
-This entry covers the entire process performed for the installation and 
+This entry covers the entire process performed for the installation and
 configuration of Mothur.
 
 .. toctree::

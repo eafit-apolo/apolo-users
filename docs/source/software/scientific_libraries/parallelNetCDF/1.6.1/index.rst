@@ -18,7 +18,7 @@ Tested on (Requirements)
 ------------------------
 
 * **OS base:** CentOS (x86_64) :math:`\boldsymbol{\ge}` 6.6 (Rocks 6.2)
-* **Dependencies:**  
+* **Dependencies:**
     * GNU GCC >= 5.5.0
     * MPICH2 >= 3.2.1
 
@@ -31,7 +31,7 @@ Installation
 
      module purge
      module load gcc/5.5.0
-     module load mpich2/3.2.1_gcc-5.5.0 
+     module load mpich2/3.2.1_gcc-5.5.0
 
 #. Configure the following environment variables that specify the compilers to use:
 
@@ -110,7 +110,7 @@ Module
 
         conflict pnetcdf
         module load mpich2/3.2.1_gcc-5.5.0
-        
+
         setenv          PNET                    $topdir
 
         prepend-path    PATH                    $topdir/bin
@@ -121,18 +121,18 @@ Module
 
         prepend-path    C_INCLUDE_PATH          $topdir/include
         prepend-path    CXX_INCLUDE_PATH        $topdir/include
-        prepend-path    CPLUS_INCLUDE_PATH      $topdir/include 
+        prepend-path    CPLUS_INCLUDE_PATH      $topdir/include
 
 Use
 ---
     .. code-block:: bash
-    
+
         module load pnetcdf/1.6.1_gcc-5.5.0_mpich2-3.2.1
 
 Resources
 ---------
 
- * http://cucis.ece.northwestern.edu/projects/PnetCDF/download.html 
+ * http://cucis.ece.northwestern.edu/projects/PnetCDF/download.html
 
 
 Author

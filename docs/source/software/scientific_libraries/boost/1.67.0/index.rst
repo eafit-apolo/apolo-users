@@ -18,7 +18,7 @@ Tested on (Requirements)
 ------------------------
 
 * **OS base:** CentOS (x86_64) :math:`\boldsymbol{\ge}` 6.6 (Rocks 6.2)
-* **Dependencies:**  
+* **Dependencies:**
     * Intel Parallel Studio XE Cluster Edition (Intel MPI) >= 2017 Update 1
     * Python2 (Intel Version) >= 2.7.14
     * ICU >= 58.2
@@ -52,7 +52,7 @@ Intel
         sudo chown -R mgomezzul.apolo /share/apps/boost/1.67.0/intel-17.0.1
         cd boost_1_67_0/tools/build
         sed -e '/using python/ s@;@: /usr/include/python${PYTHON_VERSION/3*/${PYTHON_VERSION}m} ;@' -i bootstrap.sh
-        ./bootstrap.sh --with-toolset=intel-linux 
+        ./bootstrap.sh --with-toolset=intel-linux
         ./b2 install --prefix=/share/apps/boost/1.67.0/intel-17.0.1 toolset=intel-linux
         export PATH=/share/apps/boost/1.67.0/intel-17.0.1/bin:$PATH
         cd ../..
@@ -97,7 +97,7 @@ Free Software
         sudo chown -R mgomezzul.apolo /share/apps/boost/1.67.0/gcc-5.4.0
         cd boost_1_67_0/tools/build
         sed -e '/using python/ s@;@: /usr/include/python${PYTHON_VERSION/3*/${PYTHON_VERSION}m} ;@' -i bootstrap.sh
-        ./bootstrap.sh --with-toolset=gcc 
+        ./bootstrap.sh --with-toolset=gcc
         ./b2 install --prefix=/share/apps/boost/1.67.0/gcc-5.4.0 toolset=gcc
         export PATH=/share/apps/boost/1.67.0/gcc-5.4.0/bin:$PATH
         cd ../..
@@ -110,7 +110,7 @@ Free Software
         sudo chown -R root.root /share/apps/boost/1.67.0/gcc-5.4.0
 
 
-    
+
 Module
 ------
 
@@ -147,7 +147,7 @@ Module
         module load icu/58.2_intel-2017_update-1
         module load python/2.7.12_intel-2017_update-1
         module load impi/2017_update-1
-        module load mkl/2017_update-1 
+        module load mkl/2017_update-1
 
         prepend-path	PATH			$topdir/bin
 

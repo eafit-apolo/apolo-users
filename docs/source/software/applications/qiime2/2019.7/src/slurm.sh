@@ -15,6 +15,6 @@
 module load python
 source activate qiime2-2019.7
 
-##### JOB COMMANDS #### 
+##### JOB COMMANDS ####
 #3. Sequence quality control and feature table construction
-qiime <plugin> <flags> 
+qiime <plugin> <flags>

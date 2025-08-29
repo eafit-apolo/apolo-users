@@ -25,7 +25,7 @@ all: bin/foldalign bin/locateHits
 #options = -pthread -Wall -pedantic -ansi -g
 #options = -pthread -Wall -pedantic -ansi -pg
 options = -pthread -Wall -pedantic -ansi -O3
-#options = -pthread -Wall -pedantic -ansi -O3 -static 
+#options = -pthread -Wall -pedantic -ansi -O3 -static
 
 sup_options = -Wno-long-long
 
@@ -78,7 +78,7 @@ sup_options = -Wno-long-long
 #		src/thread.o \
 #		src/threadMaster.o \
 #		src/two_link.o
-		
+
 locateHitsobjects = \
 		locateHits/src/alignmentCells.o\
 		locateHits/src/helper.o \
@@ -110,7 +110,7 @@ testobjects = \
 		test/src/testReadfile.o\
 		test/src/testScorematrix.o\
 		test/src/testTwo_link.o
-		
+
 cc = icpc
 
 bin/foldalign: src/foldalign.o src/revnumber.hxx src/empty src/foldalign.hxx src/arguments.o src/backtrack.o src/cell.o src/constraints.o src/exception.o src/local.o src/longCell.o src/helper.o src/output.col.o src/output.stk.o src/output.summary.o src/scorematrix.o src/seqs.o src/sequence.o  #Makefile
@@ -311,7 +311,7 @@ src/shortTermMemory.o: src/shortTermMemory.cxx src/arguments.o src/helper.o src/
 src/stack.o: src/stack.cxx src/exception.o
 	$(cc) $(options) -c -o src/stack.o src/stack.cxx
 
-src/stack_ssl.o: src/stack_ssl.cxx 
+src/stack_ssl.o: src/stack_ssl.cxx
 	$(cc) $(options) -c -o src/stack_ssl.o src/stack_ssl.cxx
 
 src/stmSubMatrix.o: src/stmSubMatrix.cxx src/arguments.o src/helper.o src/scorematrix.o src/exception.o src/foldalign.hxx src/shortTermMemory.o src/stmWiWkSubMatrix.o
@@ -378,7 +378,7 @@ test/src/testCombineSimilarityEnergy.o: test/src/testCombineSimilarityEnergy.cxx
 test/src/testConstraints.o: test/src/testConstraints.cxx src/constraints.o test/src/test.o
 	$(cc) $(options) -o test/src/testConstraints.o -c test/src/testConstraints.cxx
 
-test/src/testException.o: test/src/testException.cxx test/src/test.o 
+test/src/testException.o: test/src/testException.cxx test/src/test.o
 	$(cc) $(options) -o test/src/testException.o -c test/src/testException.cxx
 
 test/src/testGlobalPrune.o: test/src/testGlobalPrune.cxx test/src/test.o
@@ -425,5 +425,3 @@ test/src/testTwo_link.o: test/src/testTwo_link.cxx test/src/test.o src/two_link.
 
 test/src/testTest.o: test/src/testTest.cxx test/src/test.o src/exception.o
 	$(cc) $(options) -o test/src/testTest.o -c test/src/testTest.cxx
-
-

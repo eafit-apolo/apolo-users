@@ -56,7 +56,7 @@ Module
         ##
         proc ModulesHelp {} {
             global version modroot
-            puts stderr "\n\n\tSets the environment for using gmp (GNU Multiple \ 
+            puts stderr "\n\n\tSets the environment for using gmp (GNU Multiple \
                         \n\tPrecision Arithmetic Library) builded gcc 4.4.7-18 version\n"
         }
         module-whatis "(Name________) gmp"
@@ -69,7 +69,7 @@ Module
         set         version       6.1.2
         set         sys           x86_64-redhat-linux
         conflict gmp
-        
+
         prepend-path    LD_LIBRARY_PATH         $topdir/lib
         prepend-path    LIBRARY_PATH            $topdir/lib
         prepend-path    LD_RUN_PATH             $topdir/lib

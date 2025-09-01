@@ -70,7 +70,7 @@ if you get the following message: ::
 
             ymake: system unknown
 
-Refer to the following `link <https://www.ncl.ucar.edu/Download/build_from_src.shtml#AppendixA>`_ for instructions on how to make the script recognize your system.
+Refer to the following `link <https://www.ncl.ucar.edu/Download/build_from_src.shtml#AppendixA>`__ for instructions on how to make the script recognize your system.
 
 Get the name of the configuration file to be used
 -------------------------------------------------
@@ -89,7 +89,7 @@ this will give you the name of the file to be used for the configuration of NCL,
     this configuration may or may not apply for other systems, however, it may be used as a guide in what steps should be done
     in order to compile NCL.
 
-    For more specific errors not shown here, it is adviced to search on your own or write to the developers on the following `link <https://mailman.ucar.edu/mailman/listinfo/ncl-install>`_, however,
+    For more specific errors not shown here, it is adviced to search on your own or write to the developers on the following `link <https://mailman.ucar.edu/mailman/listinfo/ncl-install>`__ , however,
     steps that can be followed to find the specific problem or solve a problem similar to those shown here will be given throught this documentation.
 
 

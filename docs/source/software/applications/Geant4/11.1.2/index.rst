@@ -2,7 +2,7 @@
 
 
 GEANT4 11.1.2
-===========
+==============
 
 .. contents:: Table of Contents
 

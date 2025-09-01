@@ -1,7 +1,7 @@
 .. _ Geant4-index:
 
 GEANT4
-=====
+======
 
 .. toctree::
    :caption: Versions

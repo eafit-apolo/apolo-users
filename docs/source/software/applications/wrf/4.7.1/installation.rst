@@ -1,5 +1,3 @@
-. _wrf-4.7.1-installation:
- 
 .. role:: bash(code)
     :language: bash
  
@@ -258,3 +256,5 @@ References
 .. [1] Mesoscale & Microscale Meteorology Laboratory. (n.d.). Chapter 3: WRF Preprocessing System. [online] Available at: http://www2.mmm.ucar.edu/wrf/users/docs/user_guide/users_guide_chap3.html [Accessed 28 Aug. 2019].
    [2] https://apolo-docs.readthedocs.io/en/latest/software/applications/wrf/4.2/installation.html
    [3] https://www2.mmm.ucar.edu/wrf/users/wrf_users_guide/build/html/compiling.html
+root@c2dafa11db05:/app/apolo-users/docs/source/software/applications/wrf/4.7.1# 
+

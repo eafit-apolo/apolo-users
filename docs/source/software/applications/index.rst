@@ -57,6 +57,7 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    MUSCLE/index
    namd/index
    ncl/index
+   NCAR-ncl/index
    OpenFOAM/index
    openquake/index
    opensees/index
@@ -92,3 +93,6 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    vsearch/index
    wps/index
    wrf/index
+   makedepf90/index
+   Geant4/index
+   ROOT/index

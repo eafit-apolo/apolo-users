@@ -24,11 +24,11 @@ To install on a **linux system**:
 
 1. Give the necessary permissions to the downloaded file:
 
-``$ chmod +x VMware-ovftool-4.0.0-2301625-lin.x86_64.bundle``
+``$ chmod +x VMware-ovftool-4.3.0-7948156-lin.x86_64.bundle``
 
 2. Execute the file with superuser privileges:
 
-``$ sudo ./VMware-ovftool-4.0.0-2301625-lin.x86_64.bundle``
+``$ sudo ./VMware-ovftool-4.3.0-7948156-lin.x86_64.bundle``
 
 .. note::
     If you are on Windows or OS X install it the way you normally would.

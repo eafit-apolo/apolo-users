@@ -13,6 +13,6 @@ We suggest including the following paragraph to acknowledge the Scientific Compu
 If applicable, please also acknowledge any funding agency that supported your project:
 
 .. note::
-    The computational resources used in this product were funded by {Funding Institution}, under grant {Grant Code ID}.
+    The computational resources used in this product was funded by the {Funding Institution} with grant {Grant Code ID}.
 
-We also kindly ask that you inform us of any publications where one of our clusters is acknowledged.
+We would also appreciate to inform us about your publications in which you acknowledge one of the clusters.

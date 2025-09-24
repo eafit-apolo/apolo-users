@@ -20,3 +20,4 @@ BWA-MEM also has better performance than BWA-backtrack for 70-100bp Illumina rea
     :maxdepth: 1
 
     SAMtools-1.3.1/index
+    SAMtools-1.21/index

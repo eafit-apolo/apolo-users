@@ -17,6 +17,8 @@ following, I will present some of the most notable new features and extensions
 
    raxml-8.2.12/index
    raxml-8.2.9/index
+   raxml-ng-1.2.2/index
+
 
 
 .. [1] Alexandros Stamatakis; RAxML version 8: a tool for phylogenetic analysis

@@ -25,13 +25,13 @@ To use R 4.3.2, run the following commands:
 .. code-block:: bash
 
    module load R/4.3.2
-   
+
    # Start R interactive session
    R
-   
+
    # Run R script
    Rscript script.R
-   
+
    # Check version
    R --version
 
@@ -51,12 +51,12 @@ Installation
    # Create installation directory
    mkdir -p ~/R
    cd ~/R
-   
+
    # Download source code
    wget https://cran.r-project.org/src/base/R-4/R-4.3.2.tar.gz
    tar -xzvf R-4.3.2.tar.gz
    cd R-4.3.2
-   
+
    # Configure without Java and X11 support
    ./configure --prefix=$HOME/R/local \
                --enable-R-shlib \
@@ -65,7 +65,7 @@ Installation
                --without-cairo \
                --without-tcltk \
                --without-java
-   
+
    # Compile and install
    make
    make install

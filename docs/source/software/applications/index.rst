@@ -81,6 +81,7 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    SMOKE/index
    sparsehash/index
    stacks/index
+   tensorflow/index
    tigmint/index
    topHat/index
    transabyss/index

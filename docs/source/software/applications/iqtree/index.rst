@@ -10,6 +10,9 @@ The IQ-TREE [1]_ software was created as the successor of IQPNNI and TREE-PUZZLE
    :maxdepth: 1
 
    2.1.2/index
+   3.0.1/index
 
 
 .. [1] https://github.com/iqtree/iqtree2/
+.. [2] https://iqtree.github.io/
+

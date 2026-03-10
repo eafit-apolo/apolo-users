@@ -34,6 +34,7 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    edge_pro/index
    elmer/index
    fastQC/index
+   flye/index
    gamess/index
    garli/index
    gatk4/index

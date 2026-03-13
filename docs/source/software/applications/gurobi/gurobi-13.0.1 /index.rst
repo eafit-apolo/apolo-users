@@ -33,7 +33,7 @@ Module
         ##
         ## /share/apps/modules/gurobi/13.0.1
         ##
-        ## Written by Laura Sanchez Cordoba 
+        ## Written by David Oviedo 
         ##
         
         proc ModulesHelp { } {
@@ -86,7 +86,3 @@ References
 :Author:
 
 - David Julian Oviedo Betancur
-
-:Auditor:
-
-- Laura Sanchez Cordoba

@@ -64,6 +64,7 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    OpenFOAM/index
    openquake/index
    opensees/index
+   ORCA/index
    ost/index
    parallel/index
    pargenes/index

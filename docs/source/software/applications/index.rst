@@ -31,6 +31,7 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    Cufflinks/index
    delft3D/index
    DL_POLY_Classic/index
+   ecl/index
    edge_pro/index
    elmer/index
    fastQC/index

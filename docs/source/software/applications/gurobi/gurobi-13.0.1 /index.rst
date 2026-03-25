@@ -33,16 +33,16 @@ Module
         ##
         ## /share/apps/modules/gurobi/13.0.1
         ##
-        ## Written by David Oviedo 
+        ## Written by David Oviedo
         ##
-        
+
         proc ModulesHelp { } {
             puts stderr "\tgurobi/13.0.1 - sets the Environment for gurobi 13.0.1"
         }
-        
+
         module-whatis "\n\n\tSets the environment for using gurobi, \
                       \n\tpython/3.12_miniconda-24.7.1"
-        
+
         # for Tcl script use only
         set   	  topdir     /share/apps/gurobi/13.0.1/gurobi1301/linux64
         set	  version    13.0.1
@@ -50,25 +50,25 @@ Module
         set       user	     [exec bash -c "echo \$USER"]
         set       hostname   [exec bash -c "echo \$HOSTNAME"]
         set 	  host	     [string map {".local" ""} $hostname ]
-        
+
         conflict gurobi
-        
+
         module load python/3.12_miniconda-24.7.1
         module load java/jdk-17.0.2
-        
+
         setenv GUROBI_HOME		$topdir
         setenv GUROBI_LICENSE_HOME	/home/$user/gurobi-licenses/v1301
         setenv GRB_LICENSE_FILE		/home/$user/gurobi-licenses/v1301/$host/gurobi.lic
-        
+
         prepend-path PATH		$topdir/bin
         prepend-path LD_LIBRARY_PATH 	$topdir/lib
         prepend-path LIBRARY_PATH 	$topdir/lib
         prepend-path LD_RUN_PATH 	$topdir/lib
-        
+
         prepend-path CXX_INCLUDE_PATH	$topdir/include
         prepend-path CPLUS_INCLUDE_PATH $topdir/include
         prepend-path C_INCLUDE_PATH 	$topdir/include
-        
+
         prepend-path CLASSPATH		$topdir/lib/gurobi.jar
 
 

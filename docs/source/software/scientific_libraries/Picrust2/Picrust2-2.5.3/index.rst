@@ -48,40 +48,40 @@ The following instructions describe the easiest way to install the software PICR
    - First, create a new conda environment with Picrust2:
 
      .. code-block:: bash
-     
+
         conda create -n picrust2_env -c conda-forge -c bioconda picrust2
-   
+
    - Activate the environment:
-     
+
      .. code-block:: bash
-     
+
         conda activate picrust2_env
-   
+
    PICRUSt2 is now ready to use within this environment.
 
 2. **Manual Installation from GitHub using Conda**:
-   
+
    If you prefer to manually install PICRUSt2 from the GitHub repository, follow these steps:
 
    - Download the source file:
 
      .. code-block:: bash
-     
+
         wget https://github.com/picrust/picrust2/archive/v2.5.3.tar.gz
         tar xvzf v2.5.3.tar.gz
         cd picrust2-2.5.3/
-   
+
    - Create a new conda environment with the required dependencies:
 
      .. code-block:: bash
-     
+
         conda env create -f picrust2-env.yaml
         conda activate picrust2-env
-   
+
    - Finally, install PICRUSt2 using pip. Make sure you are in the `picrust2-2.5.3` directory:
 
      .. code-block:: bash
-     
+
         pip install --editable .
 
 Module File

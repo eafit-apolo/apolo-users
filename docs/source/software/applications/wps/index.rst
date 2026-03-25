@@ -18,5 +18,6 @@ the vinterp program in the WRF SI.
    :maxdepth: 1
 
    wps-3.7.1/index
+   wps-4.5.2/index
 
 .. [1] Description taken from http://www2.mmm.ucar.edu/wrf/users/docs/user_guide/users_guide_chap3.html#_Function_of_Each

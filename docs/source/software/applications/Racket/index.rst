@@ -1,7 +1,7 @@
 .. _ racket-index:
 
 RACKET
-=====
+======
 
 .. toctree::
    :caption: Versions

@@ -1,7 +1,7 @@
 .. _ MODFLOW-index:
 
 MODFLOW
-=====
+=======
 
 .. toctree::
    :caption: Versions

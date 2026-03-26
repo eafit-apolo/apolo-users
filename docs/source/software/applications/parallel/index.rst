@@ -1,7 +1,7 @@
 .. _ parallel-index:
 
 parallel
-=====
+========
 
 .. toctree::
    :caption: Versions

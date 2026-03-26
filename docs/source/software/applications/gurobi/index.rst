@@ -16,3 +16,4 @@ and no-surprises pricing.
    gurobi-5.6.0/index
    gurobi-7.5.0/index
    gurobi-9.5.0/index
+   gurobi-13.0.1/index

@@ -6,7 +6,7 @@ INTEL 2025
 
 .. contents:: Table of Contents
 
-Basic information11
+Basic information
 -----------------
 
 - **Official Website:** https://www.gnu.org/software/parallel/
@@ -23,11 +23,13 @@ Installation
 #. First of all, you need to buy the Intel OneAPI Base Toolkit from the official Intel website. Once you have purchased it, you can download the installer
 
     .. code-block:: bash
+
         $ wget https://registrationcenter-download.intel.com/akdlm/IRC_NAS/6bfca885-4156-491e-849b-1cd7da9cc760/intel-oneapi-base-toolkit-2025.1.1.36.sh
 
 #. Then, execute the installer
 
     .. code-block:: bash
+
         $ sh intel-oneapi-base-toolkit-2025.1.1.36.sh
 
 #. Then, finish the installation by following the instructions in the installer. You can choose the default options or customize them according to your needs
@@ -35,6 +37,7 @@ Installation
 #. Finally, finish to run the following command to set up the environment variables for the Intel OneAPI Base Toolkit
 
     .. code-block:: bash
+
         $ source setvars.sh
 
 #. If you want to save the environment variables set by `setvars.sh` to a file, you can use the following script:

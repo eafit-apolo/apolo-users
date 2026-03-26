@@ -2,7 +2,7 @@
 
 
 MODFLOW 6.4.4
-===========
+=============
 
 .. contents:: Table of Contents
 

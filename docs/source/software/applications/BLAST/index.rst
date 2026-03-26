@@ -11,3 +11,4 @@ The Basic Local Alignment Search Tool (BLAST) finds regions of local similarity 
    :maxdepth: 1
 
    2.6.0/index
+   2.17.0/index

@@ -15,3 +15,4 @@ programming languages available in the supercomputers
    R/index
    ruby/index
    java/index
+   go/index

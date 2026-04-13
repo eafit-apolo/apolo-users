@@ -33,14 +33,14 @@ Installation
 ------------
 
 Downloading Source Code
-~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: bash
 
    git clone --recurse-submodules https://github.com/wrf-model/WRF
 
 Module Loading
-~~~~~~~~~~~~~
+~~~~~~~~~~~~~~
 
 .. code-block:: bash
 
@@ -50,7 +50,7 @@ Module Loading
    module load curl
 
 Create Directory for Libraries
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To install the libraries, all must be placed in the same location.
 
@@ -61,7 +61,7 @@ To install the libraries, all must be placed in the same location.
    mkdir wrf_lib_gcc
 
 Download Libraries
-~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: bash
 
@@ -83,7 +83,7 @@ Download Libraries
    rm -rf *.tar.gz
 
 Build zlib
-~~~~~~~~~
+~~~~~~~~~~~
 
 .. code-block:: bash
 
@@ -93,7 +93,7 @@ Build zlib
    make install
 
 Export Libraries
-~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~
 
 .. code-block:: bash
 
@@ -104,7 +104,7 @@ Export Libraries
    export PATH=$DIR/wrf_lib_gcc/bin:$PATH
 
 Build libpng
-~~~~~~~~~~~
+~~~~~~~~~~~~
 
 .. code-block:: bash
 
@@ -115,7 +115,7 @@ Build libpng
    make install
 
 Build JPEG
-~~~~~~~~~
+~~~~~~~~~~~
 
 .. code-block:: bash
 
@@ -126,7 +126,7 @@ Build JPEG
    make install
 
 Build HDF5
-~~~~~~~~~
+~~~~~~~~~~~
 
 .. code-block:: bash
 
@@ -137,7 +137,7 @@ Build HDF5
    make install
 
 Build NetCDF-C
-~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~
 
 .. code-block:: bash
 
@@ -149,7 +149,7 @@ Build NetCDF-C
    make install
 
 Build NetCDF-Fortran
-~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: bash
 
@@ -160,7 +160,7 @@ Build NetCDF-Fortran
    make install
 
 Build JasPer
-~~~~~~~~~~~
+~~~~~~~~~~~~
 
 .. code-block:: bash
 
@@ -172,7 +172,7 @@ Build JasPer
    make install
 
 Distributed Memory Installation
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Restart the environment by exiting and re-entering the terminal.
 
@@ -238,6 +238,6 @@ Restart the environment by exiting and re-entering the terminal.
 References
 ----------
 
-.. [1] Mesoscale & Microscale Meteorology Laboratory. (n.d.). Chapter 3: WRF Preprocessing System. Available at: http://www2.mmm.ucar.edu/wrf/users/docs/user_guide/users_guide_chap3.html
-.. [2] https://apolo-docs.readthedocs.io/en/latest/software/applications/wrf/4.2/installation.html
-.. [3] https://www2.mmm.ucar.edu/wrf/users/wrf_users_guide/build/html/compiling.html
+- Mesoscale & Microscale Meteorology Laboratory. (n.d.). Chapter 3: WRF Preprocessing System. Available at: http://www2.mmm.ucar.edu/wrf/users/docs/user_guide/users_guide_chap3.html
+- https://apolo-docs.readthedocs.io/en/latest/software/applications/wrf/4.2/installation.html
+- https://www2.mmm.ucar.edu/wrf/users/wrf_users_guide/build/html/compiling.html

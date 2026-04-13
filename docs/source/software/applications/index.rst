@@ -11,6 +11,7 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    :maxdepth: 1
 
    abyss/index
+   Alphafold3/index
    ansys/index
    arcs/index
    autoDock/index
@@ -54,6 +55,7 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    mafft/index
    mdstress-lib/index
    MedeA/index
+   MODFLOW/index
    mothur/index
    mpich/index
    mrBayes/index
@@ -84,6 +86,7 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    rDock/index
    repet/index
    SAMtools/index
+   sepp/index
    SMOKE/index
    sparsehash/index
    stacks/index

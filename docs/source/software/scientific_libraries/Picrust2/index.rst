@@ -3,7 +3,7 @@
 Picrust2
 ========
 
-PICRUSt 2.0 (Phylogenetic Investigation of Communities by Reconstruction of Unobserved States) [1]_ is a software for predicting functional abundances based only on marker gene sequences.
+PICRUSt 2.0 (Phylogenetic Investigation of Communities by Reconstruction of Unobserved States) [1]_ is a software for predicting functional abundances based only on marker gene sequences [2]_.
 
 .. toctree::
    :caption: Versions

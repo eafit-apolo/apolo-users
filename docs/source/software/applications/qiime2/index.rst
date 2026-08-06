@@ -30,5 +30,8 @@ being developed.
 
    2018.4/index
    2019.7/index
+   2024.5-amplicon/index
+   2024.5-metagenome/index
+
 
 .. [1] QIIME 2 development team. (n.d.). What is QIIME 2? Retrieved from https://docs.qiime2.org/2019.7/about/

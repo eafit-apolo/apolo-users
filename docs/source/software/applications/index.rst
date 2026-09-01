@@ -39,6 +39,7 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    gamess/index
    garli/index
    gatk4/index
+   yade/index
    gromacs/index
    gromacs-ls/index
    gurobi/index

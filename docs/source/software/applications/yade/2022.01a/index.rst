@@ -6,7 +6,7 @@ Yade 2022.01a
 Basic Information
 -----------------
 
-- *Installation Date:* dd/mm/yyyy
+- *Installation Date:* 31/08/2026
 - *URL:* https://yade-dem.org/
 - *Apolo Version:* Apolo II
 - *License:* GNU GPL
@@ -154,5 +154,5 @@ Resources
 Author
 ------
 
-- Byron Arenilla Ramirez (Apolo Scientific Computing Center <https://www.eafit.edu.co/apolo>_)
-- Juan Manuel Morales Cartagena (Apolo Scientific Computing Center <https://www.eafit.edu.co/apolo>_)
+- Byron Arenilla Ramirez (Apolo Scientific Computing Center )
+- Juan Manuel Morales Cartagena (Apolo Scientific Computing Center)

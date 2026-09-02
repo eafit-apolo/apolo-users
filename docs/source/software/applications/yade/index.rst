@@ -10,6 +10,7 @@ It is widely used in geomechanics, granular materials, rock mechanics, and indus
    :caption: Versions
    :maxdepth: 1
 
-   yade-2022.01a/index
+   2022.01a/index
+
 
 .. [1] https://yade-dem.org/

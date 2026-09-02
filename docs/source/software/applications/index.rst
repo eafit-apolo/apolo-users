@@ -100,6 +100,7 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    vsearch/index
    wps/index
    wrf/index
+   yade/index
    makedepf90/index
    Geant4/index
    ROOT/index

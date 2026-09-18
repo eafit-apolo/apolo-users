@@ -31,6 +31,7 @@ the conditions described above.
    :maxdepth: 1
 
    installation
+   toolboxes
 
 Usage
 -----

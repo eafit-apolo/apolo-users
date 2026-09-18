@@ -127,7 +127,7 @@ After solving the aforementioned dependencies, you can proceed with the installa
 References
 -----------
 
-- https://github.com/cjcoats/ioapi-3.2.1
+- https://github.com/cjcoats/ioapi-3.2
 
 :Author:
 

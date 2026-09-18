@@ -18,18 +18,27 @@ This documentation page describes the compilation and installation process of GN
 Directory Hierarchy
 ===================
 
-===================================  =================================================================
-Description                          Path
-===================================  =================================================================
-Installation prefix                  /opt/ohpc/pub/libs/gnu15/parallel/20260522/
-Executables                          /opt/ohpc/pub/libs/gnu15/parallel/20260522/bin/
-Documentation (HTML, PDF, TEXI, RST) /opt/ohpc/pub/libs/gnu15/parallel/20260522/share/doc/parallel/
-Man pages (section 1)                /opt/ohpc/pub/libs/gnu15/parallel/20260522/share/man/man1/
-Man pages (section 7)                /opt/ohpc/pub/libs/gnu15/parallel/20260522/share/man/man7/
-Bash completion                      /opt/ohpc/pub/libs/gnu15/parallel/20260522/share/bash-completion/completions/
-Zsh completion                       /opt/ohpc/pub/libs/gnu15/parallel/20260522/share/zsh/site-functions/
-Modulefile (Lmod, Lua)               /opt/ohpc/pub/moduledeps/gnu15/parallel/20260522.lua
-===================================  =================================================================
+.. list-table::
+   :header-rows: 1
+
+   * - Description
+     - Path
+   * - Installation prefix
+     - /opt/ohpc/pub/libs/gnu15/parallel/20260522/
+   * - Executables
+     - /opt/ohpc/pub/libs/gnu15/parallel/20260522/bin/
+   * - Documentation (HTML, PDF, TEXI, RST)
+     - /opt/ohpc/pub/libs/gnu15/parallel/20260522/share/doc/parallel/
+   * - Man pages (section 1)
+     - /opt/ohpc/pub/libs/gnu15/parallel/20260522/share/man/man1/
+   * - Man pages (section 7)
+     - /opt/ohpc/pub/libs/gnu15/parallel/20260522/share/man/man7/
+   * - Bash completion
+     - /opt/ohpc/pub/libs/gnu15/parallel/20260522/share/bash-completion/completions/
+   * - Zsh completion
+     - /opt/ohpc/pub/libs/gnu15/parallel/20260522/share/zsh/site-functions/
+   * - Modulefile (Lmod, Lua)
+     - /opt/ohpc/pub/moduledeps/gnu15/parallel/20260522.lua
 
 .. note:: GNU Parallel is written in Perl. The ``configure``/``make``/``make install`` cycle does not generate compiled native binaries; it installs the Perl scripts, documentation, and man pages into the target prefix.
 
@@ -175,3 +184,5 @@ If the master node lacks direct internet access, download the tarball on a local
 **ISSUE:** Running :bash:`file 20260522.lua` reports ``ASCII text``, whereas modulefiles for other packages (TCL format) report as ``modulefile``.
 
 **SOLUTION:** This is expected and harmless. ``file`` recognizes the ``#%Module1.0`` header specific to classic Environment Modules in TCL; Lua-based Lmod modulefiles do not carry this header and are thus classified generally as plain text. Both formats are fully supported and parsed correctly by Lmod.
+
+.. [1] OpenHPC recommends hierarchical module trees where compiler-dependent modules are exposed through compiler-specific MODULEPATH entries.

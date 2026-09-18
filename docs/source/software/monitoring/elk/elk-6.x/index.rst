@@ -119,7 +119,7 @@ The Kibana main configuration file, which is a template, is rendered in :bash:`/
 
 After installing and configuring Kibana, it is time to give structure to our logs and create/import the dashboards and visualizations needed:
 
-1. Access the web interface through *http://elk:5601*. To access it using the domain name *elk* remember to add elk to your *hosts* file.
+1. Access the web interface through `<http://elk:5601>`_. To access it using the domain name *elk* remember to add elk to your *hosts* file.
 2. Organize the information. This will help you plot all your data easily.
 
   .. note:: Create the indexes, and the mappings BEFORE sending any data to Elasticsearch.

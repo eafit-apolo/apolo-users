@@ -2,9 +2,9 @@
 
 .. contents:: Table of Contents
 
-************
+*************
 GUROBI 13.0.1
-************
+*************
 
 - **Installation date:** 12/03/2026
 - **URL:** http://www.gurobi.com/

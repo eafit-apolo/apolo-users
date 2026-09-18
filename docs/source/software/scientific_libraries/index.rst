@@ -40,3 +40,4 @@ Scientific Libraries
    bzip2/index
    Zstd/Zstd-1.5.2/index
    pcre2/index
+   Picrust2/index

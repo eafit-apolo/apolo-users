@@ -36,6 +36,7 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    elmer/index
    fastQC/index
    flye/index
+   Alphafold3/index
    gamess/index
    garli/index
    gatk4/index
@@ -58,6 +59,7 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    mpich/index
    mrBayes/index
    MUSCLE/index
+   MODFLOW/index
    namd/index
    ncl/index
    NCAR-ncl/index
@@ -83,6 +85,7 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    raxml/index
    rDock/index
    repet/index
+   sepp/index
    SAMtools/index
    SMOKE/index
    sparsehash/index
@@ -103,3 +106,4 @@ and :ref:`Cronos <about_cronos>`) you can review the following entries:
    makedepf90/index
    Geant4/index
    ROOT/index
+   lefse/index

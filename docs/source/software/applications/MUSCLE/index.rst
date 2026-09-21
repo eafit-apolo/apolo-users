@@ -11,3 +11,4 @@ MUSCLE is one of the best-performing multiple alignment programs according to pu
    :maxdepth: 1
 
    3.8.1551/index
+   5.3/index

@@ -5,3 +5,7 @@
 .wy-table-responsive {
     overflow: visible;
 }
+
+.wy-side-nav-search > a img.logo {
+    width: 150px;
+}

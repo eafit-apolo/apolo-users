@@ -3,9 +3,9 @@
 
 .. contents:: Table of Contents
 
-*****
+**************
 RAxML-ng-1.2.2
-*****
+**************
 
 - **Installation date:** 15/04/2025
 - **URL:** https://github.com/amkozlov/raxml-ng

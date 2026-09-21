@@ -1,4 +1,4 @@
-.. _ prank-index:
+.. _prank-index:
 
 Prank
 =====

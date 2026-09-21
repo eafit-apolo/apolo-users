@@ -1,4 +1,4 @@
-.. _ racket-index:
+.. _racket-index:
 
 RACKET
 ======

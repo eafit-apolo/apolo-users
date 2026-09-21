@@ -1,4 +1,4 @@
-.. _mrbayes:
+.. _mrbayes-3.2.6:
 
 .. contents:: Table of Contents
 

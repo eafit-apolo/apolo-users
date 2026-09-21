@@ -1,4 +1,4 @@
-.. _ NCAR_NCL-INDEX:
+.. _NCAR_NCL-INDEX:
 
 NCAR NCL
 ========

@@ -1,4 +1,4 @@
-.. _ Geant4-index:
+.. _Geant4-index:
 
 GEANT4
 ======

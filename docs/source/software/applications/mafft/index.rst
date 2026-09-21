@@ -1,4 +1,4 @@
-.. _ mafft-index:
+.. _mafft-index:
 
 MAFFT
 =====

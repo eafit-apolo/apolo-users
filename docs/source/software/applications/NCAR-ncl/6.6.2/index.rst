@@ -1,4 +1,4 @@
-.. _ NCAR_NCL_6.6.2-index:
+.. _NCAR_NCL_6.6.2-index:
 
 .. role:: bash(code)
     :language: bash

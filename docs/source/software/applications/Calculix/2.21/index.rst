@@ -1,4 +1,4 @@
-.. _ Calculix-2.21-index:
+.. _Calculix-2.21-index:
 
 .. contents:: Table of Contents
 

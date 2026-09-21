@@ -1,4 +1,4 @@
-.. _ clustalw-index:
+.. _clustalw-index:
 
 Clustalw
 ========

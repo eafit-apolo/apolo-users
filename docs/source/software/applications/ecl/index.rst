@@ -1,4 +1,4 @@
-.. _ ecl-index:
+.. _ecl-index:
 
 ECL
 =====

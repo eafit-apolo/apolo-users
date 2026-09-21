@@ -1,4 +1,4 @@
-.. _ mpich-index:
+.. _mpich-index:
 
 MPICH
 =====

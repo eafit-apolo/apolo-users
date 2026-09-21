@@ -1,4 +1,4 @@
-.. _ namd-index:
+.. _namd-index:
 
 NAMD
 ====

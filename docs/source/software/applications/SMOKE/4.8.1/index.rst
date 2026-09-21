@@ -1,4 +1,4 @@
-.. _ SMOKE-4.8.1-index:
+.. _SMOKE-4.8.1-index:
 
 .. role:: bash(code)
     :language: bash

@@ -1,4 +1,4 @@
-.. _ wrf-index:
+.. _wrf-index:
 
 WRF
 ===

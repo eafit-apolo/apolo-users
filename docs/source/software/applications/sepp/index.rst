@@ -16,5 +16,5 @@ Description
     sepp-4.5.5/index
 
 
-.. [1] REPET.
+.. [1] SEPP.
            Retrieved, from https://github.com/smirarab/sepp?tab=readme-ov-file

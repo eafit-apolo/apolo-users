@@ -1,4 +1,4 @@
-.. _mrbayes:
+.. _mrbayes-3.2.7:
 
 *************
 MrBayes 3.2.7

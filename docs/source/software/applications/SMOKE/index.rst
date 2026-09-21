@@ -1,4 +1,4 @@
-.. _ SMOKE-index:
+.. _SMOKE-index:
 
 
 SMOKE

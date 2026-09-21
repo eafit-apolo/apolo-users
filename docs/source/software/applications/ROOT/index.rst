@@ -1,4 +1,4 @@
-.. _ ROOT-index:
+.. _ROOT-index:
 
 ROOT
 =====

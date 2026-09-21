@@ -1,4 +1,4 @@
-.. _ Calculix-index:
+.. _Calculix-index:
 
 
 Calculix

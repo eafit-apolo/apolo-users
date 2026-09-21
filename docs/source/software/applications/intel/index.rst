@@ -1,4 +1,4 @@
-.. _ intel-index:
+.. _intel-index:
 
 intel
 =====

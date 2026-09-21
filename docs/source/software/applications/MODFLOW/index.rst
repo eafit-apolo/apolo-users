@@ -1,4 +1,4 @@
-.. _ MODFLOW-index:
+.. _MODFLOW-index:
 
 MODFLOW
 =======

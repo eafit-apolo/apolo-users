@@ -1,4 +1,4 @@
-.. _ partitionFinder-index:
+.. _partitionFinder-index:
 
 Partition Finder
 ================

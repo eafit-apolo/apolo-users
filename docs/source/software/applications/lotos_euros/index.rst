@@ -1,4 +1,4 @@
-.. _ lotos_euros-index:
+.. _lotos_euros-index:
 
 Lotos Euros
 ===========

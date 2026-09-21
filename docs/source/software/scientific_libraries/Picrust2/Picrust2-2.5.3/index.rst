@@ -90,7 +90,7 @@ Module File
 Since there are no compiled files, it is not necessary to create a module file for this software.
 
 Test Suite
------
+----------
 
 To test the installation, you can run the following command, (you need to clone the repository and make sure you are in the `picrust2-2.5.3` directory, the test cases are in the `tests` directory, pytest will be able if you have installed picrust2 with the second method):
 

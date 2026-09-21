@@ -43,12 +43,14 @@ html_theme_options = {
 }
 
 html_static_path = ['_static']
-html_css_files = ['css/theme_overrides.css']
+html_css_files = ['css/theme_overrides.css', 'css/sidebar.css']
 
 html_context = {
     'display_github': True,
-    'github_user': 'Emanuell117',
+    'github_user': 'eafit-apolo',
     'github_repo': 'apolo-users',
+    'github_version': 'master',
+    'conf_py_path': '/docs/source/',
 }
 
 html_logo = '_static/apolo-white.png'

@@ -1,5 +1,7 @@
 .. TEMPLATE: known problems of one topic and how to fix them.
-   Copy to: troubleshooting.rst next to the page it is about.
+   Copy to: docs/source/troubleshooting/<topic>.rst for general problems,
+   or troubleshooting.rst inside a program's version directory. Then add
+   a row to the table in docs/source/troubleshooting/index.rst.
    Write one section per problem, titled with what the user sees, and
    copy error messages exactly. Everything below is an example: replace
    it, then delete this comment.

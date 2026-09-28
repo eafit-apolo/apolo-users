@@ -63,9 +63,11 @@ apolo-users/
     │   └── templates/         ←   ready-to-copy page templates
     └── source/                ← THE PUBLISHED SITE: one .rst file = one web page
         ├── conf.py            ←   Sphinx configuration (rarely changed)
-        ├── index.rst          ←   the home page
-        ├── gettingstarted/    ←   first steps for new users: accounts, VPN, resources
-        ├── supercomputers/    ←   one directory per cluster
+        ├── index.rst          ←   the home page, and the menu (its toctrees)
+        ├── gettingstarted/    ←   "First steps on Apolo", VPN setup, learning resources
+        ├── guides/            ←   one page per user task: connect, transfer files, …
+        ├── troubleshooting/   ←   frequent problems index and "My job failed"
+        ├── supercomputers/    ←   one directory per cluster (address, partitions)
         ├── software/          ←   one directory per installed software, by category
         │   ├── applications/          scientific applications (GROMACS, WRF, …)
         │   ├── scientific_libraries/  libraries (NetCDF, FFTW, …)
@@ -83,10 +85,14 @@ apolo-users/
         └── _templates/        ←   theme HTML overrides (do not edit for content)
 ```
 
-Three rules explain the layout:
+Four rules explain the layout:
 
+- **The menu on the left comes from the toctrees at the end of
+  `docs/source/index.rst`.** They group the site by what the reader wants to
+  do: *Get started*, *Guides*, *Help*, *Reference* and *About*.
 - **A directory is a section of the site**, and its `index.rst` is the page
-  that introduces it and lists its sub-pages.
+  that introduces it and lists its sub-pages. The exception is `guides/`,
+  whose pages are listed directly in the menu, in `docs/source/index.rst`.
 - **Software gets one directory per program** and one sub-directory per
   installed version: `software/applications/flye/index.rst` introduces Flye,
   `software/applications/flye/2.9.6/index.rst` documents version 2.9.6.
@@ -133,9 +139,9 @@ Each template explains at its top how to fill it in.
 | You are writing… | Page type | Start from | Put it in |
 |------------------|-----------|------------|-----------|
 | How a program was installed and how to use it | Software | [`software-overview.rst`](docs/contributing/templates/software-overview.rst) (first version of a program) and [`software-version.rst`](docs/contributing/templates/software-version.rst) | `docs/source/software/<category>/<program>/<version>/index.rst` |
-| How a user does one concrete task (connect, transfer files, …) | Guide | [`guide.rst`](docs/contributing/templates/guide.rst) | `docs/source/gettingstarted/` |
-| A lesson that teaches something end to end | Tutorial | [`tutorial.rst`](docs/contributing/templates/tutorial.rst) | `docs/source/gettingstarted/` |
-| Known problems and their fixes | Troubleshooting | [`troubleshooting.rst`](docs/contributing/templates/troubleshooting.rst) | Next to the page it is about; for software, `troubleshooting.rst` inside the version directory |
+| How a user does one concrete task (connect, transfer files, …) | Guide | [`guide.rst`](docs/contributing/templates/guide.rst) | `docs/source/guides/`, listed in the *Guides* toctree of `docs/source/index.rst` |
+| A lesson that teaches something end to end | Tutorial | [`tutorial.rst`](docs/contributing/templates/tutorial.rst) | `docs/source/guides/`, listed in the *Get started* or *Guides* toctree of `docs/source/index.rst` |
+| Known problems and their fixes | Troubleshooting | [`troubleshooting.rst`](docs/contributing/templates/troubleshooting.rst) | General problems: `docs/source/troubleshooting/`. Problems of one program: `troubleshooting.rst` inside its version directory. Either way, add a row to the index in `troubleshooting/index.rst` |
 | A rule users or staff must follow | Policy | [`policy.rst`](docs/contributing/templates/policy.rst) | Ask the maintainers first |
 | Exact steps for an operational task done by staff | Procedure | [`procedure.rst`](docs/contributing/templates/procedure.rst) | Ask the maintainers first |
 | Information about a cluster | Reference | Existing pages in `supercomputers/` | `docs/source/supercomputers/<cluster>/index.rst` |

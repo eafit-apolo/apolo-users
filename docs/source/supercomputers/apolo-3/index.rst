@@ -43,8 +43,8 @@ Choose one with ``#SBATCH --partition=<name>`` in your job script.
    * - ``accel``
      - Jobs that use GPUs. Request them with ``#SBATCH --gres=gpu:<count>``.
 
-Apolo 3 has no ``debug`` partition. To test a job script, submit it to
-``longjobs`` with a small input and a short ``--time``.
+To test a job script, submit it to ``longjobs`` with a small input and a
+short ``--time``.
 
 To see the partitions, their time limits and how many nodes are free right
 now, run this on the cluster:

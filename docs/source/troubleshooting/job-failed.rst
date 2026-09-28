@@ -208,8 +208,8 @@ The job is rejected when you submit it
 ``sbatch`` refuses the job and prints an error instead of a job ID:
 
 - ``sbatch: error: Batch job submission failed: Invalid partition name
-  specified``: the partition does not exist on this cluster. For example,
-  Apolo 3 has no ``debug`` partition. See the partitions of
+  specified``: the partition does not exist on this cluster. See the
+  partitions of
   :ref:`Apolo II <about_apolo-ii>` and :ref:`apolo-3`.
 - ``sbatch: error: Batch script contains DOS line breaks (\r\n)``: the script
   was written on Windows. Convert it on the cluster with

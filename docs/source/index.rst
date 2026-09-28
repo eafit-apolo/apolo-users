@@ -97,7 +97,7 @@ For experienced users: the essentials in one place.
      - ``longjobs``, ``bigmem``, ``accel``
    * - :ref:`Apolo II <about_apolo-ii>`
      - ``apolo.eafit.edu.co``
-     - ``longjobs``, ``debug``, ``bigmem``, ``accel``, ``learning``
+     - ``longjobs``, ``bigmem``, ``accel``, ``learning``
 
 Both clusters are reachable only through the :ref:`VPN <configure_vpn>`.
 

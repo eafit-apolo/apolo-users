@@ -38,4 +38,5 @@ Which toctree depends on the page:
 |------|---------|
 | A new program | `software/<category>/index.rst` |
 | A new version | `software/<category>/<program>/index.rst` |
+| A guide or tutorial | The *Get started* or *Guides* toctree of `docs/source/index.rst` |
 | Any other page | The `index.rst` of its own directory |

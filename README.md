@@ -8,3 +8,11 @@ This documentation is designed to promote consistency, streamline onboarding, an
 
 You can access the full documentation at:
 [https://apolo-users.readthedocs.io/en/latest/](https://apolo-users.readthedocs.io/en/latest/)
+
+## Contributing
+
+New contributors are welcome. Start with [CONTRIBUTING.md](CONTRIBUTING.md):
+it explains how the repository is organized and walks you through your first
+contribution step by step. Everything else for contributors (style guide,
+reStructuredText cheat sheet and page templates) is in
+[`docs/contributing/`](docs/contributing/).

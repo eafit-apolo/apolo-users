@@ -1,81 +1,56 @@
-.. ------------------------------------------------------------------------
-   GUIDE TEMPLATE
+.. TEMPLATE: a guide shows how to do ONE task, step by step.
+   Copy to: docs/source/gettingstarted/<task>.rst (name it with a verb).
+   Everything below is an example: replace it with your task, then delete
+   this comment.
 
-   Use to get a user through ONE concrete task as directly as possible
-   ("Transfer files to Apolo", "Check how much disk you use"). If the page
-   needs to teach concepts step by step, use tutorial.rst instead.
+.. _compress-results:
 
-   How to use:
-   1. Copy this file to its place, with a kebab-case name that starts
-      with a verb (for example: transfer-files.rst), and add it to the
-      toctree of the parent index.rst.
-   2. Change the label below to the file name without ".rst".
-   3. Replace every [bracketed text], <placeholder> and YYYY-MM-DD.
-   4. Delete these comment blocks and any optional section you do not use.
-   ------------------------------------------------------------------------
+Compress your results before downloading them
+=============================================
 
-.. _guide-replace-me:
+:Authors: Jane Doe
+:Maintainer: Jane Doe
+:Last reviewed: 2026-09-28
+:Applies to: Apolo II, Apolo 3
 
-[Verb + object, e.g. Transfer files to and from Apolo]
-======================================================
-
-:Authors: [Full name]
-:Maintainer: [Full name]
-:Last reviewed: YYYY-MM-DD
-:Applies to: [Apolo II | Apolo 3]
-
-[One to three sentences: what the reader achieves with this guide and when
-they need it.]
+Downloading one compressed file is much faster than downloading thousands
+of small ones. This guide shows how to pack a results directory into a
+single file, and how to unpack it on your computer.
 
 Before you start
 ----------------
 
-.. What must already be true. Link the guide that gets the reader there.
+- You are logged in to the cluster.
 
-- [Requirement, e.g. You are connected to the VPN.]
+Compress a directory
+--------------------
 
-[First task or option, e.g. Copy a file with scp]
--------------------------------------------------
-
-.. One section per way of doing the task, most common first. Inside each,
-   numbered steps, one action per step.
-
-#. [Action.]
+#. Go to the directory that contains your results:
 
    .. code-block:: bash
 
-      [command with <placeholders>]
+      cd ~/project
 
-   Replace ``<placeholder>`` with [explanation].
+#. Pack the ``results`` directory into :file:`results.tar.gz`:
 
-#. [Action.]
+   .. code-block:: bash
 
-[Second option]
----------------
+      tar -czf results.tar.gz results/
 
-[Steps.]
+#. Check the size of the file:
 
-Check that it worked
---------------------
+   .. code-block:: console
 
-.. Optional. How the reader confirms the result.
+      $ ls -lh results.tar.gz
+      -rw-r--r-- 1 <username> <group> 1.2G Sep 28 10:00 results.tar.gz
 
-.. code-block:: console
+Extract it on your computer
+---------------------------
 
-   $ [command]
-   [expected output]
+After downloading it, run:
 
-If something goes wrong
------------------------
+.. code-block:: bash
 
-.. Optional. The two or three most likely problems, or a link to a
-   troubleshooting page.
+   tar -xzf results.tar.gz
 
-- **[Symptom].** [Fix.]
-
-See also
---------
-
-.. Related guides and reference pages, by label, e.g. - :ref:`report-a-bug`
-
-- [Related page]
+This recreates the ``results`` directory with all its files.

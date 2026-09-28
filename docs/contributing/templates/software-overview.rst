@@ -1,37 +1,21 @@
-.. ------------------------------------------------------------------------
-   SOFTWARE OVERVIEW TEMPLATE
+.. TEMPLATE: the page of a program, which lists its versions.
+   Copy to: docs/source/software/<category>/<program>/index.rst
+   Create it only once per program. Everything below is an example:
+   replace it with your program, then delete this comment.
 
-   The page that introduces a program and lists its installed versions.
-   Create it only once per program: when you document a new version of a
-   program that already has this page, just add the version to its
-   toctree.
+.. _minimap2:
 
-   How to use:
-   1. Create the program directory, in lowercase:
-         docs/source/software/<category>/<program>/
-      and copy this file into it as index.rst.
-   2. Add "<program>/index" to the toctree of
-         docs/source/software/<category>/index.rst
-   3. Change the label below to "<program>" (lowercase, "-" between words).
-   4. Replace every [bracketed text] and delete these comment blocks.
-   5. Document each version from software-version.rst, in a sub-directory
-      named exactly like the version (for example 2.9.6/index.rst).
-   ------------------------------------------------------------------------
+Minimap2
+========
 
-.. _program-replace-me:
+Minimap2 aligns DNA and mRNA sequences against a reference genome. It is
+used mainly to map long sequencing reads (PacBio, Oxford Nanopore).
 
-[Program name]
-==============
-
-[Two to four sentences: what the program does, in which field it is used,
-and what kind of problem it solves. Avoid copying marketing text from the
-official website.]
-
-- **Official website:** `[Program name] <https://example.org>`_
-- **License:** [License name, e.g. GPL-3.0 | proprietary, licensed by EAFIT]
+- **Website:** `github.com/lh3/minimap2 <https://github.com/lh3/minimap2>`_
+- **License:** MIT
 
 .. toctree::
    :caption: Installed versions
    :maxdepth: 1
 
-   [version]/index
+   2.28/index

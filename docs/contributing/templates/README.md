@@ -1,43 +1,35 @@
-# Page templates
+# Templates
 
-Ready-to-copy starting points for new pages. They are outside
-`docs/source/`, so they are never published.
+Each file here is a short **example page**. Copy the one that matches what
+you want to write, and replace the example with your content.
 
-**Which one do I need?** See
-[Where does my page go?](../../../CONTRIBUTING.md#4-where-does-my-page-go)
-in CONTRIBUTING.md.
+| I want to write about… | Copy | Example inside |
+|------------------------|------|----------------|
+| A program that is not documented yet | [`software-overview.rst`](software-overview.rst) **and** [`software-version.rst`](software-version.rst) | Minimap2, version 2.28 |
+| A new version of a program already documented | [`software-version.rst`](software-version.rst) | Minimap2 2.28 |
+| How to do one task | [`guide.rst`](guide.rst) | Compress results before downloading them |
+| Teaching something from scratch | [`tutorial.rst`](tutorial.rst) | Job arrays |
+| Problems and their fixes | [`troubleshooting.rst`](troubleshooting.rst) | Minimap2 errors |
+| A rule users must follow | [`policy.rst`](policy.rst) | Use of the login nodes |
+| Steps the staff follows | [`procedure.rst`](procedure.rst) | Take a node out of service |
 
-| Template | Page type | Use it for |
-|----------|-----------|------------|
-| [`software-overview.rst`](software-overview.rst) | Software | The page that introduces a program and lists its versions (once per program) |
-| [`software-version.rst`](software-version.rst) | Software | One installed version of a program: usage, example job, installation |
-| [`guide.rst`](guide.rst) | Guide | One concrete user task, as directly as possible |
-| [`tutorial.rst`](tutorial.rst) | Tutorial | Teaching something from scratch, step by step |
-| [`troubleshooting.rst`](troubleshooting.rst) | Troubleshooting | Known problems and their fixes, organized by symptom |
-| [`policy.rst`](policy.rst) | Policy | Rules users or staff must follow |
-| [`procedure.rst`](procedure.rst) | Procedure | Exact steps staff follow for an operational task |
-| [`page-metadata.rst`](page-metadata.rst) | (snippet) | The metadata block every page has under its title |
+## How to use one
 
-## How to use a template
+For example, to document version 2.28 of Minimap2:
 
-1. **Copy** it to its place under `docs/source/` with its new name
-   (lowercase, `-` between words).
-2. **Read the comment at the top** of the file: it says exactly what to do
-   for that type of page.
-3. **Change the label** on the first line after the comment
-   (`.. _guide-replace-me:` and so on) to a unique one.
-4. **Replace** every `[bracketed text]`, `<placeholder>` and `YYYY-MM-DD`.
-   Anything left in brackets appears on the published page.
-5. **Delete** the instruction comments (the lines starting with `..` that
-   explain what to write) and any optional section you do not need.
-6. **Add the page to a toctree** and build the site
-   (steps 6 and 7 of [CONTRIBUTING.md](../../../CONTRIBUTING.md#step-6-write-your-page)).
+**1. Copy** the template to where the page goes (the first comment of each
+template says where):
 
-## What the markers mean
+```bash
+mkdir -p docs/source/software/applications/minimap2/2.28
+cp docs/contributing/templates/software-version.rst \
+   docs/source/software/applications/minimap2/2.28/index.rst
+```
 
-| Marker | Meaning | Example |
-|--------|---------|---------|
-| `[text in brackets]` | Write your own content here | `[Program name]` → `Flye` |
-| `<text in angle brackets>` | A value the **reader** replaces; keep it in the published page | `<username>` |
-| `YYYY-MM-DD` | A date, in this format | `2026-09-28` |
-| `[A \| B]` | Pick one (or several) of the options | `[Apolo II \| Apolo 3]` → `Apolo 3` |
+**2. Replace** the example with your content: the label on the first line,
+the title, the `:Authors:`/`:Maintainer:`/`:Last reviewed:` block and the
+text. Delete the sections you don't need and the comment at the top.
+
+**3. Add the page to the menu** by listing it in the toctree of the
+`index.rst` one level up, and build the site
+(see [CONTRIBUTING.md](../../../CONTRIBUTING.md#step-7-build-and-preview)).

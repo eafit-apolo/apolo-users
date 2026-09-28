@@ -46,13 +46,13 @@ includes the ``ssh`` command) and run the command for your cluster:
 
       .. code-block:: bash
 
-         ssh <username>@200.12.187.180
+         ssh <username>@apolo-3.eafit.edu.co
 
    .. tab-item:: Apolo II
 
       .. code-block:: bash
 
-         ssh <username>@200.12.187.162
+         ssh <username>@apolo.eafit.edu.co
 
 Replace ``<username>`` with your cluster username, and type your cluster
 password when asked. Nothing appears on the screen while you type the
@@ -78,7 +78,7 @@ on the cluster. To end the session, type ``exit``.
    .. code-block:: text
 
       Host apolo3
-          HostName 200.12.187.180
+          HostName apolo-3.eafit.edu.co
           User <username>
 
    Then connect with ``ssh apolo3``. The same name works with ``scp`` and

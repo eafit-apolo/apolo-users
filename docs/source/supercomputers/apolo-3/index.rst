@@ -15,12 +15,12 @@ staff.
 Connection
 ----------
 
-- **Address:** ``200.12.187.180``
+- **Address:** ``apolo-3.eafit.edu.co``
 - **Access:** SSH, only while connected to the Apolo VPN.
 
 .. code-block:: bash
 
-   ssh <username>@200.12.187.180
+   ssh <username>@apolo-3.eafit.edu.co
 
 See :ref:`connect-to-apolo` for the full steps.
 

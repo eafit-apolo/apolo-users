@@ -9,54 +9,25 @@ My job failed: what now?
 :Applies to: Apolo II, Apolo 3
 
 This page helps you find out why a Slurm job did not work and how to fix it.
-Start with the two diagnostic steps, then go to the problem that matches what
-you see.
+The answer is almost always in the job's output files.
 
 .. contents:: On this page
    :local:
    :depth: 1
 
-Step 1: Ask Slurm how the job ended
------------------------------------
-
-.. code-block:: bash
-
-   sacct -j <jobid> --format=JobID,JobName,State,ExitCode,Elapsed,Timelimit,ReqMem,MaxRSS
-
-If you do not remember the job ID, list your jobs of today with
-``sacct -X -u $USER``.
-
-Look at the ``State`` column of the first line:
-
-.. list-table::
-   :header-rows: 1
-   :widths: 25 75
-
-   * - State
-     - Go to
-   * - ``TIMEOUT``
-     - `The job ran out of time`_
-   * - ``OUT_OF_MEMORY``
-     - `The job ran out of memory`_
-   * - ``FAILED``
-     - Step 2, then `The job failed with an error`_
-   * - ``CANCELLED``
-     - `The job was cancelled`_
-   * - ``NODE_FAIL``
-     - `A node failed`_
-   * - ``COMPLETED``, but the results are wrong or missing
-     - Step 2: the job script ended normally, but a command inside it may
-       have failed.
-   * - The job never starts (``PD`` in ``squeue``)
-     - `The job stays pending`_
-
-Step 2: Read the job's output files
+Step 1: Read the job's output files
 -----------------------------------
 
 The job's messages are in the files set by ``--output`` and ``--error`` in
 your script, in the directory from which you submitted it. With the
 recommended settings they are :file:`{jobname}-{jobid}.out` and
-:file:`{jobname}-{jobid}.err`.
+:file:`{jobname}-{jobid}.err`. To list the most recent ones first:
+
+.. code-block:: bash
+
+   ls -t *.err | head
+
+Then read the end of both files:
 
 .. code-block:: bash
 
@@ -66,27 +37,46 @@ recommended settings they are :file:`{jobname}-{jobid}.out` and
 The first error message is usually the one that matters; later ones are often
 consequences of it.
 
+Step 2: Find your problem
+-------------------------
+
+.. list-table::
+   :header-rows: 1
+   :widths: 55 45
+
+   * - What you see
+     - Go to
+   * - The ``.err`` file ends with ``... DUE TO TIME LIMIT ***``
+     - `The job ran out of time`_
+   * - The ``.err`` file mentions ``oom_kill`` or ``out-of-memory``
+     - `The job ran out of memory`_
+   * - The ``.err`` file shows ``command not found``, ``module(s) are
+       unknown`` or ``No such file or directory``
+     - `The job failed with an error`_
+   * - The ``.err`` file ends with ``CANCELLED AT ...`` but not ``DUE TO
+       TIME LIMIT``
+     - `The job was cancelled`_
+   * - The output stops suddenly, with no error message
+     - `The output stops with no error`_
+   * - The job never starts: it stays as ``PD`` in ``squeue -u $USER``
+     - `The job stays pending`_
+   * - ``sbatch`` prints an error instead of a job ID
+     - `The job is rejected when you submit it`_
+
 .. _job-timeout:
 
 The job ran out of time
 -----------------------
 
-Symptom
-~~~~~~~
-
-``State`` is ``TIMEOUT``, and the ``.err`` file ends with a line like:
+The ``.err`` file ends with a line like:
 
 .. code-block:: text
 
    slurmstepd: error: *** JOB 123456 ON <node> CANCELLED AT 2026-09-28T10:00:00 DUE TO TIME LIMIT ***
 
-Cause
-~~~~~
+**Cause:** the job reached the ``--time`` limit, and Slurm stopped it.
 
-The job reached the ``--time`` limit, and Slurm stopped it.
-
-Solution
-~~~~~~~~
+**Solution:**
 
 - Request more time: ``#SBATCH --time=D-HH:MM:SS``. Check the format:
   ``--time=1:00`` is one **minute**.
@@ -99,37 +89,26 @@ Solution
 The job ran out of memory
 -------------------------
 
-Symptom
-~~~~~~~
-
-``State`` is ``OUT_OF_MEMORY``, and the ``.err`` file contains a line like:
+The ``.err`` file contains a line like:
 
 .. code-block:: text
 
    slurmstepd: error: Detected 1 oom_kill event in StepId=123456.batch. Some of your processes may have been killed by the cgroup out-of-memory handler.
 
-Cause
-~~~~~
+**Cause:** the job used more memory than it requested, and the system
+stopped it.
 
-The job used more memory than it requested, and the system stopped it.
+**Solution:**
 
-Solution
-~~~~~~~~
-
-- Compare ``MaxRSS`` (the most memory used) with ``ReqMem`` (what you
-  requested) in the ``sacct`` output, and request more with
-  ``#SBATCH --mem=<size>``, for example ``--mem=16G``.
+- Request more memory with ``#SBATCH --mem=<size>``. For example, if you
+  requested ``--mem=8G``, try ``--mem=16G``.
 - If the job needs more memory than a regular node has, use the ``bigmem``
   partition.
 
 The job failed with an error
 ----------------------------
 
-Symptom
-~~~~~~~
-
-``State`` is ``FAILED`` and ``ExitCode`` is not ``0:0``. Look for one of
-these messages in the ``.err`` file:
+The ``.err`` file shows one of these messages:
 
 - ``command not found``: the program is not available in the job.
 - ``Lmod has detected the following error: The following module(s) are
@@ -138,8 +117,7 @@ these messages in the ``.err`` file:
   it needs.
 - ``No such file or directory``: a path in the script is wrong.
 
-Solution
-~~~~~~~~
+**Solution:**
 
 - **Module and program errors:** load the modules in the ``ENVIRONMENT``
   block of the script, with their versions. Check the exact names with
@@ -155,24 +133,27 @@ Solution
 The job was cancelled
 ---------------------
 
-``State`` is ``CANCELLED``. You, an administrator, or Slurm cancelled it. If
-it was not you, the ``.err`` file may say why; otherwise ask the Apolo staff,
-with the job ID.
+The ``.err`` file ends with a line like:
 
-A node failed
--------------
+.. code-block:: text
 
-``State`` is ``NODE_FAIL``: the node where the job ran stopped working. It
-is not a problem with your job. Submit it again, and if it happens again,
-report it to the Apolo staff with the job ID.
+   slurmstepd: error: *** JOB 123456 ON <node> CANCELLED AT 2026-09-28T10:00:00 ***
+
+The job was cancelled with ``scancel``, by you or by an administrator. If it
+was not you, ask the Apolo staff why, with the job ID.
+
+The output stops with no error
+------------------------------
+
+The job is no longer in ``squeue``, but its output files end suddenly, with
+no error message. The node where it ran may have failed, which is not a
+problem with your job. Submit it again, and if it happens again, report it to
+the Apolo staff with the job ID.
 
 .. _job-pending:
 
 The job stays pending
 ---------------------
-
-Symptom
-~~~~~~~
 
 The job stays in state ``PD`` in ``squeue -u $USER``. The
 ``NODELIST(REASON)`` column says why:

@@ -145,21 +145,14 @@ from which you submitted it:
    Job 123456 started on <node-name> at <date>
    Job finished at <date>
 
-The :file:`first-job-{jobid}.err` file holds error messages; for this job it
-should be empty.
+The :file:`first-job-{jobid}.err` file holds error messages:
 
-To confirm how the job ended, ask Slurm's accounting:
+.. code-block:: bash
 
-.. code-block:: console
+   cat first-job-123456.err
 
-   $ sacct -X -j 123456 --format=JobID,JobName,State,ExitCode,Elapsed
-   JobID           JobName      State ExitCode    Elapsed
-   ------------ ---------- ---------- -------- ----------
-   123456        first-job  COMPLETED      0:0   00:00:31
-
-(``-X`` shows one line per job, without its internal steps.) ``COMPLETED``
-with exit code ``0:0`` means the job succeeded. Any other state
-means something went wrong; see :ref:`job-failed`.
+The job succeeded if the ``.out`` file ends with ``Job finished at`` and the
+``.err`` file is empty. If not, see :ref:`job-failed`.
 
 Next steps
 ----------

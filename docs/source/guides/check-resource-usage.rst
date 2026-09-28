@@ -8,9 +8,9 @@ Check your resource usage
 :Last reviewed: 2026-09-28
 :Applies to: Apolo II, Apolo 3
 
-This guide shows how to see your jobs in the queue, how many resources your
-finished jobs really used, how many core-hours you have consumed, and how
-much disk space your files take. Run all the commands on the cluster.
+This guide shows how to see your jobs in the queue, and how to find out how
+long your jobs take and how much memory they need. Run the commands on the
+cluster.
 
 Before you start
 ----------------
@@ -32,87 +32,32 @@ pending jobs to start:
 
    squeue -u $USER --start
 
-What a finished job used
-------------------------
+How long your job takes
+-----------------------
 
-``sacct`` shows what each job actually consumed. Compare it with what you
-requested, to request the right amount next time: smaller requests usually
-wait less in the queue.
-
-.. code-block:: bash
-
-   sacct -j <jobid> --format=JobID,JobName,State,Elapsed,Timelimit,AllocCPUS,TotalCPU,ReqMem,MaxRSS
-
-.. list-table::
-   :header-rows: 1
-   :widths: 20 80
-
-   * - Field
-     - What it tells you
-   * - ``Elapsed`` / ``Timelimit``
-     - How long the job ran, and the limit you requested. If ``Elapsed`` is
-       much shorter, request less time.
-   * - ``AllocCPUS`` / ``TotalCPU``
-     - Cores allocated, and the processor time they really used. If
-       ``TotalCPU`` is much less than ``Elapsed`` × ``AllocCPUS``, most cores
-       were idle: request fewer, or check that your program runs in parallel.
-   * - ``ReqMem`` / ``MaxRSS``
-     - Memory requested, and the most memory the job used. ``MaxRSS`` is
-       reported on the job's steps (the ``.batch`` line and the ``srun``
-       steps), not on the first line.
-
-Your jobs in a period
----------------------
-
-To list all your jobs since a date, one line per job:
+To request the right ``--time``, measure how long your job really runs: put
+``time`` in front of the command in your job script.
 
 .. code-block:: bash
 
-   sacct -X -u $USER -S 2026-09-01 --format=JobID,JobName,Partition,State,Elapsed,AllocCPUS
+   ##### JOB COMMANDS #####
+   time srun <program> <arguments>
 
-Without ``-S``, ``sacct`` only shows the jobs of today. Add ``-E <date>`` to
-set an end date too.
+When the job ends, the ``.err`` file contains lines like these:
 
-Core-hours consumed
--------------------
+.. code-block:: text
 
-Apolo measures computing in **core-hours**: one hour of one processor core.
-Slurm counts a job's core-hours as the cores allocated to it multiplied by
-the time it ran: a job that runs 2 hours on 8 cores counts 16 core-hours,
-whether or not the program kept all the cores busy. To add up your
-core-hours since a date:
+   real    12m30.512s
+   user    0m0.041s
+   sys     0m0.032s
 
-.. code-block:: bash
+The ``real`` line is how long the command took. If it is much shorter than
+the ``--time`` you requested, request less next time: smaller requests
+usually wait less in the queue. Ignore the ``user`` and ``sys`` lines here.
 
-   sacct -X -n -u $USER -S 2026-09-01 --format=CPUTimeRAW \
-     | awk '{ s += $1 } END { printf "%.1f core-hours\n", s / 3600 }'
+How much memory your job needs
+------------------------------
 
-``CPUTimeRAW`` is the allocated cores multiplied by the run time, in seconds.
-Change the date to the period you want.
-
-.. _check-disk-usage:
-
-Disk space
-----------
-
-To see how much space your home directory uses:
-
-.. code-block:: bash
-
-   du -sh ~
-
-To see which directories take the most space, largest last:
-
-.. code-block:: bash
-
-   du -h --max-depth=1 ~ | sort -h
-
-Delete or copy to your computer (see :ref:`transfer-files`) the files you no
-longer need on the cluster.
-
-See also
---------
-
-- :ref:`info-jobs`: more ways to query jobs with ``squeue``, ``sacct`` and
-  ``scontrol``.
-- :ref:`job-failed`, if a job did not finish as expected.
+If your job needs more memory than it requested, Slurm stops it and says so
+in the ``.err`` file. See :ref:`job-out-of-memory` to recognize the message
+and fix it.

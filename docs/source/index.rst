@@ -58,8 +58,7 @@ I want to…
       :link: check-resource-usage
       :link-type: ref
 
-      My jobs in the queue, what they used, core-hours consumed and disk
-      space.
+      My jobs in the queue, and what my finished jobs used.
 
    .. grid-item-card:: Find out why my job failed
       :link: job-failed
@@ -113,8 +112,8 @@ Both clusters are reachable only through the :ref:`VPN <configure_vpn>`.
      - List your pending and running jobs.
    * - ``scancel <jobid>``
      - Cancel a job.
-   * - ``sacct -X -u $USER -S <YYYY-MM-DD>``
-     - List your jobs since a date, with their final state.
+   * - ``squeue -u $USER --start``
+     - Show when your pending jobs are expected to start.
    * - ``sinfo -s``
      - Show the partitions, their time limits and free nodes.
    * - ``module spider <program>``

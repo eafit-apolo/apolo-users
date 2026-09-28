@@ -60,9 +60,10 @@ Load the module:
 Running example
 ~~~~~~~~~~~~~~~
 
-.. A complete Slurm job that runs a small, real case. Follow "Slurm scripts" in
-   docs/contributing/style-guide.md and use a partition that exists on the
-   cluster in "Applies to".
+.. A complete Slurm job that runs a small, real case. Keep this layout;
+   remove the #SBATCH lines that do not apply. Use a partition that exists
+   on the cluster in "Applies to", --time as D-HH:MM:SS, and never a real
+   email address.
 
 .. code-block:: bash
    :caption: [program]-job.sh

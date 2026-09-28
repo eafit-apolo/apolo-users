@@ -93,10 +93,10 @@ For experienced users: the essentials in one place.
      - Address
      - Partitions
    * - :ref:`apolo-3`
-     - ``200.12.187.180``
+     - ``apolo-3.eafit.edu.co``
      - ``longjobs``, ``bigmem``, ``accel``
    * - :ref:`Apolo II <about_apolo-ii>`
-     - ``200.12.187.162``
+     - ``apolo.eafit.edu.co``
      - ``longjobs``, ``debug``, ``bigmem``, ``accel``, ``learning``
 
 Both clusters are reachable only through the :ref:`VPN <configure_vpn>`.

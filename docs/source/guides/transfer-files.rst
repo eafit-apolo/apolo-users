@@ -24,9 +24,9 @@ Before you start
      * - Cluster
        - Address
      * - Apolo 3
-       - ``200.12.187.180``
+       - ``apolo-3.eafit.edu.co``
      * - Apolo II
-       - ``200.12.187.162``
+       - ``apolo.eafit.edu.co``
 
 In the commands below, replace ``<username>`` with your cluster username and
 ``<cluster-address>`` with the address of your cluster. Run them **on your

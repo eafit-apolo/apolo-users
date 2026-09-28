@@ -14,12 +14,12 @@ or both of them; if you are not sure which, ask the Apolo staff.
 Connection
 ----------
 
-- **Address:** ``200.12.187.162``
+- **Address:** ``apolo.eafit.edu.co``
 - **Access:** SSH, only while connected to the Apolo VPN.
 
 .. code-block:: bash
 
-   ssh <username>@200.12.187.162
+   ssh <username>@apolo.eafit.edu.co
 
 See :ref:`connect-to-apolo` for the full steps.
 
@@ -45,7 +45,7 @@ Choose one with ``#SBATCH --partition=<name>`` in your job script.
    * - ``accel``
      - Jobs that use GPUs. Request them with ``#SBATCH --gres=gpu:<count>``.
    * - ``learning``
-     - Ask the Apolo staff before using it.
+     - Jobs of undergraduate students working on their degree projects.
 
 To see the partitions, their time limits and how many nodes are free right
 now, run this on the cluster:

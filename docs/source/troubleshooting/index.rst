@@ -47,9 +47,9 @@ Jobs
      - Solution
    * - My job failed, and I do not know why.
      - :ref:`job-failed`
-   * - My job was stopped because of the time limit (``TIMEOUT``).
+   * - My job was stopped because of the time limit.
      - :ref:`job-timeout`
-   * - My job ran out of memory (``OUT_OF_MEMORY``).
+   * - My job ran out of memory.
      - :ref:`job-out-of-memory`
    * - My job stays pending (``PD``) and never starts.
      - :ref:`job-pending`
@@ -93,10 +93,8 @@ Files and usage
      - Solution
    * - I need to copy files to or from the cluster.
      - :ref:`transfer-files`
-   * - I want to know how many resources or core-hours I have used.
+   * - I want to know how long my jobs take, or how much memory they need.
      - :ref:`check-resource-usage`
-   * - I want to know how much disk space my files use.
-     - :ref:`check-disk-usage`
 
 Still stuck?
 ------------

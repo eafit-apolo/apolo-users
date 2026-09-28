@@ -1,5 +1,5 @@
 .. TEMPLATE: a guide shows how to do ONE task, step by step.
-   Copy to: docs/source/gettingstarted/<task>.rst (name it with a verb).
+   Copy to: docs/source/guides/<task>.rst (name it with a verb).
    Everything below is an example: replace it with your task, then delete
    this comment.
 

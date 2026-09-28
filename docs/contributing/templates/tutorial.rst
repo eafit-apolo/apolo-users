@@ -1,5 +1,5 @@
 .. TEMPLATE: a tutorial teaches something from scratch, explaining why at
-   each step. Copy to: docs/source/gettingstarted/<topic>.rst
+   each step. Copy to: docs/source/guides/<topic>.rst
    Everything below is an example: replace it with your topic, run it
    yourself end to end, then delete this comment.
 

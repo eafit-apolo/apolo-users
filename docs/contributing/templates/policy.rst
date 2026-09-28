@@ -10,8 +10,8 @@
    1. Copy this file to its destination, named in kebab-case
       (for example: storage-quota-policy.rst) and add it to a toctree.
    2. Replace every [bracketed text] and YYYY-MM-DD.
-   3. Write each rule with "must", "should" or "may" (section 2 of
-      docs/contributing/style-guide.md) and number it so it can be cited.
+   3. Write each rule with "must", "should" or "may" (must = mandatory,
+      should = recommended, may = optional) and number it so it can be cited.
    4. Every change to the rules bumps Version, updates Effective date and
       adds a row to Revision history.
    5. Delete these comment blocks.

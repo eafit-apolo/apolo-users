@@ -1,5 +1,6 @@
 .. Page metadata block. Paste it directly under the page title, with one
-   blank line before and after. See section 6 of docs/contributing/style-guide.md.
+   blank line before and after. See "Page skeleton" in
+   docs/contributing/style-guide.md.
 
    - Authors:       everyone who wrote the page; append, never remove.
    - Maintainer:    the one person responsible for keeping the page correct.

@@ -5,8 +5,7 @@ Ready-to-copy starting points for new pages. They are outside
 
 **Which one do I need?** See
 [Where does my page go?](../../../CONTRIBUTING.md#4-where-does-my-page-go)
-in CONTRIBUTING.md, or the [page types](../style-guide.md#4-page-types) in
-the style guide.
+in CONTRIBUTING.md.
 
 | Template | Page type | Use it for |
 |----------|-----------|------------|

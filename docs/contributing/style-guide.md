@@ -88,44 +88,9 @@ right after the block:
 Replace ``<username>`` with your Apolo username.
 ```
 
-## Modules
-
-- Always with a version: `module load gcc/11.2.0`, never `module load gcc`.
-  The default version changes over time, and so would the results.
-- In job scripts, start with `module purge`.
-- If the module needs a `module use <path>` line first (some Apolo 3
-  modules do), include it.
-
-## Slurm scripts
-
-Every job script in the documentation looks like this:
-
-```bash
-#!/bin/bash
-#SBATCH --job-name=flye-test            # Job name
-#SBATCH --partition=longjobs            # Partition
-#SBATCH --nodes=1                       # Nodes
-#SBATCH --ntasks=1                      # Tasks (MPI processes)
-#SBATCH --cpus-per-task=4               # Cores per task
-#SBATCH --mem=8G                        # Memory per node
-#SBATCH --time=0-01:00:00               # Time limit (D-HH:MM:SS)
-#SBATCH --output=%x-%j.out              # Output (%x = job name, %j = job ID)
-#SBATCH --error=%x-%j.err               # Errors
-
-##### ENVIRONMENT #####
-module purge
-module load flye/2.9.6
-
-##### JOB COMMANDS #####
-srun flye --nano-raw reads.fastq.gz --out-dir assembly --threads "$SLURM_CPUS_PER_TASK"
-```
-
-- **A real partition of the cluster in `Applies to`.** `longjobs` exists on
-  both clusters. Apolo 3 has no `debug` partition.
-- **`--time` as `D-HH:MM:SS`.** `--time=1:00` means one *minute*.
-- **The smallest resources that work**, so the example starts quickly.
-- **No real email addresses.** If you use `--mail-user`, write `<email>`.
-- Leave out lines that don't apply, but keep the order.
+For a Slurm job script, don't write one from scratch: copy the script from
+[`software-version.rst`](templates/software-version.rst) and adapt it, so
+every example on the site has the same layout.
 
 ## Notes and warnings
 

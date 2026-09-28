@@ -341,8 +341,7 @@ Copy this into your pull request description and tick each box:
 - [ ] Every new page has a unique label and a metadata block
       (Authors, Maintainer, Last reviewed)
 - [ ] Every code block declares a language, and the commands were tested on the cluster
-- [ ] Slurm examples follow the standard format of the style guide
-- [ ] Modules are loaded with an explicit version (`gcc/11.2.0`, not `gcc`)
+- [ ] Slurm job scripts start from the script in the templates
 - [ ] Images have alt text
 - [ ] No passwords, tokens, personal emails or other sensitive data
 ```

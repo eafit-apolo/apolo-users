@@ -9,9 +9,8 @@
    1. Copy this file to its destination, named in kebab-case
       (for example: first-gpu-job.rst) and add it to a toctree.
    2. Replace every [bracketed text], <placeholder> and YYYY-MM-DD.
-   3. Replace <partition> with a real partition of the cluster in
-      "Applies to" (see "Slurm scripts" in
-      docs/contributing/style-guide.md).
+   3. In the job script, replace <partition> with a partition that exists
+      on the cluster in "Applies to", and keep --time as D-HH:MM:SS.
    4. Run the tutorial yourself, start to finish, before publishing.
    5. Delete these comment blocks.
    ------------------------------------------------------------------------

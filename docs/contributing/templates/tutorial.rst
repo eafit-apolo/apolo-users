@@ -1,125 +1,74 @@
-.. ------------------------------------------------------------------------
-   TUTORIAL TEMPLATE
+.. TEMPLATE: a tutorial teaches something from scratch, explaining why at
+   each step. Copy to: docs/source/gettingstarted/<topic>.rst
+   Everything below is an example: replace it with your topic, run it
+   yourself end to end, then delete this comment.
 
-   Use to teach a user to accomplish something end to end (run their first
-   MPI job, use a GPU, set up a Conda environment). Audience: someone
-   learning; explain why as well as how.
+.. _job-arrays-tutorial:
 
-   How to use:
-   1. Copy this file to its destination, named in kebab-case
-      (for example: first-gpu-job.rst) and add it to a toctree.
-   2. Replace every [bracketed text], <placeholder> and YYYY-MM-DD.
-   3. In the job script, replace <partition> with a partition that exists
-      on the cluster in "Applies to", and keep --time as D-HH:MM:SS.
-   4. Run the tutorial yourself, start to finish, before publishing.
-   5. Delete these comment blocks.
-   ------------------------------------------------------------------------
+Run many similar jobs with a job array
+======================================
 
-.. _tutorial-replace-me:
+:Authors: Jane Doe
+:Maintainer: Jane Doe
+:Last reviewed: 2026-09-28
+:Applies to: Apolo II, Apolo 3
 
-[Outcome-focused title, e.g. Run your first GPU job]
-====================================================
-
-:Authors: [Full name]
-:Maintainer: [Full name]
-:Last reviewed: YYYY-MM-DD
-:Applies to: [Apolo II | Apolo 3]
-
-[One to three sentences: what the reader will build or run, and why it is
-useful.]
-
-.. contents:: On this page
-   :local:
-   :depth: 1
+A job array runs the same script many times, each time with a different
+number. In this tutorial you process three input files with a single
+``sbatch``. It takes about 10 minutes.
 
 What you will learn
 -------------------
 
-- [Skill or concept 1]
-- [Skill or concept 2]
-
-Estimated time: [N] minutes.
+- How to turn a job script into a job array.
+- How each task knows which input to use.
 
 Before you start
 ----------------
 
-You need:
+- You have already run a single Slurm job.
 
-- An active Apolo account and a working connection to the cluster.
-- [Other requirement, e.g. basic familiarity with the Linux shell]
-
-Step 1: [Prepare the input]
----------------------------
-
-[Explain what this step does and why.]
-
-.. code-block:: bash
-
-   mkdir -p ~/[tutorial-directory]
-   cd ~/[tutorial-directory]
-
-Step 2: [Write the job script]
+Step 1: Create the input files
 ------------------------------
 
-Create a file named :file:`[job-name].sh` with this content:
+.. code-block:: bash
+
+   mkdir -p ~/array-tutorial && cd ~/array-tutorial
+   for i in 1 2 3; do echo "data $i" > input-$i.txt; done
+
+Step 2: Write the job script
+----------------------------
+
+``--array=1-3`` asks Slurm for three tasks. Each one reads its own number
+from ``$SLURM_ARRAY_TASK_ID`` and uses it to pick its input file.
 
 .. code-block:: bash
-   :caption: [job-name].sh
+   :caption: array-job.sh
 
    #!/bin/bash
-   #SBATCH --job-name=[job-name]           # Job name
-   #SBATCH --partition=<partition>         # Partition (queue)
-   #SBATCH --nodes=1                       # Number of nodes
-   #SBATCH --ntasks=1                      # Number of tasks (MPI processes)
-   #SBATCH --cpus-per-task=1               # Threads per task
-   #SBATCH --mem=4G                        # Memory per node
-   #SBATCH --time=0-00:10:00               # Walltime limit (D-HH:MM:SS)
-   #SBATCH --output=%x-%j.out              # Standard output (%x job name, %j job ID)
-   #SBATCH --error=%x-%j.err               # Standard error
-   #SBATCH --mail-type=END,FAIL            # When to send email
-   #SBATCH --mail-user=<email>             # Where to send email
-
-   ##### ENVIRONMENT #####
-   module purge
-   module load [module/version]
+   #SBATCH --job-name=array-test           # Job name
+   #SBATCH --partition=longjobs            # Partition
+   #SBATCH --ntasks=1                      # Tasks (processes)
+   #SBATCH --time=0-00:05:00               # Time limit (D-HH:MM:SS)
+   #SBATCH --array=1-3                     # Tasks 1, 2 and 3
+   #SBATCH --output=%x-%A-%a.out           # Output (%A = array ID, %a = task number)
 
    ##### JOB COMMANDS #####
-   srun [program] [arguments]
+   echo "Task $SLURM_ARRAY_TASK_ID read: $(cat input-$SLURM_ARRAY_TASK_ID.txt)"
 
-Replace ``<email>`` with your email address. [Explain any directive that
-matters for this tutorial.]
-
-Step 3: Submit the job
-----------------------
+Step 3: Submit it and check the results
+---------------------------------------
 
 .. code-block:: console
 
-   $ sbatch [job-name].sh
+   $ sbatch array-job.sh
    Submitted batch job 123456
+   $ cat array-test-123456-2.out
+   Task 2 read: data 2
 
-Check its state while it waits and runs:
-
-.. code-block:: bash
-
-   squeue -u $USER
-
-Check your results
-------------------
-
-When the job finishes, its output is in :file:`[job-name]-{jobid}.out`:
-
-.. code-block:: text
-
-   [Expected output]
-
-[Explain how the reader can tell the result is correct.]
+There is one output file per task.
 
 Next steps
 ----------
 
-- [What to try next, with :ref: links to related pages]
-
-.. seealso::
-
-   [External documentation, as an anonymous link:
-   `Upstream docs <https://example.org>`__]
+- Use the task number to pick parameters instead of files.

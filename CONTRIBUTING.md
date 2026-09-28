@@ -225,17 +225,17 @@ Branch names are lowercase words joined by `-`, with a prefix:
 ### Step 6. Write your page
 
 1. Find your page type in [Where does my page go?](#4-where-does-my-page-go)
-   and copy the template to its place. For example, for Flye 2.9.6:
+   and copy the template to its place. For example, for Minimap2 2.28:
 
    ```bash
-   mkdir -p docs/source/software/applications/flye/2.9.6
+   mkdir -p docs/source/software/applications/minimap2/2.28
    cp docs/contributing/templates/software-version.rst \
-      docs/source/software/applications/flye/2.9.6/index.rst
+      docs/source/software/applications/minimap2/2.28/index.rst
    ```
 
-2. Open the new file and follow the instructions at its top. Replace every
-   `[bracketed text]`, `<placeholder>` and `YYYY-MM-DD`, then delete the
-   instruction comments.
+2. Each template is a short example page. Replace the example with your
+   content: the label on the first line, the title, the metadata block and
+   the text. Delete the sections you don't need and the comment at the top.
 3. Add the page to the toctree of its parent `index.rst`
    (see [How a page reaches the website](#3-how-a-page-reaches-the-website)).
 4. If you are new to reStructuredText, keep the

@@ -1,94 +1,47 @@
-.. ------------------------------------------------------------------------
-   TROUBLESHOOTING TEMPLATE
+.. TEMPLATE: known problems of one topic and how to fix them.
+   Copy to: troubleshooting.rst next to the page it is about.
+   Write one section per problem, titled with what the user sees, and
+   copy error messages exactly. Everything below is an example: replace
+   it, then delete this comment.
 
-   Use to collect known problems and their fixes for one topic (a software
-   package, the VPN, job submission). Organize by what the reader SEES,
-   because that is what they will search for.
+.. _minimap2-2.28-troubleshooting:
 
-   How to use:
-   1. Copy this file to its destination. For a software version, name it
-      troubleshooting.rst inside the version directory; otherwise use a
-      kebab-case name (for example: vpn-troubleshooting.rst). Add it to a
-      toctree.
-   2. Replace every [bracketed text] and YYYY-MM-DD.
-   3. Copy the "Problem" section once per problem. Title each one with the
-      symptom, ideally the key part of the error message.
-   4. Paste error messages verbatim in a "text" block so they are
-      searchable. Do not paraphrase them.
-   5. Delete these comment blocks.
-   ------------------------------------------------------------------------
+Minimap2 2.28 troubleshooting
+=============================
 
-.. _troubleshooting-replace-me:
+:Authors: Jane Doe
+:Maintainer: Jane Doe
+:Last reviewed: 2026-09-28
+:Applies to: Apolo 3
 
-[Topic] troubleshooting
-=======================
+Known problems when running Minimap2 2.28, and how to solve them.
 
-:Authors: [Full name]
-:Maintainer: [Full name]
-:Last reviewed: YYYY-MM-DD
-:Applies to: [Software version | cluster | service]
+"minimap2: command not found" in the job
+----------------------------------------
 
-This page lists known problems with [topic] and how to solve them. If your
-problem is not here, see `Still stuck?`_ at the end.
-
-.. contents:: Problems on this page
-   :local:
-   :depth: 1
-
-[Symptom, e.g. "error while loading shared libraries: libmpi.so.40"]
---------------------------------------------------------------------
-
-Symptom
-~~~~~~~
-
-[When it happens: which command, at which step.]
+The ``.err`` file of the job shows:
 
 .. code-block:: text
 
-   [Exact error message or unexpected output]
+   /var/spool/slurmd/job123456/slurm_script: line 14: minimap2: command not found
 
-Cause
-~~~~~
+**Cause:** the job script does not load the module.
 
-[Why it happens, in one or two sentences.]
+**Solution:** add the module to the ``ENVIRONMENT`` block of the script:
 
-Solution
-~~~~~~~~
+.. code-block:: bash
 
-#. [First fix step.]
+   module load minimap2/2.28
 
-   .. code-block:: bash
+The job stops before finishing
+------------------------------
 
-      [command]
-
-#. [Confirm it is fixed.]
-
-[Symptom of the second problem]
--------------------------------
-
-Symptom
-~~~~~~~
+The ``.err`` file ends with:
 
 .. code-block:: text
 
-   [Exact error message]
+   slurmstepd: error: *** JOB 123456 ON <node> CANCELLED AT 2026-09-28T10:00:00 DUE TO TIME LIMIT ***
 
-Cause
-~~~~~
+**Cause:** the job reached its ``--time`` limit.
 
-[Cause.]
-
-Solution
-~~~~~~~~
-
-[Solution.]
-
-Still stuck?
-------------
-
-If none of the above solves your problem, open an issue as described in
-:ref:`report-a-bug`. Include:
-
-- the exact command you ran and the full error message;
-- the job ID, if the problem happened inside a Slurm job;
-- the output of ``module list``.
+**Solution:** request more time, for example ``#SBATCH --time=0-04:00:00``.

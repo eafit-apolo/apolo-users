@@ -1,104 +1,52 @@
-.. ------------------------------------------------------------------------
-   PROCEDURE TEMPLATE
+.. TEMPLATE: exact steps the staff follows for an operational task.
+   Ask the maintainers where it goes before writing it. Every step must
+   say what to run and what you should see. Everything below is an
+   example: replace it, then delete this comment.
 
-   Use for an operational task that must be carried out the same way every
-   time (creating an account, rotating a license, draining a node).
-   Audience: someone who knows the context and needs the exact steps.
+.. _drain-a-node:
 
-   How to use:
-   1. Copy this file to its destination, named in kebab-case
-      (for example: create-user-account.rst) and add it to a toctree.
-   2. Replace every [bracketed text] and YYYY-MM-DD.
-   3. Delete these comment blocks and any optional section you do not use.
-   ------------------------------------------------------------------------
+Take a node out of service for maintenance
+==========================================
 
-.. _procedure-replace-me:
+:Authors: Jane Doe
+:Maintainer: Jane Doe
+:Last reviewed: 2026-09-28
+:Applies to: Apolo II, Apolo 3
 
-[Verb + object, e.g. Create a user account]
-===========================================
+How to stop Slurm from sending new jobs to a node, without killing the
+jobs already running on it.
 
-:Authors: [Full name]
-:Maintainer: [Full name]
-:Last reviewed: YYYY-MM-DD
-:Applies to: [Apolo II | Apolo 3]
+Before you start
+----------------
 
-[One to three sentences: what this procedure achieves and when to run it.]
+- You have administrator access to Slurm.
+- You know the name of the node, for example ``compute-0-1``.
 
-.. contents:: On this page
-   :local:
-   :depth: 1
-
-Purpose
--------
-
-[Why this procedure exists and what outcome it guarantees.]
-
-Scope
+Steps
 -----
 
-[What this procedure covers and, just as important, what it does not.]
-
-Roles
------
-
-.. List who does what. Use roles, and name the person only if there is
-   exactly one.
-
-- **Executor:** [role that carries out the steps]
-- **Approver:** [role that must authorize it, if any]
-
-Prerequisites
--------------
-
-.. Everything that must be true before step 1: access, tools, approvals,
-   information to have at hand.
-
-- [Access or permission required]
-- [Information or ticket required]
-
-Procedure
----------
-
-.. One action per step. Put the command directly under the step and state
-   the expected result whenever it is not obvious.
-
-#. [First action.]
+#. Drain the node, giving the reason:
 
    .. code-block:: bash
 
-      [command]
+      scontrol update nodename=compute-0-1 state=drain reason="disk replacement"
 
-   Expected result: [what the executor should see].
-
-#. [Second action.]
+#. Check that it is draining:
 
    .. code-block:: bash
 
-      [command]
+      sinfo -R
 
-#. [Third action.]
+   The node appears with the reason you gave.
 
-Verification
-------------
+#. Wait until its running jobs finish. It is ready when ``sinfo`` shows it
+   as ``drained``.
 
-[How to confirm that the procedure succeeded.]
+Undo
+----
 
-.. code-block:: console
+When the maintenance is over, put the node back in service:
 
-   $ [verification command]
-   [expected output]
+.. code-block:: bash
 
-Rollback
---------
-
-.. Optional. How to undo the procedure if verification fails. Delete this
-   section if the procedure changes nothing that can be undone.
-
-#. [Undo step.]
-
-See also
---------
-
-.. Link related pages by label, e.g. - :ref:`report-a-bug`
-
-- [Related page]
+   scontrol update nodename=compute-0-1 state=resume

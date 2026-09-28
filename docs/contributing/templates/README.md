@@ -30,6 +30,12 @@ cp docs/contributing/templates/software-version.rst \
 the title, the `:Authors:`/`:Maintainer:`/`:Last reviewed:` block and the
 text. Delete the sections you don't need and the comment at the top.
 
-**3. Add the page to the menu** by listing it in the toctree of the
-`index.rst` one level up, and build the site
-(see [CONTRIBUTING.md](../../../CONTRIBUTING.md#step-7-build-and-preview)).
+**3. Add the page to the menu** by listing it in a toctree, then build the
+site (see [CONTRIBUTING.md](../../../CONTRIBUTING.md#step-7-build-and-preview)).
+Which toctree depends on the page:
+
+| Page | Toctree |
+|------|---------|
+| A new program | `software/<category>/index.rst` |
+| A new version | `software/<category>/<program>/index.rst` |
+| Any other page | The `index.rst` of its own directory |

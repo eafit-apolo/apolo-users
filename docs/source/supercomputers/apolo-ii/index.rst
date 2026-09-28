@@ -37,9 +37,6 @@ Choose one with ``#SBATCH --partition=<name>`` in your job script.
      - Use it for
    * - ``longjobs``
      - General jobs.
-   * - ``debug``
-     - Short test runs, to check that a job script works before you submit
-       the real job. See :ref:`testing-slurm`.
    * - ``bigmem``
      - Jobs that need a large amount of memory.
    * - ``accel``

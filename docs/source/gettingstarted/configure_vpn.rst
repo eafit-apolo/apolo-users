@@ -1,5 +1,13 @@
 .. _configure_vpn:
 
+Configure the VPN
+=================
+
+The Apolo clusters can only be reached through the Apolo VPN. This page
+explains how to install and configure the VPN client on each operating system.
+
+.. _vpn-windows-macos:
+
 Windows and Mac OSX
 -------------------
 To configure the VPN on Windows and Mac OS X systems, you must follow exactly the same procedure. Here are the steps to
@@ -168,6 +176,8 @@ To turn off the virtual machine, you can do it from the terminal with.
 Or through the *VirtualBox GUI*.
 
 .. image:: images/vagrant/02.png
+
+.. _vpn-linux:
 
 Linux
 -----
@@ -349,6 +359,8 @@ Once you are connected to the VPN, access Apolo via SSH with the following comma
 .. note::
     Remember that the first time it will be necessary to change the password assigned by a new one that must contain a combination of lower case, upper case, numbers and special characters. It must have a minimum of 8 characters.
 
+
+.. _vpn-troubleshooting:
 
 Troubleshooting
 ---------------

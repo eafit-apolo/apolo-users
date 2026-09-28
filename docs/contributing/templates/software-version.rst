@@ -60,7 +60,7 @@ Load the module:
 Running example
 ~~~~~~~~~~~~~~~
 
-.. A complete Slurm job that runs a small, real case. Follow section 10 of
+.. A complete Slurm job that runs a small, real case. Follow "Slurm scripts" in
    docs/contributing/style-guide.md and use a partition that exists on the
    cluster in "Applies to".
 

@@ -127,8 +127,8 @@ build is clean, so always build locally before you open it.
 
 ## 4. Where does my page go?
 
-Find the row that matches what you are writing. The template and the rules for
-each type are in the [style guide](docs/contributing/style-guide.md#4-page-types).
+Find the row that matches what you are writing, and start from its template.
+Each template explains at its top how to fill it in.
 
 | You are writing… | Page type | Start from | Put it in |
 |------------------|-----------|------------|-----------|
@@ -327,7 +327,7 @@ them:
 | `Unknown directive type "x".` | A misspelled directive, e.g. `code-blok`. | Fix the spelling. |
 | `Inline literal start-string without end-string.` | A ` `` ` was opened and never closed. | Close it: ` ``like this`` `. |
 
-The [cheat sheet](docs/contributing/rst-cheatsheet.md#the-three-rules-that-cause-most-errors)
+The [cheat sheet](docs/contributing/rst-cheatsheet.md#the-three-rules-that-break-the-build)
 explains the indentation and blank-line rules behind most of these errors.
 
 ## Checklist

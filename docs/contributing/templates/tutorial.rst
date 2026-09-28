@@ -10,7 +10,7 @@
       (for example: first-gpu-job.rst) and add it to a toctree.
    2. Replace every [bracketed text], <placeholder> and YYYY-MM-DD.
    3. Replace <partition> with a real partition of the cluster in
-      "Applies to" (section 10 of
+      "Applies to" (see "Slurm scripts" in
       docs/contributing/style-guide.md).
    4. Run the tutorial yourself, start to finish, before publishing.
    5. Delete these comment blocks.

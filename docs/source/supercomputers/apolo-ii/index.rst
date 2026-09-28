@@ -45,7 +45,7 @@ Choose one with ``#SBATCH --partition=<name>`` in your job script.
    * - ``accel``
      - Jobs that use GPUs. Request them with ``#SBATCH --gres=gpu:<count>``.
    * - ``learning``
-     - Jobs of undergraduate students working on their degree projects.
+     - Jobs of undergraduate students, for any work they do during their studies.
 
 To see the partitions, their time limits and how many nodes are free right
 now, run this on the cluster:

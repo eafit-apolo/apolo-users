@@ -65,8 +65,8 @@ Submit it with ``sbatch flye-job.sh``.
 
 .. warning::
 
-   Flye needs a lot of memory for large genomes. If the job fails with
-   ``OUT_OF_MEMORY``, use the ``bigmem`` partition.
+   Flye needs a lot of memory for large genomes. If the job runs out of
+   memory, use the ``bigmem`` partition.
 
 .. image:: images/assembly-graph.png
    :alt: Assembly graph produced by Flye

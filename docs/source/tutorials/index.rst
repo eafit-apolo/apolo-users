@@ -3,23 +3,16 @@ How does Open OnDemand work?
 
 A detailed guide to help Apolo users learn how to use this useful online resource.
 
-Centro de computación Científica Apolo
-Universidad Eafit
-2026
-
-Recursos Adicionales
+Additional resources
 --------------------
 
-Puedes encontrar el video tutorial y la documentación en PDF en el siguiente enlace de OneDrive:
+You can find the video tutorial and PDF documentation at the following OneDrive link:
 
-`Haz clic aquí para acceder a la carpeta de OneDrive <https://TU_ENLACE_DE_ONEDRIVE_AQUI>`_
-
-.. note::
-   Reemplaza el enlace de arriba con la URL real de tu carpeta de OneDrive.
+`Click here to access the OneDrive folder <https://eafit-my.sharepoint.com/:f:/g/personal/apolo_eafit_edu_co/IgDVuAAPXiRtSYX7iGLoUXKMAZO3egLNTRhlnBe6999gcnE?e=EmvcOI>`_
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contenido:
+   :caption: Content:
 
    login
    navigation

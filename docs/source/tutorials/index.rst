@@ -13,7 +13,7 @@ You can find the video tutorial and PDF documentation at the following OneDrive 
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contenido:
+   :caption: Content:
 
    login
    navigation

@@ -34,6 +34,5 @@ Medellín, Colombia.
    gettingstarted/index
    supercomputers/index
    software/index
-   tutorials/index
    how-to-acknowledge
    report-a-bug

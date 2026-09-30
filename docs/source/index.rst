@@ -157,6 +157,12 @@ Help and contact
 
 .. toctree::
    :hidden:
+   :caption: Tutorials
+
+   tutorials/index
+
+.. toctree::
+   :hidden:
    :caption: Help
 
    troubleshooting/index

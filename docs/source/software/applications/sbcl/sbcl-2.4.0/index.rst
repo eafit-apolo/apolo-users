@@ -52,7 +52,7 @@ Installation
 
 4. Verify the installation:
 
-.. code-call:: bash
+.. code-block:: bash
 
     sbcl --version
 

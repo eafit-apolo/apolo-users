@@ -31,7 +31,7 @@ step, open an issue or ask the Apolo staff (see [Getting help](#getting-help)).
 
 ### Quick fix: edit on GitHub
 
-1. Open the page on the [published site](https://apolo-users.readthedocs.io/en/latest/)
+1. Open the page on the [published site](https://apolo-docs.readthedocs.io/en/latest/)
    and click **Edit on GitHub** at the top right. This opens the source file.
 2. Click the pencil icon (**Edit this file**). If you do not have write access
    to the repository, GitHub makes a personal copy (a *fork*) for you

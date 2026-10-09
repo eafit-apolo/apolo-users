@@ -79,6 +79,8 @@ Software
      - :ref:`find-software`
    * - I need a program that is not installed.
      - :ref:`software-not-installed`
+   * - OpenFOAM v2606 fails.
+     - :ref:`openfoam-v2606-troubleshooting`
    * - A specific program fails.
      - Check the Troubleshooting section of its page in :ref:`software`.
 

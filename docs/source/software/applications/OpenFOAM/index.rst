@@ -28,3 +28,4 @@ memory usage, code performance and scalability.
    open16/index
    open17/index
    v2006/index
+   v2606/index

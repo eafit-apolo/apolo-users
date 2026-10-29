@@ -85,7 +85,29 @@ An error about ``numberOfSubdomains``
 **Cause:** ``numberOfSubdomains`` in :file:`system/decomposeParDict` and
 ``--ntasks`` in :file:`job.sh` are different.
 
-**Solution:** use the same number in both.
+**Solution:** use the same number in both. On several nodes, the number is
+nodes × ``--ntasks-per-node``.
+
+"Unable to locate a usable srun command" on several nodes
+---------------------------------------------------------
+
+The job fails with this message:
+
+.. code-block:: text
+
+   The SLURM process starter for OpenMPI was unable to locate a usable "srun" command in its path.
+
+**Cause:** the job uses more than one node and :file:`bin/solve.sh` runs the
+solver with ``openfoam mpirun``, which only works inside one node.
+
+**Solution:** in :file:`bin/solve.sh`, launch the solver with ``srun``:
+
+.. code-block:: bash
+
+   srun --mpi=pmix simpleFoam -parallel -case pitzDaily
+
+Replace ``simpleFoam`` and ``pitzDaily`` with your solver and case. See
+:ref:`openfoam-v2606-several-nodes` for the other changes.
 
 "No such file or directory" with your case
 ------------------------------------------

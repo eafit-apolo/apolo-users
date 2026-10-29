@@ -70,7 +70,8 @@ common ones are:
    * - Post-processing
      - ``postProcess``, ``foamToVTK``
    * - Run a solver in parallel
-     - ``openfoam mpirun`` (see `Running in parallel`_)
+     - ``openfoam mpirun`` (one node) or ``srun --mpi=pmix`` (several
+       nodes); see `Running in parallel`_
 
 See the full list of available commands (more than 300):
 
@@ -87,17 +88,26 @@ See the options of any command with ``-help``:
 Running in parallel
 ~~~~~~~~~~~~~~~~~~~
 
-Parallel runs use the MPI version included with OpenFOAM. To use it, write
-``openfoam`` before ``mpirun``:
+On one node, parallel runs use the MPI version included with OpenFOAM. To use
+it, write ``openfoam`` before ``mpirun``:
 
 .. code-block:: bash
 
    openfoam mpirun -np 4 simpleFoam -parallel
 
+To use more than one node, let Slurm start the processes with ``srun``
+instead (see :ref:`openfoam-v2606-several-nodes`):
+
+.. code-block:: bash
+
+   srun --mpi=pmix simpleFoam -parallel
+
 .. warning::
 
-   A plain ``mpirun`` does not work with this installation. Always write
-   ``openfoam mpirun``.
+   A plain ``mpirun`` does not work with this installation, and
+   ``openfoam mpirun`` only works inside one node. In a job with several
+   nodes it fails with ``unable to locate a usable "srun" command``; use
+   ``srun --mpi=pmix`` there.
 
 Tutorials
 ~~~~~~~~~
@@ -112,8 +122,8 @@ contains the official OpenFOAM tutorials. List them with:
 Important notes
 ~~~~~~~~~~~~~~~
 
-- **One node per job.** A parallel run can use up to 32 cores (one
-  ``longjobs`` node).
+- **32 cores per node.** One ``longjobs`` node has 32 cores. To use more,
+  see :ref:`openfoam-v2606-several-nodes`.
 - **Keep your cases inside your home directory**
   (:file:`/home/{username}`). Other locations may not be visible to
   OpenFOAM. If you need them, contact the Apolo staff.
@@ -315,7 +325,7 @@ Step 5. Create the Slurm job
       #!/bin/bash
       #SBATCH --job-name=pitzDaily            # Job name
       #SBATCH --partition=longjobs            # Partition
-      #SBATCH --nodes=1                       # Nodes (OpenFOAM uses a single node)
+      #SBATCH --nodes=1                       # Nodes
       #SBATCH --ntasks=4                      # Tasks (processes), same as numberOfSubdomains
       #SBATCH --time=0-00:30:00               # Time limit (D-HH:MM:SS)
       #SBATCH --output=logs/%x-%j.out         # Output (%x = job name, %j = job ID)
@@ -341,7 +351,8 @@ Step 5. Create the Slurm job
    * - ``--partition``
      - Group of nodes where the job runs.
    * - ``--nodes=1``
-     - Use a single node (required for OpenFOAM).
+     - Use a single node. To use more, see
+       :ref:`openfoam-v2606-several-nodes`.
    * - ``--ntasks=4``
      - Number of processes. Must match ``numberOfSubdomains``.
    * - ``--time``
@@ -422,8 +433,76 @@ Running your own case
    uses.
 #. Use the same number in ``numberOfSubdomains``
    (:file:`system/decomposeParDict`) and in ``--ntasks`` (:file:`job.sh`).
-   The maximum is 32.
+   The maximum on one node is 32.
 #. Adjust ``--time`` to the time your simulation needs.
+
+.. _openfoam-v2606-several-nodes:
+
+Running on several nodes
+------------------------
+
+To use more than 32 cores, run the solver on several nodes. Start from the
+job directory of the example (or of your own case) and change three files.
+
+#. In :file:`job.sh`, replace the ``--nodes`` and ``--ntasks`` lines with
+   the number of nodes and the processes per node. For example, 2 nodes with
+   32 processes each (64 in total):
+
+   .. code-block:: bash
+      :caption: job.sh (changed lines)
+
+      #SBATCH --nodes=2                       # Nodes
+      #SBATCH --ntasks-per-node=32            # Tasks (processes) per node
+
+#. In :file:`bin/solve.sh`, launch the solver with ``srun`` instead of
+   ``openfoam mpirun``:
+
+   .. code-block:: bash
+      :caption: bin/solve.sh
+
+      #!/bin/bash
+
+      # Slurm starts one process per task on all the nodes of the job
+      srun --mpi=pmix simpleFoam -parallel -case pitzDaily
+
+#. In :file:`pitzDaily/system/decomposeParDict`, set ``numberOfSubdomains``
+   to the total number of processes (nodes × processes per node):
+
+   .. code-block:: text
+
+      numberOfSubdomains 64;
+
+#. Submit the job as in `Step 6. Submit the job`_.
+
+In these changes:
+
+- ``--ntasks-per-node=32`` puts the same number of processes on every node.
+- ``srun`` takes the number of processes from the job, so you do not need
+  ``-np``.
+- :file:`bin/mesh.sh` splits the mesh again into the new number of parts,
+  and :file:`bin/reconstruct.sh` does not change.
+
+To check that the solver used all the nodes, search the ``.out`` file for
+``nProcs``:
+
+.. code-block:: bash
+
+   grep -A 6 "nProcs" logs/pitzDaily-<jobid>.out
+
+``blockMesh``, ``decomposePar`` and ``reconstructPar`` show ``nProcs : 1``.
+The solver must show the total number of processes and, under ``Hosts``,
+every node with 32 processes:
+
+.. code-block:: text
+
+   nProcs : 64
+   Hosts  :
+   (
+       (compute-0-37.apolo.eafit.edu.co 32)
+       (compute-0-38.apolo.eafit.edu.co 32)
+   )
+
+The node names change from job to job.
 
 Post-processing
 ---------------

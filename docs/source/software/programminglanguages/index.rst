@@ -16,3 +16,4 @@ programming languages available in the supercomputers
    ruby/index
    java/index
    go/index
+   julia/index
